@@ -5,7 +5,11 @@ import { Link } from "..";
 
 export default {
 	title: "Link",
-	component: Link
+	component: Link,
 };
 
-export const Default = () => <Link href="#!">Hello</Link>;
+export const Default = () => (
+	<Link as="a" href="#!">
+		Hello
+	</Link>
+);

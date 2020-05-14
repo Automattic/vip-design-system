@@ -4,8 +4,8 @@ import { action } from "@storybook/addon-actions";
 import { Avatar } from "..";
 
 export default {
-  title: "Box",
-  component: Avatar
+	title: "Avatar",
+	component: Avatar,
 };
 
 export const Default = () => <Avatar />;
