@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Notification } from "..";
+import { action } from '@storybook/addon-actions';
+import { Notification } from '..';
 
 export default {
-	title: "Notification",
+	title: 'Notification',
 	component: Notification,
 };
 

@@ -1,4 +1,4 @@
-import { Table } from "./Table";
-import { TableRow } from "./TableRow";
+import { Table } from './Table';
+import { TableRow } from './TableRow';
 
 export { Table, TableRow };

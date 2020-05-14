@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Progress } from "..";
+import { action } from '@storybook/addon-actions';
+import { Progress } from '..';
 
 export default {
-	title: "Progress",
+	title: 'Progress',
 	component: Progress,
 };
 
@@ -12,7 +12,7 @@ export const Default = () => (
 	<Progress
 		max={1}
 		value={1 / 2}
-		steps={["Downloading Data", "Importing Data...", "Finalizing"]}
+		steps={[ 'Downloading Data', 'Importing Data...', 'Finalizing' ]}
 		activeStep={1}
 	/>
 );

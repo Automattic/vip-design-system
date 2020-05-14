@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Badge } from "..";
+import { action } from '@storybook/addon-actions';
+import { Badge } from '..';
 
 export default {
-	title: "Badge",
+	title: 'Badge',
 	component: Badge,
 };
 

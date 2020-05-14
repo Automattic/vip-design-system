@@ -1,27 +1,33 @@
 /** @jsx jsx */
-import { jsx, Progress as ThemeProgress } from "theme-ui";
+import { jsx, Progress as ThemeProgress } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-import { Spinner } from "../Spinner";
-import { Box, Heading, Flex } from "../";
+import { Spinner } from '../Spinner';
+import { Box, Heading, Flex } from '../';
 
-const Progress = ({ steps, activeStep, ...props }) => (
+const Progress = ( { steps, activeStep, ...props } ) => (
 	<Box>
 		<ThemeProgress
 			{...props}
 			sx={{
-				color: "primary",
+				color: 'primary',
 			}}
 		/>
 		{steps && (
-			<Flex sx={{ alignItems: "center", mt: 3 }}>
+			<Flex sx={{ alignItems: 'center', mt: 3 }}>
 				<Spinner size={24} />
 				<Heading variant="h4" sx={{ ml: 2, mb: 0 }}>
-					{`${activeStep + 1} of ${steps.length}`}:{" "}
-					<span sx={{ color: "muted" }}>{steps[activeStep]}</span>
+					{`${ activeStep + 1 } of ${ steps.length }`}:{' '}
+					<span sx={{ color: 'muted' }}>{steps[ activeStep ]}</span>
 				</Heading>
 			</Flex>
 		)}
 	</Box>
 );
+
+Progress.propTypes = {
+	steps: PropTypes.array,
+	activeStep: PropTypes.number,
+};
 
 export { Progress };

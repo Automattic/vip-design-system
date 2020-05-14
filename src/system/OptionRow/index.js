@@ -1,3 +1,3 @@
-import { OptionRow } from "./OptionRow";
+import { OptionRow } from './OptionRow';
 
 export { OptionRow };

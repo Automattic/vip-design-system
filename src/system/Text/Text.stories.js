@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Text } from "..";
+import { action } from '@storybook/addon-actions';
+import { Text } from '..';
 
 export default {
-	title: "Text",
-	component: Text
+	title: 'Text',
+	component: Text,
 };
 
 export const Default = () => (
@@ -15,6 +15,6 @@ export const Default = () => (
 		illusion which lifts the horizon of the sea to the level of the
 		spectator on a hillside, the sable cloud beneath was dished out, and the
 		car seemed to float in the middle of an immense dark sphere, whose upper
-		half was strewn with silver.{" "}
+		half was strewn with silver.{' '}
 	</Text>
 );

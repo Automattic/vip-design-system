@@ -1,3 +1,3 @@
-import { BlankState } from "./BlankState";
+import { BlankState } from './BlankState';
 
 export { BlankState };

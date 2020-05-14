@@ -1,13 +1,12 @@
 /** @jsx jsx */
-import { jsx, Spinner as ThemeSpinner } from "theme-ui";
+import { jsx, Spinner as ThemeSpinner } from 'theme-ui';
 
-const Spinner = (props) => (
+const Spinner = props => (
 	<ThemeSpinner
-		{...props}
 		strokeWidth={2}
 		sx={{
-			fill: "none",
-			color: "primary",
+			fill: 'none',
+			color: 'primary',
 		}}
 		{...props}
 	/>

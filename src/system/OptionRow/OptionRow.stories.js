@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Box, OptionRow } from "..";
+import { action } from '@storybook/addon-actions';
+import { Box, OptionRow } from '..';
 
 export default {
-	title: "OptionRow",
+	title: 'OptionRow',
 	component: OptionRow,
 };
 

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Link, BlankState } from "..";
+import { action } from '@storybook/addon-actions';
+import { Link, BlankState } from '..';
 
 export default {
-	title: "BlankState",
+	title: 'BlankState',
 	component: BlankState,
 };
 

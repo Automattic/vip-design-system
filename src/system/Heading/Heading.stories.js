@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Box, Heading } from "..";
+import { action } from '@storybook/addon-actions';
+import { Box, Heading } from '..';
 
 export default {
-	title: "Heading",
+	title: 'Heading',
 	component: Heading,
 };
 

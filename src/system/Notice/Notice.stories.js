@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx } from 'theme-ui';
 
-import React from "react";
-import { Heading, Notice, Text } from "..";
+import React from 'react';
+import { Heading, Notice, Text } from '..';
 
 export default {
-	title: "Notice",
+	title: 'Notice',
 	component: Notice,
 };
 

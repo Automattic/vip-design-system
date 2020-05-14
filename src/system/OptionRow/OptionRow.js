@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import { MdArrowForward } from "react-icons/md";
-import { Link as RouterLink } from "react-router-dom";
-import { jsx } from "theme-ui";
-import { Badge, Box, Card, Grid, Heading, Text } from "..";
+import { MdArrowForward } from 'react-icons/md';
+import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
+import { jsx } from 'theme-ui';
+import { Badge, Box, Card, Grid, Heading, Text } from '..';
 
-const OptionRow = ({
+const OptionRow = ( {
 	image,
 	icon,
 	badge,
@@ -17,42 +18,42 @@ const OptionRow = ({
 	small = false,
 	disabled = false,
 	...props
-}) => {
+} ) => {
 	const mergedCard = disabled
 		? {
-				border: "1px solid",
-				borderColor: "border",
-				background: "none",
-				boxShadow: "none",
+			border: '1px solid',
+			borderColor: 'border',
+			background: 'none',
+			boxShadow: 'none',
 		  }
 		: {};
 
 	const inlineStyles = inline
 		? {
-				py: 2,
-				px: 2,
-				mx: -2,
+			py: 2,
+			px: 2,
+			mx: -2,
 		  }
 		: {
-				py: 3,
-				px: [3, 3, small ? 3 : 5],
-				borderBottom: "1px solid",
-				borderColor: "border",
+			py: 3,
+			px: [ 3, 3, small ? 3 : 5 ],
+			borderBottom: '1px solid',
+			borderColor: 'border',
 		  };
 	return (
 		<Grid
 			as={RouterLink}
 			to={to}
-			columns={[1, 1, "auto 1fr auto"]}
-			gap={[3, 3, `${small ? 3 : 4}`]}
+			columns={[ 1, 1, 'auto 1fr auto' ]}
+			gap={[ 3, 3, `${ small ? 3 : 4 }` ]}
 			{...props}
 			sx={{
-				alignItems: "center",
-				cursor: disabled ? "auto" : "pointer",
-				textDecoration: "none",
-				color: "inherit",
-				"&:hover": {
-					backgroundColor: "hover",
+				alignItems: 'center',
+				cursor: disabled ? 'auto' : 'pointer',
+				textDecoration: 'none',
+				color: 'inherit',
+				'&:hover': {
+					backgroundColor: 'hover',
 				},
 				...inlineStyles,
 			}}
@@ -61,17 +62,17 @@ const OptionRow = ({
 				{image ? (
 					<Card
 						sx={{
-							display: ["inline-block", "inline-block", "block"],
+							display: [ 'inline-block', 'inline-block', 'block' ],
 							p: small ? 3 : 4,
-							boxShadow: "low",
-							flex: "0 0 auto",
+							boxShadow: 'low',
+							flex: '0 0 auto',
 							...mergedCard,
 						}}
 					>
 						<img
 							src={image}
 							width={small ? 32 : 48}
-							sx={{ display: "block" }}
+							sx={{ display: 'block' }}
 						/>
 					</Card>
 				) : (
@@ -79,19 +80,33 @@ const OptionRow = ({
 				)}
 			</Box>
 
-			<Box sx={{ flex: "1 1 auto" }}>
+			<Box sx={{ flex: '1 1 auto' }}>
 				<Heading variant="h4" sx={{ mb: subTitle || body ? 1 : 0 }}>
 					{title}
 					{badge && <Badge sx={{ marginLeft: 2 }}>{badge}</Badge>}
 				</Heading>
 				{subTitle && (
-					<Text sx={{ mb: 1, color: "muted" }}>{subTitle}</Text>
+					<Text sx={{ mb: 1, color: 'muted' }}>{subTitle}</Text>
 				)}
 				{body && <Text sx={{ mb: 0 }}>{body}</Text>}
 			</Box>
 			<Box>{meta ? meta : <MdArrowForward size={24} />}</Box>
 		</Grid>
 	);
+};
+
+OptionRow.propTypes = {
+	image: PropTypes.string,
+	icon: PropTypes.node,
+	badge: PropTypes.string,
+	title: PropTypes.string,
+	inline: PropTypes.bool,
+	subTitle: PropTypes.string,
+	body: PropTypes.string,
+	meta: PropTypes.node,
+	to: PropTypes.string,
+	small: PropTypes.bool,
+	disabled: PropTypes.bool,
 };
 
 export { OptionRow };

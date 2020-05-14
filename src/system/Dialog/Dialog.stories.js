@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
+import { action } from '@storybook/addon-actions';
 import {
 	Box,
 	Dialog,
@@ -11,10 +11,10 @@ import {
 	Heading,
 	Text,
 	Flex,
-} from "..";
+} from '..';
 
 export default {
-	title: "Dialog",
+	title: 'Dialog',
 	component: Dialog,
 };
 

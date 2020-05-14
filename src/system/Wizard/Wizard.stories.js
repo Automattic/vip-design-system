@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Wizard, Flex, Box, Heading, Label, Input, Button } from "..";
+import { action } from '@storybook/addon-actions';
+import { Wizard, Flex, Box, Heading, Label, Input, Button } from '..';
 
 export default {
-	title: "Wizard",
+	title: 'Wizard',
 	component: Wizard,
 };
 
 export const Default = () => {
 	const steps = [
 		{
-			title: "Choose Domain",
+			title: 'Choose Domain',
 			subTitle:
-				"You can bring a domain name you already own, or buy a new one.",
+				'You can bring a domain name you already own, or buy a new one.',
 			children: (
 				<Box>
 					<Label>Domain</Label>
@@ -23,25 +23,25 @@ export const Default = () => {
 			),
 		},
 		{
-			title: "Configure DNS",
+			title: 'Configure DNS',
 		},
 		{
-			title: "Configure Certificate",
+			title: 'Configure Certificate',
 		},
 		{
-			title: "Verify Domain",
+			title: 'Verify Domain',
 		},
 	];
 	return (
 		<>
-			<Flex sx={{ alignItems: "center" }}>
-				<Box sx={{ flex: "1 1 auto" }}>
+			<Flex sx={{ alignItems: 'center' }}>
+				<Box sx={{ flex: '1 1 auto' }}>
 					<Heading
 						variant="h1"
-						sx={{ display: "flex", alignItems: "center", mb: 1 }}
+						sx={{ display: 'flex', alignItems: 'center', mb: 1 }}
 					>
-						Add Domain:{" "}
-						<span sx={{ color: "muted", ml: 2 }}>Production</span>
+						Add Domain:{' '}
+						<span sx={{ color: 'muted', ml: 2 }}>Production</span>
 					</Heading>
 				</Box>
 			</Flex>

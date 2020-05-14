@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { action } from "@storybook/addon-actions";
-import { Tabs, TabItem } from "..";
+import { action } from '@storybook/addon-actions';
+import { Tabs, TabItem } from '..';
 
 export default {
-	title: "Tabs",
-	component: Tabs
+	title: 'Tabs',
+	component: Tabs,
 };
 
 export const Default = () => (
