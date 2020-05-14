@@ -1,0 +1,95 @@
+/** @jsx jsx */
+import { MdArrowForward } from "react-icons/md";
+import { Link as RouterLink } from "react-router-dom";
+import { jsx } from "theme-ui";
+import { Badge, Box, Card, Grid, Heading, Text } from "..";
+
+const OptionRow = ({
+  image,
+  icon,
+  badge,
+  title,
+  inline = false,
+  subTitle,
+  body,
+  meta,
+  to,
+  small = false,
+  disabled = false,
+  ...props
+}) => {
+  const mergedCard = disabled
+    ? {
+        border: "1px solid",
+        borderColor: "border",
+        background: "none",
+        boxShadow: "none",
+      }
+    : {};
+
+  const inlineStyles = inline
+    ? {
+        py: 2,
+        px: 2,
+        mx: -2,
+      }
+    : {
+        py: 3,
+        px: [3, 3, small ? 3 : 5],
+        borderBottom: "1px solid",
+        borderColor: "border",
+      };
+  return (
+    <Grid
+      {...props}
+      as={RouterLink}
+      to={to}
+      columns={[1, 1, "auto 1fr auto"]}
+      gap={[3, 3, `${small ? 3 : 4}`]}
+      sx={{
+        alignItems: "center",
+        cursor: disabled ? "auto" : "pointer",
+        textDecoration: "none",
+        color: "inherit",
+        "&:hover": {
+          backgroundColor: "hover",
+        },
+        ...inlineStyles,
+      }}
+    >
+      <Box>
+        {image ? (
+          <Card
+            sx={{
+              display: ["inline-block", "inline-block", "block"],
+              p: small ? 3 : 4,
+              boxShadow: "low",
+              flex: "0 0 auto",
+              ...mergedCard,
+            }}
+          >
+            <img
+              src={image}
+              width={small ? 32 : 48}
+              sx={{ display: "block" }}
+            />
+          </Card>
+        ) : (
+          icon && icon
+        )}
+      </Box>
+
+      <Box sx={{ flex: "1 1 auto" }}>
+        <Heading variant="h4" sx={{ mb: subTitle || body ? 1 : 0 }}>
+          {title}
+          {badge && <Badge sx={{ marginLeft: 2 }}>{badge}</Badge>}
+        </Heading>
+        {subTitle && <Text sx={{ mb: 1, color: "muted" }}>{subTitle}</Text>}
+        {body && <Text sx={{ mb: 0 }}>{body}</Text>}
+      </Box>
+      <Box>{meta ? meta : <MdArrowForward size={24} />}</Box>
+    </Grid>
+  );
+};
+
+export { OptionRow };
