@@ -43,7 +43,7 @@ const DialogContent = ( {
 	}
 
 	return (
-		<>
+		<React.Fragment>
 			{variant === 'modal' && (
 				<div
 					onClick={onClose}
@@ -89,7 +89,7 @@ const DialogContent = ( {
 					variant: `dialog.${ variant }`,
 				}}
 			/>
-		</>
+		</React.Fragment>
 	);
 };
 

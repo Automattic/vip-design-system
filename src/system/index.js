@@ -2,7 +2,6 @@
 /**
  * Internal dependencies
  */
-import { Application } from './Application';
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
 import { BlankState } from './BlankState';
@@ -27,7 +26,6 @@ import theme from './theme';
 import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
 
 export {
-	Application,
 	Avatar,
 	Badge,
 	Box,

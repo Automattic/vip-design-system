@@ -2,6 +2,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { MdArrowForward } from 'react-icons/md';
@@ -23,7 +24,7 @@ const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 						{...props}
 					>
 						{steps.map( ( { title, subTitle, children }, index ) => (
-							<>
+							<React.Fragment key={index}>
 								<WizardStepHorizontal
 									active={index === activeStep}
 									title={title}
@@ -35,7 +36,7 @@ const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 										sx={{ mx: 2, color: 'grey.80' }}
 									/>
 								)}
-							</>
+							</React.Fragment>
 						) )}
 					</Flex>
 					{steps[ activeStep ].children}
