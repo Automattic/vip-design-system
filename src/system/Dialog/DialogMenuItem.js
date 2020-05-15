@@ -1,8 +1,14 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
+/**
+ * Internal dependencies
+ */
 import { Box } from '../';
 
 const DialogMenuItem = props => {
@@ -10,7 +16,7 @@ const DialogMenuItem = props => {
 
 	const triggerClick = e => {
 		if (
-			itemRef.current === document.activeElement &&
+			itemRef.current === window.document.activeElement &&
 			( e.key === 13 || e.key === 'Enter' )
 		) {
 			props.onClick();
@@ -19,11 +25,11 @@ const DialogMenuItem = props => {
 
 	useEffect( () => {
 		if ( props.onClick ) {
-			document.addEventListener( 'keydown', triggerClick, true );
+			window.document.addEventListener( 'keydown', triggerClick, true );
 		}
 
 		return () => {
-			document.removeEventListener( 'keydown', triggerClick, true );
+			window.document.removeEventListener( 'keydown', triggerClick, true );
 		};
 	}, [] );
 

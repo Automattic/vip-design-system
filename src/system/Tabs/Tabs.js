@@ -1,6 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
+
+/**
+ * Internal dependencies
+ */
 import { Flex } from '..';
 
 const Tabs = ( { variant = 'primary', ...props } ) => (

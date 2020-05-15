@@ -1,7 +1,14 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { MdCheckCircle } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { jsx } from 'theme-ui';
+
+/**
+ * Internal dependencies
+ */
 import { Card, Heading, Text } from '..';
 
 const WizardStep = ( {

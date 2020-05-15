@@ -1,6 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
+
+/**
+ * Internal dependencies
+ */
 import { Badge, Box, Card, Flex, Heading, Text, Toggle } from '..';
 
 const ToggleRow = ( {

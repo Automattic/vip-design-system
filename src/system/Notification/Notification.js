@@ -1,9 +1,16 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { MdCheckCircle, MdClose } from 'react-icons/md';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { Box, Button, Card, Flex, Heading, Text } from '../';
 import { motion } from 'framer-motion';
+
+/**
+ * Internal dependencies
+ */
+import { Box, Button, Card, Flex, Heading, Text } from '../';
 
 const Notification = ( { title, subTitle, variant, onClose } ) => (
 	<Card

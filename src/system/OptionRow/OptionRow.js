@@ -1,8 +1,15 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { MdArrowForward } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 import { jsx } from 'theme-ui';
+
+/**
+ * Internal dependencies
+ */
 import { Badge, Box, Card, Grid, Heading, Text } from '..';
 
 const OptionRow = ( {
@@ -25,7 +32,7 @@ const OptionRow = ( {
 			borderColor: 'border',
 			background: 'none',
 			boxShadow: 'none',
-		  }
+		}
 		: {};
 
 	const inlineStyles = inline
@@ -33,13 +40,13 @@ const OptionRow = ( {
 			py: 2,
 			px: 2,
 			mx: -2,
-		  }
+		}
 		: {
 			py: 3,
 			px: [ 3, 3, small ? 3 : 5 ],
 			borderBottom: '1px solid',
 			borderColor: 'border',
-		  };
+		};
 	return (
 		<Grid
 			as={RouterLink}

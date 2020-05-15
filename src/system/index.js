@@ -1,3 +1,7 @@
+
+/**
+ * Internal dependencies
+ */
 import { Application } from './Application';
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';

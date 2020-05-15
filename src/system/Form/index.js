@@ -1,3 +1,7 @@
+
+/**
+ * Internal dependencies
+ */
 import { Input } from './Input';
 import { Label } from './Label';
 import { Toggle } from './Toggle';

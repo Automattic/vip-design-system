@@ -1,8 +1,15 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
-
-import { Heading } from '..';
+import PropTypes from 'prop-types';
 import { MdErrorOutline } from 'react-icons/md';
+
+/**
+ * Internal dependencies
+ */
+import { Heading } from '..';
 
 const Validation = ( { children, ...props } ) => (
 	<Heading variant="h5" as="p" sx={{ color: 'red.50' }} {...props}>
@@ -10,5 +17,9 @@ const Validation = ( { children, ...props } ) => (
 		{children}
 	</Heading>
 );
+
+Validation.propTypes = {
+	children: PropTypes.node,
+};
 
 export { Validation };

@@ -1,4 +1,7 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 
 const Table = props => (

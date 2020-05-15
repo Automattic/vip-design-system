@@ -1,4 +1,7 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx, Spinner as ThemeSpinner } from 'theme-ui';
 
 const Spinner = props => (

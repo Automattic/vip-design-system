@@ -1,8 +1,15 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 import { MdArrowForward } from 'react-icons/md';
+
+/**
+ * Internal dependencies
+ */
+import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
 const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 	return (

@@ -1,7 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx, Progress as ThemeProgress } from 'theme-ui';
 import PropTypes from 'prop-types';
 
+/**
+ * Internal dependencies
+ */
 import { Spinner } from '../Spinner';
 import { Box, Heading, Flex } from '../';
 

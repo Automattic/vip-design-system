@@ -1,7 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
+/**
+ * Internal dependencies
+ */
 import { Heading } from '../';
 
 const TableRow = ( { onClick, head = false, cells } ) => {
@@ -11,8 +17,9 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 
 	return (
 		<tr sx={hoverStyles}>
-			{cells.map( cell => (
+			{cells.map( ( cell, index ) => (
 				<td
+					key={ index }
 					sx={{
 						px: 3,
 						pl: 5,

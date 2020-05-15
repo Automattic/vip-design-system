@@ -1,4 +1,7 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx, Text as ThemeText } from 'theme-ui';
 
 const Text = ( { ...props } ) => (

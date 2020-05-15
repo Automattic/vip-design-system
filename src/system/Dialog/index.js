@@ -1,3 +1,7 @@
+
+/**
+ * Internal dependencies
+ */
 import { Dialog } from './Dialog';
 import { DialogContent } from './DialogContent';
 import { DialogTrigger } from './DialogTrigger';

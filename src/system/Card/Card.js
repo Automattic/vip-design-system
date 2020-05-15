@@ -1,7 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
+/**
+ * Internal dependencies
+ */
 import { Box } from '..';
 
 const Card = ( { variant = 'primary', ...props } ) => (

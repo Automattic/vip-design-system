@@ -1,7 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
+/**
+ * Internal dependencies
+ */
 import { Card, Heading, Text } from '..';
 
 const BlankState = ( { image, title, body, cta } ) => {

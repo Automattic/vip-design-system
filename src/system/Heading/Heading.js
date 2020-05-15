@@ -1,4 +1,7 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx, Heading as ThemeHeading } from 'theme-ui';
 import PropTypes from 'prop-types';
 

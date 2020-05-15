@@ -1,3 +1,6 @@
+/**
+ * External dependencies
+ */
 import hsluv from 'hsluv';
 
 const SCALE_STEPS = 10;

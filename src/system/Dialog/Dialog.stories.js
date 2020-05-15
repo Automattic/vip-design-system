@@ -1,6 +1,13 @@
+/**
+ * External dependencies
+ */
 import React from 'react';
 
 import { action } from '@storybook/addon-actions';
+
+/**
+ * Internal dependencies
+ */
 import {
 	Box,
 	Dialog,
@@ -39,7 +46,7 @@ const ModalContent = (
 	<Box p={5}>
 		<Heading>This is a Modal</Heading>
 		<Text sx={{ fontSize: 3 }}>
-			A modal is used to perform more detailed actions that don't
+			A modal is used to perform more detailed actions that don&lsquo;t
 			necessarily need the context behind.
 		</Text>
 	</Box>

@@ -1,4 +1,7 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx, Select as ThemeSelect } from 'theme-ui';
 
 const Select = props => (

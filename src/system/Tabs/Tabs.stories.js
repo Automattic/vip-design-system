@@ -1,6 +1,13 @@
+/**
+ * External dependencies
+ */
 import React from 'react';
 
 import { action } from '@storybook/addon-actions';
+
+/**
+ * Internal dependencies
+ */
 import { Tabs, TabItem } from '..';
 
 export default {

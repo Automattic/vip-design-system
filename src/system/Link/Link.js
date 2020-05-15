@@ -1,4 +1,7 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx, Link as ThemeLink } from 'theme-ui';
 import PropTypes from 'prop-types';
 

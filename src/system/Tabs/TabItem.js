@@ -1,7 +1,13 @@
 /** @jsx jsx */
+/**
+ * External dependencies
+ */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
+/**
+ * Internal dependencies
+ */
 import { Link } from '..';
 
 const TabItem = ( { active = false, variant = 'inline', ...props } ) => (
