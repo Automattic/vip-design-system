@@ -173,6 +173,7 @@ export default {
 			fontSize: 3,
 			marginBottom: 3,
 			letterSpacing: '-.005em',
+			lineHeight: 1.25,
 			fontWeight: 'heading',
 		},
 		h4: {
