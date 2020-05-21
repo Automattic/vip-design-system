@@ -16,10 +16,10 @@ export default {
 };
 
 export const Default = () => (
-	<>
+	<React.Fragment>
 		<Button sx={{ mr: 2 }}>Primary</Button>
 		<Button variant="secondary" sx={{ ml: 2 }}>
 			Secondary
 		</Button>
-	</>
+	</React.Fragment>
 );

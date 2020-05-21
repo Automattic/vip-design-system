@@ -40,7 +40,7 @@ export const Default = () => {
 		},
 	];
 	return (
-		<>
+		<React.Fragment>
 			<Flex sx={{ alignItems: 'center' }}>
 				<Box sx={{ flex: '1 1 auto' }}>
 					<Heading
@@ -55,6 +55,6 @@ export const Default = () => {
 			<Box mt={4}>
 				<Wizard activeStep={0} steps={steps} />
 			</Box>
-		</>
+		</React.Fragment>
 	);
 };
