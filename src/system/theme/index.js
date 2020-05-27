@@ -10,7 +10,7 @@ export default {
 		body:
 			'"SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
 		heading: 'inherit',
-		monospace: 'Menlo, monospace',
+		monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 	},
 	fontSizes: [ 12, 14, 16, 20, 24, 32, 56, 64, 96 ],
 	fontWeights: {
