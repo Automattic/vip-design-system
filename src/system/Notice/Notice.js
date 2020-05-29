@@ -12,7 +12,7 @@ import { Card } from '../';
 
 const Notice = ( { variant = 'info', ...props } ) => (
 	<Card
-		sx={{
+		sx={ {
 			borderLeft: '3px solid',
 			boxShadow: 'none',
 			backgroundColor: 'hover',
@@ -20,8 +20,8 @@ const Notice = ( { variant = 'info', ...props } ) => (
 			borderBottomLeftRadius: 0,
 			pl: 19,
 			variant: `notice.${ variant }`,
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );
 
