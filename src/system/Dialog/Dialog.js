@@ -28,31 +28,30 @@ const Dialog = ( { trigger, position = 'left', content, ...props } ) => {
 		return () => window.document.removeEventListener( 'click', closeDialog, true );
 	}, [] );
 
+	// if content is a function, pass in onClose
+	const isFunction = typeof content === 'function';
+
 	return (
-		<div sx={{ position: 'relative' }} ref={dialogRef}>
+		<div sx={ { position: 'relative' } } ref={ dialogRef }>
 			<DialogTrigger
 				tabIndex="0"
-				onKeyPress={e => {
+				onKeyPress={ e => {
 					if ( e.key === 13 || e.key === 'Enter' ) {
 						setIsOpen( ! isOpen );
 					}
-				}}
-				onClick={() => setIsOpen( ! isOpen )}
+				} }
+				onClick={ () => setIsOpen( ! isOpen ) }
 				aria-haspopup="true"
-				aria-expanded={isOpen}
+				aria-expanded={ isOpen }
 			>
-				{trigger}
+				{ trigger }
 			</DialogTrigger>
 			<AnimatePresence>
-				{isOpen && (
-					<DialogContent
-						{...props}
-						position={position}
-						onClose={() => setIsOpen( false )}
-					>
-						{content}
+				{ isOpen && (
+					<DialogContent { ...props } position={ position } onClose={ () => setIsOpen( false ) }>
+						{ isFunction ? content( { onClose: () => setIsOpen( false ) } ) : content }
 					</DialogContent>
-				)}
+				) }
 			</AnimatePresence>
 		</div>
 	);

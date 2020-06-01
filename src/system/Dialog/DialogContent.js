@@ -12,12 +12,7 @@ import { jsx } from 'theme-ui';
  */
 import { Card } from '..';
 
-const DialogContent = ( {
-	position = 'left',
-	variant = 'dropdown',
-	onClose,
-	...props
-} ) => {
+const DialogContent = ( { position = 'left', variant = 'dropdown', onClose, ...props } ) => {
 	const closeDialog = e => {
 		if ( e.key === 27 || e.key === 'Escape' ) {
 			onClose();
@@ -44,10 +39,10 @@ const DialogContent = ( {
 
 	return (
 		<React.Fragment>
-			{variant === 'modal' && (
+			{ variant === 'modal' && (
 				<div
-					onClick={onClose}
-					sx={{
+					onClick={ onClose }
+					sx={ {
 						position: 'fixed',
 						zIndex: 100,
 						top: 0,
@@ -56,24 +51,24 @@ const DialogContent = ( {
 						bottom: 0,
 						backgroundColor: 'grey.50',
 						opacity: 0.7,
-					}}
+					} }
 				/>
-			)}
+			) }
 			<motion.div
-				{...props}
-				initial={{
+				{ ...props }
+				initial={ {
 					scale: 0.9,
 					x: variant === 'dropdown' ? 0 : '-50%',
 					opacity: 0,
-				}}
-				animate={{
+				} }
+				animate={ {
 					scale: 1,
 					x: variant === 'dropdown' ? 0 : '-50%',
 					opacity: 1,
-				}}
-				exit={{ scale: 0.9, opacity: 0 }}
-				transition={{ duration: 0.15 }}
-				sx={{
+				} }
+				exit={ { scale: 0.9, opacity: 0 } }
+				transition={ { duration: 0.15 } }
+				sx={ {
 					marginTop: 2,
 					transformOrigin: transformOrigin,
 					borderRadius: 2,
@@ -87,7 +82,7 @@ const DialogContent = ( {
 					padding: 0,
 					display: 'inline-block',
 					variant: `dialog.${ variant }`,
-				}}
+				} }
 			/>
 		</React.Fragment>
 	);

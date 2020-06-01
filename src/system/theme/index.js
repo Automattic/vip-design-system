@@ -1,4 +1,3 @@
-
 /**
  * Internal dependencies
  */
@@ -97,6 +96,14 @@ export default {
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover': {
 				backgroundColor: colors.brand[ '40' ],
+			},
+		},
+		danger: {
+			// you can reference other values defined in the theme
+			variant: 'buttons.primary',
+			bg: colors.red[ '50' ],
+			'&:hover': {
+				backgroundColor: colors.red[ '30' ],
 			},
 		},
 		secondary: {
