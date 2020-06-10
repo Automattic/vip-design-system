@@ -3,23 +3,28 @@
  * External dependencies
  */
 import { jsx } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-const Badge = props => (
+const Badge = ( { variant = 'brand', ...props } ) => (
 	<div
-		sx={{
+		sx={ {
 			fontSize: 0,
 			padding: 0,
-			bg: 'brand.90',
-			color: 'brand.10',
+			bg: `${ variant }.90`,
+			color: `${ variant }.10`,
 			py: 1,
 			verticalAlign: 'middle',
 			px: 2,
 			display: 'inline-block',
 			borderRadius: 1,
 			fontWeight: 'heading',
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );
+
+Badge.propTypes = {
+	variant: PropTypes.string,
+};
 
 export { Badge };
