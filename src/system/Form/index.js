@@ -1,4 +1,3 @@
-
 /**
  * Internal dependencies
  */
@@ -8,5 +7,6 @@ import { Toggle } from './Toggle';
 import { Validation } from './Validation';
 import { ToggleRow } from './ToggleRow';
 import { Select } from './Select';
+import { Textarea } from './Textarea';
 
-export { Input, Label, Select, Toggle, ToggleRow, Validation };
+export { Input, Label, Select, Textarea, Toggle, ToggleRow, Validation };
