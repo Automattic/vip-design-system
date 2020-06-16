@@ -13,47 +13,46 @@ import { MdArrowForward } from 'react-icons/md';
 import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
 const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
+	console.log( typeof activeStep );
 	return (
 		<Box>
-			{variant === 'horizontal' ? (
+			{ variant === 'horizontal' ? (
 				<Box>
 					<Flex
-						sx={{
+						sx={ {
 							flex: '0 0 auto',
-						}}
-						{...props}
+						} }
+						{ ...props }
 					>
-						{steps.map( ( { title, subTitle, children }, index ) => (
-							<React.Fragment key={index}>
+						{ steps.map( ( { title, subTitle, children }, index ) => (
+							<React.Fragment key={ index }>
 								<WizardStepHorizontal
-									active={index === activeStep}
-									title={title}
-									key={index}
-									subTitle={subTitle}
+									active={ index === activeStep }
+									title={ title }
+									key={ index }
+									subTitle={ subTitle }
 								/>
-								{index < steps.length - 1 && (
-									<MdArrowForward
-										sx={{ mx: 2, color: 'grey.80' }}
-									/>
-								)}
+								{ index < steps.length - 1 && (
+									<MdArrowForward sx={ { mx: 2, color: 'grey.80' } } />
+								) }
 							</React.Fragment>
-						) )}
+						) ) }
 					</Flex>
-					{steps[ activeStep ].children}
+					{ steps[ activeStep ].children }
 				</Box>
 			) : (
 				steps.map( ( { title, subTitle, children }, index ) => (
 					<WizardStep
-						active={index === activeStep}
-						title={title}
-						subTitle={subTitle}
-						complete={completed.includes( index )}
-						key={index}
+						active={ index === activeStep }
+						title={ title }
+						subTitle={ subTitle }
+						complete={ completed.includes( index ) }
+						key={ index }
 					>
-						{children}
+						{ children }
 					</WizardStep>
 				) )
-			)}
+			) }
 		</Box>
 	);
 };

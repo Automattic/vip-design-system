@@ -11,13 +11,7 @@ import { jsx } from 'theme-ui';
  */
 import { Card, Heading, Text } from '..';
 
-const WizardStep = ( {
-	title,
-	subTitle,
-	complete = false,
-	children,
-	active,
-} ) => {
+const WizardStep = ( { title, subTitle, complete = false, children, active } ) => {
 	let borderLeftColor = 'border';
 
 	if ( complete ) {
@@ -26,17 +20,17 @@ const WizardStep = ( {
 		borderLeftColor = 'primary';
 	}
 
-	const color = 'muted';
+	let color = 'muted';
 
 	if ( complete ) {
-		borderLeftColor = 'green.40';
+		color = 'green.40';
 	} else if ( active ) {
-		borderLeftColor = 'heading';
+		color = 'heading';
 	}
 
 	return (
 		<Card
-			sx={{
+			sx={ {
 				boxShadow: active ? 'low' : 'none',
 				borderLeft: '2px solid',
 				p: 4,
@@ -49,23 +43,23 @@ const WizardStep = ( {
 				},
 				borderColor: active ? 'primary' : 'border',
 				borderLeftColor: borderLeftColor,
-			}}
+			} }
 		>
 			<Heading
 				variant="h4"
-				sx={{
+				sx={ {
 					mb: 0,
 					display: 'flex',
 					alignItems: 'center',
 					color: color,
-				}}
+				} }
 			>
-				<MdCheckCircle sx={{ mr: 2 }} />
-				{title}
+				<MdCheckCircle sx={ { mr: 2 } } />
+				{ title }
 			</Heading>
-			{subTitle && active && <Text sx={{ mb: 3 }}>{subTitle}</Text>}
+			{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
 
-			{active && children}
+			{ active && children }
 		</Card>
 	);
 };
