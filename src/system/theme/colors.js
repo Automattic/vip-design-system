@@ -43,7 +43,6 @@ const generateScale = ( hue, scaleSteps ) => {
 
 	const baseIndexToEdge =
     baseIndex > scaleSteps / 2 ? baseIndex : scaleSteps - baseIndex;
-
 	// saturation
 	const baseSaturation = baseHuman[ 1 ];
 	const baseSaturationToEdge =
