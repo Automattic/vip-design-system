@@ -49,10 +49,6 @@ const Dialog = ( { trigger, position = 'left', content, ...props } ) => {
 						{...props}
 						position={position}
 						onClose={() => setIsOpen( false )}
-						onClick={() => {
-							props.onClick?.();
-							setIsOpen( false );
-						} }
 					>
 						{content}
 					</DialogContent>
@@ -65,7 +61,6 @@ const Dialog = ( { trigger, position = 'left', content, ...props } ) => {
 Dialog.propTypes = {
 	trigger: PropTypes.node,
 	position: PropTypes.string,
-	onClick: PropTypes.func,
 	content: PropTypes.node,
 };
 
