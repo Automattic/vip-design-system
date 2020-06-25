@@ -43,12 +43,10 @@ const generateScale = ( hue, scaleSteps ) => {
 
 	const baseIndexToEdge =
     baseIndex > scaleSteps / 2 ? baseIndex : scaleSteps - baseIndex;
-	console.log( baseIndexToEdge );
 	// saturation
 	const baseSaturation = baseHuman[ 1 ];
 	const baseSaturationToEdge =
     baseSaturation > 50 ? 100 - baseSaturation : baseSaturation;
-	console.log( baseSaturationToEdge );
 
 	// const saturationLevel = 1-(((Math.abs(50-baseSaturation))%50)/50)
 	const saturationIncrement = baseSaturationToEdge / baseIndexToEdge;
@@ -79,7 +77,5 @@ const huesObject = hues.reduce( ( val, hue ) => {
 	} );
 	return val;
 }, {} );
-
-console.log( 'colors:', huesObject );
 
 export default huesObject;
