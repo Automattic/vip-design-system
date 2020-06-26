@@ -7,14 +7,14 @@ import PropTypes from 'prop-types';
 
 const Link = ( { active = false, ...props } ) => (
 	<ThemeLink
-		{...props}
-		sx={{
+		{ ...props }
+		sx={ {
 			color: active ? 'heading' : 'link',
 			textDecoration: 'none',
 			'&:hover, &:focus': {
 				color: 'heading',
 			},
-		}}
+		} }
 	/>
 );
 
