@@ -98,6 +98,14 @@ export default {
 				backgroundColor: colors.brand[ '40' ],
 			},
 		},
+		danger: {
+			// you can reference other values defined in the theme
+			variant: 'buttons.primary',
+			bg: colors.red[ '50' ],
+			'&:hover': {
+				backgroundColor: colors.red[ '30' ],
+			},
+		},
 		secondary: {
 			color: 'inherit',
 			cursor: 'pointer',

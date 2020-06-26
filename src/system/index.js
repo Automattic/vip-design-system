@@ -1,4 +1,3 @@
-
 /**
  * Internal dependencies
  */
@@ -9,6 +8,7 @@ import { Box } from './Box';
 import { Button } from './Button';
 import { Card } from './Card';
 import { Dialog, DialogDivider, DialogMenu, DialogMenuItem } from './Dialog';
+import { ConfirmationDialog, ConfirmationDialogContent } from './ConfirmationDialog';
 import { Flex } from './Flex';
 import { Input, Label, Toggle, ToggleRow, Validation, Select } from './Form';
 import { Grid } from './Grid';
@@ -37,6 +37,7 @@ export {
 	DialogMenu,
 	DialogMenuItem,
 	DialogDivider,
+	ConfirmationDialog,
 	Grid,
 	Flex,
 	Notice,
