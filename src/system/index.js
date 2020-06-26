@@ -10,7 +10,7 @@ import { Card } from './Card';
 import { Dialog, DialogDivider, DialogMenu, DialogMenuItem } from './Dialog';
 import { ConfirmationDialog, ConfirmationDialogContent } from './ConfirmationDialog';
 import { Flex } from './Flex';
-import { Input, Label, Toggle, ToggleRow, Validation, Select } from './Form';
+import { Input, Label, Toggle, ToggleRow, Validation, Select, Textarea } from './Form';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
@@ -51,6 +51,7 @@ export {
 	Notification,
 	Link,
 	Select,
+	Textarea,
 	Progress,
 	Text,
 	Tabs,

@@ -11,6 +11,8 @@ const Button = props => (
 			display: 'inline-block',
 			'&:disabled': {
 				opacity: 0.5,
+				cursor: 'not-allowed',
+				pointerEvents: 'all',
 			},
 		} }
 		{ ...props }
