@@ -6,11 +6,14 @@ import { jsx, Button as ThemeButton } from 'theme-ui';
 
 const Button = props => (
 	<ThemeButton
-		sx={{
+		sx={ {
 			verticalAlign: 'middle',
 			display: 'inline-block',
-		}}
-		{...props}
+			'&:disabled': {
+				opacity: 0.5,
+			},
+		} }
+		{ ...props }
 	/>
 );
 
