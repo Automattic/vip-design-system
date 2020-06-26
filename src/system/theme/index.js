@@ -47,7 +47,7 @@ export default {
 				card: '#292625',
 				placeholder: colors.grey[ '30' ],
 				border: 'rgba(255,255,255,.05)',
-				hover: 'rgba(255,255,255,.04)',
+				hover: colors.grey[ '20' ],
 			},
 		},
 		...colors,
