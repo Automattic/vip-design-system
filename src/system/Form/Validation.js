@@ -12,7 +12,7 @@ import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 import { Heading } from '..';
 
 const Validation = ( { children, isValid, ...props } ) => {
-	const Icon = isValid ? MdCheckCircle : MdCheckCircle;
+	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
 
 	return (
 		<Heading variant="h5" as="p" sx={ { color: isValid ? 'green.50' : 'red.50' } } { ...props }>
