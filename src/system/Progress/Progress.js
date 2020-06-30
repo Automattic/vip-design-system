@@ -18,6 +18,8 @@ const Progress = ( { steps, activeStep, ...props } ) => (
 			sx={ {
 				color: 'primary',
 			} }
+			max={ steps.length }
+			value={ activeStep + 1 }
 		/>
 		{ steps && (
 			<Flex sx={ { alignItems: 'center', mt: 2 } }>
