@@ -52,6 +52,7 @@ const ConfirmationDialog = ( { trigger, onConfirm, needsConfirm = true, ...props
 	return (
 		<Dialog
 			variant="modal"
+			sx={ { maxWidth: 680 } }
 			content={ ( { onClose } ) => (
 				<ConfirmationDialogContent onClose={ onClose } onConfirm={ onConfirm } { ...props } />
 			) }

@@ -7,6 +7,7 @@ import { Toggle } from './Toggle';
 import { Validation } from './Validation';
 import { ToggleRow } from './ToggleRow';
 import { Select } from './Select';
+import { Radio } from './Radio';
 import { Textarea } from './Textarea';
 
-export { Input, Label, Select, Textarea, Toggle, ToggleRow, Validation };
+export { Input, Label, Radio, Select, Textarea, Toggle, ToggleRow, Validation };
