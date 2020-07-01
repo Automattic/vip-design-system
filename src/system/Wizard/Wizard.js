@@ -13,7 +13,6 @@ import { MdArrowForward } from 'react-icons/md';
 import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
 const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
-	console.log( typeof activeStep );
 	return (
 		<Box>
 			{ variant === 'horizontal' ? (
