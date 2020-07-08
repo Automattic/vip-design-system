@@ -14,6 +14,9 @@ const Link = ( { active = false, ...props } ) => (
 			'&:hover, &:focus': {
 				color: 'heading',
 			},
+			'&:visited': {
+				color: 'link',
+			},
 		} }
 	/>
 );
