@@ -10,8 +10,8 @@ const Badge = ( { variant = 'brand', ...props } ) => (
 		sx={ {
 			fontSize: 0,
 			padding: 0,
-			bg: `${ variant }.90`,
-			color: `${ variant }.10`,
+			bg: `${ variant }.20`,
+			color: `${ variant }.80`,
 			py: 1,
 			verticalAlign: 'middle',
 			px: 2,

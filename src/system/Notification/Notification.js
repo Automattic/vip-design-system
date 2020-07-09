@@ -31,8 +31,10 @@ const Notification = ( { title, body, status = 'success', onClose } ) => (
 		<Flex sx={ { alignItems: 'center' } }>
 			<MdCheckCircle sx={ { color: 'green.50', flex: '0 0 auto' } } />
 			<Box sx={ { flex: '1 1 auto', ml: 3 } }>
-				<Heading variant="h4">{ title }</Heading>
-				{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
+				<Heading variant="h4" sx={ { mb: 0 } }>
+					{ title }
+				</Heading>
+				{ body && <Text sx={ { mb: 0, mt: 1 } }>{ body }</Text> }
 			</Box>
 		</Flex>
 	</Card>

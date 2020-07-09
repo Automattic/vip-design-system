@@ -18,20 +18,20 @@ const UsageChart = ( { total, max, variant = 'primary', ...props } ) => {
 
 	return (
 		<div
-			sx={{
+			sx={ {
 				height: variant === 'primary' ? 32 : 8,
 				overflow: 'hidden',
 				backgroundColor: variant === 'primary' ? 'border' : 'transparent',
-			}}
+			} }
 		>
 			<motion.div
-				initial={{ width: 0 }}
-				animate={{ width }}
-				transition={{ duration: 0.7 }}
-				sx={{
+				initial={ { width: 0 } }
+				animate={ { width } }
+				transition={ { duration: 0.7 } }
+				sx={ {
 					height: '100%',
-					backgroundColor: variant === 'primary' ? 'primary' : 'grey.80',
-				}}
+					backgroundColor: variant === 'primary' ? 'primary' : 'grey.40',
+				} }
 			></motion.div>
 		</div>
 	);
