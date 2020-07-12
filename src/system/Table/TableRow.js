@@ -16,7 +16,7 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 		: {};
 
 	return (
-		<tr sx={ hoverStyles }>
+		<tr sx={ hoverStyles } onClick={ onClick }>
 			{ cells.map( ( cell, index ) => (
 				<td
 					key={ index }
