@@ -13,11 +13,11 @@ const Link = ( { active = false, ...props } ) => (
 			textDecoration: 'none',
 			borderBottom: '1px solid',
 			borderBottomColor: 'border',
-			'&:hover, &:focus': {
-				color: 'heading',
-			},
 			'&:visited': {
 				color: 'link',
+			},
+			'&:hover, &:focus': {
+				color: 'heading',
 			},
 		} }
 	/>
