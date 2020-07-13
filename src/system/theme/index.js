@@ -94,7 +94,7 @@ export default {
 			border: 'none',
 			borderRadius: 1,
 			svg: { position: 'relative', top: '0.125em' },
-			'&:hover': {
+			'&:hover, &:focus': {
 				backgroundColor: colors.brand[ '80' ],
 			},
 		},
@@ -102,7 +102,7 @@ export default {
 			// you can reference other values defined in the theme
 			variant: 'buttons.primary',
 			bg: colors.red[ '70' ],
-			'&:hover': {
+			'&:hover, &:focus': {
 				backgroundColor: colors.red[ '80' ],
 			},
 		},
@@ -115,7 +115,7 @@ export default {
 			border: '2px solid',
 			borderColor: 'border',
 			svg: { position: 'relative', top: '0.125em' },
-			'&:hover': {
+			'&:hover, &:focus': {
 				borderColor: 'muted',
 			},
 		},
@@ -126,7 +126,7 @@ export default {
 			cursor: 'pointer',
 			fontWeight: 'heading',
 			svg: { position: 'relative', top: '0.125em' },
-			'&:hover': {
+			'&:hover, &:focus': {
 				backgroundColor: 'border',
 			},
 		},
@@ -140,7 +140,7 @@ export default {
 			svg: {
 				display: 'block',
 			},
-			'&:hover': {
+			'&:hover, &:focus': {
 				backgroundColor: 'border',
 			},
 		},
