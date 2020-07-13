@@ -16,28 +16,30 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 		: {};
 
 	return (
-		<tr sx={hoverStyles}>
-			{cells.map( ( cell, index ) => (
+		<tr sx={ hoverStyles } onClick={ onClick }>
+			{ cells.map( ( cell, index ) => (
 				<td
 					key={ index }
-					sx={{
+					sx={ {
 						px: 3,
-						pl: 5,
 						py: 2,
 						borderBottom: '1px solid',
 						borderTop: head ? '1px solid' : 'none',
 						borderColor: 'border',
-					}}
+						'&:first-child': {
+							pl: 5,
+						},
+					} }
 				>
-					{head ? (
-						<Heading variant="caps" as="h5" sx={{ mb: 0 }}>
-							{cell}
+					{ head ? (
+						<Heading variant="caps" as="h5" sx={ { mb: 0 } }>
+							{ cell }
 						</Heading>
 					) : (
 						cell
-					)}
+					) }
 				</td>
-			) )}
+			) ) }
 		</tr>
 	);
 };
