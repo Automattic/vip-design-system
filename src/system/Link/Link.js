@@ -11,11 +11,13 @@ const Link = ( { active = false, ...props } ) => (
 		sx={ {
 			color: active ? 'heading' : 'link',
 			textDecoration: 'none',
-			'&:hover, &:focus': {
-				color: 'heading',
-			},
+			borderBottom: '1px solid',
+			borderBottomColor: 'border',
 			'&:visited': {
 				color: 'link',
+			},
+			'&:hover, &:focus': {
+				color: 'heading',
 			},
 		} }
 	/>
