@@ -213,6 +213,16 @@ export default {
 			maxWidth: '90%',
 			overflow: 'auto',
 		},
+		sidebar: {
+			position: 'fixed',
+			top: '0',
+			height: '100vh',
+			left: '0',
+			overflow: 'auto',
+			margin: 0,
+			borderRadius: 0,
+			backgroundColor: 'background',
+		},
 		cover: {
 			position: 'fixed',
 			backgroundColor: 'background',
