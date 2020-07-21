@@ -7,6 +7,7 @@ import { BlankState } from './BlankState';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Card } from './Card';
+import { Code } from './Code';
 import { Dialog, DialogDivider, DialogMenu, DialogMenuItem, DialogContent } from './Dialog';
 import { ConfirmationDialog, ConfirmationDialogContent } from './ConfirmationDialog';
 import { Flex } from './Flex';
@@ -33,6 +34,7 @@ export {
 	BlankState,
 	Button,
 	Card,
+	Code,
 	Dialog,
 	DialogMenu,
 	DialogMenuItem,
