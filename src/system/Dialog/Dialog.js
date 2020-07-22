@@ -12,8 +12,8 @@ import { jsx } from 'theme-ui';
  */
 import { DialogContent, DialogTrigger } from '.';
 
-const Dialog = ( { trigger, position = 'left', content, ...props } ) => {
-	const [ isOpen, setIsOpen ] = useState( false );
+const Dialog = ( { trigger, position = 'left', startOpen = false, content, ...props } ) => {
+	const [ isOpen, setIsOpen ] = useState( startOpen );
 	const dialogRef = useRef( null );
 
 	const closeDialog = e => {
@@ -60,6 +60,7 @@ const Dialog = ( { trigger, position = 'left', content, ...props } ) => {
 Dialog.propTypes = {
 	trigger: PropTypes.node,
 	position: PropTypes.string,
+	startOpen: PropTypes.bool,
 	content: PropTypes.node,
 };
 
