@@ -2,6 +2,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { MdArrowForward } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
@@ -73,14 +74,19 @@ const OptionRow = ( {
 							p: small ? 3 : 4,
 							boxShadow: 'low',
 							flex: '0 0 auto',
+							svg: {
+								display: 'block',
+							},
 							...mergedCard,
 						}}
 					>
-						<img
-							src={image}
-							width={small ? 32 : 48}
-							sx={{ display: 'block' }}
-						/>
+						{ React.isValidElement( image ) ? image : (
+							<img
+								src={image}
+								width={small ? 32 : 48}
+								sx={{ display: 'block' }}
+							/>
+						) }
 					</Card>
 				) : (
 					icon && icon
