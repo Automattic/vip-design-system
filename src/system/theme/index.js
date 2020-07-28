@@ -34,7 +34,7 @@ export default {
 		border: 'rgba(0,0,0,.07)',
 		hover: 'rgba(0,0,0,.03)',
 		lightenBackground: 'rgba(255,255,255,.5)',
-		placeholder: colors.grey[ '30' ],
+		placeholder: colors.grey[ '40' ],
 		modes: {
 			dark: {
 				text: colors.grey[ '30' ],
