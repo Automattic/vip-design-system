@@ -71,7 +71,7 @@ const OptionRow = ( {
 					<Card
 						sx={{
 							display: [ 'inline-block', 'inline-block', 'block' ],
-							p: small ? 3 : 4,
+							p: small ? 3 : 24,
 							boxShadow: 'low',
 							flex: '0 0 auto',
 							svg: {
