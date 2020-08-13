@@ -91,8 +91,8 @@ export default {
 			cursor: 'pointer',
 			fontWeight: 'heading',
 			boxShadow: 'medium',
-			border: 'none',
 			borderRadius: 1,
+			border: '1px solid transparent',
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
 				backgroundColor: colors.brand[ '80' ],
@@ -122,12 +122,15 @@ export default {
 		text: {
 			background: 'none',
 			boxShadow: 'none',
-			color: 'text',
+			color: 'link',
 			cursor: 'pointer',
 			fontWeight: 'heading',
+			px: 2,
+			py: 1,
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
-				backgroundColor: 'border',
+				color: 'heading',
+				backgroundColor: 'hover',
 			},
 		},
 		icon: {
