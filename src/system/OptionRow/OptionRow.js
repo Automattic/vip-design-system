@@ -109,7 +109,10 @@ const OptionRow = ( {
 };
 
 OptionRow.propTypes = {
-	image: PropTypes.string,
+	image: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.node,
+	] ),
 	icon: PropTypes.node,
 	badge: PropTypes.string,
 	title: PropTypes.string,
