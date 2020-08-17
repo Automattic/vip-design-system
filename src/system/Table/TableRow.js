@@ -17,7 +17,7 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 
 	const CellElement = head ? 'th' : 'td';
 
-	const handleKeyPress = ( e ) => {
+	const handleKeyPress = e => {
 		if ( e.key === 'Enter' && onClick ) {
 			onClick();
 		}

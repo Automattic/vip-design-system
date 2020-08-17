@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Card, Heading, Text } from '..';
+import { Heading } from '..';
 
-const WizardStepHorizontal = ( { title, subTitle, active } ) => {
+const WizardStepHorizontal = ( { title, active } ) => {
 	return (
 		<Heading
 			variant="h4"

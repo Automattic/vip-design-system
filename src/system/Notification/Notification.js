@@ -5,7 +5,6 @@
 import { MdCheckCircle, MdClose } from 'react-icons/md';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 
 /**
  * Internal dependencies
