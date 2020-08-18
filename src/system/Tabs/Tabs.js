@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 import { Flex } from '..';
 
-const Tabs = ( { variant = 'primary', ...props } ) => (
+const Tabs = ( { ...props } ) => (
 	<Flex
 		sx={{
 			borderBottom: '2px solid',

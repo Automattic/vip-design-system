@@ -23,7 +23,7 @@ const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 						} }
 						{ ...props }
 					>
-						{steps.map( ( { title, subTitle, children }, index ) => (
+						{steps.map( ( { title, subTitle }, index ) => (
 							<React.Fragment key={ index }>
 								<WizardStepHorizontal
 									active={index === activeStep}

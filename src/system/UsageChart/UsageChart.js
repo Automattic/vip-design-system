@@ -2,11 +2,11 @@
 /**
  * External dependencies
  */
-import { jsx, Progress as ThemeProgress } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-const UsageChart = ( { total, max, variant = 'primary', ...props } ) => {
+const UsageChart = ( { total, max, variant = 'primary' } ) => {
 	const width = ( total / max ) * 100 + '%';
 	let formattedTotal = total;
 
