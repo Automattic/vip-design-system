@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 

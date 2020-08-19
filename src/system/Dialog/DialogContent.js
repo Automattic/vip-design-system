@@ -10,7 +10,6 @@ import { jsx } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Card } from '..';
 
 const DialogContent = ( { position = 'left', variant = 'dropdown', onClose, ...props } ) => {
 	const closeDialog = e => {

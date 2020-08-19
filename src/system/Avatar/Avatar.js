@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Box, Text } from 'system';
+import { Box, Text } from '..';
 
 const Avatar = ( { size = 32, src = null, name = null, ...props } ) => (
 	<Box
