@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 const Toggle = ( { name = 'toggle', ...props } ) => (
 	<CheckBoxWrapper>
 		<CheckBox name={name} id={name} type="checkbox" {...props} />
-		<CheckBoxLabel for={name} />
+		<CheckBoxLabel htmlFor={name} />
 	</CheckBoxWrapper>
 );
 

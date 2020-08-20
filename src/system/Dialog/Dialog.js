@@ -61,7 +61,10 @@ Dialog.propTypes = {
 	trigger: PropTypes.node,
 	position: PropTypes.string,
 	startOpen: PropTypes.bool,
-	content: PropTypes.node,
+	content: PropTypes.oneOfType( [
+		PropTypes.node,
+		PropTypes.func,
+	] ),
 };
 
 export { Dialog };
