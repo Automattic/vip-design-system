@@ -14,20 +14,22 @@ import { Box, Heading, Flex } from '../';
 const Progress = ( { steps, activeStep, ...props } ) => (
 	<Box>
 		<ThemeProgress
-			{...props}
-			sx={{
+			{ ...props }
+			sx={ {
 				color: 'primary',
-			}}
+			} }
+			max={ steps.length }
+			value={ activeStep + 1 }
 		/>
-		{steps && (
-			<Flex sx={{ alignItems: 'center', mt: 3 }}>
-				<Spinner size={24} />
-				<Heading variant="h4" sx={{ ml: 2, mb: 0 }}>
-					{`${ activeStep + 1 } of ${ steps.length }`}:{' '}
-					<span sx={{ color: 'muted' }}>{steps[ activeStep ]}</span>
+		{ steps && (
+			<Flex sx={ { alignItems: 'center', mt: 2 } }>
+				<Spinner size={ 24 } />
+				<Heading variant="h4" sx={ { ml: 2, mb: 0 } }>
+					{ `${ activeStep + 1 } of ${ steps.length }` }:{ ' ' }
+					<span sx={ { color: 'muted' } }>{ steps[ activeStep ] }</span>
 				</Heading>
 			</Flex>
-		)}
+		) }
 	</Box>
 );
 

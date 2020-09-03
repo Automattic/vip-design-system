@@ -15,29 +15,40 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 		? { cursor: 'pointer', '&:hover': { bg: 'hover', borderRadius: 2 } }
 		: {};
 
+	const CellElement = head ? 'th' : 'td';
+
+	const handleKeyPress = e => {
+		if ( e.key === 'Enter' && onClick ) {
+			onClick();
+		}
+	};
+
 	return (
-		<tr sx={hoverStyles}>
-			{cells.map( ( cell, index ) => (
-				<td
+		<tr sx={ hoverStyles } onClick={ onClick } tabIndex={ onClick ? 0 : null } onKeyDown={handleKeyPress}>
+			{ cells.map( ( cell, index ) => (
+				<CellElement
 					key={ index }
-					sx={{
+					sx={ {
 						px: 3,
-						pl: 5,
 						py: 2,
+						textAlign: 'left',
 						borderBottom: '1px solid',
 						borderTop: head ? '1px solid' : 'none',
 						borderColor: 'border',
-					}}
+						'&:first-child': {
+							pl: 5,
+						},
+					} }
 				>
-					{head ? (
-						<Heading variant="caps" as="h5" sx={{ mb: 0 }}>
-							{cell}
+					{ head ? (
+						<Heading variant="caps" as="div" sx={ { mb: 0 } }>
+							{ cell }
 						</Heading>
 					) : (
 						cell
-					)}
-				</td>
-			) )}
+					) }
+				</CellElement>
+			) ) }
 		</tr>
 	);
 };

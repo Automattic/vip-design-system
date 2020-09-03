@@ -2,6 +2,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { MdArrowForward } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
@@ -70,17 +71,22 @@ const OptionRow = ( {
 					<Card
 						sx={{
 							display: [ 'inline-block', 'inline-block', 'block' ],
-							p: small ? 3 : 4,
+							p: small ? 3 : 24,
 							boxShadow: 'low',
 							flex: '0 0 auto',
+							svg: {
+								display: 'block',
+							},
 							...mergedCard,
 						}}
 					>
-						<img
-							src={image}
-							width={small ? 32 : 48}
-							sx={{ display: 'block' }}
-						/>
+						{ React.isValidElement( image ) ? image : (
+							<img
+								src={image}
+								width={small ? 32 : 48}
+								sx={{ display: 'block' }}
+							/>
+						) }
 					</Card>
 				) : (
 					icon && icon
@@ -103,7 +109,10 @@ const OptionRow = ( {
 };
 
 OptionRow.propTypes = {
-	image: PropTypes.string,
+	image: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.node,
+	] ),
 	icon: PropTypes.node,
 	badge: PropTypes.string,
 	title: PropTypes.string,

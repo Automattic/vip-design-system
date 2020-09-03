@@ -9,7 +9,6 @@ const Text = ( { ...props } ) => (
 		as="p"
 		sx={{
 			lineHeight: 1.5,
-			fontSize: 2,
 			marginBottom: 2,
 		}}
 		{...props}

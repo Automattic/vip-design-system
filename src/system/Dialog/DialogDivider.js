@@ -4,7 +4,7 @@
  */
 import { jsx } from 'theme-ui';
 
-const DialogDivider = props => (
+const DialogDivider = () => (
 	<div sx={{ height: 1, backgroundColor: 'border', my: 2 }} />
 );
 

@@ -6,15 +6,17 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Link } from '..';
+import { UsageChart } from '..';
 
 export default {
-	title: 'Link',
-	component: Link,
+	title: 'UsageChart',
+	component: UsageChart,
 };
 
 export const Default = () => (
-	<Link as="a" href="#!">
-		Hello
-	</Link>
+	<UsageChart
+		total={50}
+		max={75}
+		variant="primary"
+	/>
 );

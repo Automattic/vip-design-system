@@ -6,11 +6,11 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Flex } from '..';
+import { Code } from '..';
 
 export default {
-	title: 'Flex',
-	component: Flex,
+	title: 'Code',
+	component: Code,
 };
 
-export const Default = () => <Flex>Hello</Flex>;
+export const Default = () => <Code>Code</Code>;

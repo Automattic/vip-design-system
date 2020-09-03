@@ -1,4 +1,3 @@
-
 /**
  * Internal dependencies
  */
@@ -10,7 +9,7 @@ export default {
 		body:
 			'"SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
 		heading: 'inherit',
-		monospace: 'Menlo, monospace',
+		monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 	},
 	fontSizes: [ 12, 14, 16, 20, 24, 32, 56, 64, 96 ],
 	fontWeights: {
@@ -24,42 +23,42 @@ export default {
 	},
 	radii: [ 0, 3, 5 ],
 	colors: {
-		text: colors.grey[ '40' ],
-		heading: colors.grey[ '10' ],
-		background: '#f3f3f4',
-		primary: colors.brand[ '70' ],
+		text: colors.grey[ '60' ],
+		heading: colors.grey[ '90' ],
+		background: colors.grey[ '10' ],
+		primary: colors.brand[ '50' ],
 		secondary: '#30c',
 		muted: colors.grey[ '50' ],
-		link: colors.brand[ '50' ],
+		link: colors.brand[ '70' ],
 		card: '#fefefe',
 		border: 'rgba(0,0,0,.07)',
 		hover: 'rgba(0,0,0,.03)',
 		lightenBackground: 'rgba(255,255,255,.5)',
-		placeholder: colors.grey[ '90' ],
+		placeholder: colors.grey[ '40' ],
 		modes: {
 			dark: {
-				text: colors.grey[ '80' ],
-				heading: colors.grey[ '100' ],
-				background: '#181716',
+				text: colors.grey[ '30' ],
+				heading: colors.grey[ '10' ],
+				background: colors.grey[ '90' ],
 				lightenBackground: 'rgba(0,0,0,.1)',
-				primary: colors.brand[ '70' ],
-				muted: colors.grey[ '70' ],
-				link: colors.brand[ '80' ],
-				card: '#292625',
-				placeholder: colors.grey[ '30' ],
+				primary: colors.brand[ '50' ],
+				muted: colors.grey[ '40' ],
+				link: colors.brand[ '50' ],
+				card: colors.grey[ '80' ],
+				placeholder: colors.grey[ '70' ],
 				border: 'rgba(255,255,255,.05)',
-				hover: 'rgba(255,255,255,.04)',
+				hover: 'rgba(255,255,255,.02)',
 			},
 		},
 		...colors,
 	},
 	shadows: {
-		low:
-			'0px 0.11069px 0.193708px rgba(0, 0, 0, 0.0196802), 0px 0.266004px 0.465507px rgba(0, 0, 0, 0.0282725), 0px 0.500862px 0.876509px rgba(0, 0, 0, 0.035), 0px 0.893452px 1.56354px rgba(0, 0, 0, 0.0417275), 0px 1.6711px 2.92443px rgba(0, 0, 0, 0.0503198), 0px 4px 7px rgba(0, 0, 0, 0.07)',
-		medium:
-			'0px 1.97961px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 4.36146px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 7.34273px 10.0172px rgba(0, 0, 0, 0.035), 0px 11.2752px 17.869px rgba(0, 0, 0, 0.0417275), 0px 16.7372px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 24px 80px rgba(0, 0, 0, 0.07)',
-		high:
-			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
+		// eslint-disable-next-line max-len
+		low: '0px 0.11069px 0.193708px rgba(0, 0, 0, 0.0196802), 0px 0.266004px 0.465507px rgba(0, 0, 0, 0.0282725), 0px 0.500862px 0.876509px rgba(0, 0, 0, 0.035), 0px 0.893452px 1.56354px rgba(0, 0, 0, 0.0417275), 0px 1.6711px 2.92443px rgba(0, 0, 0, 0.0503198), 0px 4px 7px rgba(0, 0, 0, 0.07)',
+		// eslint-disable-next-line max-len
+		medium: '0px 1.97961px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 4.36146px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 7.34273px 10.0172px rgba(0, 0, 0, 0.035), 0px 11.2752px 17.869px rgba(0, 0, 0, 0.0417275), 0px 16.7372px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 24px 80px rgba(0, 0, 0, 0.07)',
+		// eslint-disable-next-line max-len
+		high: '0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
 	},
 	cards: {
 		primary: {
@@ -88,15 +87,23 @@ export default {
 		primary: {
 			// you can reference other values defined in the theme
 			color: 'white',
-			bg: colors.brand[ '50' ],
+			bg: colors.brand[ '70' ],
 			cursor: 'pointer',
 			fontWeight: 'heading',
 			boxShadow: 'medium',
 			border: 'none',
 			borderRadius: 1,
 			svg: { position: 'relative', top: '0.125em' },
-			'&:hover': {
-				backgroundColor: colors.brand[ '40' ],
+			'&:hover, &:focus': {
+				backgroundColor: colors.brand[ '80' ],
+			},
+		},
+		danger: {
+			// you can reference other values defined in the theme
+			variant: 'buttons.primary',
+			bg: colors.red[ '70' ],
+			'&:hover, &:focus': {
+				backgroundColor: colors.red[ '80' ],
 			},
 		},
 		secondary: {
@@ -108,7 +115,7 @@ export default {
 			border: '2px solid',
 			borderColor: 'border',
 			svg: { position: 'relative', top: '0.125em' },
-			'&:hover': {
+			'&:hover, &:focus': {
 				borderColor: 'muted',
 			},
 		},
@@ -119,7 +126,7 @@ export default {
 			cursor: 'pointer',
 			fontWeight: 'heading',
 			svg: { position: 'relative', top: '0.125em' },
-			'&:hover': {
+			'&:hover, &:focus': {
 				backgroundColor: 'border',
 			},
 		},
@@ -133,7 +140,7 @@ export default {
 			svg: {
 				display: 'block',
 			},
-			'&:hover': {
+			'&:hover, &:focus': {
 				backgroundColor: 'border',
 			},
 		},
@@ -173,6 +180,7 @@ export default {
 			fontSize: 3,
 			marginBottom: 3,
 			letterSpacing: '-.005em',
+			lineHeight: 1.25,
 			fontWeight: 'heading',
 		},
 		h4: {
@@ -204,6 +212,16 @@ export default {
 			left: '50%',
 			maxWidth: '90%',
 			overflow: 'auto',
+		},
+		sidebar: {
+			position: 'fixed',
+			top: '0',
+			height: '100vh',
+			left: '0',
+			overflow: 'auto',
+			margin: 0,
+			borderRadius: 0,
+			backgroundColor: 'background',
 		},
 		cover: {
 			position: 'fixed',

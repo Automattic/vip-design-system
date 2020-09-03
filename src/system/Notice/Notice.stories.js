@@ -4,8 +4,6 @@
  */
 import { jsx } from 'theme-ui';
 
-import React from 'react';
-
 /**
  * Internal dependencies
  */
