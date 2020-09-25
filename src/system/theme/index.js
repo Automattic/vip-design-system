@@ -74,7 +74,7 @@ export default {
 			borderRadius: 2,
 			p: 3,
 			boxShadow: 'none',
-			backgroundColor: 'transparent',
+			backgroundColor: 'lightenBackground',
 			border: '1px solid',
 			borderColor: 'border',
 		},
@@ -185,7 +185,7 @@ export default {
 			marginBottom: 3,
 			letterSpacing: '-.005em',
 			lineHeight: 1.25,
-			fontWeight: 'heading',
+			fontWeight: 'bold',
 		},
 		h4: {
 			fontSize: 2,
