@@ -2,10 +2,9 @@
 /**
  * External dependencies
  */
-import { MdCheckCircle, MdClose } from 'react-icons/md';
+import { MdCheckCircle, MdClose, MdError } from 'react-icons/md';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 
 /**
  * Internal dependencies
@@ -29,7 +28,11 @@ const Notification = ( { title, body, status = 'success', onClose } ) => (
 			<MdClose />
 		</Button>
 		<Flex sx={ { alignItems: 'center' } }>
-			<MdCheckCircle sx={ { color: 'green.50', flex: '0 0 auto' } } />
+			{ status === 'error' ? (
+				<MdError sx={ { color: 'red.50', flex: '0 0 auto' } } />
+			) : (
+				<MdCheckCircle sx={ { color: 'green.50', flex: '0 0 auto' } } />
+			) }
 			<Box sx={ { flex: '1 1 auto', ml: 3 } }>
 				<Heading variant="h4" sx={ { mb: 0 } }>
 					{ title }

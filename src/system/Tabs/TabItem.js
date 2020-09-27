@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 import { Link } from '..';
 
-const TabItem = ( { active = false, variant = 'inline', ...props } ) => (
+const TabItem = ( { active = false, ...props } ) => (
 	<Link
 		variant="h4"
 		as="button"

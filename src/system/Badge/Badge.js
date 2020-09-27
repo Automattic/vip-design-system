@@ -6,7 +6,7 @@ import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 const Badge = ( { variant = 'brand', ...props } ) => (
-	<div
+	<span
 		sx={ {
 			fontSize: 0,
 			padding: 0,

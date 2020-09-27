@@ -53,10 +53,13 @@ export default {
 		...colors,
 	},
 	shadows: {
+		// eslint-disable-next-line max-len
 		low:
 			'0px 0.11069px 0.193708px rgba(0, 0, 0, 0.0196802), 0px 0.266004px 0.465507px rgba(0, 0, 0, 0.0282725), 0px 0.500862px 0.876509px rgba(0, 0, 0, 0.035), 0px 0.893452px 1.56354px rgba(0, 0, 0, 0.0417275), 0px 1.6711px 2.92443px rgba(0, 0, 0, 0.0503198), 0px 4px 7px rgba(0, 0, 0, 0.07)',
+		// eslint-disable-next-line max-len
 		medium:
 			'0px 1.97961px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 4.36146px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 7.34273px 10.0172px rgba(0, 0, 0, 0.035), 0px 11.2752px 17.869px rgba(0, 0, 0, 0.0417275), 0px 16.7372px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 24px 80px rgba(0, 0, 0, 0.07)',
+		// eslint-disable-next-line max-len
 		high:
 			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
 	},
@@ -96,6 +99,7 @@ export default {
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
 				backgroundColor: colors.brand[ '80' ],
+				color: 'white',
 			},
 		},
 		danger: {
