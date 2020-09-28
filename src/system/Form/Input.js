@@ -3,11 +3,12 @@
  * External dependencies
  */
 import { jsx } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-const Input = props => (
+const Input = ( { variant, ...props } ) => (
 	<input
-		{...props}
-		sx={{
+		{ ...props }
+		sx={ {
 			border: '1px solid',
 			borderColor: 'border',
 			backgroundColor: 'card',
@@ -24,8 +25,12 @@ const Input = props => (
 				borderColor: 'brand.60',
 				outline: 'none',
 			},
-		}}
+		} }
 	/>
 );
+
+Input.propTypes = {
+	variant: PropTypes.string,
+};
 
 export { Input };
