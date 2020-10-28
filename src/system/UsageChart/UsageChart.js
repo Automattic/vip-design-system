@@ -38,10 +38,7 @@ const UsageChart = ( { total, max, variant = 'primary' } ) => {
 };
 
 UsageChart.propTypes = {
-	total: PropTypes.oneOfType( [
-		PropTypes.string,
-		PropTypes.number,
-	] ),
+	total: PropTypes.number,
 	max: PropTypes.number,
 	variant: PropTypes.string,
 };
