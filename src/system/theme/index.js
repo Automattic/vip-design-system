@@ -26,6 +26,7 @@ export default {
 		text: colors.grey[ '70' ],
 		heading: colors.grey[ '100' ],
 		background: colors.brand[ '0' ],
+		backgroundSecondary: colors.grey[ '10' ],
 		primary: colors.brand[ '50' ],
 		secondary: '#30c',
 		muted: colors.grey[ '60' ],
@@ -35,12 +36,14 @@ export default {
 		hover: 'rgba(0,0,0,.025)',
 		lightenBackground: 'rgba(255,255,255,.5)',
 		placeholder: colors.grey[ '40' ],
+
 		midnight: '#13191E',
 		modes: {
 			dark: {
 				text: colors.grey[ '30' ],
 				heading: colors.grey[ '10' ],
 				background: colors.grey[ '90' ],
+				backgroundSecondary: colors.grey[ '80' ],
 				lightenBackground: 'rgba(0,0,0,.1)',
 				primary: colors.brand[ '50' ],
 				muted: colors.grey[ '40' ],
