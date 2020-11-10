@@ -80,8 +80,8 @@
 
 export const colors = {
 	brand: {
-		0: '#fcfbfa',
-		10: '#f5f3f1',
+		0: '#fcfafa',
+		10: '#F2EFEC',
 		20: '#eee9e5',
 		30: '#e7dbcc',
 		40: '#dfc39e',
