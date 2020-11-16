@@ -15,22 +15,22 @@ const TabItem = ( { active = false, ...props } ) => (
 		variant="h4"
 		as="button"
 		tabIndex="0"
-		sx={{
+		sx={ {
 			cursor: 'pointer',
 			background: 'none',
 			color: active ? 'heading' : 'muted',
 			mr: 3,
 			fontSize: 2,
 			pb: 3,
-			fontWeight: 'heading',
+			fontWeight: 'body',
 			borderTop: 'none',
 			borderLeft: 'none',
 			borderRight: 'none',
 			borderBottom: '2px solid',
 			borderColor: active ? 'link' : 'transparent',
 			transform: 'translateY(2px)',
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );
 

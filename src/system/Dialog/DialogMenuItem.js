@@ -36,10 +36,10 @@ const DialogMenuItem = props => {
 	return (
 		<li role="none">
 			<Box
-				ref={itemRef}
+				ref={ itemRef }
 				role="menuitem"
 				tabIndex="0"
-				sx={{
+				sx={ {
 					listStyleType: 'none',
 					display: 'block',
 					m: 0,
@@ -47,11 +47,11 @@ const DialogMenuItem = props => {
 					py: 2,
 					cursor: 'pointer',
 					'&:hover, &:focus': {
-						backgroundColor: 'border',
+						backgroundColor: 'hover',
 						outline: 'none',
 					},
-				}}
-				{...props}
+				} }
+				{ ...props }
 			/>
 		</li>
 	);
