@@ -6,7 +6,7 @@ import { jsx } from 'theme-ui';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-const UsageChart = ( { total, max, variant = 'primary' } ) => {
+const UsageChart = ( { total, max, displayPercentage, variant = 'primary' } ) => {
 	const width = ( total / max ) * 100 + '%';
 	let formattedTotal = total;
 
@@ -31,8 +31,15 @@ const UsageChart = ( { total, max, variant = 'primary' } ) => {
 				sx={ {
 					height: '100%',
 					backgroundColor: variant === 'primary' ? 'primary' : 'grey.40',
+					display: 'flex',
+					justifyContent: 'flex-end',
+					alignItems: 'center',
+					paddingRight: '10px',
+					color: 'white',
 				} }
-			></motion.div>
+			>
+				{ displayPercentage && Math.floor( total * 100 / max ) + ' %' }
+			</motion.div>
 		</div>
 	);
 };
@@ -40,6 +47,7 @@ const UsageChart = ( { total, max, variant = 'primary' } ) => {
 UsageChart.propTypes = {
 	total: PropTypes.number,
 	max: PropTypes.number,
+	displayPercentage: PropTypes.bool,
 	variant: PropTypes.string,
 };
 
