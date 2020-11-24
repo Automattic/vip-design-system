@@ -32,7 +32,8 @@ const UsageChart = ( { total, max, variant = 'primary' } ) => {
 					height: '100%',
 					backgroundColor: variant === 'primary' ? 'primary' : 'grey.40',
 				} }
-			></motion.div>
+			>
+			</motion.div>
 		</div>
 	);
 };
