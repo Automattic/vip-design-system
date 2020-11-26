@@ -135,7 +135,6 @@ export default {
 			fontWeight: 'heading',
 			px: 2,
 			py: 1,
-			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
 				color: 'heading',
 				backgroundColor: 'hover',
