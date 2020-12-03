@@ -32,7 +32,7 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, ...pr
 	const isFunction = typeof content === 'function';
 
 	return (
-		<div sx={ { position: 'relative' } } ref={ dialogRef }>
+		<div sx={ { position: 'relative', width: 'fit-content' } } ref={ dialogRef }>
 			<DialogTrigger
 				tabIndex="0"
 				onKeyPress={ e => {
