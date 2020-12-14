@@ -15,7 +15,7 @@ export default {
 
 export const Default = () => (
 	<Flex sx={ { alignItems: 'center' } }>
-		<Heading sx={ { mb: 0, mr: 2 } }>My Page that is really long to test position</Heading>
+		<Heading sx={ { mb: 0, mr: 2 } }>My Section Heading</Heading>
 		<Tooltip>
 			<Text sx={ { fontSize: 1 } }>
 				This is a tooltip that can be used to describe various pieces of functionality.
