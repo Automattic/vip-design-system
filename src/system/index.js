@@ -18,6 +18,7 @@ import { Link } from './Link';
 import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
+import { Tooltip } from './Tooltip';
 import { UsageChart } from './UsageChart';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
@@ -51,6 +52,7 @@ export {
 	Spinner,
 	Table,
 	TableRow,
+	Tooltip,
 	Notification,
 	Link,
 	Select,
