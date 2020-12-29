@@ -67,6 +67,7 @@ const Tooltip = ( { trigger = <MdHelp />, text = '', children, ...props } ) => {
 Tooltip.propTypes = {
 	trigger: PropTypes.string,
 	text: PropTypes.string,
+	children: PropTypes.object,
 };
 
 export { Tooltip };
