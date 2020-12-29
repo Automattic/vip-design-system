@@ -2,6 +2,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
@@ -10,16 +11,17 @@ import PropTypes from 'prop-types';
  */
 import { Box } from '..';
 
-const Card = ( { variant = 'primary', ...props } ) => (
+const Card = React.forwardRef( ( { variant = 'primary', ...props }, ref ) => (
 	<Box
-		{...props}
-		sx={{
+		{ ...props }
+		ref={ ref }
+		sx={ {
 			// pass variant prop to sx
 			variant: `cards.${ variant }`,
 			overflow: 'hidden',
-		}}
+		} }
 	/>
-);
+) );
 
 Card.propTypes = {
 	variant: PropTypes.string,
