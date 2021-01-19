@@ -8,7 +8,7 @@ import { Box } from './Box';
 import { Button } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
-import { Dialog, DialogDivider, DialogMenu, DialogMenuItem, DialogContent } from './Dialog';
+import { Dialog, DialogButton, DialogDivider, DialogMenu, DialogMenuItem, DialogContent } from './Dialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { Flex } from './Flex';
 import { Input, Label, Toggle, ToggleRow, Validation, Radio, Select, Textarea } from './Form';
@@ -37,6 +37,7 @@ export {
 	Card,
 	Code,
 	Dialog,
+	DialogButton,
 	DialogMenu,
 	DialogMenuItem,
 	DialogDivider,
