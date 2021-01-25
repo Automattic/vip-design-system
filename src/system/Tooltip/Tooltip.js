@@ -12,7 +12,7 @@ import { useCallback, useState } from 'react';
  */
 import { Box, Card, Text } from '..';
 
-const Tooltip = ( { trigger = <MdHelp />, text = '', children, ...props } ) => {
+const Tooltip = ( { trigger = <MdHelp />, text = '', width = 200, children, ...props } ) => {
 	const [ position, setPosition ] = useState( { left: 0, top: '100%' } );
 
 	const contentRef = useCallback( node => {
@@ -54,7 +54,7 @@ const Tooltip = ( { trigger = <MdHelp />, text = '', children, ...props } ) => {
 					position: 'absolute',
 					left: position.left,
 					top: position.top,
-					width: 200,
+					width: width,
 				} }
 				{ ...props }
 			>
@@ -66,6 +66,7 @@ const Tooltip = ( { trigger = <MdHelp />, text = '', children, ...props } ) => {
 
 Tooltip.propTypes = {
 	trigger: PropTypes.string,
+	width: PropTypes.number,
 	text: PropTypes.string,
 	children: PropTypes.object,
 };
