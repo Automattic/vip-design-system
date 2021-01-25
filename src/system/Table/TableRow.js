@@ -24,7 +24,12 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 	};
 
 	return (
-		<tr sx={ hoverStyles } onClick={ onClick } tabIndex={ onClick ? 0 : null } onKeyDown={handleKeyPress}>
+		<tr
+			sx={ hoverStyles }
+			onClick={ onClick }
+			tabIndex={ onClick ? 0 : null }
+			onKeyDown={ handleKeyPress }
+		>
 			{ cells.map( ( cell, index ) => (
 				<CellElement
 					key={ index }
