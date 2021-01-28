@@ -21,6 +21,9 @@ export default {
 		body: 1.6,
 		heading: 1.125,
 	},
+	sizes: {
+		sidebar: 260,
+	},
 	radii: [ 0, 3, 5 ],
 	colors: {
 		text: colors.grey[ '70' ],
@@ -36,7 +39,6 @@ export default {
 		hover: 'rgba(0,0,0,.025)',
 		lightenBackground: 'rgba(255,255,255,.5)',
 		placeholder: colors.grey[ '40' ],
-
 		midnight: '#13191E',
 		modes: {
 			dark: {
@@ -50,7 +52,7 @@ export default {
 				link: colors.brand[ '50' ],
 				card: colors.grey[ '80' ],
 				placeholder: colors.grey[ '70' ],
-				border: 'rgba(255,255,255,.05)',
+				border: 'rgba(255,255,255,.08)',
 				hover: 'rgba(255,255,255,.02)',
 				midnight: colors.grey[ '90' ],
 			},
