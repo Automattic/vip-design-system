@@ -5,12 +5,12 @@
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Badge = ( { variant = 'brand', ...props } ) => (
+const Badge = ( { variant = 'blue', ...props } ) => (
 	<span
 		sx={ {
 			fontSize: 0,
 			padding: 0,
-			bg: `${ variant }.20`,
+			bg: `${ variant }.10`,
 			color: `${ variant }.80`,
 			py: 1,
 			verticalAlign: 'middle',
