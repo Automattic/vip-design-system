@@ -32,7 +32,7 @@ export default {
 		backgroundSecondary: colors.brand[ '3' ],
 		primary: colors.brand[ '50' ],
 		secondary: '#30c',
-		muted: colors.grey[ '60' ],
+		muted: colors.grey[ '50' ],
 		link: colors.brand[ '70' ],
 		card: '#fefefe',
 		border: colors.brand[ '7' ],
@@ -199,7 +199,7 @@ export default {
 			fontSize: 2,
 			marginBottom: 1,
 			lineHeight: 1.5,
-			fontWeight: 'body',
+			fontWeight: 'heading',
 		},
 		h5: {
 			fontSize: 1,
