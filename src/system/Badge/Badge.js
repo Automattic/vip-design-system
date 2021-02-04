@@ -11,7 +11,7 @@ const Badge = ( { variant = 'blue', ...props } ) => (
 			fontSize: 0,
 			padding: 0,
 			bg: `${ variant }.10`,
-			color: `${ variant }.80`,
+			color: `${ variant }.90`,
 			py: 1,
 			verticalAlign: 'middle',
 			px: 2,

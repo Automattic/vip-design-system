@@ -32,7 +32,7 @@ export default {
 		backgroundSecondary: colors.brand[ '3' ],
 		primary: colors.brand[ '50' ],
 		secondary: '#30c',
-		muted: colors.grey[ '50' ],
+		muted: colors.grey[ '60' ],
 		link: colors.brand[ '70' ],
 		card: '#fefefe',
 		border: colors.brand[ '7' ],
