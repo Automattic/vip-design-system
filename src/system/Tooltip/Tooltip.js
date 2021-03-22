@@ -52,6 +52,7 @@ const Tooltip = ( { trigger = <MdHelp />, text = '', width = 200, children, ...p
 				className="tooltip-content"
 				sx={ {
 					position: 'absolute',
+					zIndex: 100,
 					left: position.left,
 					top: position.top,
 					width: width,

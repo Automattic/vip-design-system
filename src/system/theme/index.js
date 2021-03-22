@@ -199,7 +199,7 @@ export default {
 			fontSize: 2,
 			marginBottom: 1,
 			lineHeight: 1.5,
-			fontWeight: 'body',
+			fontWeight: 'heading',
 		},
 		h5: {
 			fontSize: 1,
