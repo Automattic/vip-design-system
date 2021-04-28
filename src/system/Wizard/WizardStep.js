@@ -2,7 +2,7 @@
 /**
  * External dependencies
  */
-import { MdCheckCircle } from 'react-icons/md';
+import { MdCheckCircle, MdRadioButtonUnchecked } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { jsx } from 'theme-ui';
 
@@ -54,7 +54,11 @@ const WizardStep = ( { title, subTitle, complete = false, children, active } ) =
 					color: color,
 				} }
 			>
-				<MdCheckCircle sx={ { mr: 2 } } />
+				{ complete ? (
+					<MdCheckCircle sx={ { mr: 2 } } />
+				) : (
+					<MdRadioButtonUnchecked sx={ { mr: 2 } } />
+				) }
 				{ title }
 			</Heading>
 			{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
