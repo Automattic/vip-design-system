@@ -20,7 +20,6 @@ const Tooltip = ( { trigger = <MdHelp />, text = '', width = 200, children, ...p
 			const outerX = window.innerWidth;
 			const outerY = window.innerHeight;
 			const bounds = node.getBoundingClientRect();
-			console.log( 'bounds:', bounds );
 			setPosition( {
 				left: bounds.x + bounds.width > outerX ? -bounds.width : 0,
 				top: bounds.y + bounds.height > outerY ? -bounds.height : '100%',
