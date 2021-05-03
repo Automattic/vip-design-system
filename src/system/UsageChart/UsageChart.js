@@ -8,13 +8,6 @@ import PropTypes from 'prop-types';
 
 const UsageChart = ( { total, max, variant = 'primary' } ) => {
 	const width = ( total / max ) * 100 + '%';
-	let formattedTotal = total;
-
-	if ( total > 1000000 ) {
-		formattedTotal = `${ ( total / 1000000 ).toFixed( 2 ) }M`;
-	} else if ( total > 1000 ) {
-		formattedTotal = `${ ( total / 1000 ).toFixed( 2 ) }K`;
-	}
 
 	return (
 		<div
