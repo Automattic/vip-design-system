@@ -9,5 +9,6 @@ import { ToggleRow } from './ToggleRow';
 import { Select } from './Select';
 import { Radio } from './Radio';
 import { Textarea } from './Textarea';
+import { Checkbox } from './Checkbox';
 
-export { Input, Label, Radio, Select, Textarea, Toggle, ToggleRow, Validation };
+export { Input, Label, Radio, Select, Textarea, Toggle, ToggleRow, Validation, Checkbox };
