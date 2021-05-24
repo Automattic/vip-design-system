@@ -70,7 +70,10 @@ const WizardStep = ( { title, subTitle, complete = false, children, active } ) =
 
 WizardStep.propTypes = {
 	title: PropTypes.string,
-	subTitle: PropTypes.string,
+	subTitle: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.array,
+	] ),
 	complete: PropTypes.bool,
 	active: PropTypes.bool,
 	children: PropTypes.node.isRequired,
