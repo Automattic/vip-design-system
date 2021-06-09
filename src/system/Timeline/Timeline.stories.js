@@ -15,7 +15,7 @@ export default {
 
 export const Default = () => (
 	<React.Fragment>
-		<Grid gap={ 2 } columns={ [ 2, '100px 300px' ] } sx={ { mb: "20px" } }>
+		<Grid gap={ 2 } columns={ [ 2, '100px 300px' ] } sx={ { mb: '20px' } }>
 			<Timeline time="7pm" />
 			<Box>
 				It looks like everything is recovered now. You can forget about the last event.
