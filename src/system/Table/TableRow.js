@@ -40,7 +40,7 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 						borderBottom: '1px solid',
 						borderTop: head ? '1px solid' : 'none',
 						borderColor: 'border',
-						'&:first-child': {
+						'&:first-of-type': {
 							pl: 5,
 						},
 					} }
