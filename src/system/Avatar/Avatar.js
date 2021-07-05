@@ -10,17 +10,24 @@ import PropTypes from 'prop-types';
  */
 import { Box, Text } from '..';
 
-const Avatar = ( { size = 32, src = null, name = null, ...props } ) => (
+const Avatar = ( {
+	isVIP = false,
+	name = null,
+	size = 32,
+	src = null,
+	...props
+} ) => (
 	<Box
 		sx={ {
 			borderRadius: 9999,
-			height: size,
-			width: size,
+			height: size + 2, // +2 to compensate padding on both sides
+			width: size + 2, // +2 to compensate padding on both sides
 			border: '2px solid',
-			borderColor: 'primary',
+			borderColor: isVIP ? 'primary' : 'transparent',
 			overflow: 'hidden',
-			backgroundColor: 'brand.50',
+			backgroundColor: 'white',
 			color: 'white',
+			padding: '1px',
 			textAlign: 'center',
 		} }
 		{ ...props }
@@ -30,6 +37,7 @@ const Avatar = ( { size = 32, src = null, name = null, ...props } ) => (
 				src={ src }
 				alt={ name }
 				sx={ {
+					borderRadius: 9999,
 					width: '100%',
 					display: 'block',
 				} }
@@ -51,6 +59,7 @@ const Avatar = ( { size = 32, src = null, name = null, ...props } ) => (
 );
 
 Avatar.propTypes = {
+	isVIP: PropTypes.bool,
 	size: PropTypes.number,
 	src: PropTypes.string,
 	name: PropTypes.string,
