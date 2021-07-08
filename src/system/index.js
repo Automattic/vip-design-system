@@ -11,7 +11,7 @@ import { Code } from './Code';
 import { Dialog, DialogButton, DialogDivider, DialogMenu, DialogMenuItem, DialogContent } from './Dialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { Flex } from './Flex';
-import { Input, Label, Toggle, ToggleRow, Validation, Radio, Select, Textarea, Checkbox } from './Form';
+import { Input, Label, Toggle, ToggleRow, Validation, Radio, Select, Textarea, Checkbox, MultiSelect } from './Form';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
@@ -59,6 +59,7 @@ export {
 	Notification,
 	Link,
 	Select,
+	MultiSelect,
 	Radio,
 	Textarea,
 	Progress,
