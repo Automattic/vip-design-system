@@ -58,7 +58,7 @@ const Code = ( { prompt = false, showCopy = false, ...props } ) => {
 						paddingTop: 1,
 						paddingBottom: 1,
 						borderTopRightRadius: 1,
-						opacity: 0.5,
+						opacity: 0.8,
 						'&:hover': {
 							opacity: 1,
 							cursor: 'pointer',
