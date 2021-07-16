@@ -2,28 +2,28 @@
 /**
  * External dependencies
  */
-import { jsx, Select as ThemeSelect } from 'theme-ui';
+import { jsx } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-const Select = props => (
-	<ThemeSelect
-		{...props}
-		sx={{
-			border: '1px solid',
-			borderColor: 'border',
-			backgroundColor: 'card',
-			borderRadius: 1,
-			lineHeight: 'inherit',
-			px: 3,
-			py: 2,
-			fontSize: 2,
-			color: 'text',
-			width: '100%',
-			'&:focus': {
-				borderColor: 'brand.60',
-				outline: 'none',
-			},
-		}}
-	/>
-);
+/**
+ * Internal dependencies
+ */
+import { SearchSelect } from './SearchSelect';
+import { InlineSelect } from './InlineSelect';
+
+const Select = ( { isMulti = false, isInline, options, label, isSearch, ...props } ) => {
+	if ( isInline ) {
+		return <InlineSelect isMulti={ isMulti } label={ label } options={ options } { ...props } />;
+	}
+	return <SearchSelect isMulti={ isMulti } label={ label } options={ options } { ...props } />;
+};
+
+Select.propTypes = {
+	isMulti: PropTypes.bool,
+	isInline: PropTypes.bool,
+	isSearch: PropTypes.bool,
+	options: PropTypes.array,
+	label: PropTypes.string,
+};
 
 export { Select };

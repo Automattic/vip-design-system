@@ -104,7 +104,7 @@ export default {
 			border: '1px solid transparent',
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
-				backgroundColor: colors.brand[ '80' ],
+				backgroundColor: 'brand.80',
 				color: 'white',
 			},
 		},
@@ -113,7 +113,7 @@ export default {
 			variant: 'buttons.primary',
 			bg: colors.red[ '70' ],
 			'&:hover, &:focus': {
-				backgroundColor: colors.red[ '80' ],
+				backgroundColor: 'red.80',
 			},
 		},
 		secondary: {
@@ -121,12 +121,10 @@ export default {
 			cursor: 'pointer',
 			boxShadow: 'none',
 			borderRadius: 1,
-			backgroundColor: 'card',
-			border: '1px solid',
-			borderColor: 'border',
+			backgroundColor: 'backgroundSecondary',
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
-				borderColor: 'muted',
+				bg: 'brand.7',
 			},
 		},
 		text: {
@@ -135,8 +133,6 @@ export default {
 			color: 'link',
 			cursor: 'pointer',
 			fontWeight: 'heading',
-			px: 2,
-			py: 1,
 			'&:hover, &:focus': {
 				color: 'heading',
 				backgroundColor: 'hover',
