@@ -1,27 +1,26 @@
 /**
  * External dependencies
  */
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 
- /**
-  * Internal dependencies
-  */
- import {
-     Box,
-     Dialog,
-     DialogMenu,
-     DialogMenuItem,
-     DialogDivider,
-     Select,
-     Button,
-     Flex,
- } from '..';
- 
- export default {
-     title: 'Select',
-     component: Dialog,
- };
- 
+/**
+ * Internal dependencies
+ */
+import {
+	Box,
+	Dialog,
+	DialogMenu,
+	DialogMenuItem,
+	DialogDivider,
+	Select,
+	Button,
+} from '..';
+
+export default {
+	title: 'Select',
+	component: Dialog,
+};
+
 const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
 	{ value: 'strawberry', label: 'Strawberry' },
@@ -43,46 +42,45 @@ const DropdownContent = (
 );
 
 const DropdownTrigger = <Button variant="secondary">Trigger Dropdown</Button>;
- 
-export const Multi = () => {
-    const [ value, setValue ] = useState( [ ] );
 
-    return (
-        <Box sx={ { mr: 2, width: 400 } }>
-            <Select label="Type" value={ value } isMulti placeholder="Select domains..." options={ options } onChange={ newValue => setValue( newValue ) } />
-        </Box>
-    )
+export const Multi = () => {
+	const [ value, setValue ] = useState( [ ] );
+
+	return (
+		<Box sx={ { mr: 2, width: 400 } }>
+			<Select label="Type" value={ value } isMulti placeholder="Select domains..." options={ options } onChange={ newValue => setValue( newValue ) } />
+		</Box>
+	);
 };
 
 export const Single = () => {
-    const [ value, setValue ] = useState( [ ] );
+	const [ value, setValue ] = useState( [ ] );
 
-    return (
-        <Box sx={ { mr: 2, width: 200 } }>
-            <Select label="User" value={ value } placeholder="Select a domain..." options={ options } onChange={ newValue => setValue( newValue ) } />
-        </Box>
-    )
+	return (
+		<Box sx={ { mr: 2, width: 200 } }>
+			<Select label="User" value={ value } placeholder="Select a domain..." options={ options } onChange={ newValue => setValue( newValue ) } />
+		</Box>
+	);
 };
 
 export const Inline = () => {
-    const [ value, setValue ] = useState( [ ] );
+	const [ value, setValue ] = useState( [ ] );
 
-    return (
-        <Box sx={ { mr: 2, width: 200 } }>
-            <Select label="User" value={ value } isInline isMulti noneLabel="Everyone" placeholder="Filter by user..." options={ options } onChange={ newValue => setValue( newValue ) } />
-        </Box>
-    )
+	return (
+		<Box sx={ { mr: 2, width: 200 } }>
+			<Select label="User" value={ value } isInline isMulti noneLabel="Everyone" placeholder="Filter by user..." options={ options } onChange={ newValue => setValue( newValue ) } />
+		</Box>
+	);
 };
 
 export const DropdownMenu = () => {
-    return (
-        <Box sx={ { mr: 2, width: 200 } }>
-            <Dialog
-                trigger={DropdownTrigger}
-                content={DropdownContent}
-                sx={{ width: 200 }}
-            />
-        </Box>
-    )
+	return (
+		<Box sx={ { mr: 2, width: 200 } }>
+			<Dialog
+				trigger={DropdownTrigger}
+				content={DropdownContent}
+				sx={{ width: 200 }}
+			/>
+		</Box>
+	);
 };
- 
