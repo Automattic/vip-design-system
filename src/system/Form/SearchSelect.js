@@ -41,7 +41,7 @@ export const selectStyles = {
 	} ),
 };
 
-export const Option = ( { data, isSelected, ...props } ) => (
+export const Option = ( { label, isSelected, ...props } ) => (
 	<components.Option {...props}>
 		<Flex sx={{ alignItems: 'center' }}>
 			{isSelected && (
@@ -50,14 +50,14 @@ export const Option = ( { data, isSelected, ...props } ) => (
 				</Text>
 			)}
 			<Text as="span" sx={{ mb: 0, flex: '1 1 auto', color: 'heading' }}>
-				{data.label}
+				{ label }
 			</Text>
 		</Flex>
 	</components.Option>
 );
 
 Option.propTypes = {
-	data: PropTypes.object,
+	label: PropTypes.string,
 	isSelected: PropTypes.bool,
 };
 
