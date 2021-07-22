@@ -37,12 +37,14 @@ const selectStyles = {
 const InlineSelect = ( { label, value, options, noneLabel = 'All', ...props } ) => {
 	let valueLabel = noneLabel;
 
-	if ( value.label ) {
+	if ( Array.isArray( value ) && value.length ) {
+		if ( value.length > 1 ) {
+			valueLabel = `${ value[ 0 ].label } + ${ value.length - 1 }`;
+		} else {
+			valueLabel = value[ 0 ].label;
+		}
+	} else if ( value.label ) {
 		valueLabel = value.label;
-	} else if ( value.length > 1 ) {
-		valueLabel = `${ value[ 0 ].label } + ${ value.length - 1 }`;
-	} else if ( value.length === 1 ) {
-		valueLabel = value[ 0 ].label;
 	}
 
 	const Content = (
