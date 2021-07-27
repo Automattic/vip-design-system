@@ -43,8 +43,9 @@ const DialogMenuItem = props => {
 					listStyleType: 'none',
 					display: 'block',
 					m: 0,
-					px: 3,
-					py: 2,
+					color: 'heading',
+					px: 2,
+					py: 1,
 					cursor: 'pointer',
 					'&:hover, &:focus': {
 						backgroundColor: 'hover',

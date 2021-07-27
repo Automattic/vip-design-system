@@ -18,7 +18,6 @@ const Card = React.forwardRef( ( { variant = 'primary', ...props }, ref ) => (
 		sx={ {
 			// pass variant prop to sx
 			variant: `cards.${ variant }`,
-			overflow: 'hidden',
 		} }
 	/>
 ) );

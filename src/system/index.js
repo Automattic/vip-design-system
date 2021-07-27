@@ -8,10 +8,10 @@ import { Box } from './Box';
 import { Button } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
-import { Dialog, DialogButton, DialogDivider, DialogMenu, DialogMenuItem, DialogContent } from './Dialog';
+import { Dialog, DialogButton, DialogDivider, DialogMenu, DialogMenuItem, DialogTrigger, DialogContent } from './Dialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { Flex } from './Flex';
-import { Input, Label, Toggle, ToggleRow, Validation, Radio, Select, Textarea, Checkbox, MultiSelect } from './Form';
+import { Input, Label, Toggle, ToggleRow, Validation, Radio, Select, Textarea, Checkbox } from './Form';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
@@ -44,6 +44,7 @@ export {
 	DialogMenuItem,
 	DialogDivider,
 	DialogContent,
+	DialogTrigger,
 	ConfirmationDialog,
 	Grid,
 	Flex,
@@ -59,7 +60,6 @@ export {
 	Notification,
 	Link,
 	Select,
-	MultiSelect,
 	Radio,
 	Textarea,
 	Progress,
