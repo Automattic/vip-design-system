@@ -19,12 +19,16 @@ const VerticalLine = () => {
 	);
 };
 
-const Timeline = ( { time, ...props } ) => (
+const Timeline = ( { time, first = false, last = false, ...props } ) => (
 	<Flex { ...props }>
 		<Flex sx={ { flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' } }>
-			<VerticalLine />
+			{ ! first && (
+				<VerticalLine />
+			) }
 			<MdWatchLater sx={ { color: 'modes.dark.heading' } } size={ 18 }/>
-			<VerticalLine />
+			{ ! last && (
+				<VerticalLine />
+			) }
 		</Flex>
 		<Flex sx={ { alignItems: 'center', ml: 2 } }>
 			<span>{ time }</span>
@@ -33,7 +37,9 @@ const Timeline = ( { time, ...props } ) => (
 );
 
 Timeline.propTypes = {
+	first: PropTypes.bool,
 	time: PropTypes.string,
+	last: PropTypes.bool,
 };
 
 export { Timeline };
