@@ -4,14 +4,15 @@
 import colors from './colors';
 
 export default {
-	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
+	useColorSchemeMediaQuery: false,
+	space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 	fonts: {
 		body:
-			'"SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+			'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;',
 		heading: 'inherit',
 		monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 	},
-	fontSizes: [ 11, 13, 15, 20, 32, 48, 56, 64, 96 ],
+	fontSizes: [12, 14, 16, 20, 32, 48, 56, 64, 96],
 	fontWeights: {
 		body: 400,
 		heading: 500,
@@ -23,51 +24,56 @@ export default {
 	},
 	sizes: {
 		sidebar: 260,
+		container: 960,
 	},
-	radii: [ 0, 3, 5 ],
+	radii: [0, 3, 5],
 	colors: {
-		text: colors.grey[ '70' ],
-		heading: colors.grey[ '100' ],
-		background: colors.brand[ '0' ],
-		backgroundSecondary: colors.brand[ '3' ],
-		primary: colors.brand[ '50' ],
+		text: colors.grey['80'],
+		heading: colors.grey['100'],
+		background: colors.brand['0'],
+		docsBackground: 'white',
+		backgroundSecondary: colors.brand['3'],
+		primary: colors.brand['50'],
 		secondary: '#30c',
-		muted: colors.grey[ '60' ],
-		link: colors.brand[ '70' ],
+		muted: colors.grey['60'],
+		link: colors.brand['70'],
 		card: '#fefefe',
-		border: colors.brand[ '7' ],
+		border: colors.brand['7'],
 		hover: 'rgba(0,0,0,.025)',
 		lightenBackground: 'rgba(255,255,255,.5)',
-		placeholder: colors.grey[ '40' ],
+		placeholder: colors.grey['40'],
 		midnight: '#13191E',
+		success: colors.green['50'],
+		failure: colors.red['50'],
 		modes: {
 			dark: {
-				text: colors.grey[ '30' ],
-				heading: colors.grey[ '10' ],
-				background: colors.grey[ '90' ],
-				backgroundSecondary: colors.grey[ '80' ],
+				text: colors.grey['30'],
+				heading: colors.grey['10'],
+				background: colors.grey['90'],
+				docsBackground: colors.grey['95'],
+				backgroundSecondary: colors.grey['80'],
 				lightenBackground: 'rgba(0,0,0,.1)',
-				primary: colors.brand[ '50' ],
-				muted: colors.grey[ '40' ],
-				link: colors.brand[ '30' ],
-				card: colors.grey[ '80' ],
-				placeholder: colors.grey[ '70' ],
+				primary: colors.brand['30'],
+				muted: colors.grey['40'],
+				link: colors.brand['30'],
+				card: colors.grey['80'],
+				placeholder: colors.grey['70'],
 				border: 'rgba(255,255,255,.08)',
 				hover: 'rgba(255,255,255,.02)',
-				midnight: colors.grey[ '90' ],
+				midnight: colors.grey['90'],
 			},
 		},
 		...colors,
 	},
 	shadows: {
+		// eslint-disable-next-line max-len
 		low:
-		// eslint-disable-next-line max-len
 			'0px 0.11069px 0.193708px rgba(0, 0, 0, 0.0196802), 0px 0.266004px 0.465507px rgba(0, 0, 0, 0.0282725), 0px 0.500862px 0.876509px rgba(0, 0, 0, 0.035), 0px 0.893452px 1.56354px rgba(0, 0, 0, 0.0417275), 0px 1.6711px 2.92443px rgba(0, 0, 0, 0.0503198), 0px 4px 7px rgba(0, 0, 0, 0.07)',
+		// eslint-disable-next-line max-len
 		medium:
-		// eslint-disable-next-line max-len
 			'0px 1.97961px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 4.36146px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 7.34273px 10.0172px rgba(0, 0, 0, 0.035), 0px 11.2752px 17.869px rgba(0, 0, 0, 0.0417275), 0px 16.7372px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 24px 80px rgba(0, 0, 0, 0.07)',
-		high:
 		// eslint-disable-next-line max-len
+		high:
 			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
 	},
 	cards: {
@@ -91,12 +97,18 @@ export default {
 			backgroundColor: 'border',
 		},
 	},
-
+	forms: {
+		label: {
+			variant: 'text.caps',
+			display: 'block',
+			mb: 2,
+		},
+	},
 	buttons: {
 		primary: {
 			// you can reference other values defined in the theme
 			color: 'white',
-			bg: colors.brand[ '70' ],
+			bg: colors.brand['70'],
 			cursor: 'pointer',
 			fontWeight: 'heading',
 			boxShadow: 'low',
@@ -104,16 +116,16 @@ export default {
 			border: '1px solid transparent',
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
-				backgroundColor: 'brand.80',
+				backgroundColor: colors.brand['80'],
 				color: 'white',
 			},
 		},
 		danger: {
 			// you can reference other values defined in the theme
 			variant: 'buttons.primary',
-			bg: colors.red[ '70' ],
+			bg: colors.red['70'],
 			'&:hover, &:focus': {
-				backgroundColor: 'red.80',
+				backgroundColor: colors.red['80'],
 			},
 		},
 		secondary: {
@@ -121,10 +133,12 @@ export default {
 			cursor: 'pointer',
 			boxShadow: 'none',
 			borderRadius: 1,
-			backgroundColor: 'backgroundSecondary',
+			backgroundColor: 'card',
+			border: '1px solid',
+			borderColor: 'border',
 			svg: { position: 'relative', top: '0.125em' },
 			'&:hover, &:focus': {
-				bg: 'brand.7',
+				borderColor: 'muted',
 			},
 		},
 		text: {
@@ -133,6 +147,8 @@ export default {
 			color: 'link',
 			cursor: 'pointer',
 			fontWeight: 'heading',
+			px: 2,
+			py: 1,
 			'&:hover, &:focus': {
 				color: 'heading',
 				backgroundColor: 'hover',
@@ -177,30 +193,35 @@ export default {
 			marginBottom: 3,
 			letterSpacing: '-.02em',
 			fontWeight: 'heading',
+			color: 'heading',
 		},
 		h2: {
 			fontSize: 4,
 			marginBottom: 2,
 			letterSpacing: '-.005em',
-			fontWeight: 400,
+			fontWeight: 'heading',
+			color: 'heading',
 		},
 		h3: {
 			fontSize: 3,
 			marginBottom: 3,
 			letterSpacing: '-.005em',
 			lineHeight: 1.25,
+			color: 'heading',
 			fontWeight: 'heading',
 		},
 		h4: {
 			fontSize: 2,
 			marginBottom: 1,
 			lineHeight: 1.5,
+			color: 'heading',
 			fontWeight: 'heading',
 		},
 		h5: {
 			fontSize: 1,
 			marginBottom: 1,
 			lineHeight: 1.5,
+			color: 'heading',
 			fontWeight: 'body',
 		},
 		caps: {
@@ -268,6 +289,41 @@ export default {
 			svg: {
 				fill: 'currentColor',
 			},
+		},
+		h1: {
+			variant: 'text.h1',
+			mb: 0,
+		},
+		h2: {
+			variant: 'text.h2',
+		},
+		h3: {
+			variant: 'text.h3',
+			mb: 2,
+		},
+		h4: {
+			variant: 'text.h4',
+		},
+		h5: {
+			fontSize: 1,
+			marginBottom: 1,
+			lineHeight: 1.5,
+			fontWeight: 'body',
+		},
+		p: {
+			fontSize: 2,
+			fontFamily: 'body',
+		},
+		caps: {
+			fontSize: 1,
+			marginBottom: 2,
+			textTransform: 'uppercase',
+			color: 'muted',
+			fontWeight: 'bold',
+			letterSpacing: '.05em',
+		},
+		pre: {
+			fontFamily: 'inherit',
 		},
 	},
 };

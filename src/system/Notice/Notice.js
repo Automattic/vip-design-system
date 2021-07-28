@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 /**
@@ -10,23 +8,25 @@ import PropTypes from 'prop-types';
  */
 import { Card } from '../';
 
-const Notice = ( { variant = 'info', ...props } ) => (
+const Notice = ({ variant = 'info', sx, ...props }) => (
 	<Card
-		sx={ {
+		sx={{
 			borderLeft: '3px solid',
 			boxShadow: 'none',
 			backgroundColor: 'hover',
 			borderTopLeftRadius: 0,
 			borderBottomLeftRadius: 0,
 			pl: 19,
-			variant: `notice.${ variant }`,
-		} }
-		{ ...props }
+			variant: `notice.${variant}`,
+			...sx,
+		}}
+		{...props}
 	/>
 );
 
 Notice.propTypes = {
 	variant: PropTypes.string,
+	sx: PropTypes.object,
 };
 
 export { Notice };

@@ -1,8 +1,7 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx, Grid as ThemeGrid } from 'theme-ui';
+import { Grid as ThemeGrid } from 'theme-ui';
 
 import { forwardRef } from 'react';
 

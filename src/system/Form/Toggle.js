@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 const Toggle = ( { name = 'toggle', ...props } ) => (
@@ -49,7 +47,7 @@ const CheckBoxLabel = props => (
 	/>
 );
 
-const CheckBox = props => (
+const CheckBox = ( { sx, ...props } ) => (
 	<input
 		sx={{
 			opacity: '0',
@@ -76,3 +74,7 @@ const CheckBox = props => (
 		{...props}
 	/>
 );
+
+CheckBox.propTypes = {
+	sx: PropTypes.object,
+};

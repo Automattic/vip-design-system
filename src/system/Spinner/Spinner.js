@@ -1,10 +1,10 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx, Spinner as ThemeSpinner } from 'theme-ui';
+import { Spinner as ThemeSpinner } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-const Spinner = props => (
+const Spinner = ( { sx, ...props } ) => (
 	<ThemeSpinner
 		strokeWidth={2}
 		sx={{
@@ -14,5 +14,9 @@ const Spinner = props => (
 		{...props}
 	/>
 );
+
+Spinner.propTypes = {
+	sx: PropTypes.object,
+};
 
 export { Spinner };

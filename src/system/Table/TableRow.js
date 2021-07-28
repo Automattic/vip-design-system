@@ -1,8 +1,3 @@
-/** @jsx jsx */
-/**
- * External dependencies
- */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 /**
@@ -40,7 +35,7 @@ const TableRow = ( { onClick, head = false, cells } ) => {
 						borderBottom: '1px solid',
 						borderTop: head ? '1px solid' : 'none',
 						borderColor: 'border',
-						'&:first-of-type': {
+						'&:first-child': {
 							pl: 5,
 						},
 					} }

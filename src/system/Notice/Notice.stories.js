@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 
 /**
  * Internal dependencies

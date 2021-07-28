@@ -1,12 +1,11 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
+import { Input as ThemeInput } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Input = ( { variant, ...props } ) => (
-	<input
+const Input = ( { variant, sx, ...props } ) => (
+	<ThemeInput
 		{ ...props }
 		sx={ {
 			border: '1px solid',
@@ -25,12 +24,14 @@ const Input = ( { variant, ...props } ) => (
 				borderColor: 'brand.60',
 				outline: 'none',
 			},
+			...sx,
 		} }
 	/>
 );
 
 Input.propTypes = {
 	variant: PropTypes.string,
+	sx: PropTypes.object,
 };
 
 export { Input };

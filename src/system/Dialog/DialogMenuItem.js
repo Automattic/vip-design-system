@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
@@ -11,7 +9,7 @@ import { useEffect, useRef } from 'react';
  */
 import { Box } from '../';
 
-const DialogMenuItem = props => {
+const DialogMenuItem = ( { sx, ...props } ) => {
 	const itemRef = useRef( null );
 
 	const triggerClick = e => {
@@ -43,9 +41,8 @@ const DialogMenuItem = props => {
 					listStyleType: 'none',
 					display: 'block',
 					m: 0,
-					color: 'heading',
-					px: 2,
-					py: 1,
+					px: 3,
+					py: 2,
 					cursor: 'pointer',
 					'&:hover, &:focus': {
 						backgroundColor: 'hover',
@@ -60,6 +57,7 @@ const DialogMenuItem = props => {
 
 DialogMenuItem.propTypes = {
 	onClick: PropTypes.func,
+	sx: PropTypes.object,
 };
 
 export { DialogMenuItem };

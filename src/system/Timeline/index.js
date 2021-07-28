@@ -1,8 +1,7 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx, Flex } from 'theme-ui';
+import { Flex, Text } from 'theme-ui';
 import { MdWatchLater } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
@@ -11,7 +10,7 @@ const VerticalLine = () => {
 		<div
 			sx={ {
 				borderLeft: '2px solid',
-				borderColor: 'modes.dark.heading',
+				borderColor: 'border',
 				height: 'calc( 50% - 16px )',
 				borderRadius: '2px',
 			} }>
@@ -19,27 +18,21 @@ const VerticalLine = () => {
 	);
 };
 
-const Timeline = ( { time, first = false, last = false, ...props } ) => (
+const Timeline = ( { time, ...props } ) => (
 	<Flex { ...props }>
 		<Flex sx={ { flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' } }>
-			{ ! first && (
-				<VerticalLine />
-			) }
-			<MdWatchLater sx={ { color: 'modes.dark.heading' } } size={ 18 }/>
-			{ ! last && (
-				<VerticalLine />
-			) }
+			<VerticalLine />
+			<MdWatchLater sx={ { color: 'border' } } size={ 18 }/>
+			<VerticalLine />
 		</Flex>
 		<Flex sx={ { alignItems: 'center', ml: 2 } }>
-			<span>{ time }</span>
+			<Text as="span" sx={ { color: 'muted' } }>{ time }</Text>
 		</Flex>
 	</Flex>
 );
 
 Timeline.propTypes = {
-	first: PropTypes.bool,
 	time: PropTypes.string,
-	last: PropTypes.bool,
 };
 
 export { Timeline };

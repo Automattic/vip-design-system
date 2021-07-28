@@ -1,9 +1,8 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
+import { Image } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -33,7 +32,7 @@ const Avatar = ( {
 		{ ...props }
 	>
 		{ src ? (
-			<img
+			<Image
 				src={ src }
 				alt={ name }
 				sx={ {

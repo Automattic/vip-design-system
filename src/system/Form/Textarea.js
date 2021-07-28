@@ -1,11 +1,11 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
+import { Textarea as ThemeTextarea } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-const Textarea = props => (
-	<textarea
+const Textarea = ( { sx, ...props } ) => (
+	<ThemeTextarea
 		{ ...props }
 		sx={ {
 			border: '1px solid',
@@ -27,8 +27,13 @@ const Textarea = props => (
 			'&:disabled': {
 				backgroundColor: 'background',
 			},
+			...sx,
 		} }
 	/>
 );
+
+Textarea.propTypes = {
+	sx: PropTypes.object
+}
 
 export { Textarea };

@@ -1,11 +1,10 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx, Link as ThemeLink } from 'theme-ui';
+import { Link as ThemeLink } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Link = ( { active = false, ...props } ) => (
+const Link = ( { active = false, sx, ...props } ) => (
 	<ThemeLink
 		{ ...props }
 		sx={ {
@@ -19,12 +18,14 @@ const Link = ( { active = false, ...props } ) => (
 			'&:hover, &:focus': {
 				color: 'heading',
 			},
+			...sx,
 		} }
 	/>
 );
 
 Link.propTypes = {
 	active: PropTypes.bool,
+	sx: PropTypes.object,
 };
 
 export { Link };

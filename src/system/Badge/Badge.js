@@ -1,12 +1,16 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Badge = ( { variant = 'blue', ...props } ) => (
-	<span
+/**
+ * Internal dependencies
+ */
+ import { Text } from '../';
+
+const Badge = ( { variant = 'blue', sx, ...props } ) => (
+	<Text
+		as="span"
 		sx={ {
 			fontSize: 0,
 			padding: 0,
@@ -18,6 +22,7 @@ const Badge = ( { variant = 'blue', ...props } ) => (
 			display: 'inline-block',
 			borderRadius: 1,
 			fontWeight: 'heading',
+			...sx,
 		} }
 		{ ...props }
 	/>
@@ -25,6 +30,7 @@ const Badge = ( { variant = 'blue', ...props } ) => (
 
 Badge.propTypes = {
 	variant: PropTypes.string,
+	sx: PropTypes.object,
 };
 
 export { Badge };

@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 /**
@@ -10,7 +8,7 @@ import PropTypes from 'prop-types';
  */
 import { Flex } from '..';
 
-const Tabs = ( { ...props } ) => (
+const Tabs = ( { sx, ...props } ) => (
 	<Flex
 		sx={{
 			borderBottom: '2px solid',
@@ -18,6 +16,7 @@ const Tabs = ( { ...props } ) => (
 			listStyleType: 'none',
 			margin: 0,
 			padding: 0,
+			...sx,
 		}}
 		{...props}
 	/>
@@ -25,6 +24,7 @@ const Tabs = ( { ...props } ) => (
 
 Tabs.propTypes = {
 	variant: PropTypes.string,
+	sx: PropTypes.object,
 };
 
 export { Tabs };

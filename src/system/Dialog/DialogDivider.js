@@ -1,11 +1,11 @@
-/** @jsx jsx */
 /**
- * External dependencies
+ * Internal dependencies
  */
-import { jsx } from 'theme-ui';
+
+ import { Box } from '../';
 
 const DialogDivider = props => (
-	<div sx={{ height: 1, backgroundColor: 'border', my: 1 }} { ...props } />
+	<Box sx={{ height: 1, backgroundColor: 'border', my: 2 }} { ...props } />
 );
 
 export { DialogDivider };

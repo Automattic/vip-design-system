@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';

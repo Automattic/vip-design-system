@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 /**
@@ -10,7 +8,7 @@ import PropTypes from 'prop-types';
  */
 import { Link } from '..';
 
-const TabItem = ( { active = false, ...props } ) => (
+const TabItem = ( { active = false, sx, ...props } ) => (
 	<Link
 		variant="h4"
 		as="button"
@@ -37,6 +35,7 @@ const TabItem = ( { active = false, ...props } ) => (
 				color: 'heading',
 				borderColor: 'link',
 			},
+			...sx,
 		} }
 		{ ...props }
 	/>
@@ -44,6 +43,7 @@ const TabItem = ( { active = false, ...props } ) => (
 
 TabItem.propTypes = {
 	active: PropTypes.bool,
+	sx: PropTypes.sx,
 	variant: PropTypes.string,
 };
 

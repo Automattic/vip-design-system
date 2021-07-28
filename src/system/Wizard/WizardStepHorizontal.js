@@ -1,9 +1,7 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
 import { MdCheckCircle } from 'react-icons/md';
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 /**
@@ -11,7 +9,7 @@ import PropTypes from 'prop-types';
  */
 import { Heading } from '..';
 
-const WizardStepHorizontal = ( { title, active } ) => {
+const WizardStepHorizontal = ({ title, active }) => {
 	return (
 		<Heading
 			variant="h4"

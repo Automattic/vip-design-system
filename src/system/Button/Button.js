@@ -1,21 +1,27 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx, Button as ThemeButton } from 'theme-ui';
+import { Button as ThemeButton } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-const Button = props => (
+const Button = ({ sx, ...props }) => (
 	<ThemeButton
-		sx={ {
+		sx={{
 			verticalAlign: 'middle',
+			display: 'inline-block',
 			'&:disabled': {
 				opacity: 0.5,
 				cursor: 'not-allowed',
 				pointerEvents: 'all',
 			},
-		} }
-		{ ...props }
+			...sx,
+		}}
+		{...props}
 	/>
 );
+
+Button.propTypes = {
+	sx: PropTypes.object,
+};
 
 export { Button };

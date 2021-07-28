@@ -10,5 +10,6 @@ import { Select } from './Select';
 import { Radio } from './Radio';
 import { Textarea } from './Textarea';
 import { Checkbox } from './Checkbox';
+import { MultiSelect } from './MultiSelect';
 
-export { Input, Label, Radio, Select, Textarea, Toggle, ToggleRow, Validation, Checkbox };
+export { Input, Label, Radio, Select, Textarea, Toggle, ToggleRow, Validation, Checkbox, MultiSelect };

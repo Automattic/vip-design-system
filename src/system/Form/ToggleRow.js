@@ -1,8 +1,6 @@
-/** @jsx jsx */
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 /**
@@ -18,7 +16,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 			borderBottom: '1px solid',
 			textDecoration: 'none',
 			color: 'inherit',
-			'&:first-of-type': {
+			'&:first-child': {
 				borderTop: '1px solid',
 				borderColor: 'border',
 			},
