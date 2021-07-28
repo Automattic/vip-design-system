@@ -1,3 +1,5 @@
+# ⚠️ This repo is just a prototype and may not be around for long
+
 # VIP Design System
 
 Design system components used throughout VIP.
@@ -18,7 +20,7 @@ npm install
 
 ### Watching for changes
 
-You build it continuously so that every time you make a change, build files are automatically updated:
+You can build it continuously so that every time you make a change, build files are automatically updated:
 
 ```
 npm run watch
