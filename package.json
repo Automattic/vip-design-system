@@ -1,0 +1,42 @@
+{
+	"name": "@vip/system",
+	"version": "0.2.0",
+	"private": true,
+	"main": "build/index.js",
+	"scripts": {
+		"build": "cross-env NODE_ENV=production babel src --out-dir build",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
+	},
+	"dependencies": {
+		"@material-ui/icons": "^4.11.2",
+		"babel-loader": "^8.2.2",
+		"framer-motion": "^3.9.1",
+		"react-icons": "^4.2.0",
+		"react-select": "^4.3.1"
+	},
+	"peerDependencies": {
+		"react": "*",
+		"react-dom": "*",
+		"theme-ui": "^0.6.0"
+	},
+	"resolutions": {
+		"react": "17.0.1",
+		"react-dom": "17.0.1",
+		"**/react": "17.0.1",
+		"**/react-dom": "17.0.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.14.3",
+		"@babel/core": "^7.13.8",
+		"@babel/preset-env": "^7.13.9",
+		"@babel/preset-react": "^7.12.13",
+		"@storybook/addon-actions": "5.3.21",
+		"@storybook/addon-links": "5.3.21",
+		"@storybook/addons": "5.3.21",
+		"@storybook/preset-create-react-app": "^3.2.0",
+		"@storybook/react": "5.3.21",
+		"cross-env": "^7.0.3",
+		"react-scripts": "^4.0.3"
+	}
+}
