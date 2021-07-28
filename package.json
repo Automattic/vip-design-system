@@ -4,9 +4,10 @@
 	"private": true,
 	"main": "build/index.js",
 	"scripts": {
+		"build-storybook": "build-storybook",
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"watch": "npm run build -- --watch",
+		"storybook": "start-storybook -p 6006"
 	},
 	"dependencies": {
 		"@material-ui/icons": "^4.11.2",
