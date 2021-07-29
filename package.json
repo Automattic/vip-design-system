@@ -1,7 +1,6 @@
 {
 	"name": "@vip/system",
 	"version": "0.3.0",
-	"private": true,
 	"main": "build/system/index.js",
 	"scripts": {
 		"build-storybook": "build-storybook",
