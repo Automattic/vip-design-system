@@ -1,5 +1,5 @@
 {
-	"name": "@vip/system",
+	"name": "@automattic/vip-design-system",
 	"version": "0.3.0",
 	"main": "build/system/index.js",
 	"scripts": {
