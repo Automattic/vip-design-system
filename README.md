@@ -1,5 +1,3 @@
-# ⚠️ This repo is just a prototype and may not be around for long
-
 # VIP Design System
 
 Design system components used throughout VIP.
