@@ -2,7 +2,7 @@
 	"name": "@vip/system",
 	"version": "0.2.0",
 	"private": true,
-	"main": "build/index.js",
+	"main": "build/system/index.js",
 	"scripts": {
 		"build-storybook": "build-storybook",
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
