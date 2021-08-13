@@ -1,7 +1,9 @@
 /**
- * External dependencies
+ * Internal dependencies
  */
 
-const DialogTrigger = props => <div {...props} />;
+import { Box } from '../';
+
+const DialogTrigger = props => <Box sx={{ display: 'inline' }} {...props} />;
 
 export { DialogTrigger };
