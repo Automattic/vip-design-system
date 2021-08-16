@@ -11,7 +11,7 @@ import { Flex } from '..';
 const Tabs = ( { sx, ...props } ) => (
 	<Flex
 		sx={{
-			borderBottom: '2px solid',
+			borderBottom: '1px solid',
 			borderColor: 'border',
 			listStyleType: 'none',
 			margin: 0,

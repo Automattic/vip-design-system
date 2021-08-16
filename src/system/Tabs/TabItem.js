@@ -25,9 +25,9 @@ const TabItem = ( { active = false, sx, ...props } ) => (
 			borderTop: 'none',
 			borderLeft: 'none',
 			borderRight: 'none',
-			borderBottom: '2px solid',
+			borderBottom: '1px solid',
 			borderColor: active ? 'link' : 'transparent',
-			transform: 'translateY(2px)',
+			transform: 'translateY(1px)',
 			'&:visited': {
 				color: active ? 'heading' : 'muted',
 			},

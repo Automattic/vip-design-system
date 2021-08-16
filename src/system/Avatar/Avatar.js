@@ -24,7 +24,7 @@ const Avatar = ( {
 			border: '2px solid',
 			borderColor: isVIP ? 'primary' : 'transparent',
 			overflow: 'hidden',
-			backgroundColor: 'white',
+			backgroundColor: 'primary',
 			color: 'white',
 			padding: '1px',
 			textAlign: 'center',
