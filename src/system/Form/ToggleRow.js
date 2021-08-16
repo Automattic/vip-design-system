@@ -16,7 +16,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 			borderBottom: '1px solid',
 			textDecoration: 'none',
 			color: 'inherit',
-			'&:first-child': {
+			'&:first-of-type': {
 				borderTop: '1px solid',
 				borderColor: 'border',
 			},

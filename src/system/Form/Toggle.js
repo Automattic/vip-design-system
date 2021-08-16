@@ -47,7 +47,7 @@ const CheckBoxLabel = props => (
 	/>
 );
 
-const CheckBox = ( { sx, ...props } ) => (
+const CheckBox = props => (
 	<input
 		sx={{
 			opacity: '0',
@@ -74,7 +74,3 @@ const CheckBox = ( { sx, ...props } ) => (
 		{...props}
 	/>
 );
-
-CheckBox.propTypes = {
-	sx: PropTypes.object,
-};

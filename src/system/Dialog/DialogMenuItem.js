@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
  */
 import { Box } from '../';
 
-const DialogMenuItem = ( { sx, ...props } ) => {
+const DialogMenuItem = props => {
 	const itemRef = useRef( null );
 
 	const triggerClick = e => {
@@ -41,9 +41,11 @@ const DialogMenuItem = ( { sx, ...props } ) => {
 					listStyleType: 'none',
 					display: 'block',
 					m: 0,
-					px: 3,
-					py: 2,
+					color: 'heading',
+					px: 2,
+					py: 1,
 					cursor: 'pointer',
+					textDecoration: 'none',
 					'&:hover, &:focus': {
 						backgroundColor: 'hover',
 						outline: 'none',
@@ -57,7 +59,6 @@ const DialogMenuItem = ( { sx, ...props } ) => {
 
 DialogMenuItem.propTypes = {
 	onClick: PropTypes.func,
-	sx: PropTypes.object,
 };
 
 export { DialogMenuItem };
