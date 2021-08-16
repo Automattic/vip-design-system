@@ -44,7 +44,7 @@
 		 modes: {
 			 dark: {
 				 text: colors.grey[ '30' ],
-				 heading: colors.grey[ '10' ],
+				 heading: colors.grey[ '100' ],
 				 background: colors.grey[ '90' ],
 				 backgroundSecondary: colors.grey[ '80' ],
 				 lightenBackground: 'rgba(0,0,0,.1)',

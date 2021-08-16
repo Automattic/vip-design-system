@@ -46,12 +46,15 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 	};
 
 	return (
-		<div onClick={ e => e.stopPropagation() } sx={ { position: 'relative' } } ref={ dialogRef }>
+		<div sx={ { position: 'relative' } } ref={ dialogRef }>
 			<DialogTrigger
 				tabIndex="0"
-				sx={ { display: 'inline' } }
-				onKeyPress={ handleOpen }
-				onClick={ handleOpen }
+				onKeyPress={ e => {
+					if ( e.key === 13 || e.key === 'Enter' ) {
+						setIsOpen( ! isOpen );
+					}
+				} }
+				onClick={ () => setIsOpen( ! isOpen ) }
 				aria-haspopup="true"
 				aria-expanded={ isOpen }
 			>
