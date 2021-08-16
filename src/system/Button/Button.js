@@ -10,7 +10,10 @@ const Button = ({ sx, ...props }) => (
 	<ThemeButton
 		sx={{
 			verticalAlign: 'middle',
-			display: 'inline-block',
+			display: 'inline-flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			height: '36px',
 			'&:disabled': {
 				opacity: 0.5,
 				cursor: 'not-allowed',

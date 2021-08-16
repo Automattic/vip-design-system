@@ -29,9 +29,9 @@ const Notification = ({ title, body, status = 'success', onClose }) => (
 		</Button>
 		<Flex sx={{ alignItems: 'center' }}>
 			{status === 'error' ? (
-				<MdError sx={{ color: 'red.50', flex: '0 0 auto' }} />
+				<MdError sx={{ color: 'error', flex: '0 0 auto' }} />
 			) : (
-				<MdCheckCircle sx={{ color: 'green.50', flex: '0 0 auto' }} />
+				<MdCheckCircle sx={{ color: 'success', flex: '0 0 auto' }} />
 			)}
 			<Box sx={{ flex: '1 1 auto', ml: 3 }}>
 				<Heading variant="h4" sx={{ mb: 0 }}>
