@@ -68,7 +68,7 @@ const SidebarMotion = props => (
 		sx={ {
 			marginTop: 2,
 			borderRadius: 2,
-			backgroundColor: 'card',
+			backgroundColor: 'dialog',
 			boxShadow: 'low',
 			position: 'absolute',
 			top: '100%',
@@ -110,7 +110,7 @@ const DialogMotion = ( { variant, position, ...props } ) => {
 				marginTop: 2,
 				transformOrigin: transformOrigin,
 				borderRadius: 2,
-				backgroundColor: 'card',
+				backgroundColor: 'dialog',
 				boxShadow: 'low',
 				position: 'absolute',
 				top: '100%',
