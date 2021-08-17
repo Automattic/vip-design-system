@@ -47,6 +47,7 @@
 		 success: light.green['80'],
 		 error: light.red['80'],
 		 warning: light.yellow['80'],
+		 dialog: light.grey['0'],
 		 ...light,
 		 modes: {
 			 dark: {
@@ -60,7 +61,7 @@
 				 link: dark.brand[ '90' ],
 				 card: dark.grey[ '20' ],
 				 placeholder: dark.grey[ '70' ],
-				 border: 'rgba(255,255,255,.08)',
+				 border: dark.grey[ '30' ],
 				 hover: 'rgba(255,255,255,.02)',
 				 midnight: dark.grey[ '90' ],
 				 navigationStart: dark.grey[ '5' ],
@@ -68,6 +69,7 @@
 		 		 success: dark.green['80'],
 		 		 error: dark.red['80'],
 		 		 warning: dark.yellow['80'],
+		 		 dialog: dark.grey['40'],
 				 ...dark,
 			 },
 		 },
@@ -227,6 +229,7 @@
 			 top: '10vh',
 			 left: '50%',
 			 maxWidth: '90%',
+			 backgroundColor: 'background',
 		 },
 		 sidebar: {
 			 position: 'fixed',
