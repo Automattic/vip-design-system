@@ -165,7 +165,7 @@
 			 color: 'grey.0',
 			 bg: 'grey.100',
 			 cursor: 'pointer',
-			 fontWeight: 'bold',
+			 fontWeight: 'heading',
 			 boxShadow: 'none',
 			 borderRadius: 1,
 			 border: '1px solid transparent',
