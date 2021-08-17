@@ -13,7 +13,7 @@ const WizardStep = ({ title, subTitle, complete = false, children, active }) => 
 	let borderLeftColor = 'border';
 
 	if (complete) {
-		borderLeftColor = 'green.60';
+		borderLeftColor = 'success';
 	} else if (active) {
 		borderLeftColor = 'primary';
 	}
@@ -21,7 +21,7 @@ const WizardStep = ({ title, subTitle, complete = false, children, active }) => 
 	let color = 'muted';
 
 	if (complete) {
-		color = 'green.60';
+		color = 'success';
 	} else if (active) {
 		color = 'heading';
 	}

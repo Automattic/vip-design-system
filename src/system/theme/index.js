@@ -26,6 +26,10 @@
 		 sidebar: 260,
 	 },
 	 radii: [ 0, 5, 10 ],
+	 config: {
+		useColorSchemeMediaQuery: false,
+	},
+	 initialColorModeName: 'light',
 	 colors: {
 		 text: light.grey[ '90' ],
 		 heading: light.grey[ '100' ],
@@ -57,11 +61,11 @@
 				 backgroundSecondary: dark.grey[ '10' ],
 		 		 primary: light.brand[ '70' ],
 				 secondary: '#30c',
-				 muted: dark.grey[ '80' ],
+				 muted: dark.grey[ '90' ],
 				 link: dark.brand[ '90' ],
 				 card: dark.grey[ '20' ],
 				 placeholder: dark.grey[ '70' ],
-				 border: dark.grey[ '30' ],
+				 border: dark.grey[ '40' ],
 				 hover: 'rgba(255,255,255,.02)',
 				 midnight: dark.grey[ '90' ],
 				 navigationStart: dark.grey[ '5' ],
@@ -108,8 +112,8 @@
 	 buttons: {
 		 primary: {
 			 // you can reference other values defined in the theme
-			 color: 'brand.10',
-			 bg: 'brand.70',
+			 color: 'brand.0',
+			 bg: 'brand.80',
 			 cursor: 'pointer',
 			 fontWeight: 'bold',
 			 boxShadow: 'none',
