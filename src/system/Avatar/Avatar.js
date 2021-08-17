@@ -25,6 +25,9 @@ const Avatar = ( {
 			borderColor: isVIP ? 'primary' : 'transparent',
 			overflow: 'hidden',
 			backgroundColor: 'primary',
+			display: 'inline-flex',
+			alignItems: 'center',
+			justifyContent: 'center',
 			color: 'white',
 			padding: '1px',
 			textAlign: 'center',
@@ -46,6 +49,7 @@ const Avatar = ( {
 				as="span"
 				sx={ {
 					color: 'white',
+					mb: 0,
 					fontWeight: 'bold',
 					fontSize: 0,
 					textTransform: 'uppercase',

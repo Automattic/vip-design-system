@@ -14,8 +14,8 @@ const Badge = ( { variant = 'blue', sx, ...props } ) => (
 		sx={ {
 			fontSize: 0,
 			padding: 0,
-			bg: `${ variant }.10`,
-			color: `${ variant }.90`,
+			bg: `${ variant }.20`,
+			color: `${ variant }.100`,
 			py: 1,
 			verticalAlign: 'middle',
 			px: 2,
