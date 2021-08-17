@@ -115,7 +115,7 @@
 			 color: 'brand.0',
 			 bg: 'brand.80',
 			 cursor: 'pointer',
-			 fontWeight: 'bold',
+			 fontWeight: 'heading',
 			 boxShadow: 'none',
 			 borderRadius: 1,
 			 border: '1px solid transparent',
@@ -136,7 +136,7 @@
 			 color: 'grey.90',
 			 cursor: 'pointer',
 			 boxShadow: 'none',
-			 fontWeight: 'bold',
+			 fontWeight: 'heading',
 			 borderRadius: 1,
 			 bg: 'grey.10',
 			 '&:hover, &:focus': {
@@ -149,7 +149,7 @@
 			 boxShadow: 'none',
 			 color: 'link',
 			 cursor: 'pointer',
-			 fontWeight: 'bold',
+			 fontWeight: 'heading',
 			 '&:hover, &:focus': {
 				 color: 'heading',
 				 backgroundColor: 'hover',
