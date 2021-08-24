@@ -1,17 +1,18 @@
 /**
  * External dependencies
  */
+import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
 
 /**
- * Internal dependencies
- */
+* Internal dependencies
+*/
 import { Button, Text } from '../';
 
-const DialogButton = ( { label, value, children, ...props } ) => (
-	<Button variant="secondary" sx={ {
+const DialogButton = ( { label, variant = 'secondary', value, children, ...props } ) => (
+	<Button variant={ variant } sx={ {
 		textAlign: 'left',
 		display: 'inline-flex',
 		py: 2,
@@ -45,9 +46,10 @@ const DialogButton = ( { label, value, children, ...props } ) => (
 );
 
 DialogButton.propTypes = {
-	children: PropTypes.array,
+	children: PropTypes.node,
 	label: PropTypes.string,
 	value: PropTypes.string,
+	variant: PropTypes.string,
 };
 
 export { DialogButton };

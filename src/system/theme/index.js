@@ -4,6 +4,7 @@
  import colors from './colors';
 
  export default {
+	 initialColorModeName: 'light',
 	 space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
 	 fonts: {
 		 body:
@@ -91,7 +92,7 @@
 			 backgroundColor: 'backgroundSecondary',
 		 },
 	 },
- 
+
 	 buttons: {
 		 primary: {
 			 // you can reference other values defined in the theme

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
 /**
- * Internal dependencies
- */
-import { Box } from '../';
+* Internal dependencies
+*/
+import { Box, Spinner } from '../';
 
-const DialogMenuItem = props => {
+const DialogMenuItem = ( { loading = false, children, ...props } ) => {
 	const itemRef = useRef( null );
 
 	const triggerClick = e => {
@@ -39,7 +39,9 @@ const DialogMenuItem = props => {
 				tabIndex="0"
 				sx={ {
 					listStyleType: 'none',
-					display: 'block',
+					display: 'flex',
+					alignItems: 'center',
+					textAlign: 'left',
 					m: 0,
 					color: 'heading',
 					px: 2,
@@ -52,13 +54,22 @@ const DialogMenuItem = props => {
 					},
 				} }
 				{ ...props }
-			/>
+			>
+				<Box sx={ { flex: '1 1 auto' } }>
+					{ children }
+				</Box>
+				{ loading &&
+					<Spinner sx={ { width: 12 } } />
+				}
+			</Box>
 		</li>
 	);
 };
 
 DialogMenuItem.propTypes = {
 	onClick: PropTypes.func,
+	loading: PropTypes.bool,
+	children: PropTypes.node,
 };
 
 export { DialogMenuItem };
