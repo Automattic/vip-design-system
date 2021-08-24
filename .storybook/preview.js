@@ -1,36 +1,25 @@
-import { jsx, ThemeProvider, useColorMode } from "theme-ui";
 import React from "react";
-import Brightness2Icon from "@material-ui/icons/Brightness2";
-import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import { ThemeProvider, useColorMode } from "theme-ui";
 import { addDecorator } from "@storybook/react";
-import { Box, Link, theme } from "../src/system";
+import { Box, theme } from "../src/system";
 
 const ThemeChanger = () => {
-	const [colorMode, setColorMode] = useColorMode();
+	const [colorMode, setColorMode] = useColorMode()
 
-	const setDarkMode = (isDark) => setColorMode(isDark ? "dark" : "default");
-
-	const ToggleIcon = colorMode == "dark" ? WbSunnyIcon : Brightness2Icon;
-
-	return (
-		<Link
-			href="#!"
-			onClick={(e) => {
-				e.preventDefault();
-				setDarkMode(colorMode == "dark" ? false : true);
-			}}
-		>
-			<ToggleIcon sx={{ position: "fixed", right: 106, top: 36 }}>
-				Toggle
-			</ToggleIcon>
-		</Link>
-	);
+  return (
+    <button
+      onClick={(e) => {
+        setColorMode(colorMode === 'light' ? 'dark' : 'light')
+      }}>
+      Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+    </button>
+  )
 };
 
 addDecorator((story) => (
 	<React.Fragment>
 		<ThemeProvider theme={theme}>
-			<ThemeChanger />
+			{/* <ThemeChanger /> */}
 			<Box sx={{ p: 4, height: "100vh" }}>{story()}</Box>
 		</ThemeProvider>
 	</React.Fragment>

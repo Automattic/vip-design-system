@@ -1,16 +1,13 @@
 /**
- * External dependencies
- */
-import PropTypes from 'prop-types';
-import { Label as ThemeLabel } from 'theme-ui'
-
-/**
  * Internal dependencies
  */
 import { Heading } from '..';
 
-const Label = ( { sx, ...props } ) => (
-	<ThemeLabel
+const Label = props => (
+	<Heading
+		variant="caps"
+		as="label"
+		sx={{ display: 'block', mb: 2, color: 'text' }}
 		{...props}
 	/>
 );
