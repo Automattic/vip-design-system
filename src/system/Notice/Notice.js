@@ -9,7 +9,7 @@ import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 */
 import { Box, Flex, Heading, Card } from '../';
 
-const Notice = ( { variant = 'warning', inline = false, children, title, ...props } ) => {
+const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, ...props } ) => {
 	let color = 'yellow';
 	let Icon = MdWarning;
 
@@ -44,6 +44,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, ...prop
 					textDecoration: 'underline',
 					border: 'none',
 				},
+				...sx,
 			} }
 			{ ...props }
 		>
@@ -70,7 +71,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, ...prop
 Notice.propTypes = {
 	variant: PropTypes.string,
 	title: PropTypes.string,
-	inline: PropTypes.inline,
+	inline: PropTypes.bool,
 	children: PropTypes.array,
 };
 
