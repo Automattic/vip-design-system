@@ -70,7 +70,7 @@ Notice.propTypes = {
 	variant: PropTypes.string,
 	title: PropTypes.string,
 	inline: PropTypes.bool,
-	children: PropTypes.array,
+	children: PropTypes.node,
 };
 
 export { Notice };
