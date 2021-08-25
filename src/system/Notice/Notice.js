@@ -55,14 +55,12 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 					alignItems: 'center',
 				} }>
 					<NoticeIcon color={color} />
-					{ title && <Heading variant="h4" as="p" sx={ { color: `${ color }.70`, mb: 0 } }>{ title }</Heading> }
 				</Flex>
 
-				{ children &&
-					<Box sx={ { ml: 23 } }>
-						{ children }
-					</Box>
-				}
+				<Box sx={ { ml: 23 } }>
+					{ title && <Heading variant="h4" as="p" sx={ { color: `${ color }.70`, mb: 0 } }>{ title }</Heading> }
+					{ children }
+				</Box>
 			</Flex>
 		</Card>
 	);
