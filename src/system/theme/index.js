@@ -251,8 +251,8 @@
 			 fontSize: 2,
 			 color: 'text',
 			 backgroundColor: 'background',
-			 '-webkit-font-smoothing': 'antialiased',
-			 '-moz-osx-font-smoothing': 'grayscale',
+			 'WebkitFontSmoothing': 'antialiased',
+			 'MozOsxFontSmoothing': 'grayscale',
 			 svg: {
 				 fill: 'currentColor',
 			 },
