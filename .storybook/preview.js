@@ -1,16 +1,12 @@
 import React from "react";
 import { ThemeProvider, useColorMode } from "theme-ui";
 import { addDecorator } from "@storybook/react";
-import { Box, theme, Link } from "../src/system";
-import Brightness2Icon from "@material-ui/icons/Brightness2";
-import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import { Button, Box, theme, Link } from "../src/system";
 
 const ThemeChanger = () => {
 	const [colorMode, setColorMode] = useColorMode();
 
 	const setDarkMode = (isDark) => setColorMode(isDark ? "dark" : "default");
-
-	const ToggleIcon = colorMode == "dark" ? WbSunnyIcon : Brightness2Icon;
 
 	return (
 		<Link
@@ -20,9 +16,9 @@ const ThemeChanger = () => {
 				setDarkMode(colorMode == "dark" ? false : true);
 			}}
 		>
-			<ToggleIcon sx={{ position: "fixed", right: 106, top: 36 }}>
+			<Button sx={{ position: "fixed", right: 106, top: 36 }}>
 				Toggle
-			</ToggleIcon>
+			</Button>
 		</Link>
 	);
 };
