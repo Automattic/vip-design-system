@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 
