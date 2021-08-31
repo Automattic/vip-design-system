@@ -127,7 +127,7 @@
 		 danger: {
 			 // you can reference other values defined in the theme
 			 variant: 'buttons.primary',
-			 bg: '70',
+			 bg: 'red.70',
 			 '&:hover, &:focus': {
 				 backgroundColor: 'red.80',
 			 },

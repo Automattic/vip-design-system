@@ -1,9 +1,9 @@
-import { jsx, ThemeProvider, useColorMode } from "theme-ui";
 import React from "react";
+import { ThemeProvider, useColorMode } from "theme-ui";
+import { addDecorator } from "@storybook/react";
+import { Box, theme, Link } from "../src/system";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
-import { addDecorator } from "@storybook/react";
-import { Box, Link, theme } from "../src/system";
 
 const ThemeChanger = () => {
 	const [colorMode, setColorMode] = useColorMode();
