@@ -37,7 +37,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 			sx={ {
 				boxShadow: 'none',
 				borderRadius: 2,
-				bg: inline ? 'transparent' : `${ color }.0`,
+				bg: inline ? 'transparent' : `${ color }.10`,
 				p: inline ? 0 : 3,
 				a: {
 					color: `${ color }.70`,
