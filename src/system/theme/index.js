@@ -3,6 +3,54 @@
  */
  import { light, dark } from './colors';
 
+ const textStyles = {
+	h1: {
+		fontSize: 5,
+		marginBottom: 3,
+		letterSpacing: '-.02em',
+		fontWeight: 'body',
+		fontFamily: 'serif',
+		color: 'heading'
+	},
+	h2: {
+		fontSize: 4,
+		marginBottom: 2,
+		letterSpacing: '-.005em',
+		fontWeight: 400,
+		color: 'heading'
+	},
+	h3: {
+		fontSize: 3,
+		marginBottom: 3,
+		letterSpacing: '-.005em',
+		lineHeight: 1.25,
+		fontWeight: 'heading',
+		color: 'heading'
+	},
+	h4: {
+		fontSize: 2,
+		marginBottom: 1,
+		lineHeight: 1.5,
+		fontWeight: 'heading',
+		color: 'heading'
+	},
+	h5: {
+		fontSize: 1,
+		marginBottom: 1,
+		lineHeight: 1.5,
+		fontWeight: 'heading',
+		color: 'heading'
+	},
+	caps: {
+		fontSize: 1,
+		marginBottom: 2,
+		textTransform: 'uppercase',
+		color: 'muted',
+		fontWeight: 'bold',
+		letterSpacing: '.05em',
+	},
+ }
+
  export default {
 	 space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
 	 fonts: {
@@ -33,7 +81,7 @@
 	 colors: {
 		 text: light.grey[ '90' ],
 		 heading: light.grey[ '100' ],
-		 background: light.grey['0'],
+		 background: '#fdfdfd',
 		 backgroundSecondary: light.grey[ '10' ],
 		 primary: light.brand[ '70' ],
 		 secondary: '#30c',
@@ -79,10 +127,10 @@
 		 },
 	 },
 	 shadows: {
-		 low: '0px 1px 1px rgba(0,0,0,.2)',
+		 low: '0px 1px 5px rgba(0, 0, 0, 0.05), 0px 1px 1px rgba(0, 0, 0, 0.15)',
 		 medium:
 		 // eslint-disable-next-line max-len
-			  '0px 0.11069px 0.193708px rgba(0, 0, 0, 0.0196802), 0px 0.266004px 0.465507px rgba(0, 0, 0, 0.0282725), 0px 0.500862px 0.876509px rgba(0, 0, 0, 0.035), 0px 0.893452px 1.56354px rgba(0, 0, 0, 0.0417275), 0px 1.6711px 2.92443px rgba(0, 0, 0, 0.0503198), 0px 4px 7px rgba(0, 0, 0, 0.07)',
+			  '0px 15px 30px rgba(0, 0, 0, 0.07), 0px 1px 2px rgba(0, 0, 0, 0.03)',
 		 high:
 		 // eslint-disable-next-line max-len
 			  '0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
@@ -115,7 +163,7 @@
 			 color: 'brand.0',
 			 bg: 'brand.80',
 			 cursor: 'pointer',
-			 fontWeight: 'heading',
+			 fontWeight: 'bold',
 			 boxShadow: 'none',
 			 borderRadius: 1,
 			 border: '1px solid transparent',
@@ -136,7 +184,7 @@
 			 color: 'grey.90',
 			 cursor: 'pointer',
 			 boxShadow: 'none',
-			 fontWeight: 'heading',
+			 fontWeight: 'bold',
 			 borderRadius: 1,
 			 bg: 'grey.10',
 			 '&:hover, &:focus': {
@@ -185,48 +233,7 @@
 			 },
 		 },
 	 },
-	 text: {
-		 h1: {
-			 fontSize: 5,
-			 marginBottom: 3,
-			 letterSpacing: '-.02em',
-			 fontWeight: 'body',
-			 fontFamily: 'serif',
-		 },
-		 h2: {
-			 fontSize: 4,
-			 marginBottom: 2,
-			 letterSpacing: '-.005em',
-			 fontWeight: 400,
-		 },
-		 h3: {
-			 fontSize: 3,
-			 marginBottom: 3,
-			 letterSpacing: '-.005em',
-			 lineHeight: 1.25,
-			 fontWeight: 'heading',
-		 },
-		 h4: {
-			 fontSize: 2,
-			 marginBottom: 1,
-			 lineHeight: 1.5,
-			 fontWeight: 'heading',
-		 },
-		 h5: {
-			 fontSize: 1,
-			 marginBottom: 1,
-			 lineHeight: 1.5,
-			 fontWeight: 'heading',
-		 },
-		 caps: {
-			 fontSize: 1,
-			 marginBottom: 2,
-			 textTransform: 'uppercase',
-			 color: 'muted',
-			 fontWeight: 'bold',
-			 letterSpacing: '.05em',
-		 },
-	 },
+	 text: textStyles,
 	 dialog: {
 		 modal: {
 			 position: 'fixed',
@@ -272,6 +279,10 @@
 				 fill: 'currentColor',
 				 display: 'block',
 			 },
+			 pre: {
+				 fontFamily: 'body'
+			 },
+			 ...textStyles
 		 },
 	 },
  };
