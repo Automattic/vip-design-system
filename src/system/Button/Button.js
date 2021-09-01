@@ -14,6 +14,7 @@ const Button = ({ sx, ...props }) => (
 			alignItems: 'center',
 			justifyContent: 'center',
 			height: '36px',
+			py: 0,
 			'&:disabled': {
 				opacity: 0.5,
 				cursor: 'not-allowed',
