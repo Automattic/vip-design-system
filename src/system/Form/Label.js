@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * Internal dependencies
  */
