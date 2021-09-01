@@ -17,7 +17,7 @@
 	"peerDependencies": {
 		"react": "*",
 		"react-dom": "*",
-		"theme-ui": "^0.6.2"
+		"theme-ui": "0.10.0"
 	},
 	"resolutions": {
 		"react": "17.0.1",
@@ -43,14 +43,9 @@
 		"@storybook/addons": "5.3.21",
 		"@storybook/preset-create-react-app": "^3.2.0",
 		"@storybook/react": "5.3.21",
-		"@theme-ui/color-modes": "^0.10.0",
-		"@theme-ui/components": "^0.10.0",
-		"@theme-ui/core": "^0.10.0",
-		"@theme-ui/mdx": "^0.10.0",
 		"cross-env": "^7.0.3",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
-		"react-scripts": "^4.0.3",
-		"theme-ui": "^0.6.2"
+		"react-scripts": "^4.0.3"	
 	}
 }
