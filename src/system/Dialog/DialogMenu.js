@@ -1,3 +1,9 @@
+/** @jsxImportSource theme-ui */
+
+/**
+ * External dependencies
+ */
+
 const DialogMenu = props => (
 	<ul
 		role="menu"

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';
 
-const Code = ( { prompt = false, showCopy = false, ...props } ) => {
+const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) => {
 	const ref = useRef();
 
 	const codeDom = (
@@ -66,7 +66,12 @@ const Code = ( { prompt = false, showCopy = false, ...props } ) => {
 					} }
 					onClick={ () => {
 						window.navigator.clipboard.writeText( ref.current?.innerText );
+
 						setCopied( true );
+
+						if ( onCopy ) {
+							onCopy();
+						}
 					} }
 				>
 					{ copied ? 'Copied!' : <MdContentCopy /> }
@@ -79,6 +84,7 @@ const Code = ( { prompt = false, showCopy = false, ...props } ) => {
 Code.propTypes = {
 	prompt: PropTypes.bool,
 	showCopy: PropTypes.bool,
+	onCopy: PropTypes.func,
 };
 
 export { Code };

@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
