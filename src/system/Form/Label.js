@@ -5,9 +5,9 @@ import { Heading } from '..';
 
 const Label = props => (
 	<Heading
-		variant="caps"
+		variant="h4"
 		as="label"
-		sx={{ display: 'block', mb: 2, color: 'text' }}
+		sx={{ display: 'block', mb: 2, color: 'muted' }}
 		{...props}
 	/>
 );
