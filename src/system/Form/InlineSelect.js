@@ -85,7 +85,11 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', ...props } ) 
 
 InlineSelect.propTypes = {
 	label: PropTypes.string,
-	value: PropTypes.array,
+	// https://react-select.com/props
+	value: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]),
 	options: PropTypes.array,
 	noneLabel: PropTypes.string,
 };
