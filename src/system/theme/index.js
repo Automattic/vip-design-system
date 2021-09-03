@@ -100,6 +100,7 @@
 		 error: light.red['80'],
 		 warning: light.yellow['80'],
 		 dialog: light.grey['0'],
+		 backgroundMuted: light.grey['5'],
 		 ...light,
 		 modes: {
 			 dark: {
@@ -113,7 +114,7 @@
 				 link: dark.brand[ '90' ],
 				 card: dark.grey[ '20' ],
 				 placeholder: dark.grey[ '70' ],
-				 border: dark.grey[ '40' ],
+				 border: dark.grey[ '30' ],
 				 hover: 'rgba(255,255,255,.02)',
 				 midnight: dark.grey[ '90' ],
 				 navigationStart: dark.grey[ '5' ],
@@ -122,6 +123,7 @@
 		 		 error: dark.red['80'],
 		 		 warning: dark.yellow['80'],
 		 		 dialog: dark.grey['40'],
+				 backgroundMuted: dark.grey['10'],
 				 ...dark,
 			 },
 		 },
@@ -153,7 +155,7 @@
 			 borderRadius: 2,
 			 p: 3,
 			 boxShadow: 'none',
-			 backgroundColor: 'grey.10',
+			 backgroundColor: 'backgroundMuted',
 		 },
 	 },
  
@@ -241,6 +243,7 @@
 			 left: '50%',
 			 maxWidth: '90%',
 			 backgroundColor: 'background',
+			 boxShadow: 'high',
 		 },
 		 sidebar: {
 			 position: 'fixed',
@@ -250,6 +253,7 @@
 			 overflow: 'auto',
 			 margin: 0,
 			 borderRadius: 0,
+			 boxShadow: 'high',
 			 backgroundColor: 'background',
 		 },
 		 cover: {

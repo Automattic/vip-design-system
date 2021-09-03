@@ -41,6 +41,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				borderRadius: 2,
 				bg: inline ? 'transparent' : `${ color }.10`,
 				p: inline ? 0 : 3,
+				color: `${color}.90`,
 				a: {
 					color: `${ color }.70`,
 					textDecoration: 'underline',
@@ -60,7 +61,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				</Flex>
 
 				<Box sx={ { ml: 23 } }>
-					{ title && <Heading variant="h4" as="p" sx={ { color: `${ color }.70`, mb: 0 } }>{ title }</Heading> }
+					{ title && <Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>{ title }</Heading> }
 					{ children }
 				</Box>
 			</Flex>
