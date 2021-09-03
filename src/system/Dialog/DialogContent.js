@@ -69,7 +69,7 @@ const SidebarMotion = props => (
 			marginTop: 2,
 			borderRadius: 2,
 			backgroundColor: 'dialog',
-			boxShadow: 'low',
+			boxShadow: 'medium',
 			position: 'absolute',
 			top: '100%',
 			zIndex: 100,
