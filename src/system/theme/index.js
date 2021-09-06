@@ -162,16 +162,16 @@
 	 buttons: {
 		 primary: {
 			 // you can reference other values defined in the theme
-			 color: 'brand.0',
-			 bg: 'brand.80',
+			 color: 'grey.0',
+			 bg: 'grey.100',
 			 cursor: 'pointer',
 			 fontWeight: 'bold',
 			 boxShadow: 'none',
 			 borderRadius: 1,
 			 border: '1px solid transparent',
 			 '&:hover, &:focus': {
-				 backgroundColor: 'brand.80',
-				 color: 'white',
+				 backgroundColor: 'grey.90',
+				 color: 'grey.0',
 			 },
 		 },
 		 danger: {
