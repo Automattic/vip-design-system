@@ -43,7 +43,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				p: inline ? 0 : 3,
 				color: `${color}.90`,
 				a: {
-					color: `${ color }.70`,
+					color: `${ color }.90`,
 					textDecoration: 'underline',
 					border: 'none',
 				},
