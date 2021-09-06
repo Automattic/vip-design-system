@@ -273,7 +273,6 @@
 			 fontFamily: 'body',
 			 lineHeight: 'body',
 			 fontWeight: 'body',
-			 letterSpacing: '-.011em',
 			 fontSize: 2,
 			 color: 'text',
 			 backgroundColor: 'background',
