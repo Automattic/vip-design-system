@@ -74,7 +74,7 @@ const TableCell = ( { head, isRowHead, cell } ) => {
 TableCell.propTypes = {
 	head: PropTypes.bool,
 	isRowHead: PropTypes.bool,
-	cell: PropTypes.array,
+	cell: PropTypes.node,
 };
 
 TableRow.propTypes = {
