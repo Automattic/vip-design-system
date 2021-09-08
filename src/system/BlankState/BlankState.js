@@ -25,7 +25,7 @@ BlankState.propTypes = {
 	image: PropTypes.string,
 	icon: PropTypes.node,
 	title: PropTypes.string,
-	body: PropTypes.string,
+	body: PropTypes.node,
 	cta: PropTypes.node,
 };
 
