@@ -36,7 +36,7 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 					'white-space': 'nowrap',
 					overflow: 'hidden',
 					color: 'heading',
-					'text-overflow': 'ellipsis',
+					textOverflow: 'ellipsis',
 				} }
 			>
 				{ value }
