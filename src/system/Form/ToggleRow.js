@@ -59,8 +59,8 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 ToggleRow.propTypes = {
 	image: PropTypes.string,
 	badge: PropTypes.string,
-	title: PropTypes.string,
-	subTitle: PropTypes.string,
+	title: PropTypes.node,
+	subTitle: PropTypes.node,
 	body: PropTypes.node,
 	meta: PropTypes.node,
 	sx: PropTypes.object,
