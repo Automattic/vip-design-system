@@ -31,7 +31,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 	}
 
 	const NoticeIcon = ({ color }) => (
-		<Icon sx={ { marginRight: 2, color: `${ color }.70`, flex: '0 0 auto' } }/>
+		<Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } }/>
 	);
 
 	return (
@@ -57,7 +57,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				<Flex sx={ {
 					alignItems: 'center',
 				} }>
-					<NoticeIcon color={color} />
+					<NoticeIcon color={`${ color }.100`} />
 				</Flex>
 
 				<Box sx={ { ml: 23 } }>
