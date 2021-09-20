@@ -52,6 +52,8 @@
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
 		"react-scripts": "^4.0.3",
-		"theme-ui": "^0.6.2"
+		"theme-ui": "^0.6.2",
+		"@radix-ui/react-checkbox": "^0.0.16",
+    	"@radix-ui/react-toggle-group": "^0.0.10"
 	}
 }
