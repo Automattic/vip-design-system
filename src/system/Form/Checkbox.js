@@ -1,8 +1,8 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
+
 /**
  * External dependencies
  */
-import { jsx } from 'theme-ui';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import PropTypes from 'prop-types';
 import { MdDone } from 'react-icons/md';
