@@ -16,7 +16,7 @@ const OptionRow = ({
 	image,
 	icon,
 	badge,
-	title,
+	label,
 	inline = false,
 	subTitle,
 	body,
@@ -91,7 +91,7 @@ const OptionRow = ({
 
 			<Box sx={{ flex: '1 1 auto' }}>
 				<Heading variant="h4" sx={{ mb: subTitle || body ? 1 : 0 }}>
-					{title}
+					{label}
 					{badge && <Badge sx={{ marginLeft: 2 }}>{badge}</Badge>}
 				</Heading>
 				{subTitle && <Text sx={{ mb: 1, color: 'muted' }}>{subTitle}</Text>}
@@ -106,7 +106,7 @@ OptionRow.propTypes = {
 	image: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 	icon: PropTypes.node,
 	badge: PropTypes.string,
-	title: PropTypes.string,
+	label: PropTypes.string,
 	inline: PropTypes.bool,
 	subTitle: PropTypes.string,
 	body: PropTypes.string,
