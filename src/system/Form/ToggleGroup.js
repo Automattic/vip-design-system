@@ -1,5 +1,8 @@
 /** @jsxImportSource theme-ui */
 
+/**
+ * External dependencies
+ */
 import PropTypes from 'prop-types';
 import * as ReactToggleGroup from '@radix-ui/react-toggle-group';
 
