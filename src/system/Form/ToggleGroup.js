@@ -1,26 +1,38 @@
 /** @jsxImportSource theme-ui */
 
-import PropTypes from 'prop-types';
-import * as ReactToggleGroup from '@radix-ui/react-toggle-group';
-
-const ToggleGroup = ( { onChange, value, options, ...props } ) => (
-	<ReactToggleGroup.Root
-		onValueChange={ onChange }
-		type="single"
-		{ ...props }
-		sx={ {
+/**
+ * External dependencies
+ */
+ import React from 'react';
+ import PropTypes from 'prop-types';
+ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+ import { MdCheckCircle } from "react-icons/md";
+ 
+ /**
+  * Internal dependencies
+  */
+ import { Heading, Text } from '../';
+ 
+ const ToggleGroup = ( { onChange, groupLabel, value, options, ...props } ) => (
+	 <RadioGroupPrimitive.Root
+		 onValueChange={ onChange }
+		 value={ value }
+		 aria-label={ groupLabel }
+		 sx={ {
 			bg: 'backgroundSecondary',
 			p: 1,
 			display: 'flex',
 			alignItems: 'center',
 		} }
-	>
-		{
-			options.map( option => (
-				<ReactToggleGroup.Item
-					key={ option.value }
-					value={ option.value }
-					sx={ {
+		 { ...props }
+	 >
+		 {
+			 options.map( ( option, index ) => (
+				 <RadioGroupPrimitive.Item
+					 key={ option.value }
+					 value={ option.value }
+					 id={ `o${ index }` }
+					 sx={ {
 						fontSize: 1,
 						color: 'muted',
 						background: 'none',
@@ -34,24 +46,26 @@ const ToggleGroup = ( { onChange, value, options, ...props } ) => (
 						'&:hover': {
 							color: 'heading',
 						},
-						'&[data-state=on]': {
+						'&[data-state=checked]': {
 							backgroundColor: 'card',
 							boxShadow: 'low',
 							color: 'heading',
 						},
 					} }
-				>
-					{ option.label }
-				</ReactToggleGroup.Item>
-			) )
-		}
-	</ReactToggleGroup.Root>
-);
-
-ToggleGroup.propTypes = {
-	onChange: PropTypes.func,
-	options: PropTypes.array,
-	value: PropTypes.string,
-};
-
-export { ToggleGroup };
+				 >
+					 { option.label }
+				 </RadioGroupPrimitive.Item>
+			 ) )
+		 }
+	 </RadioGroupPrimitive.Root>
+ );
+ 
+ ToggleGroup.propTypes = {
+	 onChange: PropTypes.func,
+	 options: PropTypes.array,
+	 value: PropTypes.string,
+	 groupLabel: PropTypes.string,
+ };
+ 
+ export { ToggleGroup };
+ 
