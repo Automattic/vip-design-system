@@ -55,7 +55,7 @@ const TableCell = ( { head, isRowHead, cell } ) => {
 				fontWeight: 'body',
 				borderTop: head ? '1px solid' : 'none',
 				borderColor: 'border',
-				'&:first-child': {
+				'&:first-of-type': {
 					pl: 5,
 				},
 			} }

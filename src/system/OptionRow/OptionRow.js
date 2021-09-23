@@ -103,13 +103,13 @@ const OptionRow = ({
 };
 
 OptionRow.propTypes = {
-	image: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+	image: PropTypes.node,
 	icon: PropTypes.node,
 	badge: PropTypes.string,
 	label: PropTypes.node,
 	inline: PropTypes.bool,
 	subTitle: PropTypes.string,
-	body: PropTypes.string,
+	body: PropTypes.node,
 	meta: PropTypes.node,
 	to: PropTypes.string,
 	small: PropTypes.bool,

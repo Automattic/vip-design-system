@@ -61,7 +61,7 @@ ToggleRow.propTypes = {
 	badge: PropTypes.string,
 	title: PropTypes.string,
 	subTitle: PropTypes.string,
-	body: PropTypes.string,
+	body: PropTypes.node,
 	meta: PropTypes.node,
 	sx: PropTypes.object,
 };

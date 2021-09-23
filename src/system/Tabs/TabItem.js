@@ -45,7 +45,7 @@ const TabItem = ( { active = false, sx, ...props } ) => (
 
 TabItem.propTypes = {
 	active: PropTypes.bool,
-	sx: PropTypes.sx,
+	sx: PropTypes.object,
 	variant: PropTypes.string,
 };
 

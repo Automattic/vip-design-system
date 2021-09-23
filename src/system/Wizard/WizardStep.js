@@ -37,7 +37,7 @@ const WizardStep = ({ title, subTitle, complete = false, children, active }) => 
 				backgroundColor: active ? 'card' : 'transparent',
 				borderRadius: 0,
 				borderBottom: active ? 'none' : '1px solid',
-				'&:first-child': {
+				'&:first-of-type': {
 					borderTopWidth: active ? 'none' : '1px',
 					borderTopStyle: active ? 'none' : 'solid',
 				},
