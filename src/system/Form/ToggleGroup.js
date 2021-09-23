@@ -8,11 +8,6 @@
  import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
  import { MdCheckCircle } from "react-icons/md";
  
- /**
-  * Internal dependencies
-  */
- import { Heading, Text } from '../';
- 
  const ToggleGroup = ( { onChange, groupLabel, value, options, ...props } ) => (
 	 <RadioGroupPrimitive.Root
 		 onValueChange={ onChange }
