@@ -8,18 +8,39 @@ import { Box } from './Box';
 import { Button } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
-import { Dialog, DialogButton, DialogDivider, DialogMenu, DialogMenuItem, DialogTrigger, DialogContent } from './Dialog';
+import {
+	Dialog,
+	DialogButton,
+	DialogDivider,
+	DialogMenu,
+	DialogMenuItem,
+	DialogTrigger,
+	DialogContent,
+} from './Dialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { Flex } from './Flex';
-import { Input, Label, Toggle, ToggleRow, ToggleGroup, Validation, Radio, RadioBoxGroup, Select, Textarea, Checkbox } from './Form';
+import {
+	Input,
+	Label,
+	Toggle,
+	ToggleRow,
+	ToggleGroup,
+	Validation,
+	Radio,
+	RadioBoxGroup,
+	Select,
+	Textarea,
+	Checkbox,
+} from './Form';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
 import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
+import { ResourceList, ResourceItem } from './ResourceList';
 import { Tooltip } from './Tooltip';
-import { Timeline } from './Timeline';
+import { Time } from './Time';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
 import { Table, TableRow } from './Table';
@@ -61,6 +82,8 @@ export {
 	Select,
 	Radio,
 	RadioBoxGroup,
+	ResourceList,
+	ResourceItem,
 	Textarea,
 	Progress,
 	Text,
@@ -69,7 +92,7 @@ export {
 	ToggleRow,
 	ToggleGroup,
 	TabItem,
-	Timeline,
+	Time,
 	Validation,
 	Wizard,
 	WizardStep,
