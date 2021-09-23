@@ -35,7 +35,7 @@ const ConfirmationDialogContent = ( { title, body, onClose, label = 'Confirm', o
 );
 
 ConfirmationDialogContent.propTypes = {
-	title: PropTypes.string,
+	title: PropTypes.node,
 	body: PropTypes.node,
 	label: PropTypes.string,
 	onClose: PropTypes.func,

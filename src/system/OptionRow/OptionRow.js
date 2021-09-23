@@ -108,7 +108,7 @@ OptionRow.propTypes = {
 	badge: PropTypes.string,
 	label: PropTypes.node,
 	inline: PropTypes.bool,
-	subTitle: PropTypes.string,
+	subTitle: PropTypes.node,
 	body: PropTypes.node,
 	meta: PropTypes.node,
 	to: PropTypes.string,

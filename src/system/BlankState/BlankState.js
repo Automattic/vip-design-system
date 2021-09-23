@@ -24,8 +24,8 @@ const BlankState = ({ image, icon, title, body, cta }) => {
 BlankState.propTypes = {
 	image: PropTypes.string,
 	icon: PropTypes.node,
-	title: PropTypes.string,
-	body: PropTypes.string,
+	title: PropTypes.node,
+	body: PropTypes.node,
 	cta: PropTypes.node,
 };
 
