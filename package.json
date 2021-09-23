@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/vip-design-system",
-	"version": "0.6.1",
+	"version": "0.6.2",
 	"main": "build/system/index.js",
 	"scripts": {
 		"build-storybook": "build-storybook",
@@ -39,6 +39,8 @@
 		"@babel/preset-react": "^7.12.13",
 		"@babel/runtime": "7.14.0",
 		"@material-ui/icons": "^4.11.2",
+		"@radix-ui/react-radio-group": "^0.1.0",
+		"@radix-ui/react-checkbox": "^0.0.16",
 		"@storybook/addon-actions": "5.3.21",
 		"@storybook/addon-links": "5.3.21",
 		"@storybook/addons": "5.3.21",

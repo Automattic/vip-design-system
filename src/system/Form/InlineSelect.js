@@ -33,7 +33,7 @@ const selectStyles = {
 	menu: () => ( { boxShadow: 'none', borderTop: `1px solid ${ vipTheme.colors.border }` } ),
 };
 
-const InlineSelect = ( { label, value, options, noneLabel = 'All', ...props } ) => {
+const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "left", ...props } ) => {
 	let valueLabel = noneLabel;
 
 	if ( Array.isArray( value ) && value.length ) {
@@ -78,6 +78,7 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', ...props } ) 
 	return (
 		<Dialog
 			content={Content}
+			position={ position }
 			trigger={<DialogButton sx={{ width: '100%' }} label={label} value={valueLabel} />}
 		/>
 	);
@@ -91,6 +92,7 @@ InlineSelect.propTypes = {
 		PropTypes.object,
 	]),
 	options: PropTypes.array,
+	position: PropTypes.string,
 	noneLabel: PropTypes.string,
 };
 
