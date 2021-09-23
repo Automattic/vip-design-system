@@ -9,7 +9,7 @@
  /**
   * Internal dependencies
   */
- import { Badge, Box, Card, Flex, Grid, Heading, Text, Time } from '..';
+ import { Box, Flex, Time } from '..';
  
  const ResourceItem = ({
      children,

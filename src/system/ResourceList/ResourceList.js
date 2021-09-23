@@ -9,7 +9,7 @@
  /**
   * Internal dependencies
   */
- import { Badge, Box, Card, Flex, Grid, Heading, Text } from '..';
+ import { Box, Heading } from '..';
 
 var formatterOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 

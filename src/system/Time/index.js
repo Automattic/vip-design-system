@@ -32,7 +32,6 @@ for (let i = 0; i <= DIVISIONS.length; i++) {
 }
 
 const Time = ( { time, relativeTime = false, timeOnly = false, ...props } ) => {
-	console.log(time);
 	let formattedTime;
 	if ( relativeTime ) {
 		formattedTime = formatTimeAgo(time);
