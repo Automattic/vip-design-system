@@ -51,7 +51,7 @@
  
  export const AuditLog = () => (
      <Box sx={ { p: 5, pt: 2 } }>
-         <Heading variant="h1" sx={ { mb: 2 } }>Audit Log</Heading>
+         <Heading sx={ { mb: 2 } }>Audit Log</Heading>
          <Text sx={ { mb: 4 } }>A live trail of system and human events.</Text>
          <ResourceList
             items={ logs }
@@ -200,7 +200,7 @@
  
  export const Deploys = () => (
     <Box sx={ { p: 5, pt: 2 } }>
-        <Heading variant="h1" sx={ { mb: 2 } }>Deploys</Heading>
+        <Heading sx={ { mb: 2 } }>Deploys</Heading>
         <Text sx={ { mb: 4 } }>View and manage application deployments.</Text>
         <Card variant="indent" sx={ { mb: 4, display: 'flex', flexDirection: 'row-reverse', gap: 1 } }>
             { deploys.map( deploy => (
