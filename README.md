@@ -24,4 +24,17 @@ You can build it continuously so that every time you make a change, build files 
 npm run watch
 ```
 
-This is very useful when used together with [npm link ](https://docs.npmjs.com/cli/v7/commands/npm-link) so that, when you are working on another project that depends on this design system, you can make changes here and changes will be immediately availabe there.
+### Testing
+
+We can test two ways:
+
+**Storybook**
+
+For components that include storybooks, we can run `npm run storybook` to view the components in a sandbox-ed storybook environment.
+
+**npm link**
+
+1. Run `npm link` in your checkout of this repo.
+2. Spin up a local copy of [the VIP Dashboard](https://github.com/automattic/vip-ui) and navigate to a page using the linked components from `@automattic/vip-design-system`
+
+Note: it's super useful to run `npm run watch` in another process, so any changes will be almost immediately available / testable.
