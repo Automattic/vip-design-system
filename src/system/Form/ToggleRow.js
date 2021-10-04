@@ -36,7 +36,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 						flex: '0 0 auto',
 					} }
 				>
-					<img src={ image } width={ 32 } sx={ { display: 'block' } } />
+					<img src={ image } width={ 32 } sx={ { display: 'block' } } alt="Icon representing a toggle" />
 				</Card>
 			</Box>
 		) }
@@ -57,7 +57,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 );
 
 ToggleRow.propTypes = {
-	image: PropTypes.string,
+	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
 	badge: PropTypes.string,
 	title: PropTypes.node,
 	subTitle: PropTypes.node,

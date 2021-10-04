@@ -81,7 +81,12 @@ const OptionRow = ({
 						{React.isValidElement(image) ? (
 							image
 						) : (
-							<img src={image} width={small ? 32 : 48} sx={{ display: 'block' }} />
+							<img
+								src={image}
+								width={small ? 32 : 48}
+								sx={{ display: 'block' }}
+								alt="Image representing the list item"
+							/>
 						)}
 					</Card>
 				) : (
@@ -103,7 +108,7 @@ const OptionRow = ({
 };
 
 OptionRow.propTypes = {
-	image: PropTypes.node,
+	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
 	icon: PropTypes.node,
 	badge: PropTypes.string,
 	label: PropTypes.node,
