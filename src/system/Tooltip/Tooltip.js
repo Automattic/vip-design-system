@@ -5,31 +5,44 @@
  */
 import PropTypes from 'prop-types';
 import { MdHelp } from 'react-icons/md';
-import { useCallback, useState } from 'react';
+import * as TTip from "@radix-ui/react-tooltip";
 
 /**
- * Internal dependencies
- */
-import { Box, Card, Text } from '..';
+* Internal dependencies
+*/
+import { Card, Text } from '..';
 
-const Tooltip = ( { trigger = <MdHelp />, text = '', width = 200, children, ...props } ) => {
-	const [ position, setPosition ] = useState( { left: 0, top: '100%' } );
+const BaseTrigger = ( { children } ) => (
+	<TTip.Trigger asChild>
+		<button
+			type="button"
+			sx={ {
+				background: 'transparent',
+				border: 'none',
+				display: 'inline-flex',
+				outline: 'none',
+				p: 0,
+				m: 0,
+			} }
+		>
+			{ children }
+	</button>
+	</TTip.Trigger>
+)
 
-	const contentRef = useCallback( node => {
-		if ( node !== null ) {
-			const outerX = window.innerWidth;
-			const outerY = window.innerHeight;
-			const bounds = node.getBoundingClientRect();
-			console.log( 'bounds:', bounds );
-			setPosition( {
-				left: bounds.x + bounds.width > outerX ? -bounds.width : 0,
-				top: bounds.y + bounds.height > outerY ? -bounds.height : '100%',
-			} );
-		}
-	}, [] );
+const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />
 
+const Tooltip = ( {
+	trigger = <MdHelp />,
+	text = '',
+	width = 200,
+	children,
+	tooltipProps,
+	...props
+} ) => {
 	return (
-		<Box
+		<TTip.Root
+			skipDelayDuration={ true }
 			sx={ {
 				display: 'inline-block',
 				position: 'relative',
@@ -45,23 +58,20 @@ const Tooltip = ( { trigger = <MdHelp />, text = '', width = 200, children, ...p
 					},
 				},
 			} }
+			{ ...tooltipProps }
 		>
-			<Box>{ trigger }</Box>
-			<Card
-				ref={ contentRef }
-				className="tooltip-content"
-				sx={ {
-					position: 'absolute',
-					zIndex: 100,
-					left: position.left,
-					top: position.top,
-					width: width,
-				} }
-				{ ...props }
-			>
-				{ children ? children : <Text sx={ { fontSize: 1 } }>{ text }</Text> }
-			</Card>
-		</Box>
+			<BaseTrigger>{ trigger }</BaseTrigger>
+			<TTip.Content>
+				<Card
+					className="tooltip-content"
+					sx={ { width: width } }
+					{ ...props }
+				>
+					{ children ? children : <Text sx={ { fontSize: 1 } }>{ text }</Text> }
+				</Card>
+				<StyledArrow />
+			</TTip.Content>
+		</TTip.Root>
 	);
 };
 
