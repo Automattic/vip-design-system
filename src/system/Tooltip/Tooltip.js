@@ -12,24 +12,6 @@ import * as TTip from "@radix-ui/react-tooltip";
 */
 import { Card, Text } from '..';
 
-const BaseTrigger = ( { children } ) => (
-	<TTip.Trigger asChild>
-		<button
-			type="button"
-			sx={ {
-				background: 'transparent',
-				border: 'none',
-				display: 'inline-flex',
-				outline: 'none',
-				p: 0,
-				m: 0,
-			} }
-		>
-			{ children }
-	</button>
-	</TTip.Trigger>
-)
-
 const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />
 
 const Tooltip = ( {
@@ -42,7 +24,7 @@ const Tooltip = ( {
 } ) => {
 	return (
 		<TTip.Root
-			skipDelayDuration={ true }
+			skipDelayDuration={ 700 }
 			sx={ {
 				display: 'inline-block',
 				position: 'relative',
@@ -60,17 +42,29 @@ const Tooltip = ( {
 			} }
 			{ ...tooltipProps }
 		>
-			<BaseTrigger>{ trigger }</BaseTrigger>
-			<TTip.Content>
-				<Card
-					className="tooltip-content"
-					sx={ { width: width } }
-					{ ...props }
-				>
-					{ children ? children : <Text sx={ { fontSize: 1 } }>{ text }</Text> }
-				</Card>
-				<StyledArrow />
-			</TTip.Content>
+			<TTip.Trigger
+				sx={ {
+					background: 'transparent',
+					border: 'none',
+					display: 'inline-flex',
+					outline: 'none',
+					p: 0,
+					m: 0,
+				} }
+			>
+				{ trigger }
+
+				<TTip.Content>
+					<Card
+						className="tooltip-content"
+						sx={ { width: width } }
+						{ ...props }
+					>
+						{ children ? children : <Text sx={ { fontSize: 1 } }>{ text }</Text> }
+					</Card>
+					<StyledArrow />
+				</TTip.Content>
+			</TTip.Trigger>
 		</TTip.Root>
 	);
 };
