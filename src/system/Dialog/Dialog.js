@@ -46,7 +46,7 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 	};
 
 	return (
-		<div sx={ { position: 'relative' } } ref={ dialogRef }>
+		<div onClick={ e => e.stopPropagation() } sx={ { position: 'relative' } } ref={ dialogRef }>
 			<DialogTrigger
 				tabIndex="0"
 				sx={ { display: 'inline' } }

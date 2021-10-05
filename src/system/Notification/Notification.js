@@ -44,8 +44,8 @@ const Notification = ({ title, body, status = 'success', onClose }) => (
 );
 
 Notification.propTypes = {
-	title: PropTypes.string,
-	body: PropTypes.string,
+	title: PropTypes.node,
+	body: PropTypes.node,
 	status: PropTypes.string,
 	onClose: PropTypes.func,
 };

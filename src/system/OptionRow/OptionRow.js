@@ -16,7 +16,7 @@ const OptionRow = ({
 	image,
 	icon,
 	badge,
-	title,
+	label,
 	inline = false,
 	subTitle,
 	body,
@@ -81,7 +81,12 @@ const OptionRow = ({
 						{React.isValidElement(image) ? (
 							image
 						) : (
-							<img src={image} width={small ? 32 : 48} sx={{ display: 'block' }} />
+							<img
+								src={image}
+								width={small ? 32 : 48}
+								sx={{ display: 'block' }}
+								alt="Image representing the list item"
+							/>
 						)}
 					</Box>
 				) : (
@@ -91,7 +96,7 @@ const OptionRow = ({
 
 			<Box sx={{ flex: '1 1 auto' }}>
 				<Heading variant="h4" sx={{ mb: subTitle || body ? 1 : 0 }}>
-					{title}
+					{label}
 					{badge && <Badge sx={{ marginLeft: 2 }}>{badge}</Badge>}
 				</Heading>
 				{subTitle && <Text sx={{ mb: 1, color: 'muted' }}>{subTitle}</Text>}
@@ -103,13 +108,13 @@ const OptionRow = ({
 };
 
 OptionRow.propTypes = {
-	image: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
 	icon: PropTypes.node,
 	badge: PropTypes.string,
-	title: PropTypes.string,
+	label: PropTypes.node,
 	inline: PropTypes.bool,
-	subTitle: PropTypes.string,
-	body: PropTypes.string,
+	subTitle: PropTypes.node,
+	body: PropTypes.node,
 	meta: PropTypes.node,
 	to: PropTypes.string,
 	small: PropTypes.bool,

@@ -174,6 +174,18 @@
 				 color: 'grey.0',
 			 },
 		 },
+		 border: {
+			background: 'none',
+			border: '1px solid',
+			borderColor: 'border',
+			cursor: 'pointer',
+			display: 'inline-flex',
+			alignItems: 'center',
+			color: 'text',
+			'&:hover': {
+				bg: 'hover'
+			}
+		 },
 		 danger: {
 			 // you can reference other values defined in the theme
 			 variant: 'buttons.primary',

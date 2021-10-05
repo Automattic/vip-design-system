@@ -71,7 +71,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 
 Notice.propTypes = {
 	variant: PropTypes.string,
-	title: PropTypes.string,
+	title: PropTypes.node,
 	inline: PropTypes.bool,
 	children: PropTypes.node,
 };

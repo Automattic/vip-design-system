@@ -22,13 +22,13 @@ export const Default = () => (
 	<Box sx={{ mx: -5 }}>
 		<OptionRow
 			image={image1}
-			title="Option Row"
+			label="Option Row"
 			subTitle="Mostly used to link off to other pages."
 			as="a"
 		/>
 		<OptionRow
 			image={image2}
-			title="Option Row"
+			label="Option Row"
 			subTitle="Mostly used to link off to other pages."
 			as="a"
 		/>

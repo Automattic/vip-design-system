@@ -55,7 +55,7 @@ const TableCell = ( { head, isRowHead, cell } ) => {
 				fontWeight: 'body',
 				borderTop: head ? '1px solid' : 'none',
 				borderColor: 'border',
-				'&:first-child': {
+				'&:first-of-type': {
 					pl: 5,
 				},
 			} }
@@ -74,7 +74,7 @@ const TableCell = ( { head, isRowHead, cell } ) => {
 TableCell.propTypes = {
 	head: PropTypes.bool,
 	isRowHead: PropTypes.bool,
-	cell: PropTypes.array,
+	cell: PropTypes.node,
 };
 
 TableRow.propTypes = {

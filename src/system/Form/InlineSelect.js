@@ -12,7 +12,7 @@ import Select from 'react-select';
 import { theme as vipTheme, Box, Dialog, DialogButton } from '..';
 import { Option } from './SearchSelect';
 
-const InlineSelect = ( { label, value, options, noneLabel = 'All', ...props } ) => {
+const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "left", ...props } ) => {
 	let valueLabel = noneLabel;
 
 	if ( Array.isArray( value ) && value.length ) {
@@ -81,6 +81,7 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', ...props } ) 
 	return (
 		<Dialog
 			content={Content}
+			position={ position }
 			trigger={<DialogButton sx={{ width: '100%' }} label={label} value={valueLabel} />}
 		/>
 	);
@@ -94,6 +95,7 @@ InlineSelect.propTypes = {
 		PropTypes.object,
 	]),
 	options: PropTypes.array,
+	position: PropTypes.string,
 	noneLabel: PropTypes.string,
 };
 

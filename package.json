@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/vip-design-system",
-	"version": "0.7.0",
+	"version": "0.7.1",
 	"main": "build/system/index.js",
 	"scripts": {
 		"build-storybook": "build-storybook",
@@ -12,7 +12,10 @@
 		"babel-loader": "^8.2.2",
 		"framer-motion": "^3.9.1",
 		"react-icons": "^4.2.0",
-		"react-select": "^4.3.1"
+		"react-select": "^4.3.1",
+		"@radix-ui/react-checkbox": "^0.1.0",
+		"@radix-ui/react-radio-group": "^0.1.0",
+		"@radix-ui/react-tooltip": "^0.1.0"
 	},
 	"peerDependencies": {
 		"react": "*",

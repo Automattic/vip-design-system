@@ -33,10 +33,10 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 				sx={ {
 					mb: 0,
 					flex: '1 1 auto',
-					'white-space': 'nowrap',
+					whiteSpace: 'nowrap',
 					overflow: 'hidden',
 					color: 'heading',
-					'text-overflow': 'ellipsis',
+					textOverflow: 'ellipsis',
 				} }
 			>
 				{ value }
