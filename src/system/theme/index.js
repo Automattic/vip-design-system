@@ -23,7 +23,7 @@
 		fontSize: 3,
 		marginBottom: 3,
 		letterSpacing: '-.005em',
-		lineHeight: 1.25,
+		lineHeight: 1.4,
 		fontWeight: 'heading',
 		color: 'heading'
 	},
