@@ -195,10 +195,10 @@
 			 },
 		 },
 		 secondary: {
-			 color: 'grey.90',
+			 color: 'text',
 			 cursor: 'pointer',
 			 boxShadow: 'none',
-			 fontWeight: 'bold',
+			 fontWeight: 'heading',
 			 borderRadius: 1,
 			 bg: 'grey.10',
 			 '&:hover, &:focus': {

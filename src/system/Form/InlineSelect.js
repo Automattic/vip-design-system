@@ -29,7 +29,7 @@ const selectStyles = {
 		paddingBottom: vipTheme.space[ 1 ],
 		paddingLeft: vipTheme.space[ 2 ],
 	} ),
-	menu: () => ( { boxShadow: 'none', borderTop: `1px solid ${ vipTheme.colors.border }` } ),
+	menu: () => ( { boxShadow: 'none', borderTop: `1px solid` } ),
 };
 
 const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "left", ...props } ) => {
@@ -78,6 +78,9 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "l
 					},
 					'.select__option--is-focused': {
 						bg: 'grey.10',
+					},
+					'.select__menu': {
+						borderColor: 'border',
 					}
 				} }
 				{...props}
