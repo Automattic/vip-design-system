@@ -92,7 +92,7 @@
 		 hover: 'rgba(0,0,0,.02)',
 		 lightenBackground: 'rgba(255,255,255,.5)',
 		 darken: 'rgba(0,0,0,.05)',
-		 placeholder: light.grey[ '40' ],
+		 placeholder: light.grey[ '70' ],
 		 midnight: '#13191E',
 		 navigationStart: light.grey[ '5' ],
 		 navigationEnd: light.grey[ '5' ],
