@@ -12,6 +12,26 @@ import Select from 'react-select';
 import { theme as vipTheme, Box, Dialog, DialogButton } from '..';
 import { Option } from './SearchSelect';
 
+const selectStyles = {
+	control: provided => ( {
+		...provided,
+		minWidth: 240,
+		margin: 0,
+		border: 0,
+		padding: 0,
+		boxShadow: 'none',
+	} ),
+	container: provided => ( { ...provided, padding: 0 } ),
+	input: provided => ( { ...provided, padding: 0 } ),
+	option: provided => ( {
+		...provided,
+		paddingTop: vipTheme.space[ 1 ],
+		paddingBottom: vipTheme.space[ 1 ],
+		paddingLeft: vipTheme.space[ 2 ],
+	} ),
+	menu: () => ( { boxShadow: 'none', borderTop: `1px solid ${ vipTheme.colors.border }` } ),
+};
+
 const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "left", ...props } ) => {
 	let valueLabel = noneLabel;
 
@@ -35,6 +55,7 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "l
 				hideSelectedOptions={false}
 				isClearable={false}
 				menuIsOpen
+				styles={selectStyles}
 				classNamePrefix={ 'select' }
 				options={options}
 				placeholder="Search..."
@@ -44,33 +65,19 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "l
 					'.select__control': {
 						background: 'none',
 						color: 'heading',
-						border: `1px solid`,
-						borderColor: 'border',
-						margin: 0,
-						padding: 0,
-						boxShadow: 'none',
-						fontSize: 2,
 					},
 					'.select__single-value': {
 						color: 'heading',
 						px: 1,
 					},
-					'.select__menu': {
-						bg: 'dialog',
-						boxShadow: 'medium',
-					},
 					'.react-select__option': {
-						color: 'text',
-						paddingTop: 1,
-						paddingBottom: 1,
-						paddingLeft: 2,
-						bg: 'hover',
+						bg: 'grey.10',
 						'&:hover': {
-							bg: 'hover',
+							bg: 'grey.10',
 						}
 					},
 					'.select__option--is-focused': {
-						bg: 'hover',
+						bg: 'grey.10',
 					}
 				} }
 				{...props}
