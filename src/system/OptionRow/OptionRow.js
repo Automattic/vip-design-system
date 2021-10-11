@@ -32,6 +32,7 @@ const OptionRow = ({
 				borderColor: 'border',
 				background: 'none',
 				boxShadow: 'none',
+				color: 'grey.70'
 		  }
 		: {};
 
@@ -66,15 +67,14 @@ const OptionRow = ({
 		>
 			<Box>
 				{image ? (
-					<Card
+					<Box
 						sx={{
 							display: ['inline-block', 'inline-block', 'block'],
-							p: small ? 3 : 24,
-							boxShadow: 'low',
+							p: small ? 12 : 20,
 							flex: '0 0 auto',
-							svg: {
-								display: 'block',
-							},
+							bg: 'brand.70',
+							color: 'brand.10',
+							borderRadius: 1,
 							...mergedCard,
 						}}
 					>
@@ -88,7 +88,7 @@ const OptionRow = ({
 								alt="Image representing the list item"
 							/>
 						)}
-					</Card>
+					</Box>
 				) : (
 					icon && icon
 				)}

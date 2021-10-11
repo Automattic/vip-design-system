@@ -1,18 +1,66 @@
 /**
  * Internal dependencies
  */
- import colors from './colors';
+ import { light, dark } from './colors';
+
+ const textStyles = {
+	h1: {
+		fontSize: 5,
+		marginBottom: 3,
+		letterSpacing: '-.02em',
+		fontWeight: 'body',
+		fontFamily: 'serif',
+		color: 'heading'
+	},
+	h2: {
+		fontSize: 4,
+		marginBottom: 2,
+		letterSpacing: '-.005em',
+		fontWeight: 400,
+		color: 'heading'
+	},
+	h3: {
+		fontSize: 3,
+		marginBottom: 3,
+		letterSpacing: '-.005em',
+		lineHeight: 1.4,
+		fontWeight: 'heading',
+		color: 'heading'
+	},
+	h4: {
+		fontSize: 2,
+		marginBottom: 1,
+		lineHeight: 1.5,
+		fontWeight: 'heading',
+		color: 'heading'
+	},
+	h5: {
+		fontSize: 1,
+		marginBottom: 1,
+		lineHeight: 1.5,
+		fontWeight: 'heading',
+		color: 'heading'
+	},
+	caps: {
+		fontSize: 1,
+		marginBottom: 2,
+		textTransform: 'uppercase',
+		color: 'muted',
+		fontWeight: 'bold',
+		letterSpacing: '.05em',
+	},
+ }
 
  export default {
-	 initialColorModeName: 'light',
 	 space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
 	 fonts: {
 		 body:
-			 '"SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+			 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
 		 heading: 'inherit',
 		 monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+		 serif: '"Recoleta-Regular", Georgia, serif',
 	 },
-	 fontSizes: [ 11, 13, 15, 20, 32, 48, 56, 64, 96 ],
+	 fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
 	 fontWeights: {
 		 body: 400,
 		 heading: 500,
@@ -25,51 +73,69 @@
 	 sizes: {
 		 sidebar: 260,
 	 },
-	 radii: [ 0, 3, 5 ],
+	 radii: [ 0, 5, 10 ],
+	 config: {
+		useColorSchemeMediaQuery: false,
+	},
+	 initialColorModeName: 'light',
 	 colors: {
-		 text: colors.grey[ '70' ],
-		 heading: colors.grey[ '100' ],
-		 background: colors.brand[ '0' ],
-		 backgroundSecondary: colors.brand[ '3' ],
-		 primary: colors.brand[ '50' ],
+		 text: light.grey[ '90' ],
+		 heading: light.grey[ '100' ],
+		 background: '#fdfdfd',
+		 backgroundSecondary: light.grey[ '10' ],
+		 primary: light.brand[ '70' ],
 		 secondary: '#30c',
-		 muted: colors.grey[ '60' ],
-		 link: colors.brand[ '70' ],
-		 card: '#fefefe',
-		 border: colors.brand[ '7' ],
-		 hover: 'rgba(0,0,0,.025)',
+		 muted: light.grey[ '90' ],
+		 link: light.brand[ '90' ],
+		 card: '#fff',
+		 border: light.grey[ '20' ],
+		 hover: 'rgba(0,0,0,.02)',
 		 lightenBackground: 'rgba(255,255,255,.5)',
-		 placeholder: colors.grey[ '40' ],
+		 darken: 'rgba(0,0,0,.05)',
+		 placeholder: light.grey[ '70' ],
 		 midnight: '#13191E',
+		 navigationStart: light.grey[ '5' ],
+		 navigationEnd: light.grey[ '5' ],
+		 success: light.green['90'],
+		 error: light.red['90'],
+		 warning: light.yellow['90'],
+		 dialog: light.grey['0'],
+		 backgroundMuted: light.grey['5'],
+		 ...light,
 		 modes: {
 			 dark: {
-				 text: colors.grey[ '30' ],
-				 heading: colors.grey[ '10' ],
-				 background: colors.grey[ '90' ],
-				 backgroundSecondary: colors.grey[ '80' ],
-				 lightenBackground: 'rgba(0,0,0,.1)',
-				 primary: colors.brand[ '50' ],
-				 muted: colors.grey[ '40' ],
-				 link: colors.brand[ '30' ],
-				 card: colors.grey[ '80' ],
-				 placeholder: colors.grey[ '70' ],
-				 border: 'rgba(255,255,255,.08)',
+				 text: dark.grey[ '90' ],
+				 heading: dark.grey[ '100' ],
+				 background: dark.grey[ '5' ],
+				 backgroundSecondary: dark.grey[ '10' ],
+		 		 primary: light.brand[ '70' ],
+				 secondary: '#30c',
+				 muted: dark.grey[ '90' ],
+				 link: dark.brand[ '90' ],
+				 card: dark.grey[ '20' ],
+				 placeholder: dark.grey[ '70' ],
+				 border: dark.grey[ '30' ],
 				 hover: 'rgba(255,255,255,.02)',
-				 midnight: colors.grey[ '90' ],
+				 midnight: dark.grey[ '90' ],
+				 navigationStart: dark.grey[ '5' ],
+				 navigationEnd: dark.grey[ '5' ],
+		 		 success: dark.green['90'],
+		 		 error: dark.red['90'],
+		 		 warning: dark.yellow['90'],
+		 		 dialog: dark.grey['40'],
+				 backgroundMuted: dark.grey['10'],
+				 ...dark,
 			 },
 		 },
-		 ...colors,
 	 },
 	 shadows: {
-		 low:
-		 // eslint-disable-next-line max-len
-			 '0px 0.11069px 0.193708px rgba(0, 0, 0, 0.0196802), 0px 0.266004px 0.465507px rgba(0, 0, 0, 0.0282725), 0px 0.500862px 0.876509px rgba(0, 0, 0, 0.035), 0px 0.893452px 1.56354px rgba(0, 0, 0, 0.0417275), 0px 1.6711px 2.92443px rgba(0, 0, 0, 0.0503198), 0px 4px 7px rgba(0, 0, 0, 0.07)',
+		 low: '0px 1px 5px rgba(0, 0, 0, 0.05), 0px 1px 1px rgba(0, 0, 0, 0.15)',
 		 medium:
 		 // eslint-disable-next-line max-len
-			 '0px 1.97961px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 4.36146px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 7.34273px 10.0172px rgba(0, 0, 0, 0.035), 0px 11.2752px 17.869px rgba(0, 0, 0, 0.0417275), 0px 16.7372px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 24px 80px rgba(0, 0, 0, 0.07)',
+			  '0px 15px 30px rgba(0, 0, 0, 0.07), 0px 1px 2px rgba(0, 0, 0, 0.03)',
 		 high:
 		 // eslint-disable-next-line max-len
-			 '0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
+			  '0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
 	 },
 	 cards: {
 		 primary: {
@@ -89,24 +155,23 @@
 			 borderRadius: 2,
 			 p: 3,
 			 boxShadow: 'none',
-			 backgroundColor: 'backgroundSecondary',
+			 backgroundColor: 'backgroundMuted',
 		 },
 	 },
-
+ 
 	 buttons: {
 		 primary: {
 			 // you can reference other values defined in the theme
-			 color: 'white',
-			 bg: colors.brand[ '70' ],
+			 color: 'grey.0',
+			 bg: 'grey.100',
 			 cursor: 'pointer',
-			 fontWeight: 'heading',
-			 boxShadow: 'low',
+			 fontWeight: 'bold',
+			 boxShadow: 'none',
 			 borderRadius: 1,
 			 border: '1px solid transparent',
-			 svg: { position: 'relative', top: '0.125em' },
 			 '&:hover, &:focus': {
-				 backgroundColor: 'brand.80',
-				 color: 'white',
+				 backgroundColor: 'grey.90',
+				 color: 'grey.0',
 			 },
 		 },
 		 border: {
@@ -124,20 +189,21 @@
 		 danger: {
 			 // you can reference other values defined in the theme
 			 variant: 'buttons.primary',
-			 bg: colors.red[ '70' ],
+			 bg: 'red.70',
 			 '&:hover, &:focus': {
 				 backgroundColor: 'red.80',
 			 },
 		 },
 		 secondary: {
-			 color: 'inherit',
+			 color: 'text',
 			 cursor: 'pointer',
 			 boxShadow: 'none',
+			 fontWeight: 'heading',
 			 borderRadius: 1,
-			 backgroundColor: 'backgroundSecondary',
-			 svg: { position: 'relative', top: '0.125em' },
+			 bg: 'grey.10',
 			 '&:hover, &:focus': {
-				 bg: 'brand.7',
+				 color: 'grey.100',
+				 bg: 'grey.20',
 			 },
 		 },
 		 text: {
@@ -158,9 +224,6 @@
 			 cursor: 'pointer',
 			 fontWeight: 'heading',
 			 padding: 1,
-			 svg: {
-				 display: 'block',
-			 },
 			 '&:hover, &:focus': {
 				 backgroundColor: 'border',
 			 },
@@ -184,53 +247,15 @@
 			 },
 		 },
 	 },
-	 text: {
-		 h1: {
-			 fontSize: 5,
-			 marginBottom: 3,
-			 letterSpacing: '-.02em',
-			 fontWeight: 'heading',
-		 },
-		 h2: {
-			 fontSize: 4,
-			 marginBottom: 2,
-			 letterSpacing: '-.005em',
-			 fontWeight: 400,
-		 },
-		 h3: {
-			 fontSize: 3,
-			 marginBottom: 3,
-			 letterSpacing: '-.005em',
-			 lineHeight: 1.25,
-			 fontWeight: 'heading',
-		 },
-		 h4: {
-			 fontSize: 2,
-			 marginBottom: 1,
-			 lineHeight: 1.5,
-			 fontWeight: 'heading',
-		 },
-		 h5: {
-			 fontSize: 1,
-			 marginBottom: 1,
-			 lineHeight: 1.5,
-			 fontWeight: 'body',
-		 },
-		 caps: {
-			 fontSize: 1,
-			 marginBottom: 2,
-			 textTransform: 'uppercase',
-			 color: 'muted',
-			 fontWeight: 'bold',
-			 letterSpacing: '.05em',
-		 },
-	 },
+	 text: textStyles,
 	 dialog: {
 		 modal: {
 			 position: 'fixed',
 			 top: '10vh',
 			 left: '50%',
 			 maxWidth: '90%',
+			 backgroundColor: 'background',
+			 boxShadow: 'high',
 		 },
 		 sidebar: {
 			 position: 'fixed',
@@ -240,6 +265,7 @@
 			 overflow: 'auto',
 			 margin: 0,
 			 borderRadius: 0,
+			 boxShadow: 'high',
 			 backgroundColor: 'background',
 		 },
 		 cover: {
@@ -259,15 +285,19 @@
 			 fontFamily: 'body',
 			 lineHeight: 'body',
 			 fontWeight: 'body',
-			 letterSpacing: '-.011em',
 			 fontSize: 2,
 			 color: 'text',
 			 backgroundColor: 'background',
-			 'WebkitFontSmoothing': 'antialiased',
-			 'MozOsxFontSmoothing': 'grayscale',
+			 '-webkit-font-smoothing': 'antialiased',
+			 '-moz-osx-font-smoothing': 'grayscale',
 			 svg: {
 				 fill: 'currentColor',
+				 display: 'block',
 			 },
+			 pre: {
+				 fontFamily: 'body'
+			 },
+			 ...textStyles
 		 },
 	 },
  };

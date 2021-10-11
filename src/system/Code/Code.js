@@ -16,9 +16,9 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) =
 			sx={ {
 				fontSize: 1,
 				display: 'block',
-				bg: 'modes.dark.card',
-				color: 'modes.dark.heading',
-				borderRadius: 2,
+				bg: 'grey.90',
+				color: 'grey.10',
+				borderRadius: 1,
 				py: 2,
 				px: 3,
 				verticalAlign: 'middle',
@@ -51,7 +51,7 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) =
 					sx={ {
 						position: 'absolute',
 						top: 0,
-						bg: 'modes.dark.heading',
+						bg: 'grey.10',
 						right: 0,
 						paddingRight: 2,
 						paddingLeft: 2,

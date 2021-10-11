@@ -20,7 +20,6 @@ const selectStyles = {
 		border: 0,
 		padding: 0,
 		boxShadow: 'none',
-		fontSize: vipTheme.fontSizes[ 2 ],
 	} ),
 	container: provided => ( { ...provided, padding: 0 } ),
 	input: provided => ( { ...provided, padding: 0 } ),
@@ -30,7 +29,7 @@ const selectStyles = {
 		paddingBottom: vipTheme.space[ 1 ],
 		paddingLeft: vipTheme.space[ 2 ],
 	} ),
-	menu: () => ( { boxShadow: 'none', borderTop: `1px solid ${ vipTheme.colors.border }` } ),
+	menu: () => ( { boxShadow: 'none', borderTop: `1px solid` } ),
 };
 
 const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "left", ...props } ) => {
@@ -56,21 +55,35 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "l
 				hideSelectedOptions={false}
 				isClearable={false}
 				menuIsOpen
-				options={options}
 				styles={selectStyles}
+				classNamePrefix={ 'select' }
+				options={options}
 				placeholder="Search..."
 				tabSelectsValue={false}
 				value={value}
-				{...props}
-				theme={theme => ( {
-					...theme,
-					colors: {
-						...theme.colors,
-						primary25: vipTheme.colors.hover,
-						primary50: vipTheme.colors.brand[ '7' ],
-						primary: vipTheme.colors.heading,
+				sx={ {
+					'.select__control': {
+						background: 'none',
+						color: 'heading',
 					},
-				} )}
+					'.select__single-value': {
+						color: 'heading',
+						px: 1,
+					},
+					'.react-select__option': {
+						bg: 'grey.10',
+						'&:hover': {
+							bg: 'grey.10',
+						}
+					},
+					'.select__option--is-focused': {
+						bg: 'grey.10',
+					},
+					'.select__menu': {
+						borderColor: 'border',
+					}
+				} }
+				{...props}
 			/>
 		</Box>
 	);

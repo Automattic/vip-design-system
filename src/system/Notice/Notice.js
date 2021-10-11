@@ -5,7 +5,6 @@
  */
 import PropTypes from 'prop-types';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
-import { useColorMode } from 'theme-ui';
 
 /**
 * Internal dependencies
@@ -13,8 +12,6 @@ import { useColorMode } from 'theme-ui';
 import { Box, Flex, Heading, Card } from '../';
 
 const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, ...props } ) => {
-	const [colorMode, _] = useColorMode()
-
 	let color = 'yellow';
 	let Icon = MdWarning;
 
@@ -33,18 +30,6 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 			break;
 	}
 
-	let modeColor = {
-		color: `${ color }.70`,
-		bg: inline ? 'transparent' : `${ color }.0`
-	};
-
-	if ( colorMode === 'dark' ) {
-		modeColor = {
-			color: `${ color }.40`,
-			bg: undefined,
-		}
-	}
-
 	const NoticeIcon = ({ color }) => (
 		<Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } }/>
 	);
@@ -54,10 +39,11 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 			sx={ {
 				boxShadow: 'none',
 				borderRadius: 2,
+				bg: inline ? 'transparent' : `${ color }.10`,
 				p: inline ? 0 : 3,
-				bg: modeColor.bg,
+				color: `${color}.90`,
 				a: {
-					color: modeColor.color,
+					color: `${ color }.90`,
 					textDecoration: 'underline',
 					border: 'none',
 				},
@@ -71,11 +57,11 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				<Flex sx={ {
 					alignItems: 'center',
 				} }>
-					<NoticeIcon color={modeColor.color} />
+					<NoticeIcon color={`${ color }.100`} />
 				</Flex>
 
 				<Box sx={ { ml: 23 } }>
-					{ title && <Heading variant="h4" as="p" sx={ { color: modeColor.color, mb: 0 } }>{ title }</Heading> }
+					{ title && <Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>{ title }</Heading> }
 					{ children }
 				</Box>
 			</Flex>

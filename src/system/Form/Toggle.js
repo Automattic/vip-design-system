@@ -61,7 +61,7 @@ const CheckBox = props => (
 			margin: 0,
 			display: 'block',
 			'&:checked + label': {
-				backgroundColor: 'green.50',
+				backgroundColor: 'success',
 				'&::after': {
 					content: "''",
 					display: 'block',
