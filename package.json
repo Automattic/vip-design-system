@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/vip-design-system",
-	"version": "0.7.1",
+	"version": "0.8.0",
 	"main": "build/system/index.js",
 	"scripts": {
 		"build-storybook": "build-storybook",
@@ -49,6 +49,6 @@
 		"cross-env": "^7.0.3",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
-		"react-scripts": "^4.0.3"	
+		"react-scripts": "^4.0.3"
 	}
 }
