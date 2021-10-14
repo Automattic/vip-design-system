@@ -58,7 +58,7 @@
 			 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
 		 heading: 'inherit',
 		 monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-		 serif: '"Recoleta-Regular", Georgia, serif',
+		 serif: 'recoletaregular, Georgia, serif',
 	 },
 	 fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
 	 fontWeights: {
@@ -158,7 +158,7 @@
 			 backgroundColor: 'backgroundMuted',
 		 },
 	 },
- 
+
 	 buttons: {
 		 primary: {
 			 // you can reference other values defined in the theme
