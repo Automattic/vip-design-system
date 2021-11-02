@@ -1,0 +1,12 @@
+{
+	"extends": [ "wpvip" ],
+	"plugins": [
+		"react",
+		"jsx-a11y"
+	],
+	"settings": {
+		"react": {
+			"version": "16.4"
+		}
+	}
+}
