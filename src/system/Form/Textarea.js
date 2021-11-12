@@ -14,7 +14,7 @@ import { Validation, Label } from '../';
 const Textarea = React.forwardRef( ( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
 	<React.Fragment>
 		{ label &&
-			<Label for={ forLabel }>
+			<Label htmlFor={ forLabel }>
 				{ label }
 				{ required &&
 					'*'
