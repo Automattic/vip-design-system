@@ -6,16 +6,18 @@
 		"build-storybook": "build-storybook",
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
 		"watch": "npm run build -- --watch",
+		"test": "jest",
+		"test-watch": "jest --watch",
 		"storybook": "start-storybook -p 6006"
 	},
 	"dependencies": {
+		"@radix-ui/react-checkbox": "^0.1.0",
+		"@radix-ui/react-radio-group": "^0.1.0",
+		"@radix-ui/react-tooltip": "^0.1.0",
 		"babel-loader": "^8.2.2",
 		"framer-motion": "^3.9.1",
 		"react-icons": "^4.2.0",
-		"react-select": "^4.3.1",
-		"@radix-ui/react-checkbox": "^0.1.0",
-		"@radix-ui/react-radio-group": "^0.1.0",
-		"@radix-ui/react-tooltip": "^0.1.0"
+		"react-select": "^4.3.1"
 	},
 	"peerDependencies": {
 		"react": "*",
@@ -46,6 +48,9 @@
 		"@storybook/addons": "5.3.21",
 		"@storybook/preset-create-react-app": "^3.2.0",
 		"@storybook/react": "5.3.21",
+		"@testing-library/dom": "^8.11.1",
+		"@testing-library/jest-dom": "^5.15.0",
+		"@testing-library/react": "^12.1.2",
 		"cross-env": "^7.0.3",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",

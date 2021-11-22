@@ -39,7 +39,7 @@ const Avatar = ( {
 		{ src ? (
 			<Image
 				src={ src }
-				alt={ name }
+				alt={ `Avatar image from ${ name }` }
 				sx={ {
 					borderRadius: 9999,
 					width: '100%',
