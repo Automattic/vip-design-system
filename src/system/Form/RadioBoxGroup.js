@@ -21,7 +21,7 @@ const RadioBoxGroup = ( { onChange, groupLabel, value, options, ...props } ) => 
 		sx={ {
 			display: 'flex',
 			gap: 2,
-			
+
 		} }
 		{ ...props }
 	>

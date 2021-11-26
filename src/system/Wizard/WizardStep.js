@@ -11,20 +11,20 @@ import PropTypes from 'prop-types';
  */
 import { Card, Heading, Text } from '..';
 
-const WizardStep = ({ title, subTitle, complete = false, children, active }) => {
+const WizardStep = ( { title, subTitle, complete = false, children, active } ) => {
 	let borderLeftColor = 'border';
 
-	if (complete) {
+	if ( complete ) {
 		borderLeftColor = 'success';
-	} else if (active) {
+	} else if ( active ) {
 		borderLeftColor = 'primary';
 	}
 
 	let color = 'muted';
 
-	if (complete) {
+	if ( complete ) {
 		color = 'success';
-	} else if (active) {
+	} else if ( active ) {
 		color = 'heading';
 	}
 

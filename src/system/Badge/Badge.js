@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
- import { Text } from '../';
+import { Text } from '../';
 
 const Badge = ( { variant = 'blue', sx, ...props } ) => (
 	<Text

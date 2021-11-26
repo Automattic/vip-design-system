@@ -5,14 +5,14 @@
  */
 import PropTypes from 'prop-types';
 import { MdHelp } from 'react-icons/md';
-import * as TTip from "@radix-ui/react-tooltip";
+import * as TTip from '@radix-ui/react-tooltip';
 
 /**
 * Internal dependencies
 */
 import { Card, Text } from '..';
 
-const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />
+const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />;
 
 const Tooltip = ( {
 	trigger = <MdHelp />,

@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  */
 import { Badge, Box, Card, Grid, Heading, Text } from '..';
 
-const OptionRow = ({
+const OptionRow = ( {
 	image,
 	icon,
 	badge,
@@ -25,34 +25,34 @@ const OptionRow = ({
 	small = false,
 	disabled = false,
 	...props
-}) => {
+} ) => {
 	const mergedCard = disabled
 		? {
-				border: '1px solid',
-				borderColor: 'border',
-				background: 'none',
-				boxShadow: 'none',
-				color: 'grey.70'
+			border: '1px solid',
+			borderColor: 'border',
+			background: 'none',
+			boxShadow: 'none',
+			color: 'grey.70',
 		  }
 		: {};
 
 	const inlineStyles = inline
 		? {
-				py: 2,
-				px: 2,
-				mx: -2,
+			py: 2,
+			px: 2,
+			mx: -2,
 		  }
 		: {
-				py: 3,
-				px: [3, 3, small ? 3 : 5],
-				borderBottom: '1px solid',
-				borderColor: 'border',
+			py: 3,
+			px: [ 3, 3, small ? 3 : 5 ],
+			borderBottom: '1px solid',
+			borderColor: 'border',
 		  };
 	return (
 		<Grid
 			to={to}
-			columns={[1, 1, 'auto 1fr auto']}
-			gap={[3, 3, `${small ? 3 : 4}`]}
+			columns={[ 1, 1, 'auto 1fr auto' ]}
+			gap={[ 3, 3, `${ small ? 3 : 4 }` ]}
 			{...props}
 			sx={{
 				alignItems: 'center',
@@ -69,7 +69,7 @@ const OptionRow = ({
 				{image ? (
 					<Box
 						sx={{
-							display: ['inline-block', 'inline-block', 'block'],
+							display: [ 'inline-block', 'inline-block', 'block' ],
 							p: small ? 12 : 20,
 							flex: '0 0 auto',
 							bg: 'brand.70',
@@ -78,7 +78,7 @@ const OptionRow = ({
 							...mergedCard,
 						}}
 					>
-						{React.isValidElement(image) ? (
+						{React.isValidElement( image ) ? (
 							image
 						) : (
 							<img
@@ -108,7 +108,7 @@ const OptionRow = ({
 };
 
 OptionRow.propTypes = {
-	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
+	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
 	icon: PropTypes.node,
 	badge: PropTypes.string,
 	label: PropTypes.node,

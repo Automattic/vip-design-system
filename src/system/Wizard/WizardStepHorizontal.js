@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Heading } from '..';
 
-const WizardStepHorizontal = ({ title, active }) => {
+const WizardStepHorizontal = ( { title, active } ) => {
 	return (
 		<Heading
 			variant="h4"

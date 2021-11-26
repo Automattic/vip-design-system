@@ -1,23 +1,23 @@
 /**
  * Internal dependencies
  */
- import { light, dark } from './colors';
+import { light, dark } from './colors';
 
- const textStyles = {
+const textStyles = {
 	h1: {
 		fontSize: 5,
 		marginBottom: 3,
 		letterSpacing: '-.02em',
 		fontWeight: 'body',
 		fontFamily: 'serif',
-		color: 'heading'
+		color: 'heading',
 	},
 	h2: {
 		fontSize: 4,
 		marginBottom: 2,
 		letterSpacing: '-.005em',
 		fontWeight: 400,
-		color: 'heading'
+		color: 'heading',
 	},
 	h3: {
 		fontSize: 3,
@@ -25,21 +25,21 @@
 		letterSpacing: '-.005em',
 		lineHeight: 1.4,
 		fontWeight: 'heading',
-		color: 'heading'
+		color: 'heading',
 	},
 	h4: {
 		fontSize: 2,
 		marginBottom: 1,
 		lineHeight: 1.5,
 		fontWeight: 'heading',
-		color: 'heading'
+		color: 'heading',
 	},
 	h5: {
 		fontSize: 1,
 		marginBottom: 1,
 		lineHeight: 1.5,
 		fontWeight: 'heading',
-		color: 'heading'
+		color: 'heading',
 	},
 	caps: {
 		fontSize: 1,
@@ -49,9 +49,9 @@
 		fontWeight: 'bold',
 		letterSpacing: '.05em',
 	},
- }
+};
 
- export default {
+export default {
 	 space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
 	 fonts: {
 		 body:
@@ -96,11 +96,11 @@
 		 midnight: '#13191E',
 		 navigationStart: light.grey[ '5' ],
 		 navigationEnd: light.grey[ '5' ],
-		 success: light.green['90'],
-		 error: light.red['90'],
-		 warning: light.yellow['90'],
-		 dialog: light.grey['0'],
-		 backgroundMuted: light.grey['5'],
+		 success: light.green[ '90' ],
+		 error: light.red[ '90' ],
+		 warning: light.yellow[ '90' ],
+		 dialog: light.grey[ '0' ],
+		 backgroundMuted: light.grey[ '5' ],
 		 ...light,
 		 modes: {
 			 dark: {
@@ -119,11 +119,11 @@
 				 midnight: dark.grey[ '90' ],
 				 navigationStart: dark.grey[ '5' ],
 				 navigationEnd: dark.grey[ '5' ],
-		 		 success: dark.green['90'],
-		 		 error: dark.red['90'],
-		 		 warning: dark.yellow['90'],
-		 		 dialog: dark.grey['40'],
-				 backgroundMuted: dark.grey['10'],
+		 		 success: dark.green[ '90' ],
+		 		 error: dark.red[ '90' ],
+		 		 warning: dark.yellow[ '90' ],
+		 		 dialog: dark.grey[ '40' ],
+				 backgroundMuted: dark.grey[ '10' ],
 				 ...dark,
 			 },
 		 },
@@ -183,8 +183,8 @@
 			alignItems: 'center',
 			color: 'text',
 			'&:hover': {
-				bg: 'hover'
-			}
+				bg: 'hover',
+			},
 		 },
 		 danger: {
 			 // you can reference other values defined in the theme
@@ -295,9 +295,9 @@
 				 display: 'block',
 			 },
 			 pre: {
-				 fontFamily: 'body'
+				 fontFamily: 'body',
 			 },
-			 ...textStyles
+			 ...textStyles,
 		 },
 	 },
- };
+};

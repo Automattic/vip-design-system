@@ -30,7 +30,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 			break;
 	}
 
-	const NoticeIcon = ({ color }) => (
+	const NoticeIcon = ( { color } ) => (
 		<Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } }/>
 	);
 
@@ -41,7 +41,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				borderRadius: 2,
 				bg: inline ? 'transparent' : `${ color }.10`,
 				p: inline ? 0 : 3,
-				color: `${color}.90`,
+				color: `${ color }.90`,
 				a: {
 					color: `${ color }.90`,
 					textDecoration: 'underline',

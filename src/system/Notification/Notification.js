@@ -11,13 +11,13 @@ import PropTypes from 'prop-types';
  */
 import { Box, Button, Card, Flex, Heading, Text } from '../';
 
-const Notification = ({ title, body, status = 'success', onClose }) => (
+const Notification = ( { title, body, status = 'success', onClose } ) => (
 	<Card
 		sx={{
 			boxShadow: 'medium',
 			width: 320,
 			position: 'relative',
-			variant: `notification.${status}`,
+			variant: `notification.${ status }`,
 		}}
 	>
 		<Button

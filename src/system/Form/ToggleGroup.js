@@ -3,12 +3,12 @@
 /**
  * External dependencies
  */
- import React from 'react';
- import PropTypes from 'prop-types';
- import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
- import { MdCheckCircle } from "react-icons/md";
- 
- const ToggleGroup = ( { onChange, groupLabel, value, options, ...props } ) => (
+import React from 'react';
+import PropTypes from 'prop-types';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import { MdCheckCircle } from 'react-icons/md';
+
+const ToggleGroup = ( { onChange, groupLabel, value, options, ...props } ) => (
 	 <RadioGroupPrimitive.Root
 		 onValueChange={ onChange }
 		 value={ value }
@@ -53,14 +53,13 @@
 			 ) )
 		 }
 	 </RadioGroupPrimitive.Root>
- );
- 
- ToggleGroup.propTypes = {
+);
+
+ToggleGroup.propTypes = {
 	 onChange: PropTypes.func,
 	 options: PropTypes.array,
 	 value: PropTypes.string,
 	 groupLabel: PropTypes.string,
- };
- 
- export { ToggleGroup };
- 
+};
+
+export { ToggleGroup };
