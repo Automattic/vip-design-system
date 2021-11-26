@@ -1,6 +1,7 @@
-node_modules
-dist
-coverage
-jest_0
 .git
+build
+coverage
 flow-typed
+jest_0
+node_modules
+storybook-static
