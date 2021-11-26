@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 
-const Input = React.forwardRef( ( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
+const InputComponent = ( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
 	<React.Fragment>
 		{ label &&
 			<Label htmlFor={ forLabel }>
@@ -55,9 +55,9 @@ const Input = React.forwardRef( ( { variant, label, forLabel, hasError, required
 			<Validation>{ errorMessage }</Validation>
 		}
 	</React.Fragment>
-) );
+);
 
-Input.propTypes = {
+InputComponent.propTypes = {
 	variant: PropTypes.string,
 	label: PropTypes.string,
 	hasError: PropTypes.bool,
@@ -65,5 +65,7 @@ Input.propTypes = {
 	forLabel: PropTypes.string,
 	errorMessage: PropTypes.string,
 };
+
+const Input = React.forwardRef( InputComponent );
 
 export { Input };

@@ -70,10 +70,11 @@ const Tooltip = ( {
 };
 
 Tooltip.propTypes = {
+	children: PropTypes.object,
+	text: PropTypes.string,
+	tooltipProps: PropTypes.object,
 	trigger: PropTypes.string,
 	width: PropTypes.number,
-	text: PropTypes.string,
-	children: PropTypes.object,
 };
 
 export { Tooltip };

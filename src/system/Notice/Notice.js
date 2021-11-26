@@ -11,28 +11,45 @@ import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 */
 import { Box, Flex, Heading, Card } from '../';
 
-const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, ...props } ) => {
-	let color = 'yellow';
+const NoticeIcon = ( { color, variant } ) => {
 	let Icon = MdWarning;
 
 	switch ( variant ) {
 		case 'info':
-			color = 'blue';
 			Icon = MdInfo;
 			break;
 		case 'alert':
-			color = 'red';
 			Icon = MdError;
 			break;
 		case 'success':
-			color = 'green';
 			Icon = MdCheckCircle;
 			break;
 	}
 
-	const NoticeIcon = ( { color } ) => (
+	return (
 		<Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } }/>
 	);
+};
+
+NoticeIcon.propTypes = {
+	color: PropTypes.string,
+	variant: PropTypes.string,
+};
+
+const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, ...props } ) => {
+	let color = 'yellow';
+
+	switch ( variant ) {
+		case 'info':
+			color = 'blue';
+			break;
+		case 'alert':
+			color = 'red';
+			break;
+		case 'success':
+			color = 'green';
+			break;
+	}
 
 	return (
 		<Card
@@ -57,7 +74,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				<Flex sx={ {
 					alignItems: 'center',
 				} }>
-					<NoticeIcon color={`${ color }.100`} />
+					<NoticeIcon color={`${ color }.100`} variant={ variant } />
 				</Flex>
 
 				<Box sx={ { ml: 23 } }>
@@ -70,10 +87,12 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 };
 
 Notice.propTypes = {
-	variant: PropTypes.string,
-	title: PropTypes.node,
-	inline: PropTypes.bool,
 	children: PropTypes.node,
+	color: PropTypes.string,
+	inline: PropTypes.bool,
+	sx: PropTypes.object,
+	title: PropTypes.node,
+	variant: PropTypes.string,
 };
 
 export { Notice };

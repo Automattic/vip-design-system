@@ -32,7 +32,6 @@ const options = [
 ];
 
 export const Default = () => {
-	const [ value, setValue ] = useState('one');
-	return <RadioBoxGroup value={ value } onChange={ newValue => setValue( newValue ) } groupLabel="group" options={ options } />
-
-}
+	const [ value, setValue ] = useState( 'one' );
+	return <RadioBoxGroup value={ value } onChange={ newValue => setValue( newValue ) } groupLabel="group" options={ options } />;
+};

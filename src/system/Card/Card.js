@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Box } from '..';
 
-const Card = React.forwardRef( ( { variant = 'primary', sx = {}, ...props }, ref ) => (
+const CardComponent = ( { variant = 'primary', sx = {}, ...props }, ref ) => (
 	<Box
 		ref={ref}
 		sx={{
@@ -22,11 +22,13 @@ const Card = React.forwardRef( ( { variant = 'primary', sx = {}, ...props }, ref
 		}}
 		{...props}
 	/>
-) );
+);
 
-Card.propTypes = {
+CardComponent.propTypes = {
 	variant: PropTypes.string,
 	sx: PropTypes.object,
 };
+
+const Card = React.forwardRef( CardComponent );
 
 export { Card };
