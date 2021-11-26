@@ -5,11 +5,12 @@
 	"scripts": {
 		"build-storybook": "build-storybook",
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
+		"format": "eslint . --fix",
 		"lint": "eslint . -f json | eslines --quiet",
-		"watch": "npm run build -- --watch",
-		"test": "jest",
+		"storybook": "start-storybook -p 6006",
 		"test-watch": "jest --watch",
-		"storybook": "start-storybook -p 6006"
+		"test": "jest",
+		"watch": "npm run build -- --watch"
 	},
 	"dependencies": {
 		"@radix-ui/react-checkbox": "^0.1.0",
