@@ -33,7 +33,7 @@ const OptionRow = ( {
 			background: 'none',
 			boxShadow: 'none',
 			color: 'grey.70',
-		  }
+		}
 		: {};
 
 	const inlineStyles = inline
@@ -41,13 +41,13 @@ const OptionRow = ( {
 			py: 2,
 			px: 2,
 			mx: -2,
-		  }
+		}
 		: {
 			py: 3,
 			px: [ 3, 3, small ? 3 : 5 ],
 			borderBottom: '1px solid',
 			borderColor: 'border',
-		  };
+		};
 	return (
 		<Grid
 			to={to}
