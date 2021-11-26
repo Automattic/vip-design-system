@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Badge, Box, Card, Grid, Heading, Text } from '..';
+import { Badge, Box, Grid, Heading, Text } from '..';
 
 const OptionRow = ( {
 	image,

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { theme as vipTheme, Flex, Text } from '..';
+import { Flex, Text } from '..';
 
 export const Option = ( { label, isSelected, ...props } ) => (
 	<components.Option {...props}>
