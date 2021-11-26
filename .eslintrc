@@ -1,0 +1,30 @@
+{
+  "extends": ["wpvip"],
+  "plugins": ["react", "jsx-a11y"],
+  "settings": {
+    "react": {
+      "version": "17.0.1"
+    }
+  },
+  "rules": {
+    "capitalized-comments": "off",
+    "id-length": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "globals": {
+    "btoa": true,
+    "mount": true,
+    "shallow": true,
+    "createMount": true,
+    "createShallow": true,
+    "createMountWithTheme": true,
+    "createShallowWithTheme": true,
+    "createMountWithRouter": true,
+    "createShallowWithRouter": true,
+    "mockWithThemeUIProvider": true,
+    "console": true,
+    "window": true,
+    "Rollbar": true
+  }
+}

@@ -5,17 +5,18 @@
 	"scripts": {
 		"build-storybook": "build-storybook",
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
+		"lint": "eslint . --max-warnings 0",
 		"watch": "npm run build -- --watch",
 		"storybook": "start-storybook -p 6006"
 	},
 	"dependencies": {
+		"@radix-ui/react-checkbox": "^0.1.0",
+		"@radix-ui/react-radio-group": "^0.1.0",
+		"@radix-ui/react-tooltip": "^0.1.0",
 		"babel-loader": "^8.2.2",
 		"framer-motion": "^3.9.1",
 		"react-icons": "^4.2.0",
-		"react-select": "^4.3.1",
-		"@radix-ui/react-checkbox": "^0.1.0",
-		"@radix-ui/react-radio-group": "^0.1.0",
-		"@radix-ui/react-tooltip": "^0.1.0"
+		"react-select": "^4.3.1"
 	},
 	"peerDependencies": {
 		"react": "*",
@@ -47,6 +48,12 @@
 		"@storybook/preset-create-react-app": "^3.2.0",
 		"@storybook/react": "5.3.21",
 		"cross-env": "^7.0.3",
+		"eslint": "7.32.0",
+		"eslint-config-react-app": "6.0.0",
+		"eslint-config-wpvip": "github:automattic/eslint-config-wpvip#c6605d1c3a545d43ac2149cd464ec3c38ebc58d5",
+		"eslint-plugin-jsx-a11y": "6.4.1",
+		"eslint-plugin-react": "7.25.3",
+		"eslint-plugin-wpcalypso": "4.1.0",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
 		"react-scripts": "^4.0.3"
