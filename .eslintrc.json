@@ -5,6 +5,7 @@
 		"jsx-a11y"
 	],
 	"rules": {
+		"id-length": 0,
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off"
 	},
