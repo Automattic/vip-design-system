@@ -21,8 +21,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Reconfigure git to use HTTPS authentication
-      uses: GuillaumeFalourd/SSH-to-HTTPS@v1
+    - run: npm install -g npm@latest
     - run: npm install
     - run: npm run lint
     - run: npm run build
