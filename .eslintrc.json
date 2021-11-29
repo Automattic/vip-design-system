@@ -1,0 +1,23 @@
+{
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"babelOptions": {
+			"presets": ["@babel/preset-react"]
+		}
+	},
+	"extends": [ "wpvip" ],
+	"plugins": [
+		"react",
+		"jsx-a11y"
+	],
+	"rules": {
+		"id-length": 0,
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "16.4"
+		}
+	}
+}

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { theme as vipTheme, Flex, Text } from '..';
+import { Flex, Text } from '..';
 
 export const Option = ( { label, isSelected, ...props } ) => (
 	<components.Option {...props}>
@@ -50,7 +50,7 @@ const SearchSelect = props => (
 			'.select__control': {
 				background: 'none',
 				color: 'heading',
-				border: `1px solid`,
+				border: '1px solid',
 				borderColor: 'border',
 				margin: 0,
 				padding: 0,
@@ -73,11 +73,11 @@ const SearchSelect = props => (
 				bg: 'hover',
 				'&:hover': {
 					bg: 'hover',
-				}
+				},
 			},
 			'.select__option--is-focused': {
 				bg: 'hover',
-			}
+			},
 		} }
 	/>
 );

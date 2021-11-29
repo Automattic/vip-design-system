@@ -1,11 +1,6 @@
 /** @jsxImportSource theme-ui */
 
 /**
- * External dependencies
- */
-import React from 'react';
-
-/**
  * Internal dependencies
  */
 import { Input } from '..';

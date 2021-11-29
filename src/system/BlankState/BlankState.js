@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 import { Box, Heading, Text } from '..';
 
-const BlankState = ({ image, icon, title, body, cta }) => {
+const BlankState = ( { image, icon, title, body, cta } ) => {
 	return (
 		<Box sx={{ textAlign: 'center', padding: 5 }}>
 			{icon ? icon : <img src={image} sx={{ mb: 3 }} alt="Icon representing the blank state" />}
@@ -22,7 +22,7 @@ const BlankState = ({ image, icon, title, body, cta }) => {
 };
 
 BlankState.propTypes = {
-	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
+	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
 	icon: PropTypes.node,
 	title: PropTypes.node,
 	body: PropTypes.node,

@@ -57,7 +57,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 );
 
 ToggleRow.propTypes = {
-	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
+	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
 	badge: PropTypes.string,
 	title: PropTypes.node,
 	subTitle: PropTypes.node,

@@ -29,10 +29,10 @@ const selectStyles = {
 		paddingBottom: vipTheme.space[ 1 ],
 		paddingLeft: vipTheme.space[ 2 ],
 	} ),
-	menu: () => ( { boxShadow: 'none', borderTop: `1px solid` } ),
+	menu: () => ( { boxShadow: 'none', borderTop: '1px solid' } ),
 };
 
-const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "left", ...props } ) => {
+const InlineSelect = ( { label, value, options, noneLabel = 'All', position = 'left', ...props } ) => {
 	let valueLabel = noneLabel;
 
 	if ( Array.isArray( value ) && value.length ) {
@@ -74,14 +74,14 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "l
 						bg: 'grey.10',
 						'&:hover': {
 							bg: 'grey.10',
-						}
+						},
 					},
 					'.select__option--is-focused': {
 						bg: 'grey.10',
 					},
 					'.select__menu': {
 						borderColor: 'border',
-					}
+					},
 				} }
 				{...props}
 			/>
@@ -100,10 +100,10 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = "l
 InlineSelect.propTypes = {
 	label: PropTypes.string,
 	// https://react-select.com/props
-	value: PropTypes.oneOfType([
+	value: PropTypes.oneOfType( [
 		PropTypes.array,
 		PropTypes.object,
-	]),
+	] ),
 	options: PropTypes.array,
 	position: PropTypes.string,
 	noneLabel: PropTypes.string,

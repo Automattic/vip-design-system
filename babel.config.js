@@ -1,20 +1,20 @@
 module.exports = {
-	"ignore": [
-		"**/*.stories.js"
+	ignore: [
+		'**/*.stories.js',
 	],
-	"presets": [
+	presets: [
 		[
-			"@babel/preset-env",
+			'@babel/preset-env',
 			{
-				"loose": true
-			}
+				loose: true,
+			},
 		],
 		[
-			"@babel/preset-react",
+			'@babel/preset-react',
 			{
-				"importSource": "theme-ui",
-				"runtime": "automatic",
-				"throwIfNamespace": false,
+				importSource: 'theme-ui',
+				runtime: 'automatic',
+				throwIfNamespace: false,
 			},
 		],
 	],

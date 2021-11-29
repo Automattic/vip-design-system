@@ -5,14 +5,14 @@
  */
 import PropTypes from 'prop-types';
 import { MdHelp } from 'react-icons/md';
-import * as TTip from "@radix-ui/react-tooltip";
+import * as TTip from '@radix-ui/react-tooltip';
 
 /**
 * Internal dependencies
 */
 import { Card, Text } from '..';
 
-const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />
+const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />;
 
 const Tooltip = ( {
 	trigger = <MdHelp />,
@@ -70,10 +70,11 @@ const Tooltip = ( {
 };
 
 Tooltip.propTypes = {
+	children: PropTypes.object,
+	text: PropTypes.string,
+	tooltipProps: PropTypes.object,
 	trigger: PropTypes.string,
 	width: PropTypes.number,
-	text: PropTypes.string,
-	children: PropTypes.object,
 };
 
 export { Tooltip };

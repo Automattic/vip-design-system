@@ -6,7 +6,7 @@
 import { Button as ThemeButton } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Button = ({ sx, ...props }) => (
+const Button = ( { sx, ...props } ) => (
 	<ThemeButton
 		sx={{
 			verticalAlign: 'middle',

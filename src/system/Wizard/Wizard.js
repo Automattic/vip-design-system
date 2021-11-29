@@ -12,7 +12,7 @@ import { MdArrowForward } from 'react-icons/md';
  */
 import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
-const Wizard = ({ steps, activeStep, variant, completed = [], ...props }) => {
+const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 	return (
 		<Box>
 			{variant === 'horizontal' ? (
@@ -23,7 +23,7 @@ const Wizard = ({ steps, activeStep, variant, completed = [], ...props }) => {
 						}}
 						{...props}
 					>
-						{steps.map(({ title, subTitle }, index) => (
+						{steps.map( ( { title, subTitle }, index ) => (
 							<React.Fragment key={index}>
 								<WizardStepHorizontal
 									active={index === activeStep}
@@ -32,22 +32,22 @@ const Wizard = ({ steps, activeStep, variant, completed = [], ...props }) => {
 								/>
 								{index < steps.length - 1 && <MdArrowForward sx={{ mx: 2, color: 'grey.80' }} />}
 							</React.Fragment>
-						))}
+						) )}
 					</Flex>
-					{steps[activeStep].children}
+					{steps[ activeStep ].children}
 				</Box>
 			) : (
-				steps.map(({ title, subTitle, children }, index) => (
+				steps.map( ( { title, subTitle, children }, index ) => (
 					<WizardStep
 						active={index === activeStep}
 						title={title}
 						subTitle={subTitle}
-						complete={completed.includes(index)}
+						complete={completed.includes( index )}
 						key={index}
 					>
 						{children}
 					</WizardStep>
-				))
+				) )
 			)}
 		</Box>
 	);

@@ -1,9 +1,4 @@
 /**
- * External dependencies
- */
-import React from 'react';
-
-/**
  * Internal dependencies
  */
 import { Box, ConfirmationDialog, Button, Heading, Text, Flex } from '..';

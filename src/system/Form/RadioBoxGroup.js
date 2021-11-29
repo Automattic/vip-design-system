@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import PropTypes from 'prop-types';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { MdCheckCircle } from 'react-icons/md';
@@ -21,7 +20,7 @@ const RadioBoxGroup = ( { onChange, groupLabel, value, options, ...props } ) => 
 		sx={ {
 			display: 'flex',
 			gap: 2,
-			
+
 		} }
 		{ ...props }
 	>

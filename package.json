@@ -5,10 +5,12 @@
 	"scripts": {
 		"build-storybook": "build-storybook",
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
-		"watch": "npm run build -- --watch",
-		"test": "jest",
+		"format": "eslint . --fix",
+		"lint": "eslint . -f json | eslines --quiet",
+		"storybook": "start-storybook -p 6006",
 		"test-watch": "jest --watch",
-		"storybook": "start-storybook -p 6006"
+		"test": "jest",
+		"watch": "npm run build -- --watch"
 	},
 	"dependencies": {
 		"@radix-ui/react-checkbox": "^0.1.0",
@@ -33,6 +35,7 @@
 	"devDependencies": {
 		"@babel/cli": "^7.14.3",
 		"@babel/core": "7.14.0",
+		"@babel/eslint-parser": "7.15.7",
 		"@babel/plugin-proposal-class-properties": "7.13.0",
 		"@babel/plugin-proposal-class-static-block": "^7.14.5",
 		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.5",
@@ -46,12 +49,23 @@
 		"@storybook/addon-actions": "5.3.21",
 		"@storybook/addon-links": "5.3.21",
 		"@storybook/addons": "5.3.21",
+		"@storybook/node-logger": "^6.4.0",
 		"@storybook/preset-create-react-app": "^3.2.0",
 		"@storybook/react": "5.3.21",
 		"@testing-library/dom": "^8.11.1",
 		"@testing-library/jest-dom": "^5.15.0",
 		"@testing-library/react": "^12.1.2",
 		"cross-env": "^7.0.3",
+		"eslines": "2.1.0",
+		"eslint": "7.32.0",
+		"eslint-config-react-app": "6.0.0",
+		"eslint-config-wpvip": "automattic/eslint-config-wpvip#c6605d1c3a545d43ac2149cd464ec3c38ebc58d5",
+		"eslint-plugin-jest": "24.4.2",
+		"eslint-plugin-json": "3.1.0",
+		"eslint-plugin-jsx-a11y": "6.4.1",
+		"eslint-plugin-no-async-foreach": "0.1.1",
+		"eslint-plugin-react": "7.25.3",
+		"eslint-plugin-wpcalypso": "4.1.0",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
 		"react-scripts": "^4.0.3"
