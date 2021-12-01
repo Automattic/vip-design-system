@@ -68,6 +68,7 @@
 		"eslint-plugin-wpcalypso": "4.1.0",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
+		"react-refresh": "^0.9.0",
 		"react-scripts": "^4.0.3"
 	}
 }
