@@ -1,13 +1,12 @@
 /**
-* External dependencies
-*/
-import React from 'react';
+ * External dependencies
+ */
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { axe } from 'jest-axe';
 
 /**
-* Internal dependencies
-*/
+ * Internal dependencies
+ */
 import { Avatar } from './Avatar';
 
 describe( '<Avatar />', () => {
@@ -21,5 +20,12 @@ describe( '<Avatar />', () => {
 		render( <Avatar name="John Doe" src="path/to/image" /> );
 
 		expect( screen.getByAltText( 'Avatar image from John Doe' ) ).toBeInTheDocument();
+	} );
+
+	it( 'should not have basic accessibility issues', async () => {
+		const { container } = render( <Avatar name="John Doe" src="path/to/image" /> );
+		const results = await axe( container );
+
+		expect( results ).toHaveNoViolations();
 	} );
 } );
