@@ -1,7 +1,9 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import { ThemeProvider, useColorMode } from "theme-ui";
 import { addDecorator } from "@storybook/react";
 import { Button, Box, theme, Link } from "../src/system";
+import axe from '@axe-core/react'
 
 const ThemeChanger = () => {
 	const [colorMode, setColorMode] = useColorMode();
@@ -22,6 +24,9 @@ const ThemeChanger = () => {
 		</Link>
 	);
 };
+
+
+axe( React, ReactDOM, 1000 );
 
 addDecorator((story) => (
 	<React.Fragment>
