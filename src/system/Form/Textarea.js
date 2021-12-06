@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 
-const TextareaComponent = ( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
+const Textarea = React.forwardRef( ( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
 	<React.Fragment>
 		{ label &&
 			<Label htmlFor={ forLabel }>
@@ -50,9 +50,9 @@ const TextareaComponent = ( { variant, label, forLabel, hasError, required, erro
 			<Validation>{ errorMessage }</Validation>
 		}
 	</React.Fragment>
-);
+) );
 
-TextareaComponent.propTypes = {
+Textarea.propTypes = {
 	variant: PropTypes.string,
 	label: PropTypes.string,
 	hasError: PropTypes.bool,
@@ -61,6 +61,6 @@ TextareaComponent.propTypes = {
 	errorMessage: PropTypes.string,
 };
 
-const Textarea = React.forwardRef( TextareaComponent );
+Textarea.displayName = 'Textarea';
 
 export { Textarea };

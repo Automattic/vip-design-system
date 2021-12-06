@@ -11,24 +11,26 @@ import PropTypes from 'prop-types';
  */
 import { Box } from '..';
 
-const CardComponent = ( { variant = 'primary', sx = {}, ...props }, ref ) => (
-	<Box
-		ref={ref}
-		sx={{
-			// pass variant prop to sx
-			variant: `cards.${ variant }`,
-			overflow: 'hidden',
-			...sx,
-		}}
-		{...props}
-	/>
-);
+const Card = React.forwardRef( ( { variant = 'primary', sx = {}, ...props }, ref ) => {
+	return (
+		<Box
+			ref={ref}
+			sx={{
+				// pass variant prop to sx
+				variant: `cards.${ variant }`,
+				overflow: 'hidden',
+				...sx,
+			}}
+			{...props}
+		/>
+	);
+} );
 
-CardComponent.propTypes = {
+Card.propTypes = {
 	variant: PropTypes.string,
 	sx: PropTypes.object,
 };
 
-const Card = React.forwardRef( CardComponent );
+Card.displayName = 'Card';
 
 export { Card };
