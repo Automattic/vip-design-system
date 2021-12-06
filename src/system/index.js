@@ -41,6 +41,7 @@ import { Spinner } from './Spinner';
 import { ResourceList, ResourceItem } from './ResourceList';
 import { Tooltip } from './Tooltip';
 import { Time } from './Time';
+import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
 import { Table, TableRow } from './Table';
@@ -93,6 +94,7 @@ export {
 	ToggleGroup,
 	TabItem,
 	Time,
+	Timeline,
 	Validation,
 	Wizard,
 	WizardStep,
