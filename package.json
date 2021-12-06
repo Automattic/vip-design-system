@@ -49,6 +49,7 @@
 		}
 	},
 	"devDependencies": {
+		"immer": ">=9.0.6",
 		"@axe-core/react": "4.3.2",
 		"@babel/cli": "^7.14.3",
 		"@babel/core": "7.14.0",
