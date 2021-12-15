@@ -35,11 +35,15 @@
 	},
 	"jest": {
 		"testURL": "http://localhost",
+		"roots": [
+			"<rootDir>/src",
+			"<rootDir>/test"
+		],
 		"setupFiles": [
-			"./test/setupTests.js"
+			"<rootDir>/test/setupTests.js"
 		],
 		"setupFilesAfterEnv": [
-			"./test/setupAfterEnv.js"
+			"<rootDir>/test/setupAfterEnv.js"
 		],
 		"transformIgnorePatterns": [
 			".*.stories.js$"
