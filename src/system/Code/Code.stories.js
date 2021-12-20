@@ -16,7 +16,9 @@ export default {
 export const Default = () => (
 	<React.Fragment>
 		<Code>Code</Code>
+		<br />
 		<Code showCopy={true}>Code with Icon</Code>
+		<br />
 		<Code showCopy={true} onCopy={
 			// eslint-disable-next-line no-console
 			() => console.info( 'Hello world' )
