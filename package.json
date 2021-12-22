@@ -7,6 +7,7 @@
 		"build": "cross-env NODE_ENV=production babel src --out-dir build",
 		"format": "eslint . --fix",
 		"jest": "NODE_ENV=test jest --detectOpenHandles",
+		"jest:coverage": "npm run jest && open-cli ./coverage/index.html",
 		"jest:watch": "npm run jest --watch",
 		"lint": "eslint . -f json | eslines --quiet",
 		"storybook": "start-storybook -p 6006",
@@ -34,12 +35,21 @@
 		"**/react-dom": "17.0.1"
 	},
 	"jest": {
+		"collectCoverage": true,
+		"coverageReporters": [
+			"json",
+			"html"
+		],
 		"testURL": "http://localhost",
+		"roots": [
+			"<rootDir>/src",
+			"<rootDir>/test"
+		],
 		"setupFiles": [
-			"./test/setupTests.js"
+			"<rootDir>/test/setupTests.js"
 		],
 		"setupFilesAfterEnv": [
-			"./test/setupAfterEnv.js"
+			"<rootDir>/test/setupAfterEnv.js"
 		],
 		"transformIgnorePatterns": [
 			".*.stories.js$"
@@ -49,7 +59,6 @@
 		}
 	},
 	"devDependencies": {
-		"immer": ">=9.0.6",
 		"@axe-core/react": "4.3.2",
 		"@babel/cli": "^7.14.3",
 		"@babel/core": "7.14.0",
@@ -85,7 +94,9 @@
 		"eslint-plugin-no-async-foreach": "0.1.1",
 		"eslint-plugin-react": "7.25.3",
 		"eslint-plugin-wpcalypso": "4.1.0",
+		"immer": ">=9.0.6",
 		"jest-axe": "5.0.1",
+		"open-cli": "^7.0.1",
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"react-input-autosize": "^3.0.0",
 		"react-refresh": "^0.9.0",

@@ -47,18 +47,21 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) =
 		>
 			{ codeDom }
 			{
-				<span
+				<button
+					aria-label="Copy"
 					sx={ {
-						position: 'absolute',
-						top: 0,
 						bg: 'grey.10',
-						right: 0,
-						paddingRight: 2,
-						paddingLeft: 2,
-						paddingTop: 1,
-						paddingBottom: 1,
 						borderTopRightRadius: 1,
+						borderWidth: 0,
+						color: 'muted',
 						opacity: 0.8,
+						paddingBottom: 1,
+						paddingLeft: 2,
+						paddingRight: 2,
+						paddingTop: 1,
+						position: 'absolute',
+						right: 0,
+						top: '-1px',
 						'&:hover': {
 							opacity: 1,
 							cursor: 'pointer',
@@ -75,7 +78,7 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) =
 					} }
 				>
 					{ copied ? 'Copied!' : <MdContentCopy /> }
-				</span>
+				</button>
 			}
 		</div>
 	);
