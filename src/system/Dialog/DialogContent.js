@@ -133,6 +133,8 @@ const DialogMotion = ( { variant, position, ...props } ) => {
 				padding: 0,
 				display: 'inline-block',
 				variant: `dialog.${ variant }`,
+				overflow: 'auto',
+				maxHeight: variant === 'modal' ? '90%' : '',
 			} }
 		/>
 	);
