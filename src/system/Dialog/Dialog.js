@@ -16,8 +16,22 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 	const [ isOpen, setIsOpen ] = useState( startOpen );
 	const dialogRef = useRef( null );
 
+	const isFunction = typeof content === 'function';
+
+	const hasDialog = component => {
+		if ( component?.type === Dialog ) {
+			return true;
+		}
+
+		if ( component?.props?.children ) {
+			return hasDialog( component.props.children );
+		}
+
+		return false;
+	};
+
 	const closeDialog = e => {
-		if ( props.variant !== 'modal' ) {
+		if ( ! props.variant && ! hasDialog( content ) && ! isFunction ) {
 			setIsOpen( false );
 		}
 
@@ -31,9 +45,6 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 
 		return () => window.document.removeEventListener( 'click', closeDialog, true );
 	}, [] );
-
-	// if content is a function, pass in onClose
-	const isFunction = typeof content === 'function';
 
 	const handleOpen = ( event = null ) => {
 		const open = ! isOpen;

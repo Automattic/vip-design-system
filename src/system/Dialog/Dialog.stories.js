@@ -20,6 +20,8 @@ export default {
 
 const DropdownTrigger = <Button>Trigger Dropdown</Button>;
 const ModalTrigger = <Button sx={{ mr: 3 }}>Trigger Modal</Button>;
+const DialogAndModalTrigger = <Button sx={{ ml: 3 }}>Dropdown + Modal</Button>;
+const SidebarTrigger = <Button sx={{ ml: 3 }}>Sidebar</Button>;
 
 const DropdownContent = (
 	<div>
@@ -59,6 +61,29 @@ export const Default = () => (
 			trigger={DropdownTrigger}
 			content={DropdownContent}
 			sx={{ width: 200 }}
+		/>
+		<Dialog
+			position="right"
+			sx={ { width: 240 } }
+			trigger={ DialogAndModalTrigger }
+			content={
+				<div>
+					<div>
+						<DialogMenu>
+							<Dialog
+								variant="modal"
+								trigger={ <DialogMenuItem>Modal</DialogMenuItem> }
+								content={ ModalContent }
+							/>
+						</DialogMenu>
+					</div>
+				</div>
+			}
+		/>
+		<Dialog
+			variant="sidebar"
+			trigger={ SidebarTrigger }
+			content={ ModalContent }
 		/>
 	</Flex>
 );
