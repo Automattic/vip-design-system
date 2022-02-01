@@ -17,6 +17,10 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 	const dialogRef = useRef( null );
 
 	const closeDialog = e => {
+		if ( props.variant !== 'modal' ) {
+			setIsOpen( false );
+		}
+
 		if ( ! dialogRef.current.contains( e.target ) ) {
 			setIsOpen( false );
 		}
@@ -70,6 +74,7 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 
 Dialog.propTypes = {
 	trigger: PropTypes.node,
+	variant: PropTypes.string,
 	disabled: PropTypes.bool,
 	position: PropTypes.string,
 	startOpen: PropTypes.bool,
