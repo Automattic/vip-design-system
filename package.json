@@ -21,7 +21,8 @@
 		"babel-loader": "^8.2.2",
 		"framer-motion": "^3.9.1",
 		"react-icons": "^4.2.0",
-		"react-select": "^4.3.1"
+		"react-select": "^4.3.1",
+		"react-select-async-paginate": "^0.6.1"
 	},
 	"peerDependencies": {
 		"react": "*",
