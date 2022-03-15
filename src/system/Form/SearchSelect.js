@@ -5,6 +5,7 @@
  */
 import { MdDone, MdExpandMore, MdClose } from 'react-icons/md';
 import Select, { components } from 'react-select';
+import { withAsyncPaginate } from 'react-select-async-paginate';
 import PropTypes from 'prop-types';
 
 /**
@@ -82,4 +83,16 @@ const SearchSelect = props => (
 	/>
 );
 
-export { SearchSelect };
+// Asynchronous search select to load paginated results asynchronously
+const CustomAsyncPaginate = withAsyncPaginate( SearchSelect );
+
+const AsyncSearchSelect = ( { label, value, options, ...props } ) => (
+	<CustomAsyncPaginate
+		SelectComponent={ SearchSelect }
+		value={ value }
+		loadOptions={ options }
+		{ ...props }
+	/>
+);
+
+export { SearchSelect, AsyncSearchSelect };
