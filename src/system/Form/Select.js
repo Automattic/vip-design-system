@@ -8,12 +8,15 @@ import PropTypes from 'prop-types';
 /**
   * Internal dependencies
   */
-import { SearchSelect } from './SearchSelect';
+import { SearchSelect, AsyncSearchSelect } from './SearchSelect';
 import { InlineSelect } from './InlineSelect';
 
-const Select = ( { isMulti = false, isInline, options, label, isSearch, ...props } ) => {
+const Select = ( { isMulti = false, isInline, options, label, isSearch, isAsync, loadOptions, ...props } ) => {
 	if ( isInline ) {
 		return <InlineSelect isMulti={ isMulti } label={ label } options={ options } { ...props } />;
+	}
+	else if ( isAsync ) {
+		return <AsyncSearchSelect options={ loadOptions } { ...props } />
 	}
 	return <SearchSelect isMulti={ isMulti } label={ label } options={ options } { ...props } />;
 };
