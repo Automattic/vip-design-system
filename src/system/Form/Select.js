@@ -24,6 +24,7 @@ const Select = ( { isMulti = false, isInline, options, label, isSearch, isAsync,
 Select.propTypes = {
 	isInline: PropTypes.bool,
 	isMulti: PropTypes.bool,
+	isAsync: PropTypes.bool,
 	isSearch: PropTypes.bool,
 	label: PropTypes.string,
 	options: PropTypes.array,
