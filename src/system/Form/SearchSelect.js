@@ -86,10 +86,9 @@ const SearchSelect = props => (
 // Asynchronous search select to load paginated results asynchronously
 const CustomAsyncPaginate = withAsyncPaginate( SearchSelect );
 
-const AsyncSearchSelect = ( { label, value, options, ...props } ) => (
+const AsyncSearchSelect = ( { options, ...props } ) => (
 	<CustomAsyncPaginate
 		SelectComponent={ SearchSelect }
-		value={ value }
 		loadOptions={ options }
 		{ ...props }
 	/>
