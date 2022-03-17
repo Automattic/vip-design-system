@@ -88,7 +88,7 @@ export default {
 		muted: light.grey[ '90' ],
 		link: light.brand[ '90' ],
 		card: '#fff',
-		border: light.grey[ '60' ],
+		border: light.grey[ '20' ],
 		hover: 'rgba(0,0,0,.02)',
 		lightenBackground: 'rgba(255,255,255,.5)',
 		darken: 'rgba(0,0,0,.05)',
