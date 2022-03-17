@@ -28,7 +28,7 @@ const Input = React.forwardRef( ( { variant, label, forLabel, hasError, required
 			required={ required }
 			sx={ {
 				border: '1px solid',
-				borderColor: 'grey.60',
+				borderColor: 'border',
 				backgroundColor: 'card',
 				borderRadius: 1,
 				lineHeight: 'inherit',
@@ -47,7 +47,7 @@ const Input = React.forwardRef( ( { variant, label, forLabel, hasError, required
 					bg: 'backgroundSecondary',
 				},
 				'&::placeholder': {
-					color: 'grey.30',
+					color: 'placeholder',
 				},
 			} }
 		/>

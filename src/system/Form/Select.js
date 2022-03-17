@@ -3,19 +3,28 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
-  * Internal dependencies
-  */
+ * Internal dependencies
+ */
 import { SearchSelect } from './SearchSelect';
 import { InlineSelect } from './InlineSelect';
 
-const Select = ( { isMulti = false, isInline, options, label, isSearch, ...props } ) => {
-	if ( isInline ) {
-		return <InlineSelect isMulti={ isMulti } label={ label } options={ options } { ...props } />;
+const Select = ( { isMulti = false, isInline, options, label, isSearch, usePortal, ...props } ) => {
+	const selectRef = React.useRef();
+	const portalProps = {};
+
+	if ( usePortal !== undefined ) {
+		portalProps.menuPortalTarget =
+			selectRef?.current?.querySelector( '.select__control' ).parentElement;
+		portalProps.styles = { menuPortal: base => ( { ...base, position: 'fixed' } ) };
 	}
-	return <SearchSelect isMulti={ isMulti } label={ label } options={ options } { ...props } />;
+
+	const Component = isInline ? InlineSelect : SearchSelect;
+
+	return <div ref={selectRef}><Component isMulti={isMulti} label={label} options={options} {...portalProps} {...props} /></div>;
 };
 
 Select.propTypes = {
@@ -24,6 +33,7 @@ Select.propTypes = {
 	isSearch: PropTypes.bool,
 	label: PropTypes.string,
 	options: PropTypes.array,
+	usePortal: PropTypes.bool,
 };
 
 export { Select };
