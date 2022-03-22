@@ -12,16 +12,17 @@ import { Select } from './Select';
 const defaultProps = {};
 
 describe( '<Select />', () => {
-	it( 'renders the Select component with the default placeholder', async () => {
-		const { container } = render( <Select { ...defaultProps } /> );
+	it( 'renders the Select component with the specified placeholder', () => {
+		render(
+			<Select
+				inputId={ 'async-search-select' }
+				placeholder={ 'Search...' }
+			/>
+		);
 
-		const placeholder = screen.getByText( ( content, element ) => {
-			return element.tagName.toLowerCase() === 'div' && content.startsWith( 'Select' );
-		} );
+		// Can't use `getByPlaceholderText` here since it's not actually being rendered as a placeholder element
+		const placeholder = screen.getByText('Search...');
 
 		expect( placeholder ).toBeInTheDocument();
-
-		// Check for accessibility issues
-		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
