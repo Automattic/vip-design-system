@@ -13,6 +13,7 @@ import { SearchSelect, AsyncSearchSelect } from './SearchSelect';
 import { InlineSelect } from './InlineSelect';
 
 const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch, usePortal, ...props } ) => {
+	let Component;
 	const selectRef = React.useRef();
 	const portalProps = {};
 
@@ -21,8 +22,6 @@ const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch,
 			selectRef?.current?.querySelector( '.select__control' ).parentElement;
 		portalProps.styles = { menuPortal: base => ( { ...base, position: 'fixed' } ) };
 	}
-
-	let Component;
 
 	switch ( true ) {
 		case isInline:

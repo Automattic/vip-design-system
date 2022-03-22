@@ -33,7 +33,25 @@ Option.propTypes = {
 	isSelected: PropTypes.bool,
 };
 
-export const DropdownIndicator = props => <MdExpandMore {...props} sx={{ color: 'text', mr: 2 }} />;
+export const DropdownIndicator = ( {
+	innerProps,
+	isFocused,
+	isDisabled,
+	clearValue,
+	cx,
+	getStyles,
+	getValue,
+	hasValue,
+	isMulti,
+	isRtl,
+	options,
+	selectProps,
+	setValue,
+	selectOption,
+	theme,
+	...props
+}) => <MdExpandMore { ...props } sx={ { color: 'text', mr: 2 } } />;
+
 const ClearIndicator = ( { innerProps: { ref, ...restInnerProps }, ...props } ) => (
 	<MdClose ref={ref} {...restInnerProps} {...props} sx={{ color: 'text', mr: 2 }} />
 );
@@ -44,9 +62,9 @@ ClearIndicator.propTypes = {
 
 const SearchSelect = props => (
 	<Select
-		{...props}
+		{ ...props }
 		classNamePrefix={ 'select' }
-		components={{ Option, DropdownIndicator, ClearIndicator }}
+		components={ { Option, DropdownIndicator, ClearIndicator } }
 		sx={ {
 			'.select__control': {
 				background: 'none',
