@@ -105,17 +105,36 @@ export const Inline = () => {
 	);
 };
 
-export const AsyncSearch = () => {
-	const [ value, setValue ] = useState( [] );
+export const Async = () => {
+	let filteredOptions;
+	const [ value, setValue ] = useState();
+
+	// We need to return a formatted object for our async wrapper
+	const asyncOptions = search => {
+		if ( !! search ) {
+			filteredOptions = options.filter( ( { label: optionLabel } ) => {
+				const matching = optionLabel.toLowerCase().includes( search );
+
+				return matching;
+			} );
+		}
+
+		const selections = {
+			options: filteredOptions ? filteredOptions : options,
+			hasMore: true,
+		};
+
+		return selections;
+	};
 
 	return (
-		<Box sx={{ mr: 2, width: 200 }}>
+		<Box sx={ { mr: 2, width: 200 } }>
 			<Select
 				isAsync
-				label={ 'Search...' }
+				label="Search..."
 				value={ value }
-				placeholder={ 'Search...' }
-				options={ options }
+				placeholder="Search..."
+				loadOptions={ asyncOptions }
 				onChange={ newValue => setValue( newValue ) }
 			/>
 		</Box>
