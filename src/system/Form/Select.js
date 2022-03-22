@@ -9,8 +9,9 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { SearchSelect, AsyncSearchSelect } from './SearchSelect';
+import { SearchSelect } from './SearchSelect';
 import { InlineSelect } from './InlineSelect';
+import { AsyncSearchSelect } from './AsyncSearchSelect';
 
 const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch, usePortal, ...props } ) => {
 	let Component;
