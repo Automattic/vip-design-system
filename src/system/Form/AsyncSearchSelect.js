@@ -5,8 +5,8 @@
  */
 import PropTypes from 'prop-types';
 import { withAsyncPaginate } from 'react-select-async-paginate';
- 
- /**
+
+/**
   * Internal dependencies
   */
 import { SearchSelect } from './SearchSelect';
