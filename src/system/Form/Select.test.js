@@ -9,8 +9,6 @@ import { axe } from 'jest-axe';
   */
 import { Select } from './Select';
 
-const defaultProps = {};
-
 describe( '<Select />', () => {
 	it( 'renders the Select component with the specified placeholder', () => {
 		render(
@@ -21,7 +19,7 @@ describe( '<Select />', () => {
 		);
 
 		// Can't use `getByPlaceholderText` here since it's not actually being rendered as a placeholder element
-		const placeholder = screen.getByText('Search...');
+		const placeholder = screen.getByText( 'Search...' );
 
 		expect( placeholder ).toBeInTheDocument();
 	} );
