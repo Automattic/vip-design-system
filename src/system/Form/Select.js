@@ -7,10 +7,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
-import { SearchSelect } from './SearchSelect';
+ * Internal dependencies
+ */
+import { SearchSelect, AsyncSearchSelect } from './SearchSelect';
 import { InlineSelect } from './InlineSelect';
 
-const Select = ( { isMulti = false, isInline, options, label, isSearch, usePortal, ...props } ) => {
+const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch, usePortal, ...props } ) => {
 	const selectRef = React.useRef();
 	const portalProps = {};
 
@@ -20,7 +22,19 @@ const Select = ( { isMulti = false, isInline, options, label, isSearch, usePorta
 		portalProps.styles = { menuPortal: base => ( { ...base, position: 'fixed' } ) };
 	}
 
-	const Component = isInline ? InlineSelect : SearchSelect;
+	let Component;
+
+	switch( true ) {
+		case isInline:
+			Component = InlineSelect;
+			break;
+		case isAsync:
+			Component = AsyncSearchSelect;
+			break;
+		default:
+			Component = SearchSelect;
+			break;
+	}
 
 	return <div ref={selectRef}><Component isMulti={isMulti} label={label} options={options} {...portalProps} {...props} /></div>;
 };
