@@ -105,6 +105,23 @@ export const Inline = () => {
 	);
 };
 
+export const AsyncSearch = () => {
+	const [ value, setValue ] = useState( [] );
+
+	return (
+		<Box sx={{ mr: 2, width: 200 }}>
+			<Select
+				isAsync
+				label={ 'Search...' }
+				value={ value }
+				placeholder={ 'Search...' }
+				options={ options }
+				onChange={ newValue => setValue( newValue ) }
+			/>
+		</Box>
+	);
+};
+
 export const DropdownMenu = () => {
 	return (
 		<Box sx={{ mr: 2, width: 200 }}>
