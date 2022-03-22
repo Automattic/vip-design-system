@@ -34,21 +34,21 @@ Option.propTypes = {
 
 export const DropdownIndicator = ( {
 	innerProps,
-    isFocused,
-    isDisabled,
-    clearValue,
-    cx,
-    getStyles,
-    getValue,
-    hasValue,
-    isMulti,
-    isRtl,
-    options,
+	isFocused,
+	isDisabled,
+	clearValue,
+	cx,
+	getStyles,
+	getValue,
+	hasValue,
+	isMulti,
+	isRtl,
+	options,
 	selectProps,
-    setValue,
+	setValue,
 	selectOption,
-    theme,
-    ...props
+	theme,
+	...props
 } ) => <MdExpandMore { ...props } sx={ { color: 'text', mr: 2 } } />;
 
 DropdownIndicator.propTypes = {
