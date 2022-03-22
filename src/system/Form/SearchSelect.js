@@ -51,6 +51,24 @@ export const DropdownIndicator = ( {
     ...props
 } ) => <MdExpandMore { ...props } sx={ { color: 'text', mr: 2 } } />;
 
+DropdownIndicator.propTypes = {
+	innerProps: PropTypes.object,
+	isFocused: PropTypes.bool,
+	isDisabled: PropTypes.bool,
+	clearValue: PropTypes.func,
+	cx: PropTypes.func,
+	getStyles: PropTypes.func,
+	getValue: PropTypes.func,
+	hasValue: PropTypes.bool,
+	isMulti: PropTypes.bool,
+	isRtl: PropTypes.bool,
+	options: PropTypes.array,
+	selectProps: PropTypes.object,
+	setValue: PropTypes.func,
+	selectOption: PropTypes.func,
+	theme: PropTypes.object,
+};
+
 const ClearIndicator = ( { innerProps: { ref, ...restInnerProps }, ...props } ) => (
 	<MdClose ref={ref} {...restInnerProps} {...props} sx={{ color: 'text', mr: 2 }} />
 );
