@@ -24,7 +24,7 @@ const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch,
 
 	let Component;
 
-	switch( true ) {
+	switch ( true ) {
 		case isInline:
 			Component = InlineSelect;
 			break;
