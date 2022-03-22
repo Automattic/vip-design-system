@@ -94,4 +94,8 @@ const AsyncSearchSelect = ( { options, ...props } ) => (
 	/>
 );
 
+AsyncSearchSelect.propTypes = {
+	options: PropTypes.array,
+};
+
 export { SearchSelect, AsyncSearchSelect };
