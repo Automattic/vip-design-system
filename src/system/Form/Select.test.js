@@ -13,7 +13,7 @@ describe( '<Select />', () => {
 	it( 'renders the Select component with the specified placeholder', () => {
 		render(
 			<Select
-				inputId={ 'async-search-select' }
+				inputId={ 'search-select' }
 				placeholder={ 'Search...' }
 			/>
 		);
@@ -27,8 +27,8 @@ describe( '<Select />', () => {
 	it( 'renders the Select component with accessibility props', async () => {
 		const { container } = render(
 			<Select
-				inputId={ 'async-search-select' }
-				aria-label={ 'async-search-select' }
+				inputId={ 'search-select' }
+				aria-label={ 'Search or select from the dropdown list' }
 			/>
 		);
 
