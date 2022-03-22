@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
  */
 import { Flex, Text } from '..';
 
+// Option component
 export const Option = ( { label, isSelected, ...props } ) => (
 	<components.Option {...props}>
 		<Flex sx={{ alignItems: 'center' }}>
@@ -32,6 +33,7 @@ Option.propTypes = {
 	isSelected: PropTypes.bool,
 };
 
+// DropdownIndicator component
 export const DropdownIndicator = ( {
 	innerProps,
 	isFocused,
@@ -69,6 +71,7 @@ DropdownIndicator.propTypes = {
 	theme: PropTypes.object,
 };
 
+// ClearIndicator component
 const ClearIndicator = ( { innerProps: { ref, ...restInnerProps }, ...props } ) => (
 	<MdClose ref={ref} {...restInnerProps} {...props} sx={{ color: 'text', mr: 2 }} />
 );
@@ -77,6 +80,7 @@ ClearIndicator.propTypes = {
 	innerProps: PropTypes.object,
 };
 
+// Parent SearchSelect component
 const SearchSelect = props => (
 	<Select
 		{ ...props }
