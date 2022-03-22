@@ -25,4 +25,15 @@ describe( '<Select />', () => {
 
 		expect( placeholder ).toBeInTheDocument();
 	} );
+
+	it( 'renders the Select component with accessibility props', async () => {
+		const { container } = render(
+			<Select
+				inputId={ 'async-search-select' }
+				aria-label={ 'async-search-select' }
+			/>
+		);
+
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
 } );
