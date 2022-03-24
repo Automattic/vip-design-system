@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
  */
 import { Flex, Text } from '..';
 
+// Option component
 export const Option = ( { label, isSelected, ...props } ) => (
 	<components.Option {...props}>
 		<Flex sx={{ alignItems: 'center' }}>
@@ -32,8 +33,45 @@ Option.propTypes = {
 	isSelected: PropTypes.bool,
 };
 
-export const DropdownIndicator = props => <MdExpandMore { ...props } sx={ { color: 'text', mr: 2 } } />;
+// DropdownIndicator component
+export const DropdownIndicator = ( {
+	innerProps,
+	isFocused,
+	isDisabled,
+	clearValue,
+	cx,
+	getStyles,
+	getValue,
+	hasValue,
+	isMulti,
+	isRtl,
+	options,
+	selectProps,
+	setValue,
+	selectOption,
+	theme,
+	...props
+} ) => <MdExpandMore { ...props } sx={ { color: 'text', mr: 2 } } />;
 
+DropdownIndicator.propTypes = {
+	innerProps: PropTypes.object,
+	isFocused: PropTypes.bool,
+	isDisabled: PropTypes.bool,
+	clearValue: PropTypes.func,
+	cx: PropTypes.func,
+	getStyles: PropTypes.func,
+	getValue: PropTypes.func,
+	hasValue: PropTypes.bool,
+	isMulti: PropTypes.bool,
+	isRtl: PropTypes.bool,
+	options: PropTypes.array,
+	selectProps: PropTypes.object,
+	setValue: PropTypes.func,
+	selectOption: PropTypes.func,
+	theme: PropTypes.object,
+};
+
+// ClearIndicator component
 const ClearIndicator = ( { innerProps: { ref, ...restInnerProps }, ...props } ) => (
 	<MdClose ref={ref} {...restInnerProps} {...props} sx={{ color: 'text', mr: 2 }} />
 );
@@ -42,6 +80,7 @@ ClearIndicator.propTypes = {
 	innerProps: PropTypes.object,
 };
 
+// Parent SearchSelect component
 const SearchSelect = props => (
 	<Select
 		{ ...props }
