@@ -105,6 +105,36 @@ export const Inline = () => {
 	);
 };
 
+export const Async = () => {
+	const [ value, setValue ] = useState( [] );
+	const loadOptions = async () => new Promise( resolve => {
+		setTimeout( () => {
+			resolve( {
+				options: [
+					...options,
+					{ value: 'newvanilla', label: 'New Vanilla' },
+				],
+			} );
+		}, 2000 );
+	} );
+
+	return (
+		<Box sx={{ mr: 2, width: 200 }}>
+			<Select
+				label="Async Select"
+				value={value}
+				isAsync
+				usePortal
+				loadOptions={ loadOptions }
+				noneLabel="Everyone"
+				placeholder="Load async..."
+				options={options}
+				onChange={newValue => setValue( newValue )}
+			/>
+		</Box>
+	);
+};
+
 export const DropdownMenu = () => {
 	return (
 		<Box sx={{ mr: 2, width: 200 }}>
