@@ -26,7 +26,7 @@ const Timeline = ( { time, first = false, last = false, ...props } ) => (
 			{ ! first && (
 				<VerticalLine />
 			) }
-			<MdWatchLater sx={ { color: 'border' } } size={ 18 }/>
+			<MdWatchLater aria-hidden sx={ { color: 'border' } } size={ 18 }/>
 			{ ! last && (
 				<VerticalLine />
 			) }
