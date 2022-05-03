@@ -15,6 +15,7 @@ const TabItem = ( { active = false, sx, ...props } ) => (
 		variant="h4"
 		as="button"
 		tabIndex="0"
+		data-active={ active || undefined }
 		sx={ {
 			cursor: 'pointer',
 			background: 'none',

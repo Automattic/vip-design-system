@@ -26,6 +26,7 @@ export const Default = () => (
 			label="Option Row"
 			subTitle="Mostly used to link off to other pages."
 			as="a"
+			order={ 2 }
 		/>
 	</Box>
 );

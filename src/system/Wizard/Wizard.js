@@ -14,7 +14,7 @@ import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
 const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 	return (
-		<Box>
+		<Box className="vip-component-wizard">
 			{variant === 'horizontal' ? (
 				<Box>
 					<Flex
@@ -26,6 +26,7 @@ const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 						{steps.map( ( { title, subTitle }, index ) => (
 							<React.Fragment key={index}>
 								<WizardStepHorizontal
+									order={index + 1}
 									active={index === activeStep}
 									title={title}
 									subTitle={subTitle}
@@ -44,6 +45,7 @@ const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 						subTitle={subTitle}
 						complete={completed.includes( index )}
 						key={index}
+						order={index + 1}
 					>
 						{children}
 					</WizardStep>
