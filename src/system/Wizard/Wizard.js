@@ -14,7 +14,7 @@ import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
 const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
 	return (
-		<Box className="vip-component-wizard">
+		<Box>
 			{variant === 'horizontal' ? (
 				<Box>
 					<Flex
