@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 
@@ -36,7 +37,7 @@ NoticeIcon.propTypes = {
 	variant: PropTypes.string,
 };
 
-const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, ...props } ) => {
+const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, className = null, ...props } ) => {
 	let color = 'yellow';
 
 	switch ( variant ) {
@@ -66,6 +67,7 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 				},
 				...sx,
 			} }
+			className={ classNames( 'vip-notice-component', className ) }
 			{ ...props }
 		>
 			<Flex sx={ {
@@ -93,6 +95,7 @@ Notice.propTypes = {
 	sx: PropTypes.object,
 	title: PropTypes.node,
 	variant: PropTypes.string,
+	className: PropTypes.any,
 };
 
 export { Notice };

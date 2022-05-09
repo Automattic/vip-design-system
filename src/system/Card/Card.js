@@ -10,8 +10,9 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Box } from '..';
+import classNames from 'classnames';
 
-const Card = React.forwardRef( ( { variant = 'primary', sx = {}, ...props }, ref ) => {
+const Card = React.forwardRef( ( { variant = 'primary', sx = {}, className, ...props }, ref ) => {
 	return (
 		<Box
 			ref={ref}
@@ -21,6 +22,7 @@ const Card = React.forwardRef( ( { variant = 'primary', sx = {}, ...props }, ref
 				overflow: 'hidden',
 				...sx,
 			}}
+			className={ classNames( 'vip-card-component', className ) }
 			{...props}
 		/>
 	);
@@ -29,6 +31,7 @@ const Card = React.forwardRef( ( { variant = 'primary', sx = {}, ...props }, ref
 Card.propTypes = {
 	variant: PropTypes.string,
 	sx: PropTypes.object,
+	className: PropTypes.any,
 };
 
 Card.displayName = 'Card';

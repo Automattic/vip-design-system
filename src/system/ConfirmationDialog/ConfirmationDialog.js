@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,8 +12,8 @@ import React from 'react';
  */
 import { Dialog, Box, Heading, Text, Flex, Button } from '../';
 
-const ConfirmationDialogContent = ( { title, body, onClose, label = 'Confirm', onConfirm } ) => (
-	<Box p={ 4 }>
+const ConfirmationDialogContent = ( { title, body, onClose, label = 'Confirm', onConfirm, className = null } ) => (
+	<Box p={ 4 } className={ classNames( 'vip-confirmation-dialog-component', className ) }>
 		<Heading variant="h3" sx={ { mb: 2 } }>
 			{ title }
 		</Heading>
@@ -40,6 +41,7 @@ ConfirmationDialogContent.propTypes = {
 	label: PropTypes.string,
 	onClose: PropTypes.func,
 	onConfirm: PropTypes.func,
+	className: PropTypes.any,
 };
 
 const ConfirmationDialog = ( { trigger, onConfirm, needsConfirm = true, ...props } ) => {

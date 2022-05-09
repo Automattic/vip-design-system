@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Badge, Box, Grid, Heading, Text } from '..';
+import classNames from 'classnames';
 
 const OptionRow = ( {
 	image,
@@ -25,6 +26,7 @@ const OptionRow = ( {
 	small = false,
 	disabled = false,
 	order = null,
+	className = null,
 	...props
 } ) => {
 	const mergedCard = disabled
@@ -55,6 +57,7 @@ const OptionRow = ( {
 			columns={[ 1, 1, 'auto 1fr auto' ]}
 			gap={[ 3, 3, `${ small ? 3 : 4 }` ]}
 			data-order={ order || undefined }
+			className={ classNames( 'vip-option-row-component', className ) }
 			{...props}
 			sx={{
 				alignItems: 'center',
@@ -122,6 +125,7 @@ OptionRow.propTypes = {
 	small: PropTypes.bool,
 	disabled: PropTypes.bool,
 	order: PropTypes.number,
+	className: PropTypes.any,
 };
 
 export { OptionRow };
