@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Heading } from '..';
 
-const WizardStepHorizontal = ( { title, active } ) => {
+const WizardStepHorizontal = ( { title, active, order } ) => {
 	return (
 		<Heading
 			variant="h4"
@@ -21,6 +21,8 @@ const WizardStepHorizontal = ( { title, active } ) => {
 				alignItems: 'center',
 				color: active ? 'heading' : 'muted',
 			}}
+			data-step={ order }
+			data-active={ active || undefined }
 		>
 			<MdCheckCircle sx={{ mr: 2 }} />
 			{title}
@@ -32,6 +34,7 @@ WizardStepHorizontal.propTypes = {
 	title: PropTypes.node,
 	subTitle: PropTypes.node,
 	active: PropTypes.bool,
+	order: PropTypes.number.isRequired,
 };
 
 export { WizardStepHorizontal };

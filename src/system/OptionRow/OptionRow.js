@@ -24,6 +24,7 @@ const OptionRow = ( {
 	to,
 	small = false,
 	disabled = false,
+	order = null,
 	...props
 } ) => {
 	const mergedCard = disabled
@@ -53,6 +54,7 @@ const OptionRow = ( {
 			to={to}
 			columns={[ 1, 1, 'auto 1fr auto' ]}
 			gap={[ 3, 3, `${ small ? 3 : 4 }` ]}
+			data-order={ order || undefined }
 			{...props}
 			sx={{
 				alignItems: 'center',
@@ -119,6 +121,7 @@ OptionRow.propTypes = {
 	to: PropTypes.string,
 	small: PropTypes.bool,
 	disabled: PropTypes.bool,
+	order: PropTypes.number,
 };
 
 export { OptionRow };
