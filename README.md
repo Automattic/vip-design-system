@@ -43,10 +43,10 @@ Note: it's super useful to run `npm run watch` in another process, so any change
 
 ### Publish NPM Package Instructions
 
-Once all the changes needed are merged to master, and you are ready to release a new version, follow these steps:
+Once all the changes needed are merged to trunk, and you are ready to release a new version, follow these steps:
 
 1. Make sure you have NPM access to our @automattic organization. Ask for #vip-platform-pâtisserie help in case you need it.
-2. Pull all the changes to your local master. Make sure you have the latest master locally.
+2. Pull all the changes to your local trunk. Make sure you have the latest trunk locally.
 3. We follow the [https://semver.org/](https://semver.org/) versioning. You should run the specific version you are trying to publish:
 
 ```bash
@@ -67,11 +67,11 @@ npm publish
 
 Note: You need to have two-factor enabled in your npm account. The publish command will request a two-factor code to complete the publishing process.
 
-7. Push the tags to the repository and master updates.
+7. Push the tags to the repository and trunk updates.
 
 ```
 git push --tags
-git push origin master
+git push origin trunk
 ```
 
 8. For major versions or breaking changes, it's recommended to [create a RELEASE](https://github.com/Automattic/vip-design-system/releases) with the published tag.
