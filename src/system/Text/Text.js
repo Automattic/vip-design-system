@@ -5,8 +5,9 @@
  */
 import { Text as ThemeText } from 'theme-ui';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const Text = ( { sx, ...props } ) => (
+const Text = ( { sx, className = null, ...props } ) => (
 	<ThemeText
 		as="p"
 		sx={{
@@ -14,12 +15,14 @@ const Text = ( { sx, ...props } ) => (
 			marginBottom: 2,
 			...sx,
 		}}
+		className={ classNames( 'vip-text-component', className ) }
 		{...props}
 	/>
 );
 
 Text.propTypes = {
 	sx: PropTypes.object,
+	className: PropTypes.any,
 };
 
 export { Text };

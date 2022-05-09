@@ -5,6 +5,7 @@
  */
 import { Text } from 'theme-ui';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const formatter = new Intl.RelativeTimeFormat( undefined, {
 	numeric: 'auto',
@@ -31,7 +32,7 @@ function formatTimeAgo( date ) {
 	}
 }
 
-const Time = ( { time, relativeTime = false, timeOnly = false, ...props } ) => {
+const Time = ( { time, relativeTime = false, timeOnly = false, className = null, ...props } ) => {
 	let formattedTime;
 	if ( relativeTime ) {
 		formattedTime = formatTimeAgo( time );
@@ -46,6 +47,7 @@ const Time = ( { time, relativeTime = false, timeOnly = false, ...props } ) => {
 			title={time.toLocaleString( 'sv', { timeZoneName: 'short' } )}
 			datetime={time}
 			as="time"
+			className={ classNames( 'vip-time-component', className ) }
 			{...props}
 		>
 			{formattedTime}
@@ -57,6 +59,7 @@ Time.propTypes = {
 	time: PropTypes.string,
 	timeOnly: PropTypes.bool,
 	relativeTime: PropTypes.bool,
+	className: PropTypes.any,
 };
 
 export { Time };
