@@ -36,7 +36,7 @@ const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch,
 			break;
 	}
 
-	return <div ref={selectRef}><Component isMulti={isMulti} label={label} options={options} {...portalProps} {...props} /></div>;
+	return <div ref={selectRef} className="vip-select-component"><Component isMulti={isMulti} label={label} options={options} {...portalProps} {...props} /></div>;
 };
 
 Select.propTypes = {

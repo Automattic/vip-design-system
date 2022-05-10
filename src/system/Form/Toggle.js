@@ -3,10 +3,11 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const Toggle = ( { name = 'toggle', ...props } ) => (
-	<CheckBoxWrapper>
+const Toggle = ( { name = 'toggle', className = null, ...props } ) => (
+	<CheckBoxWrapper className={ classNames( 'vip-checkbox-component', className ) }>
 		<CheckBox name={name} id={name} type="checkbox" {...props} />
 		<CheckBoxLabel htmlFor={name} />
 	</CheckBoxWrapper>
@@ -14,6 +15,7 @@ const Toggle = ( { name = 'toggle', ...props } ) => (
 
 Toggle.propTypes = {
 	name: PropTypes.string,
+	className: PropTypes.any,
 };
 
 export { Toggle };

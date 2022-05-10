@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Text } from '../';
 
-const Badge = ( { variant = 'blue', sx, className, ...props } ) => (
+const Badge = ( { variant = 'blue', sx, className = null, ...props } ) => (
 	<Text
 		as="span"
 		sx={ {
