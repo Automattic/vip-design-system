@@ -5,8 +5,9 @@
  */
 import { Heading as ThemeHeading } from 'theme-ui';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const Heading = ( { variant = 'h3', sx, ...props } ) => (
+const Heading = ( { variant = 'h3', sx, className = null, ...props } ) => (
 	<ThemeHeading
 		as={variant}
 		sx={{
@@ -15,6 +16,7 @@ const Heading = ( { variant = 'h3', sx, ...props } ) => (
 			variant: `text.${ variant }`,
 			...sx,
 		}}
+		className={ classNames( 'vip-heading-component', className ) }
 		{...props}
 	/>
 );
@@ -22,6 +24,7 @@ const Heading = ( { variant = 'h3', sx, ...props } ) => (
 Heading.propTypes = {
 	variant: PropTypes.string,
 	sx: PropTypes.object,
+	className: PropTypes.any,
 };
 
 export { Heading };
