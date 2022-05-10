@@ -5,6 +5,7 @@
  */
 import { Button as ThemeButton } from 'theme-ui';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Button = ( { sx, ...props } ) => (
 	<ThemeButton
@@ -22,12 +23,14 @@ const Button = ( { sx, ...props } ) => (
 			},
 			...sx,
 		}}
+		className={ classNames( 'vip-button-component', props.className ) }
 		{...props}
 	/>
 );
 
 Button.propTypes = {
 	sx: PropTypes.object,
+	className: PropTypes.any,
 };
 
 export { Button };

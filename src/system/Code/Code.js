@@ -3,11 +3,12 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';
 
-const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) => {
+const Code = ( { prompt = false, showCopy = false, onCopy = null, className, ...props } ) => {
 	const ref = useRef();
 
 	const codeDom = (
@@ -29,6 +30,7 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, ...props } ) =
 					userSelect: 'none',
 				},
 			} }
+			className={ classNames( 'vip-code-component', className ) }
 			{ ...props }
 		/>
 	);
@@ -88,6 +90,7 @@ Code.propTypes = {
 	prompt: PropTypes.bool,
 	showCopy: PropTypes.bool,
 	onCopy: PropTypes.func,
+	className: PropTypes.any,
 };
 
 export { Code };

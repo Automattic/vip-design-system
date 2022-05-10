@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { MdArrowForward } from 'react-icons/md';
 
 /**
@@ -12,9 +13,9 @@ import { MdArrowForward } from 'react-icons/md';
  */
 import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
-const Wizard = ( { steps, activeStep, variant, completed = [], ...props } ) => {
+const Wizard = ( { steps, activeStep, variant, completed = [], className = null, ...props } ) => {
 	return (
-		<Box>
+		<Box className={ classNames( 'vip-wizard-component', className ) }>
 			{variant === 'horizontal' ? (
 				<Box>
 					<Flex
@@ -60,6 +61,7 @@ Wizard.propTypes = {
 	activeStep: PropTypes.number,
 	variant: PropTypes.string,
 	completed: PropTypes.array,
+	className: PropTypes.any,
 };
 
 export { Wizard };

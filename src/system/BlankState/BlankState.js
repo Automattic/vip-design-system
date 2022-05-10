@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 /**
@@ -17,9 +18,10 @@ const BlankState = ( {
 	image,
 	imageAlt = 'Image representing the blank state',
 	title,
+	className = null,
 } ) => {
 	return (
-		<Box sx={{ textAlign: 'center', padding: 5 }}>
+		<Box sx={{ textAlign: 'center', padding: 5 }} className={ classNames( 'vip-blank-state-component', className ) }>
 			{icon ? icon : <img src={image} sx={{ mb: 3 }} alt={imageAlt} />}
 			<Heading variant="h4">{title}</Heading>
 			<Text>{body}</Text>
@@ -35,6 +37,7 @@ BlankState.propTypes = {
 	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
 	imageAlt: PropTypes.string,
 	title: PropTypes.node,
+	className: PropTypes.any,
 };
 
 export { BlankState };

@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 /**
@@ -10,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Text } from '../';
 
-const Badge = ( { variant = 'blue', sx, ...props } ) => (
+const Badge = ( { variant = 'blue', sx, className = null, ...props } ) => (
 	<Text
 		as="span"
 		sx={ {
@@ -26,6 +27,7 @@ const Badge = ( { variant = 'blue', sx, ...props } ) => (
 			fontWeight: 'heading',
 			...sx,
 		} }
+		className={ classNames( 'vip-badge-component', className ) }
 		{ ...props }
 	/>
 );
@@ -33,6 +35,7 @@ const Badge = ( { variant = 'blue', sx, ...props } ) => (
 Badge.propTypes = {
 	variant: PropTypes.string,
 	sx: PropTypes.object,
+	className: PropTypes.any,
 };
 
 export { Badge };

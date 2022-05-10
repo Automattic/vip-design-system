@@ -11,10 +11,12 @@ import PropTypes from 'prop-types';
  */
 import { Spinner } from '../Spinner';
 import { Box, Heading, Text, Flex } from '../';
+import classNames from 'classnames';
 
-const Progress = ( { steps, activeStep, sx, ...props } ) => (
+const Progress = ( { steps, activeStep, sx, className, ...props } ) => (
 	<Box>
 		<ThemeProgress
+			className={ classNames( 'vip-progress-component', className ) }
 			{ ...props }
 			sx={ {
 				color: 'primary',
@@ -39,6 +41,7 @@ Progress.propTypes = {
 	steps: PropTypes.array,
 	activeStep: PropTypes.number,
 	sx: PropTypes.object,
+	className: PropTypes.any,
 };
 
 export { Progress };

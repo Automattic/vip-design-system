@@ -59,7 +59,7 @@ const ResourceList = ( { groupedByDay = false, items, renderItem, dateKey } ) =>
 		itemsList.map( ( item, index ) => <StyledListItem key={index}>{renderItem( item )}</StyledListItem> );
 
 	return (
-		<Box as="ul" sx={{ listStyleType: 'none', m: 0, p: 0 }}>
+		<Box as="ul" sx={{ listStyleType: 'none', m: 0, p: 0 }} className="vip-resource-list-component">
 			{groupedByDay
 				? Object.keys( groupedItems ).map( ( groupName, index ) => (
 					<Box sx={{ mb: 4 }} key={index}>

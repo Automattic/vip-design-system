@@ -5,6 +5,7 @@
  */
 import PropTypes from 'prop-types';
 import { Image } from 'theme-ui';
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -16,6 +17,7 @@ const Avatar = ( {
 	name = null,
 	size = 32,
 	src = null,
+	className = null,
 	...props
 } ) => (
 	<Box
@@ -34,6 +36,7 @@ const Avatar = ( {
 			padding: '1px',
 			textAlign: 'center',
 		} }
+		className={ classNames( 'vip-avatar-component', className ) }
 		{ ...props }
 	>
 		{ src ? (
@@ -68,6 +71,7 @@ Avatar.propTypes = {
 	size: PropTypes.number,
 	src: PropTypes.string,
 	name: PropTypes.string,
+	className: PropTypes.any,
 };
 
 export { Avatar };

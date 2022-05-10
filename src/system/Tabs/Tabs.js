@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 /**
@@ -10,8 +11,9 @@ import PropTypes from 'prop-types';
  */
 import { Flex } from '..';
 
-const Tabs = ( { sx, ...props } ) => (
+const Tabs = ( { className = null, sx, ...props } ) => (
 	<Flex
+		className={ classNames( 'vip-tabs-component', className ) }
 		sx={{
 			borderBottom: '1px solid',
 			borderColor: 'border',
@@ -25,8 +27,9 @@ const Tabs = ( { sx, ...props } ) => (
 );
 
 Tabs.propTypes = {
-	variant: PropTypes.string,
+	className: PropTypes.any,
 	sx: PropTypes.object,
+	variant: PropTypes.string,
 };
 
 export { Tabs };

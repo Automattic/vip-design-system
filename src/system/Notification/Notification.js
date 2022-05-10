@@ -13,6 +13,7 @@ import { Box, Button, Card, Flex, Heading, Text } from '../';
 
 const Notification = ( { title, body, status = 'success', onClose } ) => (
 	<Card
+		className="vip-notification-component"
 		sx={{
 			boxShadow: 'medium',
 			width: 320,
