@@ -27,6 +27,8 @@ const OptionRow = ( {
 	disabled = false,
 	order = null,
 	className = null,
+	as,
+	title,
 	...props
 } ) => {
 	const mergedCard = disabled
@@ -51,20 +53,30 @@ const OptionRow = ( {
 			borderBottom: '1px solid',
 			borderColor: 'border',
 		};
+
+	const gridProps = disabled
+		? {
+			as: Box,
+		} : {
+			to,
+			as,
+			title,
+		};
+
 	return (
 		<Grid
-			to={to}
 			columns={[ 1, 1, 'auto 1fr auto' ]}
 			gap={[ 3, 3, `${ small ? 3 : 4 }` ]}
 			data-order={ order || undefined }
 			className={ classNames( 'vip-option-row-component', className ) }
+			{...gridProps}
 			{...props}
 			sx={{
 				alignItems: 'center',
 				cursor: disabled ? 'auto' : 'pointer',
 				textDecoration: 'none',
 				color: 'inherit',
-				'&:hover': {
+				'&:hover': ! disabled && {
 					backgroundColor: 'hover',
 				},
 				...inlineStyles,
@@ -107,7 +119,7 @@ const OptionRow = ( {
 				{subTitle && <Text sx={{ mb: 1, color: 'muted' }}>{subTitle}</Text>}
 				{body && <Text sx={{ mb: 0 }}>{body}</Text>}
 			</Box>
-			<Box>{meta ? meta : <MdArrowForward size={24} />}</Box>
+			<Box>{meta ? meta : ! disabled && <MdArrowForward size={24} />}</Box>
 		</Grid>
 	);
 };
@@ -126,6 +138,8 @@ OptionRow.propTypes = {
 	disabled: PropTypes.bool,
 	order: PropTypes.number,
 	className: PropTypes.any,
+	as: PropTypes.node,
+	title: PropTypes.string,
 };
 
 export { OptionRow };
