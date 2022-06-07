@@ -32,8 +32,9 @@ export const Default = () => (
 			image={image2}
 			label="Option Row – Disabled"
 			subTitle="Mostly used to link off to other pages."
-			as="a"
+			as={ Box }
 			disabled
+			meta=""
 		/>
 	</Box>
 );
