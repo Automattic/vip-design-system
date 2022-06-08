@@ -64,7 +64,7 @@ const OptionRow = ( {
 				cursor: disabled ? 'auto' : 'pointer',
 				textDecoration: 'none',
 				color: 'inherit',
-				'&:hover': {
+				'&:hover': ! disabled && {
 					backgroundColor: 'hover',
 				},
 				...inlineStyles,
@@ -107,7 +107,9 @@ const OptionRow = ( {
 				{subTitle && <Text sx={{ mb: 1, color: 'muted' }}>{subTitle}</Text>}
 				{body && <Text sx={{ mb: 0 }}>{body}</Text>}
 			</Box>
-			<Box>{meta ? meta : <MdArrowForward size={24} />}</Box>
+			{ ( false !== meta && '' !== meta ) && (
+				<Box data-testid="meta">{ meta ? meta : <MdArrowForward size={24} /> }</Box>
+			) }
 		</Grid>
 	);
 };

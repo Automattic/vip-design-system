@@ -28,5 +28,13 @@ export const Default = () => (
 			as="a"
 			order={ 2 }
 		/>
+		<OptionRow
+			image={image2}
+			label="Option Row – Disabled"
+			subTitle="Mostly used to link off to other pages."
+			as={ Box }
+			disabled
+			meta=""
+		/>
 	</Box>
 );
