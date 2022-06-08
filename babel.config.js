@@ -1,6 +1,6 @@
 module.exports = {
 	ignore: [
-		'**/*.stories.js',
+		'**/*.stories.jsx',
 	],
 	presets: [
 		[

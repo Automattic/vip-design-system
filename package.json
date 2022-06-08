@@ -54,7 +54,7 @@
 			"<rootDir>/test/setupAfterEnv.js"
 		],
 		"transformIgnorePatterns": [
-			".*.stories.js$"
+			"\\.stories.jsx$"
 		],
 		"transform": {
 			"\\.[jt]sx?$": "babel-jest"
@@ -105,6 +105,6 @@
 		"react-input-autosize": "^3.0.0",
 		"react-refresh": "^0.9.0",
 		"react-scripts": "^4.0.3",
-		"theme-ui": "^0.14.5"
+		"theme-ui": "0.10.0"
 	}
 }
