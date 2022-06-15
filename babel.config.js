@@ -1,7 +1,5 @@
 module.exports = {
-	ignore: [
-		'**/*.stories.jsx',
-	],
+	ignore: [],
 	presets: [
 		[
 			'@babel/preset-env',
