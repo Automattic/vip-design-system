@@ -76,11 +76,11 @@
 		"@babel/preset-react": "^7.12.13",
 		"@babel/runtime": "7.14.0",
 		"@mdx-js/react": "^2.1.1",
-		"@storybook/addon-a11y": "^6.5.8",
-		"@storybook/addon-actions": "^6.5.8",
-		"@storybook/addon-essentials": "^6.5.8",
-		"@storybook/addon-links": "^6.5.8",
-		"@storybook/react": "^6.5.8",
+		"@storybook/addon-a11y": "^6.5.9",
+		"@storybook/addon-actions": "^6.5.9",
+		"@storybook/addon-essentials": "^6.5.9",
+		"@storybook/addon-links": "^6.5.9",
+		"@storybook/react": "^6.5.9",
 		"@testing-library/dom": "^8.11.1",
 		"@testing-library/jest-dom": "^5.15.0",
 		"@testing-library/react": "^12.1.2",
@@ -95,6 +95,7 @@
 		"eslint-plugin-jsx-a11y": "6.4.1",
 		"eslint-plugin-no-async-foreach": "0.1.1",
 		"eslint-plugin-react": "7.25.3",
+		"eslint-plugin-storybook": "^0.5.12",
 		"eslint-plugin-wpcalypso": "4.1.0",
 		"immer": ">=9.0.6",
 		"jest-axe": "5.0.1",
@@ -104,7 +105,6 @@
 		"react-dom": "^17.0.2",
 		"react-input-autosize": "^3.0.0",
 		"react-refresh": "^0.9.0",
-		"react-scripts": "^4.0.3",
 		"theme-ui": "0.10.0"
 	}
 }
