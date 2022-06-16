@@ -1,7 +1,6 @@
 module.exports = {
-	ignore: [
-		'**/*.stories.js',
-	],
+	ignore: [],
+	plugins: ['@babel/plugin-transform-runtime'],
 	presets: [
 		[
 			'@babel/preset-env',

@@ -5,11 +5,8 @@
 			"presets": ["@babel/preset-react"]
 		}
 	},
-	"extends": [ "wpvip" ],
-	"plugins": [
-		"react",
-		"jsx-a11y"
-	],
+	"extends": ["plugin:storybook/recommended", "wpvip"],
+	"plugins": ["react", "jsx-a11y"],
 	"rules": {
 		"id-length": 0,
 		"react/jsx-uses-react": "off",
