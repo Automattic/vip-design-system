@@ -1113,6 +1113,10 @@
         "type": "color",
         "description": "Use for placeholder text in fields"
       },
+      "disabled": {
+        "value": "{Gray.55}",
+        "type": "color"
+      },
       "inverse": {
         "value": "{Gray.0}",
         "type": "color"
