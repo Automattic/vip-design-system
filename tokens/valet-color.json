@@ -1024,6 +1024,10 @@
         "value": "{Black}",
         "type": "color",
         "description": "Use as component background in high-contrast situations. "
+      },
+      "brand": {
+        "value": "{Gold.30}",
+        "type": "color"
       }
     },
     "layer": {
@@ -1186,55 +1190,55 @@
     "support": {
       "background": {
         "error": {
-          "value": "{Red.3}",
+          "value": "{Red.7}",
           "type": "color"
         },
         "warning": {
-          "value": "{Yellow.3}",
+          "value": "{Yellow.7}",
           "type": "color"
         },
         "info": {
-          "value": "{Blue.3}",
+          "value": "{Blue.7}",
           "type": "color"
         },
         "success": {
-          "value": "{Green.3}",
+          "value": "{Green.7}",
           "type": "color"
         }
       },
       "text": {
         "error": {
-          "value": "{Red.70}",
+          "value": "{Red.85}",
           "type": "color"
         },
         "warning": {
-          "value": "{Yellow.70}",
+          "value": "{Yellow.85}",
           "type": "color"
         },
         "info": {
-          "value": "{Blue.70}",
+          "value": "{Blue.85}",
           "type": "color"
         },
         "success": {
-          "value": "{Green.70}",
+          "value": "{Green.85}",
           "type": "color"
         }
       },
       "icon": {
         "error": {
-          "value": "{Red.60}",
+          "value": "{Red.50}",
           "type": "color"
         },
         "warning": {
-          "value": "{Yellow.60}",
+          "value": "{Yellow.50}",
           "type": "color"
         },
         "info": {
-          "value": "{Blue.60}",
+          "value": "{Blue.50}",
           "type": "color"
         },
         "success": {
-          "value": "{Green.60}",
+          "value": "{Green.50}",
           "type": "color"
         }
       },
@@ -1347,6 +1351,10 @@
     },
     "overlay": {
       "value": "{Gray.55}",
+      "type": "color"
+    },
+    "interactive": {
+      "value": "{Gold.55}",
       "type": "color"
     }
   },
