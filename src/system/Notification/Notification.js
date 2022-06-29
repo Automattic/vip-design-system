@@ -9,54 +9,60 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Box, Button, Card, Flex, Heading, Text } from '../';
+import { Box, Card, Flex, Text, Button } from '../';
 import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
+import { useLayoutEffect, useRef } from 'react';
 
-const Notification = ( { title, body, status = 'success', onClose, prefix = 'Alert' } ) => (
-	<Card
-		className="vip-notification-component"
-		sx={{
-			boxShadow: 'medium',
-			width: 320,
-			position: 'relative',
-			variant: `notification.${ status }`,
-		}}
-	>
-		<div role="alert">
-			<ScreenReaderText>
-				{prefix} {status}, {title} {body && `, ${ body }`}
-			</ScreenReaderText>
-		</div>
+const Notification = ( { title, body, status = 'success', onClose } ) => {
+	const buttonRef = useRef();
 
-		<Button
-			onClick={onClose}
-			variant="icon"
-			sx={{ color: 'muted', position: 'absolute', top: 2, right: 2 }}
+	useLayoutEffect( () => {
+		buttonRef.current.focus();
+	}, [] );
+
+	return (
+		<Card
+			ref={buttonRef}
+			role="alert"
+			className="vip-notification-component"
+			sx={{
+				boxShadow: 'medium',
+				width: 320,
+				position: 'relative',
+				variant: `notification.${ status }`,
+			}}
 		>
-			<ScreenReaderText>Close notification</ScreenReaderText>
+			<ScreenReaderText>Alert,</ScreenReaderText>
+			<Flex sx={{ alignItems: 'center' }}>
+				{status === 'error' ? (
+					<MdError sx={{ color: 'error', flex: '0 0 auto' }} aria-hidden="true" />
+				) : (
+					<MdCheckCircle sx={{ color: 'success', flex: '0 0 auto' }} aria-hidden="true" />
+				)}
+				<Box sx={{ flex: '1 1 auto', ml: 3 }}>
+					<p sx={{ my: 0, color: 'heading', fontWeight: 'bold' }}>
+						{title}
+					</p>
+					{body && <Text sx={{ mb: 0, mt: 1 }}>{body}</Text>}
+				</Box>
+			</Flex>
 
-			<MdClose aria-hidden="true" />
-		</Button>
-
-		<Flex sx={{ alignItems: 'center' }} aria-hidden="true">
-			{status === 'error' ? (
-				<MdError sx={{ color: 'error', flex: '0 0 auto' }} />
-			) : (
-				<MdCheckCircle sx={{ color: 'success', flex: '0 0 auto' }} />
-			)}
-			<Box sx={{ flex: '1 1 auto', ml: 3 }}>
-				<Heading variant="h4" sx={{ mb: 0 }}>
-					{title}
-				</Heading>
-				{body && <Text sx={{ mb: 0, mt: 1 }}>{body}</Text>}
-			</Box>
-		</Flex>
-	</Card>
-);
+			{ onClose && (
+				<Button
+					onClick={onClose}
+					variant="icon"
+					sx={{ color: 'muted', position: 'absolute', top: 2, right: 2 }}
+					aria-hidden="true"
+				>
+					<MdClose />
+				</Button>
+			) }
+		</Card>
+	);
+};
 
 Notification.propTypes = {
 	title: PropTypes.node,
-	prefix: PropTypes.string,
 	body: PropTypes.node,
 	status: PropTypes.string,
 	onClose: PropTypes.func,
