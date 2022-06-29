@@ -1157,6 +1157,10 @@
       "inverse": {
         "value": "{Gray.3}",
         "type": "color"
+      },
+      "disabled": {
+        "value": "{Gray.45}",
+        "type": "color"
       }
     },
     "button": {
