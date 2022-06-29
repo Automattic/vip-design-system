@@ -21,7 +21,7 @@ const Avatar = ( {
 	...props
 } ) => (
 	<Box
-		sx={ {
+		sx={{
 			borderRadius: 9999,
 			height: size + 2, // +2 to compensate padding on both sides
 			width: size + 2, // +2 to compensate padding on both sides
@@ -35,34 +35,35 @@ const Avatar = ( {
 			color: 'white',
 			padding: '1px',
 			textAlign: 'center',
-		} }
-		className={ classNames( 'vip-avatar-component', className ) }
-		{ ...props }
+		}}
+		className={classNames( 'vip-avatar-component', className )}
+		aria-hidden="true"
+		{...props}
 	>
-		{ src ? (
+		{src ? (
 			<Image
-				src={ src }
-				alt={ `Avatar image from ${ name }` }
-				sx={ {
+				src={src}
+				alt={`Avatar image from ${ name }`}
+				sx={{
 					borderRadius: 9999,
 					width: '100%',
 					display: 'block',
-				} }
+				}}
 			/>
 		) : (
 			<Text
 				as="span"
-				sx={ {
+				sx={{
 					color: 'white',
 					mb: 0,
 					fontWeight: 'bold',
 					fontSize: 0,
 					textTransform: 'uppercase',
-				} }
+				}}
 			>
-				{ name ? name.charAt( 0 ) : null }
+				{name ? name.charAt( 0 ) : null}
 			</Text>
-		) }
+		)}
 	</Box>
 );
 
