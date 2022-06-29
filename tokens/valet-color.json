@@ -1356,6 +1356,134 @@
     "interactive": {
       "value": "{Gold.55}",
       "type": "color"
+    },
+    "tag": {
+      "gray": {
+        "background": {
+          "value": "{Gray.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Gray.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Gray.65}",
+          "type": "color"
+        }
+      },
+      "blue": {
+        "background": {
+          "value": "{Blue.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Blue.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Blue.65}",
+          "type": "color"
+        }
+      },
+      "green": {
+        "background": {
+          "value": "{Green.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Blue.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Green.65}",
+          "type": "color"
+        }
+      },
+      "red": {
+        "background": {
+          "value": "{Red.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Red.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Red.65}",
+          "type": "color"
+        }
+      },
+      "gold": {
+        "background": {
+          "value": "{Gold.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Gold.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Gold.65}",
+          "type": "color"
+        }
+      },
+      "yellow": {
+        "background": {
+          "value": "{Yellow.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Yellow.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Yellow.65}",
+          "type": "color"
+        }
+      },
+      "orange": {
+        "background": {
+          "value": "{Orange.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Orange.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Orange.65}",
+          "type": "color"
+        }
+      },
+      "salmon": {
+        "background": {
+          "value": "{Salmon.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Salmon.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Salmon.65}",
+          "type": "color"
+        }
+      },
+      "pink": {
+        "background": {
+          "value": "{Pink.7}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{Pink.85}",
+          "type": "color"
+        },
+        "icon": {
+          "value": "{Pink.65}",
+          "type": "color"
+        }
+      }
     }
   },
   "expressive": {
