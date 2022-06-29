@@ -1120,6 +1120,10 @@
       "inverse": {
         "value": "{Gray.0}",
         "type": "color"
+      },
+      "interactive": {
+        "value": "{Gold.60}",
+        "type": "color"
       }
     },
     "link": {
