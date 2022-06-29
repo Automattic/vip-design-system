@@ -24,7 +24,7 @@ const Notification = ( { title, body, status = 'success', onClose, prefix = 'Ale
 	>
 		<div role="alert">
 			<ScreenReaderText>
-				{prefix}, {title} {body && `, ${ body }`}
+				{prefix} {status}, {title} {body && `, ${ body }`}
 			</ScreenReaderText>
 		</div>
 
