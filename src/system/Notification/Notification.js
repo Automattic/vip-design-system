@@ -10,8 +10,9 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Box, Button, Card, Flex, Heading, Text } from '../';
+import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
 
-const Notification = ( { title, body, status = 'success', onClose } ) => (
+const Notification = ( { title, body, status = 'success', onClose, prefix = 'Alert' } ) => (
 	<Card
 		className="vip-notification-component"
 		sx={{
@@ -21,14 +22,23 @@ const Notification = ( { title, body, status = 'success', onClose } ) => (
 			variant: `notification.${ status }`,
 		}}
 	>
+		<div role="alert">
+			<ScreenReaderText>
+				{prefix}, {title} {body && `, ${ body }`}
+			</ScreenReaderText>
+		</div>
+
 		<Button
 			onClick={onClose}
 			variant="icon"
 			sx={{ color: 'muted', position: 'absolute', top: 2, right: 2 }}
 		>
-			<MdClose />
+			<ScreenReaderText>Close notification</ScreenReaderText>
+
+			<MdClose aria-hidden="true" />
 		</Button>
-		<Flex sx={{ alignItems: 'center' }}>
+
+		<Flex sx={{ alignItems: 'center' }} aria-hidden="true">
 			{status === 'error' ? (
 				<MdError sx={{ color: 'error', flex: '0 0 auto' }} />
 			) : (
@@ -46,6 +56,7 @@ const Notification = ( { title, body, status = 'success', onClose } ) => (
 
 Notification.propTypes = {
 	title: PropTypes.node,
+	prefix: PropTypes.string,
 	body: PropTypes.node,
 	status: PropTypes.string,
 	onClose: PropTypes.func,
