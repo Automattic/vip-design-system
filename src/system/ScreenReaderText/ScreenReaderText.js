@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 /**
  * External dependencies
  */
@@ -13,7 +14,7 @@ export default function ScreenReaderText( props ) {
 	return (
 		<span
 			className="screen-reader-text"
-			style={{
+			sx={{
 				border: 'none',
 				clip: 'rect(1px, 1px, 1px, 1px)',
 				clipPath: 'inset(50%)',
