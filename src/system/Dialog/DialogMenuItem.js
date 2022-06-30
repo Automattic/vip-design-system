@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
 /**
-* Internal dependencies
-*/
+ * Internal dependencies
+ */
 import { Box, Spinner } from '../';
 
 const DialogMenuItem = ( { loading = false, children, ...props } ) => {
@@ -57,12 +57,8 @@ const DialogMenuItem = ( { loading = false, children, ...props } ) => {
 				} }
 				{ ...props }
 			>
-				<Box sx={ { flex: '1 1 auto' } }>
-					{ children }
-				</Box>
-				{ loading &&
-					<Spinner sx={ { width: 12 } } />
-				}
+				<Box sx={ { flex: '1 1 auto' } }>{ children }</Box>
+				{ loading && <Spinner sx={ { width: 12 } } /> }
 			</Box>
 		</li>
 	);

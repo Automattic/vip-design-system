@@ -9,8 +9,8 @@ const Label = props => (
 	<Heading
 		variant="h4"
 		as="label"
-		sx={{ display: 'block', mb: 2, color: 'muted' }}
-		{...props}
+		sx={ { display: 'block', mb: 2, color: 'muted' } }
+		{ ...props }
 	/>
 );
 

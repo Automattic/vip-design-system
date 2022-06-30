@@ -8,7 +8,13 @@ import classNames from 'classnames';
 import { forwardRef } from 'react';
 import { Box as ThemeBox } from 'theme-ui';
 
-const Box = forwardRef( ( props, ref ) => <ThemeBox ref={ref} className={ classNames( 'vip-box-component', props.className ) } {...props} /> );
+const Box = forwardRef( ( props, ref ) => (
+	<ThemeBox
+		ref={ ref }
+		className={ classNames( 'vip-box-component', props.className ) }
+		{ ...props }
+	/>
+) );
 
 Box.displayName = 'Box';
 Box.propTypes = {

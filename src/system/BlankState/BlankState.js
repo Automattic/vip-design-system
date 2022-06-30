@@ -21,11 +21,14 @@ const BlankState = ( {
 	className = null,
 } ) => {
 	return (
-		<Box sx={{ textAlign: 'center', padding: 5 }} className={ classNames( 'vip-blank-state-component', className ) }>
-			{icon ? icon : <img src={image} sx={{ mb: 3 }} alt={imageAlt} />}
-			<Heading variant="h4">{title}</Heading>
-			<Text>{body}</Text>
-			<Box sx={{ mt: 3 }}>{cta}</Box>
+		<Box
+			sx={ { textAlign: 'center', padding: 5 } }
+			className={ classNames( 'vip-blank-state-component', className ) }
+		>
+			{ icon ? icon : <img src={ image } sx={ { mb: 3 } } alt={ imageAlt } /> }
+			<Heading variant="h4">{ title }</Heading>
+			<Text>{ body }</Text>
+			<Box sx={ { mt: 3 } }>{ cta }</Box>
 		</Box>
 	);
 };

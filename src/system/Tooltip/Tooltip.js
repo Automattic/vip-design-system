@@ -8,11 +8,11 @@ import { MdHelp } from 'react-icons/md';
 import * as TTip from '@radix-ui/react-tooltip';
 
 /**
-* Internal dependencies
-*/
+ * Internal dependencies
+ */
 import { Card, Text } from '..';
 
-const StyledArrow = props => <TTip.Arrow sx={{ fill: 'white' }} { ...props } />;
+const StyledArrow = props => <TTip.Arrow sx={ { fill: 'white' } } { ...props } />;
 
 const Tooltip = ( {
 	trigger = <MdHelp />,
@@ -55,11 +55,7 @@ const Tooltip = ( {
 				{ trigger }
 
 				<TTip.Content>
-					<Card
-						className="tooltip-content"
-						sx={ { width: width } }
-						{ ...props }
-					>
+					<Card className="tooltip-content" sx={ { width: width } } { ...props }>
 						{ children ? children : <Text sx={ { fontSize: 1 } }>{ text }</Text> }
 					</Card>
 					<StyledArrow />

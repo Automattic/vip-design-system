@@ -12,7 +12,14 @@ import React from 'react';
  */
 import { Dialog, Box, Heading, Text, Flex, Button } from '../';
 
-const ConfirmationDialogContent = ( { title, body, onClose, label = 'Confirm', onConfirm, className = null } ) => (
+const ConfirmationDialogContent = ( {
+	title,
+	body,
+	onClose,
+	label = 'Confirm',
+	onConfirm,
+	className = null,
+} ) => (
 	<Box p={ 4 } className={ classNames( 'vip-confirmation-dialog-component', className ) }>
 		<Heading variant="h3" sx={ { mb: 2 } }>
 			{ title }

@@ -5,6 +5,6 @@
  */
 import { Flex as ThemeFlex } from 'theme-ui';
 
-const Flex = props => <ThemeFlex {...props} />;
+const Flex = props => <ThemeFlex { ...props } />;
 
 export { Flex };

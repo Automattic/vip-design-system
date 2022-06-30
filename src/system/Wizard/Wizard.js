@@ -16,42 +16,44 @@ import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 const Wizard = ( { steps, activeStep, variant, completed = [], className = null, ...props } ) => {
 	return (
 		<Box className={ classNames( 'vip-wizard-component', className ) }>
-			{variant === 'horizontal' ? (
+			{ variant === 'horizontal' ? (
 				<Box>
 					<Flex
-						sx={{
+						sx={ {
 							flex: '0 0 auto',
-						}}
-						{...props}
+						} }
+						{ ...props }
 					>
-						{steps.map( ( { title, subTitle }, index ) => (
-							<React.Fragment key={index}>
+						{ steps.map( ( { title, subTitle }, index ) => (
+							<React.Fragment key={ index }>
 								<WizardStepHorizontal
-									order={index + 1}
-									active={index === activeStep}
-									title={title}
-									subTitle={subTitle}
+									order={ index + 1 }
+									active={ index === activeStep }
+									title={ title }
+									subTitle={ subTitle }
 								/>
-								{index < steps.length - 1 && <MdArrowForward sx={{ mx: 2, color: 'grey.80' }} />}
+								{ index < steps.length - 1 && (
+									<MdArrowForward sx={ { mx: 2, color: 'grey.80' } } />
+								) }
 							</React.Fragment>
-						) )}
+						) ) }
 					</Flex>
-					{steps[ activeStep ].children}
+					{ steps[ activeStep ].children }
 				</Box>
 			) : (
 				steps.map( ( { title, subTitle, children }, index ) => (
 					<WizardStep
-						active={index === activeStep}
-						title={title}
-						subTitle={subTitle}
-						complete={completed.includes( index )}
-						key={index}
-						order={index + 1}
+						active={ index === activeStep }
+						title={ title }
+						subTitle={ subTitle }
+						complete={ completed.includes( index ) }
+						key={ index }
+						order={ index + 1 }
 					>
-						{children}
+						{ children }
 					</WizardStep>
 				) )
-			)}
+			) }
 		</Box>
 	);
 };

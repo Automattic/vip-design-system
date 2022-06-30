@@ -32,7 +32,14 @@ const selectStyles = {
 	menu: () => ( { boxShadow: 'none', borderTop: '1px solid' } ),
 };
 
-const InlineSelect = ( { label, value, options, noneLabel = 'All', position = 'left', ...props } ) => {
+const InlineSelect = ( {
+	label,
+	value,
+	options,
+	noneLabel = 'All',
+	position = 'left',
+	...props
+} ) => {
 	let valueLabel = noneLabel;
 
 	if ( Array.isArray( value ) && value.length ) {
@@ -49,18 +56,18 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = 'l
 		<Box>
 			<Select
 				autoFocus
-				backspaceRemovesValue={false}
-				components={{ Option, DropdownIndicator: null, IndicatorSeparator: null }}
-				controlShouldRenderValue={false}
-				hideSelectedOptions={false}
-				isClearable={false}
+				backspaceRemovesValue={ false }
+				components={ { Option, DropdownIndicator: null, IndicatorSeparator: null } }
+				controlShouldRenderValue={ false }
+				hideSelectedOptions={ false }
+				isClearable={ false }
 				menuIsOpen
-				styles={selectStyles}
+				styles={ selectStyles }
 				classNamePrefix={ 'select' }
-				options={options}
+				options={ options }
 				placeholder="Search..."
-				tabSelectsValue={false}
-				value={value}
+				tabSelectsValue={ false }
+				value={ value }
 				sx={ {
 					'.select__control': {
 						background: 'none',
@@ -83,16 +90,16 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = 'l
 						borderColor: 'border',
 					},
 				} }
-				{...props}
+				{ ...props }
 			/>
 		</Box>
 	);
 
 	return (
 		<Dialog
-			content={Content}
+			content={ Content }
 			position={ position }
-			trigger={<DialogButton sx={{ width: '100%' }} label={label} value={valueLabel} />}
+			trigger={ <DialogButton sx={ { width: '100%' } } label={ label } value={ valueLabel } /> }
 		/>
 	);
 };
@@ -100,10 +107,7 @@ const InlineSelect = ( { label, value, options, noneLabel = 'All', position = 'l
 InlineSelect.propTypes = {
 	label: PropTypes.string,
 	// https://react-select.com/props
-	value: PropTypes.oneOfType( [
-		PropTypes.array,
-		PropTypes.object,
-	] ),
+	value: PropTypes.oneOfType( [ PropTypes.array, PropTypes.object ] ),
 	options: PropTypes.array,
 	position: PropTypes.string,
 	noneLabel: PropTypes.string,

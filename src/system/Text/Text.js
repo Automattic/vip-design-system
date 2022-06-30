@@ -10,13 +10,13 @@ import classNames from 'classnames';
 const Text = ( { sx, className = null, ...props } ) => (
 	<ThemeText
 		as="p"
-		sx={{
+		sx={ {
 			lineHeight: 1.5,
 			marginBottom: 2,
 			...sx,
-		}}
+		} }
 		className={ classNames( 'vip-text-component', className ) }
-		{...props}
+		{ ...props }
 	/>
 );
 

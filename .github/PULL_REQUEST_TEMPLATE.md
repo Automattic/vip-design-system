@@ -1,6 +1,6 @@
 ## Description
 
-A few sentences describing the overall goals of the pull request. Any special considerations and decisions. 
+A few sentences describing the overall goals of the pull request. Any special considerations and decisions.
 
 Also include any references to relevant discussions and documentation.
 

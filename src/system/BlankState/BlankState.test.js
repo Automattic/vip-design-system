@@ -23,37 +23,37 @@ const defaultProps = {
 	title: 'Power up your application',
 };
 
-describe('<BlankState />', () => {
-	it('renders the BlankState component', async () => {
-		const { container } = render(<BlankState {...defaultProps} />);
+describe( '<BlankState />', () => {
+	it( 'renders the BlankState component', async () => {
+		const { container } = render( <BlankState { ...defaultProps } /> );
 
-		expect(screen.getByText(defaultProps.body)).toBeInTheDocument();
-		expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
-		expect(screen.getByText('Explore add-ons →')).toBeInTheDocument();
-		expect(screen.getByAltText(defaultProps.imageAlt)).toBeInTheDocument();
+		expect( screen.getByText( defaultProps.body ) ).toBeInTheDocument();
+		expect( screen.getByText( defaultProps.title ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Explore add-ons →' ) ).toBeInTheDocument();
+		expect( screen.getByAltText( defaultProps.imageAlt ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect(await axe(container)).toHaveNoViolations();
-	});
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
 
-	it('renders the BlankState component with default alt text for the given image', async () => {
+	it( 'renders the BlankState component with default alt text for the given image', async () => {
 		const props = { ...defaultProps, imageAlt: undefined };
-		const { container } = render(<BlankState {...props} />);
+		const { container } = render( <BlankState { ...props } /> );
 
-		expect(screen.getByAltText('Image representing the blank state')).toBeInTheDocument();
+		expect( screen.getByAltText( 'Image representing the blank state' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect(await axe(container)).toHaveNoViolations();
-	});
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
 
-	it('renders the BlankState component with an icon', async () => {
+	it( 'renders the BlankState component with an icon', async () => {
 		const icon = <MdContentCopy title="this is an icon" />;
 		const props = { ...defaultProps, icon };
-		const { container } = render(<BlankState {...props} />);
+		const { container } = render( <BlankState { ...props } /> );
 
-		expect(screen.getByTitle('this is an icon')).toBeInTheDocument();
+		expect( screen.getByTitle( 'this is an icon' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect(await axe(container)).toHaveNoViolations();
-	});
-});
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
+} );

@@ -61,6 +61,7 @@ npm run build
 ```
 
 6. Publish the application
+
 ```
 npm publish
 ```

@@ -14,7 +14,7 @@ export default function ScreenReaderText( props ) {
 	return (
 		<span
 			className="screen-reader-text"
-			sx={{
+			sx={ {
 				border: 'none',
 				clip: 'rect(1px, 1px, 1px, 1px)',
 				clipPath: 'inset(50%)',
@@ -25,10 +25,10 @@ export default function ScreenReaderText( props ) {
 				position: 'absolute',
 				width: '1px',
 				wordWrap: 'normal !important',
-			}}
-			{...props}
+			} }
+			{ ...props }
 		>
-			{props.children}
+			{ props.children }
 		</span>
 	);
 }

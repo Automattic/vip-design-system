@@ -19,37 +19,35 @@ const ToggleGroup = ( { onChange, groupLabel, value, options, ...props } ) => (
 		} }
 		{ ...props }
 	>
-		{
-			options.map( ( option, index ) => (
-				<RadioGroupPrimitive.Item
-					key={ option.value }
-					value={ option.value }
-					id={ `o${ index }` }
-					sx={ {
-						fontSize: 1,
-						color: 'muted',
-						background: 'none',
-						border: 'none',
-						cursor: 'pointer',
-						borderRadius: 1,
-						py: 1,
-						px: 2,
-						flex: '1 1 auto',
-						textAlign: 'center',
-						'&:hover': {
-							color: 'heading',
-						},
-						'&[data-state=checked]': {
-							backgroundColor: 'card',
-							boxShadow: 'low',
-							color: 'heading',
-						},
-					} }
-				>
-					{ option.label }
-				</RadioGroupPrimitive.Item>
-			) )
-		}
+		{ options.map( ( option, index ) => (
+			<RadioGroupPrimitive.Item
+				key={ option.value }
+				value={ option.value }
+				id={ `o${ index }` }
+				sx={ {
+					fontSize: 1,
+					color: 'muted',
+					background: 'none',
+					border: 'none',
+					cursor: 'pointer',
+					borderRadius: 1,
+					py: 1,
+					px: 2,
+					flex: '1 1 auto',
+					textAlign: 'center',
+					'&:hover': {
+						color: 'heading',
+					},
+					'&[data-state=checked]': {
+						backgroundColor: 'card',
+						boxShadow: 'low',
+						color: 'heading',
+					},
+				} }
+			>
+				{ option.label }
+			</RadioGroupPrimitive.Item>
+		) ) }
 	</RadioGroupPrimitive.Root>
 );
 

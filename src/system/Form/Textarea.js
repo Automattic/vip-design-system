@@ -11,46 +11,44 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 
-const Textarea = React.forwardRef( ( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
-	<React.Fragment>
-		{ label &&
-			<Label htmlFor={ forLabel }>
-				{ label }
-				{ required &&
-					'*'
-				}
-			</Label>
-		}
-		<textarea
-			{ ...props }
-			ref={ ref }
-			sx={ {
-				border: '1px solid',
-				borderColor: 'border',
-				backgroundColor: 'card',
-				borderRadius: 1,
-				lineHeight: 'inherit',
-				px: 3,
-				py: 2,
-				fontSize: 2,
-				mb: 2,
-				color: 'text',
-				display: 'block',
-				width: '100%',
-				'&:focus': {
-					borderColor: 'brand.60',
-					outline: 'none',
-				},
-				'&:disabled': {
-					backgroundColor: 'background',
-				},
-			} }
-		/>
-		{ hasError && errorMessage &&
-			<Validation>{ errorMessage }</Validation>
-		}
-	</React.Fragment>
-) );
+const Textarea = React.forwardRef(
+	( { variant, label, forLabel, hasError, required, errorMessage, ...props }, ref ) => (
+		<React.Fragment>
+			{ label && (
+				<Label htmlFor={ forLabel }>
+					{ label }
+					{ required && '*' }
+				</Label>
+			) }
+			<textarea
+				{ ...props }
+				ref={ ref }
+				sx={ {
+					border: '1px solid',
+					borderColor: 'border',
+					backgroundColor: 'card',
+					borderRadius: 1,
+					lineHeight: 'inherit',
+					px: 3,
+					py: 2,
+					fontSize: 2,
+					mb: 2,
+					color: 'text',
+					display: 'block',
+					width: '100%',
+					'&:focus': {
+						borderColor: 'brand.60',
+						outline: 'none',
+					},
+					'&:disabled': {
+						backgroundColor: 'background',
+					},
+				} }
+			/>
+			{ hasError && errorMessage && <Validation>{ errorMessage }</Validation> }
+		</React.Fragment>
+	)
+);
 
 Textarea.propTypes = {
 	variant: PropTypes.string,

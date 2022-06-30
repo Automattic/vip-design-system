@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 
 const Toggle = ( { name = 'toggle', className = null, ...props } ) => (
 	<CheckBoxWrapper className={ classNames( 'vip-checkbox-component', className ) }>
-		<CheckBox name={name} id={name} type="checkbox" {...props} />
-		<CheckBoxLabel htmlFor={name} />
+		<CheckBox name={ name } id={ name } type="checkbox" { ...props } />
+		<CheckBoxLabel htmlFor={ name } />
 	</CheckBoxWrapper>
 );
 
@@ -20,13 +20,11 @@ Toggle.propTypes = {
 
 export { Toggle };
 
-const CheckBoxWrapper = props => (
-	<div sx={{ position: 'relative' }} {...props} />
-);
+const CheckBoxWrapper = props => <div sx={ { position: 'relative' } } { ...props } />;
 
 const CheckBoxLabel = props => (
 	<label
-		sx={{
+		sx={ {
 			position: 'absolute',
 			top: '0',
 			left: '0',
@@ -46,14 +44,14 @@ const CheckBoxLabel = props => (
 				boxShadow: 'low',
 				transition: '0.2s',
 			},
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );
 
 const CheckBox = props => (
 	<input
-		sx={{
+		sx={ {
 			opacity: '0',
 			zIndex: '1',
 			borderRadius: '15px',
@@ -74,7 +72,7 @@ const CheckBox = props => (
 					transition: '0.2s',
 				},
 			},
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );

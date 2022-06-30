@@ -15,15 +15,15 @@ import classNames from 'classnames';
 const Card = React.forwardRef( ( { variant = 'primary', sx = {}, className, ...props }, ref ) => {
 	return (
 		<Box
-			ref={ref}
-			sx={{
+			ref={ ref }
+			sx={ {
 				// pass variant prop to sx
 				variant: `cards.${ variant }`,
 				overflow: 'hidden',
 				...sx,
-			}}
+			} }
 			className={ classNames( 'vip-card-component', className ) }
-			{...props}
+			{ ...props }
 		/>
 	);
 } );

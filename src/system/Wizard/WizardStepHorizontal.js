@@ -15,17 +15,17 @@ const WizardStepHorizontal = ( { title, active, order } ) => {
 	return (
 		<Heading
 			variant="h4"
-			sx={{
+			sx={ {
 				mb: 0,
 				display: 'flex',
 				alignItems: 'center',
 				color: active ? 'heading' : 'muted',
-			}}
+			} }
 			data-step={ order }
 			data-active={ active || undefined }
 		>
-			<MdCheckCircle sx={{ mr: 2 }} />
-			{title}
+			<MdCheckCircle sx={ { mr: 2 } } />
+			{ title }
 		</Heading>
 	);
 };
