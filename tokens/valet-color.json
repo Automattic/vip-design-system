@@ -1004,11 +1004,11 @@
     },
     "Gradient": {
       "neutral-light-1": {
-        "value": "linear-gradient(180deg, #fcfafa 0%, #f5f2f1 100%)",
+        "value": "linear-gradient(180deg, {Gold.0} 0%, {Gold.3} 100%)",
         "type": "color"
       },
       "neutral-light-2": {
-        "value": "linear-gradient(180deg, #f5f2f1 0%, #fcfafa 100%)",
+        "value": "linear-gradient(180deg, {Gold.3} 0%, {Gold.0} 100%)",
         "type": "color"
       }
     }
@@ -1573,7 +1573,7 @@
   "expressive": {
     "background": {
       "primary": {
-        "value": "{Gray.0}",
+        "value": "{Gold.3}",
         "type": "color",
         "description": "Use as main application background"
       },
@@ -1589,15 +1589,15 @@
     },
     "layer": {
       "1": {
-        "value": "{Gray.3}",
+        "value": "{Gold.0}",
         "type": "color"
       },
       "2": {
-        "value": "{pure-white}",
+        "value": "{Gradient.neutral-light-1}",
         "type": "color"
       },
       "3": {
-        "value": "{Gray.3}",
+        "value": "{Gold.0}",
         "type": "color"
       },
       "4": {
@@ -1605,13 +1605,55 @@
         "type": "color"
       },
       "accent": {
-        "value": "{Gold.30}",
-        "type": "color"
+        "neutral-2": {
+          "value": "{Gradient.neutral-light-2}",
+          "type": "color"
+        },
+        "brand": {
+          "value": "{Gold.30}",
+          "type": "color"
+        },
+        "neutral-1": {
+          "value": "{Gradient.neutral-light-1}",
+          "type": "color"
+        },
+        "gold": {
+          "value": "{Gold.20}",
+          "type": "color"
+        },
+        "pink": {
+          "value": "{Pink.20}",
+          "type": "color"
+        },
+        "red": {
+          "value": "{Red.30}",
+          "type": "color"
+        },
+        "salmon": {
+          "value": "{Salmon.25}",
+          "type": "color"
+        },
+        "orange": {
+          "value": "{Orange.25}",
+          "type": "color"
+        },
+        "yellow": {
+          "value": "{Yellow.20}",
+          "type": "color"
+        },
+        "green": {
+          "value": "{Green.25}",
+          "type": "color"
+        },
+        "blue": {
+          "value": "{Blue.25}",
+          "type": "color"
+        }
       }
     },
     "field": {
       "1": {
-        "value": "{pure-white}",
+        "value": "rgba(0,0,0,0)",
         "type": "color"
       },
       "2": {
@@ -1656,7 +1698,7 @@
         "description": "Use for headings"
       },
       "secondary": {
-        "value": "{Gray.70}",
+        "value": "{Gray.75}",
         "type": "color",
         "description": "Use for body text "
       },
