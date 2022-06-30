@@ -16,25 +16,19 @@ const VerticalLine = () => {
 				borderColor: 'border',
 				height: 'calc( 50% - 16px )',
 				borderRadius: '2px',
-			} }>
-		</div>
+			} }
+		></div>
 	);
 };
 
 const Timeline = ( { time, first = false, last = false, className = null, ...props } ) => (
 	<Flex className={ classNames( 'vip-timeline-component', className ) } { ...props }>
 		<Flex sx={ { flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' } }>
-			{ ! first && (
-				<VerticalLine />
-			) }
-			<MdWatchLater aria-hidden sx={ { color: 'border' } } size={ 18 }/>
-			{ ! last && (
-				<VerticalLine />
-			) }
+			{ ! first && <VerticalLine /> }
+			<MdWatchLater aria-hidden sx={ { color: 'border' } } size={ 18 } />
+			{ ! last && <VerticalLine /> }
 		</Flex>
-		<Flex sx={ { alignItems: 'center', ml: 2 } }>
-			{ time }
-		</Flex>
+		<Flex sx={ { alignItems: 'center', ml: 2 } }>{ time }</Flex>
 	</Flex>
 );
 

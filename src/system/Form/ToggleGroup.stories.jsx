@@ -30,5 +30,12 @@ const options = [
 
 export const Default = () => {
 	const [ value, setValue ] = useState( 'one' );
-	return <ToggleGroup value={ value } onChange={ newValue => setValue( newValue ) } groupLabel="group" options={ options } />;
+	return (
+		<ToggleGroup
+			value={ value }
+			onChange={ newValue => setValue( newValue ) }
+			groupLabel="group"
+			options={ options }
+		/>
+	);
 };

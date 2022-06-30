@@ -1,6 +1,5 @@
-arrowParens: "avoid"
+arrowParens: 'avoid'
 bracketSpacing: true
-jsxBracketSameLine: false
 printWidth: 100
 parenSpacing: true
 semi: true

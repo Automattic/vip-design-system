@@ -21,33 +21,33 @@ const ResourceItem = ( {
 } ) => {
 	return (
 		<Flex
-			sx={{
+			sx={ {
 				alignItems: 'center',
 				gap: 3,
-			}}
+			} }
 		>
-			{icon}
-			<Box sx={{ flex: '1 1 auto' }}>{children}</Box>
+			{ icon }
+			<Box sx={ { flex: '1 1 auto' } }>{ children }</Box>
 			<Flex
-				sx={{
+				sx={ {
 					flex: '0 0 auto',
 					alignItems: 'center',
 					gap: 3,
-				}}
+				} }
 			>
 				<Time
 					className="time"
-					relativeTime={relativeTime}
-					timeOnly={timeOnly}
-					time={item[ dateKey ]}
-					sx={{ color: 'muted', mb: 0, textAlign: 'right', flex: '0 0 auto' }}
+					relativeTime={ relativeTime }
+					timeOnly={ timeOnly }
+					time={ item[ dateKey ] }
+					sx={ { color: 'muted', mb: 0, textAlign: 'right', flex: '0 0 auto' } }
 				/>
-				{renderActions && (
-					<Flex className="actions" sx={{ alignItems: 'center', gap: 3 }}>
-						<Box sx={{ width: 4, height: 4, borderRadius: 4, bg: 'border' }} />
-						{renderActions( item )}
+				{ renderActions && (
+					<Flex className="actions" sx={ { alignItems: 'center', gap: 3 } }>
+						<Box sx={ { width: 4, height: 4, borderRadius: 4, bg: 'border' } } />
+						{ renderActions( item ) }
 					</Flex>
-				)}
+				) }
 			</Flex>
 		</Flex>
 	);

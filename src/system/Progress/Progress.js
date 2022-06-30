@@ -30,7 +30,9 @@ const Progress = ( { steps, activeStep, sx, className, ...props } ) => (
 				<Spinner size={ 24 } />
 				<Heading variant="h4" sx={ { ml: 2, mb: 0 } }>
 					{ `${ activeStep + 1 } of ${ steps.length }` }:{ ' ' }
-					<Text as="span" sx={ { color: 'muted' } }>{ steps[ activeStep ] }</Text>
+					<Text as="span" sx={ { color: 'muted' } }>
+						{ steps[ activeStep ] }
+					</Text>
 				</Heading>
 			</Flex>
 		) }

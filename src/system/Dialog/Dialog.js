@@ -8,11 +8,18 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 
 /**
-* Internal dependencies
-*/
+ * Internal dependencies
+ */
 import { DialogContent, DialogTrigger } from '.';
 
-const Dialog = ( { trigger, position = 'left', startOpen = false, content, disabled = false, ...props } ) => {
+const Dialog = ( {
+	trigger,
+	position = 'left',
+	startOpen = false,
+	content,
+	disabled = false,
+	...props
+} ) => {
 	const [ isOpen, setIsOpen ] = useState( startOpen );
 	const dialogRef = useRef( null );
 
@@ -46,7 +53,12 @@ const Dialog = ( { trigger, position = 'left', startOpen = false, content, disab
 	};
 
 	return (
-		<div onClick={ e => e.stopPropagation() } sx={ { position: 'relative' } } ref={ dialogRef } className="vip-dialog-component">
+		<div
+			onClick={ e => e.stopPropagation() }
+			sx={ { position: 'relative' } }
+			ref={ dialogRef }
+			className="vip-dialog-component"
+		>
 			<DialogTrigger
 				tabIndex="0"
 				sx={ { display: 'inline' } }
@@ -73,10 +85,7 @@ Dialog.propTypes = {
 	disabled: PropTypes.bool,
 	position: PropTypes.string,
 	startOpen: PropTypes.bool,
-	content: PropTypes.oneOfType( [
-		PropTypes.node,
-		PropTypes.func,
-	] ),
+	content: PropTypes.oneOfType( [ PropTypes.node, PropTypes.func ] ),
 };
 
 export { Dialog };

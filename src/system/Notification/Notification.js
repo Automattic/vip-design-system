@@ -12,37 +12,35 @@ import PropTypes from 'prop-types';
 import { Box, Card, Flex, Text, Button } from '../';
 import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
 
-const Notification = ( { title, body, status = 'success', onClose } ) =>(
+const Notification = ( { title, body, status = 'success', onClose } ) => (
 	<Card
 		role="alert"
 		className="vip-notification-component"
-		sx={{
+		sx={ {
 			boxShadow: 'medium',
 			width: 320,
 			position: 'relative',
 			variant: `notification.${ status }`,
-		}}
+		} }
 	>
 		<ScreenReaderText>Alert,</ScreenReaderText>
-		<Flex sx={{ alignItems: 'center' }}>
-			{status === 'error' ? (
-				<MdError sx={{ color: 'error', flex: '0 0 auto' }} aria-hidden="true" />
+		<Flex sx={ { alignItems: 'center' } }>
+			{ status === 'error' ? (
+				<MdError sx={ { color: 'error', flex: '0 0 auto' } } aria-hidden="true" />
 			) : (
-				<MdCheckCircle sx={{ color: 'success', flex: '0 0 auto' }} aria-hidden="true" />
-			)}
-			<Box sx={{ flex: '1 1 auto', ml: 3 }}>
-				<p sx={{ my: 0, color: 'heading', fontWeight: 'bold' }}>
-					{title}
-				</p>
-				{body && <Text sx={{ mb: 0, mt: 1 }}>{body}</Text>}
+				<MdCheckCircle sx={ { color: 'success', flex: '0 0 auto' } } aria-hidden="true" />
+			) }
+			<Box sx={ { flex: '1 1 auto', ml: 3 } }>
+				<p sx={ { my: 0, color: 'heading', fontWeight: 'bold' } }>{ title }</p>
+				{ body && <Text sx={ { mb: 0, mt: 1 } }>{ body }</Text> }
 			</Box>
 		</Flex>
 
 		{ onClose && (
 			<Button
-				onClick={onClose}
+				onClick={ onClose }
 				variant="icon"
-				sx={{ color: 'muted', position: 'absolute', top: 2, right: 2 }}
+				sx={ { color: 'muted', position: 'absolute', top: 2, right: 2 } }
 				aria-hidden="true"
 			>
 				<MdClose />

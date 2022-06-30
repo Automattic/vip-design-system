@@ -44,19 +44,19 @@ const Time = ( { time, relativeTime = false, timeOnly = false, className = null,
 
 	return (
 		<Text
-			title={time.toLocaleString( 'sv', { timeZoneName: 'short' } )}
-			datetime={time}
+			title={ time.toLocaleString( 'sv', { timeZoneName: 'short' } ) }
+			datetime={ time }
 			as="time"
 			className={ classNames( 'vip-time-component', className ) }
-			{...props}
+			{ ...props }
 		>
-			{formattedTime}
+			{ formattedTime }
 		</Text>
 	);
 };
 
 Time.propTypes = {
-	time: PropTypes.string,
+	time: PropTypes.oneOfType( [ PropTypes.string, PropTypes.date ] ),
 	timeOnly: PropTypes.bool,
 	relativeTime: PropTypes.bool,
 	className: PropTypes.any,

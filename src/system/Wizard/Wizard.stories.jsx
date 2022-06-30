@@ -17,8 +17,7 @@ export const Default = () => {
 	const steps = [
 		{
 			title: 'Choose Domain',
-			subTitle:
-				'You can bring a domain name you already own, or buy a new one.',
+			subTitle: 'You can bring a domain name you already own, or buy a new one.',
 			children: (
 				<Box>
 					<Label>Domain</Label>
@@ -39,19 +38,15 @@ export const Default = () => {
 	];
 	return (
 		<React.Fragment>
-			<Flex sx={{ alignItems: 'center' }}>
-				<Box sx={{ flex: '1 1 auto' }}>
-					<Heading
-						variant="h1"
-						sx={{ display: 'flex', alignItems: 'center', mb: 1 }}
-					>
-						Add Domain:{' '}
-						<span sx={{ color: 'muted', ml: 2 }}>Production</span>
+			<Flex sx={ { alignItems: 'center' } }>
+				<Box sx={ { flex: '1 1 auto' } }>
+					<Heading variant="h1" sx={ { display: 'flex', alignItems: 'center', mb: 1 } }>
+						Add Domain: <span sx={ { color: 'muted', ml: 2 } }>Production</span>
 					</Heading>
 				</Box>
 			</Flex>
-			<Box mt={4}>
-				<Wizard activeStep={0} steps={steps} className="vip-wizard-xyz" />
+			<Box mt={ 4 }>
+				<Wizard activeStep={ 0 } steps={ steps } className="vip-wizard-xyz" />
 			</Box>
 		</React.Fragment>
 	);

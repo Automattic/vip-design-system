@@ -4,6 +4,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 
 /**
  * Internal dependencies
@@ -29,15 +30,15 @@ const formatDate = date => {
 const StyledListItem = props => (
 	<Box
 		as="li"
-		sx={{
+		sx={ {
 			py: 2,
 			borderBottom: '1px solid',
 			borderColor: 'border',
 			listStyleType: 'none',
 			margin: 0,
 			px: 0,
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );
 
@@ -56,31 +57,42 @@ const ResourceList = ( { groupedByDay = false, items, renderItem, dateKey } ) =>
 	}
 
 	const renderItemList = itemsList =>
-		itemsList.map( ( item, index ) => <StyledListItem key={index}>{renderItem( item )}</StyledListItem> );
+		itemsList.map( ( item, index ) => (
+			<StyledListItem key={ index }>{ renderItem( item ) }</StyledListItem>
+		) );
 
-	return (
-		<Box as="ul" sx={{ listStyleType: 'none', m: 0, p: 0 }} className="vip-resource-list-component">
-			{groupedByDay
-				? Object.keys( groupedItems ).map( ( groupName, index ) => (
-					<Box sx={{ mb: 4 }} key={index}>
-						<Heading variant="h4" as="h4" sx={{ mb: 3 }}>
-							{groupName}
+	const renderGoupedItems = () =>
+		useMemo(
+			() =>
+				Object.keys( groupedItems ).map( ( groupName, index ) => (
+					<Box sx={ { mb: 4 } } key={ index } as="li">
+						<Heading variant="h4" as="h4" sx={ { mb: 3 } }>
+							{ groupName }
 						</Heading>
 						<Box
 							as="ul"
-							sx={{
+							sx={ {
 								listStyleType: 'none',
 								m: 0,
 								p: 0,
 								borderTop: '1px solid',
 								borderColor: 'border',
-							}}
+							} }
 						>
-							{renderItemList( groupedItems[ groupName ] )}
+							{ renderItemList( groupedItems[ groupName ] ) }
 						</Box>
 					</Box>
-				) )
-				: renderItemList( items )}
+				) ),
+			[ groupedItems ]
+		);
+
+	return (
+		<Box
+			as="ul"
+			sx={ { listStyleType: 'none', m: 0, p: 0 } }
+			className="vip-resource-list-component"
+		>
+			{ groupedByDay ? renderGoupedItems( groupedItems ) : renderItemList( items ) }
 		</Box>
 	);
 };

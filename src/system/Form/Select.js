@@ -13,7 +13,16 @@ import { SearchSelect } from './SearchSelect';
 import { InlineSelect } from './InlineSelect';
 import { AsyncSearchSelect } from './AsyncSearchSelect';
 
-const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch, usePortal, ...props } ) => {
+const Select = ( {
+	isMulti = false,
+	isInline,
+	isAsync,
+	options,
+	label,
+	isSearch,
+	usePortal,
+	...props
+} ) => {
 	let Component;
 	const selectRef = React.useRef();
 	const portalProps = {};
@@ -36,7 +45,17 @@ const Select = ( { isMulti = false, isInline, isAsync, options, label, isSearch,
 			break;
 	}
 
-	return <div ref={selectRef} className="vip-select-component"><Component isMulti={isMulti} label={label} options={options} {...portalProps} {...props} /></div>;
+	return (
+		<div ref={ selectRef } className="vip-select-component">
+			<Component
+				isMulti={ isMulti }
+				label={ label }
+				options={ options }
+				{ ...portalProps }
+				{ ...props }
+			/>
+		</div>
+	);
 };
 
 Select.propTypes = {

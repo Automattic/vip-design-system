@@ -10,9 +10,9 @@ export default {
 
 export const Default = () => (
 	<Progress
-		max={1}
-		value={1 / 2}
-		steps={[ 'Downloading Data', 'Importing Data...', 'Finalizing' ]}
-		activeStep={1}
+		max={ 1 }
+		value={ 1 / 2 }
+		steps={ [ 'Downloading Data', 'Importing Data...', 'Finalizing' ] }
+		activeStep={ 1 }
 	/>
 );

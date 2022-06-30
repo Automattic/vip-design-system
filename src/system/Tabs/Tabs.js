@@ -14,15 +14,15 @@ import { Flex } from '..';
 const Tabs = ( { className = null, sx, ...props } ) => (
 	<Flex
 		className={ classNames( 'vip-tabs-component', className ) }
-		sx={{
+		sx={ {
 			borderBottom: '1px solid',
 			borderColor: 'border',
 			listStyleType: 'none',
 			margin: 0,
 			padding: 0,
 			...sx,
-		}}
-		{...props}
+		} }
+		{ ...props }
 	/>
 );
 

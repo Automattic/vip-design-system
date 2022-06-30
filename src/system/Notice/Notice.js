@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 
 /**
-* Internal dependencies
-*/
+ * Internal dependencies
+ */
 import { Box, Flex, Heading, Card } from '../';
 
 const NoticeIcon = ( { color, variant } ) => {
@@ -27,9 +27,7 @@ const NoticeIcon = ( { color, variant } ) => {
 			break;
 	}
 
-	return (
-		<Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } }/>
-	);
+	return <Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } } />;
 };
 
 NoticeIcon.propTypes = {
@@ -37,7 +35,15 @@ NoticeIcon.propTypes = {
 	variant: PropTypes.string,
 };
 
-const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}, className = null, ...props } ) => {
+const Notice = ( {
+	variant = 'warning',
+	inline = false,
+	children,
+	title,
+	sx = {},
+	className = null,
+	...props
+} ) => {
 	let color = 'yellow';
 
 	switch ( variant ) {
@@ -70,17 +76,25 @@ const Notice = ( { variant = 'warning', inline = false, children, title, sx = {}
 			className={ classNames( 'vip-notice-component', className ) }
 			{ ...props }
 		>
-			<Flex sx={ {
-				alignItems: 'center',
-			} }>
-				<Flex sx={ {
+			<Flex
+				sx={ {
 					alignItems: 'center',
-				} }>
-					<NoticeIcon color={`${ color }.100`} variant={ variant } />
+				} }
+			>
+				<Flex
+					sx={ {
+						alignItems: 'center',
+					} }
+				>
+					<NoticeIcon color={ `${ color }.100` } variant={ variant } />
 				</Flex>
 
 				<Box sx={ { ml: 23 } }>
-					{ title && <Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>{ title }</Heading> }
+					{ title && (
+						<Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>
+							{ title }
+						</Heading>
+					) }
 					{ children }
 				</Box>
 			</Flex>

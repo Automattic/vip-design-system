@@ -13,4 +13,16 @@ import { RadioBoxGroup } from './RadioBoxGroup';
 import { Textarea } from './Textarea';
 import { Checkbox } from './Checkbox';
 
-export { Input, Label, Radio, RadioBoxGroup, ToggleGroup, Select, Textarea, Toggle, ToggleRow, Validation, Checkbox };
+export {
+	Input,
+	Label,
+	Radio,
+	RadioBoxGroup,
+	ToggleGroup,
+	Select,
+	Textarea,
+	Toggle,
+	ToggleRow,
+	Validation,
+	Checkbox,
+};

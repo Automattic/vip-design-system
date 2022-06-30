@@ -30,7 +30,7 @@ const WizardStep = ( { title, subTitle, complete = false, children, active, orde
 
 	return (
 		<Card
-			sx={{
+			sx={ {
 				boxShadow: active ? 'low' : 'none',
 				borderLeft: '2px solid',
 				p: 4,
@@ -43,25 +43,25 @@ const WizardStep = ( { title, subTitle, complete = false, children, active, orde
 				},
 				borderColor: active ? 'primary' : 'border',
 				borderLeftColor: borderLeftColor,
-			}}
+			} }
 			data-step={ order }
 			data-active={ active || undefined }
 		>
 			<Heading
 				variant="h4"
-				sx={{
+				sx={ {
 					mb: 0,
 					display: 'flex',
 					alignItems: 'center',
 					color: color,
-				}}
+				} }
 			>
-				<MdCheckCircle sx={{ mr: 2 }} />
-				{title}
+				<MdCheckCircle sx={ { mr: 2 } } />
+				{ title }
 			</Heading>
-			{subTitle && active && <Text sx={{ mb: 3 }}>{subTitle}</Text>}
+			{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
 
-			{active && children}
+			{ active && children }
 		</Card>
 	);
 };

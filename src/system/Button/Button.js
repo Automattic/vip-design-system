@@ -9,7 +9,7 @@ import classNames from 'classnames';
 
 const Button = ( { sx, ...props } ) => (
 	<ThemeButton
-		sx={{
+		sx={ {
 			verticalAlign: 'middle',
 			display: 'inline-flex',
 			alignItems: 'center',
@@ -22,9 +22,9 @@ const Button = ( { sx, ...props } ) => (
 				pointerEvents: 'all',
 			},
 			...sx,
-		}}
+		} }
 		className={ classNames( 'vip-button-component', props.className ) }
-		{...props}
+		{ ...props }
 	/>
 );
 

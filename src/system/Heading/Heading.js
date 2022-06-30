@@ -9,15 +9,15 @@ import classNames from 'classnames';
 
 const Heading = ( { variant = 'h3', sx, className = null, ...props } ) => (
 	<ThemeHeading
-		as={variant}
-		sx={{
+		as={ variant }
+		sx={ {
 			color: 'heading',
 			// pass variant prop to sx
 			variant: `text.${ variant }`,
 			...sx,
-		}}
+		} }
 		className={ classNames( 'vip-heading-component', className ) }
-		{...props}
+		{ ...props }
 	/>
 );
 
