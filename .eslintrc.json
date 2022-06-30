@@ -6,13 +6,13 @@
 		}
 	},
 	"extends": [ "plugin:storybook/recommended", "plugin:prettier/recommended", "wpvip" ],
-	"plugins": [ "react", "jsx-a11y" ],
+	"plugins": [ "react", "jsx-a11y", "prettier" ],
 	"rules": {
 		"id-length": 0,
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
 		"no-use-before-define": "off",
-		"@typescript-eslint/no-use-before-define": [ "error" ],
+		"prettier/prettier": "error",
 		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/no-var-requires": "off",
 		"@typescript-eslint/no-explicit-any": "off"

@@ -3,7 +3,6 @@
  */
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { MdContentCopy } from 'react-icons/md';
 
 /**
  * Internal dependencies
@@ -26,18 +25,6 @@ describe( '<Code />', () => {
 		const { container } = render( <Code { ...defaultProps }>This is a code</Code> );
 
 		expect( screen.getByText( 'This is a code' ) ).toBeInTheDocument();
-
-		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
-	} );
-
-	// jsdom currently doesn't support pseudo-elements with getComputedStyle
-	it.skip( 'renders "$" in front of the code when in prompt mode', async () => {
-		const props = { ...defaultProps, prompt: true };
-		const { container } = render( <Code { ...props }>This is a code</Code> );
-		const codeElement = screen.getByText( 'This is a code' );
-
-		expect( window.getComputedStyle( codeElement, ':before' ).content ).toEqual( '$' );
 
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();

@@ -9,15 +9,8 @@ export default {
 };
 
 export const Default = () => (
-	<Notification
-		title="Awesome!"
-		body="Your message has been sent successfully."
-	/>
+	<Notification title="Awesome!" body="Your message has been sent successfully." />
 );
 export const Error = () => (
-	<Notification
-		status="error"
-		title="Snag!"
-		body="Your message could not be sent."
-	/>
+	<Notification status="error" title="Snag!" body="Your message could not be sent." />
 );
