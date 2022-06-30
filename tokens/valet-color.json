@@ -1010,6 +1010,10 @@
       "neutral-light-2": {
         "value": "linear-gradient(180deg, {Gold.3} 0%, {Gold.0} 100%)",
         "type": "color"
+      },
+      "Colorful light 1": {
+        "value": "linear-gradient(145.9deg, #CDE6EB 7.11%, rgba(255, 255, 255, 0) 90.25%), linear-gradient(294.32deg, #E1F3E7 -14.26%, rgba(255, 255, 255, 0) 62.44%), linear-gradient(0deg, #FFE9DB, #FFE9DB)",
+        "type": "color"
       }
     }
   },
