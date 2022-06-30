@@ -1,5 +1,5 @@
 {
-	"name": "@automattic/vip-design-system",
+	"name": "@automattic/valet-design-system",
 	"version": "0.10.3",
 	"main": "build/system/index.js",
 	"scripts": {

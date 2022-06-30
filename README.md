@@ -1,8 +1,8 @@
-# VIP Design System
+# Valet Design System
 
-Design system components used throughout VIP.
+Design system components used for the Valet Design System.
 
-[Storybook Components](https://vip-design-system-components.netlify.app/)
+[Storybook Components](https://valet-design-system-components.netlify.app/)
 
 ## Development
 
@@ -12,7 +12,7 @@ Make sure you have [node.js](https://nodejs.org/) and [NPM](https://docs.npmjs.c
 
 ### Install
 
-To get setup run the following command in the `vip-design-system` directory:
+To get setup run the following command in the `valet-design-system` directory:
 
 ```
 npm install
@@ -37,7 +37,7 @@ For components that include storybooks, we can run `npm run storybook` to view t
 **npm link**
 
 1. Run `npm link` in your checkout of this repo.
-2. Spin up a local copy of [the VIP Dashboard](https://github.com/automattic/vip-ui) and navigate to a page using the linked components from `@automattic/vip-design-system`
+2. Spin up a local copy of [the VIP Dashboard](https://github.com/automattic/vip-ui) and navigate to a page using the linked components from `@automattic/valet-design-system`
 
 Note: it's super useful to run `npm run watch` in another process, so any changes will be almost immediately available / testable.
 
@@ -74,4 +74,4 @@ git push --tags
 git push origin trunk
 ```
 
-8. For major versions or breaking changes, it's recommended to [create a RELEASE](https://github.com/Automattic/vip-design-system/releases) with the published tag.
+8. For major versions or breaking changes, it's recommended to [create a RELEASE](https://github.com/Automattic/valet-design-system/releases) with the published tag.
