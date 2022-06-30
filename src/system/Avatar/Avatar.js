@@ -37,6 +37,7 @@ const Avatar = ( {
 			textAlign: 'center',
 		} }
 		className={ classNames( 'vip-avatar-component', className ) }
+		aria-hidden="true"
 		{ ...props }
 	>
 		{ src ? (

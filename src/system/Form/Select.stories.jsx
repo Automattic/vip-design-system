@@ -122,7 +122,6 @@ export const Async = () => {
 				label="Async Select"
 				value={ value }
 				isAsync
-				usePortal
 				loadOptions={ loadOptions }
 				noneLabel="Everyone"
 				placeholder="Load async..."
