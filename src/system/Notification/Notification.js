@@ -9,10 +9,12 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Box, Button, Card, Flex, Heading, Text } from '../';
+import { Box, Card, Flex, Text, Button } from '../';
+import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
 
-const Notification = ( { title, body, status = 'success', onClose } ) => (
+const Notification = ( { title, body, status = 'success', onClose } ) =>(
 	<Card
+		role="alert"
 		className="vip-notification-component"
 		sx={{
 			boxShadow: 'medium',
@@ -21,26 +23,31 @@ const Notification = ( { title, body, status = 'success', onClose } ) => (
 			variant: `notification.${ status }`,
 		}}
 	>
-		<Button
-			onClick={onClose}
-			variant="icon"
-			sx={{ color: 'muted', position: 'absolute', top: 2, right: 2 }}
-		>
-			<MdClose />
-		</Button>
+		<ScreenReaderText>Alert,</ScreenReaderText>
 		<Flex sx={{ alignItems: 'center' }}>
 			{status === 'error' ? (
-				<MdError sx={{ color: 'error', flex: '0 0 auto' }} />
+				<MdError sx={{ color: 'error', flex: '0 0 auto' }} aria-hidden="true" />
 			) : (
-				<MdCheckCircle sx={{ color: 'success', flex: '0 0 auto' }} />
+				<MdCheckCircle sx={{ color: 'success', flex: '0 0 auto' }} aria-hidden="true" />
 			)}
 			<Box sx={{ flex: '1 1 auto', ml: 3 }}>
-				<Heading variant="h4" sx={{ mb: 0 }}>
+				<p sx={{ my: 0, color: 'heading', fontWeight: 'bold' }}>
 					{title}
-				</Heading>
+				</p>
 				{body && <Text sx={{ mb: 0, mt: 1 }}>{body}</Text>}
 			</Box>
 		</Flex>
+
+		{ onClose && (
+			<Button
+				onClick={onClose}
+				variant="icon"
+				sx={{ color: 'muted', position: 'absolute', top: 2, right: 2 }}
+				aria-hidden="true"
+			>
+				<MdClose />
+			</Button>
+		) }
 	</Card>
 );
 
