@@ -5,7 +5,7 @@
 			"presets": [ "@babel/preset-react" ]
 		}
 	},
-	"extends": [ "plugin:storybook/recommended", "plugin:prettier/recommended", "wpvip" ],
+	"extends": [ "plugin:storybook/recommended", "prettier", "wpvip" ],
 	"plugins": [ "react", "jsx-a11y", "prettier" ],
 	"rules": {
 		"id-length": 0,

@@ -4,6 +4,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 
 /**
  * Internal dependencies
@@ -60,33 +61,38 @@ const ResourceList = ( { groupedByDay = false, items, renderItem, dateKey } ) =>
 			<StyledListItem key={ index }>{ renderItem( item ) }</StyledListItem>
 		) );
 
+	const renderGoupedItems = () =>
+		useMemo(
+			() =>
+				Object.keys( groupedItems ).map( ( groupName, index ) => (
+					<Box sx={ { mb: 4 } } key={ index } as="li">
+						<Heading variant="h4" as="h4" sx={ { mb: 3 } }>
+							{ groupName }
+						</Heading>
+						<Box
+							as="ul"
+							sx={ {
+								listStyleType: 'none',
+								m: 0,
+								p: 0,
+								borderTop: '1px solid',
+								borderColor: 'border',
+							} }
+						>
+							{ renderItemList( groupedItems[ groupName ] ) }
+						</Box>
+					</Box>
+				) ),
+			[ groupedItems ]
+		);
+
 	return (
 		<Box
 			as="ul"
 			sx={ { listStyleType: 'none', m: 0, p: 0 } }
 			className="vip-resource-list-component"
 		>
-			{ groupedByDay
-				? Object.keys( groupedItems ).map( ( groupName, index ) => (
-						<Box sx={ { mb: 4 } } key={ index }>
-							<Heading variant="h4" as="h4" sx={ { mb: 3 } }>
-								{ groupName }
-							</Heading>
-							<Box
-								as="ul"
-								sx={ {
-									listStyleType: 'none',
-									m: 0,
-									p: 0,
-									borderTop: '1px solid',
-									borderColor: 'border',
-								} }
-							>
-								{ renderItemList( groupedItems[ groupName ] ) }
-							</Box>
-						</Box>
-				  ) )
-				: renderItemList( items ) }
+			{ groupedByDay ? renderGoupedItems( groupedItems ) : renderItemList( items ) }
 		</Box>
 	);
 };

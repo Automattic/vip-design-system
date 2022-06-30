@@ -96,7 +96,10 @@ export const Grouped = () => (
 									#443
 								</Text>
 							</Heading>
-							<Text sx={ { mb: 0, fontSize: 1, display: 'flex', alignItems: 'center', gap: 1 } }>
+							<Text
+								as="div"
+								sx={ { mb: 0, fontSize: 1, display: 'flex', alignItems: 'center', gap: 1 } }
+							>
 								<Avatar
 									name={ item.actor }
 									src="https://uifaces.co/our-content/donated/n4Ngwvi7.jpg"
@@ -263,7 +266,10 @@ export const Relative = () => (
 							</Heading>
 							{ item.status === 'running' && <Badge sx={ { mb: 0 } }>Running</Badge> }
 						</Flex>
-						<Text sx={ { mb: 0, color: 'muted', display: 'flex', alignItems: 'center', gap: 2 } }>
+						<Text
+							as="div"
+							sx={ { mb: 0, color: 'muted', display: 'flex', alignItems: 'center', gap: 2 } }
+						>
 							<Avatar
 								name={ item.author }
 								size={ 16 }

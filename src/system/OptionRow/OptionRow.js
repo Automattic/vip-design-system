@@ -13,6 +13,27 @@ import PropTypes from 'prop-types';
 import { Badge, Box, Grid, Heading, Text } from '..';
 import classNames from 'classnames';
 
+const disabledStyles = {
+	border: '1px solid',
+	borderColor: 'border',
+	background: 'none',
+	boxShadow: 'none',
+	color: 'grey.70',
+};
+
+const gridInlineStyle = {
+	py: 2,
+	px: 2,
+	mx: -2,
+};
+
+const regularGridStyle = small => ( {
+	py: 3,
+	px: [ 3, 3, small ? 3 : 5 ],
+	borderBottom: '1px solid',
+	borderColor: 'border',
+} );
+
 const OptionRow = ( {
 	image,
 	icon,
@@ -29,28 +50,9 @@ const OptionRow = ( {
 	className = null,
 	...props
 } ) => {
-	const mergedCard = disabled
-		? {
-				border: '1px solid',
-				borderColor: 'border',
-				background: 'none',
-				boxShadow: 'none',
-				color: 'grey.70',
-		  }
-		: {};
+	const mergedCard = disabled ? disabledStyles : {};
+	const inlineStyles = inline ? gridInlineStyle : regularGridStyle( small );
 
-	const inlineStyles = inline
-		? {
-				py: 2,
-				px: 2,
-				mx: -2,
-		  }
-		: {
-				py: 3,
-				px: [ 3, 3, small ? 3 : 5 ],
-				borderBottom: '1px solid',
-				borderColor: 'border',
-		  };
 	return (
 		<Grid
 			to={ to }
