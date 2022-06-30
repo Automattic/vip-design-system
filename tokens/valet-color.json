@@ -1637,16 +1637,24 @@
         "type": "color"
       },
       "accent": {
+        "neutral-1": {
+          "value": "{Gradient.neutral-light-1}",
+          "type": "color"
+        },
         "neutral-2": {
           "value": "{Gradient.neutral-light-2}",
           "type": "color"
         },
-        "brand": {
-          "value": "{Gold.30}",
+        "neutral-3": {
+          "value": "{Gradient.neutral-light-3}",
           "type": "color"
         },
-        "neutral-1": {
-          "value": "{Gradient.neutral-light-1}",
+        "neutral-4": {
+          "value": "{Gradient.neutral-light-4}",
+          "type": "color"
+        },
+        "brand": {
+          "value": "{Gold.30}",
           "type": "color"
         },
         "gold": {
@@ -1680,6 +1688,34 @@
         "blue": {
           "value": "{Blue.25}",
           "type": "color"
+        },
+        "colorful-1": {
+          "value": "{Gradient.colorful-light-1}",
+          "type": "color"
+        },
+        "colorful-2": {
+          "value": "{Gradient.colorful-light-2}",
+          "type": "color"
+        },
+        "colorful-3": {
+          "value": "{Gradient.colorful-light-3}",
+          "type": "color"
+        },
+        "colorful-4": {
+          "value": "{Gradient.colorful-light-4}",
+          "type": "color"
+        },
+        "dark-1": {
+          "value": "{Gradient.colorful-dark-1}",
+          "type": "color"
+        },
+        "dark-2": {
+          "value": "{Gradient.colorful-dark-2}",
+          "type": "color"
+        },
+        "black": {
+          "value": "{Black}",
+          "type": "color"
         }
       }
     },
@@ -1689,33 +1725,33 @@
         "type": "color"
       },
       "2": {
-        "value": "{Gray.0}",
+        "value": "rgba(0,0,0,0)",
         "type": "color"
       },
       "3": {
-        "value": "{Gray.3}",
+        "value": "rgba(0,0,0,0)",
         "type": "color"
       },
       "4": {
-        "value": "{Gray.7}",
+        "value": "rgba(0,0,0,0)",
         "type": "color"
       }
     },
     "border": {
       "1": {
-        "value": "{Gray.25}",
+        "value": "{Black}",
         "type": "color"
       },
       "2": {
-        "value": "{Gray.10}",
+        "value": "{Gray.70}",
         "type": "color"
       },
       "3": {
-        "value": "{Gray.30}",
+        "value": "{Gray.25}",
         "type": "color"
       },
       "4": {
-        "value": "{Gray.25}",
+        "value": "{Gray.15}",
         "type": "color"
       },
       "accent": {
@@ -1745,7 +1781,7 @@
         "description": "Use for placeholder text in fields"
       },
       "disabled": {
-        "value": "{Gray.55}",
+        "value": "{Gray.25}",
         "type": "color"
       },
       "inverse": {
@@ -1778,11 +1814,11 @@
     },
     "icon": {
       "primary": {
-        "value": "{Gray.85}",
+        "value": "{Black}",
         "type": "color"
       },
       "secondary": {
-        "value": "{Gray.50}",
+        "value": "{Gray.60}",
         "type": "color"
       },
       "helper": {
@@ -1790,11 +1826,11 @@
         "type": "color"
       },
       "inverse": {
-        "value": "{Gray.3}",
+        "value": "{Gold.0}",
         "type": "color"
       },
       "disabled": {
-        "value": "{Gray.45}",
+        "value": "{Gray.25}",
         "type": "color"
       }
     },
@@ -1805,17 +1841,17 @@
           "type": "color"
         },
         "hover": {
-          "value": "{Gray.55}",
+          "value": "{Gold.50}",
           "type": "color"
         }
       },
       "secondary": {
         "default": {
-          "value": "{Gray.3}",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         },
         "hover": {
-          "value": "{Gray.7}",
+          "value": "{Gold.50}",
           "type": "color"
         }
       },
@@ -1851,19 +1887,19 @@
       },
       "text": {
         "error": {
-          "value": "{Red.85}",
+          "value": "{Red.60}",
           "type": "color"
         },
         "warning": {
-          "value": "{Yellow.85}",
+          "value": "{Yellow.60}",
           "type": "color"
         },
         "info": {
-          "value": "{Blue.85}",
+          "value": "{Blue.60}",
           "type": "color"
         },
         "success": {
-          "value": "{Green.85}",
+          "value": "{Green.60}",
           "type": "color"
         }
       },
@@ -1887,19 +1923,19 @@
       },
       "accent": {
         "error": {
-          "value": "{Red.35}",
+          "value": "{Red.60}",
           "type": "color"
         },
         "warning": {
-          "value": "{Yellow.30}",
+          "value": "{Yellow.60}",
           "type": "color"
         },
         "info": {
-          "value": "{Blue.35}",
+          "value": "{Blue.60}",
           "type": "color"
         },
         "success": {
-          "value": "{Green.35}",
+          "value": "{Green.60}",
           "type": "color"
         }
       },
@@ -2007,7 +2043,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Gray.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2029,7 +2065,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Blue.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2051,7 +2087,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Green.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2073,7 +2109,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Red.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2095,7 +2131,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Gold.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2117,7 +2153,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Yellow.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2139,7 +2175,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Orange.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2161,7 +2197,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Salmon.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
@@ -2183,7 +2219,7 @@
           "type": "color"
         },
         "text": {
-          "value": "{Pink.85}",
+          "value": "{Black}",
           "type": "color"
         },
         "icon": {
