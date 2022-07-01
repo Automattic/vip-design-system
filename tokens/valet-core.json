@@ -591,6 +591,10 @@
       "bold": {
         "value": "Bold",
         "type": "fontWeights"
+      },
+      "light": {
+        "value": "light",
+        "type": "fontWeights"
       }
     },
     "letterSpacing": {
@@ -685,7 +689,7 @@
         "02-short-500": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
-            "fontWeight": "{font-weight.bold}",
+            "fontWeight": "{fontWeights.bold}",
             "lineHeight": "{lineHeights.4}",
             "fontSize": "{fontSizes.static.2}"
           },
@@ -703,7 +707,7 @@
         "04-short": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
-            "fontWeight": "{font-weight.light}",
+            "fontWeight": "{fontWeights.light}",
             "lineHeight": "{lineHeights.4}",
             "fontSize": "{fontSizes.static.4}"
           },
@@ -711,7 +715,7 @@
         },
         "04-serif": {
           "value": {
-            "fontFamily": "{ivar}",
+            "fontFamily": "{fontFamilies.ivar}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.5}",
             "fontSize": "{fontSizes.static.4}"
