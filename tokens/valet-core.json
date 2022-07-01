@@ -1878,7 +1878,8 @@
               "fontWeight": "{fontWeights.medium}",
               "lineHeight": "{lineHeights.4}",
               "fontSize": "{fontSizes.static.1}",
-              "letterSpacing": "{letterSpacing.loose}"
+              "letterSpacing": "{letterSpacing.loose}",
+              "textCase": "{textCase.uppercase}"
             },
             "type": "typography"
           },
@@ -1888,7 +1889,8 @@
               "fontWeight": "{fontWeights.medium}",
               "lineHeight": "{lineHeights.4}",
               "fontSize": "{fontSizes.static.3}",
-              "letterSpacing": "{letterSpacing.loose}"
+              "letterSpacing": "{letterSpacing.loose}",
+              "textCase": "{textCase.uppercase}"
             },
             "type": "typography"
           }
