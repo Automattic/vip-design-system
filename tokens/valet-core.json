@@ -1470,6 +1470,26 @@
             "type": "typography"
           }
         }
+      },
+      "code": {
+        "1": {
+          "value": {
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.1}"
+          },
+          "type": "typography"
+        },
+        "2": {
+          "value": {
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.2}"
+          },
+          "type": "typography"
+        }
       }
     }
   },
