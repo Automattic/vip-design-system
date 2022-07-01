@@ -649,7 +649,7 @@
   "expressive-type": {
     "expressive": {
       "body": {
-        "01-short": {
+        "1-short": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
@@ -658,7 +658,7 @@
           },
           "type": "typography"
         },
-        "01-short-500": {
+        "1-short-bold": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.medium}",
@@ -667,7 +667,7 @@
           },
           "type": "typography"
         },
-        "01-short-caps": {
+        "1-short-caps": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
@@ -677,7 +677,7 @@
           },
           "type": "typography"
         },
-        "02-short": {
+        "2-short": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
@@ -686,7 +686,7 @@
           },
           "type": "typography"
         },
-        "02-short-500": {
+        "2-short-bold": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.bold}",
@@ -695,7 +695,7 @@
           },
           "type": "typography"
         },
-        "03-short": {
+        "3-short": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
@@ -704,7 +704,7 @@
           },
           "type": "typography"
         },
-        "04-short": {
+        "4-short": {
           "value": {
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.light}",
@@ -713,7 +713,7 @@
           },
           "type": "typography"
         },
-        "04-serif": {
+        "4-serif": {
           "value": {
             "fontFamily": "{fontFamilies.ivar}",
             "fontWeight": "{fontWeights.regular}",
