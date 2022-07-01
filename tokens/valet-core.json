@@ -1456,6 +1456,20 @@
             "type": "typography"
           }
         }
+      },
+      "caption": {
+        "1": {
+          "s": {
+            "value": {
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.1.s}",
+              "letterSpacing": "{letterSpacing.loose}"
+            },
+            "type": "typography"
+          }
+        }
       }
     }
   },
