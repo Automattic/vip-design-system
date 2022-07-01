@@ -5,7 +5,7 @@
       "type": "other",
       "description": "Use as the base rem value for calculations."
     },
-    "fontSize": {
+    "fontSizes": {
       "static": {
         "1": {
           "value": ".875 * {rem}",
@@ -647,78 +647,74 @@
       "body": {
         "01-short": {
           "value": {
-            "fontFamily": "$fontFamilies.recoleta",
-            "fontWeight": "$fontWeights.regular",
-            "lineHeight": "$lineHeights.4",
-            "fontSize": "$fontSize.static.1",
-            "letterSpacing": "$letterSpacing.none",
-            "paragraphSpacing": "$paragraphSpacing.none",
-            "textDecoration": "$textDecoration.none",
-            "textCase": "$textCase.none"
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.1}"
           },
           "type": "typography"
         },
         "01-short-500": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
-            "fontWeight": "{font-weight.medium}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.1}"
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.1}"
           },
           "type": "typography"
         },
         "01-short-caps": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
-            "fontWeight": "{font-weight.normal}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.1}",
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.1}",
             "textCase": "uppercase"
           },
           "type": "typography"
         },
         "02-short": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
-            "fontWeight": "{font-weight.normal}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.2}"
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.2}"
           },
           "type": "typography"
         },
         "02-short-500": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
+            "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{font-weight.bold}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.2}"
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.2}"
           },
           "type": "typography"
         },
         "03-short": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
-            "fontWeight": "{font-weight.normal}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.3}"
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.3}"
           },
           "type": "typography"
         },
         "04-short": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
+            "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{font-weight.light}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.4}"
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.4}"
           },
           "type": "typography"
         },
         "04-serif": {
           "value": {
             "fontFamily": "{ivar}",
-            "fontWeight": "{font-weight.normal}",
-            "lineHeight": "{5}",
-            "fontSize": "{static.4}"
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.5}",
+            "fontSize": "{fontSizes.static.4}"
           },
           "type": "typography"
         }
@@ -727,51 +723,51 @@
         "00": {
           "S": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.4.s}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.4.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "M": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.4.m}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.4.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "L": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.4.l}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.4.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "XL": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.4.xl}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.4.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "MAX": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.4.max}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.4.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           }
@@ -779,51 +775,51 @@
         "01": {
           "S": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.8.s}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.8.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "M": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.8.m}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.8.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "L": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.8.l}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.8.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "XL": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.8.xl}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.8.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "MAX": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.8.max}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.8.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           }
@@ -831,51 +827,51 @@
         "02": {
           "S": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.9.s}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.9.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "M": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.9.m}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.9.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "L": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.9.l}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.9.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "XL": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.9.xl}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.9.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "MAX": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{3}",
-              "fontSize": "{figma.9.max}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.3}",
+              "fontSize": "{fontSizes.figma.9.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           }
@@ -883,51 +879,51 @@
         "03": {
           "S": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.10.s}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.10.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "M": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.10.m}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.10.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "L": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.10.l}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.10.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "XL": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.10.xl}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.10.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "MAX": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{2}",
-              "fontSize": "{figma.10.max}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.2}",
+              "fontSize": "{fontSizes.figma.10.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           }
@@ -935,51 +931,51 @@
         "04": {
           "S": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.11.s}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.11.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "M": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.11.m}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.11.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "L": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.11.l}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.11.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "XL": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.11.xl}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.11.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "MAX": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.11.max}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.11.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           }
@@ -987,51 +983,51 @@
         "05": {
           "S": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.12.s}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.12.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "M": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.12.m}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.12.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "L": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.12.l}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.12.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "XL": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.12.xl}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.12.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           },
           "MAX": {
             "value": {
-              "fontFamily": "{aktiv-grotesk}",
-              "fontWeight": "{font-weight.normal}",
-              "lineHeight": "{1}",
-              "fontSize": "{figma.12.max}",
-              "letterSpacing": "-.01 * {rem}"
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.1}",
+              "fontSize": "{fontSizes.figma.12.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
             "type": "typography"
           }
