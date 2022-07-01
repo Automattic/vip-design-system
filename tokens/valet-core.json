@@ -1723,108 +1723,24 @@
       },
       "caption": {
         "1": {
-          "S": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.2.s}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
+          "value": {
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.1}",
+            "letterSpacing": "{letterSpacing.loose}"
           },
-          "M": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.2.m}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          },
-          "L": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.2.l}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          },
-          "XL": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.2.xl}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          },
-          "MAX": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.2.max}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          }
+          "type": "typography"
         },
         "2": {
-          "S": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.3.s}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
+          "value": {
+            "fontFamily": "{fontFamilies.aktiv}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.4}",
+            "fontSize": "{fontSizes.static.2}",
+            "letterSpacing": "{letterSpacing.loose}"
           },
-          "M": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.3.m}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          },
-          "L": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.3.l}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          },
-          "XL": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.3.xl}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          },
-          "MAX": {
-            "value": {
-              "fontFamily": "{fontFamilies.aktiv}",
-              "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.figma.3.max}",
-              "letterSpacing": "{letterSpacing.loose}"
-            },
-            "type": "typography"
-          }
+          "type": "typography"
         }
       },
       "code": {
@@ -1864,7 +1780,7 @@
               "fontFamily": "{fontFamilies.aktiv}",
               "fontWeight": "{fontWeights.regular}",
               "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.static.2}",
+              "fontSize": "{fontSizes.static.1}",
               "letterSpacing": "{letterSpacing.loose}",
               "textCase": "{textCase.uppercase}"
             },
