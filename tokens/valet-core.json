@@ -8,18 +8,22 @@
     "fontSizes": {
       "static": {
         "1": {
-          "value": ".875 * {rem}",
+          "value": ".75 * {rem}",
           "type": "fontSizes"
         },
         "2": {
-          "value": "1 * {rem}",
+          "value": ".875 * {rem}",
           "type": "fontSizes"
         },
         "3": {
-          "value": "1.125 * {rem}",
+          "value": "1 * {rem}",
           "type": "fontSizes"
         },
         "4": {
+          "value": "1.125 * {rem}",
+          "type": "fontSizes"
+        },
+        "5": {
           "value": "1.25 * {rem}",
           "type": "fontSizes"
         }
@@ -654,7 +658,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.1}"
+            "fontSize": "{fontSizes.static.2}"
           },
           "type": "typography"
         },
@@ -663,7 +667,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.medium}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.1}"
+            "fontSize": "{fontSizes.static.2}"
           },
           "type": "typography"
         },
@@ -672,7 +676,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.1}",
+            "fontSize": "{fontSizes.static.2}",
             "textCase": "uppercase"
           },
           "type": "typography"
@@ -682,7 +686,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.2}"
+            "fontSize": "{fontSizes.static.3}"
           },
           "type": "typography"
         },
@@ -691,7 +695,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.bold}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.2}"
+            "fontSize": "{fontSizes.static.3}"
           },
           "type": "typography"
         },
@@ -700,7 +704,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.3}"
+            "fontSize": "{fontSizes.static.4}"
           },
           "type": "typography"
         },
@@ -709,7 +713,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.light}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.4}"
+            "fontSize": "{fontSizes.static.5}"
           },
           "type": "typography"
         },
@@ -718,7 +722,7 @@
             "fontFamily": "{fontFamilies.ivar}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.5}",
-            "fontSize": "{fontSizes.static.4}"
+            "fontSize": "{fontSizes.static.5}"
           },
           "type": "typography"
         }
@@ -1569,7 +1573,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.1}"
+            "fontSize": "{fontSizes.static.2}"
           },
           "type": "typography"
         },
@@ -1578,7 +1582,7 @@
             "fontFamily": "{fontFamilies.aktiv}",
             "fontWeight": "{fontWeights.regular}",
             "lineHeight": "{lineHeights.4}",
-            "fontSize": "{fontSizes.static.2}"
+            "fontSize": "{fontSizes.static.3}"
           },
           "type": "typography"
         }
@@ -1600,7 +1604,7 @@
               "fontFamily": "{fontFamilies.aktiv}",
               "fontWeight": "{fontWeights.regular}",
               "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.static.1}",
+              "fontSize": "{fontSizes.static.2}",
               "letterSpacing": "{letterSpacing.loose}",
               "textCase": "{textCase.uppercase}"
             },
@@ -1623,7 +1627,7 @@
               "fontFamily": "{fontFamilies.aktiv-ex}",
               "fontWeight": "{fontWeights.medium}",
               "lineHeight": "{lineHeights.4}",
-              "fontSize": "{fontSizes.static.2}",
+              "fontSize": "{fontSizes.static.3}",
               "letterSpacing": "{letterSpacing.loose}"
             },
             "type": "typography"
