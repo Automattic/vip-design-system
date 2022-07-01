@@ -1459,12 +1459,52 @@
       },
       "caption": {
         "1": {
-          "s": {
+          "S": {
             "value": {
               "fontFamily": "{fontFamilies.aktiv}",
               "fontWeight": "{fontWeights.regular}",
-              "lineHeight": "{lineHeights.3}",
-              "fontSize": "{fontSizes.figma.1.s}",
+              "lineHeight": "{lineHeights.4}",
+              "fontSize": "{fontSizes.figma.2.s}",
+              "letterSpacing": "{letterSpacing.loose}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.4}",
+              "fontSize": "{fontSizes.figma.2.m}",
+              "letterSpacing": "{letterSpacing.loose}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.4}",
+              "fontSize": "{fontSizes.figma.2.l}",
+              "letterSpacing": "{letterSpacing.loose}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.4}",
+              "fontSize": "{fontSizes.figma.2.xl}",
+              "letterSpacing": "{letterSpacing.loose}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamilies.aktiv}",
+              "fontWeight": "{fontWeights.regular}",
+              "lineHeight": "{lineHeights.4}",
+              "fontSize": "{fontSizes.figma.2.max}",
               "letterSpacing": "{letterSpacing.loose}"
             },
             "type": "typography"
