@@ -5,430 +5,432 @@
       "type": "other",
       "description": "Use as the base rem value for calculations."
     },
-    "static": {
-      "1": {
-        "value": ".875 * {rem}",
-        "type": "fontSizes"
-      },
-      "2": {
-        "value": "1 * {rem}",
-        "type": "fontSizes"
-      },
-      "3": {
-        "value": "1.125 * {rem}",
-        "type": "fontSizes"
-      },
-      "4": {
-        "value": "1.25 * {rem}",
-        "type": "fontSizes"
-      }
-    },
-    "responsive": {
-      "1": {
-        "value": "clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "2": {
-        "value": "clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "3": {
-        "value": "clamp(0.74rem, calc(0.91rem + -0.17vw), 0.88rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "4": {
-        "value": "clamp(0.89rem, calc(0.95rem + -0.06vw), 0.94rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "5": {
-        "value": "clamp(1.00rem, calc(0.98rem + 0.08vw), 1.06rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "6": {
-        "value": "clamp(1.07rem, calc(1.02rem + 0.25vw), 1.28rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "7": {
-        "value": "clamp(1.14rem, calc(1.04rem + 0.47vw), 1.53rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "8": {
-        "value": "clamp(1.22rem, calc(1.07rem + 0.75vw), 1.84rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "9": {
-        "value": "clamp(1.30rem, calc(1.08rem + 1.09vw), 2.20rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "10": {
-        "value": "clamp(1.38rem, calc(1.08rem + 1.52vw), 2.64rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "11": {
-        "value": "clamp(1.48rem, calc(1.07rem + 2.04vw), 3.17rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "12": {
-        "value": "clamp(1.57rem, calc(1.04rem + 2.69vw), 3.81rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "13": {
-        "value": "clamp(1.68rem, calc(0.98rem + 3.48vw), 4.57rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "14": {
-        "value": "clamp(1.79rem, calc(0.90rem + 4.45vw), 5.48rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      },
-      "15": {
-        "value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)",
-        "type": "fontSizes",
-        "description": "Used only in production, not in Figma"
-      }
-    },
-    "figma": {
-      "1": {
-        "s": {
-          "value": "12.34",
+    "fontSize": {
+      "static": {
+        "1": {
+          "value": ".875 * {rem}",
           "type": "fontSizes"
         },
-        "m": {
-          "value": "11.07",
+        "2": {
+          "value": "1 * {rem}",
           "type": "fontSizes"
         },
-        "l": {
-          "value": "9.8",
+        "3": {
+          "value": "1.125 * {rem}",
           "type": "fontSizes"
         },
-        "xl": {
-          "value": "9.05",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "11.07",
+        "4": {
+          "value": "1.25 * {rem}",
           "type": "fontSizes"
         }
       },
-      "2": {
-        "s": {
-          "value": "13.17",
-          "type": "fontSizes"
+      "responsive": {
+        "1": {
+          "value": "clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
         },
-        "m": {
-          "value": "12.19",
-          "type": "fontSizes"
+        "2": {
+          "value": "clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
         },
-        "l": {
-          "value": "11.17",
-          "type": "fontSizes"
+        "3": {
+          "value": "clamp(0.74rem, calc(0.91rem + -0.17vw), 0.88rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
         },
-        "xl": {
-          "value": "10.55",
-          "type": "fontSizes"
+        "4": {
+          "value": "clamp(0.89rem, calc(0.95rem + -0.06vw), 0.94rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
         },
-        "max": {
-          "value": "9.84",
-          "type": "fontSizes"
+        "5": {
+          "value": "clamp(1.00rem, calc(0.98rem + 0.08vw), 1.06rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "6": {
+          "value": "clamp(1.07rem, calc(1.02rem + 0.25vw), 1.28rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "7": {
+          "value": "clamp(1.14rem, calc(1.04rem + 0.47vw), 1.53rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "8": {
+          "value": "clamp(1.22rem, calc(1.07rem + 0.75vw), 1.84rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "9": {
+          "value": "clamp(1.30rem, calc(1.08rem + 1.09vw), 2.20rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "10": {
+          "value": "clamp(1.38rem, calc(1.08rem + 1.52vw), 2.64rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "11": {
+          "value": "clamp(1.48rem, calc(1.07rem + 2.04vw), 3.17rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "12": {
+          "value": "clamp(1.57rem, calc(1.04rem + 2.69vw), 3.81rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "13": {
+          "value": "clamp(1.68rem, calc(0.98rem + 3.48vw), 4.57rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "14": {
+          "value": "clamp(1.79rem, calc(0.90rem + 4.45vw), 5.48rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
+        },
+        "15": {
+          "value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)",
+          "type": "fontSizes",
+          "description": "Used only in production, not in Figma"
         }
       },
-      "3": {
-        "s": {
-          "value": "14.05",
-          "type": "fontSizes"
+      "figma": {
+        "1": {
+          "s": {
+            "value": "12.34",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "11.07",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "9.8",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "9.05",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "11.07",
+            "type": "fontSizes"
+          }
         },
-        "m": {
-          "value": "13.42",
-          "type": "fontSizes"
+        "2": {
+          "s": {
+            "value": "13.17",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "12.19",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "11.17",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "10.55",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "9.84",
+            "type": "fontSizes"
+          }
         },
-        "l": {
-          "value": "12.74",
-          "type": "fontSizes"
+        "3": {
+          "s": {
+            "value": "14.05",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "13.42",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "12.74",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "12.31",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "11.81",
+            "type": "fontSizes"
+          }
         },
-        "xl": {
-          "value": "12.31",
-          "type": "fontSizes"
+        "4": {
+          "s": {
+            "value": "15",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "14.77",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "14.52",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "14.36",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "14.17",
+            "type": "fontSizes"
+          }
         },
-        "max": {
-          "value": "11.81",
-          "type": "fontSizes"
-        }
-      },
-      "4": {
-        "s": {
-          "value": "15",
-          "type": "fontSizes"
+        "5": {
+          "s": {
+            "value": "16",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "16.25",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "16.55",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "16.75",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "17",
+            "type": "fontSizes"
+          }
         },
-        "m": {
-          "value": "14.77",
-          "type": "fontSizes"
+        "6": {
+          "s": {
+            "value": "17.07",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "17.89",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "18.86",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "19.53",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "20.4",
+            "type": "fontSizes"
+          }
         },
-        "l": {
-          "value": "14.52",
-          "type": "fontSizes"
+        "7": {
+          "s": {
+            "value": "18.22",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "19.69",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "21.5",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "22.78",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "24.48",
+            "type": "fontSizes"
+          }
         },
-        "xl": {
-          "value": "14.36",
-          "type": "fontSizes"
+        "8": {
+          "s": {
+            "value": "19.44",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "21.67",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "24.51",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "26.57",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "29.38",
+            "type": "fontSizes"
+          }
         },
-        "max": {
-          "value": "14.17",
-          "type": "fontSizes"
-        }
-      },
-      "5": {
-        "s": {
-          "value": "16",
-          "type": "fontSizes"
+        "9": {
+          "s": {
+            "value": "20.74",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "23.85",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "27.94",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "30.99",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "35.25",
+            "type": "fontSizes"
+          }
         },
-        "m": {
-          "value": "16.25",
-          "type": "fontSizes"
+        "10": {
+          "s": {
+            "value": "22.13",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "26.25",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "31.85",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "36.15",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "42.3",
+            "type": "fontSizes"
+          }
         },
-        "l": {
-          "value": "16.55",
-          "type": "fontSizes"
+        "11": {
+          "s": {
+            "value": "23.61",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "28.9",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "36.31",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "42.16",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "50.76",
+            "type": "fontSizes"
+          }
         },
-        "xl": {
-          "value": "16.75",
-          "type": "fontSizes"
+        "12": {
+          "s": {
+            "value": "25.19",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "31.8",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "41.39",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "49.17",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "60.91",
+            "type": "fontSizes"
+          }
         },
-        "max": {
-          "value": "17",
-          "type": "fontSizes"
-        }
-      },
-      "6": {
-        "s": {
-          "value": "17.07",
-          "type": "fontSizes"
+        "13": {
+          "s": {
+            "value": "26.88",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "35",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "47.18",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "57.35",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "73.1",
+            "type": "fontSizes"
+          }
         },
-        "m": {
-          "value": "17.89",
-          "type": "fontSizes"
+        "14": {
+          "s": {
+            "value": "28.68",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "38.53",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "53.78",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "66.9",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "87.72",
+            "type": "fontSizes"
+          }
         },
-        "l": {
-          "value": "18.86",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "19.53",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "20.4",
-          "type": "fontSizes"
-        }
-      },
-      "7": {
-        "s": {
-          "value": "18.22",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "19.69",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "21.5",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "22.78",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "24.48",
-          "type": "fontSizes"
-        }
-      },
-      "8": {
-        "s": {
-          "value": "19.44",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "21.67",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "24.51",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "26.57",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "29.38",
-          "type": "fontSizes"
-        }
-      },
-      "9": {
-        "s": {
-          "value": "20.74",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "23.85",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "27.94",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "30.99",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "35.25",
-          "type": "fontSizes"
-        }
-      },
-      "10": {
-        "s": {
-          "value": "22.13",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "26.25",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "31.85",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "36.15",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "42.3",
-          "type": "fontSizes"
-        }
-      },
-      "11": {
-        "s": {
-          "value": "23.61",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "28.9",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "36.31",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "42.16",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "50.76",
-          "type": "fontSizes"
-        }
-      },
-      "12": {
-        "s": {
-          "value": "25.19",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "31.8",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "41.39",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "49.17",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "60.91",
-          "type": "fontSizes"
-        }
-      },
-      "13": {
-        "s": {
-          "value": "26.88",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "35",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "47.18",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "57.35",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "73.1",
-          "type": "fontSizes"
-        }
-      },
-      "14": {
-        "s": {
-          "value": "28.68",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "38.53",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "53.78",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "66.9",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "87.72",
-          "type": "fontSizes"
-        }
-      },
-      "15": {
-        "s": {
-          "value": "30.6",
-          "type": "fontSizes"
-        },
-        "m": {
-          "value": "42.41",
-          "type": "fontSizes"
-        },
-        "l": {
-          "value": "61.3",
-          "type": "fontSizes"
-        },
-        "xl": {
-          "value": "78.02",
-          "type": "fontSizes"
-        },
-        "max": {
-          "value": "105.26",
-          "type": "fontSizes"
+        "15": {
+          "s": {
+            "value": "30.6",
+            "type": "fontSizes"
+          },
+          "m": {
+            "value": "42.41",
+            "type": "fontSizes"
+          },
+          "l": {
+            "value": "61.3",
+            "type": "fontSizes"
+          },
+          "xl": {
+            "value": "78.02",
+            "type": "fontSizes"
+          },
+          "max": {
+            "value": "105.26",
+            "type": "fontSizes"
+          }
         }
       }
     },
@@ -708,24 +710,6 @@
       "bold": {
         "value": "Bold",
         "type": "fontWeights"
-      }
-    },
-    "fontSize": {
-      "0": {
-        "value": "14",
-        "type": "fontSizes"
-      },
-      "1": {
-        "value": "16",
-        "type": "fontSizes"
-      },
-      "2": {
-        "value": "18",
-        "type": "fontSizes"
-      },
-      "3": {
-        "value": "20",
-        "type": "fontSizes"
       }
     },
     "letterSpacing": {
