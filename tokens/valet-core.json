@@ -24,83 +24,6 @@
           "type": "fontSizes"
         }
       },
-      "responsive": {
-        "1": {
-          "value": "clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "2": {
-          "value": "clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "3": {
-          "value": "clamp(0.74rem, calc(0.91rem + -0.17vw), 0.88rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "4": {
-          "value": "clamp(0.89rem, calc(0.95rem + -0.06vw), 0.94rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "5": {
-          "value": "clamp(1.00rem, calc(0.98rem + 0.08vw), 1.06rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "6": {
-          "value": "clamp(1.07rem, calc(1.02rem + 0.25vw), 1.28rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "7": {
-          "value": "clamp(1.14rem, calc(1.04rem + 0.47vw), 1.53rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "8": {
-          "value": "clamp(1.22rem, calc(1.07rem + 0.75vw), 1.84rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "9": {
-          "value": "clamp(1.30rem, calc(1.08rem + 1.09vw), 2.20rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "10": {
-          "value": "clamp(1.38rem, calc(1.08rem + 1.52vw), 2.64rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "11": {
-          "value": "clamp(1.48rem, calc(1.07rem + 2.04vw), 3.17rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "12": {
-          "value": "clamp(1.57rem, calc(1.04rem + 2.69vw), 3.81rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "13": {
-          "value": "clamp(1.68rem, calc(0.98rem + 3.48vw), 4.57rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "14": {
-          "value": "clamp(1.79rem, calc(0.90rem + 4.45vw), 5.48rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        },
-        "15": {
-          "value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)",
-          "type": "fontSizes",
-          "description": "Used only in production, not in Figma"
-        }
-      },
       "figma": {
         "1": {
           "s": {
@@ -724,8 +647,8 @@
       "body": {
         "01-short": {
           "value": {
-            "fontFamily": "$fontFamilies.aktiv",
-            "fontWeight": "$font-weight.normal",
+            "fontFamily": "$fontFamilies.recoleta",
+            "fontWeight": "$fontWeights.regular",
             "lineHeight": "$lineHeights.4",
             "fontSize": "$fontSize.static.1",
             "letterSpacing": "$letterSpacing.none",
