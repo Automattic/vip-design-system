@@ -434,26 +434,6 @@
         }
       }
     },
-    "aktiv-grotesk": {
-      "value": "Aktiv Grotesk",
-      "type": "fontFamilies",
-      "description": "Use as primary sans serif across WPVIP applications"
-    },
-    "recoleta": {
-      "value": "Recoleta",
-      "type": "fontFamilies",
-      "description": "Use as primary brand display font in CMS marketing and the VIP Dashboard"
-    },
-    "ivar": {
-      "value": "Ivar Text",
-      "type": "fontFamilies",
-      "description": "Use as primary text serif in long-form reading applications"
-    },
-    "aktiv-grotesk-ex": {
-      "value": "Aktiv Grotesk Ex",
-      "type": "fontFamilies",
-      "description": "Use as accent font in marketing and on wpvip.com"
-    },
     "borderRadius": {
       "1": {
         "value": "{rem} * .25",
@@ -482,28 +462,6 @@
       "7": {
         "value": "{rem} * 3.5",
         "type": "borderRadius"
-      }
-    },
-    "font-weight": {
-      "light": {
-        "value": "300",
-        "type": "fontWeights",
-        "description": "Use sparingly in display applications."
-      },
-      "normal": {
-        "value": "400",
-        "type": "fontWeights",
-        "description": "Use generally."
-      },
-      "medium": {
-        "value": "500",
-        "type": "fontWeights",
-        "description": "Use for emphasis in large heading and display applications."
-      },
-      "bold": {
-        "value": "700",
-        "type": "fontWeights",
-        "description": "Use for emphasis in body and small heading applications."
       }
     },
     "space": {
@@ -732,112 +690,6 @@
         "type": "paragraphSpacing"
       }
     },
-    "body": {
-      "01-short": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.regular}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.0",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "01-short-500": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.medium}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.0",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "01-short-caps": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.regular}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.0",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.uppercase",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "02-short": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.regular}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.1",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "02-short-500": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.bold}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.1",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "03-short": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.regular}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.2",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "04-short": {
-        "value": {
-          "fontFamily": "{fontFamilies.aktiv}",
-          "fontWeight": "{fontWeights.regular}",
-          "lineHeight": "{lineHeights.4}",
-          "fontSize": "$fontSize.3",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      },
-      "04-serif": {
-        "value": {
-          "fontFamily": "{fontFamilies.ivar}",
-          "fontWeight": "{fontWeights.regular}",
-          "lineHeight": "{lineHeights.5}",
-          "fontSize": "$fontSize.3",
-          "letterSpacing": "{letterSpacing.none}",
-          "paragraphSpacing": "{paragraphSpacing.none}",
-          "textCase": "$textCase.none",
-          "textDecoration": "$textDecoration.none"
-        },
-        "type": "typography"
-      }
-    },
     "textCase": {
       "none": {
         "value": "none",
@@ -872,10 +724,14 @@
       "body": {
         "01-short": {
           "value": {
-            "fontFamily": "{aktiv-grotesk}",
-            "fontWeight": "{font-weight.normal}",
-            "lineHeight": "{4}",
-            "fontSize": "{static.1}"
+            "fontFamily": "$fontFamilies.aktiv",
+            "fontWeight": "$font-weight.normal",
+            "lineHeight": "$lineHeights.4",
+            "fontSize": "$fontSize.static.1",
+            "letterSpacing": "$letterSpacing.none",
+            "paragraphSpacing": "$paragraphSpacing.none",
+            "textDecoration": "$textDecoration.none",
+            "textCase": "$textCase.none"
           },
           "type": "typography"
         },
