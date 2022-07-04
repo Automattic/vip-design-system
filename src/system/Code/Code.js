@@ -8,8 +8,6 @@ import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';
 
-import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
-
 const Code = ( { prompt = false, showCopy = false, onCopy = null, className, ...props } ) => {
 	const ref = useRef();
 
@@ -82,9 +80,7 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, className, ...
 					} }
 				>
 					{ copied ? (
-						<span role="alert">
-							Code copied<ScreenReaderText> into clipboard.</ScreenReaderText>
-						</span>
+						<span role="alert">Code copied to clipboard</span>
 					) : (
 						<MdContentCopy aria-hidden="true" />
 					) }

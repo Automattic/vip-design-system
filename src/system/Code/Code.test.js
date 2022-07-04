@@ -48,7 +48,7 @@ describe( '<Code />', () => {
 
 		await waitFor( () => new Promise( res => setTimeout( res, 0 ) ) );
 
-		expect( screen.getByText( 'Code copied' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Code copied to clipboard' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();
