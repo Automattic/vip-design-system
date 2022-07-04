@@ -50,7 +50,7 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, className, ...
 			{ codeDom }
 			{
 				<button
-					aria-label="Copy"
+					aria-label="Copy code"
 					sx={ {
 						bg: 'grey.10',
 						borderTopRightRadius: 1,
@@ -79,7 +79,7 @@ const Code = ( { prompt = false, showCopy = false, onCopy = null, className, ...
 						}
 					} }
 				>
-					{ copied ? 'Copied!' : <MdContentCopy /> }
+					{ copied ? 'Code copied' : <MdContentCopy aria-hidden="true" /> }
 				</button>
 			}
 		</div>

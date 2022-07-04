@@ -34,7 +34,7 @@ describe( '<Code />', () => {
 		const props = { ...defaultProps, showCopy: true };
 		const { container } = render( <Code { ...props }>This is a code</Code> );
 
-		expect( screen.getByRole( 'button', { name: 'Copy' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Copy code' } ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();
@@ -44,11 +44,11 @@ describe( '<Code />', () => {
 		const props = { ...defaultProps, showCopy: true };
 		const { container } = render( <Code { ...props }>This is a code</Code> );
 
-		fireEvent.click( screen.getByRole( 'button', { name: 'Copy' } ) );
+		fireEvent.click( screen.getByRole( 'button', { name: 'Copy code' } ) );
 
 		await waitFor( () => new Promise( res => setTimeout( res, 0 ) ) );
 
-		expect( screen.getByText( 'Copied!' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Code copied' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();
