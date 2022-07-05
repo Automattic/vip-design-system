@@ -8,7 +8,10 @@ import PropTypes from 'prop-types';
 
 import * as Switch from '@radix-ui/react-switch';
 
-export const Toggle = ( { name = 'toggle', className = null, ...rest } ) => (
+// Documentation for Radix Switch component
+// https://www.radix-ui.com/docs/primitives/components/switch
+
+export const Toggle = ( { name = 'toggle', onChange, className = null, ...rest } ) => (
 	<Switch.Root
 		className={ classNames( 'vip-toggle-component', className ) }
 		sx={ {
@@ -21,6 +24,8 @@ export const Toggle = ( { name = 'toggle', className = null, ...rest } ) => (
 			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 			'&[data-state="checked"]': { backgroundColor: 'success' },
 		} }
+		name={ name }
+		onCheckedChange={ onChange || undefined }
 		{ ...rest }
 	>
 		<Switch.Thumb
@@ -40,7 +45,8 @@ export const Toggle = ( { name = 'toggle', className = null, ...rest } ) => (
 	</Switch.Root>
 );
 
-Toggle.PropTypes = {
+Toggle.propTypes = {
 	name: PropTypes.string,
-	classNames: PropTypes.any,
+	className: PropTypes.any,
+	onChange: PropTypes.func,
 };
