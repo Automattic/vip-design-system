@@ -37,7 +37,7 @@ export const Default = () => (
 				] }
 			/>
 			<TableRow>
-				<TableCell sx={ { backgroundColor: 'gray' } }>
+				<TableCell sx={ { backgroundColor: 'lightgray' } }>
 					<Flex sx={ { alignItems: 'center' } } key="user">
 						<Heading variant="h4" sx={ { mb: 0 } }>
 							simon
