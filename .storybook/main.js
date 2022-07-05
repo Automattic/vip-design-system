@@ -5,5 +5,6 @@ module.exports = {
 		'@storybook/addon-docs',
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
+		'@storybook/addon-controls',
 	],
 };
