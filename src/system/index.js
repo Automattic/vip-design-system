@@ -44,7 +44,7 @@ import { Time } from './Time';
 import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
-import { Table, TableRow } from './Table';
+import { Table, TableRow, TableCell } from './Table';
 import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import theme from './theme';
@@ -77,6 +77,7 @@ export {
 	Spinner,
 	Table,
 	TableRow,
+	TableCell,
 	Tooltip,
 	Notification,
 	Link,
