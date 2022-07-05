@@ -56,7 +56,7 @@ const Time = ( { time, relativeTime = false, timeOnly = false, className = null,
 };
 
 Time.propTypes = {
-	time: PropTypes.oneOfType( [ PropTypes.string, PropTypes.date ] ),
+	time: PropTypes.oneOfType( [ PropTypes.string, PropTypes.instanceOf( Date ) ] ),
 	timeOnly: PropTypes.bool,
 	relativeTime: PropTypes.bool,
 	className: PropTypes.any,
