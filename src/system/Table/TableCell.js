@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Heading, Box } from '../';
 
-const TableCell = ( { head, isRowHead, cell, ...rest } ) => {
+const TableCell = ( { head, isRowHead, children, ...rest } ) => {
 	let scope = null;
 
 	if ( head ) {
@@ -20,39 +20,37 @@ const TableCell = ( { head, isRowHead, cell, ...rest } ) => {
 		scope = 'row';
 	}
 
+	const sx = {
+		borderBottom: '1px solid',
+		borderColor: 'border',
+		borderTop: head ? '1px solid' : 'none',
+		fontWeight: 'body',
+		px: 3,
+		py: 2,
+		textAlign: 'left',
+		'&:first-of-type': {
+			pl: 5,
+		},
+		...rest.sx,
+	};
+
 	return (
-		<Box
-			as={ isRowHead || head ? 'th' : 'td' }
-			scope={ scope }
-			sx={ {
-				borderBottom: '1px solid',
-				borderColor: 'border',
-				borderTop: head ? '1px solid' : 'none',
-				fontWeight: 'body',
-				px: 3,
-				py: 2,
-				textAlign: 'left',
-				'&:first-of-type': {
-					pl: 5,
-				},
-			} }
-			{ ...rest }
-		>
+		<Box as={ isRowHead || head ? 'th' : 'td' } scope={ scope } { ...{ ...rest, sx } }>
 			{ head ? (
 				<Heading variant="caps" as="div" sx={ { mb: 0 } }>
-					{ cell }
+					{ children }
 				</Heading>
 			) : (
-				cell
+				children
 			) }
 		</Box>
 	);
 };
 
 TableCell.propTypes = {
+	children: PropTypes.node,
 	head: PropTypes.bool,
 	isRowHead: PropTypes.bool,
-	cell: PropTypes.node,
 };
 
 export { TableCell };

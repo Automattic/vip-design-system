@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { TableCell } from './TableCell';
 
-const TableRow = ( { onClick, head = false, rowHead = false, cells } ) => {
+const TableRow = ( { onClick, head = false, rowHead = false, cells = [], children } ) => {
 	const hoverStyles = onClick
 		? { cursor: 'pointer', '&:hover': { bg: 'hover', borderRadius: 2 } }
 		: {};
@@ -30,14 +30,19 @@ const TableRow = ( { onClick, head = false, rowHead = false, cells } ) => {
 			onKeyDown={ handleKeyPress }
 		>
 			{ cells.map( ( cell, index ) => (
-				<TableCell key={ index } cell={ cell } head={ head } isRowHead={ index === 0 && rowHead } />
+				<TableCell key={ index } head={ head } isRowHead={ index === 0 && rowHead }>
+					{ cell }
+				</TableCell>
 			) ) }
+
+			{ children }
 		</tr>
 	);
 };
 
 TableRow.propTypes = {
 	cells: PropTypes.array,
+	children: PropTypes.node,
 	head: PropTypes.bool,
 	onClick: PropTypes.func,
 	rowHead: PropTypes.bool,
