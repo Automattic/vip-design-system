@@ -11,15 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Heading, Box } from '../';
 
-const TableCell = ( { head, isRowHead, children, ...rest } ) => {
-	let scope = null;
-
-	if ( head ) {
-		scope = 'col';
-	} else if ( isRowHead ) {
-		scope = 'row';
-	}
-
+const TableCell = ( { head, children, ...rest } ) => {
 	const sx = {
 		borderBottom: '1px solid',
 		borderTop: head ? '1px solid' : 'none',
@@ -36,7 +28,7 @@ const TableCell = ( { head, isRowHead, children, ...rest } ) => {
 	};
 
 	return (
-		<Box as={ isRowHead || head ? 'th' : 'td' } scope={ scope } { ...{ ...rest, sx } }>
+		<Box as={ head ? 'th' : 'td' } { ...{ ...rest, sx } }>
 			{ head ? (
 				<Heading variant="caps" as="div" sx={ { mb: 0 } }>
 					{ children }
@@ -51,7 +43,6 @@ const TableCell = ( { head, isRowHead, children, ...rest } ) => {
 TableCell.propTypes = {
 	children: PropTypes.node,
 	head: PropTypes.bool,
-	isRowHead: PropTypes.bool,
 };
 
 export { TableCell };
