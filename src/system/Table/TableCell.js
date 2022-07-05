@@ -22,8 +22,9 @@ const TableCell = ( { head, isRowHead, children, ...rest } ) => {
 
 	const sx = {
 		borderBottom: '1px solid',
-		borderColor: 'border',
 		borderTop: head ? '1px solid' : 'none',
+		// borderColor should come after borderTop so it can override it
+		borderColor: 'border',
 		fontWeight: 'body',
 		px: 3,
 		py: 2,
