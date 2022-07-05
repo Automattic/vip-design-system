@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Table, TableRow, Flex, Heading, Text } from '..';
+import { Table, TableRow, Flex, Heading, Text, TableCell } from '..';
 
 export default {
 	title: 'Table',
@@ -36,6 +36,34 @@ export const Default = () => (
 					</Text>,
 				] }
 			/>
+			<TableRow>
+				<TableCell sx={ { backgroundColor: 'gray' } }>
+					<Flex sx={ { alignItems: 'center' } } key="user">
+						<Heading variant="h4" sx={ { mb: 0 } }>
+							simon
+						</Heading>
+					</Flex>
+				</TableCell>
+				<TableCell>
+					<Heading
+						variant="h4"
+						key="command"
+						sx={ { mb: 0, display: 'flex', alignItems: 'center' } }
+					>
+						wp posts list
+					</Heading>
+				</TableCell>
+				<TableCell>
+					<Text sx={ { mb: 0 } } key="duration">
+						3s
+					</Text>
+				</TableCell>
+				<TableCell>
+					<Text sx={ { mb: 0, color: 'muted' } } key="time">
+						3rd May 2021, 13:22:13
+					</Text>
+				</TableCell>
+			</TableRow>
 		</tbody>
 	</Table>
 );
