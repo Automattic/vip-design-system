@@ -11,5 +11,6 @@ export const decorators = [ withBoundingBox, withColorMode, withThemeProvider ];
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
+	controls: { expanded: true },
 	backgrounds,
 };

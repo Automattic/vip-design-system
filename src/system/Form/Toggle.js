@@ -6,73 +6,47 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const Toggle = ( { name = 'toggle', className = null, ...props } ) => (
-	<CheckBoxWrapper className={ classNames( 'vip-checkbox-component', className ) }>
-		<CheckBox name={ name } id={ name } type="checkbox" { ...props } />
-		<CheckBoxLabel htmlFor={ name } />
-	</CheckBoxWrapper>
+import * as Switch from '@radix-ui/react-switch';
+
+// Documentation for Radix Switch component
+// https://www.radix-ui.com/docs/primitives/components/switch
+
+export const Toggle = ( { name = 'toggle', onChange, className = null, ...rest } ) => (
+	<Switch.Root
+		className={ classNames( 'vip-toggle-component', className ) }
+		sx={ {
+			all: 'unset',
+			width: 42,
+			height: 24,
+			backgroundColor: 'muted',
+			borderRadius: '15px',
+			position: 'relative',
+			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
+			'&[data-state="checked"]': { backgroundColor: 'success' },
+		} }
+		name={ name }
+		onCheckedChange={ onChange || undefined }
+		{ ...rest }
+	>
+		<Switch.Thumb
+			sx={ {
+				display: 'block',
+				width: 18,
+				height: 18,
+				backgroundColor: 'white',
+				borderRadius: '50%',
+				boxShadow: 'rgb(0 0 0 / 5%) 0px 1px 5px, rgb(0 0 0 / 15%) 0px 1px 1px',
+				transition: 'transform 100ms',
+				transform: 'translateX(3px)',
+				willChange: 'transform',
+				'&[data-state="checked"]': { transform: 'translateX(21px)' },
+			} }
+		/>
+	</Switch.Root>
 );
 
 Toggle.propTypes = {
 	name: PropTypes.string,
 	className: PropTypes.any,
+	onChange: PropTypes.func,
 };
-
-export { Toggle };
-
-const CheckBoxWrapper = props => <div sx={ { position: 'relative' } } { ...props } />;
-
-const CheckBoxLabel = props => (
-	<label
-		sx={ {
-			position: 'absolute',
-			top: '0',
-			left: '0',
-			width: '42px',
-			height: '24px',
-			borderRadius: '15px',
-			backgroundColor: 'muted',
-			cursor: 'pointer',
-			'&::after': {
-				content: "''",
-				display: 'block',
-				borderRadius: '50%',
-				width: '18px',
-				height: '18px',
-				margin: '3px',
-				backgroundColor: 'card',
-				boxShadow: 'low',
-				transition: '0.2s',
-			},
-		} }
-		{ ...props }
-	/>
-);
-
-const CheckBox = props => (
-	<input
-		sx={ {
-			opacity: '0',
-			zIndex: '1',
-			borderRadius: '15px',
-			width: '42px',
-			height: '24px',
-			padding: 0,
-			margin: 0,
-			display: 'block',
-			'&:checked + label': {
-				backgroundColor: 'success',
-				'&::after': {
-					content: "''",
-					display: 'block',
-					borderRadius: '50%',
-					width: '18px',
-					height: '18px',
-					marginLeft: '21px',
-					transition: '0.2s',
-				},
-			},
-		} }
-		{ ...props }
-	/>
-);
