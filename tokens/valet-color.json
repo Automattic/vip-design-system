@@ -1841,7 +1841,15 @@
           "type": "color"
         },
         "hover": {
+          "value": "{Gold.30}",
+          "type": "color"
+        },
+        "active": {
           "value": "{Gold.50}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{Gray.50}",
           "type": "color"
         }
       },
@@ -1851,7 +1859,15 @@
           "type": "color"
         },
         "hover": {
+          "value": "{Gold.30}",
+          "type": "color"
+        },
+        "active": {
           "value": "{Gold.50}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         }
       },
@@ -1862,6 +1878,14 @@
         },
         "hover": {
           "value": "{Gray.7}",
+          "type": "color"
+        },
+        "active": {
+          "value": "{Gray.25}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         }
       }
