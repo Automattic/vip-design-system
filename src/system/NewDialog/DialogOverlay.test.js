@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { Dialog } from '@radix-ui/react-dialog';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 /**
