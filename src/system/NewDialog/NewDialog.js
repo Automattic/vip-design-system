@@ -12,6 +12,7 @@ import { DialogOverlay } from './DialogOverlay';
 import { DialogClose } from './DialogClose';
 import { DialogTitle } from './DialogTitle';
 import { DialogDescription } from './DialogDescription';
+import { contentStyles } from './DialogContent';
 
 export const NewDialog = ( {
 	// Deprecated
@@ -36,24 +37,7 @@ export const NewDialog = ( {
 			<DialogPrimitive.Portal>
 				<DialogOverlay />
 
-				<DialogPrimitive.Content
-					sx={ {
-						backgroundColor: 'white',
-						borderRadius: 6,
-						boxShadow:
-							'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
-						position: 'fixed',
-						top: '50%',
-						left: '50%',
-						transform: 'translate(-50%, -50%)',
-						width: '90vw',
-						maxWidth: '450px',
-						maxHeight: '85vh',
-						padding: 25,
-						paddingTop: 0,
-						'&:focus': { outline: 'none' },
-					} }
-				>
+				<DialogPrimitive.Content sx={ contentStyles }>
 					<DialogTitle title={ title } hidden={ ! showHeading } />
 					<DialogDescription description={ description } hidden={ ! showHeading } />
 
