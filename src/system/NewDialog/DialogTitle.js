@@ -5,20 +5,20 @@
  */
 import PropTypes from 'prop-types';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
+import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
 
 /**
  * Internal dependencies
  */
 
 export const DialogTitle = ( { title, hidden = false } ) => {
-	const titleNode = <DialogPrimitive.Title>{ title }</DialogPrimitive.Title>;
+	let titleNode = title;
 
 	if ( hidden ) {
-		return <VisuallyHidden.Root>{ titleNode }</VisuallyHidden.Root>;
+		titleNode = <ScreenReaderText>{ titleNode }</ScreenReaderText>;
 	}
 
-	return titleNode;
+	return <DialogPrimitive.Title>{ titleNode }</DialogPrimitive.Title>;
 };
 
 DialogTitle.propTypes = {

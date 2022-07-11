@@ -40,7 +40,7 @@ describe( '<DialogTitle />', () => {
 		);
 
 		// Small check to make sure we are hiding with the css class
-		expect( container.innerHTML ).toContain( 'overflow: hidden;' );
+		expect( container.innerHTML ).toContain( 'screen-reader-text' );
 
 		expect( getTitle() ).toHaveTextContent( defaultProps.title );
 	} );
