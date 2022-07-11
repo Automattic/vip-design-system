@@ -10,7 +10,7 @@ import { axe } from 'jest-axe';
  */
 import { DialogDescription } from './DialogDescription';
 
-// If you render any Dialog child withou the `<Dialog />` parent, it will throw an error.
+// If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
 const Wrapper = props => <Dialog open={ true } { ...props } />;
 const defaultProps = {
 	description: 'My Custom Text',

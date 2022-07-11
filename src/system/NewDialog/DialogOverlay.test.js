@@ -10,7 +10,7 @@ import { axe } from 'jest-axe';
  */
 import { DialogOverlay } from './DialogOverlay';
 
-// If you render any Dialog child withou the `<Dialog />` parent, it will throw an error.
+// If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
 const Wrapper = props => <Dialog open={ true } { ...props } />;
 
 describe( '<DialogOverlay />', () => {
