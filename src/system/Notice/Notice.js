@@ -27,7 +27,7 @@ const NoticeIcon = ( { color, variant } ) => {
 			break;
 	}
 
-	return <Icon sx={ { marginRight: 2, color, flex: '0 0 auto' } } />;
+	return <Icon sx={ { color, flex: '0 0 auto' } } size={ 21 } />;
 };
 
 NoticeIcon.propTypes = {
@@ -86,10 +86,10 @@ const Notice = ( {
 						alignItems: 'center',
 					} }
 				>
-					<NoticeIcon color={ `${ color }.100` } variant={ variant } />
+					<NoticeIcon color={ `${ color }.200` } variant={ variant } />
 				</Flex>
 
-				<Box sx={ { ml: 23 } }>
+				<Box sx={ { ml: 3 } }>
 					{ title && (
 						<Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>
 							{ title }
