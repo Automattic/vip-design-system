@@ -2,7 +2,8 @@
 /**
  * Internal dependencies
  */
-import { Button, Text } from '../../system';
+import { Button, Text, Input, Label } from '../../system';
+import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
 import { NewDialog } from './NewDialog';
 
 export default {
@@ -25,6 +26,17 @@ export const Default = () => (
 	</>
 );
 
+export const AutoOpen = () => (
+	<>
+		<Text sx={ { fontSize: 3, mb: 3 } }>Auto Opens when rendered. Press escape to close it.</Text>
+		<NewDialog
+			{ ...defaultProps }
+			defaultOpen={ true }
+			trigger={ <ScreenReaderText>hey</ScreenReaderText> }
+		/>
+	</>
+);
+
 export const HiddenHeadings = () => (
 	<>
 		<Text sx={ { fontSize: 3, mb: 3 } }>
@@ -38,7 +50,17 @@ export const HiddenHeadings = () => (
 			trigger={ <Button>Trigger Dialog</Button> }
 			title="Custom dialog title"
 			showHeading={ false }
-			content={ <div>My Custom Content</div> }
+			content={
+				<div>
+					<h3>My Custom Content</h3>
+
+					<form>
+						<Label htmlFor="username">User name</Label>
+						<Input type="text" name="username" id="username" />
+						<Button type="submit">Submit</Button>
+					</form>
+				</div>
+			}
 		/>
 	</>
 );

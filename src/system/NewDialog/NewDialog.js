@@ -38,12 +38,11 @@ export const NewDialog = ( {
 				<DialogOverlay />
 
 				<DialogPrimitive.Content sx={ contentStyles }>
+					<DialogClose />
 					<DialogTitle title={ title } hidden={ ! showHeading } />
 					<DialogDescription description={ description } hidden={ ! showHeading } />
 
 					{ content }
-
-					<DialogClose />
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>

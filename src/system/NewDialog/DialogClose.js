@@ -3,15 +3,15 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { IoClose } from 'react-icons/io5';
 
 /**
  * Internal dependencies
  */
-
-export const DialogClose = () => (
-	<DialogPrimitive.Close asChild>
+export const DialogClose = React.forwardRef( ( props, forwardedRef ) => (
+	<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
 		<button
 			aria-label="Close"
 			sx={ {
@@ -23,16 +23,23 @@ export const DialogClose = () => (
 				display: 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				color: 'icon',
+				color: 'text	',
 				position: 'absolute',
 				top: 10,
 				right: 10,
 
-				'&:hover': { backgroundColor: 'border' },
-				'&:focus': { boxShadow: '0 0 0 2px border' },
+				'&:hover': {
+					backgroundColor: 'border',
+					outlineStyle: 'solid',
+					outlineColor: 'primary',
+					outlineWidth: '2px',
+				},
+				'&:focus': { outlineStyle: 'solid', outlineColor: 'primary', outlineWidth: '2px' },
 			} }
 		>
 			<IoClose />
 		</button>
 	</DialogPrimitive.Close>
-);
+) );
+
+DialogClose.displayName = 'DialogClose';
