@@ -414,7 +414,7 @@
           "type": "spacing"
         },
         "6": {
-          "value": "2.25 * {rem}",
+          "value": "2 * {rem}",
           "type": "spacing"
         },
         "7": {
