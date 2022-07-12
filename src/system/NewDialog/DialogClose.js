@@ -23,7 +23,7 @@ export const DialogClose = React.forwardRef( ( props, forwardedRef ) => (
 				display: 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				color: 'text	',
+				color: theme => `${ theme?.colors?.text }`,
 				position: 'absolute',
 				top: 10,
 				right: 10,
@@ -37,7 +37,7 @@ export const DialogClose = React.forwardRef( ( props, forwardedRef ) => (
 				'&:focus': { outlineStyle: 'solid', outlineColor: 'primary', outlineWidth: '2px' },
 			} }
 		>
-			<IoClose />
+			<IoClose aria-hidden="true" />
 		</button>
 	</DialogPrimitive.Close>
 ) );

@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
 /**
  * Internal dependencies
@@ -59,6 +61,34 @@ export const HiddenHeadings = () => (
 						<Input type="text" name="username" id="username" />
 						<Button type="submit">Submit</Button>
 					</form>
+				</div>
+			}
+		/>
+	</>
+);
+export const CustomStyling = () => (
+	<>
+		<Text sx={ { fontSize: 3, mb: 3 } }>Custom Styling on Dialog Content</Text>
+
+		<NewDialog
+			{ ...defaultProps }
+			defaultOpen
+			trigger={ <Button>Trigger Dialog</Button> }
+			title="Custom dialog title"
+			style={ {
+				background: theme => `${ theme.colors.primary }`,
+				padding: 5,
+				borderRadius: 20,
+				h2: { fontSize: 4, color: theme => `${ theme.colors.text }` },
+				h3: { fontSize: 3, color: theme => `${ theme.colors.heading }` },
+				p: { color: 'white' },
+				'button[type="button"]:focus': { outlineColor: 'white', color: 'white' },
+			} }
+			content={
+				<div>
+					<h3>This is Read because it is Custom</h3>
+
+					<p>This Dialog is styled using the `sx` property.</p>
 				</div>
 			}
 		/>
