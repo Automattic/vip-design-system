@@ -44,6 +44,7 @@ export const NewDialog = ( {
 				<DialogOverlay />
 
 				<DialogPrimitive.Content
+					className="vip-dialog-component"
 					sx={ { ...contentStyles, ...extraStyles } }
 					onOpenAutoFocus={ onOpenAutoFocus }
 					onCloseAutoFocus={ onCloseAutoFocus }
