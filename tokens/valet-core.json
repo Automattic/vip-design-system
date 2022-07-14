@@ -650,9 +650,7 @@
         "value": "line-through",
         "type": "textDecoration"
       }
-    }
   },
-  "valet-color": {
     "Black": {
       "value": "#13191e",
       "type": "color"
@@ -2862,7 +2860,7 @@
       }
     }
   },
-  "productive-type-wpvip": {
+  "productive-color-wpvip": {
     "background": {
       "primary": {
         "value": "{Gray.0}",
@@ -5906,9 +5904,9 @@
       "id": "97662160426568966100d2dccc5dfcdefeb5d921",
       "name": "wpvip",
       "selectedTokenSets": {
-        "valet-color": "source",
+        "valet-core": "source",
         "expressive-type-wpvip": "disabled",
-        "productive-type-wpvip": "disabled",
+        "productive-color-wpvip": "disabled",
         "expressive-color-wpvip": "enabled",
         "expressive-color-valet": "disabled",
         "expressive-type-valet": "disabled"
@@ -5919,9 +5917,9 @@
       "id": "22bf7b17c2576c9ba4c472940aedcc3f3ae3618c",
       "name": "valet",
       "selectedTokenSets": {
-        "valet-color": "source",
+        "valet-core": "source",
         "expressive-type-wpvip": "disabled",
-        "productive-type-wpvip": "disabled",
+        "productive-color-wpvip": "disabled",
         "expressive-color-wpvip": "disabled",
         "expressive-color-valet": "enabled",
         "expressive-type-valet": "disabled"
