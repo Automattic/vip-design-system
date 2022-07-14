@@ -1045,7 +1045,7 @@
       }
     }
   },
-  "productive": {
+  "productive-wpvip": {
     "background": {
       "primary": {
         "value": "{Gray.0}",
@@ -1602,7 +1602,7 @@
       }
     }
   },
-  "expressive wpvip": {
+  "expressive-wpvip": {
     "background": {
       "primary": {
         "value": "{Gold.3}",
@@ -2261,7 +2261,7 @@
       }
     }
   },
-  "expressive valet": {
+  "expressive-valet": {
     "background": {
       "primary": {
         "value": "{Gray.3}",
@@ -2920,5 +2920,28 @@
       }
     }
   },
-  "$themes": []
+  "$themes": [
+    {
+      "id": "97662160426568966100d2dccc5dfcdefeb5d921",
+      "name": "wpvip",
+      "selectedTokenSets": {
+        "valet-color": "source",
+        "productive-wpvip": "disabled",
+        "expressive-wpvip": "enabled",
+        "expressive-valet": "disabled"
+      },
+      "$figmaStyleReferences": {}
+    },
+    {
+      "id": "22bf7b17c2576c9ba4c472940aedcc3f3ae3618c",
+      "name": "valet",
+      "selectedTokenSets": {
+        "valet-color": "source",
+        "productive-wpvip": "disabled",
+        "expressive-wpvip": "disabled",
+        "expressive-valet": "enabled"
+      },
+      "$figmaStyleReferences": {}
+    }
+  ]
 }
