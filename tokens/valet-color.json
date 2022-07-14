@@ -1636,6 +1636,10 @@
         "value": "{pure-white}",
         "type": "color"
       },
+      "blur": {
+        "value": "rgba({background.primary}, 0.75)",
+        "type": "color"
+      },
       "accent": {
         "neutral-1": {
           "value": "{Gradient.neutral-light-1}",
@@ -2293,6 +2297,10 @@
       },
       "4": {
         "value": "{pure-white}",
+        "type": "color"
+      },
+      "blur": {
+        "value": "rgba({background.primary}, 0.75)",
         "type": "color"
       },
       "accent": {
