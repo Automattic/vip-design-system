@@ -22,7 +22,23 @@ export const Toggle = ( { name = 'toggle', onChange, className = null, ...rest }
 			borderRadius: '15px',
 			position: 'relative',
 			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-			'&[data-state="checked"]': { backgroundColor: 'success' },
+			'::after': {
+				content: '"o"',
+				position: 'absolute',
+				color: 'white',
+				fontSize: '10px',
+				fontWeight: 'bold',
+				top: 1,
+				right: 10,
+			},
+			'&[data-state="checked"]': {
+				backgroundColor: 'success',
+				'::after': {
+					content: '"I"',
+					top: 1,
+					left: 10,
+				},
+			},
 		} }
 		name={ name }
 		onCheckedChange={ onChange || undefined }
