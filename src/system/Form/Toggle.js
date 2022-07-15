@@ -23,20 +23,21 @@ export const Toggle = ( { name = 'toggle', onChange, className = null, ...rest }
 			position: 'relative',
 			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 			'::after': {
-				content: '"o"',
+				fontFamily: 'system-ui, Helvetica, sans-serif',
+				content: '"\\2715"',
 				position: 'absolute',
 				color: 'white',
 				fontSize: '10px',
 				fontWeight: 'bold',
 				top: 1,
-				right: 10,
+				right: '9px',
 			},
 			'&[data-state="checked"]': {
 				backgroundColor: 'success',
 				'::after': {
-					content: '"I"',
+					content: '"\\2713"',
 					top: 1,
-					left: 10,
+					left: '8px',
 				},
 			},
 		} }
