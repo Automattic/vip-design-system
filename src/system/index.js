@@ -50,7 +50,7 @@ import { Table, TableRow, TableCell } from './Table';
 import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import theme from './theme';
-import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
+import { Wizard, WizardStep, WizardHorizontal } from './Wizard';
 
 export {
 	Avatar,
@@ -102,6 +102,6 @@ export {
 	Validation,
 	Wizard,
 	WizardStep,
-	WizardStepHorizontal,
+	WizardHorizontal,
 	theme,
 };
