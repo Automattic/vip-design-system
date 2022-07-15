@@ -59,7 +59,7 @@ const CustomStyling = args => (
 				defaultChecked
 				checked={ args.checked }
 				aria-label="Feature flag"
-				variant="primary"
+				variant="success"
 			/>{ ' ' }
 			<Toggle
 				id="custom-label-input-error"

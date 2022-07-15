@@ -16,7 +16,7 @@ export const Toggle = ( {
 	name = 'toggle',
 	onChange,
 	className = null,
-	variant = 'success',
+	variant = 'primary',
 	...rest
 } ) => (
 	<Switch.Root
@@ -29,16 +29,16 @@ export const Toggle = ( {
 			borderRadius: '32px',
 			backgroundColor: 'muted',
 			backgroundRepeat: 'no-repeat',
-			backgroundPosition: 'right 6px top 5px',
+			backgroundPosition: 'right 2px top 2px',
 			backgroundImage: `url(
-				'data:image/svg+xml;utf8,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7.7782" y="0.403809" width="2" height="11" transform="rotate(45 7.7782 0.403809)" fill="white"/><rect y="1.81799" width="2" height="11" transform="rotate(-45 0 1.81799)" fill="white"/></svg>')`,
+				'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.53846 3L3 4.53846L6.46156 8.00001L3.00003 11.4615L4.53848 13L8.00001 9.53847L11.4615 13L13 11.4615L9.53847 8.00001L13 4.53849L11.4615 3.00003L8.00001 6.46156L4.53846 3Z" fill="white"/></svg>')`,
 			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 
 			'&[data-state="checked"]': {
 				backgroundColor: variant,
-				backgroundPosition: 'left 6px top 4px',
+				backgroundPosition: 'left 2px top 2px',
 				backgroundImage: `url(
-					'data:image/svg+xml;utf8,<svg width="11" height="10" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5.98L3.64706 8.5L11 1.5" stroke="white" stroke-width="2"/></svg>')`,
+					'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4999 4.9995L5.7254 12.4008L2.5 9.33023L3.83307 7.92994L5.7254 9.73144L12.1668 3.59921L13.4999 4.9995Z" fill="white"/></svg>')`,
 			},
 		} }
 		name={ name }
