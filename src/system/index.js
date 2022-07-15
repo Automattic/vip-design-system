@@ -17,6 +17,8 @@ import {
 	DialogTrigger,
 	DialogContent,
 } from './Dialog';
+
+import { NewDialog } from './NewDialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { Flex } from './Flex';
 import {
@@ -60,6 +62,7 @@ export {
 	Checkbox,
 	Code,
 	Dialog,
+	NewDialog,
 	DialogButton,
 	DialogMenu,
 	DialogMenuItem,
