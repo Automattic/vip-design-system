@@ -1764,27 +1764,27 @@
     "screens": {
       "s": {
         "value": "320",
-        "type": "other"
+        "type": "sizing"
       },
       "m": {
         "value": "656",
-        "type": "other"
+        "type": "sizing"
       },
       "l": {
         "value": "1048",
-        "type": "other"
+        "type": "sizing"
       },
       "xl": {
         "value": "1312",
-        "type": "other"
+        "type": "sizing"
       },
       "xxl": {
         "value": "1536",
-        "type": "other"
+        "type": "sizing"
       },
       "max": {
         "value": "1648",
-        "type": "other"
+        "type": "sizing"
       }
     }
   },
