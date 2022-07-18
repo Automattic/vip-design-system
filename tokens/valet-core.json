@@ -1761,30 +1761,52 @@
       "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
       "type": "fontFamilies"
     },
-    "screens": {
-      "s": {
+    "breakpoints": {
+      "S": {
         "value": "320",
-        "type": "sizing"
+        "type": "sizing",
+        "description": "< 655px"
       },
-      "m": {
+      "M": {
         "value": "656",
+        "type": "sizing",
+        "description": "656–1047px"
+      },
+      "L": {
+        "value": "1048–1311px",
         "type": "sizing"
       },
-      "l": {
-        "value": "1048",
-        "type": "sizing"
-      },
-      "xl": {
+      "XL": {
         "value": "1312",
-        "type": "sizing"
+        "type": "sizing",
+        "description": "1312–1535px"
       },
-      "xxl": {
+      "XXL": {
         "value": "1536",
-        "type": "sizing"
+        "type": "sizing",
+        "description": "1536–1647px"
       },
-      "max": {
+      "MAX": {
         "value": "1648",
-        "type": "sizing"
+        "type": "sizing",
+        "description": "1648px +"
+      }
+    },
+    "alignment": {
+      "center": {
+        "value": "416",
+        "type": "sizing",
+        "description": "min-width: 416px"
+      },
+      "wide": {
+        "value": "820",
+        "type": "sizing",
+        "description": "min-width: 820px"
+      },
+      "full": {
+        "value": "1583",
+        "type": "sizing",
+        "description": "max-width: 1583px"
       }
     }
   },
