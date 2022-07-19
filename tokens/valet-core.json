@@ -508,7 +508,7 @@
       }
     },
     "shadow": {
-      "description": "These are our 3 drop shadow styles. All number values here are in px."
+      "description": "These are our 3 drop shadow styles. All number values here are in px.",
       "high": {
         "value": [
           {
