@@ -34,7 +34,8 @@ export const DialogClose = React.forwardRef( ( props, forwardedRef ) => (
 					outlineColor: 'primary',
 					outlineWidth: '2px',
 				},
-				'&:focus': { outlineStyle: 'solid', outlineColor: 'primary', outlineWidth: '2px' },
+				'&:focus': theme => theme.outline,
+				'&:focus-visible': theme => theme.outline,
 			} }
 		>
 			<IoClose aria-hidden="true" />

@@ -51,7 +51,10 @@ const textStyles = {
 	},
 };
 
+const outline = { outlineStyle: 'solid', outlineColor: '#005fcc', outlineWidth: '2px' };
+
 export default {
+	outline,
 	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
 	fonts: {
 		body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',

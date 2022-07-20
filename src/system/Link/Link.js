@@ -20,6 +20,8 @@ const Link = ( { active = false, sx, ...props } ) => (
 			'&:hover, &:focus': {
 				color: 'heading',
 			},
+			'&:focus': theme => theme.outline,
+			'&:focus-visible': theme => theme.outline,
 			...sx,
 		} }
 	/>
