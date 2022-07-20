@@ -2326,786 +2326,785 @@
         }
       },
       "heading": {
-          "1": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+        "1": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "2": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "3": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "4": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "5": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          }
+        },
+        "2": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "6": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "7": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "1-light": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.4.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "2-light": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          }
+        },
+        "3": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.8.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "3-light": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.9.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "4-light": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.2}",
-                "fontSize": "{fontSize.figma.10.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "5-light": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.sans}",
-                "fontWeight": "{fontWeight.light}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "5-serif": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          }
+        },
+        "4": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.11.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "6-serif": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.12.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "7-serif": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          }
+        },
+        "5": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.1}",
-                "fontSize": "{fontSize.figma.13.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
-
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "6": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "7": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "1-light": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.4.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "2-light": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.8.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "3-light": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.9.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "4-light": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.2}",
+              "fontSize": "{fontSize.figma.10.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "5-light": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.sans}",
+              "fontWeight": "{fontWeight.light}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "5-serif": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.11.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "6-serif": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.12.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "7-serif": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.1}",
+              "fontSize": "{fontSize.figma.13.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
         }
       },
       "paragraph": {
@@ -3164,161 +3163,161 @@
       },
       "quotation": {
         "1": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.9.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.9.s}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.9.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.9.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.9.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.9.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "2": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.10.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.9.m}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.10.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.10.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.10.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.4}",
-                "fontSize": "{fontSize.figma.10.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           },
-          "3": {
-            "S": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.11.s}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.9.l}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "M": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.11.m}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.9.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "L": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.11.l}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.9.max}",
+              "letterSpacing": "{letterSpacing.tight}"
             },
-            "XL": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.11.xl}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            },
-            "MAX": {
-              "value": {
-                "fontFamily": "{fontFamily.display}",
-                "fontWeight": "{fontWeight.regular}",
-                "lineHeight": "{lineHeight.3}",
-                "fontSize": "{fontSize.figma.11.max}",
-                "letterSpacing": "{letterSpacing.tight}"
-              },
-              "type": "typography"
-            }
+            "type": "typography"
           }
+        },
+        "2": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.10.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.10.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.10.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.10.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.4}",
+              "fontSize": "{fontSize.figma.10.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        },
+        "3": {
+          "S": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.11.s}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "M": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.11.m}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "L": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.11.l}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "XL": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.11.xl}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          },
+          "MAX": {
+            "value": {
+              "fontFamily": "{fontFamily.display}",
+              "fontWeight": "{fontWeight.regular}",
+              "lineHeight": "{lineHeight.3}",
+              "fontSize": "{fontSize.figma.11.max}",
+              "letterSpacing": "{letterSpacing.tight}"
+            },
+            "type": "typography"
+          }
+        }
       },
       "caption": {
         "1": {
@@ -5342,7 +5341,7 @@
       }
     }
   },
-  "expressive-type-valet": {
+  "expressive-type-valet-figma": {
     "expressive": {
       "body": {
         "1-short": {
@@ -6536,8 +6535,8 @@
         "productive-color-wpvip": "disabled",
         "expressive-color-wpvip": "enabled",
         "expressive-color-valet": "disabled",
-        "expressive-type-valet": "disabled",
-        "expressive-type-wpvip-figma": "disabled"
+        "expressive-type-wpvip-figma": "disabled",
+        "expressive-type-valet-figma": "disabled"
       },
       "$figmaStyleReferences": {}
     },
@@ -6550,8 +6549,8 @@
         "productive-color-wpvip": "disabled",
         "expressive-color-wpvip": "disabled",
         "expressive-color-valet": "enabled",
-        "expressive-type-valet": "enabled",
-        "expressive-type-wpvip-figma": "disabled"
+        "expressive-type-wpvip-figma": "disabled",
+        "expressive-type-valet-figma": "enabled"
       },
       "$figmaStyleReferences": {}
     }
