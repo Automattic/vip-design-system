@@ -6,7 +6,7 @@ import Valet from '../../../tokens/valet-color.json';
 
 const ThemeColors = Valet[ 'productive-color-wpvip' ];
 const CoreColors = Valet[ 'valet-core' ];
-console.log( ThemeColors );
+
 export const getColor = ( color, variant = 'default' ) => {
 	if ( ! ThemeColors[ color ] ) {
 		return '#000000';
