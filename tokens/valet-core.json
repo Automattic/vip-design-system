@@ -765,6 +765,16 @@
       "value": "#ffffff",
       "type": "color"
     },
+    "focus": {
+      "border": {
+        "value": "#0F62FE",
+        "type": "color"
+      },
+      "inset": {
+        "value": "#ffffff",
+        "type": "color"
+      }
+    },
     "Gold": {
       "0": {
         "value": "#fcfafa",
@@ -3500,7 +3510,7 @@
     },
     "focus": {
       "default": {
-        "value": "#0F62FE",
+        "value": "{focus.border}",
         "type": "color"
       },
       "inset": {
@@ -4057,7 +4067,7 @@
     },
     "focus": {
       "default": {
-        "value": "#0F62FE",
+        "value": "{focus.border}",
         "type": "color"
       },
       "inset": {
@@ -4734,7 +4744,7 @@
     },
     "focus": {
       "default": {
-        "value": "#0F62FE",
+        "value": "{focus.border}",
         "type": "color"
       },
       "inset": {
