@@ -16,8 +16,10 @@ const Button = ( { sx, ...props } ) => (
 			justifyContent: 'center',
 			height: '36px',
 			py: 0,
+			'&:focus': theme => theme.outline,
+			'&:focus-visible': theme => theme.outline,
 			'&:disabled': {
-				opacity: 0.5,
+				opacity: 0.7,
 				cursor: 'not-allowed',
 				pointerEvents: 'all',
 			},

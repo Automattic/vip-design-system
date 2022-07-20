@@ -4,7 +4,7 @@ import { useColorMode } from 'theme-ui';
 
 // These need to be updated to import VIP design tokens;
 const lightBackground = '#ffffff';
-const darkBackground = '#333333';
+const darkBackground = '#1C1C1B';
 
 export const backgrounds = {
 	default: 'Light',
@@ -21,7 +21,7 @@ export const backgrounds = {
 };
 
 function ThemeChanger( { background } ) {
-	const [colorMode, setColorMode] = useColorMode();
+	const [ colorMode, setColorMode ] = useColorMode();
 	const newColorMode = darkBackground === background ? 'dark' : 'default';
 
 	useEffect( () => {
@@ -29,7 +29,7 @@ function ThemeChanger( { background } ) {
 	}, [ newColorMode ] );
 
 	return null;
-};
+}
 
 export default makeDecorator( {
 	name: 'withColorMode',
@@ -37,9 +37,9 @@ export default makeDecorator( {
 	wrapper: ( storyFn, context ) => {
 		return (
 			<>
-				<ThemeChanger background={context.globals?.backgrounds?.value} />
-				{storyFn()}
+				<ThemeChanger background={ context.globals?.backgrounds?.value } />
+				{ storyFn() }
 			</>
 		);
-	}
+	},
 } );

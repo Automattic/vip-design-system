@@ -33,6 +33,11 @@ const Default = args => (
 		<br />
 
 		<Toggle checked={ args.checked } defaultChecked={ false } aria-label="Feature flag 2" />
+
+		<br />
+		<br />
+
+		<Toggle aria-label="Feature Disabled" disabled defaultChecked={ false } />
 	</form>
 );
 
