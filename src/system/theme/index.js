@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import { light, dark } from './colors';
+import { getColor } from './getColor';
 
 const textStyles = {
 	h1: {
@@ -55,7 +56,7 @@ const outline = {
 	outlineStyle: 'solid',
 	outlineColor: '#ffffff',
 	outlineWidth: '1px',
-	boxShadow: '0 0 0 1px #fff, 0 0 0 3px #0f62fe',
+	boxShadow: `0 0 0 1px #fff, 0 0 0 3px ${ getColor( 'focus' ) }`,
 };
 
 export default {
@@ -86,8 +87,8 @@ export default {
 	},
 	initialColorModeName: 'light',
 	colors: {
-		text: light.grey[ '90' ],
-		heading: light.grey[ '100' ],
+		text: getColor( 'text', 'secondary' ),
+		heading: getColor( 'text', 'primary' ),
 		background: '#fdfdfd',
 		backgroundSecondary: light.grey[ '10' ],
 		primary: light.brand[ '70' ],
