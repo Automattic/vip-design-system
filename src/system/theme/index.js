@@ -51,7 +51,12 @@ const textStyles = {
 	},
 };
 
-const outline = { outlineStyle: 'solid', outlineColor: '#005fcc', outlineWidth: '2px' };
+const outline = {
+	outlineStyle: 'solid',
+	outlineColor: '#ffffff',
+	outlineWidth: '1px',
+	boxShadow: '0 0 0 1px #fff, 0 0 0 3px #0f62fe',
+};
 
 export default {
 	outline,
