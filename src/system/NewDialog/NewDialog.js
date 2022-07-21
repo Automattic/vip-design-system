@@ -56,7 +56,7 @@ export const NewDialog = ( {
 					<DialogTitle title={ title } hidden={ ! showHeading } />
 					<DialogDescription description={ description } hidden={ ! showHeading } />
 
-					{ content }
+					<div role="document">{ content }</div>
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>
