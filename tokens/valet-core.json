@@ -1762,39 +1762,39 @@
       },
       "gradient": {
         "neutral-light-1": {
-          "value": "linear-gradient(180deg, {Gold.0} 0%, {Gold.3} 100%)",
+          "value": "linear-gradient(180deg, {color.gold.0} 0%, {color.gold.3} 100%)",
           "type": "color"
         },
         "neutral-light-2": {
-          "value": "linear-gradient(180deg, {Gold.3} 0%, {Gold.0} 100%)",
+          "value": "linear-gradient(180deg, {color.gold.3} 0%, {color.gold.0} 100%)",
           "type": "color"
         },
         "neutral-light-3": {
-          "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, {Gold.0} 0%, {Gold.3} 100%)",
+          "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, {color.gold.0} 0%, {color.gold.3} 100%)",
           "type": "color"
         },
         "neutral-light-4": {
-          "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, {Gold.3} 0%, {Gold.0} 100%)",
+          "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, {color.gold.3} 0%, {color.gold.0} 100%)",
           "type": "color"
         },
         "colorful-light-1": {
-          "value": "linear-gradient(145.9deg, {Blue.10} 7.11%, rgba(255, 255, 255, 0) 90.25%), linear-gradient(294.32deg, {Green.7} -14.26%, rgba(255, 255, 255, 0) 62.44%), {Orange.3}",
+          "value": "linear-gradient(145.9deg, {color.blue.10} 7.11%, rgba(255, 255, 255, 0) 90.25%), linear-gradient(294.32deg, {color.green.7} -14.26%, rgba(255, 255, 255, 0) 62.44%), {color.orange.3}",
           "type": "color"
         },
         "colorful-light-2": {
-          "value": "linear-gradient(41.04deg, {Blue.7} 1.34%, rgba(255, 255, 255, 0) 42.39%), linear-gradient(201.1deg, {Yellow.3} 5.95%, rgba(255, 255, 255, 0) 73.3%), linear-gradient(119.18deg, {Green.7} -6.66%, rgba(255, 255, 255, 0) 39.22%), {Red.3}",
+          "value": "linear-gradient(41.04deg, {color.blue.7} 1.34%, rgba(255, 255, 255, 0) 42.39%), linear-gradient(201.1deg, {color.yellow.3} 5.95%, rgba(255, 255, 255, 0) 73.3%), linear-gradient(119.18deg, {color.green.7} -6.66%, rgba(255, 255, 255, 0) 39.22%), {color.red.3}",
           "type": "color"
         },
         "colorful-light-3": {
-          "value": "linear-gradient(270.31deg, {Blue.7} -11.36%, rgba(255, 255, 255, 0) 62.73%), linear-gradient(156.44deg, {Green.7} -16.49%, rgba(255, 255, 255, 0) 86.24%), {Yellow.3}",
+          "value": "linear-gradient(270.31deg, {color.blue.7} -11.36%, rgba(255, 255, 255, 0) 62.73%), linear-gradient(156.44deg, {color.green.7} -16.49%, rgba(255, 255, 255, 0) 86.24%), {color.yellow.3}",
           "type": "color"
         },
         "colorful-light-4": {
-          "value": "linear-gradient(198.09deg, {Blue.7} 2.01%, rgba(235, 238, 242, 0) 43.18%, rgba(249, 234, 232, 0) 47.86%, {Yellow.3} 94.31%), linear-gradient(98.65deg, {Red.3} 0.58%, rgba(255, 233, 214, 0) 52.45%, rgba(255, 233, 219, 0) 53.76%, {Yellow.3} 105.86%), {Gold.3}",
+          "value": "linear-gradient(198.09deg, {color.blue.7} 2.01%, rgba(235, 238, 242, 0) 43.18%, rgba(249, 234, 232, 0) 47.86%, {color.yellow.3} 94.31%), linear-gradient(98.65deg, {color.red.3} 0.58%, rgba(255, 233, 214, 0) 52.45%, rgba(255, 233, 219, 0) 53.76%, {color.yellow.3} 105.86%), {color.gold.3}",
           "type": "color"
         },
         "colorful-dark-1": {
-          "value": "linear-gradient(71.44deg, {Red.95} 0%, rgba(62, 0, 16, 0) 25.96%, rgba(65, 0, 22, 0) 80.55%, {Pink.90} 102.88%), linear-gradient(110.82deg, {Blue.85} 0%, rgba(19, 25, 30, 0) 42.92%, rgba(8, 37, 11, 0) 76.58%, {Green.90} 100%), {color.black}",
+          "value": "linear-gradient(71.44deg, {color.red.95} 0%, rgba(62, 0, 16, 0) 25.96%, rgba(65, 0, 22, 0) 80.55%, {color.pink.90} 102.88%), linear-gradient(110.82deg, {color.blue.85} 0%, rgba(19, 25, 30, 0) 42.92%, rgba(8, 37, 11, 0) 76.58%, {color.green.90} 100%), {color.black}",
           "type": "color"
         },
         "colorful-dark-2": {
@@ -1804,7 +1804,7 @@
       }
     },
     "default-fonts": {
-      "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+      "value": "Arial",
       "type": "fontFamilies"
     },
     "breakpoint": {
