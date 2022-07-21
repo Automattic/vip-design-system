@@ -23,6 +23,7 @@ export const Toggle = ( {
 		className={ classNames( 'vip-toggle-component', className ) }
 		sx={ {
 			all: 'unset',
+			cursor: 'pointer',
 			position: 'relative',
 			width: 40,
 			height: 20,
