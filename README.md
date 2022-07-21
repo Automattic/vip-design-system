@@ -41,6 +41,32 @@ For components that include storybooks, we can run `npm run storybook` to view t
 
 Note: it's super useful to run `npm run watch` in another process, so any changes will be almost immediately available / testable.
 
+### Updating the Theme with VIP Design System Tokens
+
+You need to update the tokens once the VIP Design System updates the core files.
+
+#### How the theming works
+
+We use the VIP Design System Tokens as our base theme structure. All colors, spaces, types should come from a dynamic token system provided by the VIP Design team, currently using Figma as the design software. When the design system is updated by the Design team, they push a file to the root of this repository: `tokens/valet-core.json`.
+
+By using the [Token Transformer](https://docs.tokens.studio/sync/github#7-how-to-use-tokens-stored-in-github-in-development) and a custom npm script, we parse this file getting only the VIP Dashboard theme we need for the react components. The theme is called: `productive-color-wpvip`.
+
+Once the new file is updated, we need to generate a custom theme file in `src/generated/valet-theme.json`. This operation generates a small json file with the colors we need already filled in.
+
+Once the theme is updated, the file `src/system/theme/index.js` reads the colors and apply to all components.
+
+Use the section below to run the script and update the theme.
+
+_Important:_ If you change the `generated/valet-theme.json`, make it sure to open a new pull request with these changes and release a new version if needed.
+
+#### Update theme script
+
+Run this command to update the VIP Valet Theme with the latest `tokens/valet-core.json`.
+
+```bash
+npm run theme-update
+```
+
 ### Publish NPM Package Instructions
 
 Once all the changes needed are merged to trunk, and you are ready to release a new version, follow these steps:
