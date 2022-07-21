@@ -6506,19 +6506,19 @@
     },
     "fontFamily": {
       "sans": {
-        "value": "Helvetica",
+        "value": "{default-fonts}",
         "type": "fontFamilies"
       },
       "serif": {
-        "value": "Georgia",
+        "value": "{default-fonts}",
         "type": "fontFamilies"
       },
       "display": {
-        "value": "Georgia",
+        "value": "{default-fonts}",
         "type": "fontFamilies"
       },
       "accent": {
-        "value": "Helvetica",
+        "value": "{default-fonts}",
         "type": "fontFamilies"
       }
     }
