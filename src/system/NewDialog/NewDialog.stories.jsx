@@ -61,6 +61,10 @@ export const HiddenHeadings = () => (
 						<Input type="text" name="username" id="username" />
 						<Button type="submit">Submit</Button>
 					</form>
+
+					<h3>Continue here</h3>
+
+					<p>This is an example.</p>
 				</div>
 			}
 		/>
