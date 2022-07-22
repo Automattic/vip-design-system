@@ -1804,7 +1804,7 @@
       }
     },
     "default-fonts": {
-      "value": "Arial",
+      "value": "Helvetica",
       "type": "fontFamilies"
     },
     "breakpoint": {
