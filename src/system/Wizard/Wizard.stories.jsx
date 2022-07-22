@@ -51,3 +51,42 @@ export const Default = () => {
 		</React.Fragment>
 	);
 };
+
+export const Horizontal = () => {
+	const [ step, setStep ] = React.useState( 0 );
+
+	const steps = [
+		{
+			title: 'Step 1',
+			subTitle: 'You can bring a domain name you already own, or buy a new one.',
+			children: (
+				<Box>
+					<Label>One</Label>
+					<Button onClick={ () => setStep( step + 1 ) }>Continue</Button>
+				</Box>
+			),
+		},
+		{
+			title: 'Step 2',
+			subTitle: 'Hello',
+			children: (
+				<Box>
+					<Label>Two</Label>
+					<Button onClick={ () => setStep( 0 ) }>Back</Button>
+				</Box>
+			),
+		},
+	];
+	return (
+		<React.Fragment>
+			<Box>
+				<Wizard
+					variant="horizontal"
+					activeStep={ step }
+					steps={ steps }
+					className="vip-wizard-xyz"
+				/>
+			</Box>
+		</React.Fragment>
+	);
+};

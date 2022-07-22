@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Card, Heading, Text } from '..';
 
-const WizardStep = ( { title, subTitle, complete = false, children, active, order } ) => {
+const WizardStep = ( { title, subTitle, complete = false, children, active } ) => {
 	let borderLeftColor = 'border';
 
 	if ( complete ) {
@@ -44,8 +44,6 @@ const WizardStep = ( { title, subTitle, complete = false, children, active, orde
 				borderColor: active ? 'primary' : 'border',
 				borderLeftColor: borderLeftColor,
 			} }
-			data-step={ order }
-			data-active={ active || undefined }
 		>
 			<Heading
 				variant="h4"
@@ -72,7 +70,6 @@ WizardStep.propTypes = {
 	complete: PropTypes.bool,
 	active: PropTypes.bool,
 	children: PropTypes.node,
-	order: PropTypes.number.isRequired,
 };
 
 export { WizardStep };
