@@ -6,7 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
+import ScreenReaderText from '../ScreenReaderText';
 
 /**
  * Internal dependencies
