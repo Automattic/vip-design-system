@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 /**
  * Internal dependencies
  */
-import ScreenReaderText from './ScreenReaderText';
+import ScreenReaderText from '.';
 
 describe( '<ScreenReaderText />', () => {
 	it( 'should render correctly', () => {

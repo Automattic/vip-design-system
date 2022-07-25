@@ -8,7 +8,7 @@ import { axe } from 'jest-axe';
 /**
  * Internal dependencies
  */
-import { DialogClose } from './DialogClose';
+import { DialogCloseDefault as DialogClose } from './DialogClose';
 
 // If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
 const Wrapper = props => <Dialog open={ true } { ...props } />;

@@ -9,7 +9,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
  * Internal dependencies
  */
 import { DialogOverlay } from './DialogOverlay';
-import { DialogClose } from './DialogClose';
+import { DialogCloseDefault as DialogClose } from './DialogClose';
 import { DialogTitle } from './DialogTitle';
 import { DialogDescription } from './DialogDescription';
 import { contentStyles } from './DialogContent';
@@ -26,11 +26,6 @@ export const NewDialog = ( {
 	// Radix Specific Properties
 	defaultOpen = false,
 	allowPinchZoom = false,
-	onOpenAutoFocus = null,
-	onCloseAutoFocus = null,
-	onEscapeKeyDown = null,
-	onPointerDownOutside = null,
-	onInteractOutside = null,
 } ) => {
 	if ( disabled ) {
 		return;
@@ -46,11 +41,6 @@ export const NewDialog = ( {
 				<DialogPrimitive.Content
 					className="vip-dialog-component"
 					sx={ { ...contentStyles, ...extraStyles } }
-					onOpenAutoFocus={ onOpenAutoFocus }
-					onCloseAutoFocus={ onCloseAutoFocus }
-					onEscapeKeyDown={ onEscapeKeyDown }
-					onPointerDownOutside={ onPointerDownOutside }
-					onInteractOutside={ onInteractOutside }
 				>
 					<DialogClose />
 					<DialogTitle title={ title } hidden={ ! showHeading } />
@@ -76,12 +66,4 @@ NewDialog.propTypes = {
 	// https://www.radix-ui.com/docs/primitives/components/dialog#root
 	defaultOpen: PropTypes.bool,
 	allowPinchZoom: PropTypes.bool,
-
-	// Radix DialogPrimitive.Content properties
-	// https://www.radix-ui.com/docs/primitives/components/dialog#content
-	onOpenAutoFocus: PropTypes.func,
-	onCloseAutoFocus: PropTypes.func,
-	onEscapeKeyDown: PropTypes.func,
-	onPointerDownOutside: PropTypes.func,
-	onInteractOutside: PropTypes.func,
 };

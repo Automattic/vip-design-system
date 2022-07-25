@@ -5,8 +5,8 @@
  * Internal dependencies
  */
 import { Button, Text, Input, Label } from '../../system';
-import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
-import { NewDialog } from './NewDialog';
+import ScreenReaderText from '../ScreenReaderText';
+import { NewDialog, Close } from '.';
 
 export default {
 	title: 'NewDialog',
@@ -107,6 +107,25 @@ export const CustomStyling = () => (
 					<h3>This is Read because it is Custom</h3>
 
 					<p>This Dialog is styled using the `sx` property.</p>
+				</div>
+			}
+		/>
+	</>
+);
+
+export const CustomClose = () => (
+	<>
+		<Text sx={ { fontSize: 3, mb: 3 } }>
+			This example shows how you can create a custom Close trigger to your dialog
+		</Text>
+		<NewDialog
+			{ ...defaultProps }
+			trigger={ <Button>Trigger Dialog</Button> }
+			content={
+				<div>
+					<Close>
+						<Button>Close here instead</Button>
+					</Close>
 				</div>
 			}
 		/>

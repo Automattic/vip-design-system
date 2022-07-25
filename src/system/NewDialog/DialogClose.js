@@ -4,14 +4,28 @@
  * External dependencies
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { IoClose } from 'react-icons/io5';
 
 /**
  * Internal dependencies
  */
-export const DialogClose = React.forwardRef( ( props, forwardedRef ) => (
-	<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
+
+export const DialogClose = React.forwardRef( ( { children, ...rest }, forwardedRef ) => (
+	<DialogPrimitive.Close asChild { ...rest } ref={ forwardedRef }>
+		{ children }
+	</DialogPrimitive.Close>
+) );
+
+DialogClose.propTypes = {
+	children: PropTypes.node,
+};
+
+DialogClose.displayName = 'DialogClose';
+
+export const DialogCloseDefault = React.forwardRef( ( props, forwardedRef ) => (
+	<DialogClose { ...props } ref={ forwardedRef }>
 		<button
 			aria-label="Close"
 			sx={ {
@@ -40,7 +54,7 @@ export const DialogClose = React.forwardRef( ( props, forwardedRef ) => (
 		>
 			<IoClose aria-hidden="true" />
 		</button>
-	</DialogPrimitive.Close>
+	</DialogClose>
 ) );
 
-DialogClose.displayName = 'DialogClose';
+DialogCloseDefault.displayName = 'DialogCloseDefault';

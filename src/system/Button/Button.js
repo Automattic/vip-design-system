@@ -3,11 +3,12 @@
 /**
  * External dependencies
  */
-import { Button as ThemeButton } from 'theme-ui';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button as ThemeButton } from 'theme-ui';
 
-const Button = ( { sx, ...props } ) => (
+const Button = React.forwardRef( ( { sx, ...props }, forwardRef ) => (
 	<ThemeButton
 		sx={ {
 			verticalAlign: 'middle',
@@ -27,8 +28,11 @@ const Button = ( { sx, ...props } ) => (
 		} }
 		className={ classNames( 'vip-button-component', props.className ) }
 		{ ...props }
+		ref={ forwardRef }
 	/>
-);
+) );
+
+Button.displayName = 'Button';
 
 Button.propTypes = {
 	sx: PropTypes.object,

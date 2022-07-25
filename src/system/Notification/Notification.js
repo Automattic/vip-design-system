@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Box, Card, Flex, Text, Button } from '../';
-import ScreenReaderText from '../ScreenReaderText/ScreenReaderText';
+import ScreenReaderText from '../ScreenReaderText';
 
 const Notification = ( { title, body, status = 'success', onClose } ) => (
 	<Card
