@@ -4669,7 +4669,7 @@
       "primary": {
         "type": "color",
         "description": "Use as main application background",
-        "value": "{color.gold.30}"
+        "value": "{color.red.50}"
       },
       "inverse": {
         "value": "{color.black}",
