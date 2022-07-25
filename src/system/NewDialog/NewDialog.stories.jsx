@@ -116,8 +116,7 @@ export const CustomStyling = () => (
 export const CustomClose = () => (
 	<>
 		<Text sx={ { fontSize: 3, mb: 3 } }>
-			Regular Dialog where the title and description are built-in and the content is provided by the
-			user.
+			This example shows how you can create a custom Close trigger to your dialog
 		</Text>
 		<NewDialog
 			{ ...defaultProps }
