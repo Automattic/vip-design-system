@@ -3445,6 +3445,11 @@
       "brand": {
         "type": "color",
         "value": "{color.gold.30}"
+      },
+      "display": {
+        "value": "{color.blue.10}",
+        "type": "color",
+        "description": "Never use this"
       }
     },
     "layer": {
