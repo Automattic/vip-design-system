@@ -4674,7 +4674,7 @@
       "primary": {
         "type": "color",
         "description": "Use as main application background",
-        "value": "{color.gray.3}"
+        "value": "{color.blue.3}"
       },
       "inverse": {
         "value": "{color.black}",
