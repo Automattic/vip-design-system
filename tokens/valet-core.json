@@ -1848,19 +1848,19 @@
         "type": "other"
       },
       "center": {
-        "value": "416",
+        "value": "1008",
         "type": "sizing",
-        "description": "min-width: 416px"
+        "description": "min-width: 1008px"
       },
       "wide": {
-        "value": "820",
+        "value": "1272",
         "type": "sizing",
-        "description": "min-width: 820px"
+        "description": "min-width: 1272px"
       },
       "full": {
-        "value": "1583",
+        "value": "1536",
         "type": "sizing",
-        "description": "max-width: 1583px"
+        "description": "max-width: 1536px"
       }
     }
   },
