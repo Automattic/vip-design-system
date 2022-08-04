@@ -679,7 +679,7 @@
         "type": "other"
       },
       "responsive": {
-        "value": "clamp(1.1em, calc(1.29em + -0.37vw), 1.2em)",
+        "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
         "type": "lineHeights",
         "description": "This is the responsive line height for the responsive type sizes."
       }
