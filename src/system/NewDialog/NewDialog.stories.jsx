@@ -6,11 +6,11 @@
  */
 import { Button, Text, Input, Label } from '../../system';
 import ScreenReaderText from '../ScreenReaderText';
-import { NewDialog, Close } from '.';
+import * as NewDialog from '.';
 
 export default {
 	title: 'NewDialog',
-	component: NewDialog,
+	component: NewDialog.Root,
 };
 
 const defaultProps = {
@@ -24,14 +24,14 @@ export const Default = () => (
 			Regular Dialog where the title and description are built-in and the content is provided by the
 			user.
 		</Text>
-		<NewDialog { ...defaultProps } trigger={ <Button>Trigger Dialog</Button> } />
+		<NewDialog.Root { ...defaultProps } trigger={ <Button>Trigger Dialog</Button> } />
 	</>
 );
 
 export const AutoOpen = () => (
 	<>
 		<Text sx={ { fontSize: 3, mb: 3 } }>Auto Opens when rendered. Press escape to close it.</Text>
-		<NewDialog
+		<NewDialog.Root
 			{ ...defaultProps }
 			defaultOpen={ true }
 			content={
@@ -61,7 +61,7 @@ export const HiddenHeadings = () => (
 			dialog content.
 		</Text>
 
-		<NewDialog
+		<NewDialog.Root
 			{ ...defaultProps }
 			trigger={ <Button>Trigger Dialog</Button> }
 			title="Custom dialog title"
@@ -88,7 +88,7 @@ export const CustomStyling = () => (
 	<>
 		<Text sx={ { fontSize: 3, mb: 3 } }>Custom Styling on Dialog Content</Text>
 
-		<NewDialog
+		<NewDialog.Root
 			{ ...defaultProps }
 			defaultOpen
 			trigger={ <Button>Trigger Dialog</Button> }
@@ -118,14 +118,14 @@ export const CustomClose = () => (
 		<Text sx={ { fontSize: 3, mb: 3 } }>
 			This example shows how you can create a custom Close trigger to your dialog
 		</Text>
-		<NewDialog
+		<NewDialog.Root
 			{ ...defaultProps }
 			trigger={ <Button>Trigger Dialog</Button> }
 			content={
 				<div>
-					<Close>
+					<NewDialog.Close>
 						<Button>Close here instead</Button>
-					</Close>
+					</NewDialog.Close>
 				</div>
 			}
 		/>
