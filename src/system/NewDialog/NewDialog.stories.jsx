@@ -146,7 +146,7 @@ export const CustomStateManagement = () => {
 				<strong>onOpenChange</strong> attribute.
 			</Text>
 
-			<NewDialog
+			<NewDialog.Root
 				{ ...defaultProps }
 				open={ open }
 				onOpenChange={ setOpen }
