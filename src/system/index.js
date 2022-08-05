@@ -18,7 +18,7 @@ import {
 	DialogContent,
 } from './Dialog';
 
-import { NewDialog } from './NewDialog';
+import * as NewDialog from './NewDialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { Flex } from './Flex';
 import {
