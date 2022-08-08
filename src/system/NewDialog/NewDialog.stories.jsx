@@ -1,6 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 /**
+ * External dependencies
+ */
+import { useState } from 'react';
+
+/**
 /**
  * Internal dependencies
  */
@@ -131,3 +136,27 @@ export const CustomClose = () => (
 		/>
 	</>
 );
+export const CustomStateManagement = () => {
+	const [ open, setOpen ] = useState( false );
+	return (
+		<>
+			<Text sx={ { fontSize: 3, mb: 3 } }>
+				This example shows how you can create a custom state management. To achieve accessibility,
+				you need to control the <strong>open</strong> state, but also keep consistency using the{ ' ' }
+				<strong>onOpenChange</strong> attribute.
+			</Text>
+
+			<NewDialog.Root
+				{ ...defaultProps }
+				open={ open }
+				onOpenChange={ setOpen }
+				trigger={ <Button>Trigger Dialog</Button> }
+				content={
+					<div>
+						<Button onClick={ () => setOpen( false ) }>Close here instead</Button>
+					</div>
+				}
+			/>
+		</>
+	);
+};

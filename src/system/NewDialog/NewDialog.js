@@ -26,13 +26,22 @@ export const NewDialog = ( {
 	// Radix Specific Properties
 	defaultOpen = false,
 	allowPinchZoom = false,
+	onOpenChange = undefined,
+	open = undefined,
+	id = undefined,
 } ) => {
 	if ( disabled ) {
 		return;
 	}
 
 	return (
-		<DialogPrimitive.Root defaultOpen={ defaultOpen } allowPinchZoom={ allowPinchZoom }>
+		<DialogPrimitive.Root
+			id={ id }
+			open={ open }
+			onOpenChange={ onOpenChange }
+			defaultOpen={ defaultOpen }
+			allowPinchZoom={ allowPinchZoom }
+		>
 			{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
 
 			<DialogPrimitive.Portal>
@@ -64,6 +73,9 @@ NewDialog.propTypes = {
 
 	// Radix DialogPrimitive.Root properties
 	// https://www.radix-ui.com/docs/primitives/components/dialog#root
+	id: PropTypes.string,
+	open: PropTypes.bool,
 	defaultOpen: PropTypes.bool,
 	allowPinchZoom: PropTypes.bool,
+	onOpenChange: PropTypes.func,
 };
