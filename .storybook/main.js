@@ -6,5 +6,6 @@ module.exports = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 		'@storybook/addon-controls',
+		'@storybook/addon-storysource',
 	],
 };
