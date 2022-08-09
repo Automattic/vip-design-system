@@ -504,7 +504,7 @@
           "type": "spacing"
         },
         "7": {
-          "value": "3.38 * {rem}",
+          "value": "3.5 * {rem}",
           "type": "spacing"
         },
         "8": {
@@ -512,11 +512,11 @@
           "type": "spacing"
         },
         "9": {
-          "value": "7.63 * {rem}",
+          "value": "7 * {rem}",
           "type": "spacing"
         },
         "10": {
-          "value": "11.38 * {rem}",
+          "value": "11 * {rem}",
           "type": "spacing"
         },
         "11": {
