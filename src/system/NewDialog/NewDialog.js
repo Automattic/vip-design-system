@@ -64,8 +64,8 @@ export const NewDialog = ( {
 
 NewDialog.propTypes = {
 	trigger: PropTypes.node.isRequired,
-	title: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
+	title: PropTypes.node.isRequired,
+	description: PropTypes.node.isRequired,
 	content: PropTypes.node,
 	showHeading: PropTypes.bool,
 	disabled: PropTypes.bool,

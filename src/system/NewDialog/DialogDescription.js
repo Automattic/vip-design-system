@@ -21,7 +21,11 @@ export const DialogDescription = React.forwardRef(
 		}
 
 		return (
-			<DialogPrimitive.Description { ...rest } ref={ forwardedRef } sx={ { margin: 0 } }>
+			<DialogPrimitive.Description
+				{ ...rest }
+				ref={ forwardedRef }
+				sx={ { margin: 0, color: 'text' } }
+			>
 				{ text }
 			</DialogPrimitive.Description>
 		);
@@ -31,6 +35,6 @@ export const DialogDescription = React.forwardRef(
 DialogDescription.displayName = 'DialogDescription';
 
 DialogDescription.propTypes = {
-	description: PropTypes.string,
+	description: PropTypes.node,
 	hidden: PropTypes.bool,
 };
