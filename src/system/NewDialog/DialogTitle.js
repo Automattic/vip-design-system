@@ -18,10 +18,14 @@ export const DialogTitle = ( { title, hidden = false } ) => {
 		titleNode = <ScreenReaderText>{ titleNode }</ScreenReaderText>;
 	}
 
-	return <DialogPrimitive.Title sx={ { margin: 0 } }>{ titleNode }</DialogPrimitive.Title>;
+	return (
+		<DialogPrimitive.Title sx={ { margin: 0, fontSize: 3, fontWeight: 500 } }>
+			{ titleNode }
+		</DialogPrimitive.Title>
+	);
 };
 
 DialogTitle.propTypes = {
-	title: PropTypes.string,
+	title: PropTypes.node,
 	hidden: PropTypes.bool,
 };

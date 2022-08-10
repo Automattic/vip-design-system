@@ -85,7 +85,7 @@ NewConfirmationDialog.propTypes = {
 	needsConfirm: PropTypes.bool,
 	trigger: PropTypes.node,
 	onConfirm: PropTypes.func,
-	title: PropTypes.node,
+	title: PropTypes.node.isRequired,
 	body: PropTypes.node,
 	label: PropTypes.node,
 };
