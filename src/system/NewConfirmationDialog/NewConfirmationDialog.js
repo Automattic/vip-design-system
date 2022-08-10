@@ -67,7 +67,7 @@ const NewConfirmationDialog = ( {
 			onOpenChange={ setOpen }
 			sx={ { maxWidth: 680 } }
 			title={ title }
-			description={ ( body = '' ) }
+			description={ body }
 			content={
 				<NewConfirmationDialogContent
 					onClose={ () => setOpen( false ) }
