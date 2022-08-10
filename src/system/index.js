@@ -20,6 +20,7 @@ import {
 
 import * as NewDialog from './NewDialog';
 import { ConfirmationDialog } from './ConfirmationDialog';
+import { NewConfirmationDialog } from './NewConfirmationDialog';
 import { Flex } from './Flex';
 import {
 	Input,
@@ -70,6 +71,7 @@ export {
 	DialogContent,
 	DialogTrigger,
 	ConfirmationDialog,
+	NewConfirmationDialog,
 	Grid,
 	Flex,
 	Notice,
