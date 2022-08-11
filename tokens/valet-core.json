@@ -523,6 +523,16 @@
           "value": "17 * {rem}",
           "type": "spacing"
         }
+      },
+      "global-padding": {
+        "value": "clamp(1.00rem, calc(0.41rem + 2.93vw), 3.50rem)",
+        "type": "spacing",
+        "description": "Use for global padding for the application—usually the outer margins of the screen. "
+      },
+      "block-gap": {
+        "value": "clamp(2.25rem, calc(2.07rem + 0.88vw), 3.00rem)",
+        "type": "spacing",
+        "description": "The default space between sequential blocks in a layout"
       }
     },
     "shadow": {
@@ -1853,14 +1863,14 @@
         "type": "other"
       },
       "center": {
+        "value": "744",
+        "type": "sizing",
+        "description": "min-width: 744px"
+      },
+      "wide": {
         "value": "1008",
         "type": "sizing",
         "description": "min-width: 1008px"
-      },
-      "wide": {
-        "value": "1272",
-        "type": "sizing",
-        "description": "min-width: 1272px"
       },
       "full": {
         "value": "1536",
