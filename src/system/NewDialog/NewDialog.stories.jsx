@@ -176,7 +176,7 @@ export const CustomOnClose = () => {
 				trigger={ <Button>Trigger Dialog</Button> }
 				content={ ( { onClose } ) => (
 					<div sx={ { mt: 2 } }>
-						<Button onClick={ () => onClose() }>Close here instead</Button>
+						<Button onClick={ onClose }>Close here instead</Button>
 					</div>
 				) }
 			/>
