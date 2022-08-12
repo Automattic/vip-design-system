@@ -31,7 +31,7 @@ export const NewDialog = ( {
 	open = undefined,
 	id = undefined,
 } ) => {
-	const [ isOpen, setIsOpen ] = React.useState( defaultOpen );
+	const [ isOpen, setIsOpen ] = React.useState( open || defaultOpen );
 
 	if ( disabled ) {
 		return;
@@ -40,11 +40,23 @@ export const NewDialog = ( {
 	// if content is a function, pass in onClose
 	const isContentFunction = typeof content === 'function';
 
+	const handleOnOpenChange = status => {
+		setIsOpen( status );
+
+		if ( onOpenChange ) {
+			onOpenChange( status );
+		}
+	};
+
+	React.useEffect( () => {
+		handleOnOpenChange( open );
+	}, [ open ] );
+
 	return (
 		<DialogPrimitive.Root
 			id={ id }
-			open={ open || isOpen }
-			onOpenChange={ onOpenChange || setIsOpen }
+			open={ isOpen }
+			onOpenChange={ handleOnOpenChange }
 			defaultOpen={ defaultOpen }
 			allowPinchZoom={ allowPinchZoom }
 		>

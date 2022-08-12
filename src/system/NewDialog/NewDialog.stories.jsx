@@ -151,11 +151,15 @@ export const CustomStateManagement = () => {
 			<NewDialog.Root
 				{ ...defaultProps }
 				open={ open }
-				onOpenChange={ setOpen }
+				onOpenChange={ status => {
+					console.log( 'New status changed', status );
+				} }
 				trigger={ <Button>Trigger Dialog</Button> }
 				content={
 					<div sx={ { mt: 2 } }>
-						<Button onClick={ () => setOpen( false ) }>Close here instead</Button>
+						<NewDialog.Close>
+							<Button>Close here instead</Button>
+						</NewDialog.Close>
 					</div>
 				}
 			/>
