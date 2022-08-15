@@ -584,11 +584,49 @@
       }
     },
     "shadow": {
-      "description": {
-        "value": "These are our 3 drop shadow styles. All number values here are in px.",
-        "type": "other"
+      "1": {
+        "value": [
+          {
+            "color": "#00000026",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "1",
+            "spread": "0"
+          },
+          {
+            "color": "#0000000d",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "5",
+            "spread": "0"
+          }
+        ],
+        "type": "boxShadow"
       },
-      "high": {
+      "2": {
+        "value": [
+          {
+            "color": "#00000008",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "2",
+            "spread": "0"
+          },
+          {
+            "color": "#00000012",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "15",
+            "blur": "30",
+            "spread": "0"
+          }
+        ],
+        "type": "boxShadow"
+      },
+      "3": {
         "value": [
           {
             "color": "#00000005",
@@ -641,47 +679,9 @@
         ],
         "type": "boxShadow"
       },
-      "medium": {
-        "value": [
-          {
-            "color": "#00000008",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "2",
-            "spread": "0"
-          },
-          {
-            "color": "#00000012",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "15",
-            "blur": "30",
-            "spread": "0"
-          }
-        ],
-        "type": "boxShadow"
-      },
-      "low": {
-        "value": [
-          {
-            "color": "#00000026",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "1",
-            "spread": "0"
-          },
-          {
-            "color": "#0000000d",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "5",
-            "spread": "0"
-          }
-        ],
-        "type": "boxShadow"
+      "description": {
+        "value": "These are our 3 drop shadow styles. All number values here are in px.",
+        "type": "other"
       }
     },
     "fontFamily": {
@@ -1928,16 +1928,7 @@
     }
   },
   "wpvip-expressive-core": {
-    "rem": {
-      "value": "16",
-      "type": "other",
-      "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
-    },
     "space": {
-      "description": {
-        "value": "In production, all units are in rems.",
-        "type": "other"
-      },
       "global-padding": {
         "value": "{space.responsive.4-7}",
         "type": "spacing",
@@ -1950,111 +1941,20 @@
       }
     },
     "shadow": {
-      "description": {
-        "value": "These are our 3 drop shadow styles. All number values here are in px.",
-        "type": "other"
-      },
       "high": {
-        "value": [
-          {
-            "color": "#00000005",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "2.767256498336792",
-            "blur": "2.2138051986694336",
-            "spread": "0"
-          },
-          {
-            "color": "#00000008",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "6.650102138519287",
-            "blur": "5.32008171081543",
-            "spread": "0"
-          },
-          {
-            "color": "#0000000a",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "12.521552085876465",
-            "blur": "10.017241477966309",
-            "spread": "0"
-          },
-          {
-            "color": "#0000000a",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "22.3363094329834",
-            "blur": "17.869047164916992",
-            "spread": "0"
-          },
-          {
-            "color": "#0000000d",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "41.777610778808594",
-            "blur": "33.422088623046875",
-            "spread": "0"
-          },
-          {
-            "color": "#00000012",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "100",
-            "blur": "80",
-            "spread": "0"
-          }
-        ],
+        "value": "{shadow.3}",
         "type": "boxShadow"
       },
       "medium": {
-        "value": [
-          {
-            "color": "#00000008",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "2",
-            "spread": "0"
-          },
-          {
-            "color": "#00000012",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "15",
-            "blur": "30",
-            "spread": "0"
-          }
-        ],
+        "value": "{shadow.2}",
         "type": "boxShadow"
       },
       "low": {
-        "value": [
-          {
-            "color": "#00000026",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "1",
-            "spread": "0"
-          },
-          {
-            "color": "#0000000d",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "5",
-            "spread": "0"
-          }
-        ],
+        "value": "{shadow.1}",
         "type": "boxShadow"
       }
     },
     "breakpoint": {
-      "description": {
-        "value": "In production, units are in px for now. We will convert this to vw in the future.",
-        "type": "other"
-      },
       "S": {
         "value": "320",
         "type": "sizing",
@@ -2086,10 +1986,6 @@
       }
     },
     "alignment": {
-      "description": {
-        "value": "In production, units are in px for now. We will convert this to vw in the future.",
-        "type": "other"
-      },
       "center": {
         "value": "744",
         "type": "sizing",
