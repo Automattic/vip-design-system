@@ -3927,11 +3927,11 @@
       },
       "display": {
         "default": {
-          "value": "linear-gradient(55deg, {Blue.30} 10%, {Blue.20} 90%)",
+          "value": "linear-gradient(55deg, {color.blue.30} 10%, {color.blue.20} 90%)",
           "type": "color"
         },
         "hover": {
-          "value": "linear-gradient(55deg, {Blue.65} 10%, {Blue.45} 90%)",
+          "value": "linear-gradient(55deg, {color.blue.65} 10%, {color.blue.45} 90%)",
           "type": "color"
         },
         "active": {
