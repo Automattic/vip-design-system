@@ -2693,11 +2693,11 @@
       },
       "display": {
         "default": {
-          "value": "linear-gradient(55deg, {Gold.30} 10%, {Gold.20} 90%)",
+          "value": "linear-gradient(55deg, {color.gold.30} 10%, {color.gold.20} 90%)",
           "type": "color"
         },
         "hover": {
-          "value": "linear-gradient(55deg, {Gold.65} 10%, {Gold.45} 90%)",
+          "value": "linear-gradient(55deg, {color.gold.65} 10%, {color.gold.45} 90%)",
           "type": "color"
         },
         "active": {
@@ -6708,5 +6708,17 @@
       },
       "$figmaStyleReferences": {}
     }
-  ]
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "valet-core",
+      "wpvip-expressive-core",
+      "wpvip-expressive-type",
+      "wpvip-expressive-color",
+      "wpvip-productive-color",
+      "valet-expressive-color",
+      "figma-valet-expressive-type",
+      "figma-wpvip-expressive-type"
+    ]
+  }
 }
