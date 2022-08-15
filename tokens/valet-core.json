@@ -440,37 +440,45 @@
       }
     },
     "borderRadius": {
-      "1": {
-        "value": "{rem} * .25",
-        "type": "borderRadius"
-      },
-      "2": {
-        "value": "{rem} * .5",
-        "type": "borderRadius"
-      },
-      "3": {
-        "value": "{rem} * 1",
-        "type": "borderRadius"
-      },
-      "4": {
-        "value": "{rem} * 1.75",
-        "type": "borderRadius"
-      },
-      "5": {
-        "value": "{rem} * 2",
-        "type": "borderRadius"
-      },
-      "6": {
-        "value": "{rem} * 2.5",
-        "type": "borderRadius"
-      },
-      "7": {
-        "value": "{rem} * 3.5",
-        "type": "borderRadius"
+      "static": {
+        "1": {
+          "value": "{rem} * .25",
+          "type": "borderRadius"
+        },
+        "2": {
+          "value": "{rem} * .5",
+          "type": "borderRadius"
+        },
+        "3": {
+          "value": "{rem} * 1",
+          "type": "borderRadius"
+        },
+        "4": {
+          "value": "{rem} * 2",
+          "type": "borderRadius"
+        },
+        "5": {
+          "value": "{rem} * 2.5",
+          "type": "borderRadius"
+        },
+        "6": {
+          "value": "{rem} * 3.5",
+          "type": "borderRadius"
+        }
       },
       "description": {
         "value": "In production, all units are in rems.",
         "type": "other"
+      },
+      "responsive": {
+        "3-5": {
+          "value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)",
+          "type": "borderRadius"
+        },
+        "4-6": {
+          "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+          "type": "borderRadius"
+        }
       }
     },
     "space": {
@@ -2004,15 +2012,15 @@
     },
     "borderRadius": {
       "small": {
-        "value": "{borderRadius.2}",
+        "value": "{borderRadius.static.2}",
         "type": "borderRadius"
       },
       "medium": {
-        "value": "{borderRadius.5}",
+        "value": "{borderRadius.static.4}",
         "type": "borderRadius"
       },
       "large": {
-        "value": "{borderRadius.7}",
+        "value": "{borderRadius.static.6}",
         "type": "borderRadius"
       }
     }
