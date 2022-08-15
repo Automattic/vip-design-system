@@ -89,6 +89,7 @@ export const HiddenHeadings = () => (
 		/>
 	</>
 );
+
 export const CustomStyling = () => (
 	<>
 		<Text sx={ { fontSize: 3, mb: 3 } }>Custom Styling on Dialog Content</Text>
@@ -136,6 +137,7 @@ export const CustomClose = () => (
 		/>
 	</>
 );
+
 export const CustomStateManagement = () => {
 	const [ open, setOpen ] = useState( false );
 	return (
@@ -149,13 +151,41 @@ export const CustomStateManagement = () => {
 			<NewDialog.Root
 				{ ...defaultProps }
 				open={ open }
-				onOpenChange={ setOpen }
+				onOpenChange={ status => {
+					// eslint-disable-next-line no-console
+					console.log( 'New status changed', status );
+
+					setOpen( !! open );
+				} }
 				trigger={ <Button>Trigger Dialog</Button> }
 				content={
-					<div>
-						<Button onClick={ () => setOpen( false ) }>Close here instead</Button>
+					<div sx={ { mt: 2 } }>
+						<NewDialog.Close>
+							<Button>Close here instead</Button>
+						</NewDialog.Close>
 					</div>
 				}
+			/>
+		</>
+	);
+};
+
+export const CustomOnClose = () => {
+	return (
+		<>
+			<Text sx={ { fontSize: 3, mb: 3 } }>
+				This example shows how you can use the content as a function to use the onClose method (same
+				behavior as the original Dialog component).
+			</Text>
+
+			<NewDialog.Root
+				{ ...defaultProps }
+				trigger={ <Button>Trigger Dialog</Button> }
+				content={ ( { onClose } ) => (
+					<div sx={ { mt: 2 } }>
+						<Button onClick={ onClose }>Close here instead</Button>
+					</div>
+				) }
 			/>
 		</>
 	);

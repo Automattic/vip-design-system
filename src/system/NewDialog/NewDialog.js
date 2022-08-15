@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import PropTypes from 'prop-types';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 /**
@@ -30,15 +31,32 @@ export const NewDialog = ( {
 	open = undefined,
 	id = undefined,
 } ) => {
+	const [ isOpen, setIsOpen ] = React.useState( open || defaultOpen );
+
 	if ( disabled ) {
 		return;
 	}
 
+	// if content is a function, pass in onClose
+	const isContentFunction = typeof content === 'function';
+
+	const handleOnOpenChange = status => {
+		setIsOpen( status );
+
+		if ( onOpenChange ) {
+			onOpenChange( status );
+		}
+	};
+
+	React.useEffect( () => {
+		handleOnOpenChange( open );
+	}, [ open ] );
+
 	return (
 		<DialogPrimitive.Root
 			id={ id }
-			open={ open }
-			onOpenChange={ onOpenChange }
+			open={ isOpen }
+			onOpenChange={ handleOnOpenChange }
 			defaultOpen={ defaultOpen }
 			allowPinchZoom={ allowPinchZoom }
 		>
@@ -55,7 +73,9 @@ export const NewDialog = ( {
 					<DialogTitle title={ title } hidden={ ! showHeading } />
 					<DialogDescription description={ description } hidden={ ! showHeading } />
 
-					<div role="document">{ content }</div>
+					<div role="document">
+						{ isContentFunction ? content( { onClose: () => setIsOpen( false ) } ) : content }
+					</div>
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>
@@ -66,7 +86,7 @@ NewDialog.propTypes = {
 	trigger: PropTypes.node.isRequired,
 	title: PropTypes.node.isRequired,
 	description: PropTypes.node.isRequired,
-	content: PropTypes.node,
+	content: PropTypes.oneOfType( [ PropTypes.node, PropTypes.func ] ),
 	showHeading: PropTypes.bool,
 	disabled: PropTypes.bool,
 	style: PropTypes.oneOfType( [ PropTypes.object, PropTypes.func ] ),
