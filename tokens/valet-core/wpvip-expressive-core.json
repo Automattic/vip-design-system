@@ -1,0 +1,90 @@
+{
+  "space": {
+    "global-padding": {
+      "value": "{space.responsive.4-7}",
+      "type": "spacing",
+      "description": "Use for global padding for the application—usually the outer margins of the screen. "
+    },
+    "block-gap": {
+      "value": "{space.responsive.6-7}",
+      "type": "spacing",
+      "description": "The default space between sequential blocks in a layout"
+    }
+  },
+  "shadow": {
+    "high": {
+      "value": "{shadow.3}",
+      "type": "boxShadow"
+    },
+    "medium": {
+      "value": "{shadow.2}",
+      "type": "boxShadow"
+    },
+    "low": {
+      "value": "{shadow.1}",
+      "type": "boxShadow"
+    }
+  },
+  "breakpoint": {
+    "S": {
+      "value": "320",
+      "type": "sizing",
+      "description": "< 655px"
+    },
+    "M": {
+      "value": "656",
+      "type": "sizing",
+      "description": "656–1047px"
+    },
+    "L": {
+      "value": "1048–1311px",
+      "type": "sizing"
+    },
+    "XL": {
+      "value": "1312",
+      "type": "sizing",
+      "description": "1312–1535px"
+    },
+    "XXL": {
+      "value": "1536",
+      "type": "sizing",
+      "description": "1536–1647px"
+    },
+    "MAX": {
+      "value": "1648",
+      "type": "sizing",
+      "description": "1648px +"
+    }
+  },
+  "alignment": {
+    "center": {
+      "value": "744",
+      "type": "sizing",
+      "description": "min-width: 744px"
+    },
+    "wide": {
+      "value": "1008",
+      "type": "sizing",
+      "description": "min-width: 1008px"
+    },
+    "full": {
+      "value": "1536",
+      "type": "sizing",
+      "description": "max-width: 1536px"
+    }
+  },
+  "borderRadius": {
+    "small": {
+      "value": "{borderRadius.static.2}",
+      "type": "borderRadius"
+    },
+    "medium": {
+      "value": "{borderRadius.static.4}",
+      "type": "borderRadius"
+    },
+    "large": {
+      "value": "{borderRadius.static.6}",
+      "type": "borderRadius"
+    }
+  }
+}

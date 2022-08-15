@@ -1,0 +1,32 @@
+[
+  {
+    "id": "97662160426568966100d2dccc5dfcdefeb5d921",
+    "name": "wpvip",
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "wpvip-expressive-type": "enabled",
+      "wpvip-expressive-color": "enabled",
+      "figma-wpvip-expressive-type": "disabled",
+      "wpvip-productive-color": "disabled",
+      "valet-expressive-color": "disabled",
+      "figma-valet-expressive-type": "disabled",
+      "wpvip-expressive-core": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "22bf7b17c2576c9ba4c472940aedcc3f3ae3618c",
+    "name": "valet",
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "wpvip-expressive-type": "disabled",
+      "wpvip-expressive-color": "disabled",
+      "figma-wpvip-expressive-type": "disabled",
+      "wpvip-productive-color": "disabled",
+      "valet-expressive-color": "enabled",
+      "figma-valet-expressive-type": "enabled",
+      "wpvip-expressive-core": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  }
+]
