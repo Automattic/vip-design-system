@@ -152,7 +152,10 @@ export const CustomStateManagement = () => {
 				{ ...defaultProps }
 				open={ open }
 				onOpenChange={ status => {
+					// eslint-disable-next-line no-console
 					console.log( 'New status changed', status );
+
+					setOpen( !! open );
 				} }
 				trigger={ <Button>Trigger Dialog</Button> }
 				content={
