@@ -80,7 +80,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.4}",
+        "fontSize": "{fontSize.dynamic.4}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -90,7 +90,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.8}",
+        "fontSize": "{fontSize.dynamic.8}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -100,7 +100,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.9}",
+        "fontSize": "{fontSize.dynamic.9}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -110,7 +110,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.10}",
+        "fontSize": "{fontSize.dynamic.10}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -120,7 +120,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.11}",
+        "fontSize": "{fontSize.dynamic.11}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -130,7 +130,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.12}",
+        "fontSize": "{fontSize.dynamic.12}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -140,7 +140,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.13}",
+        "fontSize": "{fontSize.dynamic.13}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -150,7 +150,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.4}",
+        "fontSize": "{fontSize.dynamic.4}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -160,7 +160,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.8}",
+        "fontSize": "{fontSize.dynamic.8}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -170,7 +170,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.9}",
+        "fontSize": "{fontSize.dynamic.9}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -180,7 +180,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.10}",
+        "fontSize": "{fontSize.dynamic.10}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -190,7 +190,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.11}",
+        "fontSize": "{fontSize.dynamic.11}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -200,7 +200,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.11}",
+        "fontSize": "{fontSize.dynamic.11}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -210,7 +210,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.12}",
+        "fontSize": "{fontSize.dynamic.12}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -220,7 +220,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.13}",
+        "fontSize": "{fontSize.dynamic.13}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -232,7 +232,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.9}",
+        "fontSize": "{fontSize.dynamic.9}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -244,7 +244,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.9}",
+        "fontSize": "{fontSize.dynamic.9}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -254,7 +254,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.10}",
+        "fontSize": "{fontSize.dynamic.10}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -264,7 +264,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.3}",
-        "fontSize": "{fontSize.responsive.11}",
+        "fontSize": "{fontSize.dynamic.11}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
