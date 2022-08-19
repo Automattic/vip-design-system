@@ -1,14 +1,28 @@
 {
   "space": {
-    "global-padding": {
-      "value": "{space.responsive.4-7}",
-      "type": "spacing",
-      "description": "Use for global padding for the application—usually the outer margins of the screen. "
-    },
-    "block-gap": {
-      "value": "{space.responsive.6-7}",
-      "type": "spacing",
-      "description": "The default space between sequential blocks in a layout"
+    "padding": {
+      "global": {
+        "value": "{space.responsive.4-7}",
+        "type": "spacing",
+        "description": "Use for global padding for the application—usually the outer margins of the screen. "
+      },
+      "gap": {
+        "value": "{space.responsive.6-7}",
+        "type": "spacing",
+        "description": "The default space between sequential blocks in a layout"
+      },
+      "small": {
+        "value": "{space.responsive.6-7}",
+        "type": "spacing"
+      },
+      "medium": {
+        "value": "{space.responsive.8-9}",
+        "type": "spacing"
+      },
+      "large": {
+        "value": "{space.responsive.9-10}",
+        "type": "spacing"
+      }
     }
   },
   "shadow": {
