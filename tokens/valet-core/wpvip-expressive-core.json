@@ -6,22 +6,40 @@
         "type": "spacing",
         "description": "Use for global padding for the application—usually the outer margins of the screen. "
       },
-      "gap": {
-        "value": "{space.responsive.6-7}",
-        "type": "spacing",
-        "description": "The default space between sequential blocks in a layout"
-      },
       "small": {
         "value": "{space.responsive.6-7}",
         "type": "spacing"
       },
       "medium": {
-        "value": "{space.responsive.8-9}",
+        "value": "{space.responsive.7-8}",
         "type": "spacing"
       },
       "large": {
+        "value": "{space.responsive.8-9}",
+        "type": "spacing"
+      },
+      "huge": {
         "value": "{space.responsive.9-10}",
         "type": "spacing"
+      }
+    },
+    "gap": {
+      "tiny": {
+        "value": "{space.responsive.3-4}",
+        "type": "spacing"
+      },
+      "small": {
+        "value": "{space.responsive.4-5}",
+        "type": "spacing"
+      },
+      "medium": {
+        "value": "{space.responsive.5-6}",
+        "type": "spacing"
+      },
+      "large": {
+        "value": "{space.responsive.6-7}",
+        "type": "spacing",
+        "description": "The default space between sequential blocks in a layout"
       }
     }
   },
