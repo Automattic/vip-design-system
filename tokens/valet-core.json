@@ -6685,22 +6685,43 @@
       }
     }
   },
-  "$themes": [
-    {
-      "id": "97662160426568966100d2dccc5dfcdefeb5d921",
-      "name": "wpvip",
-      "selectedTokenSets": {
-        "valet-core": "source",
-        "wpvip-expressive-type": "enabled",
-        "wpvip-expressive-color": "enabled",
-        "figma-wpvip-expressive-type": "disabled",
-        "wpvip-productive-color": "disabled",
-        "valet-expressive-color": "disabled",
-        "figma-valet-expressive-type": "disabled",
-        "wpvip-expressive-core": "disabled"
+  "$metadata": {
+    "tokenSetOrder": {
+      "0": {
+        "value": "valet-core",
+        "type": "other"
       },
-      "$figmaStyleReferences": {}
-    },
+      "1": {
+        "value": "wpvip-expressive-core",
+        "type": "other"
+      },
+      "2": {
+        "value": "wpvip-expressive-type",
+        "type": "other"
+      },
+      "3": {
+        "value": "wpvip-expressive-color",
+        "type": "other"
+      },
+      "4": {
+        "value": "wpvip-productive-color",
+        "type": "other"
+      },
+      "5": {
+        "value": "valet-expressive-color",
+        "type": "other"
+      },
+      "6": {
+        "value": "figma-valet-expressive-type",
+        "type": "other"
+      },
+      "7": {
+        "value": "figma-wpvip-expressive-type",
+        "type": "other"
+      }
+    }
+  },
+  "$themes": [
     {
       "id": "22bf7b17c2576c9ba4c472940aedcc3f3ae3618c",
       "name": "valet",
@@ -6715,18 +6736,21 @@
         "wpvip-expressive-core": "disabled"
       },
       "$figmaStyleReferences": {}
+    },
+    {
+      "id": "97662160426568966100d2dccc5dfcdefeb5d921",
+      "name": "wpvip",
+      "selectedTokenSets": {
+        "valet-core": "source",
+        "wpvip-expressive-type": "enabled",
+        "wpvip-expressive-color": "enabled",
+        "figma-wpvip-expressive-type": "disabled",
+        "wpvip-productive-color": "disabled",
+        "valet-expressive-color": "disabled",
+        "figma-valet-expressive-type": "disabled",
+        "wpvip-expressive-core": "enabled"
+      },
+      "$figmaStyleReferences": {}
     }
-  ],
-  "$metadata": {
-    "tokenSetOrder": [
-      "valet-core",
-      "wpvip-expressive-core",
-      "wpvip-expressive-type",
-      "wpvip-expressive-color",
-      "wpvip-productive-color",
-      "valet-expressive-color",
-      "figma-valet-expressive-type",
-      "figma-wpvip-expressive-type"
-    ]
-  }
+  ]
 }
