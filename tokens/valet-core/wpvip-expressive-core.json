@@ -75,15 +75,15 @@
   },
   "borderRadius": {
     "small": {
-      "value": "{borderRadius.2}",
+      "value": "{borderRadius.static.2}",
       "type": "borderRadius"
     },
     "medium": {
-      "value": "{borderRadius.5}",
+      "value": "{borderRadius.static.4}",
       "type": "borderRadius"
     },
     "large": {
-      "value": "{borderRadius.7}",
+      "value": "{borderRadius.static.6}",
       "type": "borderRadius"
     }
   }
