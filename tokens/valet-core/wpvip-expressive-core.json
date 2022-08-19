@@ -79,11 +79,11 @@
       "type": "borderRadius"
     },
     "medium": {
-      "value": "{borderRadius.static.4}",
+      "value": "{borderRadius.responsive.3-5}",
       "type": "borderRadius"
     },
     "large": {
-      "value": "{borderRadius.static.6}",
+      "value": "{borderRadius.responsive.4-6}",
       "type": "borderRadius"
     }
   }
