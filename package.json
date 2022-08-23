@@ -19,12 +19,13 @@
 		"watch": "npm run build -- --watch"
 	},
 	"dependencies": {
-		"@radix-ui/react-checkbox": "^0.1.5",
+		"@radix-ui/react-checkbox": "^1.0.0",
 		"@radix-ui/react-dialog": "^1.0.0",
-		"@radix-ui/react-radio-group": "^0.1.5",
-		"@radix-ui/react-switch": "^0.1.5",
-		"@radix-ui/react-tooltip": "^0.1.7",
-		"@radix-ui/react-visually-hidden": "^0.1.4",
+		"@radix-ui/react-dropdown-menu": "^1.0.0",
+		"@radix-ui/react-radio-group": "^1.0.0",
+		"@radix-ui/react-switch": "^1.0.0",
+		"@radix-ui/react-tooltip": "^1.0.0",
+		"@radix-ui/react-visually-hidden": "^1.0.0",
 		"@storybook/addon-storysource": "^6.5.10",
 		"babel-loader": "^8.2.2",
 		"classnames": "^2.3.1",
