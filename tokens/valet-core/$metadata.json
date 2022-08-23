@@ -1,12 +1,12 @@
 {
   "tokenSetOrder": [
-    "figma-valet-expressive-type",
-    "figma-wpvip-expressive-type",
     "valet-core",
     "valet-expressive-color",
-    "wpvip-expressive-color",
     "wpvip-expressive-core",
+    "wpvip-expressive-color",
     "wpvip-expressive-type",
-    "wpvip-productive-color"
+    "wpvip-productive-color",
+    "figma-valet-expressive-type",
+    "figma-wpvip-expressive-type"
   ]
 }
