@@ -1,36 +1,12 @@
 {
-  "tokenSetOrder": {
-    "0": {
-      "value": "valet-core",
-      "type": "other"
-    },
-    "1": {
-      "value": "wpvip-expressive-core",
-      "type": "other"
-    },
-    "2": {
-      "value": "wpvip-expressive-type",
-      "type": "other"
-    },
-    "3": {
-      "value": "wpvip-expressive-color",
-      "type": "other"
-    },
-    "4": {
-      "value": "wpvip-productive-color",
-      "type": "other"
-    },
-    "5": {
-      "value": "valet-expressive-color",
-      "type": "other"
-    },
-    "6": {
-      "value": "figma-valet-expressive-type",
-      "type": "other"
-    },
-    "7": {
-      "value": "figma-wpvip-expressive-type",
-      "type": "other"
-    }
-  }
+  "tokenSetOrder": [
+    "valet-core",
+    "valet-expressive-color",
+    "wpvip-expressive-core",
+    "wpvip-expressive-color",
+    "wpvip-expressive-type",
+    "wpvip-productive-color",
+    "figma-valet-expressive-type",
+    "figma-wpvip-expressive-type"
+  ]
 }
