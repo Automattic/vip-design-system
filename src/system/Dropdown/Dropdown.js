@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import PropTypes from 'prop-types';
 
@@ -21,18 +22,31 @@ const DropdownSub = DropdownMenuPrimitive.DropdownMenuSub;
 const DropdownSubTrigger = DropdownMenuPrimitive.DropdownMenuSubTrigger;
 const DropdownSubContent = DropdownMenuPrimitive.DropdownMenuSubContent;
 
-export const Dropdown = ( { trigger, children } ) => (
-	<DropdownMenu>
-		<DropdownTrigger asChild>{ trigger }</DropdownTrigger>
+export const Dropdown = ( { trigger, children } ) => {
+	const firstChild = React.useMemo(
+		() =>
+			React.isValidElement( children ) ? React.Children.only( children )?.type?.displayName : '',
+		[ children ]
+	);
 
-		<DropdownMenuPrimitive.Portal>
-			<DropdownContent>
-				{ children }
-				<DropdownMenuPrimitive.Arrow sx={ { fill: 'white' } } />
-			</DropdownContent>
-		</DropdownMenuPrimitive.Portal>
-	</DropdownMenu>
-);
+	return (
+		<DropdownMenu>
+			<DropdownTrigger asChild>{ trigger }</DropdownTrigger>
+
+			<DropdownMenuPrimitive.Portal>
+				{ /* User can customize the content */ }
+				{ firstChild === 'DropdownContent' ? (
+					children
+				) : (
+					<DropdownContent>
+						{ children }
+						<DropdownMenuPrimitive.Arrow sx={ { fill: 'white' } } />
+					</DropdownContent>
+				) }
+			</DropdownMenuPrimitive.Portal>
+		</DropdownMenu>
+	);
+};
 
 Dropdown.propTypes = {
 	trigger: PropTypes.node.isRequired,

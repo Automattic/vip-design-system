@@ -13,6 +13,7 @@ import { DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icon
 
 import * as Dropdown from '.';
 import { Button } from '../Button';
+import { NewConfirmationDialog } from '../NewConfirmationDialog';
 
 export default {
 	title: 'Dropdown',
@@ -110,6 +111,47 @@ export const ComplexOptions = () => {
 					Dropdown Documentation page.
 				</a>
 			</p>
+		</>
+	);
+};
+
+export const WithDialogState = () => {
+	const [ alertOpen, setAlertOpen ] = React.useState( false );
+	const [ menuOpen, setMenuOpen ] = React.useState( false );
+	const triggerRef = React.useRef();
+	return (
+		<>
+			<p>
+				In this example, you can see how to trigger a Dialog from the Dropdown and still keep the
+				focus back to the dropdown once the Dialog is closed. This example is important to keep
+				accessibility.
+			</p>
+
+			<Dropdown.Root
+				open={ menuOpen }
+				onOpenChange={ setMenuOpen }
+				trigger={ <Button ref={ triggerRef }>Open</Button> }
+			>
+				<Dropdown.Content hidden={ alertOpen }>
+					<Dropdown.Item>Copy</Dropdown.Item>
+
+					<NewConfirmationDialog
+						title={ 'Are you sure?' }
+						description={ 'Please confirm that' }
+						body="Bla bleh."
+						needsConfirm={ true }
+						open={ alertOpen }
+						onOpenChange={ setAlertOpen }
+						onConfirm={ () => {
+							setMenuOpen( false );
+							triggerRef.current.focus();
+						} }
+						trigger={
+							<Dropdown.Item onSelect={ event => event.preventDefault() }>Click here</Dropdown.Item>
+						}
+					/>
+				</Dropdown.Content>
+			</Dropdown.Root>
 		</>
 	);
 };

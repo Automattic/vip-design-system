@@ -18,10 +18,11 @@ import {
 } from './DropdownItem';
 
 import { DropdownSeparator } from './DropdownSeparator';
-import { DropdownSubContent } from './DropdownContent';
+import { DropdownSubContent, DropdownContent } from './DropdownContent';
 import { DropdownLabel } from './DropdownLabel';
 
 const Root = Dropdown;
+const Content = DropdownContent;
 const Trigger = DropdownTrigger;
 const Item = DropdownItem;
 const CheckboxItem = DropdownCheckboxItem;
@@ -37,6 +38,7 @@ const SubContent = DropdownSubContent;
 export {
 	Root,
 	Trigger,
+	Content,
 	Item,
 	CheckboxItem,
 	RadioGroup,
