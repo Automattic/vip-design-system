@@ -6,7 +6,7 @@
 import React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-export const dropdownItemStyles = {
+export const styles = {
 	unset: 'all',
 	cursor: 'pointer',
 	display: 'flex',
@@ -37,23 +37,19 @@ export const dropdownItemStyles = {
 };
 
 export const DropdownItem = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.DropdownMenuItem
-		ref={ forwardRef }
-		sx={ dropdownItemStyles }
-		{ ...props }
-	/>
+	<DropdownMenuPrimitive.DropdownMenuItem ref={ forwardRef } sx={ styles } { ...props } />
 ) );
 
 DropdownItem.displayName = 'DropdownItem';
 
 export const DropdownCheckboxItem = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.CheckboxItem ref={ forwardRef } sx={ dropdownItemStyles } { ...props } />
+	<DropdownMenuPrimitive.CheckboxItem ref={ forwardRef } sx={ styles } { ...props } />
 ) );
 
 DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';
 
 export const DropdownRadioItem = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.RadioItem ref={ forwardRef } sx={ dropdownItemStyles } { ...props } />
+	<DropdownMenuPrimitive.RadioItem ref={ forwardRef } sx={ styles } { ...props } />
 ) );
 
 DropdownRadioItem.displayName = 'DropdownRadioItem';
@@ -62,7 +58,7 @@ export const DropdownSubTrigger = React.forwardRef( ( props, forwardRef ) => (
 	<DropdownMenuPrimitive.SubTrigger
 		ref={ forwardRef }
 		sx={ {
-			...dropdownItemStyles,
+			...styles,
 			...{
 				'&[data-state="open"]': {
 					background: 'highlight',
