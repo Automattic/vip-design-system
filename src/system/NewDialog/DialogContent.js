@@ -13,6 +13,5 @@ export const contentStyles = {
 	maxWidth: '640px',
 	maxHeight: '85vh',
 	padding: 32,
-	'&:focus': { outline: 'none' },
 	'> h1, > h2': { marginTop: '0 !important' },
 };
