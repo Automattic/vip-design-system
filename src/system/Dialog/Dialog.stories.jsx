@@ -14,7 +14,7 @@ import {
 } from '..';
 
 export default {
-	title: 'Dialog',
+	title: 'Dialog (Deprecated)',
 	component: Dialog,
 };
 
