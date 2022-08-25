@@ -19,6 +19,7 @@ import {
 } from './Dialog';
 
 import * as NewDialog from './NewDialog';
+import * as Dropdown from './Dropdown';
 import { ConfirmationDialog } from './ConfirmationDialog';
 import { NewConfirmationDialog } from './NewConfirmationDialog';
 import { Flex } from './Flex';
@@ -64,6 +65,7 @@ export {
 	Code,
 	Dialog,
 	NewDialog,
+	Dropdown,
 	DialogButton,
 	DialogMenu,
 	DialogMenuItem,

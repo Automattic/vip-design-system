@@ -54,7 +54,7 @@ const textStyles = {
 
 const outline = {
 	outlineStyle: 'solid',
-	outlineColor: '#f5f5f5',
+	outlineColor: '#ffffff',
 	outlineWidth: '1px',
 	boxShadow: `0 0 0 1px ${ getColor( 'focus', 'inset' ) }, 0 0 0 3px ${ getColor( 'focus' ) }`,
 };
