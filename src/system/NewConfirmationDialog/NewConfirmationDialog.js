@@ -14,6 +14,7 @@ import { NewDialog, Box, Flex, Button } from '..';
 
 const NewConfirmationDialogContent = ( {
 	label = 'Confirm',
+	buttonVariant = 'danger',
 	onConfirm,
 	onClose,
 	className = null,
@@ -25,7 +26,7 @@ const NewConfirmationDialogContent = ( {
 			</Button>
 			<NewDialog.Close>
 				<Button
-					variant="danger"
+					variant={ buttonVariant }
 					onClick={ () => {
 						onConfirm();
 						onClose();
@@ -41,6 +42,7 @@ const NewConfirmationDialogContent = ( {
 NewConfirmationDialogContent.propTypes = {
 	body: PropTypes.node,
 	label: PropTypes.string,
+	buttonVariant: PropTypes.string,
 	onClose: PropTypes.func,
 	onConfirm: PropTypes.func,
 	className: PropTypes.any,
@@ -51,6 +53,7 @@ const NewConfirmationDialog = ( {
 	onConfirm,
 	needsConfirm = true,
 	label,
+	buttonVariant,
 	title,
 	body = '',
 } ) => {
@@ -74,6 +77,7 @@ const NewConfirmationDialog = ( {
 					onConfirm={ onConfirm }
 					body={ body }
 					label={ label }
+					buttonVariant={ buttonVariant }
 				/>
 			}
 			trigger={ trigger }
@@ -88,6 +92,7 @@ NewConfirmationDialog.propTypes = {
 	title: PropTypes.node.isRequired,
 	body: PropTypes.node,
 	label: PropTypes.node,
+	buttonVariant: PropTypes.string,
 };
 
 export { NewConfirmationDialog };
