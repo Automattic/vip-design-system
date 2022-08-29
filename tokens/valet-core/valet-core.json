@@ -711,6 +711,10 @@
       "value": "{default-fonts}",
       "type": "fontFamilies",
       "description": "Use as accent font"
+    },
+    "mono": {
+      "value": "Courier",
+      "type": "fontFamilies"
     }
   },
   "lineHeight": {
