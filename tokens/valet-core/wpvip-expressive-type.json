@@ -377,6 +377,10 @@
     "accent": {
       "value": "Aktiv Grotesk Ex",
       "type": "fontFamilies"
+    },
+    "mono": {
+      "value": "AkkuratMonoLLWeb-Regular",
+      "type": "fontFamilies"
     }
   }
 }
