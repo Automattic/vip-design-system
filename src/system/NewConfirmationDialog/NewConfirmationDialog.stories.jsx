@@ -18,6 +18,7 @@ export const Default = () => {
 			<p>Confirm that your name is John doe?</p>
 			<NewConfirmationDialog
 				title={ 'Are you John Doe?' }
+				buttonVariant="danger"
 				description={ 'Please confirm that your name is John Doe.' }
 				trigger={ ConfirmationTrigger }
 				body="A modal is used to perform more detailed actions that don&lsquo;t necessarily need the context
