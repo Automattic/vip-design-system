@@ -23,6 +23,7 @@ export const NewDialog = ( {
 	showHeading = true,
 	disabled = false,
 	style: extraStyles,
+	contentProps = {},
 
 	// Radix Specific Properties
 	defaultOpen = false,
@@ -62,12 +63,13 @@ export const NewDialog = ( {
 		>
 			{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
 
-			<DialogPrimitive.Portal>
+			<DialogPrimitive.Portal data-test="me">
 				<DialogOverlay />
 
 				<DialogPrimitive.Content
 					className="vip-dialog-component"
 					sx={ { ...contentStyles, ...extraStyles } }
+					{ ...contentProps }
 				>
 					<DialogClose />
 					<DialogTitle title={ title } hidden={ ! showHeading } />
@@ -90,6 +92,7 @@ NewDialog.propTypes = {
 	showHeading: PropTypes.bool,
 	disabled: PropTypes.bool,
 	style: PropTypes.oneOfType( [ PropTypes.object, PropTypes.func ] ),
+	contentProps: PropTypes.any,
 
 	// Radix DialogPrimitive.Root properties
 	// https://www.radix-ui.com/docs/primitives/components/dialog#root
