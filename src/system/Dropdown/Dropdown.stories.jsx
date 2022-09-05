@@ -18,8 +18,6 @@ export default {
 	component: Dropdown.Root,
 };
 
-// Your app...
-
 export const Default = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Open</Button> }>
@@ -144,7 +142,7 @@ export const WithDialog = () => {
 			<p>
 				This is an important example when combining the Dropdown component with the NewDialog
 				component. In order to have the correct accessibility, there are some events you need to
-				use. Use this example if you can to copy and paste the code.
+				use. Use this example if you want to copy and paste the code.
 			</p>
 
 			<Dropdown.Root

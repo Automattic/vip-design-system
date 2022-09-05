@@ -24,6 +24,7 @@ export const NewDialog = ( {
 	disabled = false,
 	style: extraStyles,
 	contentProps = {},
+	portalProps = {},
 
 	// Radix Specific Properties
 	defaultOpen = false,
@@ -63,7 +64,7 @@ export const NewDialog = ( {
 		>
 			{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
 
-			<DialogPrimitive.Portal data-test="me">
+			<DialogPrimitive.Portal { ...portalProps }>
 				<DialogOverlay />
 
 				<DialogPrimitive.Content
@@ -92,7 +93,12 @@ NewDialog.propTypes = {
 	showHeading: PropTypes.bool,
 	disabled: PropTypes.bool,
 	style: PropTypes.oneOfType( [ PropTypes.object, PropTypes.func ] ),
+
+	// Content props in: https://www.radix-ui.com/docs/primitives/components/dialog#content
 	contentProps: PropTypes.any,
+
+	// Portal props in: https://www.radix-ui.com/docs/primitives/components/dialog#portal
+	portalProps: PropTypes.any,
 
 	// Radix DialogPrimitive.Root properties
 	// https://www.radix-ui.com/docs/primitives/components/dialog#root

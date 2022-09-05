@@ -68,12 +68,17 @@ export const Dropdown = ( {
 Dropdown.propTypes = {
 	trigger: PropTypes.node.isRequired,
 	children: PropTypes.node.isRequired,
+
+	// Props in root: https://www.radix-ui.com/docs/primitives/components/dropdown-menu#root
 	open: PropTypes.bool,
 	defaultOpen: PropTypes.bool,
 	onOpenChange: PropTypes.func,
 	modal: PropTypes.bool,
 	dir: PropTypes.string,
+
+	// Content props in: https://www.radix-ui.com/docs/primitives/components/dropdown-menu#content
 	contentProps: PropTypes.any,
+	// Portal props in: https://www.radix-ui.com/docs/primitives/components/dropdown-menu#portal
 	portalProps: PropTypes.any,
 };
 
