@@ -129,9 +129,9 @@ export const WithDialog = () => {
 			} }
 			content={
 				<>
-					<button type="button" onClick={ () => onConfirm() }>
-						Close
-					</button>
+					<Button variant="secondary" onClick={ () => onConfirm() }>
+						Custom Close.
+					</Button>
 
 					<p>Teste abc.</p>
 				</>
@@ -141,17 +141,23 @@ export const WithDialog = () => {
 
 	return (
 		<div>
+			<p>
+				This is an important example when combining the Dropdown component with the NewDialog
+				component. In order to have the correct accessibility, there are some events you need to
+				use. Use this example if you can to copy and paste the code.
+			</p>
+
 			<Dropdown.Root
 				open={ menuOpen }
 				onOpenChange={ setMenuOpen }
 				contentProps={ { sideOffset: 5 } }
-				trigger={ <button>open</button> }
+				trigger={ <Button>Open</Button> }
 			>
-				<Dropdown.Item>New Window</Dropdown.Item>
+				<Dropdown.Item>I don&apos;t do anything</Dropdown.Item>
 
 				<AreYouSureDialog
-					title="Django"
-					description="Django man"
+					title="Are you in the jungle?"
+					description="sha-n-n-n-n-n-n-n-n knees, knees"
 					open={ alertOpen }
 					onOpenChange={ setAlertOpen }
 					onConfirm={ () => {
@@ -159,7 +165,7 @@ export const WithDialog = () => {
 						setMenuOpen( false );
 					} }
 					trigger={
-						<Dropdown.Item onSelect={ event => event.preventDefault() }>Delete</Dropdown.Item>
+						<Dropdown.Item onSelect={ event => event.preventDefault() }>Open Dialog</Dropdown.Item>
 					}
 				/>
 			</Dropdown.Root>
