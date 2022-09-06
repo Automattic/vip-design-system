@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
@@ -7,13 +5,13 @@ import React from 'react';
 import { DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
 /**
- /**
+/**
 * Internal dependencies
 */
 
 import * as Dropdown from '.';
 import { Button } from '../Button';
-import { NewConfirmationDialog } from '../NewConfirmationDialog';
+import * as NewDialog from '../NewDialog';
 
 export default {
 	title: 'Dropdown',
@@ -115,43 +113,56 @@ export const ComplexOptions = () => {
 	);
 };
 
-export const WithDialogState = () => {
+export const WithDialog = () => {
 	const [ alertOpen, setAlertOpen ] = React.useState( false );
 	const [ menuOpen, setMenuOpen ] = React.useState( false );
-	const triggerRef = React.useRef();
+
+	// eslint-disable-next-line react/prop-types
+	const AreYouSureDialog = ( { onConfirm, ...props } ) => (
+		<NewDialog.Root
+			{ ...props }
+			content={
+				<>
+					<Button variant="secondary" onClick={ () => onConfirm() }>
+						Custom Close.
+					</Button>
+					<p>Teste abc.</p>
+				</>
+			}
+		/>
+	);
+
 	return (
-		<>
+		<div>
 			<p>
-				In this example, you can see how to trigger a Dialog from the Dropdown and still keep the
-				focus back to the dropdown once the Dialog is closed. This example is important to keep
-				accessibility.
+				This is an important example when combining the Dropdown component with the NewDialog
+				component. In order to have the correct accessibility, there are some events you need to
+				use. Use this example if you want to copy and paste the code.
 			</p>
 
 			<Dropdown.Root
+				modal={ ! alertOpen }
 				open={ menuOpen }
 				onOpenChange={ setMenuOpen }
-				trigger={ <Button ref={ triggerRef }>Open</Button> }
+				contentProps={ { sideOffset: 5 } }
+				trigger={ <Button>Open</Button> }
 			>
-				<Dropdown.Content hidden={ alertOpen }>
-					<Dropdown.Item>Copy</Dropdown.Item>
+				<Dropdown.Item>I don&apos;t do anything</Dropdown.Item>
 
-					<NewConfirmationDialog
-						title={ 'Are you sure?' }
-						description={ 'Please confirm that' }
-						body="Bla bleh."
-						needsConfirm={ true }
-						open={ alertOpen }
-						onOpenChange={ setAlertOpen }
-						onConfirm={ () => {
-							setMenuOpen( false );
-							triggerRef.current.focus();
-						} }
-						trigger={
-							<Dropdown.Item onSelect={ event => event.preventDefault() }>Click here</Dropdown.Item>
-						}
-					/>
-				</Dropdown.Content>
+				<AreYouSureDialog
+					title="Are you in the jungle?"
+					description="sha-n-n-n-n-n-n-n-n knees, knees"
+					open={ alertOpen }
+					onOpenChange={ setAlertOpen }
+					onConfirm={ () => {
+						setAlertOpen( false );
+						setMenuOpen( false );
+					} }
+					trigger={
+						<Dropdown.Item onSelect={ event => event.preventDefault() }>Open Dialog</Dropdown.Item>
+					}
+				/>
 			</Dropdown.Root>
-		</>
+		</div>
 	);
 };
