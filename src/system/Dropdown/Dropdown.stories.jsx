@@ -120,11 +120,6 @@ export const WithDialog = () => {
 	const AreYouSureDialog = ( { onConfirm, ...props } ) => (
 		<NewDialog.Root
 			{ ...props }
-			contentProps={ {
-				onCloseAutoFocus: () => {
-					onConfirm();
-				},
-			} }
 			content={
 				<>
 					<Button variant="secondary" onClick={ () => onConfirm() }>
@@ -146,6 +141,7 @@ export const WithDialog = () => {
 			</p>
 
 			<Dropdown.Root
+				modal={ ! alertOpen }
 				open={ menuOpen }
 				onOpenChange={ setMenuOpen }
 				contentProps={ { sideOffset: 5 } }

@@ -56,6 +56,7 @@ const NewConfirmationDialog = ( {
 	buttonVariant,
 	title,
 	body = '',
+	...props
 } ) => {
 	const [ open, setOpen ] = React.useState( false );
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
@@ -81,6 +82,7 @@ const NewConfirmationDialog = ( {
 				/>
 			}
 			trigger={ trigger }
+			{ ...props }
 		/>
 	);
 };

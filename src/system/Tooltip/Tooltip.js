@@ -15,7 +15,7 @@ import { Card, Text } from '..';
 const StyledArrow = props => <TooltipPrimitive.Arrow sx={ { fill: 'white' } } { ...props } />;
 
 const Tooltip = ( {
-	trigger = <MdHelp />,
+	trigger = <MdHelp sx={ { fill: 'text' } } />,
 	text = '',
 	width = 200,
 	children,
@@ -48,7 +48,8 @@ const Tooltip = ( {
 						background: 'transparent',
 						border: 'none',
 						display: 'inline-flex',
-						outline: 'none',
+						'&:focus': theme => theme.outline,
+						'&:focus-visible': theme => theme.outline,
 						p: 0,
 						m: 0,
 					} }
@@ -56,8 +57,8 @@ const Tooltip = ( {
 					{ trigger }
 
 					<TooltipPrimitive.Content>
-						<Card className="tooltip-content" sx={ { width: width } } { ...props }>
-							{ children ? children : <Text sx={ { fontSize: 1 } }>{ text }</Text> }
+						<Card className="tooltip-content" sx={ { width, background: 'dialog' } } { ...props }>
+							{ children ? children : <Text sx={ { fontSize: 2, color: 'text' } }>{ text }</Text> }
 						</Card>
 						<StyledArrow />
 					</TooltipPrimitive.Content>
