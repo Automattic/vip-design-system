@@ -55,6 +55,8 @@ const Select = ( { isInline, placeholder, forLabel, options, label, ...props } )
 						borderRadius: '4px',
 						padding: '10px 35px 10px 10px',
 						borderColor: 'border',
+						'&:focus': theme => theme.outline,
+						'&:focus-visible': theme => theme.outline,
 						'-webkit-appearance': 'none',
 						'-moz-appearance': 'none',
 						'&:hover': {
