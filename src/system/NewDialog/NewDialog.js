@@ -77,12 +77,4 @@ NewDialog.propTypes = {
 
 	// Portal props in: https://www.radix-ui.com/docs/primitives/components/dialog#portal
 	portalProps: PropTypes.any,
-
-	// Radix DialogPrimitive.Root properties
-	// https://www.radix-ui.com/docs/primitives/components/dialog#root
-	id: PropTypes.string,
-	open: PropTypes.bool,
-	defaultOpen: PropTypes.bool,
-	allowPinchZoom: PropTypes.bool,
-	onOpenChange: PropTypes.func,
 };
