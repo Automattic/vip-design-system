@@ -117,6 +117,7 @@ export const WithDialog = () => {
 	const [ alertOpen, setAlertOpen ] = React.useState( false );
 	const [ menuOpen, setMenuOpen ] = React.useState( false );
 
+	// eslint-disable-next-line react/prop-types
 	const AreYouSureDialog = ( { onConfirm, ...props } ) => (
 		<NewDialog.Root
 			{ ...props }
@@ -125,7 +126,6 @@ export const WithDialog = () => {
 					<Button variant="secondary" onClick={ () => onConfirm() }>
 						Custom Close.
 					</Button>
-
 					<p>Teste abc.</p>
 				</>
 			}
