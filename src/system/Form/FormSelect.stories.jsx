@@ -3,10 +3,10 @@
 /**
  * Internal dependencies
  */
-import * as NewForm from '.';
+import { Form } from '.';
 
 export default {
-	title: 'NewForm/Select',
+	title: 'Form/Select',
 	argTypes: {
 		placeholder: {
 			type: { name: 'string', required: false },
@@ -25,7 +25,7 @@ const options = [
 	{ value: 'vanilla', label: 'Vanilla' },
 ];
 
-const Default = args => <NewForm.Select id="form-select" label="Label" { ...args } />;
+const Default = args => <Form.Select id="form-select" label="Label" { ...args } />;
 
 export const Primary = Default.bind( {} );
 Primary.args = {

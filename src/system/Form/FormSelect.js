@@ -31,7 +31,7 @@ const renderGroup = ( groupLabel, groupOptions ) => {
 	);
 };
 
-const Select = ( { isInline, placeholder, forLabel, options, label, ...props } ) => {
+const FormSelect = ( { isInline, placeholder, forLabel, options, label, ...props } ) => {
 	const wrapperRef = React.useRef();
 	const selectRef = React.useRef();
 
@@ -93,7 +93,7 @@ const Select = ( { isInline, placeholder, forLabel, options, label, ...props } )
 	);
 };
 
-Select.propTypes = {
+FormSelect.propTypes = {
 	id: PropTypes.string,
 	isInline: PropTypes.bool,
 	forLabel: PropTypes.string,
@@ -102,4 +102,4 @@ Select.propTypes = {
 	options: PropTypes.array,
 };
 
-export { Select };
+export { FormSelect };

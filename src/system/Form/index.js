@@ -12,6 +12,7 @@ import { Radio } from './Radio';
 import { RadioBoxGroup } from './RadioBoxGroup';
 import { Textarea } from './Textarea';
 import { Checkbox } from './Checkbox';
+import { Form } from './Form';
 
 export {
 	Input,
@@ -25,4 +26,7 @@ export {
 	ToggleRow,
 	Validation,
 	Checkbox,
+	Form,
 };
+
+export default Form;

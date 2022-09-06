@@ -6,13 +6,16 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
+import { FormSelect } from './FormSelect';
 
-const NewForm = ( { children } ) => {
+const Form = ( { children } ) => {
 	return <>{ children }</>;
 };
 
-NewForm.propTypes = {
+Form.Select = FormSelect;
+
+Form.propTypes = {
 	children: PropTypes.node,
 };
 
-export { NewForm };
+export { Form };
