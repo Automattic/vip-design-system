@@ -25,15 +25,9 @@ export const NewDialog = ( {
 	style: extraStyles,
 	contentProps = {},
 	portalProps = {},
-
-	// Radix Specific Properties
-	defaultOpen = false,
-	allowPinchZoom = false,
-	onOpenChange = undefined,
-	open = undefined,
-	id = undefined,
+	...props
 } ) => {
-	const [ isOpen, setIsOpen ] = React.useState( open || defaultOpen );
+	const closeRef = React.useRef( null );
 
 	if ( disabled ) {
 		return;
@@ -42,26 +36,12 @@ export const NewDialog = ( {
 	// if content is a function, pass in onClose
 	const isContentFunction = typeof content === 'function';
 
-	const handleOnOpenChange = status => {
-		setIsOpen( status );
-
-		if ( onOpenChange ) {
-			onOpenChange( status );
-		}
+	const onClose = () => {
+		closeRef?.current?.click();
 	};
 
-	React.useEffect( () => {
-		handleOnOpenChange( open );
-	}, [ open ] );
-
 	return (
-		<DialogPrimitive.Root
-			id={ id }
-			open={ isOpen }
-			onOpenChange={ handleOnOpenChange }
-			defaultOpen={ defaultOpen }
-			allowPinchZoom={ allowPinchZoom }
-		>
+		<DialogPrimitive.Root { ...props }>
 			{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
 
 			<DialogPrimitive.Portal { ...portalProps }>
@@ -72,13 +52,11 @@ export const NewDialog = ( {
 					sx={ { ...contentStyles, ...extraStyles } }
 					{ ...contentProps }
 				>
-					<DialogClose />
+					<DialogClose ref={ closeRef } />
 					<DialogTitle title={ title } hidden={ ! showHeading } />
 					<DialogDescription description={ description } hidden={ ! showHeading } />
 
-					<div role="document">
-						{ isContentFunction ? content( { onClose: () => setIsOpen( false ) } ) : content }
-					</div>
+					<div role="document">{ isContentFunction ? content( { onClose } ) : content }</div>
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>
