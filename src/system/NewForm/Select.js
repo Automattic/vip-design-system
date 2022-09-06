@@ -37,6 +37,13 @@ const Select = ( { isInline, placeholder, forLabel, options, label, ...props } )
 		setWidth( selectRef.current.offsetWidth );
 	}, [] );
 
+	if ( process.env.NODE_ENV !== 'production' && options.length > 15 ) {
+		// eslint-disable-next-line no-console
+		console.info(
+			'More than 15 options. If the list of options is very long, consider using a combo box.'
+		);
+	}
+
 	return (
 		<>
 			{ label && <Label htmlFor={ forLabel || props.id }>{ label }</Label> }
