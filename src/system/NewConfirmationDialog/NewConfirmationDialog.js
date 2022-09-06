@@ -58,7 +58,6 @@ const NewConfirmationDialog = ( {
 	body = '',
 	...props
 } ) => {
-	const [ open, setOpen ] = React.useState( false );
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
 
 	if ( ! needsConfirm ) {
@@ -67,20 +66,18 @@ const NewConfirmationDialog = ( {
 
 	return (
 		<NewDialog.Root
-			open={ open }
-			onOpenChange={ setOpen }
 			sx={ { maxWidth: 680 } }
 			title={ title }
 			description={ body }
-			content={
+			content={ ( { onClose } ) => (
 				<NewConfirmationDialogContent
-					onClose={ () => setOpen( false ) }
+					onClose={ onClose }
 					onConfirm={ onConfirm }
 					body={ body }
 					label={ label }
 					buttonVariant={ buttonVariant }
 				/>
-			}
+			) }
 			trigger={ trigger }
 			{ ...props }
 		/>
