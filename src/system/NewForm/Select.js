@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useLayoutEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { MdExpandMore } from 'react-icons/md';
 import { Label } from '..';
@@ -11,6 +11,9 @@ import { Label } from '..';
 /**
  * Internal dependencies
  */
+
+const MAX_SUGGESTED_OPTIONS = 15;
+const isDev = process.env.NODE_ENV !== 'production';
 
 const renderOption = ( label, value ) => {
 	return (
@@ -31,13 +34,8 @@ const renderGroup = ( groupLabel, groupOptions ) => {
 const Select = ( { isInline, placeholder, forLabel, options, label, ...props } ) => {
 	const wrapperRef = React.useRef();
 	const selectRef = React.useRef();
-	const [ width, setWidth ] = useState( 0 );
 
-	useLayoutEffect( () => {
-		setWidth( selectRef.current.offsetWidth );
-	}, [] );
-
-	if ( process.env.NODE_ENV !== 'production' && options.length > 15 ) {
+	if ( isDev && options.length > MAX_SUGGESTED_OPTIONS ) {
 		// eslint-disable-next-line no-console
 		console.info(
 			'For 16 or more items, consider using another component with a typeahead capability.'
@@ -50,9 +48,10 @@ const Select = ( { isInline, placeholder, forLabel, options, label, ...props } )
 			<div
 				ref={ wrapperRef }
 				sx={ {
-					width: `${ width }px`,
-					position: 'relative',
 					'&:hover select': { borderColor: 'placeholder' },
+					display: 'inline-flex',
+					flexDirection: 'row',
+					alignItems: 'center',
 				} }
 				className="vip-select-component"
 			>
@@ -79,17 +78,14 @@ const Select = ( { isInline, placeholder, forLabel, options, label, ...props } )
 				</select>
 				<MdExpandMore
 					sx={ {
-						color: 'text',
 						pl: 2,
-						position: 'absolute',
-						top: '50%',
-						marginTop: '-10px',
-						marginRight: '10px',
-						right: 0,
 						borderLeftWidth: '1px',
 						borderLeftStyle: 'solid',
 						borderLeftColor: 'border',
 						size: 20,
+						position: 'relative',
+						right: '2rem',
+						pointerEvents: 'none',
 					} }
 				/>
 			</div>
