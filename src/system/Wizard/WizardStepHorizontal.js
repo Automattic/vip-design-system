@@ -31,10 +31,11 @@ const WizardStepHorizontal = ( { title, active, order, titleVariant = 'h4' } ) =
 };
 
 WizardStepHorizontal.propTypes = {
-	title: PropTypes.node,
-	subTitle: PropTypes.node,
 	active: PropTypes.bool,
 	order: PropTypes.number.isRequired,
+	subTitle: PropTypes.node,
+	title: PropTypes.node,
+	titleVariant: PropTypes.string,
 };
 
 export { WizardStepHorizontal };
