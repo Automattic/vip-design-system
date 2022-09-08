@@ -52,7 +52,7 @@ export const Default = () => {
 	);
 };
 
-export const CustomLabel = () => {
+export const CustomHeadingVariant = () => {
 	const steps = [
 		{
 			title: 'Choose Domain',
