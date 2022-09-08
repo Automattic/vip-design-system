@@ -26,7 +26,7 @@ const options = [
 ];
 
 // eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', ...rest } ) => (
+const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
 	<>
 		<p>
 			This is a simple wrapper at the top of a browser default select component. This component
@@ -48,7 +48,7 @@ const DefaultComponent = ( { label = 'Label', ...rest } ) => (
 			.
 		</p>
 		<Form.Root>
-			<div sx={ { width: 250 } }>
+			<div sx={ { width } }>
 				<Form.Select id="form-select" label={ label } { ...rest } />
 			</div>
 		</Form.Root>
@@ -65,6 +65,24 @@ export const WithGroup = DefaultComponent.bind( {} );
 
 WithGroup.args = {
 	label: 'Group Label',
+	options: [
+		{
+			label: 'Group name',
+			options: options,
+		},
+		{
+			label: 'Another Group name',
+			options: options,
+		},
+	],
+};
+
+export const IsInline = DefaultComponent.bind( {} );
+
+IsInline.args = {
+	label: 'Inline Select',
+	isInline: true,
+	width: '100%',
 	options: [
 		{
 			label: 'Group name',
