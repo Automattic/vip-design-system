@@ -94,7 +94,7 @@ export default {
 		primary: light.brand[ '70' ],
 		secondary: '#30c',
 		muted: light.grey[ '90' ],
-		link: light.brand[ '90' ],
+		link: getColor( 'text', 'interactive' ),
 		card: '#fff',
 		border: light.grey[ '20' ],
 		hover: 'rgba(0,0,0,.02)',
