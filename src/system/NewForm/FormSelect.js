@@ -6,7 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MdExpandMore } from 'react-icons/md';
-import { Label } from '..';
+import { Label } from '../Form/Label';
 
 /**
  * Internal dependencies
@@ -48,7 +48,7 @@ const FormSelect = ( { isInline, placeholder, forLabel, options, label, ...props
 			<div
 				ref={ wrapperRef }
 				sx={ {
-					'&:hover select': { borderColor: 'placeholder' },
+					'&:hover select': { borderColor: 'border' },
 					display: 'inline-flex',
 					flexDirection: 'row',
 					alignItems: 'center',
@@ -61,12 +61,11 @@ const FormSelect = ( { isInline, placeholder, forLabel, options, label, ...props
 						borderRadius: '4px',
 						padding: '10px 35px 10px 10px',
 						borderColor: 'border',
+						appearance: 'none',
 						'&:focus': theme => theme.outline,
 						'&:focus-visible': theme => theme.outline,
-						'-webkit-appearance': 'none',
-						'-moz-appearance': 'none',
 						'&:hover': {
-							borderColor: 'placeholder',
+							borderColor: 'border',
 						},
 					} }
 					{ ...props }
@@ -101,5 +100,7 @@ FormSelect.propTypes = {
 	label: PropTypes.string,
 	options: PropTypes.array,
 };
+
+FormSelect.displayName = 'FormSelect';
 
 export { FormSelect };

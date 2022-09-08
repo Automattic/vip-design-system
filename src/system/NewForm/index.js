@@ -1,12 +1,13 @@
-/** @jsxImportSource theme-ui */
 /**
  * Internal dependencies
  */
-import { NewForm } from './NewForm';
-import { Select as FormSelect } from './Select';
+
+import { FormSelect } from './FormSelect';
+import { Form } from './Form';
 
 const Select = FormSelect;
+const Root = Form;
 
-export { Select };
+export { Root, Select };
 
-export default NewForm;
+export default Root;
