@@ -1,9 +1,14 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Form = ( { children, ...props } ) => <form { ...props }>{ children }</form>;
+const Form = React.forwardRef( ( { children, ...props }, forwardRef ) => (
+	<form ref={ forwardRef } { ...props }>
+		{ children }
+	</form>
+) );
 
 Form.propTypes = {
 	children: PropTypes.any,

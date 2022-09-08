@@ -47,7 +47,9 @@ const DefaultComponent = ( { label = 'Label', ...rest } ) => (
 			</a>
 			.
 		</p>
-		<Form.Select id="form-select" label={ label } { ...rest } />
+		<Form.Root>
+			<Form.Select id="form-select" label={ label } { ...rest } />
+		</Form.Root>
 	</>
 );
 

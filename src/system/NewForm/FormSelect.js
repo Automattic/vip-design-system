@@ -31,66 +31,67 @@ const renderGroup = ( groupLabel, groupOptions ) => {
 	);
 };
 
-const FormSelect = ( { isInline, placeholder, forLabel, options, label, ...props } ) => {
-	const wrapperRef = React.useRef();
-	const selectRef = React.useRef();
+const FormSelect = React.forwardRef(
+	( { isInline, placeholder, forLabel, options, label, ...props }, forwardRef ) => {
+		if ( isDev && options.length > MAX_SUGGESTED_OPTIONS ) {
+			// eslint-disable-next-line no-console
+			console.info(
+				'For 16 or more items, consider using another component with a typeahead capability.'
+			);
+		}
 
-	if ( isDev && options.length > MAX_SUGGESTED_OPTIONS ) {
-		// eslint-disable-next-line no-console
-		console.info(
-			'For 16 or more items, consider using another component with a typeahead capability.'
+		return (
+			<>
+				{ label && <Label htmlFor={ forLabel || props.id }>{ label }</Label> }
+				<div
+					sx={ {
+						'&:hover select': { borderColor: 'border' },
+						display: 'inline-flex',
+						flexDirection: 'row',
+						alignItems: 'center',
+					} }
+					className="vip-select-component"
+				>
+					<select
+						ref={ forwardRef }
+						sx={ {
+							borderRadius: '4px',
+							padding: '10px 35px 10px 10px',
+							borderColor: 'border',
+							appearance: 'none',
+							'&:focus': theme => theme.outline,
+							'&:focus-visible': theme => theme.outline,
+							'&:focus-within': theme => theme.outline,
+							'&:hover': {
+								borderColor: 'border',
+							},
+						} }
+						{ ...props }
+					>
+						{ placeholder && <option>{ placeholder }</option> }
+						{ options.map( ( { label: optionLabel, value, options: groupOptions } ) =>
+							value ? renderOption( optionLabel, value ) : renderGroup( optionLabel, groupOptions )
+						) }
+					</select>
+
+					<MdExpandMore
+						aria-hidden="true"
+						size={ 20 }
+						sx={ {
+							pl: 2,
+							borderLeftWidth: '1px',
+							borderLeftStyle: 'solid',
+							borderLeftColor: 'border',
+							position: 'relative',
+							right: '2rem',
+							pointerEvents: 'none',
+						} }
+					/>
+				</div>
+			</>
 		);
 	}
-
-	return (
-		<>
-			{ label && <Label htmlFor={ forLabel || props.id }>{ label }</Label> }
-			<div
-				ref={ wrapperRef }
-				sx={ {
-					'&:hover select': { borderColor: 'border' },
-					display: 'inline-flex',
-					flexDirection: 'row',
-					alignItems: 'center',
-				} }
-				className="vip-select-component"
-			>
-				<select
-					ref={ selectRef }
-					sx={ {
-						borderRadius: '4px',
-						padding: '10px 35px 10px 10px',
-						borderColor: 'border',
-						appearance: 'none',
-						'&:focus': theme => theme.outline,
-						'&:focus-visible': theme => theme.outline,
-						'&:hover': {
-							borderColor: 'border',
-						},
-					} }
-					{ ...props }
-				>
-					{ placeholder && <option>{ placeholder }</option> }
-					{ options.map( ( { label: optionLabel, value, options: groupOptions } ) =>
-						value ? renderOption( optionLabel, value ) : renderGroup( optionLabel, groupOptions )
-					) }
-				</select>
-				<MdExpandMore
-					sx={ {
-						pl: 2,
-						borderLeftWidth: '1px',
-						borderLeftStyle: 'solid',
-						borderLeftColor: 'border',
-						size: 20,
-						position: 'relative',
-						right: '2rem',
-						pointerEvents: 'none',
-					} }
-				/>
-			</div>
-		</>
-	);
-};
+);
 
 FormSelect.propTypes = {
 	id: PropTypes.string,
