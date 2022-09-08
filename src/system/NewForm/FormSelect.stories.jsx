@@ -21,7 +21,7 @@ export default {
 
 const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
+	{ value: 'strawberry', label: 'Strawberry Chocolate Vanilla Chocolate Vanilla' },
 	{ value: 'vanilla', label: 'Vanilla' },
 ];
 
@@ -48,7 +48,9 @@ const DefaultComponent = ( { label = 'Label', ...rest } ) => (
 			.
 		</p>
 		<Form.Root>
-			<Form.Select id="form-select" label={ label } { ...rest } />
+			<div sx={ { width: 250 } }>
+				<Form.Select id="form-select" label={ label } { ...rest } />
+			</div>
 		</Form.Root>
 	</>
 );

@@ -55,16 +55,17 @@ const FormSelect = React.forwardRef(
 					<select
 						ref={ forwardRef }
 						sx={ {
-							borderRadius: '4px',
-							padding: '10px 35px 10px 10px',
+							width: '100%',
+							borderRadius: 1,
+							paddingLeft: 3,
+							paddingRight: 40, // 40px for the icon
+							py: 0,
 							borderColor: 'border',
 							appearance: 'none',
+							minHeight: '36px',
 							'&:focus': theme => theme.outline,
 							'&:focus-visible': theme => theme.outline,
 							'&:focus-within': theme => theme.outline,
-							'&:hover': {
-								borderColor: 'border',
-							},
 						} }
 						{ ...props }
 					>
@@ -76,14 +77,14 @@ const FormSelect = React.forwardRef(
 
 					<MdExpandMore
 						aria-hidden="true"
-						size={ 20 }
+						size={ 24 }
 						sx={ {
 							pl: 2,
 							borderLeftWidth: '1px',
 							borderLeftStyle: 'solid',
 							borderLeftColor: 'border',
 							position: 'relative',
-							right: '2rem',
+							right: 35,
 							pointerEvents: 'none',
 						} }
 					/>
