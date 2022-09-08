@@ -16,6 +16,20 @@ import { FormSelectContent } from './FormSelectContent';
 const MAX_SUGGESTED_OPTIONS = 15;
 const isDev = process.env.NODE_ENV !== 'production';
 
+const defaultStyles = {
+	width: '100%',
+	paddingLeft: 3,
+	paddingRight: 40, // 40px for the icon
+	py: 0,
+	borderColor: 'border',
+	borderRadius: 1,
+	appearance: 'none',
+	minHeight: '36px',
+	'&:focus': theme => theme.outline,
+	'&:focus-visible': theme => theme.outline,
+	'&:focus-within': theme => theme.outline,
+};
+
 const renderOption = ( label, value ) => {
 	return (
 		<option key={ value } value={ value }>
@@ -49,23 +63,7 @@ const FormSelect = React.forwardRef(
 				{ label && ! isInline && <SelectLabel /> }
 
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
-					<select
-						ref={ forwardRef }
-						sx={ {
-							width: '100%',
-							paddingLeft: 3,
-							paddingRight: 40, // 40px for the icon
-							py: 0,
-							borderColor: 'border',
-							borderRadius: 1,
-							appearance: 'none',
-							minHeight: '36px',
-							'&:focus': theme => theme.outline,
-							'&:focus-visible': theme => theme.outline,
-							'&:focus-within': theme => theme.outline,
-						} }
-						{ ...props }
-					>
+					<select ref={ forwardRef } sx={ defaultStyles } { ...props }>
 						{ placeholder && <option>{ placeholder }</option> }
 						{ options.map( ( { label: optionLabel, value, options: groupOptions } ) =>
 							value ? renderOption( optionLabel, value ) : renderGroup( optionLabel, groupOptions )
