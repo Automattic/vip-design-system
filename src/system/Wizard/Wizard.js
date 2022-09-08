@@ -24,13 +24,14 @@ const Wizard = ( { steps, activeStep, variant, completed = [], className = null,
 						} }
 						{ ...props }
 					>
-						{ steps.map( ( { title, subTitle }, index ) => (
+						{ steps.map( ( { title, subTitle, titleVariant }, index ) => (
 							<React.Fragment key={ index }>
 								<WizardStepHorizontal
-									order={ index + 1 }
 									active={ index === activeStep }
-									title={ title }
+									order={ index + 1 }
 									subTitle={ subTitle }
+									title={ title }
+									titleVariant={ titleVariant }
 								/>
 								{ index < steps.length - 1 && (
 									<MdArrowForward sx={ { mx: 2, color: 'grey.80' } } />
@@ -41,14 +42,15 @@ const Wizard = ( { steps, activeStep, variant, completed = [], className = null,
 					{ steps[ activeStep ].children }
 				</Box>
 			) : (
-				steps.map( ( { title, subTitle, children }, index ) => (
+				steps.map( ( { title, subTitle, children, titleVariant }, index ) => (
 					<WizardStep
 						active={ index === activeStep }
-						title={ title }
-						subTitle={ subTitle }
 						complete={ completed.includes( index ) }
 						key={ index }
 						order={ index + 1 }
+						subTitle={ subTitle }
+						title={ title }
+						titleVariant={ titleVariant }
 					>
 						{ children }
 					</WizardStep>

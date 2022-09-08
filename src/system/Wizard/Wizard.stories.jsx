@@ -51,3 +51,22 @@ export const Default = () => {
 		</React.Fragment>
 	);
 };
+
+export const CustomLabel = () => {
+	const steps = [
+		{
+			title: 'Choose Domain',
+			titleVariant: 'h1',
+			subTitle: <h2>You can bring a domain name you already own, or buy a new one.</h2>,
+		},
+		{
+			title: 'Configure DNS',
+			titleVariant: 'h1',
+		},
+	];
+	return (
+		<React.Fragment>
+			<Wizard activeStep={ 0 } steps={ steps } className="vip-wizard-xyz" />
+		</React.Fragment>
+	);
+};
