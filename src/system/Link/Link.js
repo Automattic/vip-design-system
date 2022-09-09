@@ -11,6 +11,8 @@ const Link = ( { active = false, sx, ...props } ) => (
 		{ ...props }
 		sx={ {
 			color: active ? 'heading' : 'link',
+			textDdecorationThickness: '0.1em',
+			textUnderlineOffset: '0.1em',
 			'&:visited': {
 				color: 'link',
 			},
