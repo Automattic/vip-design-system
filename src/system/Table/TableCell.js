@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Heading, Box } from '../';
-import { getColor } from '../theme/getColor';
 
 const TableCell = ( { head, children, ...rest } ) => {
 	const sx = {

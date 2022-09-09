@@ -13,7 +13,7 @@ import { Link } from '..';
 const TabItem = ( { active = false, sx, ...props } ) => (
 	<Link
 		variant="h4"
-		as="button"
+		// as="button"
 		tabIndex="0"
 		data-active={ active || undefined }
 		sx={ {
@@ -29,6 +29,7 @@ const TabItem = ( { active = false, sx, ...props } ) => (
 			borderLeft: 'none',
 			borderRight: 'none',
 			borderBottom: '1px solid',
+			textDecoration: 'none',
 			borderColor: active ? 'link' : 'transparent',
 			transform: 'translateY(1px)',
 			'&:visited': {

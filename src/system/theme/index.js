@@ -94,7 +94,13 @@ export default {
 		primary: light.brand[ '70' ],
 		secondary: '#30c',
 		muted: light.grey[ '90' ],
-		link: getColor( 'text', 'interactive' ),
+		link: getColor( 'link', 'default' ),
+		links: {
+			default: getColor( 'link', 'default' ),
+			hover: getColor( 'link', 'hover' ),
+			active: getColor( 'link', 'active' ),
+			visited: getColor( 'link', 'visited' ),
+		},
 		card: '#fff',
 		borders: {
 			1: getColor( 'border', '1' ),
@@ -103,6 +109,7 @@ export default {
 			4: getColor( 'border', '4' ),
 			accent: getColor( 'border', 'accent' ),
 		},
+
 		border: getColor( 'border', '1' ),
 		hover: 'rgba(0,0,0,.02)',
 		lightenBackground: 'rgba(255,255,255,.5)',

@@ -5,23 +5,22 @@
  */
 import { Link as ThemeLink } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { getColor } from '../theme/getColor';
 
 const Link = ( { active = false, sx, ...props } ) => (
 	<ThemeLink
 		{ ...props }
 		sx={ {
-			color: active ? getColor( 'link', 'active' ) : 'link',
+			color: active ? 'links.active' : 'link',
 			textDdecorationThickness: '0.1em',
 			textUnderlineOffset: '0.1em',
 			'&:visited': {
-				color: getColor( 'link', 'visited' ),
+				color: 'links.visited',
 			},
 			'&:active': {
-				color: getColor( 'link', 'active' ),
+				color: 'links.active',
 			},
 			'&:hover, &:focus': {
-				color: getColor( 'link', 'hover' ),
+				color: 'links.hover',
 			},
 			'&:focus': theme => theme.outline,
 			'&:focus-visible': theme => theme.outline,
