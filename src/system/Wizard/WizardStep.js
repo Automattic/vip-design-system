@@ -20,7 +20,7 @@ const WizardStep = ( {
 	order,
 	titleVariant = 'h4',
 } ) => {
-	let borderLeftColor = 'border';
+	let borderLeftColor = 'borders.2';
 
 	if ( complete ) {
 		borderLeftColor = 'success';
@@ -46,10 +46,11 @@ const WizardStep = ( {
 				borderRadius: 0,
 				borderBottom: active ? 'none' : '1px solid',
 				'&:first-of-type': {
-					borderTopWidth: active ? 'none' : '1px',
-					borderTopStyle: active ? 'none' : 'solid',
+					borderTopWidth: '1px',
+					borderTopStyle: 'solid',
+					borderTopColor: 'borders.2',
 				},
-				borderColor: active ? 'primary' : 'border',
+				borderColor: active ? 'primary' : 'borders.2',
 				borderLeftColor: borderLeftColor,
 			} }
 			data-step={ order }
@@ -61,10 +62,11 @@ const WizardStep = ( {
 					mb: 0,
 					display: 'flex',
 					alignItems: 'center',
-					color: color,
+					color,
+					fontSize: 2,
 				} }
 			>
-				<MdCheckCircle sx={ { mr: 2 } } />
+				<MdCheckCircle sx={ { mr: 2 } } size={ 18 } />
 				{ title }
 			</Heading>
 			{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }

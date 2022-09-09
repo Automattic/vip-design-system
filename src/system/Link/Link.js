@@ -10,14 +10,17 @@ const Link = ( { active = false, sx, ...props } ) => (
 	<ThemeLink
 		{ ...props }
 		sx={ {
-			color: active ? 'heading' : 'link',
+			color: active ? 'links.active' : 'link',
 			textDdecorationThickness: '0.1em',
 			textUnderlineOffset: '0.1em',
 			'&:visited': {
-				color: 'link',
+				color: 'links.visited',
+			},
+			'&:active': {
+				color: 'links.active',
 			},
 			'&:hover, &:focus': {
-				color: 'heading',
+				color: 'links.hover',
 			},
 			'&:focus': theme => theme.outline,
 			'&:focus-visible': theme => theme.outline,

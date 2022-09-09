@@ -43,7 +43,7 @@ export const DialogCloseDefault = React.forwardRef( ( props, forwardedRef ) => (
 				right: 10,
 
 				'&:hover': {
-					backgroundColor: 'border',
+					backgroundColor: 'borders.2',
 					outlineStyle: 'solid',
 					outlineColor: 'primary',
 					outlineWidth: '2px',

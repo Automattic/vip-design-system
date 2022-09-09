@@ -16,7 +16,7 @@ const TableCell = ( { head, children, ...rest } ) => {
 		borderBottom: '1px solid',
 		borderTop: head ? '1px solid' : 'none',
 		// borderColor should come after borderTop so it can override it
-		borderColor: 'border',
+		borderColor: 'borders.2',
 		fontWeight: 'body',
 		px: 3,
 		py: 2,

@@ -89,18 +89,32 @@ export default {
 	colors: {
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
-		background: '#fdfdfd',
+		background: getColor( 'background', 'primary' ),
 		backgroundSecondary: light.grey[ '10' ],
 		primary: light.brand[ '70' ],
 		secondary: '#30c',
 		muted: light.grey[ '90' ],
-		link: getColor( 'text', 'interactive' ),
+		link: getColor( 'link', 'default' ),
+		links: {
+			default: getColor( 'link', 'default' ),
+			hover: getColor( 'link', 'hover' ),
+			active: getColor( 'link', 'active' ),
+			visited: getColor( 'link', 'visited' ),
+		},
 		card: '#fff',
-		border: light.grey[ '20' ],
+		borders: {
+			1: getColor( 'border', '1' ),
+			2: getColor( 'border', '2' ),
+			3: getColor( 'border', '3' ),
+			4: getColor( 'border', '4' ),
+			accent: getColor( 'border', 'accent' ),
+		},
+
+		border: getColor( 'border', '1' ),
 		hover: 'rgba(0,0,0,.02)',
 		lightenBackground: 'rgba(255,255,255,.5)',
 		darken: 'rgba(0,0,0,.05)',
-		placeholder: light.grey[ '70' ],
+		placeholder: getColor( 'text', 'placeholder' ),
 		midnight: '#13191E',
 		navigationStart: light.grey[ '5' ],
 		navigationEnd: light.grey[ '5' ],
@@ -145,6 +159,7 @@ export default {
 			// eslint-disable-next-line max-len
 			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
 	},
+
 	cards: {
 		primary: {
 			padding: 3,
@@ -166,7 +181,6 @@ export default {
 			backgroundColor: 'backgroundMuted',
 		},
 	},
-
 	buttons: {
 		primary: {
 			// you can reference other values defined in the theme
@@ -237,11 +251,13 @@ export default {
 			},
 		},
 	},
+
 	links: {
 		dark: {
 			color: 'modes.dark.muted',
 			'&:hover': { color: 'modes.dark.heading' },
 		},
+
 		hover: {
 			display: 'block',
 			color: 'inherit',

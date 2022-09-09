@@ -68,7 +68,6 @@ const Notice = ( {
 				color: `${ color }.90`,
 				a: {
 					color: `${ color }.90`,
-					textDecoration: 'underline',
 					border: 'none',
 				},
 				...sx,

@@ -33,7 +33,7 @@ const StyledListItem = props => (
 		sx={ {
 			py: 2,
 			borderBottom: '1px solid',
-			borderColor: 'border',
+			borderColor: 'borders.2',
 			listStyleType: 'none',
 			margin: 0,
 			px: 0,

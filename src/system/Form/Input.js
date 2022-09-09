@@ -38,10 +38,8 @@ const Input = React.forwardRef(
 					color: 'text',
 					display: 'block',
 					width: '100%',
-					'&:focus': {
-						borderColor: 'brand.60',
-						outline: 'none',
-					},
+					'&:focus': theme => theme.outline,
+					'&:focus-visible': theme => theme.outline,
 					'&:disabled': {
 						bg: 'backgroundSecondary',
 					},

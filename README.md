@@ -102,3 +102,15 @@ git push origin trunk
 ```
 
 8. For major versions or breaking changes, it's recommended to [create a RELEASE](https://github.com/Automattic/vip-design-system/releases) with the published tag.
+
+### Troubleshooting
+
+### Dialog + Dropdown usage
+
+If you are facing a Dialog overlaping a Dropdown content, add this CSS to your application:
+
+```css
+div[data-radix-popper-content-wrapper][data-aria-hidden='true'] {
+	opacity: 0;
+}
+```
