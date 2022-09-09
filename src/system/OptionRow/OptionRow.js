@@ -15,7 +15,7 @@ import classNames from 'classnames';
 
 const disabledStyles = {
 	border: '1px solid',
-	borderColor: 'border',
+	borderColor: 'borders.2',
 	background: 'none',
 	boxShadow: 'none',
 	color: 'grey.70',
@@ -31,7 +31,7 @@ const regularGridStyle = small => ( {
 	py: 3,
 	px: [ 3, 3, small ? 3 : 5 ],
 	borderBottom: '1px solid',
-	borderColor: 'border',
+	borderColor: 'borders.2',
 } );
 
 const OptionRow = ( {

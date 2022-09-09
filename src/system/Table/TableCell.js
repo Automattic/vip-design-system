@@ -10,13 +10,14 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Heading, Box } from '../';
+import { getColor } from '../theme/getColor';
 
 const TableCell = ( { head, children, ...rest } ) => {
 	const sx = {
 		borderBottom: '1px solid',
 		borderTop: head ? '1px solid' : 'none',
 		// borderColor should come after borderTop so it can override it
-		borderColor: 'border',
+		borderColor: 'borders.2',
 		fontWeight: 'body',
 		px: 3,
 		py: 2,
