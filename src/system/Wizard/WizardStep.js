@@ -9,18 +9,10 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Card, Heading, Text } from '..';
+import { Card, Heading, Text, Flex } from '..';
 
-const WizardStep = ( {
-	title,
-	subTitle,
-	complete = false,
-	children,
-	active,
-	order,
-	titleVariant = 'h4',
-} ) => {
-	let borderLeftColor = 'borders.2';
+const WizardStep = ( { title, subTitle, complete = false, children, active, order } ) => {
+	let borderLeftColor = 'border';
 
 	if ( complete ) {
 		borderLeftColor = 'success';
@@ -56,19 +48,26 @@ const WizardStep = ( {
 			data-step={ order }
 			data-active={ active || undefined }
 		>
-			<Heading
-				variant={ titleVariant }
-				sx={ {
-					mb: 0,
-					display: 'flex',
-					alignItems: 'center',
-					color,
-					fontSize: 2,
-				} }
-			>
-				<MdCheckCircle sx={ { mr: 2 } } size={ 18 } />
-				{ title }
-			</Heading>
+			{ typeof title === 'string' ? (
+				<Heading
+					variant="h4"
+					sx={ {
+						mb: 0,
+						display: 'flex',
+						alignItems: 'center',
+						color: color,
+					} }
+				>
+					<MdCheckCircle sx={ { mr: 2 } } />
+					{ title }
+				</Heading>
+			) : (
+				<Flex sx={ { alignItems: 'center', color } }>
+					<MdCheckCircle sx={ { mr: 2 } } />
+					{ title }
+				</Flex>
+			) }
+
 			{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
 
 			{ active && children }
@@ -83,7 +82,6 @@ WizardStep.propTypes = {
 	order: PropTypes.number.isRequired,
 	subTitle: PropTypes.node,
 	title: PropTypes.node,
-	titleVariant: PropTypes.string,
 };
 
 export { WizardStep };

@@ -52,16 +52,14 @@ export const Default = () => {
 	);
 };
 
-export const CustomHeadingVariant = () => {
+export const CustomTitle = () => {
 	const steps = [
 		{
-			title: 'Choose Domain',
-			titleVariant: 'h1',
-			subTitle: <h2>You can bring a domain name you already own, or buy a new one.</h2>,
+			title: <h1 sx={ { m: 0 } }>Choose Domain</h1>,
+			subTitle: <span>You can bring a domain name you already own, or buy a new one.</span>,
 		},
 		{
-			title: 'Configure DNS',
-			titleVariant: 'h1',
+			title: <h1 sx={ { m: 0 } }>Configure DNS</h1>,
 		},
 	];
 	return (
