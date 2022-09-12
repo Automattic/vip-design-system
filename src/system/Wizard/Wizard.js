@@ -42,7 +42,7 @@ const Wizard = ( { steps, activeStep, variant, completed = [], className = null,
 					{ steps[ activeStep ].children }
 				</Box>
 			) : (
-				steps.map( ( { title, subTitle, children, titleVariant }, index ) => (
+				steps.map( ( { title, subTitle, children }, index ) => (
 					<WizardStep
 						active={ index === activeStep }
 						complete={ completed.includes( index ) }
@@ -50,7 +50,6 @@ const Wizard = ( { steps, activeStep, variant, completed = [], className = null,
 						order={ index + 1 }
 						subTitle={ subTitle }
 						title={ title }
-						titleVariant={ titleVariant }
 					>
 						{ children }
 					</WizardStep>

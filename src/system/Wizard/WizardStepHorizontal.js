@@ -9,24 +9,31 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Heading } from '..';
+import { Heading, Flex } from '..';
 
-const WizardStepHorizontal = ( { title, active, order, titleVariant = 'h4' } ) => {
-	return (
+const WizardStepHorizontal = ( { title, active, order } ) => {
+	const color = active ? 'heading' : 'muted';
+
+	return typeof title === 'string' ? (
 		<Heading
-			variant={ titleVariant }
+			variant="h4"
 			sx={ {
 				mb: 0,
 				display: 'flex',
 				alignItems: 'center',
-				color: active ? 'heading' : 'muted',
+				color,
 			} }
 			data-step={ order }
 			data-active={ active || undefined }
 		>
-			<MdCheckCircle sx={ { mr: 2 } } />
+			<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
 			{ title }
 		</Heading>
+	) : (
+		<Flex sx={ { alignItems: 'center', color } }>
+			<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
+			{ title }
+		</Flex>
 	);
 };
 
@@ -35,7 +42,6 @@ WizardStepHorizontal.propTypes = {
 	order: PropTypes.number.isRequired,
 	subTitle: PropTypes.node,
 	title: PropTypes.node,
-	titleVariant: PropTypes.string,
 };
 
 export { WizardStepHorizontal };
