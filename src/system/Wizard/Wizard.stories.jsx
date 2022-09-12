@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * External dependencies
  */
@@ -55,11 +57,11 @@ export const Default = () => {
 export const CustomTitle = () => {
 	const steps = [
 		{
-			title: <h1 sx={ { m: 0 } }>Choose Domain</h1>,
+			title: <h3 sx={ { m: 0 } }>Choose Domain</h3>,
 			subTitle: <span>You can bring a domain name you already own, or buy a new one.</span>,
 		},
 		{
-			title: <h1 sx={ { m: 0 } }>Configure DNS</h1>,
+			title: <h3 sx={ { m: 0 } }>Configure DNS</h3>,
 		},
 	];
 	return (
