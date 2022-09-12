@@ -26,12 +26,12 @@ const WizardStepHorizontal = ( { title, active, order } ) => {
 			data-step={ order }
 			data-active={ active || undefined }
 		>
-			<MdCheckCircle sx={ { mr: 2 } } />
+			<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
 			{ title }
 		</Heading>
 	) : (
 		<Flex sx={ { alignItems: 'center', color } }>
-			<MdCheckCircle sx={ { mr: 2 } } />
+			<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
 			{ title }
 		</Flex>
 	);

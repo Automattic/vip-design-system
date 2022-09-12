@@ -58,12 +58,12 @@ const WizardStep = ( { title, subTitle, complete = false, children, active, orde
 						color: color,
 					} }
 				>
-					<MdCheckCircle sx={ { mr: 2 } } />
+					<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
 					{ title }
 				</Heading>
 			) : (
 				<Flex sx={ { alignItems: 'center', color } }>
-					<MdCheckCircle sx={ { mr: 2 } } />
+					<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
 					{ title }
 				</Flex>
 			) }
