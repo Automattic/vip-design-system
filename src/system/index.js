@@ -44,7 +44,6 @@ import { Link } from './Link';
 import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
-import { ResourceList, ResourceItem } from './ResourceList';
 import { Tooltip } from './Tooltip';
 import { Time } from './Time';
 import { Timeline } from './Timeline';
@@ -94,8 +93,6 @@ export {
 	Select,
 	Radio,
 	RadioBoxGroup,
-	ResourceList,
-	ResourceItem,
 	Textarea,
 	Progress,
 	Text,
