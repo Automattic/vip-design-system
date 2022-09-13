@@ -21,6 +21,7 @@ const Link = ( { active = false, sx, ...props } ) => (
 			},
 			'&:hover, &:focus': {
 				color: 'links.hover',
+				textDecoration: 'none',
 			},
 			'&:focus': theme => theme.outline,
 			'&:focus-visible': theme => theme.outline,
