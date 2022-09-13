@@ -9,24 +9,17 @@ export default {
 	component: Progress,
 };
 
-const max = 3;
 export const Default = () => {
 	const [ counter, setCounter ] = React.useState( 0 );
+	const steps = [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ];
 
 	useEffect( () => {
 		setTimeout( () => {
-			if ( counter < max ) {
+			if ( counter < steps.length - 1 ) {
 				setCounter( counter + 1 );
 			}
 		}, 1000 );
 	}, [ counter, setCounter ] );
 
-	return (
-		<Progress
-			forLabel="Update site progress"
-			value={ counter }
-			steps={ [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ] }
-			activeStep={ counter }
-		/>
-	);
+	return <Progress forLabel="Update site progress" steps={ steps } activeStep={ counter } />;
 };
