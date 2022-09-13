@@ -13,8 +13,7 @@ import classNames from 'classnames';
  */
 import { Spinner } from '../Spinner';
 import { MdCheck } from 'react-icons/md';
-import { Box, Text, Flex, Label } from '../';
-import ScreenReaderText from '../ScreenReaderText';
+import { Box, Text, Flex } from '../';
 
 const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );
@@ -28,7 +27,7 @@ const Progress = React.forwardRef(
 		const currentValue = activeStep + 1;
 
 		return (
-			<Box className={ classNames( prefix, className ) } ref={ forwardRef }>
+			<Box className={ classNames( prefix, className ) }>
 				<ThemeProgress
 					sx={ {
 						color: 'primary',
@@ -39,6 +38,7 @@ const Progress = React.forwardRef(
 					value={ currentValue }
 					id={ htmlFor }
 					aria-label={ forLabel }
+					ref={ forwardRef }
 					{ ...props }
 				/>
 
