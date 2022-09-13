@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import React, { useEffect } from 'react';
 import { Progress } from '..';
 
 export default {
@@ -8,11 +9,17 @@ export default {
 	component: Progress,
 };
 
-export const Default = () => (
-	<Progress
-		max={ 1 }
-		value={ 1 / 2 }
-		steps={ [ 'Downloading Data', 'Importing Data...', 'Finalizing' ] }
-		activeStep={ 1 }
-	/>
-);
+export const Default = () => {
+	const [ counter, setCounter ] = React.useState( 0 );
+	const steps = [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ];
+
+	useEffect( () => {
+		setTimeout( () => {
+			if ( counter < steps.length - 1 ) {
+				setCounter( counter + 1 );
+			}
+		}, 2000 );
+	}, [ counter, setCounter ] );
+
+	return <Progress forLabel="Update site progress" steps={ steps } activeStep={ counter } />;
+};
