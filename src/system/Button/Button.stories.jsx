@@ -19,5 +19,8 @@ export const Default = () => (
 		<Button variant="secondary" sx={ { ml: 2 } }>
 			Secondary
 		</Button>
+		<Button variant="text" sx={ { ml: 2 } } as="a" href="https://google/com">
+			Button link
+		</Button>
 	</React.Fragment>
 );
