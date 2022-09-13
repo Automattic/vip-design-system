@@ -22,14 +22,11 @@ export const Default = () => {
 	}, [ counter, setCounter ] );
 
 	return (
-		<>
-			<p>Progress goes until the end.</p>
-
-			<Progress
-				value={ counter }
-				steps={ [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ] }
-				activeStep={ counter }
-			/>
-		</>
+		<Progress
+			forLabel="Update site progress"
+			value={ counter }
+			steps={ [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ] }
+			activeStep={ counter }
+		/>
 	);
 };

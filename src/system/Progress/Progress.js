@@ -13,43 +13,47 @@ import classNames from 'classnames';
  */
 import { Spinner } from '../Spinner';
 import { MdCheck } from 'react-icons/md';
-import { Box, Text, Flex } from '../';
+import { Box, Text, Flex, Label } from '../';
+
+const prefix = 'vip-progress-component';
+const uniqueID = Math.random().toString( 36 ).substring( 7 );
 
 const Progress = React.forwardRef(
-	( { steps, activeStep, sx, className, ...props }, forwardRef ) => {
+	( { steps, activeStep, sx, className, forLabel = '', ...props }, forwardRef ) => {
 		const isDone = activeStep === steps.length - 1;
+		const instance = uniqueID();
+		const htmlFor = `${ prefix }-${ instance }`;
 
 		return (
-			<Box
-				className={ classNames( 'vip-progress-component', className ) }
-				aria-live="polite"
-				aria-atomic="true"
-				aria-busy={ ! isDone }
-				ref={ forwardRef }
-			>
-				<ThemeProgress
-					{ ...props }
-					sx={ {
-						color: 'primary',
-						...sx,
-					} }
-					max={ steps.length }
-					value={ activeStep + 1 }
-				/>
+			<Box className={ classNames( prefix, className ) } ref={ forwardRef }>
+				<Label htmlFor={ htmlFor }>{ forLabel }</Label>
 
-				{ steps && (
-					<Flex sx={ { alignItems: 'center', mt: 2 } }>
-						{ ! isDone && <Spinner size={ 24 } aria-hidden="true" /> }
-						{ isDone && <MdCheck size={ 24 } aria-hidden="true" /> }
+				<div aria-live="polite" aria-atomic="true" aria-busy={ ! isDone }>
+					<ThemeProgress
+						{ ...props }
+						sx={ {
+							color: 'primary',
+							...sx,
+						} }
+						max={ steps.length }
+						value={ activeStep + 1 }
+						id={ htmlFor }
+					/>
 
-						<Text variant="h4" sx={ { ml: 2, mb: 0 } }>
-							<strong>{ `${ activeStep + 1 } of ${ steps.length }` }: </strong>
-							<Text as="span" sx={ { color: 'muted' } }>
-								{ steps[ activeStep ] }
+					{ steps && (
+						<Flex sx={ { alignItems: 'center', mt: 2 } }>
+							{ ! isDone && <Spinner size={ 24 } aria-hidden="true" /> }
+							{ isDone && <MdCheck size={ 24 } aria-hidden="true" /> }
+
+							<Text variant="h4" sx={ { ml: 2, mb: 0 } }>
+								<strong>{ `${ activeStep + 1 } of ${ steps.length }` }: </strong>
+								<Text as="span" sx={ { color: 'muted' } }>
+									{ steps[ activeStep ] }
+								</Text>
 							</Text>
-						</Text>
-					</Flex>
-				) }
+						</Flex>
+					) }
+				</div>
 			</Box>
 		);
 	}
@@ -59,6 +63,7 @@ Progress.displayName = 'Progress';
 
 Progress.propTypes = {
 	steps: PropTypes.array,
+	forLabel: PropTypes.node,
 	activeStep: PropTypes.number,
 	sx: PropTypes.object,
 	className: PropTypes.any,
