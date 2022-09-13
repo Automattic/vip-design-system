@@ -18,7 +18,7 @@ export const Default = () => {
 			if ( counter < steps.length - 1 ) {
 				setCounter( counter + 1 );
 			}
-		}, 1000 );
+		}, 2000 );
 	}, [ counter, setCounter ] );
 
 	return <Progress forLabel="Update site progress" steps={ steps } activeStep={ counter } />;

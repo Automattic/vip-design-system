@@ -13,47 +13,47 @@ import classNames from 'classnames';
  */
 import { Spinner } from '../Spinner';
 import { MdCheck } from 'react-icons/md';
-import { Box, Text, Flex } from '../';
+import { Box, Text, Flex, Label } from '../';
+import ScreenReaderText from '../ScreenReaderText';
 
 const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );
 
 const Progress = React.forwardRef(
-	( { steps, activeStep, sx, className, ...props }, forwardRef ) => {
+	( { steps, activeStep, sx, forLabel = '', className, ...props }, forwardRef ) => {
 		const stepsTotal = steps.length;
 		const isDone = activeStep === stepsTotal - 1;
 		const instance = uniqueID();
 		const htmlFor = `${ prefix }-${ instance }`;
+		const currentValue = activeStep + 1;
 
 		return (
-			<Box
-				className={ classNames( prefix, className ) }
-				ref={ forwardRef }
-				aria-live="polite"
-				aria-atomic="true"
-			>
+			<Box className={ classNames( prefix, className ) } ref={ forwardRef }>
 				<ThemeProgress
 					sx={ {
 						color: 'primary',
+						backgroundColor: 'background',
 						...sx,
 					} }
 					max={ stepsTotal }
-					value={ activeStep + 1 }
+					value={ currentValue }
 					id={ htmlFor }
+					aria-label={ forLabel }
 					{ ...props }
 				/>
 
 				{ steps && (
 					<Flex
 						sx={ { alignItems: 'center', mt: 2 } }
-						aria-busy={ ! isDone }
+						aria-live="polite"
+						aria-atomic="true"
 						aria-describedby={ htmlFor }
 					>
 						{ ! isDone && <Spinner size={ 24 } aria-hidden="true" /> }
 						{ isDone && <MdCheck size={ 24 } aria-hidden="true" /> }
 
 						<Text sx={ { ml: 2, mb: 0 } }>
-							<strong>{ `${ activeStep + 1 } of ${ stepsTotal }` }: </strong>
+							<strong>{ `${ currentValue } of ${ stepsTotal }` }: </strong>
 							<Text as="span" sx={ { color: 'muted' } }>
 								{ steps[ activeStep ] }
 							</Text>
@@ -70,6 +70,7 @@ Progress.displayName = 'Progress';
 Progress.propTypes = {
 	steps: PropTypes.array,
 	activeStep: PropTypes.number,
+	forLabel: PropTypes.node,
 	sx: PropTypes.object,
 	className: PropTypes.any,
 };
