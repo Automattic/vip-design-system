@@ -3,10 +3,11 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { Link as ThemeLink } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Link = ( { active = false, sx, ...props } ) => (
+const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) => (
 	<ThemeLink
 		{ ...props }
 		sx={ {
@@ -27,8 +28,11 @@ const Link = ( { active = false, sx, ...props } ) => (
 			'&:focus-visible': theme => theme.outline,
 			...sx,
 		} }
+		ref={ forwardRef }
 	/>
-);
+) );
+
+Link.displayName = 'Link';
 
 Link.propTypes = {
 	active: PropTypes.bool,

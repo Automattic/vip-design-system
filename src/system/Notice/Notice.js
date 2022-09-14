@@ -28,7 +28,7 @@ const NoticeIcon = ( { color, variant } ) => {
 			break;
 	}
 
-	return <Icon sx={ { color, flex: '0 0 auto' } } size={ 21 } />;
+	return <Icon sx={ { color, flex: '0 0 auto' } } size={ 21 } aria-hidden="true" />;
 };
 
 NoticeIcon.propTypes = {
