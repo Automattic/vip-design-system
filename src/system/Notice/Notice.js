@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
@@ -35,71 +36,71 @@ NoticeIcon.propTypes = {
 	variant: PropTypes.string,
 };
 
-const Notice = ( {
-	variant = 'warning',
-	inline = false,
-	children,
-	title,
-	sx = {},
-	className = null,
-	...props
-} ) => {
-	let color = 'yellow';
+const Notice = React.forwardRef(
+	(
+		{ variant = 'warning', inline = false, children, title, sx = {}, className = null, ...props },
+		forwardRef
+	) => {
+		let color = 'yellow';
 
-	switch ( variant ) {
-		case 'info':
-			color = 'blue';
-			break;
-		case 'alert':
-			color = 'red';
-			break;
-		case 'success':
-			color = 'green';
-			break;
-	}
+		switch ( variant ) {
+			case 'info':
+				color = 'blue';
+				break;
+			case 'alert':
+				color = 'red';
+				break;
+			case 'success':
+				color = 'green';
+				break;
+		}
 
-	return (
-		<Card
-			sx={ {
-				boxShadow: 'none',
-				borderRadius: 2,
-				bg: inline ? 'transparent' : `${ color }.10`,
-				p: inline ? 0 : 3,
-				color: `${ color }.90`,
-				a: {
-					color: `${ color }.90`,
-					border: 'none',
-				},
-				...sx,
-			} }
-			className={ classNames( 'vip-notice-component', className ) }
-			{ ...props }
-		>
-			<Flex
+		return (
+			<Card
 				sx={ {
-					alignItems: 'center',
+					boxShadow: 'none',
+					borderRadius: 2,
+					bg: inline ? 'transparent' : `${ color }.10`,
+					p: inline ? 0 : 3,
+					color: `${ color }.90`,
+					a: {
+						color: `${ color }.90`,
+						border: 'none',
+					},
+					...sx,
 				} }
+				className={ classNames( 'vip-notice-component', className ) }
+				ref={ forwardRef }
+				{ ...props }
 			>
 				<Flex
 					sx={ {
 						alignItems: 'center',
 					} }
 				>
-					<NoticeIcon color={ `${ color }.200` } variant={ variant } />
-				</Flex>
+					<Flex
+						sx={ {
+							alignItems: 'center',
+						} }
+					>
+						<NoticeIcon color={ `${ color }.200` } variant={ variant } />
+					</Flex>
 
-				<Box sx={ { ml: 3 } }>
-					{ title && (
-						<Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>
-							{ title }
-						</Heading>
-					) }
-					{ children }
-				</Box>
-			</Flex>
-		</Card>
-	);
-};
+					<Box sx={ { ml: 3 } }>
+						{ title && (
+							<Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>
+								{ title }
+							</Heading>
+						) }
+						{ children }
+					</Box>
+				</Flex>
+			</Card>
+		);
+	}
+);
+
+Notice.displayName = 'Notice';
 
 Notice.propTypes = {
 	children: PropTypes.node,
