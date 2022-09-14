@@ -10,7 +10,10 @@
       "wpvip-productive-color": "disabled",
       "valet-expressive-color": "enabled",
       "figma-valet-expressive-type": "enabled",
-      "wpvip-expressive-core": "disabled"
+      "wpvip-expressive-core": "disabled",
+      "parsely-expressive-core": "disabled",
+      "parsely-expressive-color": "disabled",
+      "parsely-expressive-type": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -25,7 +28,28 @@
       "wpvip-productive-color": "disabled",
       "valet-expressive-color": "disabled",
       "figma-valet-expressive-type": "disabled",
-      "wpvip-expressive-core": "enabled"
+      "wpvip-expressive-core": "enabled",
+      "parsely-expressive-core": "disabled",
+      "parsely-expressive-color": "disabled",
+      "parsely-expressive-type": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "572dbd5878fed2689a833fc8b2f98ffdde5a5662",
+    "name": "parsely",
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "valet-expressive-color": "disabled",
+      "wpvip-expressive-core": "disabled",
+      "wpvip-expressive-color": "disabled",
+      "wpvip-expressive-type": "disabled",
+      "wpvip-productive-color": "disabled",
+      "figma-valet-expressive-type": "disabled",
+      "figma-wpvip-expressive-type": "disabled",
+      "parsely-expressive-core": "enabled",
+      "parsely-expressive-color": "enabled",
+      "parsely-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {}
   }
