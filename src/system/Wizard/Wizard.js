@@ -13,51 +13,55 @@ import { MdArrowForward } from 'react-icons/md';
  */
 import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
-const Wizard = ( { steps, activeStep, variant, completed = [], className = null, ...props } ) => {
-	return (
-		<Box className={ classNames( 'vip-wizard-component', className ) }>
-			{ variant === 'horizontal' ? (
-				<Box>
-					<Flex
-						sx={ {
-							flex: '0 0 auto',
-						} }
-						{ ...props }
-					>
-						{ steps.map( ( { title, subTitle, titleVariant }, index ) => (
-							<React.Fragment key={ index }>
-								<WizardStepHorizontal
-									active={ index === activeStep }
-									order={ index + 1 }
-									subTitle={ subTitle }
-									title={ title }
-									titleVariant={ titleVariant }
-								/>
-								{ index < steps.length - 1 && (
-									<MdArrowForward sx={ { mx: 2, color: 'grey.80' } } />
-								) }
-							</React.Fragment>
-						) ) }
-					</Flex>
-					{ steps[ activeStep ].children }
-				</Box>
-			) : (
-				steps.map( ( { title, subTitle, children }, index ) => (
-					<WizardStep
-						active={ index === activeStep }
-						complete={ completed.includes( index ) }
-						key={ index }
-						order={ index + 1 }
-						subTitle={ subTitle }
-						title={ title }
-					>
-						{ children }
-					</WizardStep>
-				) )
-			) }
-		</Box>
-	);
-};
+const Wizard = React.forwardRef(
+	( { steps, activeStep, variant, completed = [], className = null, ...props }, forwardRef ) => {
+		return (
+			<Box className={ classNames( 'vip-wizard-component', className ) } ref={ forwardRef }>
+				{ variant === 'horizontal' ? (
+					<Box>
+						<Flex
+							sx={ {
+								flex: '0 0 auto',
+							} }
+							{ ...props }
+						>
+							{ steps.map( ( { title, subTitle, titleVariant }, index ) => (
+								<React.Fragment key={ index }>
+									<WizardStepHorizontal
+										active={ index === activeStep }
+										order={ index + 1 }
+										subTitle={ subTitle }
+										title={ title }
+										titleVariant={ titleVariant }
+									/>
+									{ index < steps.length - 1 && (
+										<MdArrowForward sx={ { mx: 2, color: 'grey.80' } } />
+									) }
+								</React.Fragment>
+							) ) }
+						</Flex>
+						{ steps[ activeStep ].children }
+					</Box>
+				) : (
+					steps.map( ( { title, subTitle, children }, index ) => (
+						<WizardStep
+							active={ index === activeStep }
+							complete={ completed.includes( index ) }
+							key={ index }
+							order={ index + 1 }
+							subTitle={ subTitle }
+							title={ title }
+						>
+							{ children }
+						</WizardStep>
+					) )
+				) }
+			</Box>
+		);
+	}
+);
+
+Wizard.displayName = 'Wizard';
 
 Wizard.propTypes = {
 	steps: PropTypes.array,

@@ -3,11 +3,12 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { Text as ThemeText } from 'theme-ui';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Text = ( { sx, className = null, ...props } ) => (
+const Text = React.forwardRef( ( { sx, className = null, ...props }, forwardRef ) => (
 	<ThemeText
 		as="p"
 		sx={ {
@@ -16,9 +17,12 @@ const Text = ( { sx, className = null, ...props } ) => (
 			...sx,
 		} }
 		className={ classNames( 'vip-text-component', className ) }
+		ref={ forwardRef }
 		{ ...props }
 	/>
-);
+) );
+
+Text.displayName = 'Text';
 
 Text.propTypes = {
 	sx: PropTypes.object,

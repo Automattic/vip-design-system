@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { MdCheckCircle } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
@@ -11,69 +12,74 @@ import PropTypes from 'prop-types';
  */
 import { Card, Heading, Text, Flex } from '..';
 
-const WizardStep = ( { title, subTitle, complete = false, children, active, order } ) => {
-	let borderLeftColor = 'border';
+const WizardStep = React.forwardRef(
+	( { title, subTitle, complete = false, children, active, order }, forwardRef ) => {
+		let borderLeftColor = 'border';
 
-	if ( complete ) {
-		borderLeftColor = 'success';
-	} else if ( active ) {
-		borderLeftColor = 'primary';
+		if ( complete ) {
+			borderLeftColor = 'success';
+		} else if ( active ) {
+			borderLeftColor = 'primary';
+		}
+
+		let color = 'muted';
+
+		if ( complete ) {
+			color = 'success';
+		} else if ( active ) {
+			color = 'heading';
+		}
+
+		return (
+			<Card
+				sx={ {
+					boxShadow: active ? 'low' : 'none',
+					borderLeft: '2px solid',
+					p: 4,
+					backgroundColor: active ? 'card' : 'transparent',
+					borderRadius: 0,
+					borderBottom: active ? 'none' : '1px solid',
+					'&:first-of-type': {
+						borderTopWidth: '1px',
+						borderTopStyle: 'solid',
+						borderTopColor: 'borders.2',
+					},
+					borderColor: active ? 'primary' : 'borders.2',
+					borderLeftColor: borderLeftColor,
+				} }
+				data-step={ order }
+				data-active={ active || undefined }
+				ref={ forwardRef }
+			>
+				{ typeof title === 'string' ? (
+					<Heading
+						variant="h4"
+						sx={ {
+							mb: 0,
+							display: 'flex',
+							alignItems: 'center',
+							color: color,
+						} }
+					>
+						<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
+						{ title }
+					</Heading>
+				) : (
+					<Flex sx={ { alignItems: 'center', color } }>
+						<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
+						{ title }
+					</Flex>
+				) }
+
+				{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
+
+				{ active && children }
+			</Card>
+		);
 	}
+);
 
-	let color = 'muted';
-
-	if ( complete ) {
-		color = 'success';
-	} else if ( active ) {
-		color = 'heading';
-	}
-
-	return (
-		<Card
-			sx={ {
-				boxShadow: active ? 'low' : 'none',
-				borderLeft: '2px solid',
-				p: 4,
-				backgroundColor: active ? 'card' : 'transparent',
-				borderRadius: 0,
-				borderBottom: active ? 'none' : '1px solid',
-				'&:first-of-type': {
-					borderTopWidth: '1px',
-					borderTopStyle: 'solid',
-					borderTopColor: 'borders.2',
-				},
-				borderColor: active ? 'primary' : 'borders.2',
-				borderLeftColor: borderLeftColor,
-			} }
-			data-step={ order }
-			data-active={ active || undefined }
-		>
-			{ typeof title === 'string' ? (
-				<Heading
-					variant="h4"
-					sx={ {
-						mb: 0,
-						display: 'flex',
-						alignItems: 'center',
-						color: color,
-					} }
-				>
-					<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
-					{ title }
-				</Heading>
-			) : (
-				<Flex sx={ { alignItems: 'center', color } }>
-					<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
-					{ title }
-				</Flex>
-			) }
-
-			{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
-
-			{ active && children }
-		</Card>
-	);
-};
+WizardStep.displayName = 'WizardStep';
 
 WizardStep.propTypes = {
 	active: PropTypes.bool,

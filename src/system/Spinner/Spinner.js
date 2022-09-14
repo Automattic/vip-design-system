@@ -3,11 +3,12 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { Spinner as ThemeSpinner } from 'theme-ui';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Spinner = ( { sx, className = null, ...props } ) => (
+const Spinner = React.forwardRef( ( { sx, className = null, ...props }, forwardRef ) => (
 	<ThemeSpinner
 		strokeWidth={ 2 }
 		sx={ {
@@ -15,9 +16,12 @@ const Spinner = ( { sx, className = null, ...props } ) => (
 			color: 'primary',
 		} }
 		className={ classNames( 'vip-spinner-component', className ) }
+		ref={ forwardRef }
 		{ ...props }
 	/>
-);
+) );
+
+Spinner.displayName = 'Spinner';
 
 Spinner.propTypes = {
 	sx: PropTypes.object,

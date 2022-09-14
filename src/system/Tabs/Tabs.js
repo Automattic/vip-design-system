@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -11,7 +12,7 @@ import PropTypes from 'prop-types';
  */
 import { Flex } from '..';
 
-const Tabs = ( { className = null, sx, ...props } ) => (
+const Tabs = React.forwardRef( ( { className = null, sx, ...props }, forwardRef ) => (
 	<Flex
 		className={ classNames( 'vip-tabs-component', className ) }
 		sx={ {
@@ -22,9 +23,12 @@ const Tabs = ( { className = null, sx, ...props } ) => (
 			padding: 0,
 			...sx,
 		} }
+		ref={ forwardRef }
 		{ ...props }
 	/>
-);
+) );
+
+Tabs.displayName = 'Tabs';
 
 Tabs.propTypes = {
 	className: PropTypes.any,

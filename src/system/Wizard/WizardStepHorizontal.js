@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { MdCheckCircle } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
@@ -11,7 +12,7 @@ import PropTypes from 'prop-types';
  */
 import { Heading, Flex } from '..';
 
-const WizardStepHorizontal = ( { title, active, order } ) => {
+const WizardStepHorizontal = React.forwardRef( ( { title, active, order }, forwardRef ) => {
 	const color = active ? 'heading' : 'muted';
 
 	return typeof title === 'string' ? (
@@ -25,6 +26,7 @@ const WizardStepHorizontal = ( { title, active, order } ) => {
 			} }
 			data-step={ order }
 			data-active={ active || undefined }
+			ref={ forwardRef }
 		>
 			<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
 			{ title }
@@ -35,7 +37,9 @@ const WizardStepHorizontal = ( { title, active, order } ) => {
 			{ title }
 		</Flex>
 	);
-};
+} );
+
+WizardStepHorizontal.displayName = 'WizardStepHorizontal';
 
 WizardStepHorizontal.propTypes = {
 	active: PropTypes.bool,
