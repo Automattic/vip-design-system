@@ -2,8 +2,8 @@
   "background": {
     "primary": {
       "type": "color",
-      "description": "Use as main application background",
-      "value": "{color.gold.3}"
+      "value": "{color.pure-white}",
+      "description": "Use as main application background"
     },
     "inverse": {
       "value": "{color.black}",
@@ -12,7 +12,7 @@
     },
     "brand": {
       "type": "color",
-      "value": "{color.gold.30}"
+      "value": "#70A452"
     },
     "display": {
       "value": "{color.blue.10}",
@@ -23,44 +23,44 @@
   "layer": {
     "1": {
       "type": "color",
-      "value": "{color.gold.0}"
+      "value": "{color.gray.0}"
     },
     "2": {
       "type": "color",
-      "value": "{color.gradient.neutral-light-1}"
+      "value": "{color.gray.3}"
     },
     "3": {
       "type": "color",
-      "value": "{color.gold.0}"
+      "value": "#F6FBF4"
     },
     "4": {
-      "value": "{color.pure-white}",
+      "value": "#EFF7EB",
       "type": "color"
     },
     "accent": {
       "neutral-1": {
         "type": "color",
-        "value": "{color.gradient.neutral-light-1}"
+        "value": "linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%)"
       },
       "neutral-2": {
         "type": "color",
-        "value": "{color.gradient.neutral-light-2}"
+        "value": "linear-gradient(180deg, #fbfbfb 0%, #ffffff 100%)"
       },
       "neutral-3": {
         "type": "color",
-        "value": "{color.gradient.neutral-light-3}"
+        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #ffffff 0%, #fbfbfb 100%)"
       },
       "neutral-4": {
         "type": "color",
-        "value": "{color.gradient.neutral-light-4}"
+        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #fbfbfb 0%, #ffffff 100%)"
       },
       "brand": {
         "type": "color",
-        "value": "{color.gold.30}"
+        "value": "#70A452"
       },
       "gold": {
         "type": "color",
-        "value": "{color.gold.20}"
+        "value": "#CAE8AE"
       },
       "pink": {
         "type": "color",
@@ -84,7 +84,7 @@
       },
       "green": {
         "type": "color",
-        "value": "{color.green.25}"
+        "value": "#8AC769"
       },
       "blue": {
         "type": "color",
@@ -157,7 +157,7 @@
     },
     "accent": {
       "type": "color",
-      "value": "{color.gold.50}"
+      "value": "#70a452"
     }
   },
   "text": {
@@ -168,49 +168,49 @@
     },
     "secondary": {
       "type": "color",
-      "description": "Use for body text ",
-      "value": "{color.gray.75}"
+      "value": "{color.gray.85}",
+      "description": "Use for body text "
     },
     "helper": {
       "type": "color",
-      "description": "Use for helper text",
-      "value": "{color.gray.60}"
+      "value": "{color.gray.55}",
+      "description": "Use for helper text"
     },
     "placeholder": {
       "type": "color",
-      "description": "Use for placeholder text in fields",
-      "value": "{color.gray.45}"
+      "value": "{color.gray.55}",
+      "description": "Use for placeholder text in fields"
     },
     "disabled": {
       "type": "color",
-      "value": "{color.gray.25}"
+      "value": "{color.gray.30}"
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.0}"
+      "value": "{color.pure-white}"
     },
     "interactive": {
       "type": "color",
-      "value": "{color.gold.60}"
+      "value": "{color.pure-black}"
     }
   },
   "link": {
     "default": {
       "type": "color",
-      "description": "Use for text links",
-      "value": "{color.gold.60}"
+      "value": "{color.black}",
+      "description": "Use for text links"
     },
     "hover": {
       "type": "color",
-      "value": "{color.gold.70}"
+      "value": "{color.black}"
     },
     "active": {
       "type": "color",
-      "value": "{color.gold.80}"
+      "value": "{color.black}"
     },
     "visited": {
       "type": "color",
-      "value": "{color.gold.70}"
+      "value": "{color.black}"
     }
   },
   "icon": {
@@ -228,7 +228,7 @@
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gold.0}"
+      "value": "{color.pure-white}"
     },
     "disabled": {
       "type": "color",
@@ -238,20 +238,20 @@
   "button": {
     "primary": {
       "default": {
-        "value": "{color.black}",
+        "value": "#70A452",
         "type": "color"
       },
       "hover": {
         "type": "color",
-        "value": "{color.gold.30}"
+        "value": "#628F46"
       },
       "active": {
         "type": "color",
-        "value": "{color.gold.50}"
+        "value": "#628F46"
       },
       "disabled": {
         "type": "color",
-        "value": "{color.gray.50}"
+        "value": "{color.gray.25}"
       }
     },
     "secondary": {
@@ -261,11 +261,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.gold.30}"
+        "value": "#8AC769"
       },
       "active": {
         "type": "color",
-        "value": "{color.gold.50}"
+        "value": "#8AC769"
       },
       "disabled": {
         "value": "rgba(0,0,0,0)",
@@ -292,20 +292,20 @@
     },
     "display": {
       "default": {
-        "value": "linear-gradient(55deg, {color.gold.30} 10%, {color.gold.20} 90%)",
+        "value": "#70a452",
         "type": "color"
       },
       "hover": {
-        "value": "linear-gradient(55deg, {color.gold.65} 10%, {color.gold.45} 90%)",
+        "value": "#628f46",
         "type": "color"
       },
       "active": {
         "type": "color",
-        "value": "{color.gold.65}"
+        "value": "#648f46"
       },
       "disabled": {
         "type": "color",
-        "value": "{color.gray.50}"
+        "value": "{color.gray.25}"
       }
     }
   },
@@ -343,7 +343,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.green.60}"
+        "value": "#4D7037"
       }
     },
     "icon": {
@@ -361,7 +361,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.green.50}"
+        "value": "#628F46"
       }
     },
     "accent": {
@@ -379,7 +379,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.green.60}"
+        "value": "#4d7037"
       }
     },
     "link": {
@@ -443,20 +443,20 @@
       "success": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "{color.green.60}"
+          "value": "#4D7037",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",
-          "value": "{color.green.70}"
+          "value": "#4D7037"
         },
         "active": {
           "type": "color",
-          "value": "{color.green.80}"
+          "value": "#415E2E"
         },
         "visited": {
           "type": "color",
-          "value": "{color.green.70}"
+          "value": "#4D7037"
         }
       }
     }
@@ -477,7 +477,7 @@
   },
   "interactive": {
     "type": "color",
-    "value": "{color.gold.55}"
+    "value": "#70A452"
   },
   "tag": {
     "gray": {
@@ -527,7 +527,7 @@
     "green": {
       "background": {
         "type": "color",
-        "value": "{color.green.10}"
+        "value": "#E0F2D5"
       },
       "text": {
         "value": "{color.black}",
@@ -535,15 +535,15 @@
       },
       "icon": {
         "type": "color",
-        "value": "{color.green.65}"
+        "value": "#4D7037"
       },
       "hover": {
         "type": "color",
-        "value": "{color.green.15}"
+        "value": "#CAE8AE"
       },
       "active": {
         "type": "color",
-        "value": "{color.green.20}"
+        "value": "#A9D98B"
       }
     },
     "red": {
