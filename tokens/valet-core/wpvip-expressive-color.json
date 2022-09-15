@@ -118,6 +118,11 @@
         "value": "{color.black}",
         "type": "color"
       }
+    },
+    "blur": {
+      "value": "rgba({background.primary}, .75)",
+      "type": "color",
+      "description": "color fill for transparent blurred component backgrounds"
     }
   },
   "field": {

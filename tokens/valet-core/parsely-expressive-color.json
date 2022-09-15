@@ -118,6 +118,10 @@
         "value": "{color.black}",
         "type": "color"
       }
+    },
+    "blur": {
+      "value": "rgba({background.primary}, .75)",
+      "type": "color"
     }
   },
   "field": {
