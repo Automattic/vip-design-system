@@ -185,6 +185,10 @@
       "type": "color",
       "value": "{color.gray.40}"
     },
+    "background": {
+      "value": "{color.gray.15}",
+      "type": "color"
+    },
     "inverse": {
       "type": "color",
       "value": "{color.pure-white}"

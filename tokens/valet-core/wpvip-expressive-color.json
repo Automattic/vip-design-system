@@ -231,6 +231,10 @@
       "type": "color",
       "value": "{color.gray.40}"
     },
+    "background": {
+      "value": "{color.gray.20}",
+      "type": "color"
+    },
     "inverse": {
       "type": "color",
       "value": "{color.gold.0}"
