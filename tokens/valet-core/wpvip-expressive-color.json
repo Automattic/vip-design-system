@@ -261,6 +261,14 @@
       "disabled": {
         "type": "color",
         "value": "{color.gray.50}"
+      },
+      "label": {
+        "value": "{color.gold.0}",
+        "type": "color"
+      },
+      "label hover": {
+        "value": "{color.black}",
+        "type": "color"
       }
     },
     "secondary": {
@@ -278,6 +286,10 @@
       },
       "disabled": {
         "value": "rgba(0,0,0,0)",
+        "type": "color"
+      },
+      "label": {
+        "value": "{color.black}",
         "type": "color"
       }
     },
@@ -297,6 +309,10 @@
       "disabled": {
         "value": "rgba(0,0,0,0)",
         "type": "color"
+      },
+      "label": {
+        "value": "{color.black}",
+        "type": "color"
       }
     },
     "display": {
@@ -315,6 +331,14 @@
       "disabled": {
         "type": "color",
         "value": "{color.gray.50}"
+      },
+      "label": {
+        "value": "{color.black}",
+        "type": "color"
+      },
+      "label hover": {
+        "value": "{color.pure-white}",
+        "type": "color"
       }
     }
   },
