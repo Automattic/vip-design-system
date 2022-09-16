@@ -50,24 +50,24 @@
         "type": "color"
       },
       "green 1": {
-        "value": "#f6fbf4",
+        "value": "{color.parsely-green.0}",
         "type": "color"
       },
       "green 2": {
-        "value": "#eff7eb",
+        "value": "{color.parsely-green.3}",
         "type": "color"
       },
       "green 3": {
         "type": "color",
-        "value": "#CAE8AE"
+        "value": "{color.parsely-green.7}"
       },
       "green 4": {
         "type": "color",
-        "value": "#8AC769"
+        "value": "{color.parsely-green.25}"
       },
       "brand": {
         "type": "color",
-        "value": "#70A452"
+        "value": "{color.parsely-green.40}"
       },
       "black": {
         "value": "{color.black}",
@@ -116,7 +116,7 @@
     },
     "accent": {
       "type": "color",
-      "value": "#70a452"
+      "value": "{color.parsely-green.40}"
     }
   },
   "text": {
@@ -197,16 +197,16 @@
   "button": {
     "primary": {
       "default": {
-        "value": "#70A452",
+        "value": "{color.parsely-green.35}",
         "type": "color"
       },
       "hover": {
         "type": "color",
-        "value": "#628F46"
+        "value": "{color.parsely-green.40}"
       },
       "active": {
         "type": "color",
-        "value": "#628F46"
+        "value": "{color.parsely-green.40}"
       },
       "disabled": {
         "type": "color",
@@ -220,11 +220,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "#8AC769"
+        "value": "{color.parsely-green.10}"
       },
       "active": {
         "type": "color",
-        "value": "#8AC769"
+        "value": "{color.parsely-green.10}"
       },
       "disabled": {
         "value": "rgba(0,0,0,0)",
@@ -251,16 +251,16 @@
     },
     "display": {
       "default": {
-        "value": "#70a452",
+        "value": "{color.parsely-green.35}",
         "type": "color"
       },
       "hover": {
-        "value": "#628f46",
+        "value": "{color.parsely-green.40}",
         "type": "color"
       },
       "active": {
         "type": "color",
-        "value": "#648f46"
+        "value": "{color.parsely-green.40}"
       },
       "disabled": {
         "type": "color",
@@ -284,7 +284,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.green.7}"
+        "value": "{color.parsely-green.7}"
       }
     },
     "text": {
@@ -302,7 +302,7 @@
       },
       "success": {
         "type": "color",
-        "value": "#4D7037"
+        "value": "{color.parsely-green.60}"
       }
     },
     "icon": {
@@ -320,7 +320,7 @@
       },
       "success": {
         "type": "color",
-        "value": "#628F46"
+        "value": "{color.parsely-green.50}"
       }
     },
     "accent": {
@@ -338,7 +338,7 @@
       },
       "success": {
         "type": "color",
-        "value": "#4d7037"
+        "value": "{color.parsely-green.60}"
       }
     },
     "link": {
@@ -402,20 +402,20 @@
       "success": {
         "default": {
           "type": "color",
-          "value": "#4D7037",
+          "value": "{color.parsely-green.60}",
           "description": "Use for text links"
         },
         "hover": {
           "type": "color",
-          "value": "#4D7037"
+          "value": "{color.parsely-green.70}"
         },
         "active": {
           "type": "color",
-          "value": "#415E2E"
+          "value": "{color.parsely-green.80}"
         },
         "visited": {
           "type": "color",
-          "value": "#4D7037"
+          "value": "{color.parsely-green.60}"
         }
       }
     }
@@ -436,7 +436,7 @@
   },
   "interactive": {
     "type": "color",
-    "value": "#70A452"
+    "value": "{color.parsely-green.40}"
   },
   "tag": {
     "gray": {
@@ -486,7 +486,7 @@
     "green": {
       "background": {
         "type": "color",
-        "value": "#E0F2D5"
+        "value": "{color.parsely-green.10}"
       },
       "text": {
         "value": "{color.black}",
@@ -494,15 +494,15 @@
       },
       "icon": {
         "type": "color",
-        "value": "#4D7037"
+        "value": "{color.parsely-green.65}"
       },
       "hover": {
         "type": "color",
-        "value": "#CAE8AE"
+        "value": "{color.parsely-green.15}"
       },
       "active": {
         "type": "color",
-        "value": "#A9D98B"
+        "value": "{color.parsely-green.20}"
       }
     },
     "red": {
