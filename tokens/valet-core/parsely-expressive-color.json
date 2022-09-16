@@ -13,11 +13,6 @@
     "brand": {
       "type": "color",
       "value": "#70A452"
-    },
-    "display": {
-      "value": "{color.blue.10}",
-      "type": "color",
-      "description": "Never use this"
     }
   },
   "layer": {
@@ -28,14 +23,6 @@
     "2": {
       "type": "color",
       "value": "{color.gray.3}"
-    },
-    "3": {
-      "type": "color",
-      "value": "#F6FBF4"
-    },
-    "4": {
-      "value": "#EFF7EB",
-      "type": "color"
     },
     "accent": {
       "neutral-1": {
@@ -54,65 +41,33 @@
         "type": "color",
         "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #fbfbfb 0%, #ffffff 100%)"
       },
-      "brand": {
-        "type": "color",
-        "value": "#70A452"
+      "gray 1": {
+        "value": "{color.gray.0}",
+        "type": "color"
       },
-      "gold": {
+      "gray 2": {
+        "value": "{color.gray.3}",
+        "type": "color"
+      },
+      "green 1": {
+        "value": "#f6fbf4",
+        "type": "color"
+      },
+      "green 2": {
+        "value": "#eff7eb",
+        "type": "color"
+      },
+      "green 3": {
         "type": "color",
         "value": "#CAE8AE"
       },
-      "pink": {
-        "type": "color",
-        "value": "{color.pink.20}"
-      },
-      "red": {
-        "type": "color",
-        "value": "{color.red.30}"
-      },
-      "salmon": {
-        "type": "color",
-        "value": "{color.salmon.25}"
-      },
-      "orange": {
-        "type": "color",
-        "value": "{color.orange.25}"
-      },
-      "yellow": {
-        "type": "color",
-        "value": "{color.yellow.20}"
-      },
-      "green": {
+      "green 4": {
         "type": "color",
         "value": "#8AC769"
       },
-      "blue": {
+      "brand": {
         "type": "color",
-        "value": "{color.blue.25}"
-      },
-      "colorful-1": {
-        "type": "color",
-        "value": "{color.gradient.colorful-light-1}"
-      },
-      "colorful-2": {
-        "type": "color",
-        "value": "{color.gradient.colorful-light-2}"
-      },
-      "colorful-3": {
-        "type": "color",
-        "value": "{color.gradient.colorful-light-3}"
-      },
-      "colorful-4": {
-        "type": "color",
-        "value": "{color.gradient.colorful-light-4}"
-      },
-      "dark-1": {
-        "type": "color",
-        "value": "{color.gradient.colorful-dark-1}"
-      },
-      "dark-2": {
-        "type": "color",
-        "value": "{color.gradient.colorful-dark-2}"
+        "value": "#70A452"
       },
       "black": {
         "value": "{color.black}",
