@@ -382,5 +382,19 @@
       "value": "AkkuratMonoLLWeb-Regular",
       "type": "fontFamilies"
     }
+  },
+  "letterSpacing": {
+    "tight": {
+      "value": "-.01",
+      "type": "letterSpacing"
+    },
+    "none": {
+      "value": "0",
+      "type": "letterSpacing"
+    },
+    "loose": {
+      "value": ".03",
+      "type": "letterSpacing"
+    }
   }
 }
