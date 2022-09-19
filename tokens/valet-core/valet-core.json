@@ -755,19 +755,19 @@
   },
   "fontWeight": {
     "regular": {
-      "value": "regular",
+      "value": "400",
       "type": "fontWeights"
     },
     "medium": {
-      "value": "medium",
+      "value": "500",
       "type": "fontWeights"
     },
     "bold": {
-      "value": "bold",
+      "value": "700",
       "type": "fontWeights"
     },
     "light": {
-      "value": "light",
+      "value": "200",
       "type": "fontWeights"
     }
   },
