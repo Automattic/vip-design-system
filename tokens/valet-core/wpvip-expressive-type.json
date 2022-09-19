@@ -385,7 +385,7 @@
   },
   "letterSpacing": {
     "tight": {
-      "value": "-.01",
+      "value": "-.01em",
       "type": "letterSpacing"
     },
     "none": {
