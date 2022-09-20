@@ -68,8 +68,8 @@
       "wpvip-productive-color": "disabled",
       "figma-valet-expressive-type": "disabled",
       "figma-wpvip-expressive-type": "disabled",
-      "parsely-expressive-core": "disabled",
-      "parsely-expressive-color": "disabled",
+      "parsely-expressive-core": "enabled",
+      "parsely-expressive-color": "enabled",
       "parsely-expressive-type": "disabled",
       "figma-parsely-expressive-type": "enabled"
     },
