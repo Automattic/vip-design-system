@@ -13,7 +13,8 @@
       "wpvip-expressive-core": "disabled",
       "parsely-expressive-core": "disabled",
       "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled"
+      "parsely-expressive-type": "disabled",
+      "figma-parsely-expressive-type": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -31,7 +32,8 @@
       "wpvip-expressive-core": "enabled",
       "parsely-expressive-core": "disabled",
       "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled"
+      "parsely-expressive-type": "disabled",
+      "figma-parsely-expressive-type": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -49,7 +51,8 @@
       "figma-wpvip-expressive-type": "disabled",
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
-      "parsely-expressive-type": "enabled"
+      "parsely-expressive-type": "enabled",
+      "figma-parsely-expressive-type": "disabled"
     },
     "$figmaStyleReferences": {}
   }

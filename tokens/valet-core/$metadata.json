@@ -10,6 +10,7 @@
     "figma-wpvip-expressive-type",
     "parsely-expressive-core",
     "parsely-expressive-color",
-    "parsely-expressive-type"
+    "parsely-expressive-type",
+    "figma-parsely-expressive-type"
   ]
 }
