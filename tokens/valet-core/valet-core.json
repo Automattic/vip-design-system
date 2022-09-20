@@ -666,28 +666,24 @@
       "type": "boxShadow"
     }
   },
-  "default-fonts": {
-    "value": "Helvetica",
-    "type": "fontFamilies"
-  },
   "fontFamily": {
     "sans": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies",
       "description": "Use as primary sans-serif across applications"
     },
     "serif": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies",
       "description": "Use as primary text serif in long-form reading applications"
     },
     "display": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies",
       "description": "Use as primary brand display font"
     },
     "accent": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies",
       "description": "Use as accent font"
     },
