@@ -2,3 +2,4 @@ node_modules
 build
 storybook-static
 coverage
+.DS_Store
