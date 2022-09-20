@@ -1163,19 +1163,23 @@
   },
   "fontFamily": {
     "sans": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies"
     },
     "serif": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies"
     },
     "display": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
       "type": "fontFamilies"
     },
     "accent": {
-      "value": "{default-fonts}",
+      "value": "Helvetica",
+      "type": "fontFamilies"
+    },
+    "mono": {
+      "value": "Courier",
       "type": "fontFamilies"
     }
   }
