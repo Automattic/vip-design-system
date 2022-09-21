@@ -1,5 +1,4 @@
 {
-  "typography": {
   "body": {
     "1-short": {
       "value": {
@@ -1159,7 +1158,7 @@
         "type": "typography"
       }
     }
-  }},
+  },
   "fontFamily": {
     "sans": {
       "value": "Aktiv Grotesk",
