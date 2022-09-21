@@ -334,5 +334,24 @@
       "shadow.medium": "S:e2481d260ec39e6c76c7842999743d15c49f92ef,",
       "shadow.low": "S:06a989ffa2caad8df885b8455a61195b99673cac,"
     }
+  },
+  {
+    "id": "30fdad110428809b3223a6c4fb7ac0d936b100cd",
+    "name": "wpvip-figma",
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "valet-expressive-color": "disabled",
+      "wpvip-expressive-core": "enabled",
+      "wpvip-expressive-color": "enabled",
+      "wpvip-expressive-type": "disabled",
+      "wpvip-productive-color": "disabled",
+      "figma-valet-expressive-type": "disabled",
+      "figma-wpvip-expressive-type": "enabled",
+      "parsely-expressive-core": "disabled",
+      "parsely-expressive-color": "disabled",
+      "parsely-expressive-type": "disabled",
+      "figma-parsely-expressive-type": "disabled"
+    },
+    "$figmaStyleReferences": {}
   }
 ]
