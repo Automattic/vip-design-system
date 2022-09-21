@@ -748,16 +748,16 @@
   },
   "letterSpacing": {
     "none": {
-      "value": "0%",
+      "value": "0em",
       "type": "letterSpacing",
-      "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em"
+      "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
     "tight": {
-      "value": "-1%",
+      "value": "-.01em",
       "type": "letterSpacing"
     },
     "loose": {
-      "value": "3%",
+      "value": "-.03em",
       "type": "letterSpacing"
     }
   },

@@ -1,5 +1,4 @@
 {
-  "expressive": {
     "body": {
       "1-short": {
         "value": {
@@ -1159,8 +1158,7 @@
           "type": "typography"
         }
       }
-    }
-  },
+    },
   "fontFamily": {
     "sans": {
       "value": "Helvetica",
@@ -1199,6 +1197,21 @@
     "bold": {
       "value": "Bold",
       "type": "fontWeights"
+    }
+  },
+  "letterSpacing": {
+    "none": {
+      "value": "0%",
+      "type": "letterSpacing",
+      "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
+    },
+    "tight": {
+      "value": "-1%",
+      "type": "letterSpacing"
+    },
+    "loose": {
+      "value": "3%",
+      "type": "letterSpacing"
     }
   }
 }
