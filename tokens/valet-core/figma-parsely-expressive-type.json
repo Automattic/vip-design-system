@@ -1,26 +1,5 @@
 {
-  "fontFamily": {
-    "sans": {
-      "value": "Aktiv Grotesk",
-      "type": "fontFamilies"
-    },
-    "serif": {
-      "value": "Ivar Text",
-      "type": "fontFamilies"
-    },
-    "display": {
-      "value": "Aktiv Grotesk",
-      "type": "fontFamilies"
-    },
-    "accent": {
-      "value": "Aktiv Grotesk",
-      "type": "fontFamilies"
-    },
-    "mono": {
-      "value": "Courier",
-      "type": "fontFamilies"
-    }
-  },
+  "typography": {
   "body": {
     "1-short": {
       "value": {
@@ -1179,6 +1158,28 @@
         },
         "type": "typography"
       }
+    }
+  }},
+  "fontFamily": {
+    "sans": {
+      "value": "Aktiv Grotesk",
+      "type": "fontFamilies"
+    },
+    "serif": {
+      "value": "Ivar Text",
+      "type": "fontFamilies"
+    },
+    "display": {
+      "value": "Aktiv Grotesk",
+      "type": "fontFamilies"
+    },
+    "accent": {
+      "value": "Aktiv Grotesk",
+      "type": "fontFamilies"
+    },
+    "mono": {
+      "value": "Courier",
+      "type": "fontFamilies"
     }
   },
   "fontWeight": {
