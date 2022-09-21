@@ -14,7 +14,8 @@
       "parsely-expressive-core": "disabled",
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled"
+      "figma-parsely-expressive-type": "disabled",
+      "valet-expressive-core": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -33,7 +34,8 @@
       "parsely-expressive-core": "disabled",
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled"
+      "figma-parsely-expressive-type": "disabled",
+      "valet-expressive-core": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -52,7 +54,8 @@
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
       "parsely-expressive-type": "enabled",
-      "figma-parsely-expressive-type": "disabled"
+      "figma-parsely-expressive-type": "disabled",
+      "valet-expressive-core": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -71,7 +74,8 @@
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
       "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "enabled"
+      "figma-parsely-expressive-type": "enabled",
+      "valet-expressive-core": "disabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:012ec39ef41de056297a03a4e4172cfd60fcb278,",
@@ -350,7 +354,8 @@
       "parsely-expressive-core": "disabled",
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled"
+      "figma-parsely-expressive-type": "disabled",
+      "valet-expressive-core": "disabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:46afc7b71e3ccd83f9b20e7ec755b594b3225316,",
@@ -626,5 +631,25 @@
       "shadow.medium": "S:49a98a28a67ac6eccf7f92bf81b7ae46f7ffc636,",
       "shadow.low": "S:87f315ff304b2c6e338bcea228c868ba5d018b2c,"
     }
+  },
+  {
+    "id": "80c2ab5dc5efa2745409f754559179ff5642a502",
+    "name": "valet-figma",
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "valet-expressive-color": "enabled",
+      "wpvip-expressive-core": "disabled",
+      "wpvip-expressive-color": "disabled",
+      "wpvip-expressive-type": "disabled",
+      "wpvip-productive-color": "disabled",
+      "figma-valet-expressive-type": "enabled",
+      "figma-wpvip-expressive-type": "disabled",
+      "parsely-expressive-core": "disabled",
+      "parsely-expressive-color": "disabled",
+      "parsely-expressive-type": "disabled",
+      "figma-parsely-expressive-type": "disabled",
+      "valet-expressive-core": "disabled"
+    },
+    "$figmaStyleReferences": {}
   }
 ]
