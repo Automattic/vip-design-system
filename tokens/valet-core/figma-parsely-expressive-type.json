@@ -17,7 +17,7 @@
       "type": "fontFamilies"
     },
     "mono": {
-      "value": "AkkuratMonoLLWeb-Regular",
+      "value": "Courier",
       "type": "fontFamilies"
     }
   },
@@ -1179,6 +1179,24 @@
         },
         "type": "typography"
       }
+    }
+  },
+  "fontWeight": {
+    "regular": {
+      "value": "regular",
+      "type": "fontWeights"
+    },
+    "light": {
+      "value": "light",
+      "type": "fontWeights"
+    },
+    "medium": {
+      "value": "medium",
+      "type": "fontWeights"
+    },
+    "bold": {
+      "value": "bold",
+      "type": "fontWeights"
     }
   }
 }
