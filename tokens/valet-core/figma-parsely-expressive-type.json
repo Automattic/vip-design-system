@@ -1183,19 +1183,19 @@
   },
   "fontWeight": {
     "regular": {
-      "value": "regular",
+      "value": "Regular",
       "type": "fontWeights"
     },
     "light": {
-      "value": "light",
+      "value": "Light",
       "type": "fontWeights"
     },
     "medium": {
-      "value": "medium",
+      "value": "Medium",
       "type": "fontWeights"
     },
     "bold": {
-      "value": "bold",
+      "value": "Bold",
       "type": "fontWeights"
     }
   }
