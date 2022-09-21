@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * Internal dependencies
  */
@@ -9,7 +11,7 @@ export default {
 };
 
 export const Default = () => (
-	<Table>
+	<Table caption="Storybook Example">
 		<thead>
 			<TableRow head cells={ [ 'User', 'Command', 'Duration', 'Time' ] } />
 		</thead>
@@ -35,6 +37,7 @@ export const Default = () => (
 						11th Mar 2020, 16:49:22
 					</Text>,
 				] }
+				gbc
 			/>
 			<TableRow>
 				<TableCell sx={ { backgroundColor: 'lightgray' } }>
