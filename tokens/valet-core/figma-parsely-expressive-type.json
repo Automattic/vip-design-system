@@ -1161,7 +1161,7 @@
   },
   "fontFamily": {
     "sans": {
-      "value": "Aktiv Grotesk",
+      "value": "Aktiv Grotesk VF",
       "type": "fontFamilies"
     },
     "serif": {
@@ -1169,11 +1169,11 @@
       "type": "fontFamilies"
     },
     "display": {
-      "value": "Aktiv Grotesk",
+      "value": "Aktiv Grotesk VF",
       "type": "fontFamilies"
     },
     "accent": {
-      "value": "Aktiv Grotesk",
+      "value": "Aktiv Grotesk VF",
       "type": "fontFamilies"
     },
     "mono": {
