@@ -110,13 +110,11 @@ WithOptionLabelAndValue.args = {
 };
 
 export const WithOnChange = () => {
-	const [ option, setOption ] = useState();
-	const [ event, setEvent ] = useState();
+	const [ option, setOption ] = useState( null );
 
-	const onChange = useCallback( ( val, originalEvent ) => {
-		setOption( val );
-		setEvent( originalEvent );
-	} );
+	const onChange = useCallback( ( val, event ) =>
+		setOption( { obj: val, eventValue: event.target.value } )
+	);
 
 	const args = {
 		label: 'Select with onChange',
@@ -129,8 +127,8 @@ export const WithOnChange = () => {
 	return (
 		<>
 			<DefaultComponent onChange={ onChange } { ...args } />
-			{ option && <p>Object to JSON: { JSON.stringify( option ) }</p> }
-			{ event && <p>Original Event Value: { event.target }</p> }
+			{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
+			{ option && <p>Original Event Value: { option.eventValue }</p> }
 		</>
 	);
 };
