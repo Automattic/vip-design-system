@@ -666,32 +666,6 @@
       "type": "boxShadow"
     }
   },
-  "fontFamily": {
-    "sans": {
-      "value": "Helvetica",
-      "type": "fontFamilies",
-      "description": "Use as primary sans-serif across applications"
-    },
-    "serif": {
-      "value": "Helvetica",
-      "type": "fontFamilies",
-      "description": "Use as primary text serif in long-form reading applications"
-    },
-    "display": {
-      "value": "Helvetica",
-      "type": "fontFamilies",
-      "description": "Use as primary brand display font"
-    },
-    "accent": {
-      "value": "Helvetica",
-      "type": "fontFamilies",
-      "description": "Use as accent font"
-    },
-    "mono": {
-      "value": "Courier",
-      "type": "fontFamilies"
-    }
-  },
   "lineHeight": {
     "1": {
       "value": "110%",
