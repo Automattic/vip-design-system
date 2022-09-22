@@ -86,7 +86,7 @@ const FormSelect = React.forwardRef(
 		const onValueChange = useCallback(
 			event =>
 				onChange
-					? onChange( getOptionByValue( event.target.value ) )
+					? onChange( getOptionByValue( event.target.value ), event )
 					: getOptionByValue( event.target.value ),
 			[ onChange, getOptionByValue ]
 		);
