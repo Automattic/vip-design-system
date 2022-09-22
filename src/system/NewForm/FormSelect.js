@@ -68,22 +68,27 @@ const FormSelect = React.forwardRef(
 			);
 		}
 
-		const optionLabel = useCallback( option =>
-			getOptionLabel ? getOptionLabel( option ) : option.label
+		const optionLabel = useCallback(
+			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+			[ getOptionLabel ]
 		);
 
-		const optionValue = useCallback( option =>
-			getOptionValue ? getOptionValue( option ) : option.value
+		const optionValue = useCallback(
+			option => ( getOptionValue ? getOptionValue( option ) : option.value ),
+			[ getOptionValue ]
 		);
 
-		const getOptionByValue = useCallback( value =>
-			options.find( option => option.value === value )
+		const getOptionByValue = useCallback(
+			value => options.find( option => optionValue( option ) === value ),
+			[ options, optionValue ]
 		);
 
-		const onValueChange = useCallback( event =>
-			onChange
-				? onChange( getOptionByValue( event.target.value ) )
-				: getOptionByValue( event.target.value )
+		const onValueChange = useCallback(
+			event =>
+				onChange
+					? onChange( getOptionByValue( event.target.value ) )
+					: getOptionByValue( event.target.value ),
+			[ onChange, getOptionByValue ]
 		);
 
 		const SelectLabel = () => <Label htmlFor={ forLabel || props.id }>{ label }</Label>;
