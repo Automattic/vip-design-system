@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Form/Label';
 
@@ -47,7 +47,20 @@ const renderGroup = ( groupLabel, groupOptions ) => {
 };
 
 const FormSelect = React.forwardRef(
-	( { isInline, placeholder, forLabel, options, label, ...props }, forwardRef ) => {
+	(
+		{
+			isInline,
+			placeholder,
+			forLabel,
+			options,
+			label,
+			getOptionLabel,
+			getOptionValue,
+			onChange,
+			...props
+		},
+		forwardRef
+	) => {
 		if ( isDev && options.length > MAX_SUGGESTED_OPTIONS ) {
 			// eslint-disable-next-line no-console
 			console.info(
@@ -55,7 +68,26 @@ const FormSelect = React.forwardRef(
 			);
 		}
 
+		const optionLabel = useCallback( option =>
+			getOptionLabel ? getOptionLabel( option ) : option.label
+		);
+
+		const optionValue = useCallback( option =>
+			getOptionValue ? getOptionValue( option ) : option.value
+		);
+
+		const getOptionByValue = useCallback( value =>
+			options.find( option => option.value === value )
+		);
+
+		const onValueChange = useCallback( event =>
+			onChange
+				? onChange( getOptionByValue( event.target.value ) )
+				: getOptionByValue( event.target.value )
+		);
+
 		const SelectLabel = () => <Label htmlFor={ forLabel || props.id }>{ label }</Label>;
+
 		const inlineLabel = !! ( isInline && label );
 
 		return (
@@ -63,11 +95,15 @@ const FormSelect = React.forwardRef(
 				{ label && ! isInline && <SelectLabel /> }
 
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
-					<select ref={ forwardRef } sx={ defaultStyles } { ...props }>
+					<select onChange={ onValueChange } ref={ forwardRef } sx={ defaultStyles } { ...props }>
 						{ placeholder && <option>{ placeholder }</option> }
-						{ options.map( ( { label: optionLabel, value, options: groupOptions } ) =>
-							value ? renderOption( optionLabel, value ) : renderGroup( optionLabel, groupOptions )
-						) }
+						{ options.map( ( { options: groupOptions, ...option } ) => {
+							const value = optionValue( option );
+
+							return value
+								? renderOption( optionLabel( option ), value )
+								: renderGroup( optionLabel( option ), groupOptions );
+						} ) }
 					</select>
 
 					<FormSelectArrow />
@@ -84,6 +120,9 @@ FormSelect.propTypes = {
 	placeholder: PropTypes.string,
 	label: PropTypes.string,
 	options: PropTypes.array,
+	getOptionLabel: PropTypes.func,
+	getOptionValue: PropTypes.func,
+	onChange: PropTypes.func,
 };
 
 FormSelect.displayName = 'FormSelect';
