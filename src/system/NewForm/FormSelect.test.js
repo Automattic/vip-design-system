@@ -69,4 +69,29 @@ describe( '<FormSelect />', () => {
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'renders the FormSelect component when getOptionLabel and getOptionValue', async () => {
+		const props = {
+			...defaultProps,
+			options: options.map( ( { label, value } ) => ( {
+				name: label,
+				id: value,
+			} ) ),
+			getOptionLabel: option => option.name,
+			getOptionValue: option => option.id,
+		};
+
+		const { container } = render( <FormSelect id="my_desert_list" { ...props } /> );
+
+		expect( screen.getByLabelText( defaultProps.label ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
+		expect( screen.getAllByRole( 'option' ) ).toHaveLength( 3 );
+		expect( screen.getByText( options[ 0 ].label ) ).toBeInTheDocument();
+		expect( screen.getByText( options[ 1 ].label ) ).toBeInTheDocument();
+		expect( screen.getByText( options[ 2 ].label ) ).toBeInTheDocument();
+		expect( screen.queryByRole( 'group' ) ).not.toBeInTheDocument();
+
+		// Check for accessibility issues
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
 } );

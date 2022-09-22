@@ -3,6 +3,7 @@
 /**
  * Internal dependencies
  */
+import { useCallback, useState } from 'react';
 import * as Form from '.';
 
 export default {
@@ -26,7 +27,7 @@ const options = [
 ];
 
 // eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
+const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } ) => (
 	<>
 		<p>
 			This is a simple wrapper at the top of a browser default select component. This component
@@ -49,7 +50,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
 		</p>
 		<Form.Root>
 			<div sx={ { width } }>
-				<Form.Select id="form-select" label={ label } { ...rest } />
+				<Form.Select id="form-select" label={ label } onChange={ onChange } { ...rest } />
 			</div>
 		</Form.Root>
 	</>
@@ -93,4 +94,41 @@ IsInline.args = {
 			options: options,
 		},
 	],
+};
+
+export const WithOptionLabelAndValue = DefaultComponent.bind( {} );
+
+WithOptionLabelAndValue.args = {
+	label: 'Select with getOptionLabel / getOptionValue',
+	width: '100%',
+	options: options.map( ( { label, value } ) => ( {
+		name: label,
+		id: value,
+	} ) ),
+	getOptionLabel: option => option.name,
+	getOptionValue: option => option.id,
+};
+
+export const WithOnChange = () => {
+	const [ option, setOption ] = useState( null );
+
+	const onChange = useCallback( ( val, event ) =>
+		setOption( { obj: val, eventValue: event.target.value } )
+	);
+
+	const args = {
+		label: 'Select with onChange',
+		placeholder: '- Select -',
+		width: '100%',
+		onChange,
+		options,
+	};
+
+	return (
+		<>
+			<DefaultComponent onChange={ onChange } { ...args } />
+			{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
+			{ option && <p>Original Event Value: { option.eventValue }</p> }
+		</>
+	);
 };
