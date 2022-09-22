@@ -385,15 +385,15 @@
   },
   "letterSpacing": {
     "tight": {
-      "value": "-.01em",
+      "value": "-0.01em",
       "type": "letterSpacing"
     },
     "none": {
-      "value": "0",
+      "value": "0em",
       "type": "letterSpacing"
     },
     "loose": {
-      "value": ".03",
+      "value": "0.03em",
       "type": "letterSpacing"
     }
   }

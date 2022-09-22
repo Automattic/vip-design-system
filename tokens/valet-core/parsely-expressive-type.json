@@ -332,5 +332,19 @@
         "type": "typography"
       }
     }
+  },
+  "letterSpacing": {
+    "tight": {
+      "value": "-0.01em",
+      "type": "letterSpacing"
+    },
+    "none": {
+      "value": "0em",
+      "type": "letterSpacing"
+    },
+    "loose": {
+      "value": "0.03em",
+      "type": "letterSpacing"
+    }
   }
 }

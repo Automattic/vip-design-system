@@ -40,26 +40,6 @@
     "$figmaStyleReferences": {}
   },
   {
-    "id": "572dbd5878fed2689a833fc8b2f98ffdde5a5662",
-    "name": "parsely",
-    "selectedTokenSets": {
-      "valet-core": "source",
-      "valet-expressive-color": "disabled",
-      "wpvip-expressive-core": "disabled",
-      "wpvip-expressive-color": "disabled",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
-      "figma-valet-expressive-type": "disabled",
-      "figma-wpvip-expressive-type": "disabled",
-      "parsely-expressive-core": "enabled",
-      "parsely-expressive-color": "enabled",
-      "parsely-expressive-type": "enabled",
-      "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled"
-    },
-    "$figmaStyleReferences": {}
-  },
-  {
     "id": "fe54091f2245e76fef6ac71f9737d046725ae31f",
     "name": "parsely-figma",
     "selectedTokenSets": {
@@ -912,5 +892,25 @@
       "tag.pink.hover": "S:e9e9fa9de69ab818bb57dc527dec22579f092841,",
       "tag.pink.active": "S:30cda051767b5b99cdeac2a01dad503de5f48e68,"
     }
+  },
+  {
+    "id": "572dbd5878fed2689a833fc8b2f98ffdde5a5662",
+    "name": "parsely",
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "valet-expressive-color": "disabled",
+      "wpvip-expressive-core": "disabled",
+      "wpvip-expressive-color": "disabled",
+      "wpvip-expressive-type": "disabled",
+      "wpvip-productive-color": "disabled",
+      "figma-valet-expressive-type": "disabled",
+      "figma-wpvip-expressive-type": "disabled",
+      "parsely-expressive-core": "enabled",
+      "parsely-expressive-color": "enabled",
+      "parsely-expressive-type": "enabled",
+      "figma-parsely-expressive-type": "disabled",
+      "valet-expressive-core": "disabled"
+    },
+    "$figmaStyleReferences": {}
   }
 ]
