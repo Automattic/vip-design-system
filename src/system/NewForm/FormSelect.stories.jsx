@@ -26,6 +26,17 @@ const options = [
 	{ value: 'vanilla', label: 'Vanilla' },
 ];
 
+const groupedOptions = [
+	{
+		label: 'Group name',
+		options: options,
+	},
+	{
+		label: 'Another Group name',
+		options: options,
+	},
+];
+
 // eslint-disable-next-line react/prop-types
 const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } ) => (
 	<>
@@ -66,16 +77,7 @@ export const WithGroup = DefaultComponent.bind( {} );
 
 WithGroup.args = {
 	label: 'Group Label',
-	options: [
-		{
-			label: 'Group name',
-			options: options,
-		},
-		{
-			label: 'Another Group name',
-			options: options,
-		},
-	],
+	options: [ ...options, ...groupedOptions ],
 };
 
 export const IsInline = DefaultComponent.bind( {} );
@@ -84,16 +86,7 @@ IsInline.args = {
 	label: 'Inline Select',
 	isInline: true,
 	width: '100%',
-	options: [
-		{
-			label: 'Group name',
-			options: options,
-		},
-		{
-			label: 'Another Group name',
-			options: options,
-		},
-	],
+	options: groupedOptions,
 };
 
 export const WithOptionLabelAndValue = DefaultComponent.bind( {} );
@@ -121,7 +114,7 @@ export const WithOnChange = () => {
 		placeholder: '- Select -',
 		width: '100%',
 		onChange,
-		options,
+		options: [ ...options, ...groupedOptions ],
 	};
 
 	return (

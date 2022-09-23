@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Form/Label';
 
@@ -68,6 +68,15 @@ const FormSelect = React.forwardRef(
 			);
 		}
 
+		const getAllOptions = useMemo(
+			() =>
+				[
+					...options.filter( option => ! option.options ),
+					...options.filter( option => option.options ).map( option => option.options ),
+				].reduce( ( a, b ) => a.concat( b ), [] ),
+			[ options ]
+		);
+
 		const optionLabel = useCallback(
 			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
 			[ getOptionLabel ]
@@ -79,8 +88,8 @@ const FormSelect = React.forwardRef(
 		);
 
 		const getOptionByValue = useCallback(
-			value => options.find( option => optionValue( option ) === value ),
-			[ options, optionValue ]
+			value => getAllOptions.find( option => optionValue( option ) === `${ value }` ),
+			[ getAllOptions, optionValue ]
 		);
 
 		const onValueChange = useCallback(
