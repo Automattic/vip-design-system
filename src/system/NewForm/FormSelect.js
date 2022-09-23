@@ -88,7 +88,7 @@ const FormSelect = React.forwardRef(
 		);
 
 		const getOptionByValue = useCallback(
-			value => getAllOptions.find( option => optionValue( option ) === `${ value }` ),
+			value => getAllOptions.find( option => `${ optionValue( option ) }` === `${ value }` ),
 			[ getAllOptions, optionValue ]
 		);
 
