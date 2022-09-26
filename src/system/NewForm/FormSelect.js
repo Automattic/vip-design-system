@@ -23,6 +23,8 @@ const defaultStyles = {
 	py: 0,
 	borderColor: 'border',
 	borderRadius: 1,
+	backgroundColor: 'background',
+	color: 'text',
 	appearance: 'none',
 	minHeight: '36px',
 	'&:focus': theme => theme.outline,
