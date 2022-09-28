@@ -194,6 +194,10 @@
       "type": "color",
       "value": "{color.gray.0}"
     },
+    "inverse-secondary": {
+      "value": "{color.gray.15}",
+      "type": "color"
+    },
     "interactive": {
       "type": "color",
       "value": "{color.gold.60}"
