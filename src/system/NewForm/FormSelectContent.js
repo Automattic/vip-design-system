@@ -12,6 +12,7 @@ import { inlineStyles } from './FormSelectInline';
  */
 
 const defaultStyles = {
+	width: '100%',
 	'&:hover select': { borderColor: 'border' },
 	display: 'inline-flex',
 	flexDirection: 'row',

@@ -31,5 +31,20 @@ export const Default = () => (
 		<Notice variant="success" sx={ { mb: 4 } } title="You made it!">
 			<Text sx={ { mb: 0 } }>This notice has a title and children</Text>
 		</Notice>
+
+		<Notice variant="alert" sx={ { mb: 4 } }>
+			<Heading variant="h4">There are errors in your form</Heading>
+			<ul sx={ { mb: 0 } }>
+				<li>
+					<a href="#name">Please enter your name.</a>
+				</li>
+				<li>
+					<a href="#email">Please enter your email address.</a>
+				</li>
+				<li>
+					<a href="#terms">Please agree to the terms.</a>
+				</li>
+			</ul>
+		</Notice>
 	</React.Fragment>
 );
