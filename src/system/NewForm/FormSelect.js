@@ -113,13 +113,11 @@ const FormSelect = React.forwardRef(
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
 					<select onChange={ onValueChange } ref={ forwardRef } sx={ defaultStyles } { ...props }>
 						{ placeholder && <option>{ placeholder }</option> }
-						{ options.map( ( { options: groupOptions, ...option } ) => {
-							const value = optionValue( option );
-
-							return value
-								? renderOption( optionLabel( option ), value )
-								: renderGroup( optionLabel( option ), groupOptions );
-						} ) }
+						{ options.map( ( { options: groupOptions, ...option } ) =>
+							groupOptions
+								? renderGroup( optionLabel( option ), groupOptions )
+								: renderOption( optionLabel( option ), optionValue( option ) )
+						) }
 					</select>
 
 					<FormSelectArrow />

@@ -1,6 +1,7 @@
 export const inlineStyles = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
-	display: 'inline-flex',
 	alignItems: 'center',
 	borderColor: 'border',
 	borderRadius: 1,

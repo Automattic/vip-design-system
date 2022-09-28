@@ -70,6 +70,20 @@ describe( '<FormSelect />', () => {
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
+	it( 'renders the FormSelect with nullish options', async () => {
+		const nullishOptions = [ ...options, { value: null, label: 'Empty' } ];
+
+		const { container } = render(
+			<FormSelect id="my_desert_list" { ...defaultProps } options={ nullishOptions } />
+		);
+
+		expect( screen.getByLabelText( defaultProps.label ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
+
+		// Check for accessibility issues
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
 	it( 'renders the FormSelect component when getOptionLabel and getOptionValue', async () => {
 		const props = {
 			...defaultProps,
