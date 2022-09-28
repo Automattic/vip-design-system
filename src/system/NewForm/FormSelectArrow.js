@@ -12,12 +12,12 @@ export const FormSelectArrow = React.forwardRef( ( props, forwardRef ) => (
 		aria-hidden="true"
 		size={ 24 }
 		sx={ {
+			position: 'absolute',
 			paddingLeft: 2,
 			borderLeftWidth: '1px',
 			borderLeftStyle: 'solid',
 			borderLeftColor: 'border',
-			position: 'relative',
-			right: 34,
+			right: 2,
 			pointerEvents: 'none',
 		} }
 		{ ...props }

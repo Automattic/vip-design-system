@@ -12,11 +12,12 @@ import { inlineStyles } from './FormSelectInline';
  */
 
 const defaultStyles = {
+	position: 'relative',
 	width: '100%',
-	'&:hover select': { borderColor: 'border' },
 	display: 'inline-flex',
 	flexDirection: 'row',
 	alignItems: 'center',
+	'&:hover select': { borderColor: 'border' },
 };
 
 const FormSelectContent = React.forwardRef( ( { isInline, label, children }, forwardRef ) => (
