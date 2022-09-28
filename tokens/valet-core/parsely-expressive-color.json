@@ -148,6 +148,10 @@
       "type": "color",
       "value": "{color.pure-white}"
     },
+    "inverse-secondary": {
+      "value": "{color.gray.15}",
+      "type": "color"
+    },
     "interactive": {
       "type": "color",
       "value": "{color.parsely-green.60}"
