@@ -114,7 +114,7 @@ const FormSelect = React.forwardRef(
 					<select onChange={ onValueChange } ref={ forwardRef } sx={ defaultStyles } { ...props }>
 						{ placeholder && <option>{ placeholder }</option> }
 						{ options.map( ( { options: groupOptions, ...option } ) =>
-							option.options
+							groupOptions
 								? renderGroup( optionLabel( option ), groupOptions )
 								: renderOption( optionLabel( option ), optionValue( option ) )
 						) }
