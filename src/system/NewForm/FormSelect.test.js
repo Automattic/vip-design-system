@@ -71,12 +71,7 @@ describe( '<FormSelect />', () => {
 	} );
 
 	it( 'renders the FormSelect with nullish options', async () => {
-		const nullishOptions = [
-			{ value: 'chocolate', label: 'Chocolate' },
-			{ value: 'strawberry', label: 'Strawberry Chocolate Vanilla Chocolate Vanilla' },
-			{ value: 'vanilla', label: 'Vanilla' },
-			{ value: null, label: 'Empty' },
-		];
+		const nullishOptions = [ ...options, { value: null, label: 'Empty' } ];
 
 		const { container } = render(
 			<FormSelect id="my_desert_list" { ...defaultProps } options={ nullishOptions } />
