@@ -163,6 +163,22 @@
     "accent": {
       "type": "color",
       "value": "{color.gold.50}"
+    },
+    "inverse-1": {
+      "value": "{color.pure-white}",
+      "type": "color"
+    },
+    "inverse-2": {
+      "value": "{color.gray.30}",
+      "type": "color"
+    },
+    "inverse-3": {
+      "value": "{color.gray.75}",
+      "type": "color"
+    },
+    "inverse-4": {
+      "value": "{color.gray.80}",
+      "type": "color"
     }
   },
   "text": {
