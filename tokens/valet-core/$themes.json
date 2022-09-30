@@ -15,7 +15,8 @@
       "parsely-expressive-color": "enabled",
       "parsely-expressive-type": "disabled",
       "figma-parsely-expressive-type": "enabled",
-      "valet-expressive-core": "disabled"
+      "valet-expressive-core": "disabled",
+      "wpvip-expressive-color-dark": "disabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:012ec39ef41de056297a03a4e4172cfd60fcb278,",
@@ -295,7 +296,8 @@
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
       "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled"
+      "valet-expressive-core": "disabled",
+      "wpvip-expressive-color-dark": "disabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:46afc7b71e3ccd83f9b20e7ec755b594b3225316,",
@@ -588,7 +590,8 @@
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
       "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "enabled"
+      "valet-expressive-core": "enabled",
+      "wpvip-expressive-color-dark": "disabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:5d05042dd16a8fb9b8e9d352deec08498effa21b,",
@@ -869,7 +872,8 @@
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
       "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled"
+      "valet-expressive-core": "disabled",
+      "wpvip-expressive-color-dark": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -889,7 +893,8 @@
       "parsely-expressive-color": "disabled",
       "parsely-expressive-type": "disabled",
       "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled"
+      "valet-expressive-core": "disabled",
+      "wpvip-expressive-color-dark": "disabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -909,7 +914,8 @@
       "parsely-expressive-color": "enabled",
       "parsely-expressive-type": "enabled",
       "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled"
+      "valet-expressive-core": "disabled",
+      "wpvip-expressive-color-dark": "disabled"
     },
     "$figmaStyleReferences": {}
   }
