@@ -157,6 +157,22 @@
     "accent": {
       "type": "color",
       "value": "{color.parsely-green.40}"
+    },
+    "inverse-1": {
+      "value": "{color.pure-white}",
+      "type": "color"
+    },
+    "inverse-2": {
+      "value": "{color.gray.30}",
+      "type": "color"
+    },
+    "inverse-3": {
+      "value": "{color.gray.75}",
+      "type": "color"
+    },
+    "inverse-4": {
+      "value": "{color.gray.80}",
+      "type": "color"
     }
   },
   "text": {
@@ -263,6 +279,10 @@
       "label": {
         "value": "{color.pure-black}",
         "type": "color"
+      },
+      "label hover": {
+        "value": "{color.pure-black}",
+        "type": "color"
       }
     },
     "secondary": {
@@ -327,6 +347,10 @@
         "value": "{color.gray.25}"
       },
       "label": {
+        "value": "{color.pure-black}",
+        "type": "color"
+      },
+      "label hover": {
         "value": "{color.pure-black}",
         "type": "color"
       }
@@ -500,7 +524,7 @@
   },
   "interactive": {
     "type": "color",
-    "value": "{color.parsely-green.40}"
+    "value": "{color.parsely-green.55}"
   },
   "tag": {
     "gray": {
