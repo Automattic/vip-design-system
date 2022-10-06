@@ -21,9 +21,6 @@ const TableCell = ( { head, children, ...rest } ) => {
 		px: 3,
 		py: 2,
 		textAlign: 'left',
-		'&:first-of-type': {
-			pl: 5,
-		},
 		...rest.sx,
 	};
 
