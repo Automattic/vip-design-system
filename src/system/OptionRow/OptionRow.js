@@ -70,6 +70,7 @@ const OptionRow = React.forwardRef(
 					alignItems: 'center',
 					cursor: disabled ? 'auto' : 'pointer',
 					textDecoration: 'none',
+					color: 'text',
 					'&:hover': ! disabled && {
 						backgroundColor: 'hover',
 					},
