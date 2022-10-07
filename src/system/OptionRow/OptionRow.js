@@ -102,7 +102,10 @@ const OptionRow = React.forwardRef(
 				</Box>
 
 				<Box sx={ { flex: '1 1 auto' } }>
-					<Heading variant={ variant } sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2 } }>
+					<Heading
+						variant={ variant }
+						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
+					>
 						{ label }
 						{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
 					</Heading>
