@@ -16,7 +16,7 @@ import classNames from 'classnames';
 const disabledStyles = {
 	border: '1px solid',
 	borderColor: 'borders.2',
-	background: 'background',
+	background: 'none',
 	boxShadow: 'none',
 	color: 'text',
 };
