@@ -40,5 +40,13 @@ export const Default = () => (
 			disabled
 			meta=""
 		/>
+		<OptionRow
+			image={ image2 }
+			label="Custom heading HTML h5"
+			subTitle="Use the variant prop to adjust the heading structure"
+			as={ Box }
+			variant="h5"
+			meta=""
+		/>
 	</Box>
 );
