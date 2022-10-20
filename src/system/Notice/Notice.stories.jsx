@@ -6,7 +6,7 @@
  * Internal dependencies
  */
 import React from 'react';
-import { Heading, Notice, Text } from '..';
+import { Notice, Text } from '..';
 
 export default {
 	title: 'Notice',
