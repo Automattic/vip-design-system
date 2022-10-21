@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Badge, Box, Grid, Heading, Text } from '..';
+import { Badge, Box, Grid, Heading, Text, Link } from '..';
 import classNames from 'classnames';
 
 const disabledStyles = {
@@ -18,18 +18,17 @@ const disabledStyles = {
 	borderColor: 'borders.2',
 	background: 'none',
 	boxShadow: 'none',
-	color: 'grey.70',
+	color: 'text',
 };
 
 const gridInlineStyle = {
 	py: 2,
 	px: 2,
-	mx: -2,
 };
 
-const regularGridStyle = small => ( {
+const regularGridStyle = () => ( {
 	py: 3,
-	px: [ 3, 3, small ? 3 : 5 ],
+	px: 3,
 	borderBottom: '1px solid',
 	borderColor: 'borders.2',
 } );
@@ -45,11 +44,11 @@ const OptionRow = React.forwardRef(
 			subTitle,
 			body,
 			meta,
-			to,
 			small = false,
 			disabled = false,
 			order = null,
 			className = null,
+			variant = 'h3',
 			...props
 		},
 		forwardRef
@@ -59,18 +58,14 @@ const OptionRow = React.forwardRef(
 
 		return (
 			<Grid
-				to={ to }
 				columns={ [ 1, 1, 'auto 1fr auto' ] }
 				gap={ [ 3, 3, `${ small ? 3 : 4 }` ] }
 				data-order={ order || undefined }
 				className={ classNames( 'vip-option-row-component', className ) }
 				ref={ forwardRef }
-				{ ...props }
 				sx={ {
+					position: 'relative',
 					alignItems: 'center',
-					cursor: disabled ? 'auto' : 'pointer',
-					textDecoration: 'none',
-					color: 'inherit',
 					'&:hover': ! disabled && {
 						backgroundColor: 'hover',
 					},
@@ -93,12 +88,7 @@ const OptionRow = React.forwardRef(
 							{ React.isValidElement( image ) ? (
 								image
 							) : (
-								<img
-									src={ image }
-									width={ small ? 32 : 48 }
-									sx={ { display: 'block' } }
-									alt="Image representing the list item"
-								/>
+								<img src={ image } width={ small ? 32 : 48 } sx={ { display: 'block' } } alt="" />
 							) }
 						</Box>
 					) : (
@@ -107,15 +97,41 @@ const OptionRow = React.forwardRef(
 				</Box>
 
 				<Box sx={ { flex: '1 1 auto' } }>
-					<Heading variant="h4" sx={ { mb: subTitle || body ? 1 : 0 } }>
-						{ label }
-						{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
+					<Heading
+						variant={ variant }
+						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
+					>
+						<Link
+							as={ 'a' }
+							sx={ {
+								cursor: disabled ? 'auto' : 'pointer',
+								color: disabled ? 'text' : 'link',
+								'&:after': {
+									content: '""',
+									position: 'absolute',
+									top: 0,
+									right: 0,
+									bottom: 0,
+									left: 0,
+								},
+							} }
+							{ ...props }
+						>
+							{ label }
+							{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
+						</Link>
 					</Heading>
-					{ subTitle && <Text sx={ { mb: 1, color: 'muted' } }>{ subTitle }</Text> }
+					{ subTitle && <Text sx={ { mb: 1, color: 'text' } }>{ subTitle }</Text> }
 					{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
 				</Box>
 				{ false !== meta && '' !== meta && (
-					<Box data-testid="meta">{ meta ? meta : <MdArrowForward size={ 24 } /> }</Box>
+					<Box data-testid="meta">
+						{ meta ? (
+							meta
+						) : (
+							<MdArrowForward size={ 24 } sx={ { color: 'text' } } aria-hidden="true" />
+						) }
+					</Box>
 				) }
 			</Grid>
 		);
@@ -133,11 +149,11 @@ OptionRow.propTypes = {
 	subTitle: PropTypes.node,
 	body: PropTypes.node,
 	meta: PropTypes.node,
-	to: PropTypes.string,
 	small: PropTypes.bool,
 	disabled: PropTypes.bool,
 	order: PropTypes.number,
 	className: PropTypes.any,
+	variant: PropTypes.string,
 };
 
 export { OptionRow };

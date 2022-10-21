@@ -38,7 +38,16 @@ NoticeIcon.propTypes = {
 
 const Notice = React.forwardRef(
 	(
-		{ variant = 'warning', inline = false, children, title, sx = {}, className = null, ...props },
+		{
+			variant = 'warning',
+			inline = false,
+			children,
+			title,
+			sx = {},
+			className = null,
+			headingVariant = 'p',
+			...props
+		},
 		forwardRef
 	) => {
 		let color = 'yellow';
@@ -88,7 +97,10 @@ const Notice = React.forwardRef(
 
 					<Box sx={ { ml: 3 } }>
 						{ title && (
-							<Heading variant="h4" as="p" sx={ { color: `${ color }.100`, mb: 0 } }>
+							<Heading
+								as={ headingVariant }
+								sx={ { color: `${ color }.100`, mb: 0, fontSize: 2, fontWeight: 'bold' } }
+							>
 								{ title }
 							</Heading>
 						) }
@@ -109,6 +121,7 @@ Notice.propTypes = {
 	sx: PropTypes.object,
 	title: PropTypes.node,
 	variant: PropTypes.string,
+	headingVariant: PropTypes.string,
 	className: PropTypes.any,
 };
 

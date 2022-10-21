@@ -17,7 +17,7 @@ const Button = React.forwardRef( ( { sx, ...props }, forwardRef ) => (
 			justifyContent: 'center',
 			height: '36px',
 			py: 0,
-			textDecoration: props?.to ? 'underline' : 'none',
+			textDecoration: 'none',
 			'&:hover': {
 				textDecoration: 'none',
 			},
@@ -40,7 +40,6 @@ Button.displayName = 'Button';
 
 Button.propTypes = {
 	sx: PropTypes.object,
-	to: PropTypes.any,
 	className: PropTypes.any,
 };
 
