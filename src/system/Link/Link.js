@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 
 const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) => (
 	<ThemeLink
-		{ ...props }
 		sx={ {
 			color: active ? 'links.active' : 'link',
 			textDdecorationThickness: '0.1em',
@@ -29,6 +28,7 @@ const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) 
 			...sx,
 		} }
 		ref={ forwardRef }
+		{ ...props }
 	/>
 ) );
 

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Badge, Box, Grid, Heading, Text } from '..';
+import { Badge, Box, Grid, Heading, Text, Link } from '..';
 import classNames from 'classnames';
 
 const disabledStyles = {
@@ -44,9 +44,6 @@ const OptionRow = React.forwardRef(
 			subTitle,
 			body,
 			meta,
-			to = undefined,
-			as = 'a',
-			href = undefined,
 			small = false,
 			disabled = false,
 			order = null,
@@ -66,7 +63,6 @@ const OptionRow = React.forwardRef(
 				data-order={ order || undefined }
 				className={ classNames( 'vip-option-row-component', className ) }
 				ref={ forwardRef }
-				{ ...props }
 				sx={ {
 					position: 'relative',
 					alignItems: 'center',
@@ -105,10 +101,7 @@ const OptionRow = React.forwardRef(
 						variant={ variant }
 						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
 					>
-						<a
-							as={ as }
-							to={ to }
-							href={ href }
+						<Link
 							sx={ {
 								cursor: disabled ? 'auto' : 'pointer',
 								color: disabled ? 'text' : 'link',
@@ -121,10 +114,11 @@ const OptionRow = React.forwardRef(
 									left: 0,
 								},
 							} }
+							{ ...props }
 						>
 							{ label }
 							{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
-						</a>
+						</Link>
 					</Heading>
 					{ subTitle && <Text sx={ { mb: 1, color: 'text' } }>{ subTitle }</Text> }
 					{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
@@ -154,9 +148,6 @@ OptionRow.propTypes = {
 	subTitle: PropTypes.node,
 	body: PropTypes.node,
 	meta: PropTypes.node,
-	to: PropTypes.string,
-	href: PropTypes.string,
-	as: PropTypes.any,
 	small: PropTypes.bool,
 	disabled: PropTypes.bool,
 	order: PropTypes.number,

@@ -21,14 +21,14 @@ export const Default = () => (
 			image={ image1 }
 			label="Option Row 1"
 			subTitle="Mostly used to link off to other pages."
-			as={ <Link /> }
+			as="a"
 			href="http://google.com/"
 		/>
 		<OptionRow
 			image={ image2 }
 			label="Option Row 2"
 			subTitle="Mostly used to link off to other pages."
-			as={ <Link /> }
+			as="a"
 			href="http://google.com/"
 			order={ 2 }
 		/>
@@ -46,7 +46,7 @@ export const Default = () => (
 			image={ image2 }
 			label="Custom heading HTML h2"
 			subTitle="Use the variant prop to adjust the heading structure"
-			as={ <Link /> }
+			as="a"
 			href="http://google.com/"
 			variant="h2"
 			meta=""
