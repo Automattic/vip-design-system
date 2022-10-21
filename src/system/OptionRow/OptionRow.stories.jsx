@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Box, OptionRow, Link } from '..';
+import { Box, OptionRow } from '..';
 
 export default {
 	title: 'OptionRow',
