@@ -102,6 +102,7 @@ const OptionRow = React.forwardRef(
 						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
 					>
 						<Link
+							as={ 'a' }
 							sx={ {
 								cursor: disabled ? 'auto' : 'pointer',
 								color: disabled ? 'text' : 'link',
