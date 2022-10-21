@@ -44,7 +44,9 @@ const OptionRow = React.forwardRef(
 			subTitle,
 			body,
 			meta,
-			to,
+			to = undefined,
+			as = 'a',
+			href = undefined,
 			small = false,
 			disabled = false,
 			order = null,
@@ -59,7 +61,6 @@ const OptionRow = React.forwardRef(
 
 		return (
 			<Grid
-				to={ to }
 				columns={ [ 1, 1, 'auto 1fr auto' ] }
 				gap={ [ 3, 3, `${ small ? 3 : 4 }` ] }
 				data-order={ order || undefined }
@@ -67,10 +68,8 @@ const OptionRow = React.forwardRef(
 				ref={ forwardRef }
 				{ ...props }
 				sx={ {
+					position: 'relative',
 					alignItems: 'center',
-					cursor: disabled ? 'auto' : 'pointer',
-					textDecoration: 'none',
-					color: 'text',
 					'&:hover': ! disabled && {
 						backgroundColor: 'hover',
 					},
@@ -106,8 +105,26 @@ const OptionRow = React.forwardRef(
 						variant={ variant }
 						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
 					>
-						{ label }
-						{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
+						<a
+							as={ as }
+							to={ to }
+							href={ href }
+							sx={ {
+								cursor: disabled ? 'auto' : 'pointer',
+								color: disabled ? 'text' : 'link',
+								'&:after': {
+									content: '""',
+									position: 'absolute',
+									top: 0,
+									right: 0,
+									bottom: 0,
+									left: 0,
+								},
+							} }
+						>
+							{ label }
+							{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
+						</a>
 					</Heading>
 					{ subTitle && <Text sx={ { mb: 1, color: 'text' } }>{ subTitle }</Text> }
 					{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
@@ -138,6 +155,8 @@ OptionRow.propTypes = {
 	body: PropTypes.node,
 	meta: PropTypes.node,
 	to: PropTypes.string,
+	href: PropTypes.string,
+	as: PropTypes.any,
 	small: PropTypes.bool,
 	disabled: PropTypes.bool,
 	order: PropTypes.number,

@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Box, OptionRow } from '..';
+import { Box, OptionRow, Link } from '..';
 
 export default {
 	title: 'OptionRow',
@@ -19,19 +19,20 @@ export const Default = () => (
 	<Box>
 		<OptionRow
 			image={ image1 }
-			label="Option Row"
+			label="Option Row 1"
 			subTitle="Mostly used to link off to other pages."
-			as="a"
+			as={ <Link /> }
 			href="http://google.com/"
 		/>
 		<OptionRow
 			image={ image2 }
-			label="Option Row"
+			label="Option Row 2"
 			subTitle="Mostly used to link off to other pages."
-			as="a"
+			as={ <Link /> }
 			href="http://google.com/"
 			order={ 2 }
 		/>
+
 		<OptionRow
 			image={ image2 }
 			label="Option Row – Disabled"
@@ -40,12 +41,14 @@ export const Default = () => (
 			disabled
 			meta=""
 		/>
+
 		<OptionRow
 			image={ image2 }
-			label="Custom heading HTML h5"
+			label="Custom heading HTML h2"
 			subTitle="Use the variant prop to adjust the heading structure"
-			as={ Box }
-			variant="h5"
+			as={ <Link /> }
+			href="http://google.com/"
+			variant="h2"
 			meta=""
 		/>
 	</Box>
