@@ -8,7 +8,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Wizard, Flex, Box, Heading, Label, Input, Button } from '..';
+import { Wizard, Box, Label, Input, Button } from '..';
 
 export default {
 	title: 'Wizard',
