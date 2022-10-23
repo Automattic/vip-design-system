@@ -62,8 +62,9 @@ const WizardStep = React.forwardRef(
 							mb: 0,
 							display: 'flex',
 							alignItems: 'center',
-							color: color,
+							color,
 							fontSize: 2,
+							fontWeight: active ? 'bold' : 'normal',
 						} }
 					>
 						<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
