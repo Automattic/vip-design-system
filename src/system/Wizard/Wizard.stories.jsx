@@ -19,6 +19,7 @@ export const Default = () => {
 	const steps = [
 		{
 			title: 'Choose Domain',
+			titleVariant: 'h2',
 			subTitle: 'You can bring a domain name you already own, or buy a new one.',
 			children: (
 				<Box>
@@ -30,12 +31,15 @@ export const Default = () => {
 		},
 		{
 			title: 'Configure DNS',
+			titleVariant: 'h2',
 		},
 		{
 			title: 'Configure Certificate',
+			titleVariant: 'h2',
 		},
 		{
 			title: 'Verify Domain',
+			titleVariant: 'h2',
 		},
 	];
 	return (

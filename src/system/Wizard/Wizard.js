@@ -43,7 +43,7 @@ const Wizard = React.forwardRef(
 						{ steps[ activeStep ].children }
 					</Box>
 				) : (
-					steps.map( ( { title, subTitle, children }, index ) => (
+					steps.map( ( { title, subTitle, children, titleVariant }, index ) => (
 						<WizardStep
 							active={ index === activeStep }
 							complete={ completed.includes( index ) }
@@ -51,6 +51,7 @@ const Wizard = React.forwardRef(
 							order={ index + 1 }
 							subTitle={ subTitle }
 							title={ title }
+							titleVariant={ titleVariant }
 						>
 							{ children }
 						</WizardStep>

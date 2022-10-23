@@ -13,7 +13,10 @@ import PropTypes from 'prop-types';
 import { Card, Heading, Text, Flex } from '..';
 
 const WizardStep = React.forwardRef(
-	( { title, subTitle, complete = false, children, active, order }, forwardRef ) => {
+	(
+		{ title, subTitle, complete = false, children, active, order, titleVariant = 'h3' },
+		forwardRef
+	) => {
 		let borderLeftColor = 'border';
 
 		if ( complete ) {
@@ -32,6 +35,7 @@ const WizardStep = React.forwardRef(
 
 		return (
 			<Card
+				as="section"
 				sx={ {
 					boxShadow: active ? 'low' : 'none',
 					borderLeft: '2px solid',
@@ -53,12 +57,13 @@ const WizardStep = React.forwardRef(
 			>
 				{ typeof title === 'string' ? (
 					<Heading
-						variant="h4"
+						variant={ titleVariant }
 						sx={ {
 							mb: 0,
 							display: 'flex',
 							alignItems: 'center',
 							color: color,
+							fontSize: 2,
 						} }
 					>
 						<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
@@ -88,6 +93,7 @@ WizardStep.propTypes = {
 	order: PropTypes.number.isRequired,
 	subTitle: PropTypes.node,
 	title: PropTypes.node,
+	titleVariant: PropTypes.string,
 };
 
 export { WizardStep };
