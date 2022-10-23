@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) => (
 	<ThemeLink
 		sx={ {
-			color: active ? 'links.active' : 'link',
 			textDdecorationThickness: '0.1em',
 			textUnderlineOffset: '0.1em',
+			color: active ? 'links.active' : 'link',
 			'&:visited': {
 				color: 'links.visited',
 			},

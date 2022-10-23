@@ -6,7 +6,7 @@
  * Internal dependencies
  */
 import React from 'react';
-import { Notice, Text } from '..';
+import { Notice, Text, Link } from '..';
 
 export default {
 	title: 'Notice',
@@ -27,7 +27,8 @@ export const Default = () => (
 		</Notice>
 
 		<Notice variant="success" sx={ { mb: 4 } }>
-			It looks like you&lsquo;re ready to share your <a href="#">application with the world.</a>
+			It looks like you&lsquo;re ready to share your{ ' ' }
+			<Link href="https://google.com/">application with the world.</Link>
 		</Notice>
 
 		<Notice sx={ { mb: 4 } } title="This notice has only the title prop passed" />
