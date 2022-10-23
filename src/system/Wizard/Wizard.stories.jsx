@@ -44,13 +44,6 @@ export const Default = () => {
 	];
 	return (
 		<React.Fragment>
-			<Flex sx={ { alignItems: 'center' } }>
-				<Box sx={ { flex: '1 1 auto' } }>
-					<Heading variant="h1" sx={ { display: 'flex', alignItems: 'center', mb: 1 } }>
-						Add Domain: <span sx={ { color: 'muted', ml: 2 } }>Production</span>
-					</Heading>
-				</Box>
-			</Flex>
 			<Box mt={ 4 }>
 				<Wizard activeStep={ 0 } steps={ steps } className="vip-wizard-xyz" />
 			</Box>
