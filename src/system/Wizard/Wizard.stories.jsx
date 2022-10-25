@@ -8,7 +8,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Wizard, Flex, Box, Heading, Label, Input, Button } from '..';
+import { Wizard, Box, Label, Input, Button } from '..';
 
 export default {
 	title: 'Wizard',
@@ -19,6 +19,7 @@ export const Default = () => {
 	const steps = [
 		{
 			title: 'Choose Domain',
+			titleVariant: 'h2',
 			subTitle: 'You can bring a domain name you already own, or buy a new one.',
 			children: (
 				<Box>
@@ -30,23 +31,19 @@ export const Default = () => {
 		},
 		{
 			title: 'Configure DNS',
+			titleVariant: 'h2',
 		},
 		{
 			title: 'Configure Certificate',
+			titleVariant: 'h2',
 		},
 		{
 			title: 'Verify Domain',
+			titleVariant: 'h2',
 		},
 	];
 	return (
 		<React.Fragment>
-			<Flex sx={ { alignItems: 'center' } }>
-				<Box sx={ { flex: '1 1 auto' } }>
-					<Heading variant="h1" sx={ { display: 'flex', alignItems: 'center', mb: 1 } }>
-						Add Domain: <span sx={ { color: 'muted', ml: 2 } }>Production</span>
-					</Heading>
-				</Box>
-			</Flex>
 			<Box mt={ 4 }>
 				<Wizard activeStep={ 0 } steps={ steps } className="vip-wizard-xyz" />
 			</Box>

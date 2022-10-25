@@ -74,7 +74,16 @@ const Notice = React.forwardRef(
 					color: `${ color }.90`,
 					a: {
 						color: `${ color }.90`,
-						border: 'none',
+						'&:visited': {
+							color: `${ color }.90`,
+						},
+						'&:active': {
+							color: `${ color }.90`,
+						},
+						'&:hover, &:focus': {
+							color: `${ color }.90`,
+							textDecoration: 'none',
+						},
 					},
 					...sx,
 				} }
