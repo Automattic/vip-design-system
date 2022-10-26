@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import { light, dark } from './colors';
-import { getColor } from './getColor';
+import { getColor, getVariants } from './getColor';
 
 const textStyles = {
 	h1: {
@@ -90,6 +90,8 @@ export default {
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
 		background: getColor( 'background', 'primary' ),
+		gold: getVariants( 'color.gold' ),
+		gray: getVariants( 'color.gray' ),
 		backgroundSecondary: light.grey[ '10' ],
 		primary: light.brand[ '70' ],
 		secondary: '#30c',
