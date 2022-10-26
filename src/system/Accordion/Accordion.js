@@ -72,7 +72,7 @@ export const Trigger = React.forwardRef(
 					cursor: 'pointer',
 					all: 'unset',
 					fontFamily: 'inherit',
-					padding: '0 20px',
+					px: 3,
 					height: 45,
 					flex: 1,
 					display: 'flex',
@@ -117,6 +117,20 @@ Trigger.propTypes = {
 	headingVariant: PropTypes.string,
 };
 
+export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
+	<Trigger { ...props } ref={ forwardedRef }>
+		<span sx={ { color: theme => theme.colors.grey[ '70' ], fontSize: 20 } }>{ icon }</span>
+		<div sx={ { flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
+	</Trigger>
+) );
+
+TriggerWithIcon.displayName = 'Accordion.TriggerWithIcon';
+
+TriggerWithIcon.propTypes = {
+	children: PropTypes.node.isRequired,
+	icon: PropTypes.node.isRequired,
+};
+
 export const Content = React.forwardRef( ( { children, ...props }, forwardedRef ) => {
 	return (
 		<AccordionPrimitive.Content
@@ -138,7 +152,8 @@ export const Content = React.forwardRef( ( { children, ...props }, forwardedRef 
 		>
 			<div
 				sx={ {
-					padding: '15px 20px',
+					px: 3,
+					py: 2,
 				} }
 			>
 				{ children }

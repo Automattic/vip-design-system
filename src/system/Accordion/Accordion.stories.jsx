@@ -16,7 +16,7 @@ export default {
 };
 
 const ExampleContent = () => (
-	<Box sx={ { p: 3 } }>
+	<Box>
 		<p sx={ { mt: 0 } }>Add your key team members to the VIP Dashboard.</p>
 		<p>Add developers to GitHub.</p>
 		<p sx={ { mb: 0 } }>Add content editors and developers to WordPress admin.</p>
@@ -27,28 +27,25 @@ export const Default = () => (
 	<Box>
 		<Accordion.Root defaultValue="teamPermissions" sx={ { width: '450px' } }>
 			<Accordion.Item value="teamPermissions">
-				<Accordion.Trigger>
-					<RiUserAddLine sx={ { color: theme => theme.colors.grey[ '70' ], fontSize: 20 } } />
+				<Accordion.TriggerWithIcon icon={ <RiUserAddLine /> }>
 					Team & Permissions
-				</Accordion.Trigger>
+				</Accordion.TriggerWithIcon>
 				<Accordion.Content>
 					<ExampleContent />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="addContentMedia">
-				<Accordion.Trigger>
-					<BiBookContent sx={ { color: theme => theme.colors.grey[ '70' ], fontSize: 20 } } />
+				<Accordion.TriggerWithIcon icon={ <BiBookContent /> }>
 					Add Content & Media
-				</Accordion.Trigger>
+				</Accordion.TriggerWithIcon>
 				<Accordion.Content>
 					<ExampleContent />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="addCode">
-				<Accordion.Trigger>
-					<RiCodeSSlashFill sx={ { color: theme => theme.colors.grey[ '70' ], fontSize: 20 } } />
+				<Accordion.TriggerWithIcon icon={ <RiCodeSSlashFill /> }>
 					Add Code
-				</Accordion.Trigger>
+				</Accordion.TriggerWithIcon>
 				<Accordion.Content>
 					<ExampleContent />
 				</Accordion.Content>
