@@ -15,18 +15,24 @@ export default {
 	component: Accordion,
 };
 
+const ExampleContent = () => (
+	<Box sx={ { p: 3 } }>
+		<p sx={ { mt: 0 } }>Add your key team members to the VIP Dashboard.</p>
+		<p>Add developers to GitHub.</p>
+		<p sx={ { mb: 0 } }>Add content editors and developers to WordPress admin.</p>
+	</Box>
+);
+
 export const Default = () => (
 	<Box>
-		<Accordion.Root defaultValue="teamPermissions" sx={ { width: '400px' } }>
+		<Accordion.Root defaultValue="teamPermissions" sx={ { width: '450px' } }>
 			<Accordion.Item value="teamPermissions">
 				<Accordion.Trigger>
 					<RiUserAddLine sx={ { color: theme => theme.colors.grey[ '70' ], fontSize: 20 } } />
 					Team & Permissions
 				</Accordion.Trigger>
 				<Accordion.Content>
-					<p>Add your key team members to the VIP Dashboard.</p>
-					<p>Add developers to GitHub.</p>
-					<p>Add content editors and developers to WordPress admin.</p>
+					<ExampleContent />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="addContentMedia">
@@ -35,9 +41,7 @@ export const Default = () => (
 					Add Content & Media
 				</Accordion.Trigger>
 				<Accordion.Content>
-					<p>Add your key team members to the VIP Dashboard.</p>
-					<p>Add developers to GitHub.</p>
-					<p>Add content editors and developers to WordPress admin.</p>
+					<ExampleContent />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="addCode">
@@ -46,9 +50,7 @@ export const Default = () => (
 					Add Code
 				</Accordion.Trigger>
 				<Accordion.Content>
-					<p>Add your key team members to the VIP Dashboard.</p>
-					<p>Add developers to GitHub.</p>
-					<p>Add content editors and developers to WordPress admin.</p>
+					<ExampleContent />
 				</Accordion.Content>
 			</Accordion.Item>
 		</Accordion.Root>
