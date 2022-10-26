@@ -31,7 +31,7 @@ export const Item = ( { children, ...props } ) => (
 			overflow: 'hidden',
 			borderWidth: '0 1px 1px 1px',
 			borderStyle: 'solid',
-			borderColor: theme => theme.colors.border,
+			borderColor: 'border',
 
 			'&:first-of-type': {
 				borderTopWidth: '1px',
@@ -75,10 +75,10 @@ export const Trigger = React.forwardRef(
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'space-between',
-					fontSize: 12,
+					fontSize: 1,
 					fontWeight: 600,
 					textTransform: 'uppercase',
-					color: theme => theme.colors.text,
+					color: 'heading',
 
 					'&[data-state="closed"]': { backgroundColor: 'transparent' },
 					'&[data-state="open"]': {
@@ -93,8 +93,8 @@ export const Trigger = React.forwardRef(
 				{ children }
 				<MdChevronRight
 					sx={ {
-						fontSize: 22,
-						color: theme => theme.colors.text,
+						fontSize: 3,
+						color: 'text',
 						transform: 'rotate(90deg)',
 						transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
 						'[data-state=open] &': { transform: 'rotate(270deg)' },
@@ -115,7 +115,7 @@ Trigger.propTypes = {
 
 export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
 	<Trigger { ...props } ref={ forwardedRef }>
-		<span sx={ { color: theme => theme.colors.text, fontSize: 20 } }>{ icon }</span>
+		<span sx={ { color: 'text', fontSize: 3 } }>{ icon }</span>
 		<div sx={ { flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
 	</Trigger>
 ) );
@@ -132,8 +132,8 @@ export const Content = React.forwardRef( ( { children, ...props }, forwardedRef 
 		<AccordionPrimitive.Content
 			sx={ {
 				backgroundColor: 'white',
-				color: theme => theme.colors.text,
-				fontSize: 15,
+				color: 'text',
+				fontSize: 2,
 				overflow: 'hidden',
 
 				'&[data-state="open"]': {
