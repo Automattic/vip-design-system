@@ -31,7 +31,7 @@ export const Item = ( { children, ...props } ) => (
 			overflow: 'hidden',
 			borderWidth: '0 1px 1px 1px',
 			borderStyle: 'solid',
-			borderColor: theme => theme.colors.gray[ '7' ],
+			borderColor: theme => theme.colors.border,
 
 			'&:first-of-type': {
 				borderTopWidth: '1px',
@@ -42,10 +42,7 @@ export const Item = ( { children, ...props } ) => (
 				borderBottomLeftRadius: 4,
 				borderBottomRightRadius: 4,
 			},
-			'&:focus-within': {
-				zIndex: 1,
-				outline: 'auto',
-			},
+			'&:focus-within': theme => theme.outline,
 		} }
 	>
 		{ children }
@@ -80,16 +77,15 @@ export const Trigger = React.forwardRef(
 					justifyContent: 'space-between',
 					fontSize: 12,
 					fontWeight: 600,
-					lineHeight: '14px',
 					textTransform: 'uppercase',
-					color: theme => theme.colors.black,
+					color: theme => theme.colors.text,
 
 					'&[data-state="closed"]': { backgroundColor: 'transparent' },
 					'&[data-state="open"]': {
-						backgroundColor: theme => theme.colors.gold[ '7' ],
-						borderBottom: theme => `1px solid ${ theme.colors.gray[ '7' ] }`,
+						backgroundColor: theme => theme.tag.gold.background,
+						borderBottom: theme => `1px solid ${ theme.colors.border }`,
 					},
-					'&:hover': { backgroundColor: theme => theme.colors?.gold[ '7' ] },
+					'&:hover': { backgroundColor: theme => theme.tag.gold.background },
 				} }
 				{ ...props }
 				ref={ forwardedRef }
@@ -98,7 +94,7 @@ export const Trigger = React.forwardRef(
 				<MdChevronRight
 					sx={ {
 						fontSize: 22,
-						color: theme => theme.colors.grey[ '70' ],
+						color: theme => theme.colors.text,
 						transform: 'rotate(90deg)',
 						transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
 						'[data-state=open] &': { transform: 'rotate(270deg)' },
@@ -119,7 +115,7 @@ Trigger.propTypes = {
 
 export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
 	<Trigger { ...props } ref={ forwardedRef }>
-		<span sx={ { color: theme => theme.colors.grey[ '70' ], fontSize: 20 } }>{ icon }</span>
+		<span sx={ { color: theme => theme.colors.text, fontSize: 20 } }>{ icon }</span>
 		<div sx={ { flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
 	</Trigger>
 ) );
