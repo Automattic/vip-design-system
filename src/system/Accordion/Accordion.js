@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { MdChevronRight } from 'react-icons/md';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { keyframes } from '@emotion/react';
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -167,7 +168,7 @@ Content.propTypes = {
 const Root = React.forwardRef(
 	( { sx = {}, defaultValue, type, children, className }, forwardRef ) => (
 		<AccordionPrimitive.Root
-			className={ className }
+			className={ classNames( 'vip-accordion-component', className ) }
 			collapsible
 			defaultValue={ defaultValue }
 			ref={ forwardRef }
