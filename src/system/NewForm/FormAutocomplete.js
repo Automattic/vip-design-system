@@ -71,21 +71,19 @@ const FormAutocomplete = React.forwardRef(
 	(
 		{
 			isInline,
-			placeholder,
 			forLabel,
 			options,
 			label,
-			getOptionLabel,
 			getOptionValue,
 			onChange,
 			value,
 			showAllValues = true,
 			displayMenu = 'overlay',
-			...props
+			id = 'autocomplete',
 		},
 		forwardRef
 	) => {
-		const SelectLabel = () => <Label htmlFor={ forLabel || props.id }>{ label }</Label>;
+		const SelectLabel = () => <Label htmlFor={ forLabel || id }>{ label }</Label>;
 
 		const inlineLabel = !! ( isInline && label );
 
@@ -138,9 +136,9 @@ const FormAutocomplete = React.forwardRef(
 						label={ inlineLabel ? <SelectLabel /> : null }
 					>
 						<Autocomplete
+							id={ id }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
-							id="autocomplete"
 							source={ suggest }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
@@ -159,12 +157,10 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	isInline: PropTypes.bool,
 	forLabel: PropTypes.string,
-	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	displayMenu: PropTypes.string,
 	label: PropTypes.string,
 	options: PropTypes.array,
-	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
 	onChange: PropTypes.func,
 };

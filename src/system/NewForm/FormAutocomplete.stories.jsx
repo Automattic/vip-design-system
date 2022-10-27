@@ -31,7 +31,12 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 	<>
 		<Form.Root>
 			<div sx={ { width } }>
-				<Form.Autocomplete id="form-select" label={ label } onChange={ onChange } { ...rest } />
+				<Form.Autocomplete
+					id="form-autocomplete"
+					label={ label }
+					onChange={ onChange }
+					{ ...rest }
+				/>
 			</div>
 		</Form.Root>
 	</>
