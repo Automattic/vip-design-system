@@ -38,6 +38,7 @@ import {
 	Textarea,
 	Checkbox,
 } from './Form';
+import { Accordion } from './Accordion';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
@@ -56,6 +57,7 @@ import theme from './theme';
 import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
 
 export {
+	Accordion,
 	Avatar,
 	Badge,
 	Box,

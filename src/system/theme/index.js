@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import { light, dark } from './colors';
-import { getColor } from './getColor';
+import { getColor, getVariants } from './getColor';
 
 const textStyles = {
 	h1: {
@@ -90,6 +90,8 @@ export default {
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
 		background: getColor( 'background', 'primary' ),
+		gold: getVariants( 'color.gold' ),
+		gray: getVariants( 'color.gray' ),
 		backgroundSecondary: light.grey[ '10' ],
 		primary: light.brand[ '70' ],
 		secondary: '#30c',
@@ -158,6 +160,10 @@ export default {
 		high:
 			// eslint-disable-next-line max-len
 			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
+	},
+
+	tag: {
+		gold: getVariants( 'tag.gold' ),
 	},
 
 	cards: {
