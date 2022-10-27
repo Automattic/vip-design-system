@@ -731,7 +731,7 @@
       "type": "letterSpacing"
     },
     "loose": {
-      "value": "-.03em",
+      "value": ".03em",
       "type": "letterSpacing"
     }
   },
