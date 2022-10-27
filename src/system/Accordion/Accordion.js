@@ -67,6 +67,7 @@ export const Trigger = React.forwardRef(
 		>
 			<AccordionPrimitive.Trigger
 				sx={ {
+					color: 'heading',
 					cursor: 'pointer',
 					all: 'unset',
 					fontFamily: 'inherit',
@@ -79,14 +80,13 @@ export const Trigger = React.forwardRef(
 					fontSize: 1,
 					fontWeight: 600,
 					textTransform: 'uppercase',
-					color: 'heading',
 
 					'&[data-state="closed"]': { backgroundColor: 'transparent' },
 					'&[data-state="open"]': {
-						backgroundColor: theme => theme.tag.gold.background,
+						backgroundColor: 'backgroundSecondary',
 						borderBottom: theme => `1px solid ${ theme.colors.border }`,
 					},
-					'&:hover': { backgroundColor: theme => theme.tag.gold.background },
+					'&:hover': { backgroundColor: 'backgroundSecondary' },
 				} }
 				{ ...props }
 				ref={ forwardedRef }
@@ -117,7 +117,7 @@ Trigger.propTypes = {
 export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
 	<Trigger { ...props } ref={ forwardedRef }>
 		<span sx={ { color: 'text', fontSize: 3 } }>{ icon }</span>
-		<div sx={ { flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
+		<div sx={ { color: 'heading', flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
 	</Trigger>
 ) );
 
@@ -132,7 +132,7 @@ export const Content = React.forwardRef( ( { children, ...props }, forwardedRef 
 	return (
 		<AccordionPrimitive.Content
 			sx={ {
-				backgroundColor: 'white',
+				backgroundColor: 'transparent',
 				color: 'text',
 				fontSize: 2,
 				overflow: 'hidden',
