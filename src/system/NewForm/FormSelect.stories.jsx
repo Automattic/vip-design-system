@@ -70,7 +70,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 export const Default = DefaultComponent.bind( {} );
 Default.args = {
 	placeholder: '- Select -',
-	options: options,
+	options,
 };
 
 export const WithGroup = DefaultComponent.bind( {} );
