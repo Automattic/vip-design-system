@@ -128,7 +128,7 @@ TriggerWithIcon.propTypes = {
 	icon: PropTypes.node.isRequired,
 };
 
-export const Content = React.forwardRef( ( { children, ...props }, forwardedRef ) => {
+export const Content = React.forwardRef( ( { children, sx = {}, ...props }, forwardedRef ) => {
 	return (
 		<AccordionPrimitive.Content
 			sx={ {
@@ -143,6 +143,7 @@ export const Content = React.forwardRef( ( { children, ...props }, forwardedRef 
 				'&[data-state="closed"]': {
 					animation: `${ slideUp } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
 				},
+				...sx,
 			} }
 			{ ...props }
 			ref={ forwardedRef }
@@ -163,6 +164,7 @@ Content.displayName = 'Accordion.Content';
 
 Content.propTypes = {
 	children: PropTypes.node.isRequired,
+	sx: PropTypes.object,
 };
 
 const Root = React.forwardRef(
