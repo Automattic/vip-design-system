@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Form/Label';
 import Autocomplete from 'accessible-autocomplete/react';
@@ -125,6 +125,10 @@ const FormAutocomplete = React.forwardRef(
 			},
 			[ options ]
 		);
+
+		useEffect( () => {
+			document.querySelector( '.autocomplete__input' ).setAttribute( 'aria-activedescendant', '' );
+		}, [] );
 
 		return (
 			<>
