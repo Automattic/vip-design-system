@@ -34,14 +34,14 @@ const defaultStyles = {
 		width: '100%',
 		paddingLeft: 3,
 		py: 0,
-		borderWidth: '0px',
+		borderWidth: 0,
 		color: 'text',
 		minHeight: '36px',
 		lineHeight: '36px',
-		'&:focus': { outlineWidth: '0px', boxShadow: 'none' },
-		'&:focus-visible': { outlineWidth: '0px', boxShadow: 'none' },
-		'&:focus-within': { outlineWidth: '0px', boxShadow: 'none' },
-		'&.autocomplete__input--focused': { outlineWidth: '0px', boxShadow: 'none' },
+		'&:focus': { outlineWidth: 0, boxShadow: 'none' },
+		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
+		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
+		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
 	},
 	'& .autocomplete__menu': {
 		borderWidth: '1px',
@@ -79,7 +79,7 @@ const FormAutocomplete = React.forwardRef(
 			value,
 			showAllValues = true,
 			displayMenu = 'overlay',
-			id = 'autocomplete',
+			id = 'vip-autocomplete',
 		},
 		forwardRef
 	) => {
@@ -127,7 +127,9 @@ const FormAutocomplete = React.forwardRef(
 		);
 
 		useEffect( () => {
-			document.querySelector( '.autocomplete__input' ).setAttribute( 'aria-activedescendant', '' );
+			global.document
+				.querySelector( '.autocomplete__input' )
+				.setAttribute( 'aria-activedescendant', '' );
 		}, [] );
 
 		return (
