@@ -520,7 +520,7 @@
   },
   "overlay": {
     "type": "color",
-    "value": "{color.gray.55}"
+    "value": "rgba({color.gray.55},.25)"
   },
   "interactive": {
     "type": "color",
