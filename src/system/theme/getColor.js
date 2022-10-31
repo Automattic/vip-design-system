@@ -11,3 +11,17 @@ export const getColor = ( color, variant = 'default' ) => {
 
 	return Valet[ color ][ variant ].value;
 };
+
+const resolvePath = ( object, path, defaultValue ) => {
+	return path.split( '.' ).reduce( ( acc, property ) => {
+		return acc ? acc[ property ] : defaultValue;
+	}, object );
+};
+
+export const getVariants = color => {
+	const property = resolvePath( Valet, color, {} );
+
+	return Object.keys( property ).reduce( ( variants, variant ) => {
+		return { ...variants, [ variant ]: property[ variant ].value };
+	}, {} );
+};
