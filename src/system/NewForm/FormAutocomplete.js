@@ -132,6 +132,12 @@ const FormAutocomplete = React.forwardRef(
 				.setAttribute( 'aria-activedescendant', '' );
 		}, [] );
 
+		useEffect( () => {
+			global.document
+				.querySelector( '.autocomplete__menu' )
+				.setAttribute( 'aria-label', `${ label } list` );
+		}, [ label ] );
+
 		return (
 			<>
 				{ label && ! isInline && <SelectLabel /> }
