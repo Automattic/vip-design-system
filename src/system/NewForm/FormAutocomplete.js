@@ -74,6 +74,7 @@ const FormAutocomplete = React.forwardRef(
 			forLabel,
 			options,
 			label,
+			getOptionLabel,
 			getOptionValue,
 			onChange,
 			value,
@@ -90,6 +91,11 @@ const FormAutocomplete = React.forwardRef(
 		const optionValue = useCallback(
 			option => ( getOptionValue ? getOptionValue( option ) : option.value ),
 			[ getOptionValue ]
+		);
+
+		const optionLabel = useCallback(
+			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+			[ getOptionLabel ]
 		);
 
 		const getAllOptions = useMemo(
@@ -110,7 +116,7 @@ const FormAutocomplete = React.forwardRef(
 		const onValueChange = useCallback(
 			inputValue => {
 				if ( onChange ) {
-					onChange( getOptionByValue( inputValue ) );
+					onChange( getOptionByValue( inputValue ), inputValue );
 				}
 			},
 			[ onChange, getOptionByValue ]
@@ -119,9 +125,9 @@ const FormAutocomplete = React.forwardRef(
 		const suggest = useCallback(
 			( query, populateResults ) => {
 				const data = options.filter(
-					option => option.label.toLowerCase().indexOf( query.toLowerCase() ) >= 0
+					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
 				);
-				populateResults( data.map( option => option.label ) );
+				populateResults( data.map( option => optionLabel( option ) ) );
 			},
 			[ options ]
 		);
@@ -173,6 +179,7 @@ FormAutocomplete.propTypes = {
 	displayMenu: PropTypes.string,
 	label: PropTypes.string,
 	options: PropTypes.array,
+	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
 	onChange: PropTypes.func,
 };
