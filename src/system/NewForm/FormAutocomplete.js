@@ -11,7 +11,7 @@ import Autocomplete from 'accessible-autocomplete/react';
 /**
  * Internal dependencies
  */
-import './FormAutocomplete.css';
+import css from './FormAutocomplete.css';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
 
@@ -64,7 +64,7 @@ const defaultStyles = {
 };
 
 const inlineStyles = {
-	borderWidth: '0px',
+	borderWidth: 0,
 };
 
 const FormAutocomplete = React.forwardRef(
@@ -179,4 +179,4 @@ FormAutocomplete.propTypes = {
 
 FormAutocomplete.displayName = 'FormAutocomplete';
 
-export { FormAutocomplete };
+export { FormAutocomplete, css };
