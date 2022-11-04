@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Form/Label';
 import Autocomplete from 'accessible-autocomplete/react';
@@ -81,6 +81,7 @@ const FormAutocomplete = React.forwardRef(
 			showAllValues = true,
 			displayMenu = 'overlay',
 			id = 'vip-autocomplete',
+			...props
 		},
 		forwardRef
 	) => {
@@ -107,19 +108,19 @@ const FormAutocomplete = React.forwardRef(
 			[ options ]
 		);
 
-		const getOptionByValue = useCallback(
+		const getOptionByLabel = useCallback(
 			inputValue =>
-				getAllOptions.find( option => `${ optionValue( option ) }` === `${ inputValue }` ),
-			[ getAllOptions, optionValue ]
+				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
+			[ getAllOptions, optionLabel ]
 		);
 
 		const onValueChange = useCallback(
 			inputValue => {
-				if ( onChange ) {
-					onChange( getOptionByValue( inputValue ), inputValue );
+				if ( inputValue ) {
+					onChange( getOptionByLabel( inputValue ), inputValue );
 				}
 			},
-			[ onChange, getOptionByValue ]
+			[ onChange, getOptionByLabel ]
 		);
 
 		const suggest = useCallback(
@@ -161,6 +162,7 @@ const FormAutocomplete = React.forwardRef(
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
+							{ ...props }
 						/>
 						<FormSelectArrow />
 					</FormSelectContent>

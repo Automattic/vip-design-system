@@ -43,19 +43,13 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 );
 
 export const Default = () => {
-	const [ options, setOptions ] = useState( defaultOptions );
-
-	const onChange = useCallback( value => {
-		setOptions(
-			defaultOptions.filter(
-				option => ! value || option.label.toLowerCase().indexOf( value.toLowerCase() ) >= 0
-			)
-		);
+	const onChange = useCallback( ( object, value ) => {
+		console.log( object, value );
 	} );
 
 	const args = {
 		label: 'Label',
-		options,
+		options: defaultOptions,
 	};
 
 	return (
@@ -66,19 +60,13 @@ export const Default = () => {
 };
 
 export const Inline = () => {
-	const [ options, setOptions ] = useState( defaultOptions );
-
-	const onChange = useCallback( value => {
-		setOptions(
-			defaultOptions.filter(
-				option => ! value || option.label.toLowerCase().indexOf( value.toLowerCase() ) >= 0
-			)
-		);
+	const onChange = useCallback( ( object, value ) => {
+		console.log( object, value );
 	} );
 
 	const args = {
 		label: 'Label',
-		options,
+		options: defaultOptions,
 	};
 
 	return (
