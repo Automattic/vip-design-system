@@ -3,7 +3,7 @@
 /**
  * Internal dependencies
  */
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import * as Form from '.';
 
 export default {
@@ -44,6 +44,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 
 export const Default = () => {
 	const onChange = useCallback( ( object, value ) => {
+		// eslint-disable-next-line no-console
 		console.log( object, value );
 	} );
 
@@ -61,6 +62,7 @@ export const Default = () => {
 
 export const Inline = () => {
 	const onChange = useCallback( ( object, value ) => {
+		// eslint-disable-next-line no-console
 		console.log( object, value );
 	} );
 

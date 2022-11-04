@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Form/Label';
 import Autocomplete from 'accessible-autocomplete/react';
@@ -88,11 +88,6 @@ const FormAutocomplete = React.forwardRef(
 		const SelectLabel = () => <Label htmlFor={ forLabel || id }>{ label }</Label>;
 
 		const inlineLabel = !! ( isInline && label );
-
-		const optionValue = useCallback(
-			option => ( getOptionValue ? getOptionValue( option ) : option.value ),
-			[ getOptionValue ]
-		);
 
 		const optionLabel = useCallback(
 			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
