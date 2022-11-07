@@ -76,7 +76,7 @@ const FormAutocomplete = React.forwardRef(
 			label,
 			getOptionLabel,
 			getOptionValue,
-			onChange,
+			onChange = () => {},
 			value,
 			showAllValues = true,
 			displayMenu = 'overlay',

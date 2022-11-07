@@ -20,60 +20,45 @@ export default {
 	},
 };
 
-const defaultOptions = [
+const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
 	{ value: 'strawberry', label: 'Strawberry Chocolate Vanilla Chocolate Vanilla' },
 	{ value: 'vanilla', label: 'Vanilla' },
 ];
 
+const args = {
+	label: 'Label',
+	options,
+};
+
 // eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } ) => (
+const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
 	<>
 		<Form.Root>
 			<div sx={ { width } }>
-				<Form.Autocomplete
-					id="form-autocomplete"
-					label={ label }
-					onChange={ onChange }
-					{ ...rest }
-				/>
+				<Form.Autocomplete id="form-autocomplete" label={ label } { ...rest } />
 			</div>
 		</Form.Root>
 	</>
 );
 
 export const Default = () => {
-	const onChange = useCallback( ( object, value ) => {
-		// eslint-disable-next-line no-console
-		console.log( object, value );
-	} );
-
-	const args = {
-		label: 'Label',
-		options: defaultOptions,
-	};
-
 	return (
 		<>
-			<DefaultComponent onChange={ onChange } { ...args } />
+			<DefaultComponent { ...args } />
 		</>
 	);
 };
 
 export const Inline = () => {
-	const onChange = useCallback( ( object, value ) => {
-		// eslint-disable-next-line no-console
-		console.log( object, value );
-	} );
-
-	const args = {
-		label: 'Label',
-		options: defaultOptions,
+	const customArgs = {
+		...args,
+		isInline: true,
 	};
 
 	return (
 		<>
-			<DefaultComponent isInline={ true } onChange={ onChange } { ...args } />
+			<DefaultComponent { ...customArgs } />
 		</>
 	);
 };
