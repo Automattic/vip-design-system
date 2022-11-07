@@ -3,7 +3,6 @@
 /**
  * Internal dependencies
  */
-import { useCallback, useState } from 'react';
 import * as Form from '.';
 
 export default {
@@ -20,70 +19,45 @@ export default {
 	},
 };
 
-const defaultOptions = [
+const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
 	{ value: 'strawberry', label: 'Strawberry Chocolate Vanilla Chocolate Vanilla' },
 	{ value: 'vanilla', label: 'Vanilla' },
 ];
 
+const args = {
+	label: 'Label',
+	options,
+};
+
 // eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } ) => (
+const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
 	<>
 		<Form.Root>
 			<div sx={ { width } }>
-				<Form.Autocomplete
-					id="form-autocomplete"
-					label={ label }
-					onChange={ onChange }
-					{ ...rest }
-				/>
+				<Form.Autocomplete id="form-autocomplete" label={ label } { ...rest } />
 			</div>
 		</Form.Root>
 	</>
 );
 
 export const Default = () => {
-	const [ options, setOptions ] = useState( defaultOptions );
-
-	const onChange = useCallback( value => {
-		setOptions(
-			defaultOptions.filter(
-				option => ! value || option.label.toLowerCase().indexOf( value.toLowerCase() ) >= 0
-			)
-		);
-	} );
-
-	const args = {
-		label: 'Label',
-		options,
-	};
-
 	return (
 		<>
-			<DefaultComponent onChange={ onChange } { ...args } />
+			<DefaultComponent { ...args } />
 		</>
 	);
 };
 
 export const Inline = () => {
-	const [ options, setOptions ] = useState( defaultOptions );
-
-	const onChange = useCallback( value => {
-		setOptions(
-			defaultOptions.filter(
-				option => ! value || option.label.toLowerCase().indexOf( value.toLowerCase() ) >= 0
-			)
-		);
-	} );
-
-	const args = {
-		label: 'Label',
-		options,
+	const customArgs = {
+		...args,
+		isInline: true,
 	};
 
 	return (
 		<>
-			<DefaultComponent isInline={ true } onChange={ onChange } { ...args } />
+			<DefaultComponent { ...customArgs } />
 		</>
 	);
 };
