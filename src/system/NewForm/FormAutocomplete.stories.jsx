@@ -3,7 +3,6 @@
 /**
  * Internal dependencies
  */
-import { useCallback } from 'react';
 import * as Form from '.';
 
 export default {
