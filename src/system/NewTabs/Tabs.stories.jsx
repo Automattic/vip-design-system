@@ -10,7 +10,7 @@ export default {
 
 export const Default = () => (
 	<NewTabs defaultValue="all">
-		<TabsList aria-label="See all the content">
+		<TabsList title="See all the content">
 			<TabsTrigger value="all">All (5)</TabsTrigger>
 			<TabsTrigger value="live">Live (2)</TabsTrigger>
 			<TabsTrigger value="dev">In Development (3)</TabsTrigger>

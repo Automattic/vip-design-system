@@ -24,7 +24,7 @@ const TabsList = ( { sx, ...props } ) => (
 
 TabsList.propTypes = {
 	sx: PropTypes.object,
-	'aria-label': PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export { TabsList };
