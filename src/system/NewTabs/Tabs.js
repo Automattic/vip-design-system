@@ -22,7 +22,6 @@ const NewTabs = ( { defaultValue = null, className = null, sx, ...props } ) => (
 NewTabs.propTypes = {
 	className: PropTypes.any,
 	sx: PropTypes.object,
-	variant: PropTypes.string,
 	defaultValue: PropTypes.string,
 };
 
