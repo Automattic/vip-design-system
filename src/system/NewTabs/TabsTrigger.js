@@ -29,6 +29,8 @@ const StyledTabsTrigger = props => (
 				borderColor: 'link',
 			},
 			':hover': { fontWeight: 'body', color: 'heading' },
+			'&:focus': theme => theme.outline,
+			'&:focus-visible': theme => theme.outline,
 		} }
 		{ ...props }
 	/>
