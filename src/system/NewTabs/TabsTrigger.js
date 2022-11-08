@@ -34,10 +34,11 @@ const StyledTabsTrigger = props => (
 	/>
 );
 
-const TabsTrigger = ( { value, sx, ...props } ) => (
+const TabsTrigger = ( { value, disabled = false, sx, ...props } ) => (
 	<StyledTabsTrigger
 		className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }` ) }
 		value={ value }
+		disabled={ disabled }
 		{ ...props }
 	/>
 );
@@ -45,6 +46,7 @@ const TabsTrigger = ( { value, sx, ...props } ) => (
 TabsTrigger.propTypes = {
 	sx: PropTypes.object,
 	value: PropTypes.string,
+	disabled: PropTypes.bool,
 };
 
 export { TabsTrigger };
