@@ -61,3 +61,17 @@ export const Inline = () => {
 		</>
 	);
 };
+
+export const Placeholder = () => {
+	const customArgs = {
+		...args,
+		placeholder: 'Chocolate',
+		value: 'Chocolate',
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};

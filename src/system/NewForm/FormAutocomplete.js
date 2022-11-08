@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Form/Label';
 import Autocomplete from 'accessible-autocomplete/react';
@@ -42,6 +42,7 @@ const defaultStyles = {
 		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
 		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
+		'&.autocomplete__input--show-all-values': { paddingRight: '40px' },
 	},
 	'& .autocomplete__menu': {
 		borderWidth: '1px',
@@ -56,7 +57,6 @@ const defaultStyles = {
 	},
 	'& .autocomplete__wrapper': {
 		width: '100%',
-		paddingRight: '40px',
 	},
 	'& .autocomplete__input--show-all-values': {
 		paddingRight: 0,
@@ -85,6 +85,8 @@ const FormAutocomplete = React.forwardRef(
 		},
 		forwardRef
 	) => {
+		const [ isDirty, setIsDirty ] = useState( false );
+
 		const SelectLabel = () => <Label htmlFor={ forLabel || id }>{ label }</Label>;
 
 		const inlineLabel = !! ( isInline && label );
@@ -120,12 +122,15 @@ const FormAutocomplete = React.forwardRef(
 
 		const suggest = useCallback(
 			( query, populateResults ) => {
-				const data = options.filter(
-					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-				);
+				let data = options;
+				if ( isDirty ) {
+					data = options.filter(
+						option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
+					);
+				}
 				populateResults( data.map( option => optionLabel( option ) ) );
 			},
-			[ options ]
+			[ options, isDirty ]
 		);
 
 		useEffect( () => {
@@ -139,6 +144,12 @@ const FormAutocomplete = React.forwardRef(
 				.querySelector( '.autocomplete__menu' )
 				.setAttribute( 'aria-label', `${ label } list` );
 		}, [ label ] );
+
+		useEffect( () => {
+			global.document.querySelector( `#${ id }` ).addEventListener( 'keydown', () => {
+				setIsDirty( true );
+			} );
+		}, [ setIsDirty ] );
 
 		return (
 			<>
