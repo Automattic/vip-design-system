@@ -5,6 +5,7 @@
  */
 import PropTypes from 'prop-types';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -19,7 +20,11 @@ const StyledTabsContent = props => (
 	/>
 );
 const TabsContent = ( { value, sx, ...props } ) => (
-	<StyledTabsContent value={ value } { ...props } />
+	<StyledTabsContent
+		className={ classNames( 'vip-tabs-content', `vip-tabs-content-${ value }` ) }
+		value={ value }
+		{ ...props }
+	/>
 );
 
 TabsContent.propTypes = {

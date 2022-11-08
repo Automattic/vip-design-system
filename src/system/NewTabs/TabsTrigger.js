@@ -5,6 +5,7 @@
  */
 import PropTypes from 'prop-types';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -34,7 +35,11 @@ const StyledTabsTrigger = props => (
 );
 
 const TabsTrigger = ( { value, sx, ...props } ) => (
-	<StyledTabsTrigger value={ value } { ...props } />
+	<StyledTabsTrigger
+		className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }` ) }
+		value={ value }
+		{ ...props }
+	/>
 );
 
 TabsTrigger.propTypes = {
