@@ -6,17 +6,23 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import React from 'react';
 
 /**
  * Internal dependencies
  */
 
-const NewTabs = ( { defaultValue = null, className = null, sx, ...props } ) => (
-	<TabsPrimitive.Root
-		defaultValue={ defaultValue }
-		className={ classNames( 'vip-tabs-component', className ) }
-		{ ...props }
-	/>
+const NewTabs = React.forwardRef(
+	( { defaultValue = null, className = null, sx, ...props }, ref ) => {
+		return (
+			<TabsPrimitive.Root
+				ref={ ref }
+				defaultValue={ defaultValue }
+				className={ classNames( 'vip-tabs-component', className ) }
+				{ ...props }
+			/>
+		);
+	}
 );
 
 NewTabs.propTypes = {
@@ -24,5 +30,7 @@ NewTabs.propTypes = {
 	sx: PropTypes.object,
 	defaultValue: PropTypes.string,
 };
+
+NewTabs.displayName = 'NewTabs';
 
 export { NewTabs };
