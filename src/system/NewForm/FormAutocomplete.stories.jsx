@@ -62,10 +62,9 @@ export const Inline = () => {
 	);
 };
 
-export const Placeholder = () => {
+export const WithDefaultValue = () => {
 	const customArgs = {
 		...args,
-		placeholder: 'Chocolate',
 		value: 'Chocolate',
 	};
 
