@@ -194,7 +194,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.9}",
+        "fontSize": "{fontSize.responsive.7}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -204,7 +204,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.10}",
+        "fontSize": "{fontSize.responsive.8}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
@@ -214,7 +214,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.3}",
-        "fontSize": "{fontSize.responsive.11}",
+        "fontSize": "{fontSize.responsive.9}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
