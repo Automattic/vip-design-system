@@ -4,7 +4,7 @@
 import { NewTabs, TabsTrigger, TabsList, TabsContent, Text } from '..';
 
 export default {
-	title: 'New Tabs',
+	title: 'NewTabs',
 	component: NewTabs,
 };
 
