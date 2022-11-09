@@ -80,7 +80,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.4}",
+        "fontSize": "{fontSize.responsive.6}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
