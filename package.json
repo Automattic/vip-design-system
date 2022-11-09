@@ -28,6 +28,7 @@
 		"@radix-ui/react-switch": "^1.0.0",
 		"@radix-ui/react-tooltip": "^1.0.0",
 		"@radix-ui/react-visually-hidden": "^1.0.0",
+		"@radix-ui/react-tabs": "^1.0.0",
 		"@storybook/addon-storysource": "^6.5.10",
 		"accessible-autocomplete": "^2.0.4",
 		"babel-loader": "^8.2.2",

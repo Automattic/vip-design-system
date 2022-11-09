@@ -55,6 +55,7 @@ import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import theme from './theme';
 import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
+import { NewTabs, TabsList, TabsContent, TabsTrigger } from './NewTabs';
 
 export {
 	Accordion,
@@ -103,6 +104,10 @@ export {
 	ToggleRow,
 	ToggleGroup,
 	TabItem,
+	NewTabs,
+	TabsTrigger,
+	TabsContent,
+	TabsList,
 	Time,
 	Timeline,
 	Validation,
