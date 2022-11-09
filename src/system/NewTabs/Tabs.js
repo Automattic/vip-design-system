@@ -36,7 +36,7 @@ NewTabs.propTypes = {
 	sx: PropTypes.object,
 	defaultValue: PropTypes.node,
 	onValueChange: PropTypes.func,
-	children: PropTypes.node,
+	children: PropTypes.node.isRequired,
 };
 
 NewTabs.displayName = 'NewTabs';

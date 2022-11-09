@@ -27,7 +27,7 @@ const TabsList = ( { children, title, sx } ) => (
 TabsList.propTypes = {
 	sx: PropTypes.object,
 	title: PropTypes.string.isRequired,
-	children: PropTypes.node,
+	children: PropTypes.node.isRequired,
 };
 
 export { TabsList };

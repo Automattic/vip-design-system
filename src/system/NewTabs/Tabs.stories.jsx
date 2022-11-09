@@ -21,9 +21,7 @@ export const Default = () => (
 		<TabsContent value="all">
 			<Text>All content</Text>
 		</TabsContent>
-		<TabsContent value="live">
-			<Text>Live content</Text>
-		</TabsContent>
+		<TabsContent value="live">Live content</TabsContent>
 		<TabsContent value="dev">
 			<Text>In Development content</Text>
 		</TabsContent>

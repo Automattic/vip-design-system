@@ -11,25 +11,23 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 
-const StyledTabsContent = props => (
+const TabsContent = ( { value, sx, children } ) => (
 	<TabsPrimitive.Content
-		sx={ {
-			mt: 4,
-		} }
-		{ ...props }
-	/>
-);
-const TabsContent = ( { value, sx, ...props } ) => (
-	<StyledTabsContent
 		className={ classNames( 'vip-tabs-content', `vip-tabs-content-${ value }` ) }
 		value={ value }
-		{ ...props }
-	/>
+		sx={ {
+			mt: 4,
+			...sx,
+		} }
+	>
+		{ children }
+	</TabsPrimitive.Content>
 );
 
 TabsContent.propTypes = {
 	sx: PropTypes.object,
 	value: PropTypes.string,
+	children: PropTypes.node.isRequired,
 };
 
 export { TabsContent };
