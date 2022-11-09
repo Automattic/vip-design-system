@@ -10,7 +10,7 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
  * Internal dependencies
  */
 
-const TabsList = ( { sx, ...props } ) => (
+const TabsList = ( { children, title, sx } ) => (
 	<TabsPrimitive.List
 		sx={ {
 			borderBottom: '1px solid',
@@ -18,13 +18,16 @@ const TabsList = ( { sx, ...props } ) => (
 			display: 'flex',
 			...sx,
 		} }
-		{ ...props }
-	/>
+		title={ title }
+	>
+		{ children }
+	</TabsPrimitive.List>
 );
 
 TabsList.propTypes = {
 	sx: PropTypes.object,
 	title: PropTypes.string.isRequired,
+	children: PropTypes.node,
 };
 
 export { TabsList };
