@@ -13,14 +13,20 @@ import React from 'react';
  */
 
 const NewTabs = React.forwardRef(
-	( { defaultValue = null, className = null, sx, ...props }, ref ) => {
+	(
+		{ children, onValueChange = undefined, defaultValue = undefined, className = null, sx = {} },
+		ref
+	) => {
 		return (
 			<TabsPrimitive.Root
 				ref={ ref }
 				defaultValue={ defaultValue }
+				onValueChange={ onValueChange }
 				className={ classNames( 'vip-tabs-component', className ) }
-				{ ...props }
-			/>
+				sx={ { ...sx } }
+			>
+				{ children }
+			</TabsPrimitive.Root>
 		);
 	}
 );
@@ -28,7 +34,9 @@ const NewTabs = React.forwardRef(
 NewTabs.propTypes = {
 	className: PropTypes.any,
 	sx: PropTypes.object,
-	defaultValue: PropTypes.string,
+	defaultValue: PropTypes.node,
+	onValueChange: PropTypes.func,
+	children: PropTypes.node,
 };
 
 NewTabs.displayName = 'NewTabs';
