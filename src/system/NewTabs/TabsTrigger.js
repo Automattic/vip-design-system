@@ -22,11 +22,14 @@ const StyledTabsTrigger = props => (
 			pb: 3,
 			border: 'none',
 			color: 'muted',
-			transform: 'translateY(1px)',
 			'&[data-state="active"]': {
 				color: 'heading',
-				borderBottom: '1px solid',
-				borderColor: 'link',
+				fontWeight: 'body',
+				boxShadow: theme =>
+					`inset 0 -1px 0 0 ${ theme.colors.link }, 0 1px 0 0 ${ theme.colors.link }`,
+			},
+			'&:disabled': {
+				color: 'grey.70',
 			},
 			':hover': { fontWeight: 'body', color: 'heading' },
 			'&:focus': theme => theme.outline,
