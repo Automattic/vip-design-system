@@ -61,3 +61,16 @@ export const Inline = () => {
 		</>
 	);
 };
+
+export const WithDefaultValue = () => {
+	const customArgs = {
+		...args,
+		value: 'Chocolate',
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
