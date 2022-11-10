@@ -18,7 +18,7 @@ const TabsList = ( { children, title, sx } ) => (
 			display: 'flex',
 			...sx,
 		} }
-		title={ title }
+		aria-label={ title }
 	>
 		{ children }
 	</TabsPrimitive.List>

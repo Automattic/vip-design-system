@@ -9,27 +9,33 @@ import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 /**
  * Internal dependencies
  */
-import { Heading } from '..';
 
-const Validation = ( { children, isValid, ...props } ) => {
+const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
+	const IconLabel = isValid ? 'Valid' : 'Invalid';
 
 	return (
-		<Heading
-			variant="h5"
-			as="p"
-			sx={ { color: isValid ? 'success' : 'error', display: 'flex', alignItems: 'center' } }
+		<p
+			sx={ {
+				color: isValid ? 'success' : 'error',
+				display: 'flex',
+				alignItems: 'center',
+				m: 0,
+				fontSize: 1,
+			} }
+			id={ describedId ? `describe-${ describedId }-validation` : undefined }
 			{ ...props }
 		>
-			<Icon sx={ { mr: 1 } } />
+			<Icon sx={ { mr: 1 } } aria-label={ IconLabel } />
 			{ children }
-		</Heading>
+		</p>
 	);
 };
 
 Validation.propTypes = {
 	children: PropTypes.node,
 	isValid: PropTypes.bool,
+	describedId: PropTypes.string,
 };
 
 export { Validation };

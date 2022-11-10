@@ -5,7 +5,7 @@ import React from 'react';
 import { Box, NewConfirmationDialog, Button } from '..';
 
 export default {
-	title: 'NewConfirmationDialog',
+	title: 'Dialog/NewConfirmationDialog',
 	component: NewConfirmationDialog,
 };
 

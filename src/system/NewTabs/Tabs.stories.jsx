@@ -4,7 +4,7 @@
 import { NewTabs, TabsTrigger, TabsList, TabsContent, Text } from '..';
 
 export default {
-	title: 'NewTabs',
+	title: 'Tabs',
 	component: NewTabs,
 };
 
@@ -19,11 +19,15 @@ export const Default = () => (
 			</TabsTrigger>
 		</TabsList>
 		<TabsContent value="all">
-			<Text>All content</Text>
+			<Text>
+				All content <a href="https://google.com">https://google.com</a>
+			</Text>
 		</TabsContent>
 		<TabsContent value="live">Live content</TabsContent>
 		<TabsContent value="dev">
-			<Text>In Development content</Text>
+			<Text>
+				In Development content <button type="button">Hey I am a button</button>{ ' ' }
+			</Text>
 		</TabsContent>
 	</NewTabs>
 );

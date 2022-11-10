@@ -14,7 +14,7 @@ import ScreenReaderText from '../ScreenReaderText';
 import * as NewDialog from '.';
 
 export default {
-	title: 'NewDialog',
+	title: 'Dialog/NewDialog',
 	component: NewDialog.Root,
 };
 

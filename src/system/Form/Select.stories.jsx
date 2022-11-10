@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Box, Dialog, DialogMenu, DialogMenuItem, DialogDivider, Select, Button } from '..';
 
 export default {
-	title: 'Select',
+	title: 'Deprecated/Select',
 	component: Dialog,
 };
 
