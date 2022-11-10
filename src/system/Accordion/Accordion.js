@@ -85,6 +85,7 @@ export const Trigger = React.forwardRef(
 					'&[data-state="open"]': {
 						backgroundColor: 'backgroundSecondary',
 						borderBottom: theme => `1px solid ${ theme.colors.border }`,
+						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
 					},
 					'&:hover': { backgroundColor: 'backgroundSecondary' },
 				} }
@@ -93,12 +94,12 @@ export const Trigger = React.forwardRef(
 			>
 				{ children }
 				<MdChevronRight
+					className="vip-accordion-trigger-indicator"
 					sx={ {
 						fontSize: 3,
 						color: 'text',
 						transform: 'rotate(90deg)',
 						transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-						'[data-state=open] &': { transform: 'rotate(270deg)' },
 					} }
 					aria-hidden
 				/>
