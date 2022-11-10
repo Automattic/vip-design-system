@@ -4,7 +4,7 @@
 import { Link, BlankState } from '..';
 
 export default {
-	title: 'Deprecated/BlankState',
+	title: 'zDeprecated/BlankState',
 	component: BlankState,
 };
 
