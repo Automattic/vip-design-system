@@ -4,7 +4,7 @@
 import { Tabs, TabItem } from '..';
 
 export default {
-	title: 'zDeprecated/Tabs',
+	title: 'Deprecated/Tabs',
 	component: Tabs,
 };
 

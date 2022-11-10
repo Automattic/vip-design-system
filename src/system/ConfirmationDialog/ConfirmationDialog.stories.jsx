@@ -4,7 +4,7 @@
 import { Box, ConfirmationDialog, Button, Heading, Text, Flex } from '..';
 
 export default {
-	title: 'zDeprecated/ConfirmationDialog',
+	title: 'Deprecated/ConfirmationDialog',
 	component: ConfirmationDialog,
 };
 
