@@ -81,13 +81,15 @@ export const Trigger = React.forwardRef(
 					fontWeight: 600,
 					textTransform: 'uppercase',
 
-					'&[data-state="closed"]': { backgroundColor: 'transparent' },
+					'&[data-state="closed"]': {
+						backgroundColor: ( { accordion } ) => accordion.background.closed,
+					},
 					'&[data-state="open"]': {
-						backgroundColor: 'backgroundSecondary',
-						borderBottom: theme => `1px solid ${ theme.colors.border }`,
+						backgroundColor: ( { accordion } ) => accordion.background.open,
+						borderBottom: ( { colors } ) => `1px solid ${ colors.border }`,
 						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
 					},
-					'&:hover': { backgroundColor: 'backgroundSecondary' },
+					'&:hover': { backgroundColor: ( { accordion } ) => accordion.background.hover },
 				} }
 				{ ...props }
 				ref={ forwardedRef }
