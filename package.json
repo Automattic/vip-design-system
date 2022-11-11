@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/vip-design-system",
-	"version": "0.26.1",
+	"version": "0.26.2",
 	"main": "build/system/index.js",
 	"scripts": {
 		"build-storybook": "build-storybook",
