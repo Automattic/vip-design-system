@@ -5,8 +5,8 @@
  */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Label } from '../Form/Label';
 import Autocomplete from 'accessible-autocomplete/react';
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -14,6 +14,7 @@ import Autocomplete from 'accessible-autocomplete/react';
 import css from './FormAutocomplete.css';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
+import { Label } from '../Form/Label';
 
 const defaultStyles = {
 	width: '100%',
@@ -81,6 +82,7 @@ const FormAutocomplete = React.forwardRef(
 			showAllValues = true,
 			displayMenu = 'overlay',
 			id = 'vip-autocomplete',
+			className,
 			...props
 		},
 		forwardRef
@@ -152,7 +154,7 @@ const FormAutocomplete = React.forwardRef(
 		}, [ setIsDirty ] );
 
 		return (
-			<>
+			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
 
 				<div sx={ { ...defaultStyles, ...( isInline && inlineStyles ) } }>
@@ -173,7 +175,7 @@ const FormAutocomplete = React.forwardRef(
 						<FormSelectArrow />
 					</FormSelectContent>
 				</div>
-			</>
+			</div>
 		);
 	}
 );
@@ -190,6 +192,7 @@ FormAutocomplete.propTypes = {
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
 	onChange: PropTypes.func,
+	className: PropTypes.any,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
