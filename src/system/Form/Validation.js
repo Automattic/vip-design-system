@@ -12,7 +12,6 @@ import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 
 const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
-	const IconLabel = isValid ? 'Valid' : 'Invalid';
 
 	return (
 		<p
