@@ -12,7 +12,7 @@
     },
     "brand": {
       "type": "color",
-      "value": "{color.gold.30}"
+      "value": "{color.gold.40}"
     }
   },
   "layer": {
@@ -161,6 +161,10 @@
       "hover": {
         "type": "color",
         "value": "{color.gray.55}"
+      },
+      "label": {
+        "value": "{text.inverse}",
+        "type": "color"
       }
     },
     "secondary": {
