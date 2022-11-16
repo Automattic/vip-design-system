@@ -11,14 +11,14 @@ const StyledCheckbox = props => (
 	<CheckboxPrimitive.Root
 		sx={ {
 			all: 'unset',
-			backgroundColor: 'grey.10',
+			backgroundColor: 'gray.10',
 			width: 16,
 			height: 16,
 			borderRadius: 1,
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			'&:hover': { backgroundColor: 'grey.20' },
+			'&:hover': { backgroundColor: 'gray.20' },
 			'&:focus': { boxShadow: '0 0 0 2px black' },
 			'&[data-state=checked]': {
 				backgroundColor: 'primary',

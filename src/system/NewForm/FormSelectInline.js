@@ -3,6 +3,7 @@ export const inlineStyles = {
 	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
 	alignItems: 'center',
+	backgroundColor: 'background',
 	borderColor: 'border',
 	borderRadius: 1,
 	borderWidth: 1,

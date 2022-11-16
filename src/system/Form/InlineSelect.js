@@ -78,13 +78,13 @@ const InlineSelect = ( {
 						px: 1,
 					},
 					'.react-select__option': {
-						bg: 'grey.10',
+						bg: 'gray.10',
 						'&:hover': {
-							bg: 'grey.10',
+							bg: 'gray.10',
 						},
 					},
 					'.select__option--is-focused': {
-						bg: 'grey.10',
+						bg: 'gray.10',
 					},
 					'.select__menu': {
 						borderColor: 'border',

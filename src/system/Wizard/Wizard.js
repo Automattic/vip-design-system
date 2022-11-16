@@ -35,7 +35,7 @@ const Wizard = React.forwardRef(
 										titleVariant={ titleVariant }
 									/>
 									{ index < steps.length - 1 && (
-										<MdArrowForward sx={ { mx: 2, color: 'grey.80' } } />
+										<MdArrowForward sx={ { mx: 2, color: 'gray.80' } } />
 									) }
 								</React.Fragment>
 							) ) }

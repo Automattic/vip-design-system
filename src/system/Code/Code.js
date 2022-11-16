@@ -18,8 +18,8 @@ const Code = React.forwardRef(
 				sx={ {
 					fontSize: 1,
 					display: 'block',
-					bg: 'grey.90',
-					color: 'grey.10',
+					bg: 'gray.90',
+					color: 'gray.10',
 					borderRadius: 1,
 					py: 2,
 					px: 3,
@@ -54,7 +54,7 @@ const Code = React.forwardRef(
 					<button
 						aria-label="Copy code"
 						sx={ {
-							bg: 'grey.10',
+							bg: 'gray.10',
 							borderTopRightRadius: 1,
 							borderWidth: 0,
 							color: 'muted',

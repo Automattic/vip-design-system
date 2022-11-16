@@ -90,12 +90,10 @@ export default {
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
 		background: getColor( 'background', 'primary' ),
-		gold: getVariants( 'color.gold' ),
-		gray: getVariants( 'color.gray' ),
-		backgroundSecondary: light.grey[ '10' ],
-		primary: light.brand[ '70' ],
+		backgroundSecondary: light.gray[ '10' ],
+		primary: light.gold[ '30' ],
 		secondary: '#30c',
-		muted: light.grey[ '90' ],
+		muted: light.gray[ '90' ],
 		link: getColor( 'link', 'default' ),
 		links: {
 			default: getColor( 'link', 'default' ),
@@ -118,13 +116,14 @@ export default {
 		darken: 'rgba(0,0,0,.05)',
 		placeholder: getColor( 'text', 'placeholder' ),
 		midnight: '#13191E',
-		navigationStart: light.grey[ '5' ],
-		navigationEnd: light.grey[ '5' ],
-		success: light.green[ '90' ],
-		error: light.red[ '90' ],
-		warning: light.yellow[ '90' ],
-		dialog: light.grey[ '0' ],
-		backgroundMuted: light.grey[ '5' ],
+		navigationStart: light.gray[ '3' ],
+		navigationEnd: light.gray[ '3' ],
+		success: light.green[ '45' ],
+		error: light.red[ '45' ],
+		warning: light.yellow[ '45' ],
+		dialog: light.gray[ '0' ],
+		backgroundMuted: light.gray[ '7' ],
+
 		...light,
 		modes: {
 			dark: {
@@ -198,16 +197,16 @@ export default {
 	buttons: {
 		primary: {
 			// you can reference other values defined in the theme
-			color: 'grey.0',
-			bg: 'grey.100',
+			color: 'gray.0',
+			bg: 'gray.100',
 			cursor: 'pointer',
 			fontWeight: 'bold',
 			boxShadow: 'none',
 			borderRadius: 1,
 			border: '1px solid transparent',
 			'&:hover, &:focus': {
-				backgroundColor: 'grey.90',
-				color: 'grey.0',
+				backgroundColor: 'gray.90',
+				color: 'gray.0',
 			},
 		},
 		border: {
@@ -236,10 +235,10 @@ export default {
 			boxShadow: 'none',
 			fontWeight: 'heading',
 			borderRadius: 1,
-			bg: 'grey.10',
+			bg: 'gray.10',
 			'&:hover, &:focus': {
-				color: 'grey.100',
-				bg: 'grey.20',
+				color: 'gray.100',
+				bg: 'gray.20',
 			},
 		},
 		text: {

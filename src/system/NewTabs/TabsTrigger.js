@@ -27,7 +27,7 @@ const styles = {
 		boxShadow: theme => `inset 0 -1px 0 0 ${ theme.colors.link }, 0 1px 0 0 ${ theme.colors.link }`,
 	},
 	'&:disabled': {
-		color: 'grey.70',
+		color: 'gray.70',
 	},
 	':hover': { fontWeight: 'body', color: 'heading' },
 	'&:focus': theme => theme.outline,
