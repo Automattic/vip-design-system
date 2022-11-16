@@ -37,6 +37,10 @@ export const Default = () => (
 			<Text sx={ { mb: 0 } }>This notice has a title and children</Text>
 		</Notice>
 
+		<Notice variant="info" sx={ { mb: 4 } } title="Please read this first">
+			<Text sx={ { mb: 0 } }>This notice has a title and children</Text>
+		</Notice>
+
 		<Notice
 			variant="alert"
 			sx={ { mb: 4 } }

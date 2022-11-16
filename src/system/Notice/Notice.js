@@ -69,19 +69,19 @@ const Notice = React.forwardRef(
 				sx={ {
 					boxShadow: 'none',
 					borderRadius: 2,
-					bg: inline ? 'transparent' : `${ color }.10`,
+					bg: inline ? 'transparent' : `${ color }.7`,
 					p: inline ? 0 : 3,
-					color: `${ color }.90`,
+					color: `${ color }.85`,
 					a: {
-						color: `${ color }.90`,
+						color: `${ color }.60`,
 						'&:visited': {
-							color: `${ color }.90`,
+							color: `${ color }.80`,
 						},
 						'&:active': {
-							color: `${ color }.90`,
+							color: `${ color }.70`,
 						},
 						'&:hover, &:focus': {
-							color: `${ color }.90`,
+							color: `${ color }.70`,
 							textDecoration: 'none',
 						},
 					},
@@ -101,14 +101,14 @@ const Notice = React.forwardRef(
 							alignItems: 'center',
 						} }
 					>
-						<NoticeIcon color={ `${ color }.200` } variant={ variant } />
+						<NoticeIcon color={ `${ color }.50` } variant={ variant } />
 					</Flex>
 
 					<Box sx={ { ml: 3 } }>
 						{ title && (
 							<Heading
 								as={ headingVariant }
-								sx={ { color: `${ color }.100`, mb: 0, fontSize: 2, fontWeight: 'bold' } }
+								sx={ { color: `${ color }.85`, mb: 0, fontSize: 2, fontWeight: 'bold' } }
 							>
 								{ title }
 							</Heading>
