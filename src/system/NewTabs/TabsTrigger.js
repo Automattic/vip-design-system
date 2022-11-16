@@ -20,16 +20,16 @@ const styles = {
 	px: 0,
 	pb: 3,
 	border: 'none',
-	color: 'muted',
+	color: 'heading',
 	'&[data-state="active"]': {
-		color: 'heading',
-		fontWeight: 'body',
+		color: 'link',
+		fontWeight: 'regular',
 		boxShadow: theme => `inset 0 -1px 0 0 ${ theme.colors.link }, 0 1px 0 0 ${ theme.colors.link }`,
 	},
 	'&:disabled': {
-		color: 'gray.70',
+		color: 'muted',
 	},
-	':hover': { fontWeight: 'body', color: 'heading' },
+	':hover': { fontWeight: 'regular', color: 'heading' },
 	'&:focus': theme => theme.outline,
 	'&:focus-visible': theme => theme.outline,
 };
