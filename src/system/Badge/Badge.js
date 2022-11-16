@@ -19,14 +19,20 @@ const Badge = React.forwardRef(
 			sx={ {
 				fontSize: 0,
 				padding: 0,
-				bg: `${ variant }.20`,
-				color: `${ variant }.100`,
+				bg: `${ variant }.7`,
+				color: `${ variant }.85`,
 				py: 1,
 				verticalAlign: 'middle',
 				px: 2,
 				display: 'inline-block',
 				borderRadius: 1,
 				fontWeight: 'heading',
+				a: {
+					color: `${ variant }.65`,
+					'&:hover, &:focus': {
+						textDecoration: 'none',
+					},
+				},
 				...sx,
 			} }
 			className={ classNames( 'vip-badge-component', className ) }
