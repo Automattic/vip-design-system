@@ -19,7 +19,7 @@ const Label = React.forwardRef( ( { sx, children, required, ...rest }, forwardRe
 			lineHeight: 1.5,
 			display: 'block',
 			mb: 2,
-			color: 'muted',
+			color: 'heading',
 			...sx,
 		} }
 		ref={ forwardRef }

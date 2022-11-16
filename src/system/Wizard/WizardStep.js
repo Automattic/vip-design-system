@@ -25,7 +25,7 @@ const WizardStep = React.forwardRef(
 			borderLeftColor = 'primary';
 		}
 
-		let color = 'muted';
+		let color = 'secondary';
 
 		if ( complete ) {
 			color = 'success';
