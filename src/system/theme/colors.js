@@ -1,28 +1,14 @@
 /** @jsxImportSource theme-ui */
 
-import { getVariants } from './getColor';
+import { getColor, getVariants } from './getColor';
 
 /**
  * External dependencies
  */
 
 export const light = {
-	black: 'rgba(19, 25, 30, 1)',
-	brand: {
-		0: '#FEFDFB',
-		3: '#FDF9F5',
-		7: '#FAF3EA',
-		10: '#F7EBDC',
-		20: '#F2DFC8',
-		30: '#EBD1AF',
-		40: '#E0BD8F',
-		50: '#D8A45F',
-		60: '#B96B03',
-		70: '#B96B03',
-		80: '#AB6200',
-		90: '#915300',
-		100: '#2B1C08',
-	},
+	black: getColor( 'black', 'value' ),
+	brand: getVariants( 'color.gold' ),
 	blue: getVariants( 'color.blue' ),
 	gray: getVariants( 'color.gray' ),
 	grey: getVariants( 'color.gray' ),

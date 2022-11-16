@@ -92,8 +92,8 @@ export default {
 		background: getColor( 'background', 'primary' ),
 		backgroundSecondary: light.gray[ '10' ],
 		primary: light.gold[ '30' ],
-		secondary: '#30c',
-		muted: light.gray[ '90' ],
+		secondary: light.gray[ '45' ],
+		muted: light.gray[ '45' ],
 		link: getColor( 'link', 'default' ),
 		links: {
 			default: getColor( 'link', 'default' ),
