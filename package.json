@@ -12,7 +12,7 @@
 		"jest:coverage": "npm run jest && open-cli ./coverage/index.html",
 		"jest:watch": "npm run jest --watch",
 		"theme-builder-copy": "mkdir -p build/system/theme/generated/ && cp src/system/theme/generated/valet-theme.json build/system/theme/generated/valet-theme.json",
-		"theme-update": "token-transformer tokens/valet-core.json src/system/theme/generated/valet-theme.json valet-core,productive-color-wpvip",
+		"theme-update": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme.json valet-core,wpvip-productive-color",
 		"lint": "eslint . --fix --max-warnings 0",
 		"storybook": "start-storybook -p 6006",
 		"dev": "npm run storybook",
