@@ -15,6 +15,7 @@ import css from './FormAutocomplete.css';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
+import { FormSelectSearch } from './FormSelectSearch';
 
 const defaultStyles = {
 	width: '100%',
@@ -59,13 +60,35 @@ const defaultStyles = {
 	'& .autocomplete__wrapper': {
 		width: '100%',
 	},
+	'& .autocomplete__option': {
+		borderColor: 'borders.2',
+	},
+	'& .autocomplete__option--odd': {
+		bg: 'backgroundSecondary',
+	},
+	'& .autocomplete__option:hover, & .autocomplete__option--focused': {
+		bg: 'midnight',
+		borderColor: 'midnight',
+	},
 	'& .autocomplete__input--show-all-values': {
 		paddingRight: 0,
+	},
+	'& .autocomplete__hint': {
+		border: 'none',
+		paddingLeft: 3,
+		minHeight: '27px',
+		lineHeight: '27px',
 	},
 };
 
 const inlineStyles = {
 	borderWidth: 0,
+};
+
+const searchIconStyles = {
+	'& .autocomplete__input.autocomplete__input--show-all-values': {
+		paddingLeft: '30px',
+	},
 };
 
 const FormAutocomplete = React.forwardRef(
@@ -78,9 +101,12 @@ const FormAutocomplete = React.forwardRef(
 			getOptionLabel,
 			getOptionValue,
 			onChange = () => {},
+			onInputChange,
 			value,
 			showAllValues = true,
+			searchIcon = false,
 			displayMenu = 'overlay',
+			noOptionsMessage = () => 'No results found.',
 			id = 'vip-autocomplete',
 			className,
 			...props
@@ -122,13 +148,19 @@ const FormAutocomplete = React.forwardRef(
 			[ onChange, getOptionByLabel ]
 		);
 
+		const handleTypeChange = useCallback(
+			query =>
+				options.filter(
+					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
+				),
+			[ options ]
+		);
+
 		const suggest = useCallback(
 			( query, populateResults ) => {
 				let data = options;
 				if ( isDirty ) {
-					data = options.filter(
-						option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-					);
+					data = onInputChange ? onInputChange( query ) : handleTypeChange( query );
 				}
 				populateResults( data.map( option => optionLabel( option ) ) );
 			},
@@ -157,11 +189,18 @@ const FormAutocomplete = React.forwardRef(
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
 
-				<div sx={ { ...defaultStyles, ...( isInline && inlineStyles ) } }>
+				<div
+					sx={ {
+						...defaultStyles,
+						...( isInline && inlineStyles ),
+						...( searchIcon && searchIconStyles ),
+					} }
+				>
 					<FormSelectContent
 						isInline={ inlineLabel }
 						label={ inlineLabel ? <SelectLabel /> : null }
 					>
+						{ searchIcon && <FormSelectSearch /> }
 						<Autocomplete
 							id={ id }
 							showAllValues={ showAllValues }
@@ -170,6 +209,7 @@ const FormAutocomplete = React.forwardRef(
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
+							tNoResults={ noOptionsMessage }
 							{ ...props }
 						/>
 						<FormSelectArrow />
@@ -183,6 +223,7 @@ const FormAutocomplete = React.forwardRef(
 FormAutocomplete.propTypes = {
 	id: PropTypes.string,
 	showAllValues: PropTypes.bool,
+	searchIcon: PropTypes.bool,
 	isInline: PropTypes.bool,
 	forLabel: PropTypes.string,
 	value: PropTypes.string,
@@ -191,6 +232,8 @@ FormAutocomplete.propTypes = {
 	options: PropTypes.array,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
+	onInputChange: PropTypes.func,
+	noOptionsMessage: PropTypes.func,
 	onChange: PropTypes.func,
 	className: PropTypes.any,
 };

@@ -74,3 +74,30 @@ export const WithDefaultValue = () => {
 		</>
 	);
 };
+
+export const WithSearchIcon = () => {
+	const customArgs = {
+		...args,
+		searchIcon: true,
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
+export const WithCustomMessages = () => {
+	const customArgs = {
+		...args,
+		noOptionsMessage: () => 'No data',
+		placeholder: 'Type to search',
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
