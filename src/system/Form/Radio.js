@@ -115,6 +115,9 @@ Radio.displayName = 'Radio';
 
 Radio.propTypes = {
 	disabled: PropTypes.bool,
+	defaultValue: PropTypes.any,
+	onChange: PropTypes.func,
+	options: PropTypes.array,
 };
 
 export { Radio };
