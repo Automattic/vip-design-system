@@ -167,23 +167,20 @@ Content.propTypes = {
 	sx: PropTypes.object,
 };
 
-const Root = React.forwardRef(
-	( { sx = {}, defaultValue, type, children, className }, forwardRef ) => (
-		<AccordionPrimitive.Root
-			className={ classNames( 'vip-accordion-component', className ) }
-			collapsible
-			defaultValue={ defaultValue }
-			ref={ forwardRef }
-			sx={ {
-				borderRadius: 6,
-				...sx,
-			} }
-			type={ type }
-		>
-			{ children }
-		</AccordionPrimitive.Root>
-	)
-);
+const Root = React.forwardRef( ( { sx = {}, children, className, ...props }, forwardRef ) => (
+	<AccordionPrimitive.Root
+		className={ classNames( 'vip-accordion-component', className ) }
+		collapsible
+		ref={ forwardRef }
+		sx={ {
+			borderRadius: 6,
+			...sx,
+		} }
+		{ ...props }
+	>
+		{ children }
+	</AccordionPrimitive.Root>
+) );
 
 Root.displayName = 'Accordion';
 
