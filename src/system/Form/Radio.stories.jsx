@@ -46,10 +46,7 @@ export const Default = () => {
 							},
 							{ value: 'b', label: 'All domains listed on this environment', id: 'option-b' },
 						] }
-						onChange={ e => {
-							setChecked( e.target.value );
-							console.log( e.target.value );
-						} }
+						onChange={ e => setChecked( e.target.value ) }
 					/>
 				</Flex>
 			</fieldset>
