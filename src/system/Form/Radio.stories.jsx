@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * External dependencies
  */
@@ -8,7 +10,6 @@ import { useState } from 'react';
  */
 import { Form } from '..';
 import { Radio } from './Radio';
-import { Label } from './Label';
 import { Flex } from '../Flex';
 
 export default {
@@ -35,30 +36,21 @@ export const Default = () => {
 
 				<Flex sx={ { alignItems: 'center' } }>
 					<Radio
-						name="includeSubdomains"
-						id="include-all-domains-opt"
-						onChange={ () => setChecked( 'a' ) }
-						value={ 'a' }
-						checked={ checked === 'a' }
+						name="the_option"
+						defaultValue={ checked }
+						options={ [
+							{
+								value: 'a',
+								label: 'All domains listed on this environment, and all subdomains',
+								id: 'option-a',
+							},
+							{ value: 'b', label: 'All domains listed on this environment', id: 'option-b' },
+						] }
+						onChange={ e => {
+							setChecked( e.target.value );
+							console.log( e.target.value );
+						} }
 					/>
-
-					<Label htmlFor="include-all-domains-opt" sx={ { mb: 0 } }>
-						All domains listed on this environment, and all subdomains
-					</Label>
-				</Flex>
-
-				<Flex sx={ { alignItems: 'center', mb: 1 } }>
-					<Radio
-						name="includeSubdomains"
-						id="include-subdomains-opt"
-						onChange={ () => setChecked( 'b' ) }
-						checked={ checked === 'b' }
-						value={ 'b' }
-					/>
-
-					<Label id="exclude-subdomains" htmlFor="include-subdomains-opt" sx={ { mb: 0 } }>
-						All domains listed on this environment
-					</Label>
 				</Flex>
 			</fieldset>
 		</Form.Root>
