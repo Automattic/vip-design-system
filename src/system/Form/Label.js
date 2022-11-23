@@ -4,6 +4,7 @@
  * External dependencies
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
@@ -24,6 +25,10 @@ const Label = React.forwardRef( ( { sx, ...rest }, forwardRef ) => (
 		{ ...rest }
 	/>
 ) );
+
+Label.propTypes = {
+	sx: PropTypes.object,
+};
 
 Label.displayName = 'Label';
 
