@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * External dependencies
  */
@@ -8,8 +10,8 @@ import { useState } from 'react';
  */
 import { Form } from '..';
 import { Radio } from './Radio';
-import { Label } from './Label';
 import { Flex } from '../Flex';
+import { Label } from './Label';
 
 export default {
 	title: 'Form/Radio',
@@ -18,6 +20,7 @@ export default {
 
 export const Default = () => {
 	const [ checked, setChecked ] = useState( 'a' );
+	const [ checked2, setChecked2 ] = useState( 'a' );
 
 	return (
 		<Form.Root>
@@ -35,30 +38,51 @@ export const Default = () => {
 
 				<Flex sx={ { alignItems: 'center' } }>
 					<Radio
-						name="includeSubdomains"
-						id="include-all-domains-opt"
-						onChange={ () => setChecked( 'a' ) }
-						value={ 'a' }
-						checked={ checked === 'a' }
+						name="the_option"
+						defaultValue={ checked }
+						options={ [
+							{
+								value: 'a',
+								label: 'All domains listed on this environment, and all subdomains',
+								id: 'option-a',
+							},
+							{ value: 'b', label: 'All domains listed on this environment', id: 'option-b' },
+						] }
+						onChange={ e => setChecked( e.target.value ) }
 					/>
-
-					<Label htmlFor="include-all-domains-opt" sx={ { mb: 0 } }>
-						All domains listed on this environment, and all subdomains
-					</Label>
 				</Flex>
+			</fieldset>
 
-				<Flex sx={ { alignItems: 'center', mb: 1 } }>
+			<fieldset>
+				<legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>With a custom Label</legend>
+
+				<Flex sx={ { alignItems: 'center' } }>
 					<Radio
-						name="includeSubdomains"
-						id="include-subdomains-opt"
-						onChange={ () => setChecked( 'b' ) }
-						checked={ checked === 'b' }
-						value={ 'b' }
+						name="the_option_custom"
+						defaultValue={ checked2 }
+						options={ [
+							{
+								value: 'a',
+								label: (
+									<Label
+										htmlFor="option-custom-a"
+										className="custom-class"
+										sx={ { color: 'primary' } }
+									>
+										(Custom) All domains listed on this environment, and all subdomains
+									</Label>
+								),
+								id: 'option-custom-a',
+							},
+							{
+								value: 'b',
+								label: 'All domains listed on this environment',
+								className: 'custom-class-for-this',
+								id: 'option-custom-b',
+							},
+						] }
+						onChange={ e => setChecked2( e.target.value ) }
 					/>
-
-					<Label id="exclude-subdomains" htmlFor="include-subdomains-opt" sx={ { mb: 0 } }>
-						All domains listed on this environment
-					</Label>
 				</Flex>
 			</fieldset>
 		</Form.Root>
