@@ -21,7 +21,7 @@ export const backgrounds = {
 };
 
 function ThemeChanger( { background } ) {
-	const [ colorMode, setColorMode ] = useColorMode();
+	const [ _, setColorMode ] = useColorMode();
 	const newColorMode = darkBackground === background ? 'dark' : 'default';
 
 	useEffect( () => {

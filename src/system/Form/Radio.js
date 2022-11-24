@@ -4,7 +4,7 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Label } from './Label';
@@ -68,63 +68,72 @@ const labelStyle = {
 	},
 };
 
-const CustomLabel = ( { children } ) => (
-	<>
-		{ React.cloneElement( React.Children.only( children ), {
-			...children.props,
-			sx: { ...labelStyle, ...children.props.sx },
-			className: `${ children.props.className } vip-radio-component-item-label`,
-		} ) }
-	</>
-);
+const CustomLabel = ( { children } ) => {
+	return (
+		<>
+			{ React.cloneElement( React.Children.only( children ), {
+				...children.props,
+				sx: { ...labelStyle, ...children.props.sx },
+				className: `${ children.props.className } vip-radio-component-item-label`,
+			} ) }
+		</>
+	);
+};
 
 CustomLabel.propTypes = {
-	children: PropTypes.shape( { props: { className: PropTypes.any, sx: PropTypes.object } } )
-		.isRequired,
+	children: PropTypes.any,
 };
 
 const Radio = React.forwardRef(
 	(
-		{ disabled, defaultValue, onChange, name = '', options = [], className, ...props },
+		{ disabled, defaultValue, onChange, name = '', options = [], className = undefined, ...props },
 		forwardRef
 	) => {
-		const renderedOptions = options.map( option => (
-			<div
-				sx={ {
-					display: 'flex',
-					alignItems: 'center',
-					minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
-				} }
-				key={ option.id }
-				className={ classNames(
-					'vip-radio-component-item',
-					`vip-radio-component-item-${ option.id }`
-				) }
-			>
-				<input
-					type="radio"
-					id={ option.id }
-					name={ name }
-					value={ `${ option.value }` }
-					sx={ inputStyle }
-					onChange={ onChange }
-					className={ classNames( 'vip-radio-component-item-input', option?.className ) }
-					checked={ `${ option.value }` === `${ defaultValue }` }
-				/>
+		const onChangeHandler = useCallback( e => {
+			const optionTriggered = options.find(
+				option => `${ option.value }` === `${ e.target.value }`
+			);
+			onChange( e, optionTriggered );
+		}, [] );
 
-				{ typeof option.label === 'string' ? (
-					<Label
-						className={ classNames( 'vip-radio-component-item-label', option?.className ) }
-						htmlFor={ option.id }
-						sx={ labelStyle }
-					>
-						{ option.label }
-					</Label>
-				) : (
-					<CustomLabel>{ option.label }</CustomLabel>
-				) }
-			</div>
-		) );
+		const renderedOptions = options.map(
+			( { id, className: optionClassName, value, label, labelProps = {}, ...restOption } ) => (
+				<div
+					sx={ {
+						display: 'flex',
+						alignItems: 'center',
+						minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
+					} }
+					key={ id }
+					className={ classNames( 'vip-radio-component-item', `vip-radio-component-item-${ id }` ) }
+				>
+					<input
+						type="radio"
+						id={ id }
+						name={ name }
+						value={ `${ value }` }
+						sx={ inputStyle }
+						onChange={ onChangeHandler }
+						className={ classNames( 'vip-radio-component-item-input', optionClassName ) }
+						checked={ `${ value }` === `${ defaultValue }` }
+						{ ...restOption }
+					/>
+
+					{ typeof label === 'string' ? (
+						<Label
+							className={ classNames( 'vip-radio-component-item-label', optionClassName ) }
+							htmlFor={ id }
+							sx={ labelStyle }
+							{ ...labelProps }
+						>
+							{ label }
+						</Label>
+					) : (
+						<CustomLabel { ...labelProps }>{ label }</CustomLabel>
+					) }
+				</div>
+			)
+		);
 
 		return (
 			<div
@@ -148,7 +157,7 @@ Radio.propTypes = {
 	disabled: PropTypes.bool,
 	defaultValue: PropTypes.any,
 	onChange: PropTypes.func,
-	options: PropTypes.array,
+	options: PropTypes.any,
 	name: PropTypes.string,
 	className: PropTypes.any,
 };
