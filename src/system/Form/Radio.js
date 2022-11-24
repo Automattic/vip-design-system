@@ -4,7 +4,7 @@
 /**
  * External dependencies
  */
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Label } from './Label';
@@ -88,47 +88,43 @@ const Radio = React.forwardRef(
 		{ disabled, defaultValue, onChange, name = '', options = [], className, ...props },
 		forwardRef
 	) => {
-		const renderedOptions = useMemo(
-			() =>
-				options.map( option => (
-					<div
-						sx={ {
-							display: 'flex',
-							alignItems: 'center',
-							minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
-						} }
-						key={ option.id }
-						className={ classNames(
-							'vip-radio-component-item',
-							`vip-radio-component-item-${ option.id }`
-						) }
-					>
-						<input
-							type="radio"
-							id={ option.id }
-							name={ name }
-							value={ `${ option.value }` }
-							sx={ inputStyle }
-							onChange={ onChange }
-							className={ classNames( 'vip-radio-component-item-input', option?.className ) }
-							checked={ `${ option.value }` === `${ defaultValue }` }
-						/>
+		const renderedOptions = options.map( option => (
+			<div
+				sx={ {
+					display: 'flex',
+					alignItems: 'center',
+					minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
+				} }
+				key={ option.id }
+				className={ classNames(
+					'vip-radio-component-item',
+					`vip-radio-component-item-${ option.id }`
+				) }
+			>
+				<input
+					type="radio"
+					id={ option.id }
+					name={ name }
+					value={ `${ option.value }` }
+					sx={ inputStyle }
+					onChange={ onChange }
+					className={ classNames( 'vip-radio-component-item-input', option?.className ) }
+					checked={ `${ option.value }` === `${ defaultValue }` }
+				/>
 
-						{ typeof option.label === 'string' ? (
-							<Label
-								className={ classNames( 'vip-radio-component-item-label', option?.className ) }
-								htmlFor={ option.id }
-								sx={ labelStyle }
-							>
-								{ option.label }
-							</Label>
-						) : (
-							<CustomLabel>{ option.label }</CustomLabel>
-						) }
-					</div>
-				) ),
-			[ options ]
-		);
+				{ typeof option.label === 'string' ? (
+					<Label
+						className={ classNames( 'vip-radio-component-item-label', option?.className ) }
+						htmlFor={ option.id }
+						sx={ labelStyle }
+					>
+						{ option.label }
+					</Label>
+				) : (
+					<CustomLabel>{ option.label }</CustomLabel>
+				) }
+			</div>
+		) );
 
 		return (
 			<div
