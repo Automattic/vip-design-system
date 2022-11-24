@@ -86,7 +86,7 @@ CustomLabel.propTypes = {
 
 const Radio = React.forwardRef(
 	(
-		{ disabled, defaultValue, onChange, name = '', options = [], className = undefined, ...props },
+		{ disabled, defaultValue, onChange, name = '', options = [], className, ...props },
 		forwardRef
 	) => {
 		const onChangeHandler = useCallback( e => {
