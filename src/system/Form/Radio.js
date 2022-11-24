@@ -6,6 +6,7 @@
  */
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 
@@ -72,13 +73,16 @@ const CustomLabel = ( { children } ) => (
 		{ React.cloneElement( React.Children.only( children ), {
 			...children.props,
 			sx: { ...labelStyle, ...children.props.sx },
-			className: `${ children.props.className } vip-radio-group-item-label`,
+			className: `${ children.props.className } vip-radio-component-item-label`,
 		} ) }
 	</>
 );
 
 const Radio = React.forwardRef(
-	( { disabled, defaultValue, onChange, name = '', options = [], ...props }, forwardRef ) => {
+	(
+		{ disabled, defaultValue, onChange, name = '', options = [], className, ...props },
+		forwardRef
+	) => {
 		const renderedOptions = useMemo(
 			() =>
 				options.map( option => (
@@ -89,7 +93,10 @@ const Radio = React.forwardRef(
 							minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
 						} }
 						key={ option.id }
-						className="vip-radio-group-item"
+						className={ classNames(
+							'vip-radio-component-item',
+							`vip-radio-component-item-${ option.id }`
+						) }
 					>
 						<input
 							type="radio"
@@ -98,12 +105,16 @@ const Radio = React.forwardRef(
 							value={ `${ option.value }` }
 							sx={ inputStyle }
 							onChange={ onChange }
-							className="vip-radio-group-item-input"
+							className={ classNames( 'vip-radio-component-item-input', option?.className ) }
 							checked={ `${ option.value }` === `${ defaultValue }` }
 						/>
 
 						{ typeof option.label === 'string' ? (
-							<Label className="vip-radio-group-item-label" htmlFor={ option.id } sx={ labelStyle }>
+							<Label
+								className={ classNames( 'vip-radio-component-item-label', option?.className ) }
+								htmlFor={ option.id }
+								sx={ labelStyle }
+							>
 								{ option.label }
 							</Label>
 						) : (
@@ -115,7 +126,15 @@ const Radio = React.forwardRef(
 		);
 
 		return (
-			<div className="vip-radio-button-group" ref={ forwardRef } { ...props }>
+			<div
+				className={ classNames(
+					'vip-radio-component',
+					`vip-radio-component-${ name }`,
+					className
+				) }
+				ref={ forwardRef }
+				{ ...props }
+			>
 				{ renderedOptions }
 			</div>
 		);

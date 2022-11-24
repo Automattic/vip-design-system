@@ -77,6 +77,7 @@ export const Default = () => {
 							{
 								value: 'b',
 								label: 'All domains listed on this environment',
+								className: 'custom-class-for-this',
 								id: 'option-custom-b',
 							},
 						] }
