@@ -57,7 +57,7 @@ Item.propTypes = {
 };
 
 export const Trigger = React.forwardRef(
-	( { children, headingVariant = 'h3', ...props }, forwardedRef ) => (
+	( { children, headingVariant = 'h3', sx = {}, ...props }, forwardedRef ) => (
 		<Heading
 			sx={ {
 				all: 'unset',
@@ -90,6 +90,7 @@ export const Trigger = React.forwardRef(
 						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
 					},
 					'&:hover': { backgroundColor: ( { accordion } ) => accordion.background.hover },
+					...sx,
 				} }
 				{ ...props }
 				ref={ forwardedRef }
@@ -115,6 +116,7 @@ Trigger.displayName = 'Accordion.Trigger';
 Trigger.propTypes = {
 	children: PropTypes.node.isRequired,
 	headingVariant: PropTypes.string,
+	sx: PropTypes.object,
 };
 
 export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
@@ -139,6 +141,8 @@ export const Content = React.forwardRef( ( { children, sx = {}, ...props }, forw
 				color: 'text',
 				fontSize: 2,
 				overflow: 'hidden',
+				px: 3,
+				py: 2,
 
 				'&[data-state="open"]': {
 					animation: `${ slideDown } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
@@ -151,14 +155,7 @@ export const Content = React.forwardRef( ( { children, sx = {}, ...props }, forw
 			{ ...props }
 			ref={ forwardedRef }
 		>
-			<div
-				sx={ {
-					px: 3,
-					py: 2,
-				} }
-			>
-				{ children }
-			</div>
+			{ children }
 		</AccordionPrimitive.Content>
 	);
 } );
@@ -170,23 +167,20 @@ Content.propTypes = {
 	sx: PropTypes.object,
 };
 
-const Root = React.forwardRef(
-	( { sx = {}, defaultValue, type, children, className }, forwardRef ) => (
-		<AccordionPrimitive.Root
-			className={ classNames( 'vip-accordion-component', className ) }
-			collapsible
-			defaultValue={ defaultValue }
-			ref={ forwardRef }
-			sx={ {
-				borderRadius: 6,
-				...sx,
-			} }
-			type={ type }
-		>
-			{ children }
-		</AccordionPrimitive.Root>
-	)
-);
+const Root = React.forwardRef( ( { sx = {}, children, className, ...props }, forwardRef ) => (
+	<AccordionPrimitive.Root
+		className={ classNames( 'vip-accordion-component', className ) }
+		collapsible
+		ref={ forwardRef }
+		sx={ {
+			borderRadius: 6,
+			...sx,
+		} }
+		{ ...props }
+	>
+		{ children }
+	</AccordionPrimitive.Root>
+) );
 
 Root.displayName = 'Accordion';
 
