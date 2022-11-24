@@ -78,6 +78,11 @@ const CustomLabel = ( { children } ) => (
 	</>
 );
 
+CustomLabel.propTypes = {
+	children: PropTypes.shape( { props: { className: PropTypes.any, sx: PropTypes.object } } )
+		.isRequired,
+};
+
 const Radio = React.forwardRef(
 	(
 		{ disabled, defaultValue, onChange, name = '', options = [], className, ...props },
@@ -149,6 +154,7 @@ Radio.propTypes = {
 	onChange: PropTypes.func,
 	options: PropTypes.array,
 	name: PropTypes.string,
+	className: PropTypes.any,
 };
 
 export { Radio };
