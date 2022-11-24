@@ -10,6 +10,14 @@ import classNames from 'classnames';
 import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 
+const prefix = 'vip-radio-component-';
+
+const itemStyle = {
+	display: 'flex',
+	alignItems: 'center',
+	minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
+};
+
 const inputStyle = {
 	...screenReaderTextClass,
 	width: '16px',
@@ -68,13 +76,14 @@ const labelStyle = {
 	},
 };
 
-const CustomLabel = ( { children } ) => {
+const CustomLabel = ( { children, ...restLabel } ) => {
 	return (
 		<>
 			{ React.cloneElement( React.Children.only( children ), {
 				...children.props,
 				sx: { ...labelStyle, ...children.props.sx },
-				className: `${ children.props.className } vip-radio-component-item-label`,
+				className: `${ children.props.className } ${ prefix }item-label`,
+				...restLabel,
 			} ) }
 		</>
 	);
@@ -82,6 +91,55 @@ const CustomLabel = ( { children } ) => {
 
 CustomLabel.propTypes = {
 	children: PropTypes.any,
+};
+
+const RadioOption = ( {
+	option: { id, value, className, label, labelProps = {}, ...restOption },
+	name,
+	onChangeHandler,
+	checked,
+} ) => (
+	<div
+		sx={ itemStyle }
+		className={ classNames(
+			`${ prefix }item`,
+			`${ prefix }item-${ id }`,
+			checked ? `${ prefix }item-checked` : '',
+			className
+		) }
+	>
+		<input
+			type="radio"
+			id={ id }
+			name={ name }
+			value={ `${ value }` }
+			sx={ inputStyle }
+			onChange={ onChangeHandler }
+			className={ `${ prefix }item-input` }
+			checked={ checked }
+			{ ...restOption }
+		/>
+
+		{ typeof label === 'string' ? (
+			<Label
+				className={ `${ prefix }item-label` }
+				htmlFor={ id }
+				sx={ labelStyle }
+				{ ...labelProps }
+			>
+				{ label }
+			</Label>
+		) : (
+			<CustomLabel { ...labelProps }>{ label }</CustomLabel>
+		) }
+	</div>
+);
+
+RadioOption.propTypes = {
+	option: PropTypes.object,
+	name: PropTypes.string,
+	onChangeHandler: PropTypes.func,
+	checked: PropTypes.bool,
 };
 
 const Radio = React.forwardRef(
@@ -96,52 +154,19 @@ const Radio = React.forwardRef(
 			onChange( e, optionTriggered );
 		}, [] );
 
-		const renderedOptions = options.map(
-			( { id, className: optionClassName, value, label, labelProps = {}, ...restOption } ) => (
-				<div
-					sx={ {
-						display: 'flex',
-						alignItems: 'center',
-						minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
-					} }
-					key={ id }
-					className={ classNames( 'vip-radio-component-item', `vip-radio-component-item-${ id }` ) }
-				>
-					<input
-						type="radio"
-						id={ id }
-						name={ name }
-						value={ `${ value }` }
-						sx={ inputStyle }
-						onChange={ onChangeHandler }
-						className={ classNames( 'vip-radio-component-item-input', optionClassName ) }
-						checked={ `${ value }` === `${ defaultValue }` }
-						{ ...restOption }
-					/>
-
-					{ typeof label === 'string' ? (
-						<Label
-							className={ classNames( 'vip-radio-component-item-label', optionClassName ) }
-							htmlFor={ id }
-							sx={ labelStyle }
-							{ ...labelProps }
-						>
-							{ label }
-						</Label>
-					) : (
-						<CustomLabel { ...labelProps }>{ label }</CustomLabel>
-					) }
-				</div>
-			)
-		);
+		const renderedOptions = options.map( option => (
+			<RadioOption
+				key={ option?.id }
+				name={ name }
+				option={ option }
+				onChangeHandler={ onChangeHandler }
+				checked={ `${ defaultValue }` === `${ option?.value }` }
+			/>
+		) );
 
 		return (
 			<div
-				className={ classNames(
-					'vip-radio-component',
-					`vip-radio-component-${ name }`,
-					className
-				) }
+				className={ classNames( prefix, `${ prefix }${ name }`, className ) }
 				ref={ forwardRef }
 				{ ...props }
 			>
