@@ -67,6 +67,16 @@ const labelStyle = {
 	},
 };
 
+const CustomLabel = ( { children } ) => (
+	<>
+		{ React.cloneElement( React.Children.only( children ), {
+			...children.props,
+			sx: { ...labelStyle, ...children.props.sx },
+			className: `${ children.props.className } vip-radio-group-item-label`,
+		} ) }
+	</>
+);
+
 const Radio = React.forwardRef(
 	( { disabled, defaultValue, onChange, name = '', options = [], ...props }, forwardRef ) => {
 		const renderedOptions = useMemo(
@@ -97,7 +107,7 @@ const Radio = React.forwardRef(
 								{ option.label }
 							</Label>
 						) : (
-							option.label
+							<CustomLabel>{ option.label }</CustomLabel>
 						) }
 					</div>
 				) ),

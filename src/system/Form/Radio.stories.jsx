@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Form } from '..';
 import { Radio } from './Radio';
 import { Flex } from '../Flex';
+import { Label } from './Label';
 
 export default {
 	title: 'Form/Radio',
@@ -19,6 +20,7 @@ export default {
 
 export const Default = () => {
 	const [ checked, setChecked ] = useState( 'a' );
+	const [ checked2, setChecked2 ] = useState( 'a' );
 
 	return (
 		<Form.Root>
@@ -47,6 +49,38 @@ export const Default = () => {
 							{ value: 'b', label: 'All domains listed on this environment', id: 'option-b' },
 						] }
 						onChange={ e => setChecked( e.target.value ) }
+					/>
+				</Flex>
+			</fieldset>
+
+			<fieldset>
+				<legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>With a custom Label</legend>
+
+				<Flex sx={ { alignItems: 'center' } }>
+					<Radio
+						name="the_option_custom"
+						defaultValue={ checked2 }
+						options={ [
+							{
+								value: 'a',
+								label: (
+									<Label
+										htmlFor="option-custom-a"
+										className="custom-class"
+										sx={ { color: 'primary' } }
+									>
+										(Custom) All domains listed on this environment, and all subdomains
+									</Label>
+								),
+								id: 'option-custom-a',
+							},
+							{
+								value: 'b',
+								label: 'All domains listed on this environment',
+								id: 'option-custom-b',
+							},
+						] }
+						onChange={ e => setChecked2( e.target.value ) }
 					/>
 				</Flex>
 			</fieldset>
