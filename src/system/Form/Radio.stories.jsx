@@ -20,7 +20,7 @@ export default {
 
 export const Default = () => {
 	const [ checked, setChecked ] = useState( 'a' );
-	const [ checked2, setChecked2 ] = useState( 'a' );
+	const [ checked2, setChecked2 ] = useState( 'b' );
 
 	return (
 		<Form.Root>
@@ -67,7 +67,7 @@ export const Default = () => {
 									<Label
 										htmlFor="option-custom-a"
 										className="custom-class"
-										sx={ { color: 'primary' } }
+										sx={ { color: 'error' } }
 									>
 										(Custom) All domains listed on this environment, and all subdomains
 									</Label>
@@ -77,14 +77,22 @@ export const Default = () => {
 							{
 								value: 'b',
 								label: 'All domains listed on this environment',
+								labelProps: {
+									id: 'label-option-custom-b-custom-props',
+								},
 								className: 'custom-class-for-this',
+								'aria-describedby': 'describe-radio-all-domains-subdomains',
 								id: 'option-custom-b',
 							},
 						] }
-						onChange={ e => setChecked2( e.target.value ) }
+						onChange={ ( _, option ) => setChecked2( option.value ) }
 					/>
 				</Flex>
 			</fieldset>
+
+			<p id="describe-radio-all-domains-subdomains" sx={ { mt: 2 } }>
+				This is a explanation for custom option b
+			</p>
 		</Form.Root>
 	);
 };
