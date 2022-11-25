@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import React, { useState } from 'react';
+import React from 'react';
 
 /**
  * Internal dependencies
@@ -37,7 +37,7 @@ export const Default = () => (
 	</NewTabs>
 );
 export const SetActiveTab = () => {
-	const [ activeTab, setActiveTab ] = useState( 'all' );
+	const [ activeTab, setActiveTab ] = React.useState( 'all' );
 
 	return (
 		<NewTabs value={ activeTab } onValueChange={ val => setActiveTab( val ) }>
