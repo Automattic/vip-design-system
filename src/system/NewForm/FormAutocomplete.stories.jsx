@@ -88,6 +88,19 @@ export const WithSearchIcon = () => {
 	);
 };
 
+export const WithLoading = () => {
+	const customArgs = {
+		...args,
+		loading: true,
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
 export const WithCustomMessages = () => {
 	const customArgs = {
 		...args,
