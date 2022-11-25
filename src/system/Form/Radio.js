@@ -9,14 +9,17 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
+import theme from '../theme';
 
 const prefix = 'vip-radio-component-';
 
 const itemStyle = {
 	display: 'flex',
 	alignItems: 'center',
-	minHeight: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
+	my: 2,
 };
+
+const radioPosition = theme.space[ 4 ] - theme.space[ 1 ];
 
 const inputStyle = {
 	...screenReaderTextClass,
@@ -28,7 +31,7 @@ const inputStyle = {
 		border: '2px solid',
 		borderColor: 'border',
 		zIndex: 3,
-		left: `${ -1 * ( theme.space[ 4 ] - theme.space[ 2 ] ) }px`,
+		left: `${ -1 * radioPosition }px`,
 	} ),
 	'&:checked ~ label::after': {
 		opacity: 1,
@@ -39,7 +42,7 @@ const inputStyle = {
 const labelStyle = {
 	cursor: 'pointer',
 	position: 'relative',
-	marginLeft: theme => `${ theme.space[ 4 ] - theme.space[ 2 ] }px`,
+	marginLeft: `${ radioPosition }px`,
 	marginBottom: 0,
 	userSelect: 'none',
 	color: 'heading',
@@ -48,7 +51,7 @@ const labelStyle = {
 		borderRadius: '50%',
 		position: 'absolute',
 		top: 0,
-		left: theme => `${ -1 * ( theme.space[ 4 ] - theme.space[ 2 ] ) }px`,
+		left: `${ -1 * radioPosition }px`,
 		transition: 'all .3s ease-out',
 		zIndex: 2,
 		width: '16px',
