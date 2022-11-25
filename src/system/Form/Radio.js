@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
-import theme from '../theme';
+import mainTheme from '../theme';
 
 const prefix = 'vip-radio-component-';
 
@@ -19,7 +19,7 @@ const itemStyle = {
 	my: 2,
 };
 
-const radioPosition = theme.space[ 4 ] - theme.space[ 1 ];
+const radioPosition = mainTheme.space[ 4 ] - mainTheme.space[ 1 ];
 
 const inputStyle = {
 	...screenReaderTextClass,
