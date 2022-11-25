@@ -205,6 +205,7 @@ const FormAutocomplete = React.forwardRef(
 						{ searchIcon && <FormSelectSearch /> }
 						<Autocomplete
 							id={ id }
+							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
 							source={ suggest }
