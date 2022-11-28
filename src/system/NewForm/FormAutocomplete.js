@@ -16,6 +16,7 @@ import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
 import { FormSelectSearch } from './FormSelectSearch';
+import { FormSelectLoading } from './FormSelectLoading';
 
 const defaultStyles = {
 	width: '100%',
@@ -105,6 +106,7 @@ const FormAutocomplete = React.forwardRef(
 			value,
 			showAllValues = true,
 			searchIcon = false,
+			loading = false,
 			displayMenu = 'overlay',
 			noOptionsMessage = () => 'No results found.',
 			id = 'vip-autocomplete',
@@ -203,6 +205,7 @@ const FormAutocomplete = React.forwardRef(
 						{ searchIcon && <FormSelectSearch /> }
 						<Autocomplete
 							id={ id }
+							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
 							source={ suggest }
@@ -212,6 +215,7 @@ const FormAutocomplete = React.forwardRef(
 							tNoResults={ noOptionsMessage }
 							{ ...props }
 						/>
+						{ loading && <FormSelectLoading /> }
 						<FormSelectArrow />
 					</FormSelectContent>
 				</div>
@@ -224,6 +228,7 @@ FormAutocomplete.propTypes = {
 	id: PropTypes.string,
 	showAllValues: PropTypes.bool,
 	searchIcon: PropTypes.bool,
+	loading: PropTypes.bool,
 	isInline: PropTypes.bool,
 	forLabel: PropTypes.string,
 	value: PropTypes.string,
