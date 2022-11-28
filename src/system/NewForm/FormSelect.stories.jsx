@@ -70,6 +70,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 export const Default = DefaultComponent.bind( {} );
 Default.args = {
 	placeholder: '- Select -',
+	required: true,
 	options,
 };
 
