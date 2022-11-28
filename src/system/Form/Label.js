@@ -9,8 +9,9 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
+import { RequiredLabel } from './RequiredLabel';
 
-const Label = React.forwardRef( ( { sx, ...rest }, forwardRef ) => (
+const Label = React.forwardRef( ( { sx, children, required, ...rest }, forwardRef ) => (
 	<label
 		sx={ {
 			fontWeight: 500,
@@ -23,10 +24,15 @@ const Label = React.forwardRef( ( { sx, ...rest }, forwardRef ) => (
 		} }
 		ref={ forwardRef }
 		{ ...rest }
-	/>
+	>
+		{ children }
+		{ required && <RequiredLabel /> }
+	</label>
 ) );
 
 Label.propTypes = {
+	children: PropTypes.object,
+	required: PropTypes.bool,
 	sx: PropTypes.object,
 };
 

@@ -12,10 +12,6 @@ import PropTypes from 'prop-types';
 import { Validation, Label } from '../';
 import { Input as ThemeInput } from 'theme-ui';
 
-const RequiredLabel = () => (
-	<span sx={ { color: 'error', display: 'inline-block', ml: 2, fontSize: 1 } }>(Required)</span>
-);
-
 const inputStyles = {
 	unset: 'all',
 	border: '1px solid',
@@ -44,9 +40,8 @@ const Input = React.forwardRef(
 	( { variant, label, forLabel, hasError, required, sx = {}, errorMessage, ...props }, ref ) => (
 		<React.Fragment>
 			{ label && (
-				<Label htmlFor={ forLabel }>
+				<Label required={ required } htmlFor={ forLabel }>
 					{ label }
-					{ required && <RequiredLabel /> }
 				</Label>
 			) }
 
