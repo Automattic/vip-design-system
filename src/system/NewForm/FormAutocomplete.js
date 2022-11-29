@@ -97,7 +97,7 @@ const FormAutocomplete = React.forwardRef(
 		{
 			isInline,
 			forLabel,
-			options,
+			options = [],
 			label,
 			getOptionLabel,
 			getOptionValue,
@@ -106,6 +106,8 @@ const FormAutocomplete = React.forwardRef(
 			value,
 			showAllValues = true,
 			searchIcon,
+			minLength = 0,
+			debounce = 0,
 			loading,
 			required,
 			displayMenu = 'overlay',
@@ -117,6 +119,7 @@ const FormAutocomplete = React.forwardRef(
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
+		let debounceTimeout;
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel || id }>
@@ -163,12 +166,24 @@ const FormAutocomplete = React.forwardRef(
 			[ options ]
 		);
 
+		const handleInputChange = useCallback(
+			query => {
+				clearTimeout( debounceTimeout );
+				if ( ! query.length || query.length >= minLength ) {
+					debounceTimeout = setTimeout( () => {
+						onInputChange( query );
+					}, debounce );
+				}
+			},
+			[ onInputChange, debounce, minLength ]
+		);
+
 		const suggest = useCallback(
 			( query, populateResults ) => {
-				let data = options;
-				if ( isDirty ) {
-					data = onInputChange ? onInputChange( query ) : handleTypeChange( query );
+				if ( isDirty && onInputChange ) {
+					handleInputChange( query );
 				}
+				const data = handleTypeChange( query );
 				populateResults( data.map( option => optionLabel( option ) ) );
 			},
 			[ options, isDirty ]
@@ -247,6 +262,8 @@ FormAutocomplete.propTypes = {
 	noOptionsMessage: PropTypes.func,
 	onChange: PropTypes.func,
 	className: PropTypes.any,
+	minLength: PropTypes.number,
+	debounce: PropTypes.number,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';

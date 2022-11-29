@@ -3,6 +3,7 @@
 /**
  * Internal dependencies
  */
+import { useState } from 'react';
 import * as Form from '.';
 
 export default {
@@ -96,6 +97,25 @@ export const WithLoading = () => {
 
 	return (
 		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
+export const WithDebounce = () => {
+	const [ value, setValue ] = useState( null );
+	const customArgs = {
+		...args,
+		minLength: 3,
+		debounce: 300,
+		onInputChange: query => {
+			setValue( query );
+		},
+	};
+
+	return (
+		<>
+			Filter: { value }
 			<DefaultComponent { ...customArgs } />
 		</>
 	);
