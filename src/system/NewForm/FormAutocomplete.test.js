@@ -23,7 +23,7 @@ const defaultProps = {
 describe( '<FormAutocomplete />', () => {
 	it( 'renders the FormAutocomplete component', async () => {
 		const { container } = render(
-			<FormAutocomplete id="my_desert_list" label="'This is a label'" />
+			<FormAutocomplete id="my_desert_list" label="This is a label" />
 		);
 
 		// Check for accessibility issues
