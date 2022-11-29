@@ -8,12 +8,19 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Wizard, Box, Label, Input, Button } from '..';
+import { Wizard, Box, Label, Input, Button, Form } from '..';
 
 export default {
 	title: 'Wizard',
 	component: Wizard,
 };
+
+const options = [
+	{ value: 'chocolate', label: 'Chocolate' },
+	{ value: 'strawberry', label: 'Strawberry' },
+	{ value: 'vanilla', label: 'Vanilla' },
+	{ value: 'coffee', label: 'Coffee' },
+];
 
 export const Default = () => {
 	const steps = [
@@ -25,7 +32,8 @@ export const Default = () => {
 				<Box>
 					<Label>Domain</Label>
 					<Input autoFocus placeholder="yourdomain.com" />
-					<Button>Continue</Button>
+					<Form.Autocomplete label="Autocomplete" options={ options } />
+					<Button sx={ { mt: 3 } }>Continue</Button>
 				</Box>
 			),
 		},

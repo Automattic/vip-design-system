@@ -109,6 +109,7 @@ const FormAutocomplete = React.forwardRef(
 			minLength = 0,
 			debounce = 0,
 			loading,
+			required,
 			displayMenu = 'overlay',
 			noOptionsMessage = () => 'No results found.',
 			id = 'vip-autocomplete',
@@ -120,7 +121,11 @@ const FormAutocomplete = React.forwardRef(
 		const [ isDirty, setIsDirty ] = useState( false );
 		let debounceTimeout;
 
-		const SelectLabel = () => <Label htmlFor={ forLabel || id }>{ label }</Label>;
+		const SelectLabel = () => (
+			<Label required={ required } htmlFor={ forLabel || id }>
+				{ label }
+			</Label>
+		);
 
 		const inlineLabel = !! ( isInline && label );
 
@@ -244,6 +249,7 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	loading: PropTypes.bool,
+	required: PropTypes.bool,
 	isInline: PropTypes.bool,
 	forLabel: PropTypes.string,
 	value: PropTypes.string,

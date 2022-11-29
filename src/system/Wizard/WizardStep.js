@@ -50,6 +50,7 @@ const WizardStep = React.forwardRef(
 					},
 					borderColor: active ? 'primary' : 'borders.2',
 					borderLeftColor: borderLeftColor,
+					overflow: 'inherit',
 				} }
 				data-step={ order }
 				data-active={ active || undefined }

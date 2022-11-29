@@ -45,7 +45,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
 export const Default = () => {
 	return (
 		<>
-			<DefaultComponent { ...args } />
+			<DefaultComponent required { ...args } />
 		</>
 	);
 };
