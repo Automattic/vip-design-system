@@ -22,6 +22,15 @@ const defaultProps = {
 
 describe( '<FormAutocomplete />', () => {
 	it( 'renders the FormAutocomplete component', async () => {
+		const { container } = render(
+			<FormAutocomplete id="my_desert_list" label="'This is a label'" />
+		);
+
+		// Check for accessibility issues
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	it( 'renders the FormAutocomplete component with options', async () => {
 		const { container } = render( <FormAutocomplete id="my_desert_list" { ...defaultProps } /> );
 
 		expect( screen.getByLabelText( defaultProps.label ) ).toBeInTheDocument();
