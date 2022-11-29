@@ -58,6 +58,7 @@ const FormSelect = React.forwardRef(
 			placeholder,
 			forLabel,
 			options,
+			required,
 			label,
 			getOptionLabel,
 			getOptionValue,
@@ -105,7 +106,11 @@ const FormSelect = React.forwardRef(
 			[ onChange, getOptionByValue ]
 		);
 
-		const SelectLabel = () => <Label htmlFor={ forLabel || props.id }>{ label }</Label>;
+		const SelectLabel = () => (
+			<Label required={ required } htmlFor={ forLabel || props.id }>
+				{ label }
+			</Label>
+		);
 
 		const inlineLabel = !! ( isInline && label );
 
@@ -133,6 +138,7 @@ const FormSelect = React.forwardRef(
 FormSelect.propTypes = {
 	id: PropTypes.string,
 	isInline: PropTypes.bool,
+	required: PropTypes.bool,
 	forLabel: PropTypes.string,
 	placeholder: PropTypes.string,
 	label: PropTypes.string,
