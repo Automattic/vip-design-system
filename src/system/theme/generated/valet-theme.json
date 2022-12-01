@@ -96,7 +96,7 @@
     "placeholder": {
       "type": "color",
       "description": "Use for placeholder text in fields",
-      "value": "#8f8c8b"
+      "value": "#757575"
     },
     "disabled": {
       "type": "color",

@@ -33,6 +33,7 @@ const inputStyles = {
 	},
 	'&::placeholder': {
 		color: 'placeholder',
+		opacity: 1,
 	},
 };
 
