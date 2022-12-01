@@ -168,6 +168,9 @@ const FormAutocomplete = React.forwardRef(
 
 		const handleInputChange = useCallback(
 			query => {
+				if ( ! debounce ) {
+					return onInputChange( query );
+				}
 				clearTimeout( debounceTimeout );
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
@@ -184,7 +187,7 @@ const FormAutocomplete = React.forwardRef(
 					handleInputChange( query );
 				}
 				const data = handleTypeChange( query );
-				populateResults( data.map( option => optionLabel( option ) ) );
+				populateResults( data?.map( option => optionLabel( option ) ) );
 			},
 			[ options, isDirty ]
 		);
