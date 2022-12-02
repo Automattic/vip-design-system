@@ -95,25 +95,26 @@ const searchIconStyles = {
 const FormAutocomplete = React.forwardRef(
 	(
 		{
-			isInline,
+			autoFilter = true,
+			className,
+			debounce = 0,
+			displayMenu = 'overlay',
 			forLabel,
-			options = [],
-			label,
 			getOptionLabel,
 			getOptionValue,
+			id = 'vip-autocomplete',
+			isInline,
+			label,
+			loading,
+			minLength = 0,
+			noOptionsMessage = () => 'No results found.',
 			onChange = () => {},
 			onInputChange,
-			value,
-			showAllValues = true,
-			searchIcon,
-			minLength = 0,
-			debounce = 0,
-			loading,
+			options = [],
 			required,
-			displayMenu = 'overlay',
-			noOptionsMessage = () => 'No results found.',
-			id = 'vip-autocomplete',
-			className,
+			searchIcon,
+			showAllValues = true,
+			value,
 			...props
 		},
 		forwardRef
@@ -186,7 +187,7 @@ const FormAutocomplete = React.forwardRef(
 				if ( isDirty && onInputChange ) {
 					handleInputChange( query );
 				}
-				const data = handleTypeChange( query );
+				const data = autoFilter ? handleTypeChange( query ) : options;
 				populateResults( data?.map( option => optionLabel( option ) ) );
 			},
 			[ options, isDirty ]
@@ -248,25 +249,26 @@ const FormAutocomplete = React.forwardRef(
 );
 
 FormAutocomplete.propTypes = {
-	id: PropTypes.string,
-	showAllValues: PropTypes.bool,
-	searchIcon: PropTypes.bool,
-	loading: PropTypes.bool,
-	required: PropTypes.bool,
-	isInline: PropTypes.bool,
-	forLabel: PropTypes.string,
-	value: PropTypes.string,
+	autoFilter: PropTypes.bool,
+	className: PropTypes.any,
+	debounce: PropTypes.number,
 	displayMenu: PropTypes.string,
-	label: PropTypes.string,
-	options: PropTypes.array,
+	forLabel: PropTypes.string,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
-	onInputChange: PropTypes.func,
+	id: PropTypes.string,
+	isInline: PropTypes.bool,
+	label: PropTypes.string,
+	loading: PropTypes.bool,
+	minLength: PropTypes.number,
 	noOptionsMessage: PropTypes.func,
 	onChange: PropTypes.func,
-	className: PropTypes.any,
-	minLength: PropTypes.number,
-	debounce: PropTypes.number,
+	onInputChange: PropTypes.func,
+	options: PropTypes.array,
+	required: PropTypes.bool,
+	searchIcon: PropTypes.bool,
+	showAllValues: PropTypes.bool,
+	value: PropTypes.string,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
