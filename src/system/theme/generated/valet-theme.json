@@ -149,7 +149,7 @@
     },
     "disabled": {
       "type": "color",
-      "value": "#8f8c8b"
+      "value": "#757575"
     }
   },
   "button": {
@@ -1476,7 +1476,7 @@
         "type": "color"
       },
       "45": {
-        "value": "#8f8c8b",
+        "value": "#757575",
         "type": "color"
       },
       "50": {
