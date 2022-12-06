@@ -104,12 +104,19 @@ export const WithLoading = () => {
 
 export const WithDebounce = () => {
 	const [ value, setValue ] = useState( null );
+	const [ loading, setLoading ] = useState( null );
 	const customArgs = {
 		...args,
+		loading,
+		autoFilter: false,
 		minLength: 3,
 		debounce: 300,
 		onInputChange: query => {
+			setLoading( true );
 			setValue( query );
+			setTimeout( () => {
+				setLoading( false );
+			}, 2000 );
 		},
 	};
 

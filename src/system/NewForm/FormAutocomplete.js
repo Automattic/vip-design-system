@@ -106,6 +106,7 @@ const FormAutocomplete = React.forwardRef(
 			isInline,
 			label,
 			loading,
+			loadingMessage = () => 'Loading…',
 			minLength = 0,
 			noOptionsMessage = () => 'No results found.',
 			onChange = () => {},
@@ -179,7 +180,7 @@ const FormAutocomplete = React.forwardRef(
 					}, debounce );
 				}
 			},
-			[ onInputChange, debounce, minLength ]
+			[ onInputChange, debounce, minLength, id ]
 		);
 
 		const suggest = useCallback(
@@ -206,10 +207,18 @@ const FormAutocomplete = React.forwardRef(
 		}, [ label ] );
 
 		useEffect( () => {
+			// accessible-autocomplete was created to call suggest() method only when typing in the input filter or clicking to open the options
+			// to have compatibility with our approach, updating the options list when something updates the options (such as the graphql), we created this bind click to force-call suggest() method
+			if ( ! autoFilter && isDirty ) {
+				global.document.querySelector( `#${ id }` ).click();
+			}
+		}, [ autoFilter, options ] );
+
+		useEffect( () => {
 			global.document.querySelector( `#${ id }` ).addEventListener( 'keydown', () => {
 				setIsDirty( true );
 			} );
-		}, [ setIsDirty ] );
+		}, [ id, setIsDirty ] );
 
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
@@ -236,7 +245,7 @@ const FormAutocomplete = React.forwardRef(
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
-							tNoResults={ noOptionsMessage }
+							tNoResults={ loading ? loadingMessage : noOptionsMessage }
 							{ ...props }
 						/>
 						{ loading && <FormSelectLoading /> }
@@ -260,6 +269,7 @@ FormAutocomplete.propTypes = {
 	isInline: PropTypes.bool,
 	label: PropTypes.string,
 	loading: PropTypes.bool,
+	loadingMessage: PropTypes.func,
 	minLength: PropTypes.number,
 	noOptionsMessage: PropTypes.func,
 	onChange: PropTypes.func,
