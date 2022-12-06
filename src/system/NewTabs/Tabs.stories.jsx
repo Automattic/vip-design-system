@@ -42,7 +42,9 @@ export const SetActiveTab = () => {
 	return (
 		<NewTabs value={ activeTab } onValueChange={ val => setActiveTab( val ) }>
 			<TabsList title="See all the content">
-				<TabsTrigger value="all">All (5)</TabsTrigger>
+				<TabsTrigger asChild value="all" as="a">
+					<a href="httos://google.com">All (5)</a>
+				</TabsTrigger>
 				<TabsTrigger value="live">Live (2)</TabsTrigger>
 				<TabsTrigger value="dev">In Development (3)</TabsTrigger>
 				<TabsTrigger value="protect" disabled={ true }>

@@ -33,7 +33,7 @@ const styles = {
 	'&:focus-visible': theme => theme.outline,
 };
 
-const TabsTrigger = ( { value, disabled = false, sx, children } ) => (
+const TabsTrigger = ( { value, disabled = false, sx, children, asChild } ) => (
 	<TabsPrimitive.TabsTrigger
 		className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }` ) }
 		value={ value }
@@ -42,6 +42,7 @@ const TabsTrigger = ( { value, disabled = false, sx, children } ) => (
 			...styles,
 			...sx,
 		} }
+		as="a"
 	>
 		{ children }
 	</TabsPrimitive.TabsTrigger>
@@ -52,6 +53,7 @@ TabsTrigger.propTypes = {
 	value: PropTypes.string,
 	disabled: PropTypes.bool,
 	children: PropTypes.node.isRequired,
+	asChild: PropTypes.any,
 };
 
 export { TabsTrigger };
