@@ -31,7 +31,7 @@ const Label = React.forwardRef( ( { sx, children, required, ...rest }, forwardRe
 ) );
 
 Label.propTypes = {
-	children: PropTypes.object,
+	children: PropTypes.any,
 	required: PropTypes.bool,
 	sx: PropTypes.object,
 };

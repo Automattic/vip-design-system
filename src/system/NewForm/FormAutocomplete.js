@@ -114,6 +114,7 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = true,
+			source,
 			value,
 			...props
 		},
@@ -232,7 +233,7 @@ const FormAutocomplete = React.forwardRef(
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
-							source={ suggest }
+							source={ source || suggest }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
@@ -268,6 +269,7 @@ FormAutocomplete.propTypes = {
 	required: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	showAllValues: PropTypes.bool,
+	source: PropTypes.func,
 	value: PropTypes.string,
 };
 
