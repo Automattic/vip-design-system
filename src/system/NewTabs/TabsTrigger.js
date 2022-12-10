@@ -33,7 +33,7 @@ const styles = {
 	'&:focus-visible': theme => theme.outline,
 };
 
-const TabsTrigger = ( { value, disabled = false, sx, children } ) => (
+const TabsTrigger = React.forwardRef( ( { value, disabled = false, sx, children }, forwardRef ) => (
 	<TabsPrimitive.TabsTrigger
 		className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }` ) }
 		value={ value }
@@ -42,10 +42,11 @@ const TabsTrigger = ( { value, disabled = false, sx, children } ) => (
 			...styles,
 			...sx,
 		} }
+		ref={ forwardRef }
 	>
 		{ children }
 	</TabsPrimitive.TabsTrigger>
-);
+) );
 
 TabsTrigger.propTypes = {
 	sx: PropTypes.object,
