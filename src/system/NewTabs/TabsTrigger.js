@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import PropTypes from 'prop-types';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import classNames from 'classnames';
@@ -56,4 +57,5 @@ TabsTrigger.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
+TabsTrigger.displayName = 'TabsTrigger';
 export { TabsTrigger };
