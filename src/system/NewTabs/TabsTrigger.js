@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import PropTypes from 'prop-types';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import classNames from 'classnames';
@@ -34,7 +33,7 @@ const styles = {
 	'&:focus-visible': theme => theme.outline,
 };
 
-const TabsTrigger = React.forwardRef( ( { value, disabled = false, sx, children }, forwardRef ) => (
+const TabsTrigger = ( { value, disabled = false, sx, children } ) => (
 	<TabsPrimitive.TabsTrigger
 		className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }` ) }
 		value={ value }
@@ -43,12 +42,10 @@ const TabsTrigger = React.forwardRef( ( { value, disabled = false, sx, children 
 			...styles,
 			...sx,
 		} }
-		tabIndex="0"
-		ref={ forwardRef }
 	>
 		{ children }
 	</TabsPrimitive.TabsTrigger>
-) );
+);
 
 TabsTrigger.propTypes = {
 	sx: PropTypes.object,
@@ -57,5 +54,4 @@ TabsTrigger.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-TabsTrigger.displayName = 'TabsTrigger';
 export { TabsTrigger };
