@@ -43,7 +43,6 @@ const TabsTrigger = React.forwardRef( ( { value, disabled = false, sx, children 
 			...styles,
 			...sx,
 		} }
-		tabIndex="0"
 		ref={ forwardRef }
 	>
 		{ children }
