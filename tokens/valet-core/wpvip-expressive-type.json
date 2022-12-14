@@ -40,7 +40,7 @@
     "2-short-medium": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.bold}",
+        "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.static.3}"
       },
