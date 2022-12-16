@@ -12,9 +12,11 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 	const handleOnClick = useCallback(
 		event => {
 			if ( disabled ) {
-				event.preventDefault();
-			} else if ( onClick ) {
-				onClick( event );
+				return event.preventDefault();
+			}
+
+			if ( onClick ) {
+				return onClick( event );
 			}
 		},
 		[ disabled, onClick ]
