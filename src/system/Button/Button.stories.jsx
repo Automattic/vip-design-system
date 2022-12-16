@@ -37,6 +37,7 @@ export const Default = Template.bind( {} );
 
 export const Link = Template.bind( {} );
 Link.args = {
+	variant: 'text',
 	as: 'a',
 	href: 'https://www.google.com',
 };
