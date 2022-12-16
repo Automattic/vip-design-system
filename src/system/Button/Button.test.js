@@ -26,7 +26,7 @@ describe( '<Button />', () => {
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
-	it( 'renders the Button with aria-disabled prop', async () => {
+	it( 'renders the Button with disabled prop', async () => {
 		const onClick = jest.fn( () => {} );
 		const { container } = render(
 			<Button disabled onClick={ onClick }>
