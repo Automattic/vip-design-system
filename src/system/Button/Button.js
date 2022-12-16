@@ -8,14 +8,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
 
-const Button = React.forwardRef( ( { disabled, sx, ...props }, forwardRef ) => {
-	const onClick = useCallback(
+const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardRef ) => {
+	const handleOnClick = useCallback(
 		event => {
 			if ( disabled ) {
 				event.preventDefault();
+			} else if ( onClick ) {
+				onClick( event );
 			}
 		},
-		[ disabled ]
+		[ disabled, onClick ]
 	);
 	return (
 		<ThemeButton
@@ -32,16 +34,16 @@ const Button = React.forwardRef( ( { disabled, sx, ...props }, forwardRef ) => {
 				},
 				'&:focus': theme => theme.outline,
 				'&:focus-visible': theme => theme.outline,
-				'&[aria-disabled]': {
+				'&[aria-disabled="true"]': {
 					opacity: 0.7,
 					cursor: 'not-allowed',
 					pointerEvents: 'all',
 				},
 				...sx,
 			} }
-			className={ classNames( 'vip-button-component', props.className ) }
 			aria-disabled={ disabled }
-			onClick={ onClick }
+			className={ classNames( 'vip-button-component', props.className ) }
+			onClick={ handleOnClick }
 			{ ...props }
 			ref={ forwardRef }
 		/>
@@ -51,9 +53,10 @@ const Button = React.forwardRef( ( { disabled, sx, ...props }, forwardRef ) => {
 Button.displayName = 'Button';
 
 Button.propTypes = {
-	disabled: PropTypes.bool,
-	sx: PropTypes.object,
 	className: PropTypes.any,
+	disabled: PropTypes.bool,
+	onClick: PropTypes.func,
+	sx: PropTypes.object,
 };
 
 export { Button };

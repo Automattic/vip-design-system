@@ -40,3 +40,11 @@ Link.args = {
 	as: 'a',
 	href: 'https://www.google.com',
 };
+
+export const WithOnClick = Template.bind( {} );
+Link.args = {
+	onClick: () => {
+		// eslint-disable-next-line no-undef
+		alert( 'Clicked' );
+	},
+};
