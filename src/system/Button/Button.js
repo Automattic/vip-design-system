@@ -32,7 +32,7 @@ const Button = React.forwardRef( ( { disabled, sx, ...props }, forwardRef ) => {
 				},
 				'&:focus': theme => theme.outline,
 				'&:focus-visible': theme => theme.outline,
-				'&:disabled': {
+				'&[aria-disabled]': {
 					opacity: 0.7,
 					cursor: 'not-allowed',
 					pointerEvents: 'all',
