@@ -185,13 +185,16 @@ const FormAutocomplete = React.forwardRef(
 
 		const suggest = useCallback(
 			( query, populateResults ) => {
+				let data = options;
 				if ( isDirty && onInputChange ) {
 					handleInputChange( query );
 				}
-				const data = autoFilter ? handleTypeChange( query ) : options;
+				if ( isDirty && autoFilter ) {
+					data = handleTypeChange( query );
+				}
 				populateResults( data?.map( option => optionLabel( option ) ) );
 			},
-			[ options, isDirty ]
+			[ autoFilter, isDirty, onInputChange, options ]
 		);
 
 		useEffect( () => {
