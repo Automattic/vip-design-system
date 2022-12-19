@@ -3,44 +3,62 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
 
-const Button = React.forwardRef( ( { sx, ...props }, forwardRef ) => (
-	<ThemeButton
-		sx={ {
-			verticalAlign: 'middle',
-			display: 'inline-flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			height: '36px',
-			py: 0,
-			textDecoration: 'none',
-			'&:hover': {
+const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardRef ) => {
+	const handleOnClick = useCallback(
+		event => {
+			if ( disabled ) {
+				return event.preventDefault();
+			}
+
+			if ( onClick ) {
+				return onClick( event );
+			}
+		},
+		[ disabled, onClick ]
+	);
+	return (
+		<ThemeButton
+			sx={ {
+				verticalAlign: 'middle',
+				display: 'inline-flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				height: '36px',
+				py: 0,
 				textDecoration: 'none',
-			},
-			'&:focus': theme => theme.outline,
-			'&:focus-visible': theme => theme.outline,
-			'&:disabled': {
-				opacity: 0.7,
-				cursor: 'not-allowed',
-				pointerEvents: 'all',
-			},
-			...sx,
-		} }
-		className={ classNames( 'vip-button-component', props.className ) }
-		{ ...props }
-		ref={ forwardRef }
-	/>
-) );
+				'&:hover': {
+					textDecoration: 'none',
+				},
+				'&:focus': theme => theme.outline,
+				'&:focus-visible': theme => theme.outline,
+				'&[aria-disabled="true"]': {
+					opacity: 0.7,
+					cursor: 'not-allowed',
+					pointerEvents: 'all',
+				},
+				...sx,
+			} }
+			aria-disabled={ disabled }
+			className={ classNames( 'vip-button-component', props.className ) }
+			onClick={ handleOnClick }
+			{ ...props }
+			ref={ forwardRef }
+		/>
+	);
+} );
 
 Button.displayName = 'Button';
 
 Button.propTypes = {
-	sx: PropTypes.object,
 	className: PropTypes.any,
+	disabled: PropTypes.bool,
+	onClick: PropTypes.func,
+	sx: PropTypes.object,
 };
 
 export { Button };
