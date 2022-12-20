@@ -22,6 +22,7 @@ export const baseControlBorderStyle = {
 };
 
 export const baseControlStyle = {
+	...baseControlBorderStyle,
 	backgroundColor: getColor( 'input', 'background' ),
 	borderRadius: 1,
 	color: getColor( 'text', 'secondary' ),
