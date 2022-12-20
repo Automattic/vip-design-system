@@ -4,15 +4,6 @@
       "type": "color",
       "description": "Use as main application background",
       "value": "#fbfbfb"
-    },
-    "inverse": {
-      "value": "#13191e",
-      "type": "color",
-      "description": "Use as component background in high-contrast situations. "
-    },
-    "brand": {
-      "type": "color",
-      "value": "#d29137"
     }
   },
   "layer": {
@@ -26,33 +17,124 @@
     },
     "3": {
       "type": "color",
-      "value": "#f4f3f2"
+      "value": "#ebe9e8"
     },
     "4": {
       "value": "#ffffff",
       "type": "color"
+    },
+    "inverse": {
+      "value": "#13191e",
+      "type": "color",
+      "description": "Use as component background in high-contrast situations. "
     },
     "accent": {
       "type": "color",
-      "value": "#d8a45f"
+      "value": "#d29137"
     }
   },
-  "field": {
-    "1": {
+  "input": {
+    "background": {
       "value": "#ffffff",
       "type": "color"
     },
-    "2": {
-      "type": "color",
-      "value": "#fbfbfb"
+    "border": {
+      "default": {
+        "value": "#8f8c8b",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#bfbcbb",
+        "type": "color"
+      }
     },
-    "3": {
-      "type": "color",
-      "value": "#f4f3f2"
+    "switcher": {
+      "background": {
+        "primary": {
+          "value": "#007934",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "#007586",
+          "type": "color"
+        }
+      }
     },
-    "4": {
-      "type": "color",
-      "value": "#ebe9e8"
+    "radio-box": {
+      "background": {
+        "default": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "active": {
+          "value": "#f4f3f2",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#ffffff00",
+          "type": "color"
+        }
+      },
+      "label": {
+        "primary": {
+          "default": {
+            "value": "#13191e",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#13191e",
+            "type": "color"
+          },
+          "active": {
+            "value": "#13191e",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "default": {
+            "value": "#514e4d",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#514e4d",
+            "type": "color"
+          },
+          "acive": {
+            "value": "#514e4d",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#8f8c8b",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#6a6766",
+          "type": "color"
+        },
+        "active": {
+          "value": "#9a6014",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
+      }
     }
   },
   "border": {
@@ -70,7 +152,11 @@
     },
     "4": {
       "type": "color",
-      "value": "#bfbcbb"
+      "value": "#e3e0df"
+    },
+    "inverse": {
+      "value": "#827f7e",
+      "type": "color"
     },
     "accent": {
       "type": "color",
@@ -95,18 +181,18 @@
     },
     "placeholder": {
       "type": "color",
-      "description": "Use for placeholder text in fields",
-      "value": "#757575"
+      "value": "#767372",
+      "description": "Use for placeholder text in fields"
     },
     "disabled": {
       "type": "color",
-      "value": "#767372"
+      "value": "#9b9796"
     },
     "inverse": {
       "type": "color",
       "value": "#fbfbfb"
     },
-    "interactive": {
+    "accent": {
       "type": "color",
       "value": "#9a6014"
     }
@@ -149,42 +235,278 @@
     },
     "disabled": {
       "type": "color",
-      "value": "#757575"
+      "value": "#8f8c8b"
     }
   },
   "button": {
     "primary": {
-      "default": {
-        "value": "#13191e",
-        "type": "color"
-      },
-      "hover": {
-        "type": "color",
-        "value": "#767372"
+      "background": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#d8a45f"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
       },
       "label": {
-        "value": "#fbfbfb",
-        "type": "color"
+        "default": {
+          "value": "#fbfbfb",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
       }
     },
     "secondary": {
-      "default": {
-        "type": "color",
-        "value": "#f4f3f2"
+      "background": {
+        "default": {
+          "type": "color",
+          "value": "#e3e0df"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#d8a45f"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
       },
-      "hover": {
-        "type": "color",
-        "value": "#ebe9e8"
+      "label": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
       }
     },
     "tertiary": {
-      "default": {
-        "value": "#00000000",
-        "type": "color"
+      "background": {
+        "default": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#e3e0df"
+        },
+        "disabled": {
+          "value": "#ffffff00",
+          "type": "color"
+        }
       },
-      "hover": {
-        "type": "color",
-        "value": "#ebe9e8"
+      "border": {
+        "default": {
+          "value": "#8f8c8b",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#e3e0df",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
+    "ghost": {
+      "background": {
+        "default": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#e3e0df",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#ffffff00",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#9a6014",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
+    "display": {
+      "background": {
+        "default": {
+          "value": "#d8a45f",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#9a6014",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#fbfbfb",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
+    "danger": {
+      "primary": {
+        "background": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#bfbcbb",
+            "type": "color"
+          }
+        },
+        "label": {
+          "default": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        }
+      },
+      "secondary": {
+        "background": {
+          "default": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#ffffff00",
+            "type": "color"
+          }
+        },
+        "label": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#bfbcbb",
+            "type": "color"
+          }
+        }
+      },
+      "ghost": {
+        "background": {
+          "default": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#ffffff00",
+            "type": "color"
+          }
+        },
+        "label": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        }
       }
     }
   },
@@ -240,7 +562,7 @@
       },
       "success": {
         "type": "color",
-        "value": "#01944d"
+        "value": "#007934"
       }
     },
     "accent": {
@@ -1497,7 +1819,7 @@
         "type": "color"
       },
       "45": {
-        "value": "#757575",
+        "value": "#8f8c8b",
         "type": "color"
       },
       "50": {

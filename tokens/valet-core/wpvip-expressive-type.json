@@ -40,7 +40,7 @@
     "2-short-medium": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.bold}",
+        "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.static.3}"
       },
@@ -90,7 +90,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.8}",
+        "fontSize": "{fontSize.responsive.7}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
