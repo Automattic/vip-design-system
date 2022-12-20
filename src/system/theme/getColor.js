@@ -21,7 +21,8 @@ const resolvePath = ( object, path, defaultValue ) => {
 export const getVariants = color => {
 	const property = resolvePath( Valet, color, {} );
 
-	return Object.keys( property ).reduce( ( variants, variant ) => {
-		return { ...variants, [ variant ]: property[ variant ].value };
-	}, {} );
+	return Object.keys( property ).reduce(
+		( variants, variant ) => ( { ...variants, [ variant ]: property[ variant ].value } ),
+		{}
+	);
 };
