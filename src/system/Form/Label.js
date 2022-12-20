@@ -12,15 +12,20 @@ import PropTypes from 'prop-types';
 import { RequiredLabel } from './RequiredLabel';
 import { getColor } from '../theme/getColor';
 
+export const baseLabelColor = getColor( 'text', 'primary' );
+export const baseLabelStyle = {
+	fontWeight: 500,
+	fontSize: 2,
+	lineHeight: 1.5,
+	color: baseLabelColor,
+};
+
 const Label = React.forwardRef( ( { sx, children, required, ...rest }, forwardRef ) => (
 	<label
 		sx={ {
-			fontWeight: 500,
-			fontSize: 2,
-			lineHeight: 1.5,
+			...baseLabelStyle,
 			display: 'block',
 			mb: 2,
-			color: getColor( 'text', 'primary' ),
 			...sx,
 		} }
 		ref={ forwardRef }

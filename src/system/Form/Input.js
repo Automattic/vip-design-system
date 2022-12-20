@@ -13,19 +13,22 @@ import { Validation, Label } from '../';
 import { Input as ThemeInput } from 'theme-ui';
 import { getColor, getVariants } from '../theme/getColor';
 
-const borderVariant = getVariants( 'input', 'border' );
+const borderVariant = getVariants( 'input.border' );
 
-export const baseControlBorderStyle = {
+const baseControlBorderStyle = {
 	borderWidth: '1px',
 	borderStyle: 'solid',
 	borderColor: borderVariant.default,
 };
 
-export const baseControlStyle = {
+const inputBaseText = getColor( 'text', 'secondary' );
+const inputBaseBackground = getColor( 'input', 'background' );
+
+const baseControlStyle = {
 	...baseControlBorderStyle,
-	backgroundColor: getColor( 'input', 'background' ),
+	backgroundColor: inputBaseBackground,
+	color: inputBaseText,
 	borderRadius: 1,
-	color: getColor( 'text', 'secondary' ),
 	display: 'block',
 	width: '100%',
 
@@ -91,4 +94,4 @@ Input.propTypes = {
 
 Input.displayName = 'Input';
 
-export { Input };
+export { Input, baseControlBorderStyle, inputBaseText, inputBaseBackground, baseControlStyle };

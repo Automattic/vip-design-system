@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * External dependencies
  */
@@ -5,7 +7,7 @@
 /**
  * Internal dependencies
  */
-import { baseControlBorderStyle as borderStyle } from '../Form/Input';
+import { baseControlBorderStyle } from '../Form/Input';
 import { getColor } from '../theme/getColor';
 
 export const inlineStyles = {
@@ -14,19 +16,17 @@ export const inlineStyles = {
 	position: 'relative',
 	alignItems: 'center',
 	backgroundColor: getColor( 'input', 'background' ),
-	borderColor: borderStyle.borderColor,
 	borderRadius: 1,
-	borderWidth: borderStyle.borderWidth,
-	borderStyle: borderStyle.borderStyle,
+	...baseControlBorderStyle,
 	paddingRight: 0,
 	paddingLeft: 3,
 
 	label: {
 		margin: 0,
 		paddingRight: 2,
-		borderRightWidth: borderStyle.borderWidth,
-		borderRightStyle: borderStyle.borderStyle,
-		borderRightColor: borderStyle.borderColor,
+		borderRightWidth: baseControlBorderStyle.borderWidth,
+		borderRightStyle: baseControlBorderStyle.borderStyle,
+		borderRightColor: baseControlBorderStyle.borderColor,
 	},
 
 	select: {
