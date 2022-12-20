@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
+import { baseControlBorderStyle as borderStyle } from '../Form/Input';
 
 export const FormSelectArrow = React.forwardRef( ( props, forwardRef ) => (
 	<MdExpandMore
@@ -14,11 +15,14 @@ export const FormSelectArrow = React.forwardRef( ( props, forwardRef ) => (
 		sx={ {
 			position: 'absolute',
 			paddingLeft: 2,
-			borderLeftWidth: '1px',
-			borderLeftStyle: 'solid',
-			borderLeftColor: 'border',
-			right: 2,
+			borderLeftWidth: borderStyle.borderWidth,
+			borderLeftStyle: borderStyle.borderStyle,
+			borderLeftColor: borderStyle.borderColor,
+			right: '10px',
 			pointerEvents: 'none',
+			svg: {
+				fill: borderStyle.borderColor,
+			},
 		} }
 		{ ...props }
 	/>

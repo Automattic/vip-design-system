@@ -17,7 +17,6 @@ const defaultStyles = {
 	display: 'inline-flex',
 	flexDirection: 'row',
 	alignItems: 'center',
-	'&:hover select': { borderColor: 'border' },
 };
 
 const FormSelectContent = React.forwardRef( ( { isInline, label, children }, forwardRef ) => (

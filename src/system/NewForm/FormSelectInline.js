@@ -1,22 +1,32 @@
+/**
+ * External dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+import { baseControlBorderStyle as borderStyle } from '../Form/Input';
+import { getColor } from '../theme/getColor';
+
 export const inlineStyles = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
 	alignItems: 'center',
-	backgroundColor: 'background',
-	borderColor: 'border',
+	backgroundColor: getColor( 'input', 'background' ),
+	borderColor: borderStyle.borderColor,
 	borderRadius: 1,
-	borderWidth: 1,
-	borderStyle: 'solid',
+	borderWidth: borderStyle.borderWidth,
+	borderStyle: borderStyle.borderStyle,
 	paddingRight: 0,
 	paddingLeft: 3,
 
 	label: {
 		margin: 0,
 		paddingRight: 2,
-		borderRightWidth: '1px',
-		borderRightStyle: 'solid',
-		borderRightColor: 'border',
+		borderRightWidth: borderStyle.borderWidth,
+		borderRightStyle: borderStyle.borderStyle,
+		borderRightColor: borderStyle.borderColor,
 	},
 
 	select: {

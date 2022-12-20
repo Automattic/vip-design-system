@@ -15,30 +15,40 @@ import { getColor, getVariants } from '../theme/getColor';
 
 const borderVariant = getVariants( 'input', 'border' );
 
-const inputStyles = {
-	unset: 'all',
+export const baseControlBorderStyle = {
 	borderWidth: '1px',
 	borderStyle: 'solid',
 	borderColor: borderVariant.default,
+};
+
+export const baseControlStyle = {
 	backgroundColor: getColor( 'input', 'background' ),
 	borderRadius: 1,
+	color: getColor( 'text', 'secondary' ),
+	display: 'block',
+	width: '100%',
+
+	'&:focus': theme => theme.outline,
+	'&:focus-visible': theme => theme.outline,
+	'&:focus-within': theme => theme.outline,
+	'&:disabled': {
+		borderColor: borderVariant.disabled,
+	},
+
+	'&::placeholder': {
+		color: getColor( 'text', 'placeholder' ),
+		opacity: 1,
+	},
+};
+
+const inputStyles = {
+	unset: 'all',
+	...baseControlStyle,
 	lineHeight: 'inherit',
 	px: 3,
 	py: 2,
 	fontSize: 2,
 	mb: 2,
-	color: getColor( 'text', 'secondary' ),
-	display: 'block',
-	width: '100%',
-	'&:focus': theme => theme.outline,
-	'&:focus-visible': theme => theme.outline,
-	'&:disabled': {
-		borderColor: borderVariant.disabled,
-	},
-	'&::placeholder': {
-		color: getColor( 'text', 'placeholder' ),
-		opacity: 1,
-	},
 };
 
 const Input = React.forwardRef(
