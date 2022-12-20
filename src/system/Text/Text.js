@@ -7,7 +7,6 @@ import React from 'react';
 import { Text as ThemeText } from 'theme-ui';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getColor } from '../theme/getColor';
 
 const Text = React.forwardRef( ( { sx, className = null, ...props }, forwardRef ) => (
 	<ThemeText
@@ -15,7 +14,7 @@ const Text = React.forwardRef( ( { sx, className = null, ...props }, forwardRef 
 		sx={ {
 			lineHeight: 1.5,
 			marginBottom: 2,
-			color: getColor( 'text', 'secondary' ),
+			color: 'text',
 			...sx,
 		} }
 		className={ classNames( 'vip-text-component', className ) }

@@ -42,7 +42,7 @@ const ToggleGroup = React.forwardRef(
 							color: 'heading',
 						},
 						'&[data-state=checked]': {
-							backgroundColor: 'card',
+							backgroundColor: 'background',
 							boxShadow: 'low',
 							color: 'heading',
 						},

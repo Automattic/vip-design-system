@@ -55,28 +55,26 @@ const Notice = React.forwardRef(
 		forwardRef
 	) => {
 		const systemVariant = colorSystemVariant( variant );
-		const linkVariant = getVariants( `support.link.${ systemVariant }` );
-		const textVariant = getVariants( 'support.text' )[ systemVariant ];
-		const iconVariant = getVariants( 'support.icon' )[ systemVariant ];
 
 		return (
 			<Card
 				sx={ {
 					boxShadow: 'none',
 					borderRadius: 2,
-					bg: inline ? 'transparent' : getVariants( 'support.background' )[ systemVariant ],
+					bg: inline ? 'transparent' : `notice.background.${ systemVariant }`,
 					p: inline ? 0 : 3,
-					color: textVariant,
+					color: `notice.text.${ systemVariant }`,
+
 					a: {
-						color: linkVariant.default,
+						color: `notice.link.${ systemVariant }.default`,
 						'&:visited': {
-							color: linkVariant.visited,
+							color: `notice.link.${ systemVariant }.visited`,
 						},
 						'&:active': {
-							color: linkVariant.active,
+							color: `notice.link.${ systemVariant }.active`,
 						},
 						'&:hover, &:focus': {
-							color: linkVariant.hover,
+							color: `notice.link.${ systemVariant }.hover`,
 							textDecoration: 'none',
 						},
 					},
@@ -96,7 +94,7 @@ const Notice = React.forwardRef(
 							alignItems: 'center',
 						} }
 					>
-						<NoticeIcon color={ iconVariant } variant={ variant } />
+						<NoticeIcon color={ `notice.icon.${ systemVariant }` } variant={ variant } />
 					</Flex>
 
 					<Box sx={ { ml: 3 } }>
@@ -104,7 +102,7 @@ const Notice = React.forwardRef(
 							<Heading
 								as={ headingVariant }
 								sx={ {
-									color: textVariant,
+									color: `notice.text.${ systemVariant }`,
 									mb: 0,
 									fontSize: 2,
 									fontWeight: 'bold',

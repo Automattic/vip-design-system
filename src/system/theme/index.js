@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
+import { getColor, getVariants, ValetTheme } from './getColor';
 import { light, dark } from './colors';
-import { getColor, getVariants } from './getColor';
 
 const textStyles = {
 	h1: {
@@ -45,7 +45,6 @@ const textStyles = {
 	caps: {
 		fontSize: 1,
 		marginBottom: 2,
-		textTransform: 'uppercase',
 		color: 'muted',
 		fontWeight: 'bold',
 		letterSpacing: '.05em',
@@ -87,21 +86,14 @@ export default {
 	},
 	initialColorModeName: 'light',
 	colors: {
+		// Common Tokens
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
-		background: getColor( 'background', 'primary' ),
+		background: getColor( 'layer', '1' ),
 		backgroundSecondary: light.gray[ '10' ],
 		primary: light.gold[ '30' ],
 		secondary: light.gray[ '70' ],
 		muted: light.gray[ '45' ],
-		link: getColor( 'link', 'default' ),
-		links: {
-			default: getColor( 'link', 'default' ),
-			hover: getColor( 'link', 'hover' ),
-			active: getColor( 'link', 'active' ),
-			visited: getColor( 'link', 'visited' ),
-		},
-		card: '#fff',
 		border: getColor( 'border', '1' ),
 		borders: {
 			1: getColor( 'border', '1' ),
@@ -117,14 +109,33 @@ export default {
 		midnight: '#13191E',
 		navigationStart: light.gray[ '3' ],
 		navigationEnd: light.gray[ '3' ],
-		success: light.green[ '45' ],
-		error: light.red[ '45' ],
-		warning: light.yellow[ '45' ],
 		dialog: light.gray[ '0' ],
 		backgroundMuted: light.gray[ '7' ],
 
+		// Effect colors
+		success: light.green[ '45' ],
+		error: light.red[ '45' ],
+		warning: light.yellow[ '45' ],
+
+		// Card
+		card: '#fff',
+
+		// Link
+		link: getColor( 'link', 'default' ),
+		links: {
+			default: getColor( 'link', 'default' ),
+			hover: getColor( 'link', 'hover' ),
+			active: getColor( 'link', 'active' ),
+			visited: getColor( 'link', 'visited' ),
+		},
+
+		// Notice
+		notice: {
+			...ValetTheme.support,
+		},
 		...light,
 		modes: {
+			// Dark Mode not fully supported yet
 			dark: {
 				text: dark.grey[ '90' ],
 				heading: dark.grey[ '100' ],
@@ -150,6 +161,7 @@ export default {
 			},
 		},
 	},
+
 	shadows: {
 		low: '0px 1px 5px rgba(0, 0, 0, 0.05), 0px 1px 1px rgba(0, 0, 0, 0.15)',
 		medium:
@@ -176,7 +188,7 @@ export default {
 		primary: {
 			padding: 3,
 			borderRadius: 2,
-			backgroundColor: 'card',
+			backgroundColor: 'background',
 			boxShadow: 'low',
 		},
 		secondary: {
@@ -193,6 +205,7 @@ export default {
 			backgroundColor: 'backgroundMuted',
 		},
 	},
+
 	buttons: {
 		primary: {
 			// you can reference other values defined in the theme
@@ -283,7 +296,9 @@ export default {
 			},
 		},
 	},
+
 	text: textStyles,
+
 	dialog: {
 		modal: {
 			position: 'fixed',
@@ -316,6 +331,7 @@ export default {
 			opacity: 0.97,
 		},
 	},
+
 	styles: {
 		root: {
 			fontFamily: 'body',
@@ -323,7 +339,7 @@ export default {
 			fontWeight: 'body',
 			fontSize: 2,
 			color: 'text',
-			backgroundColor: 'background',
+			backgroundColor: getColor( 'background', 'primary' ),
 			'-webkit-font-smoothing': 'antialiased',
 			'-moz-osx-font-smoothing': 'grayscale',
 			svg: {
@@ -332,6 +348,9 @@ export default {
 			},
 			pre: {
 				fontFamily: 'body',
+			},
+			p: {
+				color: 'text',
 			},
 			...textStyles,
 		},

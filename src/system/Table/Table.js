@@ -17,9 +17,7 @@ const Table = React.forwardRef(
 
 		return (
 			<table
-				sx={ { width: '100%', minWidth: 1024, ...sx } }
-				cellPadding={ 0 }
-				cellSpacing={ 0 }
+				sx={ { width: '100%', minWidth: 1024, borderSpacing: 0, ...sx } }
 				className={ classNames( 'vip-table-component', className ) }
 				ref={ forwardRef }
 				{ ...props }

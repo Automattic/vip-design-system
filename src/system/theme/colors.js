@@ -1,24 +1,19 @@
 /** @jsxImportSource theme-ui */
 
-import { getColor, getVariants } from './getColor';
-
 /**
  * External dependencies
  */
 
+/**
+ * Internal dependencies
+ */
+
+import { ValetTheme } from './getColor';
+
 export const light = {
-	black: getColor( 'black', 'value' ),
-	brand: getVariants( 'color.gold' ),
-	blue: getVariants( 'color.blue' ),
-	gray: getVariants( 'color.gray' ),
-	grey: getVariants( 'color.gray' ),
-	gold: getVariants( 'color.gold' ),
-	green: getVariants( 'color.green' ),
-	pink: getVariants( 'color.pink' ),
-	salmon: getVariants( 'color.salmon' ),
-	orange: getVariants( 'color.orange' ),
-	yellow: getVariants( 'color.yellow' ),
-	red: getVariants( 'color.red' ),
+	...ValetTheme.color,
+	brand: ValetTheme.color.gold,
+	grey: ValetTheme.color.gray,
 };
 
 export const dark = {
