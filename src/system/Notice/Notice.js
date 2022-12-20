@@ -12,7 +12,6 @@ import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
  * Internal dependencies
  */
 import { Box, Flex, Heading, Card } from '../';
-import { getVariants } from '../theme/getColor';
 
 const colorSystemVariant = color =>
 	( { warning: 'warning', alert: 'error', success: 'success', info: 'info' }[ color ] );

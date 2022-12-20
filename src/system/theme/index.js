@@ -105,7 +105,7 @@ export default {
 		hover: 'rgba(0,0,0,.02)',
 		lightenBackground: 'rgba(255,255,255,.5)',
 		darken: 'rgba(0,0,0,.05)',
-		placeholder: getColor( 'text', 'placeholder' ),
+		placeholder: 'texts.placeholder',
 		midnight: '#13191E',
 		navigationStart: light.gray[ '3' ],
 		navigationEnd: light.gray[ '3' ],
@@ -129,11 +129,27 @@ export default {
 			visited: getColor( 'link', 'visited' ),
 		},
 
+		texts: {
+			...ValetTheme.text,
+		},
+
+		tag: {
+			...ValetTheme.tag,
+		},
+
 		// Notice
 		notice: {
 			...ValetTheme.support,
 		},
+
+		// Form Controls
+		input: {
+			...ValetTheme.input,
+			text: 'texts.secondary',
+			placeholder: 'texts.placeholder',
+		},
 		...light,
+
 		modes: {
 			// Dark Mode not fully supported yet
 			dark: {

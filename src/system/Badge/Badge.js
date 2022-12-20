@@ -11,46 +11,41 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Text } from '../';
-import { getVariants } from '../theme/getColor';
 
 const Badge = React.forwardRef(
-	( { variant = 'blue', sx, className = null, ...props }, forwardRef ) => {
-		const colorVariant = getVariants( `tag.${ variant }` );
-
-		return (
-			<Text
-				as="span"
-				sx={ {
-					fontSize: 0,
-					padding: 0,
-					bg: colorVariant.background,
-					color: colorVariant.text,
-					py: 1,
-					verticalAlign: 'middle',
-					px: 2,
-					display: 'inline-block',
-					borderRadius: 1,
-					fontWeight: 'heading',
-					'&:hover, &:focus': {
-						backgroundColor: colorVariant.hover,
+	( { variant = 'blue', sx, className = null, ...props }, forwardRef ) => (
+		<Text
+			as="span"
+			sx={ {
+				fontSize: 0,
+				padding: 0,
+				bg: `tag.${ variant }.background`,
+				color: `tag.${ variant }.text`,
+				py: 1,
+				verticalAlign: 'middle',
+				px: 2,
+				display: 'inline-block',
+				borderRadius: 1,
+				fontWeight: 'heading',
+				'&:hover, &:focus': {
+					backgroundColor: `tag.${ variant }.hover`,
+				},
+				a: {
+					color: `tag.${ variant }.text`,
+					'&:hover, &:focus, &:active': {
+						textDecoration: 'none',
 					},
-					a: {
-						color: colorVariant.text,
-						'&:hover, &:focus, &:active': {
-							textDecoration: 'none',
-						},
-						'&:active': {
-							color: colorVariant.active,
-						},
+					'&:active': {
+						color: `${ variant }.active`,
 					},
-					...sx,
-				} }
-				className={ classNames( 'vip-badge-component', className ) }
-				ref={ forwardRef }
-				{ ...props }
-			/>
-		);
-	}
+				},
+				...sx,
+			} }
+			className={ classNames( 'vip-badge-component', className ) }
+			ref={ forwardRef }
+			{ ...props }
+		/>
+	)
 );
 
 Badge.displayName = 'Badge';

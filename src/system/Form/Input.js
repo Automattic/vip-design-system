@@ -11,18 +11,15 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 import { Input as ThemeInput } from 'theme-ui';
-import { getColor, getVariants } from '../theme/getColor';
-
-const borderVariant = getVariants( 'input.border' );
 
 const baseControlBorderStyle = {
 	borderWidth: '1px',
 	borderStyle: 'solid',
-	borderColor: borderVariant.default,
+	borderColor: 'input.border.default',
 };
 
-const inputBaseText = getColor( 'text', 'secondary' );
-const inputBaseBackground = getColor( 'input', 'background' );
+const inputBaseText = 'input.text';
+const inputBaseBackground = 'input.background';
 const baseControlFocusStyle = {
 	'&:focus': theme => theme.outline,
 	'&:focus-visible': theme => theme.outline,
@@ -39,11 +36,11 @@ const baseControlStyle = {
 
 	...baseControlFocusStyle,
 	'&:disabled': {
-		borderColor: borderVariant.disabled,
+		borderColor: 'input.border.disabled',
 	},
 
 	'&::placeholder': {
-		color: getColor( 'text', 'placeholder' ),
+		color: 'input.placeholder',
 		opacity: 1,
 	},
 };
