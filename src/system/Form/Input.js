@@ -23,6 +23,11 @@ const baseControlBorderStyle = {
 
 const inputBaseText = getColor( 'text', 'secondary' );
 const inputBaseBackground = getColor( 'input', 'background' );
+const baseControlFocusStyle = {
+	'&:focus': theme => theme.outline,
+	'&:focus-visible': theme => theme.outline,
+	'&:focus-within': theme => theme.outline,
+};
 
 const baseControlStyle = {
 	...baseControlBorderStyle,
@@ -32,9 +37,7 @@ const baseControlStyle = {
 	display: 'block',
 	width: '100%',
 
-	'&:focus': theme => theme.outline,
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
+	...baseControlFocusStyle,
 	'&:disabled': {
 		borderColor: borderVariant.disabled,
 	},
@@ -94,4 +97,11 @@ Input.propTypes = {
 
 Input.displayName = 'Input';
 
-export { Input, baseControlBorderStyle, inputBaseText, inputBaseBackground, baseControlStyle };
+export {
+	Input,
+	baseControlBorderStyle,
+	inputBaseText,
+	inputBaseBackground,
+	baseControlStyle,
+	baseControlFocusStyle,
+};

@@ -22,8 +22,8 @@ export const Default = () => {
 
 	return (
 		<Form.Root>
-			<fieldset>
-				<legend>Tell me your prefereces</legend>
+			<Form.Fieldset>
+				<Form.Legend>Tell me your prefereces</Form.Legend>
 
 				<Flex sx={ { alignItems: 'center' } }>
 					<Checkbox
@@ -48,7 +48,7 @@ export const Default = () => {
 						This option too
 					</Label>
 				</Flex>
-			</fieldset>
+			</Form.Fieldset>
 		</Form.Root>
 	);
 };
