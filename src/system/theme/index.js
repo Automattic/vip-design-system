@@ -81,7 +81,7 @@ export default {
 	sizes: {
 		sidebar: 260,
 	},
-	radii: [ 0, 5, 10 ],
+	radii: [ 0, 4, 8 ],
 	config: {
 		useColorSchemeMediaQuery: false,
 	},
@@ -102,6 +102,7 @@ export default {
 			visited: getColor( 'link', 'visited' ),
 		},
 		card: '#fff',
+		border: getColor( 'border', '1' ),
 		borders: {
 			1: getColor( 'border', '1' ),
 			2: getColor( 'border', '2' ),
@@ -109,8 +110,6 @@ export default {
 			4: getColor( 'border', '4' ),
 			accent: getColor( 'border', 'accent' ),
 		},
-
-		border: getColor( 'border', '1' ),
 		hover: 'rgba(0,0,0,.02)',
 		lightenBackground: 'rgba(255,255,255,.5)',
 		darken: 'rgba(0,0,0,.05)',

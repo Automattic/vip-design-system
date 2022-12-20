@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { RequiredLabel } from './RequiredLabel';
+import { getColor } from '../theme/getColor';
 
 const Label = React.forwardRef( ( { sx, children, required, ...rest }, forwardRef ) => (
 	<label
@@ -19,7 +20,7 @@ const Label = React.forwardRef( ( { sx, children, required, ...rest }, forwardRe
 			lineHeight: 1.5,
 			display: 'block',
 			mb: 2,
-			color: 'heading',
+			color: getColor( 'text', 'primary' ),
 			...sx,
 		} }
 		ref={ forwardRef }

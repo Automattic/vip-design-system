@@ -11,28 +11,32 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 import { Input as ThemeInput } from 'theme-ui';
+import { getColor, getVariants } from '../theme/getColor';
+
+const borderVariant = getVariants( 'input', 'border' );
 
 const inputStyles = {
 	unset: 'all',
-	border: '1px solid',
-	borderColor: 'border',
-	backgroundColor: 'card',
+	borderWidth: '1px',
+	borderStyle: 'solid',
+	borderColor: borderVariant.default,
+	backgroundColor: getColor( 'input', 'background' ),
 	borderRadius: 1,
 	lineHeight: 'inherit',
 	px: 3,
 	py: 2,
 	fontSize: 2,
 	mb: 2,
-	color: 'text',
+	color: getColor( 'text', 'secondary' ),
 	display: 'block',
 	width: '100%',
 	'&:focus': theme => theme.outline,
 	'&:focus-visible': theme => theme.outline,
 	'&:disabled': {
-		bg: 'backgroundSecondary',
+		borderColor: borderVariant.disabled,
 	},
 	'&::placeholder': {
-		color: 'placeholder',
+		color: getColor( 'text', 'placeholder' ),
 		opacity: 1,
 	},
 };

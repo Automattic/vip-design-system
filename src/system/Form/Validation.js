@@ -9,6 +9,10 @@ import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 /**
  * Internal dependencies
  */
+import { getColor, getVariants } from '../theme/getColor';
+
+const errorColor = getVariants( 'support.link.error' ).default;
+const helperColor = getColor( 'text', 'helper' );
 
 const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
@@ -16,7 +20,7 @@ const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 	return (
 		<p
 			sx={ {
-				color: isValid ? 'success' : 'error',
+				color: isValid ? helperColor : errorColor,
 				display: 'flex',
 				alignItems: 'center',
 				m: 0,
