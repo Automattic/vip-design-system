@@ -37,7 +37,6 @@ const OptionRow = React.forwardRef(
 	(
 		{
 			image,
-			icon,
 			badge,
 			label,
 			inline = false,
@@ -73,7 +72,7 @@ const OptionRow = React.forwardRef(
 				} }
 			>
 				<Box>
-					{ image ? (
+					{ !! image && (
 						<Box
 							sx={ {
 								display: [ 'inline-block', 'inline-block', 'block' ],
@@ -91,8 +90,6 @@ const OptionRow = React.forwardRef(
 								<img src={ image } width={ small ? 32 : 48 } sx={ { display: 'block' } } alt="" />
 							) }
 						</Box>
-					) : (
-						icon && icon
 					) }
 				</Box>
 
@@ -142,7 +139,6 @@ OptionRow.displayName = 'OptionRow';
 
 OptionRow.propTypes = {
 	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
-	icon: PropTypes.node,
 	badge: PropTypes.string,
 	label: PropTypes.node,
 	inline: PropTypes.bool,

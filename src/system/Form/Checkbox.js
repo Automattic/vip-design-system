@@ -36,7 +36,7 @@ const StyledCheckbox = props => (
 const StyledIndicator = props => (
 	<CheckboxPrimitive.Indicator
 		sx={ {
-			color: 'brand.0',
+			color: 'white',
 		} }
 		{ ...props }
 	/>

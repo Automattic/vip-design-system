@@ -1,37 +1,75 @@
 /**
  * External dependencies
  */
+import React from 'react';
+import { BiCalendarHeart } from 'react-icons/bi';
 
 /**
  * Internal dependencies
  */
+import ScreenReaderText from '../ScreenReaderText';
 import { Button } from '..';
 
 export default {
 	title: 'Button',
 	component: Button,
 	argTypes: {
-		children: {
-			table: {
-				type: { summary: 'node' },
-			},
-			control: { type: 'text' },
-			type: { required: true },
+		children: {},
+		disabled: {
+			control: { type: 'boolean' },
 		},
 		variant: {
-			table: {
-				type: { summary: 'string' },
-				defaultValue: { summary: 'primary' },
-			},
 			control: {
 				type: 'select',
-				options: [ 'primary', 'secondary', 'text' ],
+				options: [
+					'primary',
+					'secondary',
+					'text',
+					'icon',
+					'tertiary',
+					'ghost',
+					'danger',
+					'display',
+				],
 			},
 		},
 	},
 };
 
-const Template = args => <Button { ...args }>Submit</Button>;
+const Template = args => (
+	<React.Fragment>
+		<Button { ...args }>Primary</Button>
+
+		<Button variant="secondary" sx={ { ml: 2 } } { ...args }>
+			Secondary
+		</Button>
+
+		<Button variant="tertiary" sx={ { ml: 2 } } { ...args }>
+			Tertiary
+		</Button>
+
+		<Button variant="ghost" sx={ { ml: 2 } } { ...args }>
+			Ghost
+		</Button>
+
+		<Button variant="display" sx={ { ml: 2 } } { ...args }>
+			Display
+		</Button>
+
+		<Button variant="danger" sx={ { ml: 2 } } { ...args }>
+			Danger
+		</Button>
+
+		<Button variant="text" sx={ { ml: 2 } } as="a" href="https://google/com" { ...args }>
+			Button link
+		</Button>
+
+		<Button variant="icon" sx={ { ml: 2 } } type="button" { ...args }>
+			<BiCalendarHeart size={ 24 } />
+			<ScreenReaderText>domain.com</ScreenReaderText>
+		</Button>
+	</React.Fragment>
+);
 
 export const Default = Template.bind( {} );
 

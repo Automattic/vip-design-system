@@ -86,46 +86,7 @@ export default {
 	},
 	initialColorModeName: 'light',
 	colors: {
-		// Common Tokens
-		text: getColor( 'text', 'secondary' ),
-		heading: getColor( 'text', 'primary' ),
-		background: getColor( 'layer', '2' ),
-		backgroundSecondary: getColor( 'layer', '1' ),
-		primary: getColor( 'text', 'accent' ),
-		secondary: light.gray[ '70' ],
-		muted: getColor( 'text', 'helper' ),
-		border: getColor( 'border', '1' ),
-		borders: {
-			1: getColor( 'border', '1' ),
-			2: getColor( 'border', '2' ),
-			3: getColor( 'border', '3' ),
-			4: getColor( 'border', '4' ),
-			accent: getColor( 'border', 'accent' ),
-		},
-		hover: 'rgba(0,0,0,.02)',
-		darken: 'rgba(0,0,0,.05)',
-		placeholder: 'texts.placeholder',
-		midnight: '#13191E',
-		dialog: light.gray[ '0' ],
-		backgroundMuted: getColor( 'layer', '1' ),
-
-		// Effect colors
-		success: light.green[ '45' ],
-		error: light.red[ '45' ],
-		warning: light.yellow[ '45' ],
-
-		// Card
-		card: '#fff',
-
-		// Link
-		link: getColor( 'link', 'default' ),
-		links: {
-			default: getColor( 'link', 'default' ),
-			hover: getColor( 'link', 'hover' ),
-			active: getColor( 'link', 'active' ),
-			visited: getColor( 'link', 'visited' ),
-		},
-
+		// Valet Theme Colors
 		texts: {
 			...ValetTheme.text,
 		},
@@ -155,6 +116,48 @@ export default {
 			text: 'texts.secondary',
 			placeholder: 'texts.placeholder',
 		},
+
+		// Common Tokens
+		text: getColor( 'text', 'secondary' ),
+		heading: getColor( 'text', 'primary' ),
+		background: getColor( 'layer', '2' ),
+		backgroundSecondary: getColor( 'layer', '1' ),
+		primary: getColor( 'link', 'default' ),
+		secondary: light.gray[ '70' ],
+		muted: getColor( 'text', 'helper' ),
+		border: getColor( 'border', '1' ),
+		borders: {
+			1: getColor( 'border', '1' ),
+			2: getColor( 'border', '2' ),
+			3: getColor( 'border', '3' ),
+			4: getColor( 'border', '4' ),
+			accent: getColor( 'border', 'accent' ),
+		},
+		hover: 'rgba(0,0,0,.02)',
+		darken: 'rgba(0,0,0,.05)',
+		placeholder: 'texts.placeholder',
+		midnight: '#13191E',
+		dialog: light.gray[ '0' ],
+		backgroundMuted: getColor( 'layer', '1' ),
+
+		// Variant colors
+		success: ValetTheme.support.link.success.default,
+		error: ValetTheme.support.link.error.default,
+		warning: ValetTheme.support.link.warning.default,
+		info: ValetTheme.support.link.info.default,
+
+		// Card
+		card: '#fff',
+
+		// Link
+		link: getColor( 'link', 'default' ),
+		links: {
+			default: getColor( 'link', 'default' ),
+			hover: getColor( 'link', 'hover' ),
+			active: getColor( 'link', 'active' ),
+			visited: getColor( 'link', 'visited' ),
+		},
+
 		...light,
 
 		modes: {
@@ -363,6 +366,12 @@ export default {
 			backgroundColor: getColor( 'background', 'primary' ),
 			'-webkit-font-smoothing': 'antialiased',
 			'-moz-osx-font-smoothing': 'grayscale',
+			a: {
+				'&:hover': {
+					textDecorationLine: 'underline',
+					textDecorationThickness: '2px',
+				},
+			},
 			svg: {
 				fill: 'currentColor',
 				display: 'block',
