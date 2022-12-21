@@ -12,7 +12,7 @@ import { Label } from '../Form/Label';
  */
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
-import { baseControlStyle } from '../Form/Input';
+import { baseControlStyle } from '../Form/Input.styles';
 
 const MAX_SUGGESTED_OPTIONS = 15;
 const isDev = process.env.NODE_ENV !== 'production';

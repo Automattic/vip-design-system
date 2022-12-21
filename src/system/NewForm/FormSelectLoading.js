@@ -10,7 +10,7 @@ import { keyframes } from '@emotion/react';
 /**
  * Internal dependencies
  */
-import { inputBaseText } from '../Form/Input';
+import { inputBaseText } from '../Form/Input.styles';
 
 const kf = keyframes( {
 	from: { transform: 'rotate(0deg)' },

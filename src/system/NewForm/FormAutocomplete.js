@@ -17,7 +17,7 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
 import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
-import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input';
+import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,

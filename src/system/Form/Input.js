@@ -11,39 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 import { Input as ThemeInput } from 'theme-ui';
-
-const baseControlBorderStyle = {
-	borderWidth: '1px',
-	borderStyle: 'solid',
-	borderColor: 'input.border.default',
-};
-
-const inputBaseText = 'input.text';
-const inputBaseBackground = 'input.background';
-const baseControlFocusStyle = {
-	'&:focus': theme => theme.outline,
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
-};
-
-const baseControlStyle = {
-	...baseControlBorderStyle,
-	backgroundColor: inputBaseBackground,
-	color: inputBaseText,
-	borderRadius: 1,
-	display: 'block',
-	width: '100%',
-
-	...baseControlFocusStyle,
-	'&:disabled': {
-		borderColor: 'input.border.disabled',
-	},
-
-	'&::placeholder': {
-		color: 'input.placeholder',
-		opacity: 1,
-	},
-};
+import { baseControlStyle } from './Input.styles';
 
 const inputStyles = {
 	unset: 'all',
@@ -53,6 +21,7 @@ const inputStyles = {
 	py: 2,
 	fontSize: 2,
 	mb: 2,
+	variant: 'inputs.default',
 };
 
 const Input = React.forwardRef(
@@ -94,11 +63,4 @@ Input.propTypes = {
 
 Input.displayName = 'Input';
 
-export {
-	Input,
-	baseControlBorderStyle,
-	inputBaseText,
-	inputBaseBackground,
-	baseControlStyle,
-	baseControlFocusStyle,
-};
+export { Input };

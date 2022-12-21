@@ -9,7 +9,7 @@ import { MdExpandMore } from 'react-icons/md';
 /**
  * Internal dependencies
  */
-import { baseControlBorderStyle as borderStyle } from '../Form/Input';
+import { baseControlBorderStyle as borderStyle } from '../Form/Input.styles';
 
 export const FormSelectArrow = React.forwardRef( ( props, forwardRef ) => (
 	<MdExpandMore

@@ -1,0 +1,32 @@
+export const baseControlBorderStyle = {
+	borderWidth: '1px',
+	borderStyle: 'solid',
+	borderColor: 'input.border.default',
+};
+
+export const inputBaseText = 'input.text';
+export const inputBaseBackground = 'input.background';
+export const baseControlFocusStyle = {
+	'&:focus': theme => theme.outline,
+	'&:focus-visible': theme => theme.outline,
+	'&:focus-within': theme => theme.outline,
+};
+
+export const baseControlStyle = {
+	...baseControlBorderStyle,
+	backgroundColor: inputBaseBackground,
+	color: inputBaseText,
+	borderRadius: 1,
+	display: 'block',
+	width: '100%',
+
+	...baseControlFocusStyle,
+	'&:disabled': {
+		borderColor: 'input.border.disabled',
+	},
+
+	'&::placeholder': {
+		color: 'input.placeholder',
+		opacity: 1,
+	},
+};

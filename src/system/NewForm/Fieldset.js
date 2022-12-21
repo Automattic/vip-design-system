@@ -11,7 +11,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 
-import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input';
+import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 
 const Fieldset = React.forwardRef( ( { children, className, sx = {}, ...props }, forwardRef ) => (
 	<fieldset

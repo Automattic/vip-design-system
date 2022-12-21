@@ -7,7 +7,7 @@
 /**
  * Internal dependencies
  */
-import { baseControlBorderStyle } from '../Form/Input';
+import { baseControlBorderStyle } from '../Form/Input.styles';
 import { getColor } from '../theme/getColor';
 
 export const inlineStyles = {
