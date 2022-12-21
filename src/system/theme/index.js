@@ -166,8 +166,6 @@ export default {
 				border: dark.grey[ '30' ],
 				hover: 'rgba(255,255,255,.02)',
 				midnight: dark.grey[ '90' ],
-				navigationStart: dark.grey[ '5' ],
-				navigationEnd: dark.grey[ '5' ],
 				success: dark.green[ '90' ],
 				error: dark.red[ '90' ],
 				warning: dark.yellow[ '90' ],
