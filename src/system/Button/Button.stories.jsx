@@ -19,19 +19,8 @@ export default {
 			control: { type: 'boolean' },
 		},
 		variant: {
-			control: {
-				type: 'select',
-				options: [
-					'primary',
-					'secondary',
-					'text',
-					'icon',
-					'tertiary',
-					'ghost',
-					'danger',
-					'display',
-				],
-			},
+			type: 'select',
+			options: [ 'primary', 'secondary', 'text', 'icon', 'tertiary', 'ghost', 'danger', 'display' ],
 		},
 	},
 };
