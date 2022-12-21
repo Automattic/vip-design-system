@@ -89,11 +89,11 @@ export default {
 		// Common Tokens
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
-		background: getColor( 'layer', '1' ),
-		backgroundSecondary: light.gray[ '10' ],
-		primary: light.gold[ '30' ],
+		background: getColor( 'layer', '2' ),
+		backgroundSecondary: getColor( 'layer', '1' ),
+		primary: getColor( 'text', 'accent' ),
 		secondary: light.gray[ '70' ],
-		muted: light.gray[ '45' ],
+		muted: getColor( 'text', 'helper' ),
 		border: getColor( 'border', '1' ),
 		borders: {
 			1: getColor( 'border', '1' ),
@@ -103,14 +103,11 @@ export default {
 			accent: getColor( 'border', 'accent' ),
 		},
 		hover: 'rgba(0,0,0,.02)',
-		lightenBackground: 'rgba(255,255,255,.5)',
 		darken: 'rgba(0,0,0,.05)',
 		placeholder: 'texts.placeholder',
 		midnight: '#13191E',
-		navigationStart: light.gray[ '3' ],
-		navigationEnd: light.gray[ '3' ],
 		dialog: light.gray[ '0' ],
-		backgroundMuted: light.gray[ '7' ],
+		backgroundMuted: getColor( 'layer', '1' ),
 
 		// Effect colors
 		success: light.green[ '45' ],
@@ -140,6 +137,16 @@ export default {
 		// Notice
 		notice: {
 			...ValetTheme.support,
+		},
+
+		// layer
+		layer: {
+			...ValetTheme.layer,
+		},
+
+		// icon
+		icon: {
+			...ValetTheme.icon,
 		},
 
 		// Form Controls

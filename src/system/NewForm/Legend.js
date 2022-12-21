@@ -20,6 +20,7 @@ const Legend = React.forwardRef( ( { children, className, sx = {}, ...props }, f
 		sx={ {
 			all: 'unset',
 			...baseLabelStyle,
+			px: 1,
 			mb: 0,
 			...sx,
 		} }

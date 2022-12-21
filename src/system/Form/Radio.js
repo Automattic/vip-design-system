@@ -66,7 +66,7 @@ const labelStyle = {
 	},
 	'&::after': {
 		content: '""',
-		backgroundColor: getColor( 'layer', 'accent' ),
+		backgroundColor: 'link',
 		backgroundPosition: 'left 2px top 2px',
 		backgroundSize: '70%',
 		backgroundRepeat: 'no-repeat',

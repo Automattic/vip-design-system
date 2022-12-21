@@ -24,7 +24,8 @@ const styles = {
 	'&[data-state="active"]': {
 		color: 'link',
 		fontWeight: 'regular',
-		boxShadow: theme => `inset 0 -1px 0 0 ${ theme.colors.link }, 0 1px 0 0 ${ theme.colors.link }`,
+		boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
+		boxShadowColor: 'borders.accent',
 	},
 	'&:disabled': {
 		color: 'muted',

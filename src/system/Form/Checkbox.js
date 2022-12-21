@@ -6,7 +6,6 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import PropTypes from 'prop-types';
 import { MdDone } from 'react-icons/md';
-import { getColor } from '../theme/getColor';
 import { baseControlBorderStyle, baseControlFocusStyle, inputBaseBackground } from './Input.styles';
 
 const StyledCheckbox = props => (
@@ -23,8 +22,8 @@ const StyledCheckbox = props => (
 			alignItems: 'center',
 			justifyContent: 'center',
 			'&[data-state=checked]': {
-				backgroundColor: getColor( 'layer', 'accent' ),
-				color: getColor( 'layer', 'accent' ),
+				backgroundColor: 'link',
+				color: 'link',
 			},
 			svg: {
 				display: 'block',

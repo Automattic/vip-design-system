@@ -79,8 +79,8 @@ const OptionRow = React.forwardRef(
 								display: [ 'inline-block', 'inline-block', 'block' ],
 								p: small ? 12 : 20,
 								flex: '0 0 auto',
-								bg: 'brand.70',
-								color: 'brand.10',
+								bg: 'layer.accent',
+								color: 'icon.primary',
 								borderRadius: 1,
 								...mergedCard,
 							} }

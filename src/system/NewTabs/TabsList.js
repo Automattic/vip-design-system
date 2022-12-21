@@ -14,7 +14,7 @@ const TabsList = ( { children, title, sx } ) => (
 	<TabsPrimitive.List
 		sx={ {
 			borderBottom: '1px solid',
-			borderColor: 'border',
+			borderColor: 'borders.2',
 			display: 'flex',
 			...sx,
 		} }

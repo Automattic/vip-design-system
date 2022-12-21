@@ -74,7 +74,6 @@ const Notice = React.forwardRef(
 						},
 						'&:hover, &:focus': {
 							color: `notice.link.${ systemVariant }.hover`,
-							textDecoration: 'none',
 						},
 					},
 					...sx,
