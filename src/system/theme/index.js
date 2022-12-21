@@ -58,15 +58,17 @@ const outline = {
 	boxShadow: `0 0 0 1px ${ getColor( 'focus', 'inset' ) }, 0 0 0 3px ${ getColor( 'focus' ) }`,
 };
 
+const fonts = {
+	body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+	heading: 'inherit',
+	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+	serif: 'recoletaregular, Georgia, serif',
+};
+
 export default {
 	outline,
 	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
-	fonts: {
-		body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-		heading: 'inherit',
-		monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-		serif: 'recoletaregular, Georgia, serif',
-	},
+	fonts,
 	fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
 	fontWeights: {
 		body: 400,
@@ -91,12 +93,16 @@ export default {
 			...ValetTheme.text,
 		},
 
+		buttons: {
+			...ValetTheme.button,
+		},
+
 		tag: {
 			...ValetTheme.tag,
 		},
 
 		// Notice
-		notice: {
+		notices: {
 			...ValetTheme.support,
 		},
 
@@ -233,18 +239,76 @@ export default {
 	buttons: {
 		primary: {
 			// you can reference other values defined in the theme
-			color: 'gray.0',
-			bg: 'gray.100',
+			fontFamily: 'body',
+			color: 'buttons.primary.label.default',
+			bg: 'buttons.primary.background.default',
+			border: '1px solid transparent',
 			cursor: 'pointer',
-			fontWeight: 'bold',
+			fontWeight: '500',
 			boxShadow: 'none',
 			borderRadius: 1,
-			border: '1px solid transparent',
 			'&:hover, &:focus': {
-				backgroundColor: 'gray.90',
-				color: 'gray.0',
+				backgroundColor: 'buttons.primary.background.hover',
+				color: 'buttons.primary.label.hover',
 			},
 		},
+
+		secondary: {
+			variant: 'buttons.primary',
+			color: 'buttons.secondary.label.default',
+			bg: 'buttons.secondary.background.default',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'buttons.secondary.background.hover',
+				color: 'buttons.secondary.label.hover',
+			},
+		},
+
+		tertiary: {
+			variant: 'buttons.primary',
+			color: 'buttons.tertiary.label.default',
+			bg: 'buttons.tertiary.background.default',
+			border: '1px solid',
+			borderColor: 'buttons.tertiary.border.default',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'buttons.tertiary.background.hover',
+				color: 'buttons.tertiary.label.hover',
+				border: '1px solid',
+				borderColor: 'buttons.tertiary.border.hover',
+			},
+		},
+
+		ghost: {
+			variant: 'buttons.primary',
+			color: 'buttons.ghost.label.default',
+			bg: 'buttons.ghost.background.default',
+			border: '1px solid',
+			borderColor: 'transparent',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'buttons.ghost.background.hover',
+				color: 'buttons.ghost.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+		},
+
+		danger: {
+			variant: 'buttons.primary',
+			color: 'buttons.danger.primary.label.default',
+			bg: 'buttons.danger.primary.background.default',
+			border: '1px solid',
+			borderColor: 'buttons.danger.primary.border.default',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'buttons.danger.primary.background.hover',
+				color: 'buttons.danger.primary.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+		},
+
 		border: {
 			background: 'none',
 			border: '1px solid',
@@ -257,46 +321,19 @@ export default {
 				bg: 'hover',
 			},
 		},
-		danger: {
-			// you can reference other values defined in the theme
-			variant: 'buttons.primary',
-			bg: 'red.70',
-			'&:hover, &:focus': {
-				backgroundColor: 'red.80',
-			},
-		},
-		secondary: {
-			color: 'text',
-			cursor: 'pointer',
-			boxShadow: 'none',
-			fontWeight: 'heading',
-			borderRadius: 1,
-			bg: 'gray.10',
-			'&:hover, &:focus': {
-				color: 'gray.100',
-				bg: 'gray.20',
-			},
-		},
+
 		text: {
-			background: 'none',
-			boxShadow: 'none',
+			variant: 'buttons.ghost',
 			color: 'link',
-			cursor: 'pointer',
-			fontWeight: 'heading',
-			'&:hover, &:focus': {
-				color: 'heading',
-				backgroundColor: 'hover',
-			},
 		},
+
 		icon: {
-			background: 'none',
-			boxShadow: 'none',
+			variant: 'buttons.ghost',
 			color: 'text',
-			cursor: 'pointer',
-			fontWeight: 'heading',
 			padding: 1,
+
 			'&:hover, &:focus': {
-				backgroundColor: 'border',
+				backgroundColor: 'borders.2',
 			},
 		},
 	},

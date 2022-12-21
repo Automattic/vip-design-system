@@ -60,20 +60,20 @@ const Notice = React.forwardRef(
 				sx={ {
 					boxShadow: 'none',
 					borderRadius: 2,
-					bg: inline ? 'transparent' : `notice.background.${ systemVariant }`,
+					bg: inline ? 'transparent' : `notices.background.${ systemVariant }`,
 					p: inline ? 0 : 3,
-					color: `notice.text.${ systemVariant }`,
+					color: `notices.text.${ systemVariant }`,
 
 					a: {
-						color: `notice.link.${ systemVariant }.default`,
+						color: `notices.link.${ systemVariant }.default`,
 						'&:visited': {
-							color: `notice.link.${ systemVariant }.visited`,
+							color: `notices.link.${ systemVariant }.visited`,
 						},
 						'&:active': {
-							color: `notice.link.${ systemVariant }.active`,
+							color: `notices.link.${ systemVariant }.active`,
 						},
 						'&:hover, &:focus': {
-							color: `notice.link.${ systemVariant }.hover`,
+							color: `notices.link.${ systemVariant }.hover`,
 						},
 					},
 					...sx,
@@ -92,7 +92,7 @@ const Notice = React.forwardRef(
 							alignItems: 'center',
 						} }
 					>
-						<NoticeIcon color={ `notice.icon.${ systemVariant }` } variant={ variant } />
+						<NoticeIcon color={ `notices.icon.${ systemVariant }` } variant={ variant } />
 					</Flex>
 
 					<Box sx={ { ml: 3 } }>
@@ -100,7 +100,7 @@ const Notice = React.forwardRef(
 							<Heading
 								as={ headingVariant }
 								sx={ {
-									color: `notice.text.${ systemVariant }`,
+									color: `notices.text.${ systemVariant }`,
 									mb: 0,
 									fontSize: 2,
 									fontWeight: 'bold',
