@@ -20,6 +20,8 @@ export const Default = () => (
 
 		<Text sx={ { color: 'texts.accent' } }>Text Accent</Text>
 
+		<Text sx={ { color: 'texts.helper' } }>Text Helper</Text>
+
 		<Text sx={ { color: 'texts.secondary' } }>Text Secondary</Text>
 
 		<Text sx={ { color: 'texts.primary' } }>Text Primary</Text>
