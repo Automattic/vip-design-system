@@ -135,6 +135,12 @@ export default {
 			iconBackground: getColor( 'layer', 'accent' ),
 		},
 
+		table: {
+			border: getColor( 'border', '2' ),
+			heading: getColor( 'text', 'primary' ),
+			text: getColor( 'text', 'secondary' ),
+		},
+
 		// Common Tokens
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),

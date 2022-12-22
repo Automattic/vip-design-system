@@ -16,7 +16,7 @@ const TableCell = ( { head, children, ...rest } ) => {
 		borderBottom: '1px solid',
 		borderTop: head ? '1px solid' : 'none',
 		// borderColor should come after borderTop so it can override it
-		borderColor: 'borders.2',
+		borderColor: 'table.border',
 		fontWeight: 'body',
 		px: 3,
 		py: 2,
@@ -30,7 +30,7 @@ const TableCell = ( { head, children, ...rest } ) => {
 				<Heading
 					variant="caps"
 					as="div"
-					sx={ { mb: 0, color: head ? 'heading' : 'text', fontSize: 2 } }
+					sx={ { mb: 0, color: head ? 'table.heading' : 'table.text', fontSize: 2 } }
 				>
 					{ children }
 				</Heading>
