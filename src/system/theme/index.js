@@ -137,6 +137,7 @@ export default {
 			2: getColor( 'border', '2' ),
 			3: getColor( 'border', '3' ),
 			4: getColor( 'border', '4' ),
+			inverse: getColor( 'border', 'inverse' ),
 			accent: getColor( 'border', 'accent' ),
 		},
 		hover: 'rgba(0,0,0,.02)',
