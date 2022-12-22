@@ -93,7 +93,7 @@ export default {
 			...ValetTheme.text,
 		},
 
-		buttons: {
+		button: {
 			...ValetTheme.button,
 		},
 
@@ -102,7 +102,7 @@ export default {
 		},
 
 		// Notice
-		notices: {
+		notice: {
 			...ValetTheme.support,
 		},
 
@@ -241,55 +241,55 @@ export default {
 		primary: {
 			// you can reference other values defined in the theme
 			fontFamily: 'body',
-			color: 'buttons.primary.label.default',
-			bg: 'buttons.primary.background.default',
+			color: 'button.primary.label.default',
+			bg: 'button.primary.background.default',
 			border: '1px solid transparent',
 			cursor: 'pointer',
 			fontWeight: '500',
 			boxShadow: 'none',
 			borderRadius: 1,
 			'&:hover, &:focus': {
-				backgroundColor: 'buttons.primary.background.hover',
-				color: 'buttons.primary.label.hover',
+				backgroundColor: 'button.primary.background.hover',
+				color: 'button.primary.label.hover',
 			},
 		},
 
 		secondary: {
 			variant: 'buttons.primary',
-			color: 'buttons.secondary.label.default',
-			bg: 'buttons.secondary.background.default',
+			color: 'button.secondary.label.default',
+			bg: 'button.secondary.background.default',
 
 			'&:hover, &:focus': {
-				backgroundColor: 'buttons.secondary.background.hover',
-				color: 'buttons.secondary.label.hover',
+				backgroundColor: 'button.secondary.background.hover',
+				color: 'button.secondary.label.hover',
 			},
 		},
 
 		tertiary: {
 			variant: 'buttons.primary',
-			color: 'buttons.tertiary.label.default',
-			bg: 'buttons.tertiary.background.default',
+			color: 'button.tertiary.label.default',
+			bg: 'button.tertiary.background.default',
 			border: '1px solid',
-			borderColor: 'buttons.tertiary.border.default',
+			borderColor: 'button.tertiary.border.default',
 
 			'&:hover, &:focus': {
-				backgroundColor: 'buttons.tertiary.background.hover',
-				color: 'buttons.tertiary.label.hover',
+				backgroundColor: 'button.tertiary.background.hover',
+				color: 'button.tertiary.label.hover',
 				border: '1px solid',
-				borderColor: 'buttons.tertiary.border.hover',
+				borderColor: 'button.tertiary.border.hover',
 			},
 		},
 
 		ghost: {
 			variant: 'buttons.primary',
-			color: 'buttons.ghost.label.default',
-			bg: 'buttons.ghost.background.default',
+			color: 'button.ghost.label.default',
+			bg: 'button.ghost.background.default',
 			border: '1px solid',
 			borderColor: 'transparent',
 
 			'&:hover, &:focus': {
-				backgroundColor: 'buttons.ghost.background.hover',
-				color: 'buttons.ghost.label.hover',
+				backgroundColor: 'button.ghost.background.hover',
+				color: 'button.ghost.label.hover',
 				border: '1px solid',
 				borderColor: 'transparent',
 			},
@@ -297,14 +297,14 @@ export default {
 
 		danger: {
 			variant: 'buttons.primary',
-			color: 'buttons.danger.primary.label.default',
-			bg: 'buttons.danger.primary.background.default',
+			color: 'button.danger.primary.label.default',
+			bg: 'button.danger.primary.background.default',
 			border: '1px solid',
-			borderColor: 'buttons.danger.primary.border.default',
+			borderColor: 'button.danger.primary.border.default',
 
 			'&:hover, &:focus': {
-				backgroundColor: 'buttons.danger.primary.background.hover',
-				color: 'buttons.danger.primary.label.hover',
+				backgroundColor: 'button.danger.primary.background.hover',
+				color: 'button.danger.primary.label.hover',
 				border: '1px solid',
 				borderColor: 'transparent',
 			},
