@@ -11,7 +11,6 @@ import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import mainTheme from '../theme';
 import { baseControlBorderStyle, inputBaseText } from './Input.styles';
-import { getColor } from '../theme/getColor';
 
 const prefix = 'vip-radio-component-';
 

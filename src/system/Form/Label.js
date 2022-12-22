@@ -10,9 +10,8 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { RequiredLabel } from './RequiredLabel';
-import { getColor } from '../theme/getColor';
 
-export const baseLabelColor = getColor( 'text', 'primary' );
+export const baseLabelColor = 'heading';
 export const baseLabelStyle = {
 	fontWeight: 500,
 	fontSize: 2,

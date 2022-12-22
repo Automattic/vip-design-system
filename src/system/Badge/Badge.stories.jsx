@@ -8,36 +8,36 @@ export default {
 	component: Badge,
 };
 
-const BBadge = props => <Badge { ...props } sx={ { m: 2 } } />;
-const BBadgeLink = props => (
-	<BBadge { ...props } sx={ { m: 2 } }>
+const Template = props => <Badge { ...props } sx={ { m: 2 } } />;
+const TemplateLink = props => (
+	<Template { ...props } sx={ { m: 2 } }>
 		<a href="http://google.com">Google.com</a>
-	</BBadge>
+	</Template>
 );
 
 export const Default = () => (
 	<>
-		<BBadge>Badge</BBadge>
-		<BBadge variant="red">Badge</BBadge>
-		<BBadge variant="yellow">Badge</BBadge>
-		<BBadge variant="green">Badge</BBadge>
-		<BBadge variant="gray">Badge</BBadge>
-		<BBadge variant="orange">Badge</BBadge>
-		<BBadge variant="gold">Badge</BBadge>
-		<BBadge variant="pink">Badge</BBadge>
-		<BBadge variant="salmon">Badge</BBadge>
+		<Template>Badge</Template>
+		<Template variant="red">Badge</Template>
+		<Template variant="yellow">Badge</Template>
+		<Template variant="green">Badge</Template>
+		<Template variant="gray">Badge</Template>
+		<Template variant="orange">Badge</Template>
+		<Template variant="gold">Badge</Template>
+		<Template variant="pink">Badge</Template>
+		<Template variant="salmon">Badge</Template>
 	</>
 );
 export const WithLinks = () => (
 	<>
-		<BBadgeLink />
-		<BBadgeLink variant="red" />
-		<BBadgeLink variant="yellow" />
-		<BBadgeLink variant="green" />
-		<BBadgeLink variant="gray" />
-		<BBadgeLink variant="orange" />
-		<BBadgeLink variant="gold" />
-		<BBadgeLink variant="pink" />
-		<BBadgeLink variant="salmon" />
+		<TemplateLink />
+		<TemplateLink variant="red" />
+		<TemplateLink variant="yellow" />
+		<TemplateLink variant="green" />
+		<TemplateLink variant="gray" />
+		<TemplateLink variant="orange" />
+		<TemplateLink variant="gold" />
+		<TemplateLink variant="pink" />
+		<TemplateLink variant="salmon" />
 	</>
 );

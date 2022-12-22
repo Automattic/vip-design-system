@@ -8,14 +8,13 @@
  * Internal dependencies
  */
 import { baseControlBorderStyle } from '../Form/Input.styles';
-import { getColor } from '../theme/getColor';
 
 export const inlineStyles = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
 	alignItems: 'center',
-	backgroundColor: getColor( 'input', 'background' ),
+	backgroundColor: 'input.background',
 	borderRadius: 1,
 	...baseControlBorderStyle,
 	paddingRight: 0,
