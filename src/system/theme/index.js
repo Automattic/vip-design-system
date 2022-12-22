@@ -89,8 +89,11 @@ export default {
 	initialColorModeName: 'light',
 	colors: {
 		// Valet Theme Colors
+
+		// This has to be in the plural because we already have a flag: text
 		texts: {
 			...ValetTheme.text,
+			default: ValetTheme.text.secondary,
 		},
 
 		button: {
@@ -124,7 +127,7 @@ export default {
 		},
 
 		// Common Tokens
-		text: getColor( 'text', 'secondary' ),
+		// text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
 		background: getColor( 'layer', '2' ),
 		backgroundSecondary: getColor( 'layer', '1' ),
