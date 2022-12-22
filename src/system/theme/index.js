@@ -126,8 +126,17 @@ export default {
 			placeholder: 'texts.placeholder',
 		},
 
+		optionRow: {
+			hover: 'rgba(0,0,0,.02)',
+			border: getColor( 'border', '2' ),
+			text: getColor( 'text', 'secondary' ),
+			textAccent: getColor( 'link', 'default' ),
+			icon: getColor( 'icon', 'primary' ),
+			iconBackground: getColor( 'layer', 'accent' ),
+		},
+
 		// Common Tokens
-		// text: getColor( 'text', 'secondary' ),
+		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
 		background: getColor( 'layer', '2' ),
 		backgroundSecondary: getColor( 'layer', '1' ),
