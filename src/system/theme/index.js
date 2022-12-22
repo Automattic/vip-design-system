@@ -93,7 +93,7 @@ export default {
 		// This has to be in the plural because we already have a flag: text
 		texts: {
 			...ValetTheme.text,
-			default: ValetTheme.text.secondary,
+			disabled: 'texts.placeholder',
 		},
 
 		button: {
