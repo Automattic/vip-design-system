@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * Internal dependencies
  */
@@ -30,6 +32,8 @@ export const Default = () => (
 
 		<Text sx={ { color: 'texts.disabled' } }>Text disabled</Text>
 
-		<Text sx={ { color: 'texts.inverse' } }>Text inverse</Text>
+		<div sx={ { bg: 'layer.inverse' } }>
+			<Text sx={ { color: 'texts.inverse' } }>Text inverse</Text>
+		</div>
 	</>
 );
