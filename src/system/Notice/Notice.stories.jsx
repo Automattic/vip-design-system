@@ -34,11 +34,14 @@ export const Default = () => (
 		<Notice sx={ { mb: 4 } } title="This notice has only the title prop passed" />
 
 		<Notice variant="success" sx={ { mb: 4 } } title="You made it!">
-			<Text sx={ { mb: 0 } }>This notice has a title and children</Text>
+			<Text sx={ { mb: 0 } }>This notice has a title and children.</Text>
 		</Notice>
 
 		<Notice variant="info" sx={ { mb: 4 } } title="Please read this first">
-			<Text sx={ { mb: 0 } }>This notice has a title and children</Text>
+			<Text sx={ { mb: 0 } }>
+				This notice has a title and children and{ ' ' }
+				<a href="/?path=/story/avatar--default">A link to Avatar</a>
+			</Text>
 		</Notice>
 
 		<Notice

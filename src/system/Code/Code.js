@@ -54,17 +54,17 @@ const Code = React.forwardRef(
 					<button
 						aria-label="Copy code"
 						sx={ {
-							bg: 'layer.accent',
+							bg: 'notice.background.warning',
 							borderTopRightRadius: 1,
 							borderWidth: 0,
-							color: 'texts.inverse',
+							color: 'notice.text.warning',
 							paddingBottom: 1,
 							paddingLeft: 2,
 							paddingRight: 2,
 							paddingTop: 1,
 							position: 'absolute',
 							right: 0,
-							top: '-1px',
+							top: 0,
 							'&:hover': {
 								opacity: 1,
 								cursor: 'pointer',
