@@ -71,23 +71,26 @@ const InlineSelect = ( {
 				sx={ {
 					'.select__control': {
 						background: 'none',
-						color: 'heading',
+						color: 'input.text',
 					},
 					'.select__single-value': {
-						color: 'heading',
+						color: 'input.text',
 						px: 1,
 					},
 					'.react-select__option': {
-						bg: 'gray.10',
+						bg: 'input.background',
 						'&:hover': {
-							bg: 'gray.10',
+							bg: 'input.background',
 						},
 					},
 					'.select__option--is-focused': {
-						bg: 'gray.10',
+						bg: 'input.background',
 					},
 					'.select__menu': {
-						borderColor: 'border',
+						borderColor: 'input.border',
+					},
+					'.select__placeholder': {
+						color: 'input.placeholder',
 					},
 				} }
 				{ ...props }
