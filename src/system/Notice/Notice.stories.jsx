@@ -22,7 +22,8 @@ export const Default = () => (
 			title="Your site is ready to launch!"
 		>
 			<Text sx={ { mb: 0 } }>
-				It looks like you&lsquo;re ready to share your application with the world.
+				It looks like you&lsquo;re ready to share your{ ' ' }
+				<Link href="https://google.com/">application with the world.</Link>
 			</Text>
 		</Notice>
 
@@ -31,10 +32,14 @@ export const Default = () => (
 			<Link href="https://google.com/">application with the world.</Link>
 		</Notice>
 
-		<Notice sx={ { mb: 4 } } title="This notice has only the title prop passed" />
+		<Notice sx={ { mb: 4 } } title="This notice has only the title prop passed">
+			It looks like you&lsquo;re ready to share your{ ' ' }
+			<Link href="https://google.com/">application with the world.</Link>
+		</Notice>
 
 		<Notice variant="success" sx={ { mb: 4 } } title="You made it!">
-			<Text sx={ { mb: 0 } }>This notice has a title and children.</Text>
+			It looks like you&lsquo;re ready to share your{ ' ' }
+			<Link href="https://google.com/">application with the world.</Link>
 		</Notice>
 
 		<Notice variant="info" sx={ { mb: 4 } } title="Please read this first">
