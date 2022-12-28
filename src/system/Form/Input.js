@@ -11,30 +11,17 @@ import PropTypes from 'prop-types';
  */
 import { Validation, Label } from '../';
 import { Input as ThemeInput } from 'theme-ui';
+import { baseControlStyle } from './Input.styles';
 
 const inputStyles = {
 	unset: 'all',
-	border: '1px solid',
-	borderColor: 'border',
-	backgroundColor: 'card',
-	borderRadius: 1,
+	...baseControlStyle,
 	lineHeight: 'inherit',
 	px: 3,
 	py: 2,
 	fontSize: 2,
 	mb: 2,
-	color: 'text',
-	display: 'block',
-	width: '100%',
-	'&:focus': theme => theme.outline,
-	'&:focus-visible': theme => theme.outline,
-	'&:disabled': {
-		bg: 'backgroundSecondary',
-	},
-	'&::placeholder': {
-		color: 'placeholder',
-		opacity: 1,
-	},
+	variant: 'inputs.default',
 };
 
 const Input = React.forwardRef(

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { makeDecorator } from '@storybook/addons';
 import { useColorMode } from 'theme-ui';
+import { getColor } from '../../src/system/theme/getColor';
 
 // These need to be updated to import VIP design tokens;
-const lightBackground = '#ffffff';
+const lightBackground = getColor( 'background', 'primary' );
 const darkBackground = '#1C1C1B';
 
 export const backgrounds = {

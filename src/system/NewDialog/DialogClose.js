@@ -37,7 +37,7 @@ export const DialogCloseDefault = React.forwardRef( ( props, forwardedRef ) => (
 				display: 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				color: theme => `${ theme?.colors?.text }`,
+				color: 'icon.primary',
 				position: 'absolute',
 				top: 10,
 				right: 10,
@@ -45,14 +45,14 @@ export const DialogCloseDefault = React.forwardRef( ( props, forwardedRef ) => (
 				'&:hover': {
 					backgroundColor: 'borders.2',
 					outlineStyle: 'solid',
-					outlineColor: 'primary',
+					outlineColor: 'border.accent',
 					outlineWidth: '2px',
 				},
 				'&:focus': theme => theme.outline,
 				'&:focus-visible': theme => theme.outline,
 			} }
 		>
-			<IoClose aria-hidden="true" />
+			<IoClose aria-hidden="true" sx={ { fill: 'icon.primary' } } />
 		</button>
 	</DialogClose>
 ) );

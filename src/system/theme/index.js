@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
+import { getColor, getVariants, ValetTheme } from './getColor';
 import { light, dark } from './colors';
-import { getColor, getVariants } from './getColor';
 
 const textStyles = {
 	h1: {
@@ -45,7 +45,6 @@ const textStyles = {
 	caps: {
 		fontSize: 1,
 		marginBottom: 2,
-		textTransform: 'uppercase',
 		color: 'muted',
 		fontWeight: 'bold',
 		letterSpacing: '.05em',
@@ -54,20 +53,22 @@ const textStyles = {
 
 const outline = {
 	outlineStyle: 'solid',
-	outlineColor: '#ffffff',
+	outlineColor: getColor( 'focus', 'inset' ),
 	outlineWidth: '1px',
 	boxShadow: `0 0 0 1px ${ getColor( 'focus', 'inset' ) }, 0 0 0 3px ${ getColor( 'focus' ) }`,
+};
+
+const fonts = {
+	body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+	heading: 'inherit',
+	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+	serif: 'recoletaregular, Georgia, serif',
 };
 
 export default {
 	outline,
 	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
-	fonts: {
-		body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-		heading: 'inherit',
-		monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-		serif: 'recoletaregular, Georgia, serif',
-	},
+	fonts,
 	fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
 	fontWeights: {
 		body: 400,
@@ -81,21 +82,99 @@ export default {
 	sizes: {
 		sidebar: 260,
 	},
-	radii: [ 0, 5, 10 ],
+	radii: [ 0, 4, 8 ],
 	config: {
 		useColorSchemeMediaQuery: false,
 	},
 	initialColorModeName: 'light',
 	colors: {
+		// Valet Theme Colors
+
+		// This has to be in the plural because we already have a flag: text
+		texts: {
+			...ValetTheme.text,
+			disabled: '#716e6e',
+		},
+
+		button: {
+			...ValetTheme.button,
+		},
+
+		tag: {
+			...ValetTheme.tag,
+		},
+
+		// Notice
+		notice: {
+			...ValetTheme.support,
+		},
+
+		// layer
+		layer: {
+			...ValetTheme.layer,
+		},
+
+		// icon
+		icon: {
+			...ValetTheme.icon,
+		},
+
+		// Form Controls
+		input: {
+			...ValetTheme.input,
+			text: getColor( 'text', 'secondary' ),
+			placeholder: getColor( 'text', 'secondary' ),
+		},
+
+		optionRow: {
+			hover: 'rgba(0,0,0,.02)',
+			border: getColor( 'border', '2' ),
+			text: getColor( 'text', 'secondary' ),
+			textAccent: getColor( 'link', 'default' ),
+			icon: getColor( 'icon', 'primary' ),
+			iconBackground: getColor( 'layer', 'accent' ),
+		},
+
+		table: {
+			border: getColor( 'border', '2' ),
+			heading: getColor( 'text', 'primary' ),
+			text: getColor( 'text', 'secondary' ),
+		},
+
+		// Common Tokens
 		text: getColor( 'text', 'secondary' ),
 		heading: getColor( 'text', 'primary' ),
-		background: getColor( 'background', 'primary' ),
-		gold: getVariants( 'color.gold' ),
-		gray: getVariants( 'color.gray' ),
-		backgroundSecondary: light.grey[ '10' ],
-		primary: light.brand[ '70' ],
-		secondary: '#30c',
-		muted: light.grey[ '90' ],
+		background: getColor( 'layer', '2' ),
+		backgroundSecondary: getColor( 'layer', '1' ),
+		primary: getColor( 'link', 'default' ),
+		secondary: light.gray[ '70' ],
+		muted: getColor( 'text', 'helper' ),
+		border: getColor( 'border', '1' ),
+		borders: {
+			1: getColor( 'border', '1' ),
+			2: getColor( 'border', '2' ),
+			3: getColor( 'border', '3' ),
+			4: getColor( 'border', '4' ),
+			inverse: getColor( 'border', 'inverse' ),
+			accent: getColor( 'border', 'accent' ),
+		},
+		hover: 'rgba(0,0,0,.02)',
+		darken: 'rgba(0,0,0,.05)',
+		placeholder: getColor( 'text', 'placeholder' ),
+		midnight: '#13191E',
+		dialog: light.gray[ '0' ],
+		backgroundMuted: getColor( 'layer', '1' ),
+
+		// Variant colors
+		success: ValetTheme.support.link.success.default,
+		error: ValetTheme.support.link.error.default,
+		warning: ValetTheme.support.link.warning.default,
+		info: ValetTheme.support.link.info.default,
+
+		// Card
+		card: '#fff',
+
+		// Link
 		link: getColor( 'link', 'default' ),
 		links: {
 			default: getColor( 'link', 'default' ),
@@ -103,30 +182,11 @@ export default {
 			active: getColor( 'link', 'active' ),
 			visited: getColor( 'link', 'visited' ),
 		},
-		card: '#fff',
-		borders: {
-			1: getColor( 'border', '1' ),
-			2: getColor( 'border', '2' ),
-			3: getColor( 'border', '3' ),
-			4: getColor( 'border', '4' ),
-			accent: getColor( 'border', 'accent' ),
-		},
 
-		border: getColor( 'border', '1' ),
-		hover: 'rgba(0,0,0,.02)',
-		lightenBackground: 'rgba(255,255,255,.5)',
-		darken: 'rgba(0,0,0,.05)',
-		placeholder: getColor( 'text', 'placeholder' ),
-		midnight: '#13191E',
-		navigationStart: light.grey[ '5' ],
-		navigationEnd: light.grey[ '5' ],
-		success: light.green[ '90' ],
-		error: light.red[ '90' ],
-		warning: light.yellow[ '90' ],
-		dialog: light.grey[ '0' ],
-		backgroundMuted: light.grey[ '5' ],
 		...light,
+
 		modes: {
+			// Dark Mode not fully supported yet
 			dark: {
 				text: dark.grey[ '90' ],
 				heading: dark.grey[ '100' ],
@@ -141,8 +201,6 @@ export default {
 				border: dark.grey[ '30' ],
 				hover: 'rgba(255,255,255,.02)',
 				midnight: dark.grey[ '90' ],
-				navigationStart: dark.grey[ '5' ],
-				navigationEnd: dark.grey[ '5' ],
 				success: dark.green[ '90' ],
 				error: dark.red[ '90' ],
 				warning: dark.yellow[ '90' ],
@@ -152,6 +210,7 @@ export default {
 			},
 		},
 	},
+
 	shadows: {
 		low: '0px 1px 5px rgba(0, 0, 0, 0.05), 0px 1px 1px rgba(0, 0, 0, 0.15)',
 		medium:
@@ -178,7 +237,7 @@ export default {
 		primary: {
 			padding: 3,
 			borderRadius: 2,
-			backgroundColor: 'card',
+			backgroundColor: 'background',
 			boxShadow: 'low',
 		},
 		secondary: {
@@ -195,21 +254,80 @@ export default {
 			backgroundColor: 'backgroundMuted',
 		},
 	},
+
 	buttons: {
 		primary: {
 			// you can reference other values defined in the theme
-			color: 'grey.0',
-			bg: 'grey.100',
+			fontFamily: 'body',
+			color: 'button.primary.label.default',
+			bg: 'button.primary.background.default',
+			border: '1px solid transparent',
 			cursor: 'pointer',
-			fontWeight: 'bold',
+			fontWeight: '500',
 			boxShadow: 'none',
 			borderRadius: 1,
-			border: '1px solid transparent',
 			'&:hover, &:focus': {
-				backgroundColor: 'grey.90',
-				color: 'grey.0',
+				backgroundColor: 'button.primary.background.hover',
+				color: 'button.primary.label.hover',
 			},
 		},
+
+		secondary: {
+			variant: 'buttons.primary',
+			color: 'button.secondary.label.default',
+			bg: 'button.secondary.background.default',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'button.secondary.background.hover',
+				color: 'button.secondary.label.hover',
+			},
+		},
+
+		tertiary: {
+			variant: 'buttons.primary',
+			color: 'button.tertiary.label.default',
+			bg: 'button.tertiary.background.default',
+			border: '1px solid',
+			borderColor: 'button.tertiary.border.default',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'button.tertiary.background.hover',
+				color: 'button.tertiary.label.hover',
+				border: '1px solid',
+				borderColor: 'button.tertiary.border.hover',
+			},
+		},
+
+		ghost: {
+			variant: 'buttons.primary',
+			color: 'button.ghost.label.default',
+			bg: 'button.ghost.background.default',
+			border: '1px solid',
+			borderColor: 'transparent',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'button.ghost.background.hover',
+				color: 'button.ghost.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+		},
+
+		danger: {
+			variant: 'buttons.primary',
+			color: 'button.danger.primary.label.default',
+			bg: 'button.danger.primary.background.default',
+			border: '1px solid',
+			borderColor: 'button.danger.primary.border.default',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'button.danger.primary.background.hover',
+				color: 'button.danger.primary.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+		},
+
 		border: {
 			background: 'none',
 			border: '1px solid',
@@ -222,46 +340,19 @@ export default {
 				bg: 'hover',
 			},
 		},
-		danger: {
-			// you can reference other values defined in the theme
-			variant: 'buttons.primary',
-			bg: 'red.70',
-			'&:hover, &:focus': {
-				backgroundColor: 'red.80',
-			},
-		},
-		secondary: {
-			color: 'text',
-			cursor: 'pointer',
-			boxShadow: 'none',
-			fontWeight: 'heading',
-			borderRadius: 1,
-			bg: 'grey.10',
-			'&:hover, &:focus': {
-				color: 'grey.100',
-				bg: 'grey.20',
-			},
-		},
+
 		text: {
-			background: 'none',
-			boxShadow: 'none',
+			variant: 'buttons.ghost',
 			color: 'link',
-			cursor: 'pointer',
-			fontWeight: 'heading',
-			'&:hover, &:focus': {
-				color: 'heading',
-				backgroundColor: 'hover',
-			},
 		},
+
 		icon: {
-			background: 'none',
-			boxShadow: 'none',
+			variant: 'buttons.ghost',
 			color: 'text',
-			cursor: 'pointer',
-			fontWeight: 'heading',
 			padding: 1,
+
 			'&:hover, &:focus': {
-				backgroundColor: 'border',
+				backgroundColor: 'borders.2',
 			},
 		},
 	},
@@ -285,7 +376,9 @@ export default {
 			},
 		},
 	},
+
 	text: textStyles,
+
 	dialog: {
 		modal: {
 			position: 'fixed',
@@ -318,6 +411,7 @@ export default {
 			opacity: 0.97,
 		},
 	},
+
 	styles: {
 		root: {
 			fontFamily: 'body',
@@ -325,15 +419,24 @@ export default {
 			fontWeight: 'body',
 			fontSize: 2,
 			color: 'text',
-			backgroundColor: 'background',
+			backgroundColor: getColor( 'background', 'primary' ),
 			'-webkit-font-smoothing': 'antialiased',
 			'-moz-osx-font-smoothing': 'grayscale',
+			a: {
+				'&:hover': {
+					textDecorationLine: 'underline',
+					textDecorationThickness: '2px',
+				},
+			},
 			svg: {
 				fill: 'currentColor',
 				display: 'block',
 			},
 			pre: {
 				fontFamily: 'body',
+			},
+			p: {
+				color: 'text',
 			},
 			...textStyles,
 		},

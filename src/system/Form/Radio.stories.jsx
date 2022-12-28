@@ -31,10 +31,10 @@ export const Default = () => {
 					Reference to Form fieldsets
 				</a>
 			</p>
-			<fieldset>
-				<legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>
+			<Form.Fieldset>
+				<Form.Legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>
 					Apply the policy to these domains
-				</legend>
+				</Form.Legend>
 
 				<Flex sx={ { alignItems: 'center' } }>
 					<Radio
@@ -51,10 +51,12 @@ export const Default = () => {
 						onChange={ e => setChecked( e.target.value ) }
 					/>
 				</Flex>
-			</fieldset>
+			</Form.Fieldset>
 
-			<fieldset>
-				<legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>With a custom Label</legend>
+			<Form.Fieldset>
+				<Form.Legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>
+					With a custom Label
+				</Form.Legend>
 
 				<Flex sx={ { alignItems: 'center' } }>
 					<Radio
@@ -67,7 +69,7 @@ export const Default = () => {
 									<Label
 										htmlFor="option-custom-a"
 										className="custom-class"
-										sx={ { color: 'error' } }
+										sx={ { color: '#bf2a23' } }
 									>
 										(Custom) All domains listed on this environment, and all subdomains
 									</Label>
@@ -88,7 +90,7 @@ export const Default = () => {
 						onChange={ ( _, option ) => setChecked2( option.value ) }
 					/>
 				</Flex>
-			</fieldset>
+			</Form.Fieldset>
 
 			<p id="describe-radio-all-domains-subdomains" sx={ { mt: 2 } }>
 				This is a explanation for custom option b

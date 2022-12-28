@@ -9,7 +9,7 @@ import React from 'react';
 import { Time, Grid, Box } from '..';
 
 export default {
-	title: 'Time',
+	title: 'Deprecated/Time',
 	component: Time,
 };
 

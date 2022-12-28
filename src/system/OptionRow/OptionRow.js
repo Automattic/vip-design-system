@@ -15,10 +15,10 @@ import classNames from 'classnames';
 
 const disabledStyles = {
 	border: '1px solid',
-	borderColor: 'borders.2',
+	borderColor: 'optionRow.border',
 	background: 'none',
 	boxShadow: 'none',
-	color: 'text',
+	color: 'optionRow.text',
 };
 
 const gridInlineStyle = {
@@ -30,14 +30,13 @@ const regularGridStyle = () => ( {
 	py: 3,
 	px: 3,
 	borderBottom: '1px solid',
-	borderColor: 'borders.2',
+	borderColor: 'optionRow.border',
 } );
 
 const OptionRow = React.forwardRef(
 	(
 		{
 			image,
-			icon,
 			badge,
 			label,
 			inline = false,
@@ -67,20 +66,20 @@ const OptionRow = React.forwardRef(
 					position: 'relative',
 					alignItems: 'center',
 					'&:hover': ! disabled && {
-						backgroundColor: 'hover',
+						backgroundColor: 'optionRow.hover',
 					},
 					...inlineStyles,
 				} }
 			>
 				<Box>
-					{ image ? (
+					{ !! image && (
 						<Box
 							sx={ {
 								display: [ 'inline-block', 'inline-block', 'block' ],
 								p: small ? 12 : 20,
 								flex: '0 0 auto',
-								bg: 'brand.70',
-								color: 'brand.10',
+								bg: 'optionRow.iconBackground',
+								color: 'optionRow.icon',
 								borderRadius: 1,
 								...mergedCard,
 							} }
@@ -91,8 +90,6 @@ const OptionRow = React.forwardRef(
 								<img src={ image } width={ small ? 32 : 48 } sx={ { display: 'block' } } alt="" />
 							) }
 						</Box>
-					) : (
-						icon && icon
 					) }
 				</Box>
 
@@ -105,7 +102,7 @@ const OptionRow = React.forwardRef(
 							as={ 'a' }
 							sx={ {
 								cursor: disabled ? 'auto' : 'pointer',
-								color: disabled ? 'text' : 'link',
+								color: disabled ? 'optionRow.text' : 'optionRow.textAccent',
 								'&:after': {
 									content: '""',
 									position: 'absolute',
@@ -121,7 +118,7 @@ const OptionRow = React.forwardRef(
 							{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
 						</Link>
 					</Heading>
-					{ subTitle && <Text sx={ { mb: 1, color: 'text' } }>{ subTitle }</Text> }
+					{ subTitle && <Text sx={ { mb: 1, color: 'optionRow.text' } }>{ subTitle }</Text> }
 					{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
 				</Box>
 				{ false !== meta && '' !== meta && (
@@ -129,7 +126,7 @@ const OptionRow = React.forwardRef(
 						{ meta ? (
 							meta
 						) : (
-							<MdArrowForward size={ 24 } sx={ { color: 'text' } } aria-hidden="true" />
+							<MdArrowForward size={ 24 } sx={ { color: 'optionRow.text' } } aria-hidden="true" />
 						) }
 					</Box>
 				) }
@@ -142,7 +139,6 @@ OptionRow.displayName = 'OptionRow';
 
 OptionRow.propTypes = {
 	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
-	icon: PropTypes.node,
 	badge: PropTypes.string,
 	label: PropTypes.node,
 	inline: PropTypes.bool,

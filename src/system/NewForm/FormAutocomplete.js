@@ -17,16 +17,20 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
 import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
+import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
+
+const baseBorderTextColors = {
+	...baseControlBorderStyle,
+	backgroundColor: inputBaseBackground,
+	color: inputBaseText,
+	borderRadius: 1,
+};
 
 const defaultStyles = {
 	width: '100%',
+	...baseBorderTextColors,
+
 	py: 0,
-	borderWidth: '1px',
-	borderStyle: 'solid',
-	borderColor: 'border',
-	borderRadius: 1,
-	backgroundColor: 'background',
-	color: 'text',
 	minHeight: '36px',
 	lineHeight: '36px',
 	'&:focus': theme => theme.outline,
@@ -48,12 +52,7 @@ const defaultStyles = {
 		'&.autocomplete__input--show-all-values': { paddingRight: '40px' },
 	},
 	'& .autocomplete__menu': {
-		borderWidth: '1px',
-		borderStyle: 'solid',
-		borderColor: 'border',
-		borderRadius: 1,
-		backgroundColor: 'background',
-		color: 'text',
+		...baseBorderTextColors,
 	},
 	'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
 		fontSize: 'inherit',
@@ -62,7 +61,7 @@ const defaultStyles = {
 		width: '100%',
 	},
 	'& .autocomplete__option': {
-		borderColor: 'borders.2',
+		borderColor: baseControlBorderStyle.borderColor,
 	},
 	'& .autocomplete__option--odd': {
 		bg: 'backgroundSecondary',

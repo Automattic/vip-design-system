@@ -4,15 +4,6 @@
       "type": "color",
       "description": "Use as main application background",
       "value": "#fbfbfb"
-    },
-    "inverse": {
-      "value": "#13191e",
-      "type": "color",
-      "description": "Use as component background in high-contrast situations. "
-    },
-    "brand": {
-      "type": "color",
-      "value": "#d8a45f"
     }
   },
   "layer": {
@@ -26,33 +17,124 @@
     },
     "3": {
       "type": "color",
-      "value": "#f4f3f2"
+      "value": "#ebe9e8"
     },
     "4": {
       "value": "#ffffff",
       "type": "color"
+    },
+    "inverse": {
+      "value": "#13191e",
+      "type": "color",
+      "description": "Use as component background in high-contrast situations. "
     },
     "accent": {
       "type": "color",
-      "value": "#d8a45f"
+      "value": "#d29137"
     }
   },
-  "field": {
-    "1": {
+  "input": {
+    "background": {
       "value": "#ffffff",
       "type": "color"
     },
-    "2": {
-      "type": "color",
-      "value": "#fbfbfb"
+    "border": {
+      "default": {
+        "value": "#8f8c8b",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#bfbcbb",
+        "type": "color"
+      }
     },
-    "3": {
-      "type": "color",
-      "value": "#f4f3f2"
+    "switcher": {
+      "background": {
+        "primary": {
+          "value": "#007934",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "#007586",
+          "type": "color"
+        }
+      }
     },
-    "4": {
-      "type": "color",
-      "value": "#ebe9e8"
+    "radio-box": {
+      "background": {
+        "default": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "active": {
+          "value": "#f4f3f2",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#ffffff00",
+          "type": "color"
+        }
+      },
+      "label": {
+        "primary": {
+          "default": {
+            "value": "#13191e",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#13191e",
+            "type": "color"
+          },
+          "active": {
+            "value": "#13191e",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "default": {
+            "value": "#514e4d",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#514e4d",
+            "type": "color"
+          },
+          "acive": {
+            "value": "#514e4d",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#8f8c8b",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#6a6766",
+          "type": "color"
+        },
+        "active": {
+          "value": "#9a6014",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
+      }
     }
   },
   "border": {
@@ -70,7 +152,11 @@
     },
     "4": {
       "type": "color",
-      "value": "#bfbcbb"
+      "value": "#e3e0df"
+    },
+    "inverse": {
+      "value": "#827f7e",
+      "type": "color"
     },
     "accent": {
       "type": "color",
@@ -95,18 +181,18 @@
     },
     "placeholder": {
       "type": "color",
-      "description": "Use for placeholder text in fields",
-      "value": "#757575"
+      "value": "#767372",
+      "description": "Use for placeholder text in fields"
     },
     "disabled": {
       "type": "color",
-      "value": "#767372"
+      "value": "#9b9796"
     },
     "inverse": {
       "type": "color",
       "value": "#fbfbfb"
     },
-    "interactive": {
+    "accent": {
       "type": "color",
       "value": "#9a6014"
     }
@@ -149,38 +235,278 @@
     },
     "disabled": {
       "type": "color",
-      "value": "#757575"
+      "value": "#8f8c8b"
     }
   },
   "button": {
     "primary": {
-      "default": {
-        "value": "#13191e",
-        "type": "color"
+      "background": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#d8a45f"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
       },
-      "hover": {
-        "type": "color",
-        "value": "#767372"
+      "label": {
+        "default": {
+          "value": "#fbfbfb",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
       }
     },
     "secondary": {
-      "default": {
-        "type": "color",
-        "value": "#f4f3f2"
+      "background": {
+        "default": {
+          "type": "color",
+          "value": "#e3e0df"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#d8a45f"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
       },
-      "hover": {
-        "type": "color",
-        "value": "#ebe9e8"
+      "label": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
       }
     },
     "tertiary": {
-      "default": {
-        "value": "#00000000",
-        "type": "color"
+      "background": {
+        "default": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#e3e0df"
+        },
+        "disabled": {
+          "value": "#ffffff00",
+          "type": "color"
+        }
       },
-      "hover": {
-        "type": "color",
-        "value": "#ebe9e8"
+      "border": {
+        "default": {
+          "value": "#8f8c8b",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#e3e0df",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
+    "ghost": {
+      "background": {
+        "default": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#e3e0df",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#ffffff00",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#9a6014",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
+    "display": {
+      "background": {
+        "default": {
+          "value": "#d8a45f",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#9a6014",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#bfbcbb",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#fbfbfb",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
+    "danger": {
+      "primary": {
+        "background": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#bfbcbb",
+            "type": "color"
+          }
+        },
+        "label": {
+          "default": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        }
+      },
+      "secondary": {
+        "background": {
+          "default": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#ffffff00",
+            "type": "color"
+          }
+        },
+        "label": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#bfbcbb",
+            "type": "color"
+          }
+        }
+      },
+      "ghost": {
+        "background": {
+          "default": {
+            "value": "#ffffff00",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#9a1a19",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#ffffff00",
+            "type": "color"
+          }
+        },
+        "label": {
+          "default": {
+            "value": "#d3372b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#fbfbfb",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9b9796",
+            "type": "color"
+          }
+        }
       }
     }
   },
@@ -236,7 +562,7 @@
       },
       "success": {
         "type": "color",
-        "value": "#01944d"
+        "value": "#007934"
       }
     },
     "accent": {
@@ -560,14 +886,11 @@
     "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
   },
   "fontSize": {
-    "description": {
-      "value": "In production, all fontSize units are in rems.",
-      "type": "other"
-    },
     "static": {
       "1": {
         "value": 12,
-        "type": "fontSizes"
+        "type": "fontSizes",
+        "description": "these are non-responsive font sizes used for body copy, helper text and other elements that don't need to respond to viewport width."
       },
       "2": {
         "value": 14,
@@ -584,17 +907,14 @@
       "5": {
         "value": 20,
         "type": "fontSizes"
-      },
-      "description": {
-        "value": "these are non-responsive font sizes used for body copy, helper text and other elements that don't need to respond to viewport width.",
-        "type": "other"
       }
     },
     "figma": {
       "1": {
         "s": {
           "value": 12.34,
-          "type": "other"
+          "type": "other",
+          "description": "All of these fontSizes.figma tokens are used exclusively for convenience in Figma. We use them to generate the suite of styles we use in Figma and correspond to the screen size values in breakpoints. They are a representation of the responsive sizes generated by the clamp functions in the fontSizes.responsive object"
         },
         "m": {
           "value": 11.07,
@@ -920,16 +1240,13 @@
           "value": 105.26,
           "type": "other"
         }
-      },
-      "description": {
-        "value": "All of these fontSizes.figma tokens are used exclusively for convenience in Figma. We use them to generate the suite of styles we use in Figma and correspond to the screen size values in breakpoints. They are a representation of the dynamic sizes generated by the clamp functions in the fontSizes.dynamic object",
-        "type": "other"
       }
     },
-    "dynamic": {
+    "responsive": {
       "1": {
         "value": "clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem)",
-        "type": "fontSizes"
+        "type": "fontSizes",
+        "description": "These are the formulas that generate the responsive type sizes in production. Calculations like this aren't supported in Figma so we use the manually calculated fontSizes.figma tokens to generate a suite of styles that approximate the font size at our standard breakpoints."
       },
       "2": {
         "value": "clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem)",
@@ -986,53 +1303,53 @@
       "15": {
         "value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)",
         "type": "fontSizes"
-      },
-      "description": {
-        "value": "These are the formulas that generate the responsive type sizes in production. Calculations like this aren't supported in Figma so we use the manually calculated fontSizes.figma tokens to generate a suite of styles that approximate the font size at our standard breakpoints.",
-        "type": "other"
       }
     }
   },
   "borderRadius": {
-    "1": {
-      "value": 4,
-      "type": "borderRadius"
+    "static": {
+      "1": {
+        "value": 4,
+        "type": "borderRadius"
+      },
+      "2": {
+        "value": 8,
+        "type": "borderRadius"
+      },
+      "3": {
+        "value": 16,
+        "type": "borderRadius"
+      },
+      "4": {
+        "value": 32,
+        "type": "borderRadius"
+      },
+      "5": {
+        "value": 40,
+        "type": "borderRadius"
+      },
+      "6": {
+        "value": 56,
+        "type": "borderRadius"
+      }
     },
-    "2": {
-      "value": 8,
-      "type": "borderRadius"
-    },
-    "3": {
-      "value": 16,
-      "type": "borderRadius"
-    },
-    "4": {
-      "value": 28,
-      "type": "borderRadius"
-    },
-    "5": {
-      "value": 32,
-      "type": "borderRadius"
-    },
-    "6": {
-      "value": 40,
-      "type": "borderRadius"
-    },
-    "7": {
-      "value": 56,
-      "type": "borderRadius"
-    },
-    "description": {
-      "value": "In production, all units are in rems.",
-      "type": "other"
+    "responsive": {
+      "3-5": {
+        "value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)",
+        "type": "borderRadius"
+      },
+      "4-6": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "borderRadius"
+      }
     }
   },
   "space": {
-    "description": {
-      "value": "In production, all units are in rems.",
-      "type": "other"
-    },
     "static": {
+      "0": {
+        "value": 2.08,
+        "type": "spacing"
+      },
       "1": {
         "value": 4,
         "type": "spacing"
@@ -1058,7 +1375,7 @@
         "type": "spacing"
       },
       "7": {
-        "value": 54.08,
+        "value": 56,
         "type": "spacing"
       },
       "8": {
@@ -1066,25 +1383,117 @@
         "type": "spacing"
       },
       "9": {
-        "value": 122.08,
+        "value": 112,
         "type": "spacing"
       },
       "10": {
-        "value": 182.08,
+        "value": 160,
+        "type": "spacing"
+      }
+    },
+    "responsive": {
+      "0-1": {
+        "value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)",
         "type": "spacing"
       },
-      "11": {
-        "value": 272,
+      "1-2": {
+        "value": "clamp(0.25rem, calc(0.19rem + 0.30vw), 0.50rem)",
+        "type": "spacing"
+      },
+      "2-3": {
+        "value": "clamp(0.50rem, calc(0.44rem + 0.30vw), 0.75rem)",
+        "type": "spacing"
+      },
+      "3-4": {
+        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
+        "type": "spacing"
+      },
+      "4-5": {
+        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
+        "type": "spacing"
+      },
+      "5-6": {
+        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "6-7": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "spacing"
+      },
+      "7-8": {
+        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "8-9": {
+        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
+        "type": "spacing"
+      },
+      "9-10": {
+        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
+        "type": "spacing"
+      },
+      "3-6": {
+        "value": "clamp(0.75rem, calc(0.45rem + 1.51vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "4-7": {
+        "value": "clamp(1.00rem, calc(0.40rem + 3.01vw), 3.50rem)",
+        "type": "spacing"
+      },
+      "5-8": {
+        "value": "clamp(1.50rem, calc(0.66rem + 4.22vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "6-9": {
+        "value": "clamp(2.00rem, calc(0.80rem + 6.02vw), 7.00rem)",
         "type": "spacing"
       }
     }
   },
   "shadow": {
-    "description": {
-      "value": "These are our 3 drop shadow styles. All number values here are in px.",
-      "type": "other"
+    "1": {
+      "value": [
+        {
+          "color": "#00000026",
+          "type": "dropShadow",
+          "x": 0,
+          "y": 1,
+          "blur": 1,
+          "spread": 0
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "x": 0,
+          "y": 1,
+          "blur": 5,
+          "spread": 0
+        }
+      ],
+      "type": "boxShadow"
     },
-    "high": {
+    "2": {
+      "value": [
+        {
+          "color": "#00000008",
+          "type": "dropShadow",
+          "x": 0,
+          "y": 1,
+          "blur": 2,
+          "spread": 0
+        },
+        {
+          "color": "#00000012",
+          "type": "dropShadow",
+          "x": 0,
+          "y": 15,
+          "blur": 30,
+          "spread": 0
+        }
+      ],
+      "type": "boxShadow"
+    },
+    "3": {
       "value": [
         {
           "color": "#00000005",
@@ -1136,70 +1545,6 @@
         }
       ],
       "type": "boxShadow"
-    },
-    "medium": {
-      "value": [
-        {
-          "color": "#00000008",
-          "type": "dropShadow",
-          "x": 0,
-          "y": 1,
-          "blur": 2,
-          "spread": 0
-        },
-        {
-          "color": "#00000012",
-          "type": "dropShadow",
-          "x": 0,
-          "y": 15,
-          "blur": 30,
-          "spread": 0
-        }
-      ],
-      "type": "boxShadow"
-    },
-    "low": {
-      "value": [
-        {
-          "color": "#00000026",
-          "type": "dropShadow",
-          "x": 0,
-          "y": 1,
-          "blur": 1,
-          "spread": 0
-        },
-        {
-          "color": "#0000000d",
-          "type": "dropShadow",
-          "x": 0,
-          "y": 1,
-          "blur": 5,
-          "spread": 0
-        }
-      ],
-      "type": "boxShadow"
-    }
-  },
-  "fontFamily": {
-    "sans": {
-      "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-      "type": "fontFamilies",
-      "description": "Use as primary sans serif across applications"
-    },
-    "serif": {
-      "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-      "type": "fontFamilies",
-      "description": "Use as primary text serif in long-form reading applications"
-    },
-    "display": {
-      "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-      "type": "fontFamilies",
-      "description": "Use as primary brand display font"
-    },
-    "accent": {
-      "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-      "type": "fontFamilies",
-      "description": "Use as accent font"
     }
   },
   "lineHeight": {
@@ -1231,49 +1576,47 @@
     "description": {
       "value": "In production, all units are in %.",
       "type": "other"
+    },
+    "responsive": {
+      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
+      "type": "lineHeights",
+      "description": "This is the responsive line height for the responsive type sizes."
     }
   },
   "fontWeight": {
     "regular": {
-      "value": "Regular",
+      "value": 400,
       "type": "fontWeights"
     },
     "medium": {
-      "value": "Medium",
+      "value": 500,
       "type": "fontWeights"
     },
     "bold": {
-      "value": "Bold",
+      "value": 700,
       "type": "fontWeights"
     },
     "light": {
-      "value": "Light",
+      "value": 200,
       "type": "fontWeights"
     }
   },
   "letterSpacing": {
-    "description": {
-      "value": "In production, all units are in %.",
-      "type": "other"
-    },
     "none": {
-      "value": "0%",
-      "type": "letterSpacing"
+      "value": "0em",
+      "type": "letterSpacing",
+      "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
     "tight": {
-      "value": "-1%",
+      "value": "-0.01em",
       "type": "letterSpacing"
     },
     "loose": {
-      "value": "3%",
+      "value": "0.03em",
       "type": "letterSpacing"
     }
   },
   "paragraphSpacing": {
-    "description": {
-      "value": "In production, all units are in rems.",
-      "type": "other"
-    },
     "none": {
       "value": 0,
       "type": "paragraphSpacing"
@@ -1476,7 +1819,7 @@
         "type": "color"
       },
       "45": {
-        "value": "#757575",
+        "value": "#8f8c8b",
         "type": "color"
       },
       "50": {
@@ -2316,65 +2659,158 @@
     },
     "gradient": {
       "neutral-light-1": {
-        "value": "linear-gradient(180deg, {Gold.0} 0%, {Gold.3} 100%)",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(180deg, #fcfafa 0%, #f5f2f1 100%)",
+        "type": "color"
       },
       "neutral-light-2": {
-        "value": "linear-gradient(180deg, {Gold.3} 0%, {Gold.0} 100%)",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(180deg, #f5f2f1 0%, #fcfafa 100%)",
+        "type": "color"
       },
       "neutral-light-3": {
-        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, {Gold.0} 0%, {Gold.3} 100%)",
-        "type": "color",
-        "failedToResolve": true
+        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #fcfafa 0%, #f5f2f1 100%)",
+        "type": "color"
       },
       "neutral-light-4": {
-        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, {Gold.3} 0%, {Gold.0} 100%)",
-        "type": "color",
-        "failedToResolve": true
+        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #f5f2f1 0%, #fcfafa 100%)",
+        "type": "color"
       },
       "colorful-light-1": {
-        "value": "linear-gradient(145.9deg, {Blue.10} 7.11%, rgba(255, 255, 255, 0) 90.25%), linear-gradient(294.32deg, {Green.7} -14.26%, rgba(255, 255, 255, 0) 62.44%), {Orange.3}",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(145.9deg, #cde6eb 7.11%, #ffffff00 90.25%), linear-gradient(294.32deg, #d7efdf -14.26%, #ffffff00 62.44%), #ffefe5",
+        "type": "color"
       },
       "colorful-light-2": {
-        "value": "linear-gradient(41.04deg, {Blue.7} 1.34%, rgba(255, 255, 255, 0) 42.39%), linear-gradient(201.1deg, {Yellow.3} 5.95%, rgba(255, 255, 255, 0) 73.3%), linear-gradient(119.18deg, {Green.7} -6.66%, rgba(255, 255, 255, 0) 39.22%), {Red.3}",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(41.04deg, #ddebf3 1.34%, #ffffff00 42.39%), linear-gradient(201.1deg, #fff0e0 5.95%, #ffffff00 73.3%), linear-gradient(119.18deg, #d7efdf -6.66%, #ffffff00 39.22%), #ffeceb",
+        "type": "color"
       },
       "colorful-light-3": {
-        "value": "linear-gradient(270.31deg, {Blue.7} -11.36%, rgba(255, 255, 255, 0) 62.73%), linear-gradient(156.44deg, {Green.7} -16.49%, rgba(255, 255, 255, 0) 86.24%), {Yellow.3}",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(270.31deg, #ddebf3 -11.36%, #ffffff00 62.73%), linear-gradient(156.44deg, #d7efdf -16.49%, #ffffff00 86.24%), #fff0e0",
+        "type": "color"
       },
       "colorful-light-4": {
-        "value": "linear-gradient(198.09deg, {Blue.7} 2.01%, rgba(235, 238, 242, 0) 43.18%, rgba(249, 234, 232, 0) 47.86%, {Yellow.3} 94.31%), linear-gradient(98.65deg, {Red.3} 0.58%, rgba(255, 233, 214, 0) 52.45%, rgba(255, 233, 219, 0) 53.76%, {Yellow.3} 105.86%), {Gold.3}",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(198.09deg, #ddebf3 2.01%, #ebeef200 43.18%, #f9eae800 47.86%, #fff0e0 94.31%), linear-gradient(98.65deg, #ffeceb 0.58%, #ffe9d600 52.45%, #ffe9db00 53.76%, #fff0e0 105.86%), #f5f2f1",
+        "type": "color"
       },
       "colorful-dark-1": {
-        "value": "linear-gradient(71.44deg, {Red.95} 0%, rgba(62, 0, 16, 0) 25.96%, rgba(65, 0, 22, 0) 80.55%, {Pink.90} 102.88%), linear-gradient(110.82deg, {Blue.85} 0%, rgba(19, 25, 30, 0) 42.92%, rgba(8, 37, 11, 0) 76.58%, {Green.90} 100%), #13191e",
-        "type": "color",
-        "failedToResolve": true
+        "value": "linear-gradient(71.44deg, #380001 0%, #3e001000 25.96%, #41001600 80.55%, #45001f 102.88%), linear-gradient(110.82deg, #003344 0%, #13191e00 42.92%, #08250b00 76.58%, #012c00 100%), #13191e",
+        "type": "color"
       },
       "colorful-dark-2": {
         "value": "linear-gradient(135deg, #38000180 0%, #3e001000 49%, #41001600 57.51%, #45001f80 100%), linear-gradient(45deg, #00334480 0%, #13191e00 50.67%, #08250b00 54.43%, #012c0080 100%), #13191e",
         "type": "color"
       }
+    },
+    "parsely-green": {
+      "0": {
+        "value": "#f3feed",
+        "type": "color"
+      },
+      "3": {
+        "value": "#e9fbdf",
+        "type": "color"
+      },
+      "7": {
+        "value": "#dbf5cc",
+        "type": "color"
+      },
+      "10": {
+        "value": "#c6ecb0",
+        "type": "color"
+      },
+      "15": {
+        "value": "#afe393",
+        "type": "color"
+      },
+      "20": {
+        "value": "#a0d782",
+        "type": "color"
+      },
+      "25": {
+        "value": "#94cb77",
+        "type": "color"
+      },
+      "30": {
+        "value": "#87be6b",
+        "type": "color"
+      },
+      "35": {
+        "value": "#7cb260",
+        "type": "color"
+      },
+      "40": {
+        "value": "#6fa654",
+        "type": "color"
+      },
+      "45": {
+        "value": "#649a49",
+        "type": "color"
+      },
+      "50": {
+        "value": "#588e3e",
+        "type": "color"
+      },
+      "55": {
+        "value": "#488131",
+        "type": "color"
+      },
+      "60": {
+        "value": "#3b7425",
+        "type": "color"
+      },
+      "65": {
+        "value": "#29681b",
+        "type": "color"
+      },
+      "70": {
+        "value": "#165c0d",
+        "type": "color"
+      },
+      "73": {
+        "value": "#0b5706",
+        "type": "color"
+      },
+      "75": {
+        "value": "#004e00",
+        "type": "color"
+      },
+      "78": {
+        "value": "#004700",
+        "type": "color"
+      },
+      "80": {
+        "value": "#004200",
+        "type": "color"
+      },
+      "83": {
+        "value": "#003b00",
+        "type": "color"
+      },
+      "85": {
+        "value": "#003500",
+        "type": "color"
+      },
+      "88": {
+        "value": "#003000",
+        "type": "color"
+      },
+      "90": {
+        "value": "#002900",
+        "type": "color"
+      },
+      "93": {
+        "value": "#002400",
+        "type": "color"
+      },
+      "95": {
+        "value": "#001b00",
+        "type": "color"
+      },
+      "100": {
+        "value": "#000800",
+        "type": "color"
+      }
     }
   },
-  "default-fonts": {
-    "value": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-    "type": "fontFamilies"
-  },
   "breakpoint": {
-    "description": {
-      "value": "In production, units are in px for now. We will convert this to vw in the future.",
-      "type": "other"
-    },
     "S": {
       "value": 320,
       "type": "sizing",
@@ -2406,24 +2842,20 @@
     }
   },
   "alignment": {
-    "description": {
-      "value": "In production, units are in px for now. We will convert this to vw in the future.",
-      "type": "other"
-    },
     "center": {
-      "value": 416,
+      "value": 744,
       "type": "sizing",
-      "description": "min-width: 416px"
+      "description": "min-width: 744px"
     },
     "wide": {
-      "value": 820,
+      "value": 1008,
       "type": "sizing",
-      "description": "min-width: 820px"
+      "description": "min-width: 1008px"
     },
     "full": {
-      "value": 1583,
+      "value": 1536,
       "type": "sizing",
-      "description": "max-width: 1583px"
+      "description": "max-width: 1536px"
     }
   }
 }

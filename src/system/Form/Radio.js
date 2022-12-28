@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import mainTheme from '../theme';
+import { baseControlBorderStyle, inputBaseText } from './Input.styles';
 
 const prefix = 'vip-radio-component-';
 
@@ -28,8 +29,8 @@ const inputStyle = {
 	'&:focus ~ label:before': theme => ( {
 		...theme.outline,
 		content: '""',
-		border: '2px solid',
-		borderColor: 'border',
+		border: '1px solid',
+		borderColor: baseControlBorderStyle.borderColor,
 		zIndex: 3,
 		left: `${ -1 * radioPosition }px`,
 	} ),
@@ -45,7 +46,7 @@ const labelStyle = {
 	marginLeft: `${ radioPosition }px`,
 	marginBottom: 0,
 	userSelect: 'none',
-	color: 'heading',
+	color: inputBaseText,
 	lineHeight: 1.5,
 	'&:before, &:after': {
 		borderRadius: '50%',
@@ -59,20 +60,20 @@ const labelStyle = {
 	},
 	'&::before': {
 		content: '""',
-		border: '2px solid',
-		borderColor: 'border',
+		border: '1px solid',
+		borderColor: baseControlBorderStyle.borderColor,
 	},
 	'&::after': {
 		content: '""',
-		backgroundColor: 'primary',
+		backgroundColor: 'link',
 		backgroundPosition: 'left 2px top 2px',
 		backgroundSize: '70%',
 		backgroundRepeat: 'no-repeat',
 
 		backgroundImage: `url(
 					'data:image/svg+xml;utf8,<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4999 4.9995L5.7254 12.4008L2.5 9.33023L3.83307 7.92994L5.7254 9.73144L12.1668 3.59921L13.4999 4.9995Z" fill="white"/></svg>')`,
-		border: '2px solid',
-		borderColor: 'border',
+		border: '1px solid',
+		borderColor: baseControlBorderStyle.borderColor,
 		color: 'white',
 		transform: 'scale(0)',
 		opacity: 0,

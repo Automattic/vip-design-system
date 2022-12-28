@@ -6,9 +6,8 @@
 import PropTypes from 'prop-types';
 import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 
-/**
- * Internal dependencies
- */
+const errorColor = 'notice.link.error.default';
+const helperColor = 'texts.helper';
 
 const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
@@ -16,7 +15,7 @@ const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 	return (
 		<p
 			sx={ {
-				color: isValid ? 'success' : 'error',
+				color: isValid ? helperColor : errorColor,
 				display: 'flex',
 				alignItems: 'center',
 				m: 0,

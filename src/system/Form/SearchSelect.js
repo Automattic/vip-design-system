@@ -89,16 +89,19 @@ const SearchSelect = props => (
 		sx={ {
 			'.select__control': {
 				background: 'none',
-				color: 'heading',
+				color: 'input.text',
 				border: '1px solid',
-				borderColor: 'border',
+				borderColor: 'input.border',
 				margin: 0,
 				padding: 0,
 				boxShadow: 'none',
 				fontSize: 2,
 			},
+			'.select__placeholder': {
+				color: 'input.placeholder',
+			},
 			'.select__single-value': {
-				color: 'heading',
+				color: 'input.text',
 				px: 1,
 			},
 			'.select__menu': {
@@ -106,17 +109,17 @@ const SearchSelect = props => (
 				boxShadow: 'medium',
 			},
 			'.react-select__option': {
-				color: 'text',
+				color: 'input.text',
 				paddingTop: 1,
 				paddingBottom: 1,
 				paddingLeft: 2,
-				bg: 'hover',
+				bg: 'input.background',
 				'&:hover': {
-					bg: 'hover',
+					bg: 'input.background',
 				},
 			},
 			'.select__option--is-focused': {
-				bg: 'hover',
+				bg: 'input.background',
 			},
 		} }
 	/>

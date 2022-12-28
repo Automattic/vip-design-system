@@ -79,6 +79,13 @@ const CustomStyling = args => (
 				checked={ args.checked }
 				aria-label="Warning flag"
 				variant="warning"
+			/>{ ' ' }
+			<Toggle
+				id="custom-label-input-info"
+				defaultChecked
+				checked={ args.checked }
+				aria-label="info flag"
+				variant="info"
 			/>
 		</div>
 	</form>

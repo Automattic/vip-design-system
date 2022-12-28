@@ -21,7 +21,8 @@ const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) 
 			},
 			'&:hover, &:focus': {
 				color: 'links.hover',
-				textDecoration: 'none',
+				textDecorationLine: 'underline',
+				textDecorationThickness: '2px',
 			},
 			'&:focus': theme => theme.outline,
 			'&:focus-visible': theme => theme.outline,

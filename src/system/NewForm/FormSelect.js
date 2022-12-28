@@ -12,27 +12,19 @@ import { Label } from '../Form/Label';
  */
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
+import { baseControlStyle } from '../Form/Input.styles';
 
 const MAX_SUGGESTED_OPTIONS = 15;
 const isDev = process.env.NODE_ENV !== 'production';
 
 const defaultStyles = {
-	width: '100%',
+	...baseControlStyle,
 	paddingLeft: 3,
 	paddingRight: 40, // 40px for the icon
 	py: 0,
-	borderColor: 'border',
-	borderRadius: 1,
-	backgroundColor: 'background',
-	color: 'text',
 	appearance: 'none',
 	minHeight: '36px',
-	borderWidth: '1px',
-	borderStyle: 'solid',
 	lineHeight: '36px',
-	'&:focus': theme => theme.outline,
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
 };
 
 const renderOption = ( label, value ) => {

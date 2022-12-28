@@ -1,21 +1,31 @@
+/** @jsxImportSource theme-ui */
+
+/**
+ * External dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+import { baseControlBorderStyle } from '../Form/Input.styles';
+
 export const inlineStyles = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
 	alignItems: 'center',
-	borderColor: 'border',
+	backgroundColor: 'input.background',
 	borderRadius: 1,
-	borderWidth: 1,
-	borderStyle: 'solid',
+	...baseControlBorderStyle,
 	paddingRight: 0,
 	paddingLeft: 3,
 
 	label: {
 		margin: 0,
 		paddingRight: 2,
-		borderRightWidth: '1px',
-		borderRightStyle: 'solid',
-		borderRightColor: 'border',
+		borderRightWidth: baseControlBorderStyle.borderWidth,
+		borderRightStyle: baseControlBorderStyle.borderStyle,
+		borderRightColor: baseControlBorderStyle.borderColor,
 	},
 
 	select: {

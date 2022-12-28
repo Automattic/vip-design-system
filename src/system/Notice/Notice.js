@@ -13,6 +13,9 @@ import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
  */
 import { Box, Flex, Heading, Card } from '../';
 
+const colorSystemVariant = color =>
+	( { warning: 'warning', alert: 'error', success: 'success', info: 'info' }[ color ] );
+
 const NoticeIcon = ( { color, variant } ) => {
 	let Icon = MdWarning;
 
@@ -39,50 +42,38 @@ NoticeIcon.propTypes = {
 const Notice = React.forwardRef(
 	(
 		{
-			variant = 'warning',
-			inline = false,
 			children,
-			title,
-			sx = {},
 			className = null,
 			headingVariant = 'p',
+			inline = false,
+			sx = {},
+			title,
+			variant = 'warning',
 			...props
 		},
 		forwardRef
 	) => {
-		let color = 'yellow';
-
-		switch ( variant ) {
-			case 'info':
-				color = 'blue';
-				break;
-			case 'alert':
-				color = 'red';
-				break;
-			case 'success':
-				color = 'green';
-				break;
-		}
+		const systemVariant = colorSystemVariant( variant );
 
 		return (
 			<Card
 				sx={ {
 					boxShadow: 'none',
 					borderRadius: 2,
-					bg: inline ? 'transparent' : `${ color }.10`,
+					bg: inline ? 'transparent' : `notice.background.${ systemVariant }`,
 					p: inline ? 0 : 3,
-					color: `${ color }.90`,
+					color: `notice.text.${ systemVariant }`,
+
 					a: {
-						color: `${ color }.90`,
+						color: `notice.link.${ systemVariant }.default`,
 						'&:visited': {
-							color: `${ color }.90`,
+							color: `notice.link.${ systemVariant }.visited`,
 						},
 						'&:active': {
-							color: `${ color }.90`,
+							color: `notice.link.${ systemVariant }.active`,
 						},
 						'&:hover, &:focus': {
-							color: `${ color }.90`,
-							textDecoration: 'none',
+							color: `notice.link.${ systemVariant }.hover`,
 						},
 					},
 					...sx,
@@ -101,14 +92,19 @@ const Notice = React.forwardRef(
 							alignItems: 'center',
 						} }
 					>
-						<NoticeIcon color={ `${ color }.200` } variant={ variant } />
+						<NoticeIcon color={ `notice.icon.${ systemVariant }` } variant={ variant } />
 					</Flex>
 
 					<Box sx={ { ml: 3 } }>
 						{ title && (
 							<Heading
 								as={ headingVariant }
-								sx={ { color: `${ color }.100`, mb: 0, fontSize: 2, fontWeight: 'bold' } }
+								sx={ {
+									color: `notice.text.${ systemVariant }`,
+									mb: 0,
+									fontSize: 2,
+									fontWeight: 'bold',
+								} }
 							>
 								{ title }
 							</Heading>
@@ -125,7 +121,6 @@ Notice.displayName = 'Notice';
 
 Notice.propTypes = {
 	children: PropTypes.node,
-	color: PropTypes.string,
 	inline: PropTypes.bool,
 	sx: PropTypes.object,
 	title: PropTypes.node,

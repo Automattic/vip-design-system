@@ -13,8 +13,8 @@ export const FormSelectSearch = React.forwardRef( ( props, forwardRef ) => (
 		size={ 24 }
 		sx={ {
 			position: 'absolute',
-			paddingRight: 2,
-			left: 2,
+			paddingRight: '10px',
+			left: '10px',
 			pointerEvents: 'none',
 		} }
 		{ ...props }

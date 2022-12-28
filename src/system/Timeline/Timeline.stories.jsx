@@ -10,7 +10,7 @@ import { Timeline } from '..';
 import { Link } from '../Link';
 
 export default {
-	title: 'Timeline',
+	title: 'Deprecated/Timeline',
 	component: Timeline,
 };
 

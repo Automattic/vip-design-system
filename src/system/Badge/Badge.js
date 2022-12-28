@@ -19,14 +19,26 @@ const Badge = React.forwardRef(
 			sx={ {
 				fontSize: 0,
 				padding: 0,
-				bg: `${ variant }.20`,
-				color: `${ variant }.100`,
+				bg: `tag.${ variant }.background`,
+				color: `tag.${ variant }.text`,
 				py: 1,
 				verticalAlign: 'middle',
 				px: 2,
 				display: 'inline-block',
 				borderRadius: 1,
 				fontWeight: 'heading',
+				'&:hover, &:focus': {
+					backgroundColor: `tag.${ variant }.hover`,
+				},
+				a: {
+					color: `tag.${ variant }.text`,
+					'&:hover, &:focus, &:active': {
+						textDecoration: 'none',
+					},
+					'&:active': {
+						color: `${ variant }.active`,
+					},
+				},
 				...sx,
 			} }
 			className={ classNames( 'vip-badge-component', className ) }

@@ -41,7 +41,7 @@ const RadioBoxGroup = React.forwardRef(
 						borderColor: 'border',
 						position: 'relative',
 						'&:hover': {
-							borderColor: 'grey.10',
+							borderColor: 'gray.10',
 						},
 						'&[data-state=checked]': {
 							borderColor: 'primary',

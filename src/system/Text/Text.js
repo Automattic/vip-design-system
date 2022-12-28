@@ -14,6 +14,7 @@ const Text = React.forwardRef( ( { sx, className = null, ...props }, forwardRef 
 		sx={ {
 			lineHeight: 1.5,
 			marginBottom: 2,
+			color: 'text',
 			...sx,
 		} }
 		className={ classNames( 'vip-text-component', className ) }

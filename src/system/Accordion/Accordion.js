@@ -32,7 +32,7 @@ export const Item = ( { children, ...props } ) => (
 			overflow: 'hidden',
 			borderWidth: '0 1px 1px 1px',
 			borderStyle: 'solid',
-			borderColor: 'border',
+			borderColor: 'borders.2',
 
 			'&:first-of-type': {
 				borderTopWidth: '1px',
@@ -79,14 +79,14 @@ export const Trigger = React.forwardRef(
 					justifyContent: 'space-between',
 					fontSize: 1,
 					fontWeight: 600,
-					textTransform: 'uppercase',
 
 					'&[data-state="closed"]': {
 						backgroundColor: ( { accordion } ) => accordion.background.closed,
 					},
 					'&[data-state="open"]': {
 						backgroundColor: ( { accordion } ) => accordion.background.open,
-						borderBottom: ( { colors } ) => `1px solid ${ colors.border }`,
+						borderBottom: '1px solid',
+						borderBottomColor: 'borders.2',
 						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
 					},
 					'&:hover': { backgroundColor: ( { accordion } ) => accordion.background.hover },
@@ -100,7 +100,7 @@ export const Trigger = React.forwardRef(
 					className="vip-accordion-trigger-indicator"
 					sx={ {
 						fontSize: 3,
-						color: 'text',
+						color: 'icon.primary',
 						transform: 'rotate(90deg)',
 						transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
 					} }
@@ -121,7 +121,7 @@ Trigger.propTypes = {
 
 export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
 	<Trigger { ...props } ref={ forwardedRef }>
-		<span sx={ { color: 'text', fontSize: 3 } }>{ icon }</span>
+		<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
 		<div sx={ { color: 'heading', flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
 	</Trigger>
 ) );

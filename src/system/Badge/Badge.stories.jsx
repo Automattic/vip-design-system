@@ -8,4 +8,36 @@ export default {
 	component: Badge,
 };
 
-export const Default = () => <Badge>Badge</Badge>;
+const Template = props => <Badge { ...props } sx={ { m: 2 } } />;
+const TemplateLink = props => (
+	<Template { ...props } sx={ { m: 2 } }>
+		<a href="http://google.com">Google.com</a>
+	</Template>
+);
+
+export const Default = () => (
+	<>
+		<Template>Badge</Template>
+		<Template variant="red">Badge</Template>
+		<Template variant="yellow">Badge</Template>
+		<Template variant="green">Badge</Template>
+		<Template variant="gray">Badge</Template>
+		<Template variant="orange">Badge</Template>
+		<Template variant="gold">Badge</Template>
+		<Template variant="pink">Badge</Template>
+		<Template variant="salmon">Badge</Template>
+	</>
+);
+export const WithLinks = () => (
+	<>
+		<TemplateLink />
+		<TemplateLink variant="red" />
+		<TemplateLink variant="yellow" />
+		<TemplateLink variant="green" />
+		<TemplateLink variant="gray" />
+		<TemplateLink variant="orange" />
+		<TemplateLink variant="gold" />
+		<TemplateLink variant="pink" />
+		<TemplateLink variant="salmon" />
+	</>
+);

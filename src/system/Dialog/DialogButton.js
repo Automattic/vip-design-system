@@ -26,7 +26,7 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 	>
 		{ children }
 		{ label && (
-			<Text as="span" sx={ { mb: 0, color: 'muted', mr: 2, flex: '0 0 auto' } }>
+			<Text as="span" sx={ { mb: 0, color: 'heading', mr: 2, flex: '0 0 auto' } }>
 				{ label }:
 			</Text>
 		) }
@@ -38,7 +38,7 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 					flex: '1 1 auto',
 					whiteSpace: 'nowrap',
 					overflow: 'hidden',
-					color: 'heading',
+					color: 'input.text',
 					textOverflow: 'ellipsis',
 				} }
 			>

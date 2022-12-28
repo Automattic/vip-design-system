@@ -6,23 +6,24 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import PropTypes from 'prop-types';
 import { MdDone } from 'react-icons/md';
+import { baseControlBorderStyle, baseControlFocusStyle, inputBaseBackground } from './Input.styles';
 
 const StyledCheckbox = props => (
 	<CheckboxPrimitive.Root
 		sx={ {
 			all: 'unset',
-			backgroundColor: 'grey.10',
+			backgroundColor: inputBaseBackground,
+			...baseControlBorderStyle,
+			...baseControlFocusStyle,
 			width: 16,
 			height: 16,
 			borderRadius: 1,
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			'&:hover': { backgroundColor: 'grey.20' },
-			'&:focus': { boxShadow: '0 0 0 2px black' },
 			'&[data-state=checked]': {
-				backgroundColor: 'primary',
-				color: 'brand.0',
+				backgroundColor: 'link',
+				color: 'link',
 			},
 			svg: {
 				display: 'block',
@@ -35,7 +36,7 @@ const StyledCheckbox = props => (
 const StyledIndicator = props => (
 	<CheckboxPrimitive.Indicator
 		sx={ {
-			color: 'brand.0',
+			color: 'white',
 		} }
 		{ ...props }
 	/>
@@ -45,7 +46,6 @@ const Checkbox = ( { disabled, ...props } ) => (
 	<StyledCheckbox
 		sx={ {
 			opacity: disabled ? 0.4 : 1,
-			border: 'none',
 		} }
 		disabled={ disabled }
 		{ ...props }
