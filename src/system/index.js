@@ -51,11 +51,10 @@ import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
 import { Table, TableRow, TableCell } from './Table';
-import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import theme from './theme';
 import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
-import { NewTabs, TabsList, TabsContent, TabsTrigger } from './NewTabs';
+import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 
 export {
 	Accordion,
@@ -100,14 +99,12 @@ export {
 	Progress,
 	Text,
 	Tabs,
-	Toggle,
-	ToggleRow,
-	ToggleGroup,
-	TabItem,
-	NewTabs,
 	TabsTrigger,
 	TabsContent,
 	TabsList,
+	Toggle,
+	ToggleRow,
+	ToggleGroup,
 	Time,
 	Timeline,
 	Validation,

@@ -3,37 +3,51 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
+import React from 'react';
 
 /**
  * Internal dependencies
  */
-import { Flex } from '..';
 
-const Tabs = React.forwardRef( ( { className = null, sx, ...props }, forwardRef ) => (
-	<Flex
-		className={ classNames( 'vip-tabs-component', className ) }
-		sx={ {
-			borderBottom: '1px solid',
-			borderColor: 'border',
-			listStyleType: 'none',
-			margin: 0,
-			padding: 0,
-			...sx,
-		} }
-		ref={ forwardRef }
-		{ ...props }
-	/>
-) );
-
-Tabs.displayName = 'Tabs';
+const Tabs = React.forwardRef(
+	(
+		{
+			children,
+			onValueChange = undefined,
+			defaultValue = undefined,
+			value = undefined,
+			className = null,
+			sx = {},
+		},
+		ref
+	) => {
+		return (
+			<TabsPrimitive.Root
+				ref={ ref }
+				value={ value }
+				defaultValue={ defaultValue }
+				onValueChange={ onValueChange }
+				className={ classNames( 'vip-tabs-component', className ) }
+				sx={ { ...sx } }
+			>
+				{ children }
+			</TabsPrimitive.Root>
+		);
+	}
+);
 
 Tabs.propTypes = {
 	className: PropTypes.any,
 	sx: PropTypes.object,
-	variant: PropTypes.string,
+	defaultValue: PropTypes.node,
+	value: PropTypes.node,
+	onValueChange: PropTypes.func,
+	children: PropTypes.node.isRequired,
 };
+
+Tabs.displayName = 'Tabs';
 
 export { Tabs };
