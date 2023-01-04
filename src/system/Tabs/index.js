@@ -2,6 +2,8 @@
  * Internal dependencies
  */
 import { Tabs } from './Tabs';
-import { TabItem } from './TabItem';
+import { TabsTrigger } from './TabsTrigger';
+import { TabsList } from './TabsList';
+import { TabsContent } from './TabsContent';
 
-export { Tabs, TabItem };
+export { Tabs, TabsList, TabsTrigger, TabsContent };
