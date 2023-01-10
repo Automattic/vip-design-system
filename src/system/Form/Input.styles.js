@@ -4,7 +4,7 @@ export const baseControlBorderStyle = {
 	borderColor: 'input.border.default',
 };
 
-export const inputBaseText = 'input.text';
+export const inputBaseText = 'input.text.default';
 export const inputBaseBackground = 'input.background';
 export const baseControlFocusStyle = {
 	'&:focus': theme => theme.outline,
@@ -26,7 +26,7 @@ export const baseControlStyle = {
 	},
 
 	'&::placeholder': {
-		color: 'input.placeholder',
+		color: 'input.text.placeholder',
 		opacity: 1,
 	},
 };
