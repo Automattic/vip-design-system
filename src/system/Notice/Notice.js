@@ -14,7 +14,9 @@ import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 import { Box, Flex, Heading, Card } from '../';
 
 const colorSystemVariant = color =>
-	( { warning: 'warning', alert: 'error', success: 'success', info: 'info' }[ color ] );
+	( { warning: 'warning', error: 'error', alert: 'error', success: 'success', info: 'info' }[
+		color
+	] );
 
 const NoticeIcon = ( { color, variant } ) => {
 	let Icon = MdWarning;
