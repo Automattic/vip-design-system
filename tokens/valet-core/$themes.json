@@ -4,19 +4,9 @@
     "name": "parsely-figma",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-expressive-color": "disabled",
-      "wpvip-expressive-core": "disabled",
-      "wpvip-expressive-color": "disabled",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
-      "figma-valet-expressive-type": "disabled",
-      "figma-wpvip-expressive-type": "disabled",
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
-      "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "enabled",
-      "valet-expressive-core": "disabled",
-      "wpvip-expressive-color-dark": "disabled"
+      "figma-parsely-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:012ec39ef41de056297a03a4e4172cfd60fcb278,",
@@ -161,7 +151,6 @@
       "text.helper": "S:34141d14303e5e74818803dca920070dbfb840ec,",
       "text.placeholder": "S:ba4d39b0de51d499c3f079539dfe1f5fca697722,",
       "text.disabled": "S:ab2e27bd4b95d9525fa22544ff9e56aabba9543f,",
-      "text.inverse": "S:846f5db726422b124095233b711c4d6ba2920eb4,",
       "link.default": "S:d2047ddea88d6e12a0eddf9d2125735f9e515655,",
       "link.hover": "S:76d4469f9a91d0c34ed469f013a80f5425523cc2,",
       "link.active": "S:69ea195c70753129fcf9607195f02402394d7eb9,",
@@ -277,7 +266,8 @@
       "button.secondary.background.default": "S:de79bf79bde1b959a215706e54704d2c4bee9314,",
       "button.secondary.background.hover": "S:cdbf6a6e5cdf5bbe04329daed094d8d22fc2a608,",
       "button.tertiary.background.default": "S:a867b0a2ad5bbf2360bff5dcfd6ac23a855f9d8c,",
-      "button.tertiary.background.hover": "S:65ed44bcb23050a9acd71fece00be43db57a1aaa,"
+      "button.tertiary.background.hover": "S:65ed44bcb23050a9acd71fece00be43db57a1aaa,",
+      "text.inverse": "S:846f5db726422b124095233b711c4d6ba2920eb4,"
     }
   },
   {
@@ -285,19 +275,9 @@
     "name": "wpvip-figma",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-expressive-color": "disabled",
       "wpvip-expressive-core": "enabled",
       "wpvip-expressive-color": "enabled",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
-      "figma-valet-expressive-type": "disabled",
-      "figma-wpvip-expressive-type": "enabled",
-      "parsely-expressive-core": "disabled",
-      "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled",
-      "wpvip-expressive-color-dark": "disabled"
+      "figma-wpvip-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:46afc7b71e3ccd83f9b20e7ec755b594b3225316,",
@@ -342,7 +322,6 @@
       "text.helper": "S:f75f4379e6918a95ae4543791d8cdb46496f8d1f,",
       "text.placeholder": "S:6d842ab18ade2116bfd63cbc5b54362f446c93b6,",
       "text.disabled": "S:e3aff7a1a8f80df5afa31d4e44365a1de220094d,",
-      "text.inverse": "S:36876e1fea73b900878e25d38af6ca7877fc0f84,",
       "link.default": "S:b72aac92094cee2f79ebabdb6b1fe3bb9ad6fa00,",
       "link.hover": "S:f42e2e66d263b5dad41d9bc46c40a07db184d1aa,",
       "link.active": "S:72ff5af78d72bffd803b751a93f11d59eff4b356,",
@@ -571,7 +550,8 @@
       "button.secondary.background.default": "S:110a105581f2f813770c7cd2d1499aa478ba4c7e,",
       "button.secondary.background.hover": "S:19cbdf65efc126f14bf0f2f2560a2a2ee4f22ee5,",
       "button.tertiary.background.default": "S:f4d1a5e4edf333aa820507c175b29ded7616cda6,",
-      "button.tertiary.background.hover": "S:156fb8831e27b6f0711578a68afa632ab65a5eae,"
+      "button.tertiary.background.hover": "S:156fb8831e27b6f0711578a68afa632ab65a5eae,",
+      "text.inverse": "S:36876e1fea73b900878e25d38af6ca7877fc0f84,"
     }
   },
   {
@@ -580,18 +560,8 @@
     "selectedTokenSets": {
       "valet-core": "source",
       "valet-expressive-color": "enabled",
-      "wpvip-expressive-core": "disabled",
-      "wpvip-expressive-color": "disabled",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
       "figma-valet-expressive-type": "enabled",
-      "figma-wpvip-expressive-type": "disabled",
-      "parsely-expressive-core": "disabled",
-      "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "enabled",
-      "wpvip-expressive-color-dark": "disabled"
+      "valet-expressive-core": "enabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:5d05042dd16a8fb9b8e9d352deec08498effa21b,",
@@ -745,7 +715,6 @@
       "text.helper": "S:fddcff62332dd0af0367f5f103d474be9c579b77,",
       "text.placeholder": "S:9bfcc49a268b3d8257f3651ff3eef6bbd373e1c8,",
       "text.disabled": "S:f0f566dbc34725b52d33ca60e28d2363d916432f,",
-      "text.inverse": "S:95a16ff85da4820f72c8bf27deb0b4e11c165c16,",
       "link.default": "S:821397321e87e9b05cf395cd2e1854d733e840f1,",
       "link.hover": "S:af83242716b1a4b7ed7b665fb9e41127aed0b041,",
       "link.active": "S:c0401e5fad92fe98e95028b9088735f86465c486,",
@@ -853,7 +822,8 @@
       "button.secondary.background.default": "S:aa6d8cccca6fd3278419c4dd41d0be62da27fa81,",
       "button.secondary.background.hover": "S:3d4e35f4443fcfaaabb8962f37ca4b9bad332db1,",
       "button.tertiary.background.default": "S:d0b4853ffec905c39424ae793d696880be2a78cd,",
-      "button.tertiary.background.hover": "S:8df00abb823b0dbb3979ba4f5caef416883e4dfe,"
+      "button.tertiary.background.hover": "S:8df00abb823b0dbb3979ba4f5caef416883e4dfe,",
+      "text.inverse": "S:95a16ff85da4820f72c8bf27deb0b4e11c165c16,"
     }
   },
   {
@@ -863,17 +833,7 @@
       "valet-core": "source",
       "wpvip-expressive-type": "enabled",
       "wpvip-expressive-color": "enabled",
-      "figma-wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
-      "valet-expressive-color": "disabled",
-      "figma-valet-expressive-type": "disabled",
-      "wpvip-expressive-core": "enabled",
-      "parsely-expressive-core": "disabled",
-      "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled",
-      "wpvip-expressive-color-dark": "disabled"
+      "wpvip-expressive-core": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -882,19 +842,7 @@
     "name": "valet",
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-expressive-color": "disabled",
-      "figma-wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
-      "valet-expressive-color": "enabled",
-      "figma-valet-expressive-type": "disabled",
-      "wpvip-expressive-core": "disabled",
-      "parsely-expressive-core": "disabled",
-      "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled",
-      "wpvip-expressive-color-dark": "disabled"
+      "valet-expressive-color": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -903,19 +851,9 @@
     "name": "parsely",
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-expressive-color": "disabled",
-      "figma-wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "disabled",
-      "valet-expressive-color": "disabled",
-      "figma-valet-expressive-type": "disabled",
-      "wpvip-expressive-core": "disabled",
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
-      "parsely-expressive-type": "enabled",
-      "figma-parsely-expressive-type": "disabled",
-      "valet-expressive-core": "disabled",
-      "wpvip-expressive-color-dark": "disabled"
+      "parsely-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -924,19 +862,7 @@
     "name": "wpvip-productive-color",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-expressive-core": "disabled",
-      "valet-expressive-color": "disabled",
-      "wpvip-expressive-core": "disabled",
-      "wpvip-expressive-color-dark": "disabled",
-      "wpvip-expressive-color": "disabled",
-      "wpvip-expressive-type": "disabled",
-      "wpvip-productive-color": "enabled",
-      "parsely-expressive-core": "disabled",
-      "parsely-expressive-color": "disabled",
-      "parsely-expressive-type": "disabled",
-      "figma-valet-expressive-type": "disabled",
-      "figma-wpvip-expressive-type": "disabled",
-      "figma-parsely-expressive-type": "disabled"
+      "wpvip-productive-color": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:45862ce00f315d42b819b0106bed72b5526744bb,",
@@ -959,7 +885,6 @@
       "text.helper": "S:2c264a88b6e0487e0364020608062b8434451aba,",
       "text.placeholder": "S:235e44d0ee1ab7b979d84fdf1a63b386dc1e5b2e,",
       "text.disabled": "S:2129e3294ac5d5ec93c7465ebf75ae096009e0dc,",
-      "text.inverse": "S:f57657ad1060e14e3d8fac47c9195ae53bb9dee8,",
       "link.default": "S:c96d066b12aa20170428f5cb51a67bf08657ee33,",
       "link.hover": "S:ac2128cb58a1ccc38f21f07927b5cf56b416acb7,",
       "link.active": "S:c37cf184324ed0ba4422d8045fa4b76bfd965dee,",
@@ -1050,7 +975,8 @@
       "tag.pink.icon": "S:f9cd778abfd5c634f9f180eb4115aed894792aa5,",
       "tag.pink.hover": "S:f0c7b2bb29535d6ee379b44d7273603021f55a99,",
       "tag.pink.active": "S:e42978c26b8f8249f7e808ea4b309bd550478ace,",
-      "button.primary.label": "S:29b23a9ebf8833c2ed5e5b22e1fd0a7ad658819b,"
+      "button.primary.label": "S:29b23a9ebf8833c2ed5e5b22e1fd0a7ad658819b,",
+      "text.inverse": "S:f57657ad1060e14e3d8fac47c9195ae53bb9dee8,"
     }
   }
 ]

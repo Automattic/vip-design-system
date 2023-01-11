@@ -89,7 +89,7 @@ const SearchSelect = props => (
 		sx={ {
 			'.select__control': {
 				background: 'none',
-				color: 'input.text',
+				color: 'input.text.default',
 				border: '1px solid',
 				borderColor: 'input.border',
 				margin: 0,
@@ -98,10 +98,10 @@ const SearchSelect = props => (
 				fontSize: 2,
 			},
 			'.select__placeholder': {
-				color: 'input.placeholder',
+				color: 'input.text.placeholder',
 			},
 			'.select__single-value': {
-				color: 'input.text',
+				color: 'input.text.default',
 				px: 1,
 			},
 			'.select__menu': {
@@ -109,7 +109,7 @@ const SearchSelect = props => (
 				boxShadow: 'medium',
 			},
 			'.react-select__option': {
-				color: 'input.text',
+				color: 'input.text.default',
 				paddingTop: 1,
 				paddingBottom: 1,
 				paddingLeft: 2,

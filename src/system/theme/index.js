@@ -122,8 +122,6 @@ export default {
 		// Form Controls
 		input: {
 			...ValetTheme.input,
-			text: getColor( 'text', 'secondary' ),
-			placeholder: getColor( 'text', 'secondary' ),
 		},
 
 		optionRow: {
@@ -160,7 +158,7 @@ export default {
 		},
 		hover: 'rgba(0,0,0,.02)',
 		darken: 'rgba(0,0,0,.05)',
-		placeholder: getColor( 'text', 'placeholder' ),
+		placeholder: getVariants( 'input.text' ).placeholder,
 		midnight: '#13191E',
 		dialog: light.gray[ '0' ],
 		backgroundMuted: getColor( 'layer', '1' ),

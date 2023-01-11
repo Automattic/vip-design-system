@@ -38,7 +38,7 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 					flex: '1 1 auto',
 					whiteSpace: 'nowrap',
 					overflow: 'hidden',
-					color: 'input.text',
+					color: 'input.text.default',
 					textOverflow: 'ellipsis',
 				} }
 			>

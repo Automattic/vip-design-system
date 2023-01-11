@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  */
 import { RequiredLabel } from './RequiredLabel';
 
-export const baseLabelColor = 'heading';
+export const baseLabelColor = 'input.label.default';
 export const baseLabelStyle = {
 	fontWeight: 500,
 	fontSize: 2,

@@ -71,10 +71,10 @@ const InlineSelect = ( {
 				sx={ {
 					'.select__control': {
 						background: 'none',
-						color: 'input.text',
+						color: 'input.text.default',
 					},
 					'.select__single-value': {
-						color: 'input.text',
+						color: 'input.text.default',
 						px: 1,
 					},
 					'.react-select__option': {
@@ -90,7 +90,7 @@ const InlineSelect = ( {
 						borderColor: 'input.border',
 					},
 					'.select__placeholder': {
-						color: 'input.placeholder',
+						color: 'input.text.placeholder',
 					},
 				} }
 				{ ...props }

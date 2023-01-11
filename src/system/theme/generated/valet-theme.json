@@ -38,6 +38,23 @@
       "value": "#ffffff",
       "type": "color"
     },
+    "label": {
+      "default": {
+        "value": "#13191e",
+        "type": "color"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "#13191e",
+        "type": "color"
+      },
+      "placeholder": {
+        "type": "color",
+        "value": "#767372",
+        "description": "Use for placeholder text in fields"
+      }
+    },
     "border": {
       "default": {
         "value": "#8f8c8b",
@@ -179,18 +196,19 @@
       "description": "Use for helper text",
       "value": "#6a6766"
     },
-    "placeholder": {
-      "type": "color",
-      "value": "#767372",
-      "description": "Use for placeholder text in fields"
-    },
     "disabled": {
       "type": "color",
       "value": "#9b9796"
     },
     "inverse": {
       "type": "color",
-      "value": "#fbfbfb"
+      "value": "#fbfbfb",
+      "description": "Use for primary text on an inverse layer"
+    },
+    "inverse-secondary": {
+      "value": "#b3afae",
+      "type": "color",
+      "description": "Use for secondary text on an inverse layer."
     },
     "accent": {
       "type": "color",
@@ -625,8 +643,8 @@
       "info": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "#007586"
+          "value": "#006979",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",

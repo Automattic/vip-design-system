@@ -38,6 +38,23 @@
       "value": "{color.pure-white}",
       "type": "color"
     },
+    "label": {
+      "default": {
+        "value": "{color.black}",
+        "type": "color"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{color.black}",
+        "type": "color"
+      },
+      "placeholder": {
+        "type": "color",
+        "value": "{color.gray.55}",
+        "description": "Use for placeholder text in fields"
+      }
+    },
     "border": {
       "default": {
         "value": "{color.gray.45}",
@@ -179,18 +196,19 @@
       "description": "Use for helper text",
       "value": "{color.gray.60}"
     },
-    "placeholder": {
-      "type": "color",
-      "value": "{color.gray.55}",
-      "description": "Use for placeholder text in fields"
-    },
     "disabled": {
       "type": "color",
       "value": "{color.gray.40}"
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.0}"
+      "value": "{color.gray.0}",
+      "description": "Use for primary text on an inverse layer"
+    },
+    "inverse-secondary": {
+      "value": "{color.gray.30}",
+      "type": "color",
+      "description": "Use for secondary text on an inverse layer."
     },
     "accent": {
       "type": "color",
@@ -625,8 +643,8 @@
       "info": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "{color.blue.60}"
+          "value": "{color.blue.65}",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",
