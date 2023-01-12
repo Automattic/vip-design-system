@@ -4,6 +4,11 @@
       "type": "color",
       "description": "Use as main application background",
       "value": "{color.gray.0}"
+    },
+    "overlay": {
+      "type": "color",
+      "value": "rgba(0,0,0,0.7)",
+      "description": "Use as modal UI overlay"
     }
   },
   "layer": {
