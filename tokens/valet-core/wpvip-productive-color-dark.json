@@ -908,5 +908,47 @@
         "value": "{color.pink.20}"
       }
     }
+  },
+  "toolbar": {
+    "background": {
+      "value": "{color.gray.100}",
+      "type": "color",
+      "description": "The background color for the top toolbar"
+    },
+    "text": {
+      "default": {
+        "value": "{color.gray.7}",
+        "type": "color",
+        "description": "Default text color for the top toolbar's contents"
+      },
+      "hover": {
+        "value": "{color.gray.7}",
+        "type": "color"
+      }
+    },
+    "brand": {
+      "value": "{color.pure-white}",
+      "type": "color",
+      "description": "Use for the logo"
+    }
+  },
+  "logs": {
+    "text": {
+      "primary": {
+        "value": "{color.gray.10}",
+        "type": "color",
+        "description": "Use for monotype output in an invere layer."
+      },
+      "secondary": {
+        "value": "{color.gray.30}",
+        "type": "color",
+        "description": "Use for timestamp or secondary monotype output in an inverse layer."
+      }
+    },
+    "background": {
+      "value": "{color.gray.90}",
+      "type": "color",
+      "description": "Use for the pseudo terminal window background color."
+    }
   }
 }
