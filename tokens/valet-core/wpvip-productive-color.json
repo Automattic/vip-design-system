@@ -31,7 +31,7 @@
     "inverse": {
       "value": "{color.black}",
       "type": "color",
-      "description": "Use as component background in high-contrast situations. "
+      "description": "Use as component background in situations where high contrast is required (eg. notification) but ensure the element's background color can be flipped once dark mode is engaged. "
     },
     "accent": {
       "type": "color",
@@ -208,7 +208,7 @@
     "inverse": {
       "type": "color",
       "value": "{color.gray.0}",
-      "description": "Use for primary text on an inverse layer"
+      "description": "Use for primary text on an inverse layer, which will flip its color when dark mode is engaged."
     },
     "inverse-secondary": {
       "value": "{color.gray.30}",
@@ -901,6 +901,48 @@
         "type": "color",
         "value": "{color.pink.20}"
       }
+    }
+  },
+  "toolbar": {
+    "background": {
+      "value": "{color.black}",
+      "type": "color",
+      "description": "The background color for the top toolbar"
+    },
+    "text": {
+      "default": {
+        "value": "{color.gray.0}",
+        "type": "color",
+        "description": "Default text color for the top toolbar's contents"
+      },
+      "hover": {
+        "value": "{color.gray.7}",
+        "type": "color"
+      }
+    },
+    "brand": {
+      "value": "{color.pure-white}",
+      "type": "color",
+      "description": "Use for the logo"
+    }
+  },
+  "logs": {
+    "text": {
+      "primary": {
+        "value": "{color.gray.0}",
+        "type": "color",
+        "description": "Use for monotype output in an invere layer."
+      },
+      "secondary": {
+        "value": "{color.gray.30}",
+        "type": "color",
+        "description": "Use for timestamp or secondary monotype output in an inverse layer."
+      }
+    },
+    "background": {
+      "value": "{color.black}",
+      "type": "color",
+      "description": "Use for the pseudo terminal window background color."
     }
   }
 }
