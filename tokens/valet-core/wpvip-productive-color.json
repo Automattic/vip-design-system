@@ -695,14 +695,6 @@
       "type": "color"
     }
   },
-  "overlay": {
-    "type": "color",
-    "value": "{color.gray.55}"
-  },
-  "interactive": {
-    "type": "color",
-    "value": "{color.gold.55}"
-  },
   "tag": {
     "gray": {
       "background": {
