@@ -701,14 +701,6 @@
       "type": "color"
     }
   },
-  "overlay": {
-    "type": "color",
-    "value": "rgba(0,0,0,0.7)"
-  },
-  "interactive": {
-    "type": "color",
-    "value": "{color.gold.50}"
-  },
   "tag": {
     "gray": {
       "background": {
