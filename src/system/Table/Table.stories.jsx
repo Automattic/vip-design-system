@@ -30,7 +30,7 @@ export const Default = () => (
 				gbc
 			/>
 			<TableRow>
-				<TableCell sx={ { backgroundColor: 'lightgray' } }>
+				<TableCell>
 					<Flex sx={ { alignItems: 'center' } } key="user">
 						simon
 					</Flex>
