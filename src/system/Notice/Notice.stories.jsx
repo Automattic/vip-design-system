@@ -21,10 +21,8 @@ export const Default = () => (
 			sx={ { mb: 4 } }
 			title="Your site is ready to launch!"
 		>
-			<Text sx={ { mb: 0 } }>
-				It looks like you&lsquo;re ready to share your{ ' ' }
-				<Link href="https://google.com/">application with the world.</Link>
-			</Text>
+			It looks like you&lsquo;re ready to share your{ ' ' }
+			<Link href="https://google.com/">application with the world.</Link>
 		</Notice>
 
 		<Notice variant="success" sx={ { mb: 4 } }>
@@ -43,10 +41,8 @@ export const Default = () => (
 		</Notice>
 
 		<Notice variant="info" sx={ { mb: 4 } } title="Please read this first">
-			<Text sx={ { mb: 0 } }>
-				This notice has a title and children and{ ' ' }
-				<a href="/?path=/story/avatar--default">A link to Avatar</a>
-			</Text>
+			This notice has a title and children and{ ' ' }
+			<a href="/?path=/story/avatar--default">A link to Avatar</a>
 		</Notice>
 
 		<Notice

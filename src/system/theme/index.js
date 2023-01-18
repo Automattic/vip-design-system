@@ -1,55 +1,25 @@
 /**
  * Internal dependencies
  */
-import { getColor, getVariants, ValetTheme } from './getColor';
-import { light, dark } from './colors';
+import ThemeBuilder from './getColor';
 
-const textStyles = {
-	h1: {
-		fontSize: 5,
-		marginBottom: 3,
-		letterSpacing: '-.02em',
-		fontWeight: 'body',
-		fontFamily: 'serif',
-		color: 'heading',
-	},
-	h2: {
-		fontSize: 4,
-		marginBottom: 2,
-		letterSpacing: '-.005em',
-		fontWeight: 400,
-		color: 'heading',
-	},
-	h3: {
-		fontSize: 3,
-		marginBottom: 3,
-		letterSpacing: '-.005em',
-		lineHeight: 1.4,
-		fontWeight: 'heading',
-		color: 'heading',
-	},
-	h4: {
-		fontSize: 2,
-		marginBottom: 1,
-		lineHeight: 1.5,
-		fontWeight: 'heading',
-		color: 'heading',
-	},
-	h5: {
-		fontSize: 1,
-		marginBottom: 1,
-		lineHeight: 1.5,
-		fontWeight: 'heading',
-		color: 'heading',
-	},
-	caps: {
-		fontSize: 1,
-		marginBottom: 2,
-		color: 'muted',
-		fontWeight: 'bold',
-		letterSpacing: '.05em',
-	},
-};
+import Valet from './generated/valet-theme-light.json';
+import ValetDark from './generated/valet-theme-dark.json';
+import ColorBuilder from './colors';
+import { textStyles } from './textStyles';
+
+// Light
+const { getColor, getVariants, ValetTheme } = ThemeBuilder( Valet );
+const light = ColorBuilder( ValetTheme );
+
+// Dark
+const {
+	getColor: getColorDark,
+	getVariants: getVariantsDark,
+	ValetTheme: ValetThemeDark,
+} = ThemeBuilder( ValetDark );
+
+const dark = ColorBuilder( ValetThemeDark );
 
 const outline = {
 	outlineStyle: 'solid',
@@ -64,6 +34,110 @@ const fonts = {
 	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 	serif: 'recoletaregular, Georgia, serif',
 };
+
+const getComponentColors = ( theme, gColor, gVariants ) => ( {
+	// Valet Theme Colors
+
+	// This has to be in the plural because we already have a flag: text
+	texts: {
+		...theme.text,
+		disabled: '#716e6e',
+	},
+
+	button: {
+		...theme.button,
+	},
+
+	tag: {
+		...theme.tag,
+	},
+
+	// Notice
+	notice: {
+		...theme.support,
+	},
+
+	// layer
+	layer: {
+		...theme.layer,
+	},
+
+	// icon
+	icon: {
+		...theme.icon,
+	},
+
+	// Form Controls
+	input: {
+		...theme.input,
+	},
+
+	// Accordion
+	accordion: {
+		background: {
+			open: gColor( 'layer', '2' ),
+			closed: 'transparent',
+			hover: gColor( 'layer', '3' ),
+		},
+	},
+
+	optionRow: {
+		hover: 'rgba(0,0,0,.02)',
+		border: gColor( 'border', '1' ),
+		text: gColor( 'text', 'secondary' ),
+		textAccent: gColor( 'link', 'default' ),
+		icon: gColor( 'icon', 'primary' ),
+		iconBackground: gColor( 'layer', 'accent' ),
+	},
+
+	table: {
+		border: gColor( 'border', '2' ),
+		heading: gColor( 'text', 'primary' ),
+		text: gColor( 'text', 'secondary' ),
+	},
+
+	// Common Tokens
+	text: gColor( 'text', 'secondary' ),
+	heading: gColor( 'text', 'primary' ),
+	background: gColor( 'layer', '2' ),
+	backgroundSecondary: gColor( 'layer', '1' ),
+	primary: gColor( 'link', 'default' ),
+	secondary: light.gray[ '70' ],
+	muted: gColor( 'text', 'helper' ),
+	border: gColor( 'border', '1' ),
+	borders: {
+		1: gColor( 'border', '1' ),
+		2: gColor( 'border', '2' ),
+		3: gColor( 'border', '3' ),
+		4: gColor( 'border', '4' ),
+		inverse: gColor( 'border', 'inverse' ),
+		accent: gColor( 'border', 'accent' ),
+	},
+	hover: 'rgba(0,0,0,.02)',
+	darken: 'rgba(0,0,0,.05)',
+	placeholder: gVariants( 'input.text' ).placeholder,
+	midnight: '#13191E',
+	dialog: light.gray[ '0' ],
+	backgroundMuted: gColor( 'layer', '1' ),
+
+	// Variant colors
+	success: theme.support.link.success.default,
+	error: theme.support.link.error.default,
+	warning: theme.support.link.warning.default,
+	info: theme.support.link.info.default,
+
+	// Card
+	card: '#fff',
+
+	// Link
+	link: gColor( 'link', 'default' ),
+	links: {
+		default: gColor( 'link', 'default' ),
+		hover: gColor( 'link', 'hover' ),
+		active: gColor( 'link', 'active' ),
+		visited: gColor( 'link', 'visited' ),
+	},
+} );
 
 export default {
 	outline,
@@ -88,122 +162,29 @@ export default {
 	},
 	initialColorModeName: 'light',
 	colors: {
-		// Valet Theme Colors
-
-		// This has to be in the plural because we already have a flag: text
-		texts: {
-			...ValetTheme.text,
-			disabled: '#716e6e',
-		},
-
-		button: {
-			...ValetTheme.button,
-		},
-
-		tag: {
-			...ValetTheme.tag,
-		},
-
-		// Notice
-		notice: {
-			...ValetTheme.support,
-		},
-
-		// layer
-		layer: {
-			...ValetTheme.layer,
-		},
-
-		// icon
-		icon: {
-			...ValetTheme.icon,
-		},
-
-		// Form Controls
-		input: {
-			...ValetTheme.input,
-		},
-
-		optionRow: {
-			hover: 'rgba(0,0,0,.02)',
-			border: getColor( 'border', '2' ),
-			text: getColor( 'text', 'secondary' ),
-			textAccent: getColor( 'link', 'default' ),
-			icon: getColor( 'icon', 'primary' ),
-			iconBackground: getColor( 'layer', 'accent' ),
-		},
-
-		table: {
-			border: getColor( 'border', '2' ),
-			heading: getColor( 'text', 'primary' ),
-			text: getColor( 'text', 'secondary' ),
-		},
-
-		// Common Tokens
-		text: getColor( 'text', 'secondary' ),
-		heading: getColor( 'text', 'primary' ),
-		background: getColor( 'layer', '2' ),
-		backgroundSecondary: getColor( 'layer', '1' ),
-		primary: getColor( 'link', 'default' ),
-		secondary: light.gray[ '70' ],
-		muted: getColor( 'text', 'helper' ),
-		border: getColor( 'border', '1' ),
-		borders: {
-			1: getColor( 'border', '1' ),
-			2: getColor( 'border', '2' ),
-			3: getColor( 'border', '3' ),
-			4: getColor( 'border', '4' ),
-			inverse: getColor( 'border', 'inverse' ),
-			accent: getColor( 'border', 'accent' ),
-		},
-		hover: 'rgba(0,0,0,.02)',
-		darken: 'rgba(0,0,0,.05)',
-		placeholder: getVariants( 'input.text' ).placeholder,
-		midnight: '#13191E',
-		dialog: light.gray[ '0' ],
-		backgroundMuted: getColor( 'layer', '1' ),
-
-		// Variant colors
-		success: ValetTheme.support.link.success.default,
-		error: ValetTheme.support.link.error.default,
-		warning: ValetTheme.support.link.warning.default,
-		info: ValetTheme.support.link.info.default,
-
-		// Card
-		card: '#fff',
-
-		// Link
-		link: getColor( 'link', 'default' ),
-		links: {
-			default: getColor( 'link', 'default' ),
-			hover: getColor( 'link', 'hover' ),
-			active: getColor( 'link', 'active' ),
-			visited: getColor( 'link', 'visited' ),
-		},
-
+		...getComponentColors( ValetTheme, getColor, getVariants ),
 		...light,
-
 		modes: {
-			// Dark Mode not fully supported yet
 			dark: {
-				text: dark.grey[ '90' ],
-				heading: dark.grey[ '100' ],
-				background: dark.grey[ '5' ],
-				backgroundSecondary: dark.grey[ '10' ],
-				primary: light.brand[ '70' ],
-				secondary: '#30c',
-				muted: dark.grey[ '90' ],
-				link: dark.brand[ '90' ],
-				card: dark.grey[ '20' ],
-				placeholder: dark.grey[ '70' ],
-				border: dark.grey[ '30' ],
-				hover: 'rgba(255,255,255,.02)',
-				midnight: dark.grey[ '90' ],
-				success: dark.green[ '90' ],
-				error: dark.red[ '90' ],
-				warning: dark.yellow[ '90' ],
-				dialog: dark.grey[ '40' ],
-				backgroundMuted: dark.grey[ '10' ],
+				...getComponentColors( ValetThemeDark, getColorDark, getVariantsDark ),
+				// text: dark.grey[ '90' ],
+				// heading: dark.grey[ '100' ],
+				// background: dark.grey[ '5' ],
+				// backgroundSecondary: dark.grey[ '10' ],
+				// primary: light.brand[ '70' ],
+				// secondary: '#30c',
+				// muted: dark.grey[ '90' ],
+				// link: dark.brand[ '90' ],
+				// card: dark.grey[ '20' ],
+				// placeholder: dark.grey[ '70' ],
+				// border: dark.grey[ '30' ],
+				// hover: 'rgba(255,255,255,.02)',
+				// midnight: dark.grey[ '90' ],
+				// success: dark.green[ '90' ],
+				// error: dark.red[ '90' ],
+				// warning: dark.yellow[ '90' ],
+				// dialog: dark.grey[ '40' ],
+				// backgroundMuted: dark.grey[ '10' ],
 				...dark,
 			},
 		},
@@ -217,14 +198,6 @@ export default {
 		high:
 			// eslint-disable-next-line max-len
 			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
-	},
-
-	accordion: {
-		background: {
-			open: getVariants( 'color.gold' )[ '7' ],
-			closed: 'transparent',
-			hover: getVariants( 'color.gold' )[ '7' ],
-		},
 	},
 
 	tag: {

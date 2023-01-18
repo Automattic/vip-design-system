@@ -81,15 +81,15 @@ export const Trigger = React.forwardRef(
 					fontWeight: 600,
 
 					'&[data-state="closed"]': {
-						backgroundColor: ( { accordion } ) => accordion.background.closed,
+						backgroundColor: 'accordion.background.closed',
 					},
 					'&[data-state="open"]': {
-						backgroundColor: ( { accordion } ) => accordion.background.open,
+						backgroundColor: 'accordion.background.open',
 						borderBottom: '1px solid',
 						borderBottomColor: 'borders.2',
 						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
 					},
-					'&:hover': { backgroundColor: ( { accordion } ) => accordion.background.hover },
+					'&:hover': { backgroundColor: 'accordion.background.hover' },
 					...sx,
 				} }
 				{ ...props }
