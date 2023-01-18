@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 
-import Valet from './generated/valet-theme.json';
+import Valet from './generated/valet-theme-light.json';
 
 export const getColor = ( color, variant = 'default' ) => {
 	if ( ! Valet[ color ] ) {
