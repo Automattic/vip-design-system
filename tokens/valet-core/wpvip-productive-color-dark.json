@@ -209,7 +209,7 @@
     },
     "disabled": {
       "type": "color",
-      "value": "{color.gray.65}"
+      "value": "{color.gray.55}"
     },
     "inverse": {
       "type": "color",
@@ -423,7 +423,7 @@
           "type": "color"
         },
         "hover": {
-          "value": "{text.primary}",
+          "value": "{color.gray.3}",
           "type": "color"
         },
         "disabled": {
@@ -450,7 +450,7 @@
         },
         "label": {
           "default": {
-            "value": "{text.primary}",
+            "value": "{color.gray.0}",
             "type": "color"
           },
           "hover": {
