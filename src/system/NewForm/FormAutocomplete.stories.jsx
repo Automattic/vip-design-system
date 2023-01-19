@@ -134,3 +134,16 @@ export const WithCustomMessages = () => {
 		</>
 	);
 };
+export const WithErrors = () => {
+	const customArgs = {
+		...args,
+		hasError: true,
+		errorMessage: 'Please select a value',
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
