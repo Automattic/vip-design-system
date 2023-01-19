@@ -46,7 +46,7 @@
     },
     "label": {
       "default": {
-        "value": "{color.black}",
+        "value": "{text.primary}",
         "type": "color"
       }
     },
