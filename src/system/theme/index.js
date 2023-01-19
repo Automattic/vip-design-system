@@ -77,6 +77,11 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.toolbar,
 	},
 
+	// Toolbar Controls
+	backgrounds: {
+		...theme.background,
+	},
+
 	// Accordion
 	accordion: {
 		content: {
@@ -402,7 +407,7 @@ export default {
 			fontWeight: 'body',
 			fontSize: 2,
 			color: 'text',
-			backgroundColor: getColor( 'background', 'primary' ),
+			backgroundColor: 'backgrounds.primary',
 			'-webkit-font-smoothing': 'antialiased',
 			'-moz-osx-font-smoothing': 'grayscale',
 			a: {
