@@ -225,7 +225,7 @@ export default {
 		primary: {
 			padding: 3,
 			borderRadius: 2,
-			backgroundColor: 'background',
+			backgroundColor: 'layer.2',
 			boxShadow: 'low',
 		},
 		secondary: {
@@ -233,7 +233,7 @@ export default {
 			p: 3,
 			boxShadow: 'none',
 			border: '1px solid',
-			borderColor: 'border',
+			borderColor: 'borders.2',
 		},
 		indent: {
 			borderRadius: 2,
