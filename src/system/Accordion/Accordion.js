@@ -122,7 +122,9 @@ Trigger.propTypes = {
 export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
 	<Trigger { ...props } ref={ forwardedRef }>
 		<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
-		<div sx={ { color: 'heading', flexGrow: 1, textAlign: 'left', ml: 3 } }>{ children }</div>
+		<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 3 } }>
+			{ children }
+		</div>
 	</Trigger>
 ) );
 
@@ -137,8 +139,8 @@ export const Content = React.forwardRef( ( { children, sx = {}, ...props }, forw
 	return (
 		<AccordionPrimitive.Content
 			sx={ {
-				backgroundColor: 'transparent',
-				color: 'text',
+				backgroundColor: 'accordion.content.background',
+				color: 'accordion.content.text',
 				fontSize: 2,
 				overflow: 'hidden',
 				px: 3,

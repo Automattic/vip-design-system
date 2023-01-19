@@ -74,8 +74,15 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	// Accordion
 	accordion: {
+		content: {
+			background: gColor( 'layer', '2' ),
+			text: gColor( 'text', 'secondary' ),
+		},
+		trigger: {
+			text: gColor( 'text', 'primary' ),
+		},
 		background: {
-			open: gColor( 'layer', '2' ),
+			open: gColor( 'layer', '3' ),
 			closed: 'transparent',
 			hover: gColor( 'layer', '3' ),
 		},

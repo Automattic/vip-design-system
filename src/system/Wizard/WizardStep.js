@@ -25,7 +25,7 @@ const WizardStep = React.forwardRef(
 			borderLeftColor = 'primary';
 		}
 
-		let color = 'secondary';
+		let color = 'text';
 
 		if ( complete ) {
 			color = 'success';
@@ -68,12 +68,18 @@ const WizardStep = React.forwardRef(
 							fontWeight: active ? 'bold' : 'normal',
 						} }
 					>
-						<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
+						<MdCheckCircle
+							aria-hidden="true"
+							sx={ { mr: 2, color: active ? 'icon.primary' : 'icon.disabled' } }
+						/>
 						{ title }
 					</Heading>
 				) : (
 					<Flex sx={ { alignItems: 'center', color } }>
-						<MdCheckCircle aria-hidden="true" sx={ { mr: 2 } } />
+						<MdCheckCircle
+							aria-hidden="true"
+							sx={ { mr: 2, color: active ? 'icon.primary' : 'icon.disabled' } }
+						/>
 						{ title }
 					</Flex>
 				) }
