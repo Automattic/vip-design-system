@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Badge } from '..';
+import { Badge, Link } from '..';
 
 export default {
 	title: 'Badge',
@@ -11,7 +11,7 @@ export default {
 const Template = props => <Badge { ...props } sx={ { m: 2 } } />;
 const TemplateLink = props => (
 	<Template { ...props } sx={ { m: 2 } }>
-		<a href="http://google.com">Google.com</a>
+		<Link href="http://google.com">Google.com</Link>
 	</Template>
 );
 

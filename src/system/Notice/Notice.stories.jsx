@@ -42,7 +42,7 @@ export const Default = () => (
 
 		<Notice variant="info" sx={ { mb: 4 } } title="Please read this first">
 			This notice has a title and children and{ ' ' }
-			<a href="/?path=/story/avatar--default">A link to Avatar</a>
+			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
 		</Notice>
 
 		<Notice
@@ -53,13 +53,13 @@ export const Default = () => (
 		>
 			<ul sx={ { mb: 0 } }>
 				<li>
-					<a href="#name">Please enter your name.</a>
+					<Link href="#name">Please enter your name.</Link>
 				</li>
 				<li>
-					<a href="#email">Please enter your email address.</a>
+					<Link href="#email">Please enter your email address.</Link>
 				</li>
 				<li>
-					<a href="#terms">Please agree to the terms.</a>
+					<Link href="#terms">Please agree to the terms.</Link>
 				</li>
 			</ul>
 		</Notice>
