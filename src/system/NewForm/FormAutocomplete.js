@@ -18,6 +18,7 @@ import { Label } from '../Form/Label';
 import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
+import { Validation } from '../Form';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -115,6 +116,8 @@ const FormAutocomplete = React.forwardRef(
 			showAllValues = true,
 			source,
 			value,
+			hasError,
+			errorMessage,
 			...props
 		},
 		forwardRef
@@ -246,6 +249,12 @@ const FormAutocomplete = React.forwardRef(
 						<FormSelectArrow />
 					</FormSelectContent>
 				</div>
+
+				{ hasError && errorMessage && (
+					<Validation isValid={ false } describedId={ forLabel }>
+						{ errorMessage }
+					</Validation>
+				) }
 			</div>
 		);
 	}
@@ -273,6 +282,8 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
+	hasError: PropTypes.bool,
+	errorMessage: PropTypes.string,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
