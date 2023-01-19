@@ -2,29 +2,34 @@
   "background": {
     "primary": {
       "type": "color",
-      "description": "Use as main application background",
-      "value": "#fbfbfb"
+      "value": "#141110",
+      "description": "Use as main application background"
+    },
+    "overlay": {
+      "type": "color",
+      "value": "#000000b3",
+      "description": "Use as modal UI overlay"
     }
   },
   "layer": {
     "1": {
       "type": "color",
-      "value": "#f4f3f2"
+      "value": "#1b1918"
     },
     "2": {
-      "value": "#ffffff",
+      "value": "#282625",
       "type": "color"
     },
     "3": {
       "type": "color",
-      "value": "#ebe9e8"
+      "value": "#514e4d"
     },
     "4": {
-      "value": "#ffffff",
+      "value": "#5e5b5a",
       "type": "color"
     },
     "inverse": {
-      "value": "#13191e",
+      "value": "#080402",
       "type": "color",
       "description": "Use as component background in high-contrast situations. "
     },
@@ -35,33 +40,36 @@
   },
   "input": {
     "background": {
-      "value": "#ffffff",
-      "type": "color"
+      "value": "#1b1918",
+      "type": "color",
+      "description": "Use for input backgrounds"
     },
     "label": {
       "default": {
-        "value": "#13191e",
+        "value": "#e3e0df",
         "type": "color"
       }
     },
     "text": {
       "default": {
-        "value": "#13191e",
-        "type": "color"
+        "value": "#e3e0df",
+        "type": "color",
+        "description": "Use for default text color in inputs"
       },
       "placeholder": {
         "type": "color",
-        "value": "#767372",
+        "value": "#8f8c8b",
         "description": "Use for placeholder text in fields"
       }
     },
     "border": {
       "default": {
-        "value": "#8f8c8b",
-        "type": "color"
+        "value": "#6a6766",
+        "type": "color",
+        "description": "Use for input borders (AA contrast compliant on app bg)"
       },
       "disabled": {
-        "value": "#bfbcbb",
+        "value": "#444140",
         "type": "color"
       }
     },
@@ -80,67 +88,67 @@
     "radio-box": {
       "background": {
         "default": {
-          "value": "#ffffff00",
+          "value": "#00000000",
           "type": "color"
         },
         "hover": {
-          "value": "#ffffff00",
+          "value": "#00000000",
           "type": "color"
         },
         "active": {
-          "value": "#f4f3f2",
+          "value": "#1b1918",
           "type": "color"
         },
         "disabled": {
-          "value": "#ffffff00",
+          "value": "#00000000",
           "type": "color"
         }
       },
       "label": {
         "primary": {
           "default": {
-            "value": "#13191e",
+            "value": "#e3e0df",
             "type": "color"
           },
           "hover": {
-            "value": "#13191e",
+            "value": "#e3e0df",
             "type": "color"
           },
           "active": {
-            "value": "#13191e",
+            "value": "#e3e0df",
             "type": "color"
           },
           "disabled": {
-            "value": "#9b9796",
+            "value": "#767372",
             "type": "color"
           }
         },
         "secondary": {
           "default": {
-            "value": "#514e4d",
+            "value": "#a7a4a3",
             "type": "color"
           },
           "hover": {
-            "value": "#514e4d",
+            "value": "#a7a4a3",
             "type": "color"
           },
           "acive": {
-            "value": "#514e4d",
+            "value": "#a7a4a3",
             "type": "color"
           },
           "disabled": {
-            "value": "#9b9796",
+            "value": "#767372",
             "type": "color"
           }
         }
       },
       "border": {
         "default": {
-          "value": "#8f8c8b",
+          "value": "#6a6766",
           "type": "color"
         },
         "hover": {
-          "value": "#6a6766",
+          "value": "#767372",
           "type": "color"
         },
         "active": {
@@ -148,7 +156,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#bfbcbb",
+          "value": "#444140",
           "type": "color"
         }
       }
@@ -157,11 +165,13 @@
   "border": {
     "1": {
       "type": "color",
-      "value": "#bfbcbb"
+      "value": "#4c4948",
+      "description": "Use for separator lines on layer 1 (no contrast requriements)"
     },
     "2": {
       "type": "color",
-      "value": "#e3e0df"
+      "value": "#6a6766",
+      "description": "Use for high contrast borders"
     },
     "3": {
       "type": "color",
@@ -169,7 +179,8 @@
     },
     "4": {
       "type": "color",
-      "value": "#e3e0df"
+      "value": "#444140",
+      "description": "Use for table spearator lines"
     },
     "inverse": {
       "value": "#827f7e",
@@ -182,27 +193,27 @@
   },
   "text": {
     "primary": {
-      "value": "#13191e",
+      "value": "#e3e0df",
       "type": "color",
       "description": "Use for headings"
     },
     "secondary": {
       "type": "color",
-      "description": "Use for body text ",
-      "value": "#514e4d"
+      "value": "#a7a4a3",
+      "description": "Use for body text "
     },
     "helper": {
       "type": "color",
-      "description": "Use for helper text",
-      "value": "#6a6766"
+      "value": "#9b9796",
+      "description": "Use for helper text"
     },
     "disabled": {
       "type": "color",
-      "value": "#9b9796"
+      "value": "#767372"
     },
     "inverse": {
       "type": "color",
-      "value": "#fbfbfb",
+      "value": "#13191e",
       "description": "Use for primary text on an inverse layer"
     },
     "inverse-secondary": {
@@ -212,55 +223,55 @@
     },
     "accent": {
       "type": "color",
-      "value": "#9a6014"
+      "value": "#ba7920"
     }
   },
   "link": {
     "default": {
       "type": "color",
-      "description": "Use for text links",
-      "value": "#9a6014"
+      "value": "#ba7920",
+      "description": "Use for text links"
     },
     "hover": {
       "type": "color",
-      "value": "#7a4909"
+      "value": "#c5832a"
     },
     "active": {
       "type": "color",
-      "value": "#522e03"
+      "value": "#d29137"
     },
     "visited": {
       "type": "color",
-      "value": "#7a4909"
+      "value": "#c5832a"
     }
   },
   "icon": {
     "primary": {
       "type": "color",
-      "value": "#2c2a29"
+      "value": "#d7d4d3"
     },
     "secondary": {
       "type": "color",
-      "value": "#827f7e"
+      "value": "#9b9796"
     },
     "helper": {
       "type": "color",
-      "value": "#9b9796"
+      "value": "#827f7e"
     },
     "inverse": {
       "type": "color",
-      "value": "#f4f3f2"
+      "value": "#2c2a29"
     },
     "disabled": {
       "type": "color",
-      "value": "#8f8c8b"
+      "value": "#5e5b5a"
     }
   },
   "button": {
     "primary": {
       "background": {
         "default": {
-          "value": "#13191e",
+          "value": "#d7d4d3",
           "type": "color"
         },
         "hover": {
@@ -268,13 +279,13 @@
           "value": "#d8a45f"
         },
         "disabled": {
-          "value": "#bfbcbb",
+          "value": "#383635",
           "type": "color"
         }
       },
       "label": {
         "default": {
-          "value": "#fbfbfb",
+          "value": "#13191e",
           "type": "color"
         },
         "hover": {
@@ -282,7 +293,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#9b9796",
+          "value": "#bfbcbb",
           "type": "color"
         }
       }
@@ -291,20 +302,20 @@
       "background": {
         "default": {
           "type": "color",
-          "value": "#e3e0df"
+          "value": "#4c4948"
         },
         "hover": {
           "type": "color",
           "value": "#d8a45f"
         },
         "disabled": {
-          "value": "#bfbcbb",
+          "value": "#383635",
           "type": "color"
         }
       },
       "label": {
         "default": {
-          "value": "#13191e",
+          "value": "#bfbcbb",
           "type": "color"
         },
         "hover": {
@@ -312,7 +323,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#9b9796",
+          "value": "#767372",
           "type": "color"
         }
       }
@@ -320,21 +331,35 @@
     "tertiary": {
       "background": {
         "default": {
-          "value": "#ffffff00",
+          "value": "#00000000",
           "type": "color"
         },
         "hover": {
           "type": "color",
-          "value": "#e3e0df"
+          "value": "#4c4948"
         },
         "disabled": {
-          "value": "#ffffff00",
+          "value": "#00000000",
           "type": "color"
         }
       },
       "border": {
         "default": {
-          "value": "#8f8c8b",
+          "value": "#6a6766",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#4c4948",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#444140",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#e3e0df",
           "type": "color"
         },
         "hover": {
@@ -342,21 +367,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#bfbcbb",
-          "type": "color"
-        }
-      },
-      "label": {
-        "default": {
-          "value": "#13191e",
-          "type": "color"
-        },
-        "hover": {
-          "value": "#13191e",
-          "type": "color"
-        },
-        "disabled": {
-          "value": "#9b9796",
+          "value": "#767372",
           "type": "color"
         }
       }
@@ -364,7 +375,21 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "#ffffff00",
+          "value": "#00000000",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#4c4948",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#00000000",
+          "type": "color"
+        }
+      },
+      "label": {
+        "default": {
+          "value": "#ba7920",
           "type": "color"
         },
         "hover": {
@@ -372,21 +397,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#ffffff00",
-          "type": "color"
-        }
-      },
-      "label": {
-        "default": {
-          "value": "#9a6014",
-          "type": "color"
-        },
-        "hover": {
-          "value": "#13191e",
-          "type": "color"
-        },
-        "disabled": {
-          "value": "#9b9796",
+          "value": "#767372",
           "type": "color"
         }
       }
@@ -402,7 +413,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#bfbcbb",
+          "value": "#383635",
           "type": "color"
         }
       },
@@ -412,11 +423,11 @@
           "type": "color"
         },
         "hover": {
-          "value": "#fbfbfb",
+          "value": "#f4f3f2",
           "type": "color"
         },
         "disabled": {
-          "value": "#9b9796",
+          "value": "#767372",
           "type": "color"
         }
       }
@@ -433,7 +444,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "#bfbcbb",
+            "value": "#383635",
             "type": "color"
           }
         },
@@ -443,11 +454,11 @@
             "type": "color"
           },
           "hover": {
-            "value": "#fbfbfb",
+            "value": "#e3e0df",
             "type": "color"
           },
           "disabled": {
-            "value": "#9b9796",
+            "value": "#767372",
             "type": "color"
           }
         }
@@ -455,7 +466,7 @@
       "secondary": {
         "background": {
           "default": {
-            "value": "#ffffff00",
+            "value": "#00000000",
             "type": "color"
           },
           "hover": {
@@ -463,7 +474,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "#ffffff00",
+            "value": "#00000000",
             "type": "color"
           }
         },
@@ -473,11 +484,11 @@
             "type": "color"
           },
           "hover": {
-            "value": "#fbfbfb",
+            "value": "#e3e0df",
             "type": "color"
           },
           "disabled": {
-            "value": "#9b9796",
+            "value": "#767372",
             "type": "color"
           }
         },
@@ -491,7 +502,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "#bfbcbb",
+            "value": "#444140",
             "type": "color"
           }
         }
@@ -499,7 +510,7 @@
       "ghost": {
         "background": {
           "default": {
-            "value": "#ffffff00",
+            "value": "#00000000",
             "type": "color"
           },
           "hover": {
@@ -507,7 +518,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "#ffffff00",
+            "value": "#00000000",
             "type": "color"
           }
         },
@@ -517,11 +528,11 @@
             "type": "color"
           },
           "hover": {
-            "value": "#fbfbfb",
+            "value": "#e3e0df",
             "type": "color"
           },
           "disabled": {
-            "value": "#9b9796",
+            "value": "#767372",
             "type": "color"
           }
         }
@@ -690,35 +701,27 @@
       "type": "color"
     }
   },
-  "overlay": {
-    "type": "color",
-    "value": "#767372"
-  },
-  "interactive": {
-    "type": "color",
-    "value": "#a66915"
-  },
   "tag": {
     "gray": {
       "background": {
         "type": "color",
-        "value": "#ebe9e8"
+        "value": "#282625"
       },
       "text": {
         "type": "color",
-        "value": "#2c2a29"
+        "value": "#9b9796"
       },
       "icon": {
         "type": "color",
-        "value": "#5e5b5a"
+        "value": "#8f8c8b"
       },
       "hover": {
         "type": "color",
-        "value": "#d7d4d3"
+        "value": "#2c2a29"
       },
       "active": {
         "type": "color",
-        "value": "#cbc7c6"
+        "value": "#32302f"
       }
     },
     "blue": {
@@ -896,6 +899,48 @@
         "type": "color",
         "value": "#fbb7b4"
       }
+    }
+  },
+  "toolbar": {
+    "background": {
+      "value": "#080402",
+      "type": "color",
+      "description": "The background color for the top toolbar"
+    },
+    "text": {
+      "default": {
+        "value": "#ebe9e8",
+        "type": "color",
+        "description": "Default text color for the top toolbar's contents"
+      },
+      "hover": {
+        "value": "#ebe9e8",
+        "type": "color"
+      }
+    },
+    "brand": {
+      "value": "#ffffff",
+      "type": "color",
+      "description": "Use for the logo"
+    }
+  },
+  "logs": {
+    "text": {
+      "primary": {
+        "value": "#e3e0df",
+        "type": "color",
+        "description": "Use for monotype output in an invere layer."
+      },
+      "secondary": {
+        "value": "#b3afae",
+        "type": "color",
+        "description": "Use for timestamp or secondary monotype output in an inverse layer."
+      }
+    },
+    "background": {
+      "value": "#201e1d",
+      "type": "color",
+      "description": "Use for the pseudo terminal window background color."
     }
   },
   "rem": {

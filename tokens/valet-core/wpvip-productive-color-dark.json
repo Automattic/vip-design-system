@@ -2,34 +2,34 @@
   "background": {
     "primary": {
       "type": "color",
-      "description": "Use as main application background",
-      "value": "{color.gray.0}"
+      "value": "{color.gray.95}",
+      "description": "Use as main application background"
     },
     "overlay": {
-      "value": "rgba(0,0,0,0.7)",
       "type": "color",
-      "description": "Use for modal UI overlay"
+      "value": "rgba(0,0,0,0.7)",
+      "description": "Use as modal UI overlay"
     }
   },
   "layer": {
     "1": {
       "type": "color",
-      "value": "{color.gray.3}"
+      "value": "{color.gray.93}"
     },
     "2": {
-      "value": "{color.pure-white}",
+      "value": "{color.gray.88}",
       "type": "color"
     },
     "3": {
       "type": "color",
-      "value": "{color.gray.7}"
+      "value": "{color.gray.70}"
     },
     "4": {
-      "value": "{color.pure-white}",
+      "value": "{color.gray.65}",
       "type": "color"
     },
     "inverse": {
-      "value": "{color.black}",
+      "value": "{color.gray.100}",
       "type": "color",
       "description": "Use as component background in high-contrast situations. "
     },
@@ -40,33 +40,36 @@
   },
   "input": {
     "background": {
-      "value": "{color.pure-white}",
-      "type": "color"
+      "value": "{color.gray.93}",
+      "type": "color",
+      "description": "Use for input backgrounds"
     },
     "label": {
       "default": {
-        "value": "{color.black}",
+        "value": "{text.primary}",
         "type": "color"
       }
     },
     "text": {
       "default": {
-        "value": "{color.black}",
-        "type": "color"
+        "value": "{color.gray.10}",
+        "type": "color",
+        "description": "Use for default text color in inputs"
       },
       "placeholder": {
         "type": "color",
-        "value": "{color.gray.55}",
+        "value": "{color.gray.45}",
         "description": "Use for placeholder text in fields"
       }
     },
     "border": {
       "default": {
-        "value": "{color.gray.45}",
-        "type": "color"
+        "value": "{color.gray.60}",
+        "type": "color",
+        "description": "Use for input borders (AA contrast compliant on app bg)"
       },
       "disabled": {
-        "value": "{color.gray.25}",
+        "value": "{color.gray.75}",
         "type": "color"
       }
     },
@@ -85,19 +88,19 @@
     "radio-box": {
       "background": {
         "default": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         },
         "hover": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         },
         "active": {
-          "value": "{color.gray.3}",
+          "value": "{color.gray.93}",
           "type": "color"
         },
         "disabled": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         }
       },
@@ -141,11 +144,11 @@
       },
       "border": {
         "default": {
-          "value": "{color.gray.45}",
+          "value": "{color.gray.60}",
           "type": "color"
         },
         "hover": {
-          "value": "{color.gray.60}",
+          "value": "{color.gray.55}",
           "type": "color"
         },
         "active": {
@@ -153,7 +156,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "{color.gray.25}",
+          "value": "{color.gray.75}",
           "type": "color"
         }
       }
@@ -162,11 +165,13 @@
   "border": {
     "1": {
       "type": "color",
-      "value": "{color.gray.25}"
+      "value": "{color.gray.73}",
+      "description": "Use for separator lines on layer 1 (no contrast requriements)"
     },
     "2": {
       "type": "color",
-      "value": "{color.gray.10}"
+      "value": "{color.gray.60}",
+      "description": "Use for high contrast borders"
     },
     "3": {
       "type": "color",
@@ -174,7 +179,8 @@
     },
     "4": {
       "type": "color",
-      "value": "{color.gray.10}"
+      "value": "{color.gray.75}",
+      "description": "Use for table spearator lines"
     },
     "inverse": {
       "value": "{color.gray.50}",
@@ -187,27 +193,27 @@
   },
   "text": {
     "primary": {
-      "value": "{color.black}",
+      "value": "{color.gray.10}",
       "type": "color",
       "description": "Use for headings"
     },
     "secondary": {
       "type": "color",
-      "description": "Use for body text ",
-      "value": "{color.gray.70}"
+      "value": "{color.gray.35}",
+      "description": "Use for body text "
     },
     "helper": {
       "type": "color",
-      "description": "Use for helper text",
-      "value": "{color.gray.60}"
+      "value": "{color.gray.40}",
+      "description": "Use for helper text"
     },
     "disabled": {
       "type": "color",
-      "value": "{color.gray.40}"
+      "value": "{color.gray.55}"
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.0}",
+      "value": "{color.black}",
       "description": "Use for primary text on an inverse layer"
     },
     "inverse-secondary": {
@@ -217,55 +223,55 @@
     },
     "accent": {
       "type": "color",
-      "value": "{color.gold.60}"
+      "value": "{color.gold.50}"
     }
   },
   "link": {
     "default": {
       "type": "color",
-      "description": "Use for text links",
-      "value": "{color.gold.60}"
+      "value": "{color.gold.50}",
+      "description": "Use for text links"
     },
     "hover": {
       "type": "color",
-      "value": "{color.gold.70}"
+      "value": "{color.gold.45}"
     },
     "active": {
       "type": "color",
-      "value": "{color.gold.80}"
+      "value": "{color.gold.40}"
     },
     "visited": {
       "type": "color",
-      "value": "{color.gold.70}"
+      "value": "{color.gold.45}"
     }
   },
   "icon": {
     "primary": {
       "type": "color",
-      "value": "{color.gray.85}"
+      "value": "{color.gray.15}"
     },
     "secondary": {
       "type": "color",
-      "value": "{color.gray.50}"
+      "value": "{color.gray.40}"
     },
     "helper": {
       "type": "color",
-      "value": "{color.gray.40}"
+      "value": "{color.gray.50}"
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.3}"
+      "value": "{color.gray.85}"
     },
     "disabled": {
       "type": "color",
-      "value": "{color.gray.45}"
+      "value": "{color.gray.65}"
     }
   },
   "button": {
     "primary": {
       "background": {
         "default": {
-          "value": "{color.black}",
+          "value": "{color.gray.15}",
           "type": "color"
         },
         "hover": {
@@ -273,21 +279,21 @@
           "value": "{color.gold.30}"
         },
         "disabled": {
-          "value": "{color.gray.25}",
+          "value": "{color.gray.80}",
           "type": "color"
         }
       },
       "label": {
         "default": {
-          "value": "{text.inverse}",
+          "value": "{color.black}",
           "type": "color"
         },
         "hover": {
-          "value": "{text.primary}",
+          "value": "{color.black}",
           "type": "color"
         },
         "disabled": {
-          "value": "{text.disabled}",
+          "value": "{color.gray.25}",
           "type": "color"
         }
       }
@@ -296,24 +302,24 @@
       "background": {
         "default": {
           "type": "color",
-          "value": "{color.gray.10}"
+          "value": "{color.gray.73}"
         },
         "hover": {
           "type": "color",
           "value": "{color.gold.30}"
         },
         "disabled": {
-          "value": "{color.gray.25}",
+          "value": "{color.gray.80}",
           "type": "color"
         }
       },
       "label": {
         "default": {
-          "value": "{text.primary}",
+          "value": "{color.gray.25}",
           "type": "color"
         },
         "hover": {
-          "value": "{text.primary}",
+          "value": "{text.inverse}",
           "type": "color"
         },
         "disabled": {
@@ -325,29 +331,29 @@
     "tertiary": {
       "background": {
         "default": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         },
         "hover": {
           "type": "color",
-          "value": "{color.gray.10}"
+          "value": "{color.gray.73}"
         },
         "disabled": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         }
       },
       "border": {
         "default": {
-          "value": "{color.gray.45}",
+          "value": "{color.gray.60}",
           "type": "color"
         },
         "hover": {
-          "value": "{color.gray.10}",
+          "value": "{color.gray.73}",
           "type": "color"
         },
         "disabled": {
-          "value": "{color.gray.25}",
+          "value": "{color.gray.75}",
           "type": "color"
         }
       },
@@ -369,15 +375,15 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         },
         "hover": {
-          "value": "{color.gray.10}",
+          "value": "{color.gray.73}",
           "type": "color"
         },
         "disabled": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         }
       },
@@ -407,17 +413,17 @@
           "type": "color"
         },
         "disabled": {
-          "value": "{color.gray.25}",
+          "value": "{color.gray.80}",
           "type": "color"
         }
       },
       "label": {
         "default": {
-          "value": "{text.primary}",
+          "value": "{text.inverse}",
           "type": "color"
         },
         "hover": {
-          "value": "{text.inverse}",
+          "value": "{color.gray.3}",
           "type": "color"
         },
         "disabled": {
@@ -438,17 +444,17 @@
             "type": "color"
           },
           "disabled": {
-            "value": "{color.gray.25}",
+            "value": "{color.gray.80}",
             "type": "color"
           }
         },
         "label": {
           "default": {
-            "value": "{text.inverse}",
+            "value": "{color.gray.0}",
             "type": "color"
           },
           "hover": {
-            "value": "{text.inverse}",
+            "value": "{text.primary}",
             "type": "color"
           },
           "disabled": {
@@ -460,7 +466,7 @@
       "secondary": {
         "background": {
           "default": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba(0,0,0,0)",
             "type": "color"
           },
           "hover": {
@@ -468,7 +474,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba(0,0,0,0)",
             "type": "color"
           }
         },
@@ -478,7 +484,7 @@
             "type": "color"
           },
           "hover": {
-            "value": "{text.inverse}",
+            "value": "{text.primary}",
             "type": "color"
           },
           "disabled": {
@@ -496,7 +502,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "{color.gray.25}",
+            "value": "{color.gray.75}",
             "type": "color"
           }
         }
@@ -504,7 +510,7 @@
       "ghost": {
         "background": {
           "default": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba(0,0,0,0)",
             "type": "color"
           },
           "hover": {
@@ -512,7 +518,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba(0,0,0,0)",
             "type": "color"
           }
         },
@@ -522,7 +528,7 @@
             "type": "color"
           },
           "hover": {
-            "value": "{text.inverse}",
+            "value": "{text.primary}",
             "type": "color"
           },
           "disabled": {
@@ -699,23 +705,23 @@
     "gray": {
       "background": {
         "type": "color",
-        "value": "{color.gray.7}"
+        "value": "{color.gray.88}"
       },
       "text": {
         "type": "color",
-        "value": "{color.gray.85}"
+        "value": "{color.gray.40}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.gray.65}"
+        "value": "{color.gray.45}"
       },
       "hover": {
         "type": "color",
-        "value": "{color.gray.15}"
+        "value": "{color.gray.85}"
       },
       "active": {
         "type": "color",
-        "value": "{color.gray.20}"
+        "value": "{color.gray.83}"
       }
     },
     "blue": {
@@ -897,7 +903,7 @@
   },
   "toolbar": {
     "background": {
-      "value": "{color.black}",
+      "value": "{color.gray.100}",
       "type": "color",
       "description": "The background color for the top toolbar"
     },
@@ -921,7 +927,7 @@
   "logs": {
     "text": {
       "primary": {
-        "value": "{color.gray.7}",
+        "value": "{color.gray.10}",
         "type": "color",
         "description": "Use for monotype output in an invere layer."
       },
@@ -932,7 +938,7 @@
       }
     },
     "background": {
-      "value": "{color.black}",
+      "value": "{color.gray.90}",
       "type": "color",
       "description": "Use for the pseudo terminal window background color."
     }

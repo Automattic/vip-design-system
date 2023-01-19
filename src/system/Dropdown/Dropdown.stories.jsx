@@ -12,6 +12,8 @@ import { DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icon
 import * as Dropdown from '.';
 import { Button } from '../Button';
 import * as NewDialog from '../NewDialog';
+import { Link } from '../Link';
+import { Text } from '../Text';
 
 export default {
 	title: 'Dropdown',
@@ -29,17 +31,17 @@ export const Default = () => (
 			<Dropdown.Item>Errored</Dropdown.Item>
 		</Dropdown.Root>
 
-		<p>
+		<Text>
 			This component is based on the Radix Dropdown. You can find all available options, props and
 			features in the{ ' ' }
-			<a
+			<Link
 				href="https://www.radix-ui.com/docs/primitives/components/dropdown-menu"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
 				Dropdown Documentation page.
-			</a>
-		</p>
+			</Link>
+		</Text>
 	</>
 );
 
@@ -98,17 +100,17 @@ export const ComplexOptions = () => {
 				</Dropdown.RadioGroup>
 			</Dropdown.Root>
 
-			<p>
+			<Text>
 				This component is based on the Radix Dropdown. You can find all available options, props and
 				features in the{ ' ' }
-				<a
+				<Link
 					href="https://www.radix-ui.com/docs/primitives/components/dropdown-menu"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					Dropdown Documentation page.
-				</a>
-			</p>
+				</Link>
+			</Text>
 		</>
 	);
 };
@@ -134,11 +136,11 @@ export const WithDialog = () => {
 
 	return (
 		<div>
-			<p>
+			<Text>
 				This is an important example when combining the Dropdown component with the NewDialog
 				component. In order to have the correct accessibility, there are some events you need to
 				use. Use this example if you want to copy and paste the code.
-			</p>
+			</Text>
 
 			<Dropdown.Root
 				modal={ ! alertOpen }

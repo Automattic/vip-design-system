@@ -5,6 +5,7 @@
  */
 import { useCallback, useState } from 'react';
 import * as Form from '.';
+import { Link } from '../Link';
 
 export default {
 	title: 'Form/Select',
@@ -49,14 +50,14 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 
 		<p>
 			This component was heavily inspired by the{ ' ' }
-			<a
+			<Link
 				href="https://designsystem.digital.gov/components/select/"
 				target="_blank"
 				rel="noreferrer"
 			>
 				{ ' ' }
 				U.S. Web Design System (USWDS) Select component
-			</a>
+			</Link>
 			.
 		</p>
 		<Form.Root>

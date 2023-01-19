@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Tabs, TabsTrigger, TabsList, TabsContent, Text } from '..';
+import { Tabs, TabsTrigger, TabsList, TabsContent, Text, Link, Button } from '..';
 
 export default {
 	title: 'Tabs',
@@ -25,13 +25,13 @@ export const Default = () => (
 		</TabsList>
 		<TabsContent value="all">
 			<Text>
-				All content <a href="https://google.com">https://google.com</a>
+				All content <Link href="https://google.com">https://google.com</Link>
 			</Text>
 		</TabsContent>
 		<TabsContent value="live">Live content</TabsContent>
 		<TabsContent value="dev">
 			<Text>
-				In Development content <button type="button">Hey I am a button</button>{ ' ' }
+				In Development content <Button variant="secondary">Hey I am a button</Button>{ ' ' }
 			</Text>
 		</TabsContent>
 	</Tabs>

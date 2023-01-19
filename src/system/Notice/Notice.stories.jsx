@@ -6,7 +6,7 @@
  * Internal dependencies
  */
 import React from 'react';
-import { Notice, Text, Link } from '..';
+import { Notice, Link } from '..';
 
 export default {
 	title: 'Notice',
@@ -21,10 +21,8 @@ export const Default = () => (
 			sx={ { mb: 4 } }
 			title="Your site is ready to launch!"
 		>
-			<Text sx={ { mb: 0 } }>
-				It looks like you&lsquo;re ready to share your{ ' ' }
-				<Link href="https://google.com/">application with the world.</Link>
-			</Text>
+			It looks like you&lsquo;re ready to share your{ ' ' }
+			<Link href="https://google.com/">application with the world.</Link>
 		</Notice>
 
 		<Notice variant="success" sx={ { mb: 4 } }>
@@ -43,10 +41,8 @@ export const Default = () => (
 		</Notice>
 
 		<Notice variant="info" sx={ { mb: 4 } } title="Please read this first">
-			<Text sx={ { mb: 0 } }>
-				This notice has a title and children and{ ' ' }
-				<a href="/?path=/story/avatar--default">A link to Avatar</a>
-			</Text>
+			This notice has a title and children and{ ' ' }
+			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
 		</Notice>
 
 		<Notice
@@ -57,13 +53,13 @@ export const Default = () => (
 		>
 			<ul sx={ { mb: 0 } }>
 				<li>
-					<a href="#name">Please enter your name.</a>
+					<Link href="#name">Please enter your name.</Link>
 				</li>
 				<li>
-					<a href="#email">Please enter your email address.</a>
+					<Link href="#email">Please enter your email address.</Link>
 				</li>
 				<li>
-					<a href="#terms">Please agree to the terms.</a>
+					<Link href="#terms">Please agree to the terms.</Link>
 				</li>
 			</ul>
 		</Notice>

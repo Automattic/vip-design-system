@@ -1,11 +1,24 @@
+/**
+ * External dependencies
+ */
+
 import React, { useEffect } from 'react';
 import { makeDecorator } from '@storybook/addons';
 import { useColorMode } from 'theme-ui';
-import { getColor } from '../../src/system/theme/getColor';
+
+/**
+ * Internal dependencies
+ */
+import ThemeBuilder from '../../src/system/theme/getColor';
+
+import Valet from '../../src/system/theme/generated/valet-theme-light.json';
+import ValetDark from '../../src/system/theme/generated/valet-theme-dark.json';
+const { getColor } = ThemeBuilder( Valet );
+const { getColor: getColorDark } = ThemeBuilder( ValetDark );
 
 // These need to be updated to import VIP design tokens;
 const lightBackground = getColor( 'background', 'primary' );
-const darkBackground = '#1C1C1B';
+const darkBackground = getColorDark( 'background', 'primary' );
 
 export const backgrounds = {
 	default: 'Light',

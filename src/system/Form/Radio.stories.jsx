@@ -8,7 +8,7 @@ import { useState } from 'react';
 /**
  * Internal dependencies
  */
-import { Form } from '..';
+import { Form, Link } from '..';
 import { Radio } from './Radio';
 import { Flex } from '../Flex';
 import { Label } from './Label';
@@ -27,9 +27,9 @@ export const Default = () => {
 			<p>
 				Per recommendation, if you have a Radio button, use a Fieldset with a legend as wrapper to
 				your options.{ ' ' }
-				<a href="https://a11y-collective.github.io/demos/en/accessible-code/form-fieldsets.html">
+				<Link href="https://a11y-collective.github.io/demos/en/accessible-code/form-fieldsets.html">
 					Reference to Form fieldsets
-				</a>
+				</Link>
 			</p>
 			<Form.Fieldset>
 				<Form.Legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>
