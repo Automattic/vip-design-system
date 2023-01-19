@@ -72,6 +72,11 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.input,
 	},
 
+	// Toolbar Controls
+	toolbar: {
+		...theme.toolbar,
+	},
+
 	// Accordion
 	accordion: {
 		content: {
