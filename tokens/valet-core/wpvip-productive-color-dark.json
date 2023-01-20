@@ -170,8 +170,8 @@
     },
     "2": {
       "type": "color",
-      "value": "{color.gray.60}",
-      "description": "Use for high contrast borders"
+      "value": "{color.gray.75}",
+      "description": "Use for soft borders on default page bg"
     },
     "3": {
       "type": "color",
@@ -229,12 +229,12 @@
   "link": {
     "default": {
       "type": "color",
-      "value": "{color.gold.50}",
+      "value": "{color.gold.45}",
       "description": "Use for text links"
     },
     "hover": {
       "type": "color",
-      "value": "{color.gold.45}"
+      "value": "{color.gold.40}"
     },
     "active": {
       "type": "color",
@@ -591,7 +591,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.green.60}"
+        "value": "{color.green.55}"
       }
     },
     "accent": {
@@ -616,20 +616,20 @@
       "error": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "{color.red.60}"
+          "value": "{color.red.40}",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",
-          "value": "{color.red.70}"
+          "value": "{color.red.35}"
         },
         "active": {
           "type": "color",
-          "value": "{color.red.80}"
+          "value": "{color.red.30}"
         },
         "visited": {
           "type": "color",
-          "value": "{color.red.80}"
+          "value": "{color.red.35}"
         }
       },
       "warning": {
@@ -673,20 +673,20 @@
       "success": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "{color.green.60}"
+          "value": "{color.green.45}",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",
-          "value": "{color.green.70}"
+          "value": "{color.green.40}"
         },
         "active": {
           "type": "color",
-          "value": "{color.green.80}"
+          "value": "{color.green.35}"
         },
         "visited": {
           "type": "color",
-          "value": "{color.green.70}"
+          "value": "{color.green.40}"
         }
       }
     }
