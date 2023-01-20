@@ -170,8 +170,8 @@
     },
     "2": {
       "type": "color",
-      "value": "#6a6766",
-      "description": "Use for high contrast borders"
+      "value": "#444140",
+      "description": "Use for soft borders on default page bg"
     },
     "3": {
       "type": "color",
@@ -229,12 +229,12 @@
   "link": {
     "default": {
       "type": "color",
-      "value": "#ba7920",
+      "value": "#c5832a",
       "description": "Use for text links"
     },
     "hover": {
       "type": "color",
-      "value": "#c5832a"
+      "value": "#d29137"
     },
     "active": {
       "type": "color",
@@ -591,7 +591,7 @@
       },
       "success": {
         "type": "color",
-        "value": "#007934"
+        "value": "#008840"
       }
     },
     "accent": {
@@ -616,20 +616,20 @@
       "error": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "#bf2a23"
+          "value": "#ff5f4d",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",
-          "value": "#9a1a19"
+          "value": "#ff745f"
         },
         "active": {
           "type": "color",
-          "value": "#710208"
+          "value": "#ff8872"
         },
         "visited": {
           "type": "color",
-          "value": "#710208"
+          "value": "#ff745f"
         }
       },
       "warning": {
@@ -673,20 +673,20 @@
       "success": {
         "default": {
           "type": "color",
-          "description": "Use for text links",
-          "value": "#007934"
+          "value": "#1da158",
+          "description": "Use for text links"
         },
         "hover": {
           "type": "color",
-          "value": "#00611e"
+          "value": "#30ac63"
         },
         "active": {
           "type": "color",
-          "value": "#004502"
+          "value": "#40ba6f"
         },
         "visited": {
           "type": "color",
-          "value": "#00611e"
+          "value": "#30ac63"
         }
       }
     }
