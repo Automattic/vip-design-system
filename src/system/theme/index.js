@@ -311,11 +311,11 @@ export default {
 		},
 
 		danger: {
-			variant: 'buttons.primary',
+			variant: 'buttons.secondary',
 			color: 'button.danger.primary.label.default',
 			bg: 'button.danger.primary.background.default',
 			border: '1px solid',
-			borderColor: 'button.danger.primary.border.default',
+			borderColor: 'transparent',
 
 			'&:hover, &:focus': {
 				backgroundColor: 'button.danger.primary.background.hover',
