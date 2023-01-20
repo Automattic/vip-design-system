@@ -82,6 +82,11 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.background,
 	},
 
+	// Logs Controls
+	logs: {
+		...theme.logs,
+	},
+
 	// Accordion
 	accordion: {
 		content: {
