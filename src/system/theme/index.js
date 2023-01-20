@@ -87,6 +87,10 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.logs,
 	},
 
+	'radio-box': {
+		...theme[ 'radio-box' ],
+	},
+
 	// Accordion
 	accordion: {
 		content: {

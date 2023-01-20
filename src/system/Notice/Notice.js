@@ -65,7 +65,9 @@ const Notice = React.forwardRef(
 					bg: inline ? 'transparent' : `notice.background.${ systemVariant }`,
 					p: inline ? 0 : 3,
 					color: `notice.text.${ systemVariant }`,
-
+					'> p': {
+						color: `notice.text.${ systemVariant }`,
+					},
 					a: {
 						color: `notice.link.${ systemVariant }.default`,
 						'&:visited': {
