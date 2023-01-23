@@ -6,7 +6,7 @@
       "value": "{color.gray.0}"
     },
     "overlay": {
-      "value": "rgba(0,0,0,0.7)",
+      "value": "rgba({color.black},0.7)",
       "type": "color",
       "description": "Use for modal UI overlay"
     }
@@ -85,11 +85,11 @@
     "radio-box": {
       "background": {
         "default": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         },
         "hover": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         },
         "active": {
@@ -97,7 +97,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         }
       },
@@ -218,6 +218,16 @@
     "accent": {
       "type": "color",
       "value": "{color.gold.60}"
+    },
+    "error": {
+      "value": "{color.red.60}",
+      "type": "color",
+      "description": "Use for error text/icons outside of a notice."
+    },
+    "success": {
+      "value": "{color.green.60}",
+      "type": "color",
+      "description": "Use for success text/icons outside of a notice."
     }
   },
   "link": {
@@ -325,7 +335,7 @@
     "tertiary": {
       "background": {
         "default": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         },
         "hover": {
@@ -333,7 +343,7 @@
           "value": "{color.gray.10}"
         },
         "disabled": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         }
       },
@@ -369,7 +379,7 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         },
         "hover": {
@@ -377,7 +387,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "rgba(255,255,255,0)",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         }
       },
@@ -460,7 +470,7 @@
       "secondary": {
         "background": {
           "default": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba({color.gray.0},0)",
             "type": "color"
           },
           "hover": {
@@ -468,7 +478,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba({color.gray.0},0)",
             "type": "color"
           }
         },
@@ -504,7 +514,7 @@
       "ghost": {
         "background": {
           "default": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba({color.gray.0},0)",
             "type": "color"
           },
           "hover": {
@@ -512,7 +522,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "rgba(255,255,255,0)",
+            "value": "rgba({color.gray.0},0)",
             "type": "color"
           }
         },

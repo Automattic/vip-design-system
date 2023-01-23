@@ -33,31 +33,42 @@ const RadioBoxGroup = React.forwardRef(
 					id={ `o${ index }` }
 					sx={ {
 						p: 3,
-						background: 'none',
+						backgroundColor: 'input.radio-box.background.default',
 						cursor: 'pointer',
 						borderRadius: 2,
 						textAlign: 'left',
 						border: '1px solid',
-						borderColor: 'border',
+						borderColor: 'input.radio-box.border.default',
 						position: 'relative',
 						'&:hover': {
-							borderColor: 'gray.10',
+							backgroundColor: 'input.radio-box.background.hover',
+							borderColor: 'input.radio-box.border.default',
 						},
 						'&[data-state=checked]': {
-							borderColor: 'primary',
+							borderColor: 'input.radio-box.border.active',
+						},
+						'&[data-state=disabled]': {
+							borderColor: 'input.radio-box.border.disabled',
 						},
 					} }
 				>
 					<RadioGroupPrimitive.Indicator>
 						<MdCheckCircle
 							size={ 16 }
-							sx={ { position: 'absolute', top: 2, right: 2, color: 'primary' } }
+							sx={ { position: 'absolute', top: 2, right: 2, color: 'icon.primary' } }
 						/>
 					</RadioGroupPrimitive.Indicator>
-					<Heading variant="h4" as="label" htmlFor={ `o${ index }` } sx={ { mb: 0 } }>
+					<Heading
+						variant="h4"
+						as="label"
+						htmlFor={ `o${ index }` }
+						sx={ { mb: 0, color: 'input.radio-box.label.primary.default' } }
+					>
 						{ option.label }
 					</Heading>
-					<Text sx={ { color: 'muted', mb: 0, fontSize: 1 } }>{ option.description }</Text>
+					<Text sx={ { color: 'input.radio-box.label.secondary.default', mb: 0, fontSize: 1 } }>
+						{ option.description }
+					</Text>
 				</RadioGroupPrimitive.Item>
 			) ) }
 		</RadioGroupPrimitive.Root>

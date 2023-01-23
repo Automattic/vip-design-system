@@ -18,13 +18,17 @@ const Code = React.forwardRef(
 				sx={ {
 					fontSize: 1,
 					display: 'block',
-					bg: 'layer.inverse',
-					color: 'texts.inverse',
+					bg: 'logs.background',
+					color: 'logs.text.primary',
 					borderRadius: 1,
 					py: 2,
 					px: 3,
 					verticalAlign: 'middle',
 					fontFamily: 'monospace',
+					time: {
+						fontFamily: 'inherit',
+						color: 'logs.text.secondary',
+					},
 					'&:before': {
 						content: prompt ? '"$"' : 'none',
 						marginRight: 2,

@@ -15,7 +15,12 @@ export default {
 
 export const Default = () => (
 	<React.Fragment>
-		<Code>Code</Code>
+		<Code>
+			<time sx={ { color: 'logs.text.secondary' } } dateTime="2022-01-01 15:15:15">
+				15:16
+			</time>{ ' ' }
+			Code
+		</Code>
 		<br />
 		<Code showCopy={ true }>Code with Icon</Code>
 		<br />
