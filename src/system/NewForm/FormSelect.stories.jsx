@@ -75,6 +75,15 @@ Default.args = {
 	options,
 };
 
+export const WithErrors = DefaultComponent.bind( {} );
+WithErrors.args = {
+	placeholder: '- Select -',
+	required: true,
+	hasError: true,
+	errorMessage: 'This is an error message',
+	options,
+};
+
 export const WithGroup = DefaultComponent.bind( {} );
 
 WithGroup.args = {

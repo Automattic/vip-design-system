@@ -48,6 +48,27 @@ describe( '<FormSelect />', () => {
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
+	it( 'renders the FormSelect component with an error if hasError=true', async () => {
+		const errorMessage = 'This is an error message';
+		const { container } = render(
+			<FormSelect
+				id="my_desert_list"
+				hasError={ true }
+				errorMessage={ errorMessage }
+				{ ...defaultProps }
+			/>
+		);
+
+		expect( screen.getByLabelText( defaultProps.label ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
+		expect( screen.getAllByRole( 'option' ) ).toHaveLength( 3 );
+		expect( screen.queryByRole( 'group' ) ).not.toBeInTheDocument();
+		expect( screen.getByText( errorMessage ) ).toBeInTheDocument();
+
+		// Check for accessibility issues
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
 	it( 'renders the FormSelect component with optgroup when options are grouped', async () => {
 		const { container } = render( <FormSelect id="my_desert_list" { ...groupedProps } /> );
 
