@@ -13,6 +13,7 @@ import { Label } from '../Form/Label';
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { baseControlStyle } from '../Form/Input.styles';
+import { Validation } from '../Form';
 
 const MAX_SUGGESTED_OPTIONS = 15;
 const isDev = process.env.NODE_ENV !== 'production';
@@ -55,6 +56,8 @@ const FormSelect = React.forwardRef(
 			getOptionLabel,
 			getOptionValue,
 			onChange,
+			hasError,
+			errorMessage,
 			...props
 		},
 		forwardRef
@@ -119,9 +122,14 @@ const FormSelect = React.forwardRef(
 								: renderOption( optionLabel( option ), optionValue( option ) )
 						) }
 					</select>
-
 					<FormSelectArrow />
 				</FormSelectContent>
+
+				{ hasError && errorMessage && (
+					<Validation isValid={ false } describedId={ forLabel }>
+						{ errorMessage }
+					</Validation>
+				) }
 			</>
 		);
 	}
@@ -137,6 +145,8 @@ FormSelect.propTypes = {
 	options: PropTypes.array,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
+	hasError: PropTypes.bool,
+	errorMessage: PropTypes.string,
 	onChange: PropTypes.func,
 };
 
