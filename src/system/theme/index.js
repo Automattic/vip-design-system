@@ -87,10 +87,6 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.logs,
 	},
 
-	'radio-box': {
-		...theme[ 'radio-box' ],
-	},
-
 	// Accordion
 	accordion: {
 		content: {
@@ -112,7 +108,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		border: gColor( 'border', '1' ),
 		text: gColor( 'text', 'secondary' ),
 		textAccent: gColor( 'link', 'default' ),
-		icon: gColor( 'icon', 'primary' ),
+		icon: gColor( 'icon', 'inverse' ),
 		iconBackground: gColor( 'layer', 'accent' ),
 	},
 
