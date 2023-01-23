@@ -6,7 +6,7 @@
       "value": "#fbfbfb"
     },
     "overlay": {
-      "value": "#000000b3",
+      "value": "#13191eb3",
       "type": "color",
       "description": "Use for modal UI overlay"
     }
@@ -85,11 +85,11 @@
     "radio-box": {
       "background": {
         "default": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         },
         "hover": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         },
         "active": {
@@ -97,7 +97,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         }
       },
@@ -218,6 +218,16 @@
     "accent": {
       "type": "color",
       "value": "#9a6014"
+    },
+    "error": {
+      "value": "#bf2a23",
+      "type": "color",
+      "description": "Use for error text/icons outside of a notice."
+    },
+    "success": {
+      "value": "#007934",
+      "type": "color",
+      "description": "Use for success text/icons outside of a notice."
     }
   },
   "link": {
@@ -325,7 +335,7 @@
     "tertiary": {
       "background": {
         "default": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         },
         "hover": {
@@ -333,7 +343,7 @@
           "value": "#e3e0df"
         },
         "disabled": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         }
       },
@@ -369,7 +379,7 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         },
         "hover": {
@@ -377,7 +387,7 @@
           "type": "color"
         },
         "disabled": {
-          "value": "#ffffff00",
+          "value": "#fbfbfb00",
           "type": "color"
         }
       },
@@ -460,7 +470,7 @@
       "secondary": {
         "background": {
           "default": {
-            "value": "#ffffff00",
+            "value": "#fbfbfb00",
             "type": "color"
           },
           "hover": {
@@ -468,7 +478,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "#ffffff00",
+            "value": "#fbfbfb00",
             "type": "color"
           }
         },
@@ -504,7 +514,7 @@
       "ghost": {
         "background": {
           "default": {
-            "value": "#ffffff00",
+            "value": "#fbfbfb00",
             "type": "color"
           },
           "hover": {
@@ -512,7 +522,7 @@
             "type": "color"
           },
           "disabled": {
-            "value": "#ffffff00",
+            "value": "#fbfbfb00",
             "type": "color"
           }
         },
