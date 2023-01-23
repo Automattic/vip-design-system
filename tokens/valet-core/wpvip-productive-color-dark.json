@@ -349,7 +349,7 @@
           "value": "{color.gray.73}"
         },
         "disabled": {
-          "value": "rgba(0,0,0,0)",
+          "value": "rgba({color.black},0)",
           "type": "color"
         }
       },
@@ -385,7 +385,7 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "rgba(0,0,0,0)",
+          "value": "rgba({color.black},0)",
           "type": "color"
         },
         "hover": {
