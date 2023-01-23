@@ -13,7 +13,7 @@ const Spinner = React.forwardRef( ( { sx, className = null, ...props }, forwardR
 		strokeWidth={ 2 }
 		sx={ {
 			fill: 'none',
-			color: 'icon.primary',
+			color: 'link',
 		} }
 		className={ classNames( 'vip-spinner-component', className ) }
 		ref={ forwardRef }
