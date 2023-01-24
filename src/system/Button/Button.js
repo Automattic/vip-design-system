@@ -7,9 +7,8 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
-import { variants } from './index';
 
-const Button = React.forwardRef( ( { disabled, variant, onClick, sx, ...props }, forwardRef ) => {
+const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardRef ) => {
 	const handleOnClick = useCallback(
 		event => {
 			if ( disabled ) {
@@ -48,7 +47,6 @@ const Button = React.forwardRef( ( { disabled, variant, onClick, sx, ...props },
 			aria-disabled={ disabled }
 			onClick={ handleOnClick }
 			className={ classNames( 'vip-button-component', props.className ) }
-			variant={ variant }
 			ref={ forwardRef }
 		/>
 	);
@@ -57,7 +55,6 @@ const Button = React.forwardRef( ( { disabled, variant, onClick, sx, ...props },
 Button.displayName = 'Button';
 
 Button.propTypes = {
-	variant: PropTypes.oneOf( variants ),
 	className: PropTypes.any,
 	disabled: PropTypes.bool,
 	onClick: PropTypes.func,
