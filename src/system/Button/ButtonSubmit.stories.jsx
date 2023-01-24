@@ -2,7 +2,6 @@
  * External dependencies
  */
 import React from 'react';
-import { BiCalendarHeart } from 'react-icons/bi';
 
 /**
  * Internal dependencies
