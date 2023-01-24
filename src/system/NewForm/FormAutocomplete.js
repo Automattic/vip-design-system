@@ -157,6 +157,8 @@ const FormAutocomplete = React.forwardRef(
 			inputValue => {
 				if ( inputValue ) {
 					onChange( getOptionByLabel( inputValue ), inputValue );
+				} else {
+					onChange( null, inputValue );
 				}
 			},
 			[ onChange, getOptionByLabel ]

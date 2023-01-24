@@ -32,15 +32,26 @@ const args = {
 };
 
 // eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
-	<>
-		<Form.Root>
-			<div sx={ { width } }>
-				<Form.Autocomplete id="form-autocomplete" label={ label } { ...rest } />
-			</div>
-		</Form.Root>
-	</>
-);
+const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
+	const [ selectedValue, setSelectedValue ] = useState( null );
+	return (
+		<>
+			<Form.Root>
+				<div sx={ { width } }>
+					<Form.Autocomplete
+						id="form-autocomplete"
+						label={ label }
+						onChange={ ( obj, val ) => {
+							setSelectedValue( val );
+						} }
+						{ ...rest }
+					/>
+				</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValue }</div>
+			</Form.Root>
+		</>
+	);
+};
 
 export const Default = () => {
 	return (
