@@ -7,7 +7,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
-import { variants } from '.';
+import { variants } from './index';
 
 const Button = React.forwardRef( ( { disabled, variant, onClick, sx, ...props }, forwardRef ) => {
 	const handleOnClick = useCallback(
