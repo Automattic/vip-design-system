@@ -15,6 +15,9 @@ export default {
 	component: ButtonSubmit,
 	argTypes: {
 		label: { defaultValue: 'Load more items' },
+		loading: {
+			control: { type: 'boolean', defaultValue: true },
+		},
 		disabled: {
 			control: { type: 'boolean' },
 		},
