@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 import { Badge } from './Badge';
 import { BlankState } from './BlankState';
 import { Box } from './Box';
-import { Button } from './Button';
+import { Button, ButtonSubmit } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
 import {
@@ -63,6 +63,7 @@ export {
 	Box,
 	BlankState,
 	Button,
+	ButtonSubmit,
 	Card,
 	Checkbox,
 	Code,

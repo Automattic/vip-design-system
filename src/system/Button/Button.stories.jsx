@@ -9,6 +9,7 @@ import { BiCalendarHeart } from 'react-icons/bi';
  */
 import ScreenReaderText from '../ScreenReaderText';
 import { Button } from '..';
+import { variants } from '.';
 
 export default {
 	title: 'Button',
@@ -20,7 +21,7 @@ export default {
 		},
 		variant: {
 			type: 'select',
-			options: [ 'primary', 'secondary', 'text', 'icon', 'tertiary', 'ghost', 'danger', 'display' ],
+			options: variants,
 		},
 	},
 };
