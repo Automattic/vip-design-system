@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
 import { variants } from '.';
 
-const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardRef ) => {
+const Button = React.forwardRef( ( { disabled, variant, onClick, sx, ...props }, forwardRef ) => {
 	const handleOnClick = useCallback(
 		event => {
 			if ( disabled ) {
@@ -48,6 +48,7 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 			aria-disabled={ disabled }
 			onClick={ handleOnClick }
 			className={ classNames( 'vip-button-component', props.className ) }
+			variant={ variant }
 			ref={ forwardRef }
 		/>
 	);
