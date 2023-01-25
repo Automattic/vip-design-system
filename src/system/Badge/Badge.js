@@ -27,16 +27,13 @@ const Badge = React.forwardRef(
 				display: 'inline-block',
 				borderRadius: 1,
 				fontWeight: 'heading',
-				'&:hover, &:focus': {
-					backgroundColor: `tag.${ variant }.hover`,
-				},
 				a: {
 					color: `tag.${ variant }.text`,
 					'&:hover, &:focus, &:active': {
 						textDecoration: 'none',
 					},
-					'&:active': {
-						color: `${ variant }.active`,
+					'&:active, &:visited': {
+						color: `tag.${ variant }.text`,
 					},
 				},
 				...sx,
