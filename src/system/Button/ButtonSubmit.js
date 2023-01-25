@@ -63,7 +63,7 @@ export const ButtonSubmit = React.forwardRef(
 ButtonSubmit.displayName = 'ButtonSubmit';
 
 ButtonSubmit.propTypes = {
-	label: PropTypes.string.isRequired,
+	label: PropTypes.node.isRequired,
 	disabled: PropTypes.bool,
 	loading: PropTypes.bool,
 	variant: PropTypes.oneOf( variants ),
