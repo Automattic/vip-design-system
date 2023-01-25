@@ -114,6 +114,7 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = true,
+			resetOnNoMatch = true,
 			source,
 			value,
 			hasError,
@@ -123,7 +124,13 @@ const FormAutocomplete = React.forwardRef(
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
+
+		const [ selectedValue, setSelectedValue ] = useState( value );
+		const [ inputQuery, setInputQuery ] = useState( value );
 		let debounceTimeout;
+		if ( ! forwardRef ) {
+			forwardRef = React.createRef();
+		}
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel || id }>
@@ -152,32 +159,46 @@ const FormAutocomplete = React.forwardRef(
 				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
 			[ getAllOptions, optionLabel ]
 		);
-
-		const onValueChange = useCallback(
-			inputValue => {
-				if ( inputValue ) {
-					onChange( getOptionByLabel( inputValue ), inputValue );
-				} else {
-					onChange( null, inputValue );
+		// this method gets called when we confirm the selection via click/enter
+		const onValueChange = inputValue => {
+			if ( inputValue ) {
+				setSelectedValue( inputValue );
+				setInputQuery( inputValue );
+				onChange( getOptionByLabel( inputValue ), inputValue );
+				setIsDirty( false );
+			} else if ( resetOnNoMatch && inputQuery !== selectedValue ) {
+				// reset the content if there's no match
+				setSelectedValue( '' );
+				setInputQuery( '' );
+				setIsDirty( false );
+				if ( forwardRef?.current && inputQuery !== selectedValue ) {
+					forwardRef.current.setState( {
+						...forwardRef.current.state,
+						selected: null,
+						query: '',
+					} );
 				}
-			},
-			[ onChange, getOptionByLabel ]
-		);
+				onChange( getOptionByLabel( inputValue ), inputValue );
+			}
+		};
 
 		const handleTypeChange = useCallback(
-			query =>
-				options.filter(
+			query => {
+				setInputQuery( query );
+				return options.filter(
 					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-				),
+				);
+			},
 			[ options ]
 		);
 
 		const handleInputChange = useCallback(
 			query => {
+				setInputQuery( query );
 				if ( ! debounce ) {
 					return onInputChange( query );
 				}
-				clearTimeout( debounceTimeout );
+
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
 						onInputChange( query );
@@ -282,6 +303,7 @@ FormAutocomplete.propTypes = {
 	required: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	showAllValues: PropTypes.bool,
+	resetOnNoMatch: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
 	hasError: PropTypes.bool,
