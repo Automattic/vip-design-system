@@ -291,6 +291,21 @@ export default {
 			},
 		},
 
+		display: {
+			variant: 'buttons.primary',
+			color: 'button.display.label.default',
+			bg: 'button.display.background.default',
+			border: '1px solid',
+			borderColor: 'transparent',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'button.display.background.hover',
+				color: 'button.display.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+		},
+
 		ghost: {
 			variant: 'buttons.primary',
 			color: 'button.ghost.label.default',
