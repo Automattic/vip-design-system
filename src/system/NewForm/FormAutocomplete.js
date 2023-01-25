@@ -125,7 +125,7 @@ const FormAutocomplete = React.forwardRef(
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
 
-		const [ selectedValue, setSelectedValue ] = useState( value );
+		const [ selectedValue, setSelectedValue ] = useState( value || '' );
 		const [ inputQuery, setInputQuery ] = useState( value );
 		let debounceTimeout;
 		if ( ! forwardRef ) {
@@ -159,28 +159,26 @@ const FormAutocomplete = React.forwardRef(
 				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
 			[ getAllOptions, optionLabel ]
 		);
+
 		// this method gets called when we confirm the selection via click/enter
-		const onValueChange = inputValue => {
-			if ( inputValue ) {
-				setSelectedValue( inputValue );
-				setInputQuery( inputValue );
-				onChange( getOptionByLabel( inputValue ), inputValue );
-				setIsDirty( false );
-			} else if ( resetOnNoMatch && inputQuery !== selectedValue ) {
-				// reset the content if there's no match
-				setSelectedValue( '' );
-				setInputQuery( '' );
-				setIsDirty( false );
-				if ( forwardRef?.current && inputQuery !== selectedValue ) {
-					forwardRef.current.setState( {
-						...forwardRef.current.state,
-						selected: null,
-						query: '',
-					} );
+		const onValueChange = useCallback(
+			inputValue => {
+				if ( inputValue ) {
+					setSelectedValue( inputValue );
+					setInputQuery( inputValue );
+					onChange( getOptionByLabel( inputValue ), inputValue );
+					setIsDirty( false );
+				} else if ( resetOnNoMatch && inputQuery !== selectedValue ) {
+					// reset the content if there's no match
+					setSelectedValue( '' );
+					setInputQuery( '' );
+					setIsDirty( false );
+
+					onChange( getOptionByLabel( inputValue ), inputValue );
 				}
-				onChange( getOptionByLabel( inputValue ), inputValue );
-			}
-		};
+			},
+			[ selectedValue, inputQuery, setIsDirty ]
+		);
 
 		const handleTypeChange = useCallback(
 			query => {
@@ -240,6 +238,16 @@ const FormAutocomplete = React.forwardRef(
 			} );
 		}, [ setIsDirty ] );
 
+		useEffect( () => {
+			global.document.querySelector( `#${ id }` ).addEventListener( 'blur', () => {
+				if ( resetOnNoMatch && forwardRef?.current && inputQuery !== selectedValue ) {
+					forwardRef.current.setState( {
+						...forwardRef.current.state,
+						query: '',
+					} );
+				}
+			} );
+		}, [ forwardRef, inputQuery, selectedValue ] );
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
