@@ -177,7 +177,7 @@ const FormAutocomplete = React.forwardRef(
 					onChange( getOptionByLabel( inputValue ), inputValue );
 				}
 			},
-			[ selectedValue, inputQuery, setIsDirty ]
+			[ onChange, getOptionByLabel, selectedValue, inputQuery, setIsDirty ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -196,6 +196,7 @@ const FormAutocomplete = React.forwardRef(
 				if ( ! debounce ) {
 					return onInputChange( query );
 				}
+				clearTimeout( debounceTimeout );
 
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
