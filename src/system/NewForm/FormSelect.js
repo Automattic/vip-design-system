@@ -144,18 +144,18 @@ const FormSelect = React.forwardRef(
 );
 
 FormSelect.propTypes = {
-	id: PropTypes.string,
-	isInline: PropTypes.bool,
-	required: PropTypes.bool,
+	errorMessage: PropTypes.string,
 	forLabel: PropTypes.string,
-	placeholder: PropTypes.string,
-	label: PropTypes.string,
-	options: PropTypes.array,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
 	hasError: PropTypes.bool,
-	errorMessage: PropTypes.string,
+	id: PropTypes.string,
+	isInline: PropTypes.bool,
+	label: PropTypes.string,
 	onChange: PropTypes.func,
+	options: PropTypes.array,
+	placeholder: PropTypes.string,
+	required: PropTypes.bool,
 };
 
 FormSelect.displayName = 'FormSelect';

@@ -36,7 +36,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
 	<>
 		<Form.Root>
 			<div sx={ { width } }>
-				<Form.Autocomplete id="form-autocomplete" label={ label } { ...rest } />
+				<Form.Autocomplete forLabel="form-autocomplete" label={ label } { ...rest } />
 			</div>
 		</Form.Root>
 	</>
@@ -138,7 +138,8 @@ export const WithErrors = () => {
 	const customArgs = {
 		...args,
 		hasError: true,
-		errorMessage: 'Please select a value',
+		errorMessage: 'Please select a value.',
+		required: true,
 	};
 
 	return (
