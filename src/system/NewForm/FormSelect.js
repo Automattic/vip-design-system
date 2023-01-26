@@ -102,7 +102,7 @@ const FormSelect = React.forwardRef(
 		);
 
 		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel || props.id }>
+			<Label required={ required } htmlFor={ forLabel }>
 				{ label }
 			</Label>
 		);
@@ -149,7 +149,6 @@ FormSelect.propTypes = {
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
 	hasError: PropTypes.bool,
-	id: PropTypes.string,
 	isInline: PropTypes.bool,
 	label: PropTypes.string,
 	onChange: PropTypes.func,
