@@ -211,6 +211,12 @@ const FormAutocomplete = React.forwardRef(
 		}, [ label ] );
 
 		useEffect( () => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			input.setAttribute( 'aria-required', required );
+		}, [ required ] );
+
+		useEffect( () => {
 			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', () => {
 				setIsDirty( true );
 			} );
@@ -254,7 +260,6 @@ const FormAutocomplete = React.forwardRef(
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
 							required={ required }
-							aria-required={ required }
 							{ ...props }
 						/>
 						{ loading && <FormSelectLoading /> }
