@@ -213,6 +213,10 @@ const FormAutocomplete = React.forwardRef(
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
 
+			if ( ! input || required === undefined ) {
+				return;
+			}
+
 			input.setAttribute( 'aria-required', required );
 		}, [ required ] );
 
@@ -226,7 +230,7 @@ const FormAutocomplete = React.forwardRef(
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
 
-			input.setAttribute(
+			input?.setAttribute(
 				'aria-describedby',
 				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
 			);
