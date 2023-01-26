@@ -62,7 +62,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 		</p>
 		<Form.Root>
 			<div sx={ { width } }>
-				<Form.Select id="form-select" label={ label } onChange={ onChange } { ...rest } />
+				<Form.Select forLabel="form-select" label={ label } onChange={ onChange } { ...rest } />
 			</div>
 		</Form.Root>
 	</>
