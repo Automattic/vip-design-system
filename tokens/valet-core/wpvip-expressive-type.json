@@ -244,7 +244,7 @@
         "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.9}",
+        "fontSize": "{fontSize.responsive.8}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"
