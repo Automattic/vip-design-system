@@ -7,7 +7,7 @@
     },
     "overlay": {
       "type": "color",
-      "value": "rgba({color.gray.70},0.7)",
+      "value": "rgba({color.black},0.7)",
       "description": "Use as modal UI overlay"
     }
   },
@@ -29,7 +29,7 @@
       "type": "color"
     },
     "inverse": {
-      "value": "{color.gray.15}",
+      "value": "{color.gray.100}",
       "type": "color",
       "description": "Use as component background in high-contrast situations. "
     },
@@ -170,7 +170,7 @@
     },
     "2": {
       "type": "color",
-      "value": "{color.gray.83}",
+      "value": "{color.gray.75}",
       "description": "Use for soft borders on default page bg"
     },
     "3": {
@@ -349,7 +349,7 @@
           "value": "{color.gray.73}"
         },
         "disabled": {
-          "value": "rgba({color.black},0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         }
       },
@@ -385,7 +385,7 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "rgba({color.black},0)",
+          "value": "rgba(0,0,0,0)",
           "type": "color"
         },
         "hover": {
@@ -951,28 +951,6 @@
       "value": "{color.gray.90}",
       "type": "color",
       "description": "Use for the pseudo terminal window background color."
-    }
-  },
-  "option-row": {
-    "default": {
-      "background": {
-        "value": "{color.gold.40}",
-        "type": "color"
-      },
-      "icon": {
-        "value": "{color.gray.93}",
-        "type": "color"
-      }
-    },
-    "alt": {
-      "background": {
-        "value": "{layer.inverse}",
-        "type": "color"
-      },
-      "icon": {
-        "value": "{icon.inverse}",
-        "type": "color"
-      }
     }
   }
 }
