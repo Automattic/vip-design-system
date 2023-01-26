@@ -114,7 +114,15 @@ const FormSelect = React.forwardRef(
 				{ label && ! isInline && <SelectLabel /> }
 
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
-					<select onChange={ onValueChange } ref={ forwardRef } sx={ defaultStyles } { ...props }>
+					<select
+						onChange={ onValueChange }
+						ref={ forwardRef }
+						sx={ defaultStyles }
+						required={ required }
+						aria-required={ required }
+						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+						{ ...props }
+					>
 						{ placeholder && <option>{ placeholder }</option> }
 						{ options.map( ( { options: groupOptions, ...option } ) =>
 							groupOptions
