@@ -58,7 +58,7 @@
     "4-short": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.regular}",
+        "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.static.5}"
       },
