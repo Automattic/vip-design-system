@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { MdCheckCircle } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
@@ -14,9 +14,19 @@ import { Card, Heading, Text, Flex } from '..';
 
 const WizardStep = React.forwardRef(
 	(
-		{ title, subTitle, complete = false, children, active, order, titleVariant = 'h3' },
+		{
+			title,
+			subTitle,
+			complete = false,
+			children,
+			active,
+			order,
+			shouldFocusTitle,
+			titleVariant = 'h3',
+		},
 		forwardRef
 	) => {
+		const titleRef = React.useRef( null );
 		let borderLeftColor = 'border';
 
 		if ( complete ) {
@@ -32,7 +42,11 @@ const WizardStep = React.forwardRef(
 		} else if ( active ) {
 			color = 'heading';
 		}
-
+		useLayoutEffect( () => {
+			if ( active && titleRef?.current && shouldFocusTitle ) {
+				titleRef.current.focus();
+			}
+		}, [ active, shouldFocusTitle ] );
 		return (
 			<Card
 				as="section"
@@ -67,6 +81,7 @@ const WizardStep = React.forwardRef(
 							fontSize: 2,
 							fontWeight: active ? 'bold' : 'normal',
 						} }
+						ref={ titleRef }
 					>
 						<MdCheckCircle
 							aria-hidden="true"
@@ -102,6 +117,7 @@ WizardStep.propTypes = {
 	subTitle: PropTypes.node,
 	title: PropTypes.node,
 	titleVariant: PropTypes.string,
+	shouldFocusTitle: PropTypes.bool,
 };
 
 export { WizardStep };
