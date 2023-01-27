@@ -121,6 +121,7 @@ const FormSelect = React.forwardRef(
 						required={ required }
 						aria-required={ required }
 						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+						id={ forLabel }
 						{ ...props }
 					>
 						{ placeholder && <option>{ placeholder }</option> }
