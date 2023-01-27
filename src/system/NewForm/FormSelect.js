@@ -49,7 +49,7 @@ const FormSelect = React.forwardRef(
 		{
 			isInline,
 			placeholder,
-			forLabel,
+			forLabel = 'vip-form-select',
 			options,
 			required,
 			label,
