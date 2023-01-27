@@ -31,17 +31,12 @@ export const ButtonSubmit = React.forwardRef(
 			disabled = false,
 			loadingIcon = DefaultSpinner,
 			loadingIconSize = 20,
-			loadingIconColor = undefined,
 			...rest
 		},
 		forwardRef
 	) => {
 		if ( ! show ) {
 			return null;
-		}
-
-		if ( ! loadingIconColor && variant === 'display' ) {
-			loadingIconColor = 'button.display.label.default';
 		}
 
 		return (
@@ -71,5 +66,4 @@ ButtonSubmit.propTypes = {
 	show: PropTypes.bool,
 	loadingIcon: PropTypes.any,
 	loadingIconSize: PropTypes.number,
-	loadingIconColor: PropTypes.string,
 };
