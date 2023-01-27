@@ -61,6 +61,7 @@ export const Default = () => {
 
 export const WithTitleAutoFocus = () => {
 	const [ activeStep, setActiveStep ] = React.useState( 0 );
+	const [ autoFocus, setAutoFocus ] = React.useState( true );
 	const steps = [
 		{
 			title: 'Choose Domain',
@@ -94,8 +95,19 @@ export const WithTitleAutoFocus = () => {
 				<Wizard
 					activeStep={ activeStep }
 					steps={ steps }
-					titleAutofocus={ true }
+					titleAutofocus={ autoFocus }
 					className="vip-wizard-xyz"
+				/>
+			</Box>
+			<Box mt={ 4 }>
+				<Form.Select
+					label="Autofocus status"
+					value={ autoFocus }
+					onChange={ e => setAutoFocus( e.value ) }
+					options={ [
+						{ value: true, label: 'On' },
+						{ value: false, label: 'Off' },
+					] }
 				/>
 			</Box>
 		</React.Fragment>
