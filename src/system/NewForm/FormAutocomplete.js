@@ -271,7 +271,8 @@ const FormAutocomplete = React.forwardRef(
 							dropdownArrow={ showDropdownArrow ? dropdownArrow : () => '' }
 							{ ...props }
 						/>
-						{ loading && <FormSelectLoading /> }
+
+						{ loading && <FormSelectLoading sx={ { right: showDropdownArrow ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
 

@@ -4,6 +4,7 @@
  * External dependencies
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { keyframes } from '@emotion/react';
 
@@ -17,23 +18,28 @@ const kf = keyframes( {
 	to: { transform: 'rotate(360deg) ' },
 } );
 
-export const FormSelectLoading = React.forwardRef( ( props, forwardRef ) => (
+export const FormSelectLoading = React.forwardRef( ( { sx = {}, ...rest }, forwardRef ) => (
 	<AiOutlineLoading3Quarters
 		ref={ forwardRef }
 		aria-hidden="true"
 		size={ 18 }
 		sx={ {
 			position: 'absolute',
-			right: 40,
+			right: 10,
 			pointerEvents: 'none',
 			animation: `${ kf } 1s infinite linear`,
 			opacity: 0.5,
 			svg: {
 				fill: inputBaseText,
 			},
+			...sx,
 		} }
-		{ ...props }
+		{ ...rest }
 	/>
 ) );
+
+FormSelectLoading.propTypes = {
+	sx: PropTypes.object,
+};
 
 FormSelectLoading.displayName = 'FormSelectLoading';
