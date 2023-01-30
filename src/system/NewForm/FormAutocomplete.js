@@ -113,6 +113,7 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = true,
+			showArrowDown = false,
 			source,
 			value,
 			hasError,
@@ -267,7 +268,7 @@ const FormAutocomplete = React.forwardRef(
 							{ ...props }
 						/>
 						{ loading && <FormSelectLoading /> }
-						<FormSelectArrow />
+						{ showArrowDown && <FormSelectArrow /> }
 					</FormSelectContent>
 				</div>
 
@@ -304,6 +305,7 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
+	showArrowDown: PropTypes.bool,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
