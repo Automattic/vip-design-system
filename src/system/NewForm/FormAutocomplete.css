@@ -38,7 +38,7 @@
 	cursor: pointer;
 }
 
-.autocomplete__dropdown-arrow-down {
+/* .autocomplete__dropdown-arrow-down {
 	z-index: -1;
 	display: inline-block;
 	position: absolute;
@@ -47,7 +47,7 @@
 	height: 24px;
 	top: 10px;
 	pointer-events: none;
-}
+} */
 
 .autocomplete__menu {
 	background-color: #fff;

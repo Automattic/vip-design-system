@@ -92,6 +92,8 @@ const searchIconStyles = {
 	},
 };
 
+const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
+
 const FormAutocomplete = React.forwardRef(
 	(
 		{
@@ -113,7 +115,8 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = true,
-			showArrowDown = false,
+			dropdownArrow = DefaultArrow,
+			showDropdownArrow = false,
 			source,
 			value,
 			hasError,
@@ -265,10 +268,10 @@ const FormAutocomplete = React.forwardRef(
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
 							required={ required }
+							dropdownArrow={ showDropdownArrow ? dropdownArrow : () => '' }
 							{ ...props }
 						/>
 						{ loading && <FormSelectLoading /> }
-						{ showArrowDown && <FormSelectArrow /> }
 					</FormSelectContent>
 				</div>
 
@@ -305,7 +308,8 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
-	showArrowDown: PropTypes.bool,
+	dropdownArrow: PropTypes.node,
+	showDropdownArrow: PropTypes.bool,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';

@@ -148,3 +148,37 @@ export const WithErrors = () => {
 		</>
 	);
 };
+
+export const WithArrow = () => {
+	const customArgs = {
+		...args,
+		showDropdownArrow: true,
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
+export const WithCustomArrow = () => {
+	const customArgs = {
+		...args,
+		showDropdownArrow: true,
+		// eslint-disable-next-line react/display-name
+		dropdownArrow: () => (
+			<span sx={ { position: 'absolute', top: '2px', right: '10px', pointerEvents: 'none' } }>
+				👇
+			</span>
+		),
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
+WithCustomArrow.displayName = 'WithCustomArrow';
