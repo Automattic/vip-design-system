@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { Button } from './Button';
 import { Spinner } from '../Spinner';
 import classNames from 'classnames';
-import { variants } from '.';
+import variants from './variants';
 
 const DefaultSpinner = ( { size, color = 'link' } ) => (
 	<Spinner size={ size } sx={ { ml: 2, color } } className="vip-button-submit-spinner" />
@@ -25,23 +25,18 @@ export const ButtonSubmit = React.forwardRef(
 	(
 		{
 			show = true,
-			variant = 'secondary',
+			variant = variants[ 1 ],
 			label,
 			loading = false,
 			disabled = false,
 			loadingIcon = DefaultSpinner,
 			loadingIconSize = 20,
-			loadingIconColor = undefined,
 			...rest
 		},
 		forwardRef
 	) => {
 		if ( ! show ) {
 			return null;
-		}
-
-		if ( ! loadingIconColor && variant === 'display' ) {
-			loadingIconColor = 'button.display.label.default';
 		}
 
 		return (
@@ -54,7 +49,8 @@ export const ButtonSubmit = React.forwardRef(
 				{ ...rest }
 			>
 				{ label }{ ' ' }
-				{ !! loading && loadingIcon( { size: loadingIconSize, color: loadingIconColor } ) }
+				{ !! loading &&
+					loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
 			</Button>
 		);
 	}
@@ -70,5 +66,4 @@ ButtonSubmit.propTypes = {
 	show: PropTypes.bool,
 	loadingIcon: PropTypes.any,
 	loadingIconSize: PropTypes.number,
-	loadingIconColor: PropTypes.string,
 };

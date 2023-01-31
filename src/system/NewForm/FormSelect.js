@@ -49,7 +49,7 @@ const FormSelect = React.forwardRef(
 		{
 			isInline,
 			placeholder,
-			forLabel,
+			forLabel = 'vip-form-select',
 			options,
 			required,
 			label,
@@ -102,7 +102,7 @@ const FormSelect = React.forwardRef(
 		);
 
 		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel || props.id }>
+			<Label required={ required } htmlFor={ forLabel }>
 				{ label }
 			</Label>
 		);
@@ -114,7 +114,16 @@ const FormSelect = React.forwardRef(
 				{ label && ! isInline && <SelectLabel /> }
 
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
-					<select onChange={ onValueChange } ref={ forwardRef } sx={ defaultStyles } { ...props }>
+					<select
+						onChange={ onValueChange }
+						ref={ forwardRef }
+						sx={ defaultStyles }
+						required={ required }
+						aria-required={ required }
+						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+						id={ forLabel }
+						{ ...props }
+					>
 						{ placeholder && <option>{ placeholder }</option> }
 						{ options.map( ( { options: groupOptions, ...option } ) =>
 							groupOptions
@@ -136,18 +145,17 @@ const FormSelect = React.forwardRef(
 );
 
 FormSelect.propTypes = {
-	id: PropTypes.string,
-	isInline: PropTypes.bool,
-	required: PropTypes.bool,
+	errorMessage: PropTypes.string,
 	forLabel: PropTypes.string,
-	placeholder: PropTypes.string,
-	label: PropTypes.string,
-	options: PropTypes.array,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
 	hasError: PropTypes.bool,
-	errorMessage: PropTypes.string,
+	isInline: PropTypes.bool,
+	label: PropTypes.string,
 	onChange: PropTypes.func,
+	options: PropTypes.array,
+	placeholder: PropTypes.string,
+	required: PropTypes.bool,
 };
 
 FormSelect.displayName = 'FormSelect';

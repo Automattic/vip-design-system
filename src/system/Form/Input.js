@@ -38,6 +38,7 @@ const Input = React.forwardRef(
 				ref={ ref }
 				id={ forLabel }
 				required={ required }
+				aria-required={ required }
 				aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
 				sx={ { ...inputStyles, ...sx } }
 				{ ...props }

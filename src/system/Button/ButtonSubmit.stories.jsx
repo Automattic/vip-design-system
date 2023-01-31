@@ -7,7 +7,7 @@ import React from 'react';
  * Internal dependencies
  */
 import { ButtonSubmit } from '..';
-import { variants } from '.';
+import variants from './variants';
 
 export default {
 	title: 'ButtonSubmit',

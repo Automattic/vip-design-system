@@ -99,10 +99,9 @@ const FormAutocomplete = React.forwardRef(
 			className,
 			debounce = 0,
 			displayMenu = 'overlay',
-			forLabel,
+			forLabel = 'vip-autocomplete',
 			getOptionLabel,
 			getOptionValue,
-			id = 'vip-autocomplete',
 			isInline,
 			label,
 			loading,
@@ -126,7 +125,7 @@ const FormAutocomplete = React.forwardRef(
 		let debounceTimeout;
 
 		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel || id }>
+			<Label required={ required } htmlFor={ forLabel }>
 				{ label }
 			</Label>
 		);
@@ -212,10 +211,30 @@ const FormAutocomplete = React.forwardRef(
 		}, [ label ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ id }` ).addEventListener( 'keydown', () => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			if ( ! input || required === undefined ) {
+				return;
+			}
+
+			input.setAttribute( 'aria-required', required );
+		}, [ required ] );
+
+		useEffect( () => {
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', () => {
 				setIsDirty( true );
 			} );
 		}, [ setIsDirty ] );
+
+		// For accessibility, we need to add the error message to the aria-describedby attribute
+		useEffect( () => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			input?.setAttribute(
+				'aria-describedby',
+				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
+			);
+		}, [] );
 
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
@@ -233,8 +252,9 @@ const FormAutocomplete = React.forwardRef(
 						label={ inlineLabel ? <SelectLabel /> : null }
 					>
 						{ searchIcon && <FormSelectSearch /> }
+
 						<Autocomplete
-							id={ id }
+							id={ forLabel }
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
@@ -243,6 +263,7 @@ const FormAutocomplete = React.forwardRef(
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
+							required={ required }
 							{ ...props }
 						/>
 						{ loading && <FormSelectLoading /> }
@@ -265,10 +286,11 @@ FormAutocomplete.propTypes = {
 	className: PropTypes.any,
 	debounce: PropTypes.number,
 	displayMenu: PropTypes.string,
+	errorMessage: PropTypes.string,
 	forLabel: PropTypes.string,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
-	id: PropTypes.string,
+	hasError: PropTypes.bool,
 	isInline: PropTypes.bool,
 	label: PropTypes.string,
 	loading: PropTypes.bool,
@@ -282,8 +304,6 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
-	hasError: PropTypes.bool,
-	errorMessage: PropTypes.string,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
