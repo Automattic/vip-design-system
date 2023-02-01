@@ -159,32 +159,40 @@ const FormAutocomplete = React.forwardRef(
 				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
 			[ getAllOptions, optionLabel ]
 		);
-
+		/**
+		 * Reset the underlying component state to show the selected value
+		 */
+		const resetInputState = useCallback( () => {
+			if ( resetOnNoMatch && forwardRef?.current && inputQuery !== selectedValue ) {
+				forwardRef.current.setState( {
+					...forwardRef.current.state,
+					query: inputQuery && inputQuery !== '' ? selectedValue : '',
+				} );
+			}
+		}, [ forwardRef ] );
+		// sets the internal state variables and calls the onChange callback
+		const setAutocompleteState = inputValue => {
+			setInputQuery( inputValue );
+			setSelectedValue( inputValue );
+			onChange( getOptionByLabel( inputValue ), inputValue );
+			setIsDirty( false );
+		};
 		// this method gets called when we confirm the selection via click/enter
 		const onValueChange = useCallback(
 			inputValue => {
 				if ( inputValue ) {
-					setSelectedValue( inputValue );
-					setInputQuery( inputValue );
-					onChange( getOptionByLabel( inputValue ), inputValue );
-					setIsDirty( false );
+					setAutocompleteState( inputValue );
 				} else if ( resetOnNoMatch && inputQuery !== selectedValue ) {
 					if ( inputQuery && inputQuery !== '' ) {
-						// reset the content if there's no match
-						setSelectedValue( selectedValue );
-						setInputQuery( selectedValue );
-						setIsDirty( false );
-						onChange( getOptionByLabel( selectedValue ), selectedValue );
+						// reset the content to the selected value
+						setAutocompleteState( selectedValue );
 					} else {
-						// reset the content if there's no match
-						setSelectedValue( null );
-						setInputQuery( null );
-						setIsDirty( false );
-						onChange( getOptionByLabel( inputValue ), inputValue );
+						// reset the content to empty if there's no match
+						setAutocompleteState( null );
 					}
 				}
 			},
-			[ onChange, getOptionByLabel, selectedValue, inputQuery, setIsDirty ]
+			[ onChange, getOptionByLabel, setAutocompleteState ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -248,21 +256,9 @@ const FormAutocomplete = React.forwardRef(
 
 		useEffect( () => {
 			global.document.querySelector( `#${ id }` ).addEventListener( 'blur', () => {
-				if ( resetOnNoMatch && forwardRef?.current && inputQuery !== selectedValue ) {
-					if ( inputQuery && inputQuery !== '' ) {
-						forwardRef.current.setState( {
-							...forwardRef.current.state,
-							query: selectedValue,
-						} );
-					} else {
-						forwardRef.current.setState( {
-							...forwardRef.current.state,
-							query: '',
-						} );
-					}
-				}
+				resetInputState();
 			} );
-		}, [ forwardRef, inputQuery, selectedValue ] );
+		}, [ forwardRef ] );
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
