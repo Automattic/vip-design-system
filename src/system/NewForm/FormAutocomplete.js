@@ -169,12 +169,19 @@ const FormAutocomplete = React.forwardRef(
 					onChange( getOptionByLabel( inputValue ), inputValue );
 					setIsDirty( false );
 				} else if ( resetOnNoMatch && inputQuery !== selectedValue ) {
-					// reset the content if there's no match
-					setSelectedValue( '' );
-					setInputQuery( '' );
-					setIsDirty( false );
-
-					onChange( getOptionByLabel( inputValue ), inputValue );
+					if ( inputQuery && inputQuery !== '' ) {
+						// reset the content if there's no match
+						setSelectedValue( selectedValue );
+						setInputQuery( selectedValue );
+						setIsDirty( false );
+						onChange( getOptionByLabel( selectedValue ), selectedValue );
+					} else {
+						// reset the content if there's no match
+						setSelectedValue( null );
+						setInputQuery( null );
+						setIsDirty( false );
+						onChange( getOptionByLabel( inputValue ), inputValue );
+					}
 				}
 			},
 			[ onChange, getOptionByLabel, selectedValue, inputQuery, setIsDirty ]
@@ -242,10 +249,17 @@ const FormAutocomplete = React.forwardRef(
 		useEffect( () => {
 			global.document.querySelector( `#${ id }` ).addEventListener( 'blur', () => {
 				if ( resetOnNoMatch && forwardRef?.current && inputQuery !== selectedValue ) {
-					forwardRef.current.setState( {
-						...forwardRef.current.state,
-						query: '',
-					} );
+					if ( inputQuery && inputQuery !== '' ) {
+						forwardRef.current.setState( {
+							...forwardRef.current.state,
+							query: selectedValue,
+						} );
+					} else {
+						forwardRef.current.setState( {
+							...forwardRef.current.state,
+							query: '',
+						} );
+					}
 				}
 			} );
 		}, [ forwardRef, inputQuery, selectedValue ] );
