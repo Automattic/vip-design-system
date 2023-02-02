@@ -164,9 +164,10 @@ const FormAutocomplete = React.forwardRef(
 		 */
 		const resetInputState = useCallback( () => {
 			if ( showSelectionInsideInput && forwardRef?.current && inputQuery !== selectedValue ) {
+				// resets the input field to the selected value or the empty string
 				forwardRef.current.setState( {
 					...forwardRef.current.state,
-					query: inputQuery && inputQuery !== '' ? selectedValue : '',
+					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
 				} );
 			}
 		}, [ forwardRef ] );
