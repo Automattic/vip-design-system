@@ -32,20 +32,31 @@ const args = {
 };
 
 // eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => (
-	<>
-		<Form.Root>
-			<div sx={ { width } }>
-				<Form.Autocomplete forLabel="form-autocomplete" label={ label } { ...rest } />
-			</div>
-		</Form.Root>
-	</>
-);
+const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
+	const [ selectedValue, setSelectedValue ] = useState( null );
+	return (
+		<>
+			<Form.Root>
+				<div sx={ { width } }>
+					<Form.Autocomplete
+						forLabel="form-autocomplete"
+						label={ label }
+						onChange={ ( obj, val ) => {
+							setSelectedValue( val );
+						} }
+						{ ...rest }
+					/>
+				</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValue }</div>
+			</Form.Root>
+		</>
+	);
+};
 
 export const Default = () => {
 	return (
 		<>
-			<DefaultComponent required { ...args } />
+			<DefaultComponent required { ...args } placeholder="Start typing..." />
 		</>
 	);
 };
@@ -152,7 +163,7 @@ export const WithErrors = () => {
 export const WithArrow = () => {
 	const customArgs = {
 		...args,
-		showDropdownArrow: true,
+		showAllValues: true,
 	};
 
 	return (
@@ -165,7 +176,7 @@ export const WithArrow = () => {
 export const WithCustomArrow = () => {
 	const customArgs = {
 		...args,
-		showDropdownArrow: true,
+		showAllValues: true,
 		// eslint-disable-next-line react/display-name
 		dropdownArrow: () => (
 			<span sx={ { position: 'absolute', top: '2px', right: '10px', pointerEvents: 'none' } }>
