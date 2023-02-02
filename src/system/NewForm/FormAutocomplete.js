@@ -114,7 +114,7 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = true,
-			resetOnNoMatch = true,
+			showSelectionInsideInput = true,
 			source,
 			value,
 			hasError,
@@ -163,7 +163,7 @@ const FormAutocomplete = React.forwardRef(
 		 * Reset the underlying component state to show the selected value
 		 */
 		const resetInputState = useCallback( () => {
-			if ( resetOnNoMatch && forwardRef?.current && inputQuery !== selectedValue ) {
+			if ( showSelectionInsideInput && forwardRef?.current && inputQuery !== selectedValue ) {
 				forwardRef.current.setState( {
 					...forwardRef.current.state,
 					query: inputQuery && inputQuery !== '' ? selectedValue : '',
@@ -182,7 +182,7 @@ const FormAutocomplete = React.forwardRef(
 			inputValue => {
 				if ( inputValue ) {
 					setAutocompleteState( inputValue );
-				} else if ( resetOnNoMatch && inputQuery !== selectedValue ) {
+				} else if ( showSelectionInsideInput && inputQuery !== selectedValue ) {
 					if ( inputQuery && inputQuery !== '' ) {
 						// reset the content to the selected value
 						setAutocompleteState( selectedValue );
@@ -322,7 +322,7 @@ FormAutocomplete.propTypes = {
 	required: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	showAllValues: PropTypes.bool,
-	resetOnNoMatch: PropTypes.bool,
+	showSelectionInsideInput: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
 	hasError: PropTypes.bool,
