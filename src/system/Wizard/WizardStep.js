@@ -27,6 +27,7 @@ const WizardStep = React.forwardRef(
 		forwardRef
 	) => {
 		const titleRef = React.useRef( null );
+
 		let borderLeftColor = 'border';
 
 		if ( complete ) {
@@ -82,6 +83,7 @@ const WizardStep = React.forwardRef(
 							fontWeight: active ? 'bold' : 'normal',
 						} }
 						ref={ titleRef }
+						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
 						<MdCheckCircle
 							aria-hidden="true"
