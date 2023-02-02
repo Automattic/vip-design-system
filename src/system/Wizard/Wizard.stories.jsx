@@ -101,6 +101,7 @@ export const WithTitleAutoFocus = () => {
 			</Box>
 			<Box mt={ 4 }>
 				<Form.Select
+					id="wizard-autofocus"
 					label="Autofocus status"
 					value={ autoFocus }
 					onChange={ e => setAutoFocus( e.value ) }
