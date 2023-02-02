@@ -946,5 +946,27 @@
       "type": "color",
       "description": "Use for the pseudo terminal window background color."
     }
+  },
+  "option-row": {
+    "default": {
+      "background": {
+        "value": "{color.gold.40}",
+        "type": "color"
+      },
+      "icon": {
+        "value": "{color.gray.93}",
+        "type": "color"
+      }
+    },
+    "alt": {
+      "background": {
+        "value": "{layer.inverse}",
+        "type": "color"
+      },
+      "icon": {
+        "value": "{icon.inverse}",
+        "type": "color"
+      }
+    }
   }
 }
