@@ -92,6 +92,8 @@ const searchIconStyles = {
 	},
 };
 
+const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
+
 const FormAutocomplete = React.forwardRef(
 	(
 		{
@@ -99,24 +101,25 @@ const FormAutocomplete = React.forwardRef(
 			className,
 			debounce = 0,
 			displayMenu = 'overlay',
+			dropdownArrow = DefaultArrow,
+			errorMessage,
 			forLabel = 'vip-autocomplete',
 			getOptionLabel,
 			getOptionValue,
+			hasError,
 			isInline,
 			label,
 			loading,
 			minLength = 0,
-			noOptionsMessage = () => 'No results found.',
+			noOptionsMessage = () => 'No results found. Type to search.',
 			onChange = () => {},
 			onInputChange,
 			options = [],
 			required,
 			searchIcon,
-			showAllValues = true,
+			showAllValues = false,
 			source,
 			value,
-			hasError,
-			errorMessage,
 			...props
 		},
 		forwardRef
@@ -264,10 +267,11 @@ const FormAutocomplete = React.forwardRef(
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
 							required={ required }
+							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
 							{ ...props }
 						/>
-						{ loading && <FormSelectLoading /> }
-						<FormSelectArrow />
+
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
 
@@ -304,6 +308,7 @@ FormAutocomplete.propTypes = {
 	showAllValues: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
+	dropdownArrow: PropTypes.node,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
