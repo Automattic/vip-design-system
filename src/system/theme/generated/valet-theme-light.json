@@ -68,6 +68,11 @@
       "disabled": {
         "value": "#bfbcbb",
         "type": "color"
+      },
+      "error": {
+        "value": "#d3372b",
+        "type": "color",
+        "description": "Use for inputs which are in an error state."
       }
     },
     "switcher": {
