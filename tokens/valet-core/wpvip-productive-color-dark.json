@@ -71,6 +71,11 @@
       "disabled": {
         "value": "{color.gray.75}",
         "type": "color"
+      },
+      "error": {
+        "value": "{color.red.55}",
+        "type": "color",
+        "description": "Use for inputs which are in an error state."
       }
     },
     "switcher": {
