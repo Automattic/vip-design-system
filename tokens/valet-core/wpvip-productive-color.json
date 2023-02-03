@@ -70,7 +70,7 @@
         "type": "color"
       },
       "error": {
-        "value": "{color.red.65}",
+        "value": "{color.red.55}",
         "type": "color",
         "description": "Use for inputs which are in an error state."
       }
