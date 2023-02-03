@@ -26,7 +26,10 @@ const inputStyles = {
 };
 
 const Input = React.forwardRef(
-	( { variant, label, forLabel, hasError, required, sx = {}, errorMessage, ...props }, ref ) => (
+	(
+		{ variant, label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props },
+		ref
+	) => (
 		<React.Fragment>
 			{ label && (
 				<Label required={ required } htmlFor={ forLabel }>
@@ -40,7 +43,11 @@ const Input = React.forwardRef(
 				required={ required }
 				aria-required={ required }
 				aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-				sx={ { ...inputStyles, ...sx } }
+				sx={ {
+					...inputStyles,
+					...sx,
+					...( hasError ? { borderColor: 'input.border.error' } : {} ),
+				} }
 				{ ...props }
 			/>
 
