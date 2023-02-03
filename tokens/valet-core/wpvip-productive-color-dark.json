@@ -29,7 +29,7 @@
       "type": "color"
     },
     "inverse": {
-      "value": "{color.gray.15}",
+      "value": "{color.gray.100}",
       "type": "color",
       "description": "Use as component background in high-contrast situations. "
     },
@@ -71,11 +71,6 @@
       "disabled": {
         "value": "{color.gray.75}",
         "type": "color"
-      },
-      "error": {
-        "value": "{color.red.55}",
-        "type": "color",
-        "description": "Use for inputs which are in an error state."
       }
     },
     "switcher": {
@@ -956,28 +951,6 @@
       "value": "{color.gray.90}",
       "type": "color",
       "description": "Use for the pseudo terminal window background color."
-    }
-  },
-  "option-row": {
-    "default": {
-      "background": {
-        "value": "{color.gold.45}",
-        "type": "color"
-      },
-      "icon": {
-        "value": "{color.gray.93}",
-        "type": "color"
-      }
-    },
-    "alt": {
-      "background": {
-        "value": "{layer.inverse}",
-        "type": "color"
-      },
-      "icon": {
-        "value": "{icon.inverse}",
-        "type": "color"
-      }
     }
   }
 }
