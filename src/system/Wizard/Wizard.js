@@ -70,7 +70,9 @@ const Wizard = React.forwardRef(
 							subTitle={ subTitle }
 							title={ title }
 							titleVariant={ titleVariant }
-							shouldFocusTitle={ titleAutofocus && activeStep !== initialStep }
+							shouldFocusTitle={
+								titleAutofocus && activeStep !== initialStep && index === activeStep
+							}
 						>
 							{ children }
 						</WizardStep>
