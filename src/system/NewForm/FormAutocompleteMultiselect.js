@@ -11,16 +11,13 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import css from './FormAutocomplete.css';
 import { FormSelectContent } from './FormSelectContent';
-import { FormSelectArrow } from './FormSelectArrow';
-import { Label } from '../Form/Label';
+import { Form } from '..';
 import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
-import { Validation } from '../Form';
-import { Button } from '../Button';
-import ScreenReaderText from '../ScreenReaderText';
+import { Validation, Checkbox, Label } from '../Form';
+import { Flex } from '../Flex';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -94,18 +91,15 @@ const searchIconStyles = {
 	},
 };
 
-const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
-
-const FormAutocomplete = React.forwardRef(
+const FormAutocompleteMultiselect = React.forwardRef(
 	(
 		{
 			autoFilter = true,
 			className,
 			debounce = 0,
-			displayMenu = 'overlay',
-			dropdownArrow = DefaultArrow,
+			dropdownArrow = '',
 			errorMessage,
-			forLabel = 'vip-autocomplete',
+			forLabel = 'vip-autocomplete-multiselect',
 			getOptionLabel,
 			getOptionValue,
 			hasError,
@@ -128,13 +122,14 @@ const FormAutocomplete = React.forwardRef(
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
+		const [ filteredOptions, setFilteredOptions ] = useState( options );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
 
 		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel }>
+			<Form.Label required={ required } htmlFor={ forLabel }>
 				{ label }
-			</Label>
+			</Form.Label>
 		);
 
 		const inlineLabel = !! ( isInline && label );
@@ -166,26 +161,27 @@ const FormAutocomplete = React.forwardRef(
 			);
 		}, [ selectedOptions ] );
 
-		const onValueChange = useCallback(
-			inputValue => {
-				if (
-					inputValue &&
-					selectedOptions.filter( option => option.label === inputValue ).length === 0
-				) {
-					const currentlySelected = getOptionByLabel( inputValue );
-					setSelectedOptions( [ ...selectedOptions, currentlySelected ] );
-				}
-			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
-		);
-
-		const unselectValue = useCallback(
+		const onOptionSelect = useCallback(
 			inputValue => {
 				if ( inputValue ) {
-					setSelectedOptions( selectedOptions.filter( option => option.label !== inputValue ) );
+					const selectedOption = getOptionByLabel( inputValue );
+					const currentSelectedValues = [ ...selectedOptions, selectedOption ];
+					setSelectedOptions( currentSelectedValues );
 				}
 			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
+			[ onChange, getOptionByLabel, selectedOptions ]
+		);
+		const onOptionUnselect = useCallback(
+			inputValue => {
+				if ( inputValue ) {
+					const selectedOption = getOptionByLabel( inputValue );
+					const currentSelectedValues = selectedOptions.filter(
+						option => option.value !== selectedOption.value
+					);
+					setSelectedOptions( currentSelectedValues );
+				}
+			},
+			[ onChange, getOptionByLabel, selectedOptions ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -211,18 +207,19 @@ const FormAutocomplete = React.forwardRef(
 			[ onInputChange, debounce, minLength ]
 		);
 
-		const suggest = useCallback(
-			( query, populateResults ) => {
+		const filterResults = useCallback(
+			query => {
 				let data = options;
-				if ( isDirty && onInputChange ) {
+
+				if ( onInputChange ) {
 					handleInputChange( query );
 				}
-				if ( isDirty && autoFilter ) {
+				if ( autoFilter ) {
 					data = handleTypeChange( query );
 				}
-				populateResults( data?.map( option => optionLabel( option ) ) );
+				setFilteredOptions( data?.map( option => option ) );
 			},
-			[ autoFilter, isDirty, onInputChange, options ]
+			[ autoFilter, onInputChange, options ]
 		);
 
 		useEffect( () => {
@@ -247,12 +244,6 @@ const FormAutocomplete = React.forwardRef(
 			input.setAttribute( 'aria-required', required );
 		}, [ required ] );
 
-		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', () => {
-				setIsDirty( true );
-			} );
-		}, [ setIsDirty ] );
-
 		// For accessibility, we need to add the error message to the aria-describedby attribute
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
@@ -264,79 +255,93 @@ const FormAutocomplete = React.forwardRef(
 		}, [] );
 
 		return (
-			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
-				{ label && ! isInline && <SelectLabel /> }
+			<>
+				<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+					{ label && ! isInline && <SelectLabel /> }
+					<Label sx={ { color: 'secondary', fontSize: 1 } }>
+						{ selectedOptions.length } selected
+					</Label>
 
-				<div
-					sx={ {
-						...defaultStyles,
-						...( isInline && inlineStyles ),
-						...( searchIcon && searchIconStyles ),
-					} }
-				>
-					<FormSelectContent
-						isInline={ inlineLabel }
-						label={ inlineLabel ? <SelectLabel /> : null }
+					<div
+						sx={ {
+							...defaultStyles,
+							...( isInline && inlineStyles ),
+							...( searchIcon && searchIconStyles ),
+						} }
 					>
-						{ searchIcon && <FormSelectSearch /> }
+						<FormSelectContent
+							isInline={ inlineLabel }
+							label={ inlineLabel ? <SelectLabel /> : null }
+						>
+							{ searchIcon && <FormSelectSearch /> }
 
-						<Autocomplete
-							id={ forLabel }
-							aria-busy={ loading }
-							showAllValues={ showAllValues }
-							ref={ forwardRef }
-							source={ source || suggest }
-							defaultValue={ value }
-							displayMenu={ displayMenu }
-							onConfirm={ onValueChange }
-							tNoResults={ noOptionsMessage }
-							required={ required }
-							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
-							isMulti={ isMulti }
-							{ ...props }
-						/>
+							<Autocomplete
+								id={ forLabel }
+								aria-busy={ loading }
+								showAllValues={ false }
+								ref={ forwardRef }
+								source={ filterResults }
+								required={ required }
+								dropdownArrow={ '' }
+								showNoOptionsFound={ false }
+								{ ...props }
+							/>
 
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
-					</FormSelectContent>
+							{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
+						</FormSelectContent>
+					</div>
 				</div>
 				{ isMulti ? (
-					<ul sx={ { listStyleType: 'none', padding: 0, mt: 2, mb: 0 } }>
-						{ selectedOptions &&
-							selectedOptions.map( option => (
-								<li key={ option.value } sx={ { mt: 1 } }>
-									{ option.label }
-									<Button
-										variant={ 'secondary' }
-										sx={ {
-											ml: 2,
-											width: 100,
-											height: 25,
-											fontSize: 1,
-										} }
-										onClick={ () => {
-											unselectValue( option.label );
-										} }
-									>
-										<ScreenReaderText>
-											{ option.label } selected. Press enter or space to remove selection.
-										</ScreenReaderText>
-										<div aria->x remove</div>
-									</Button>
-								</li>
-							) ) }
-					</ul>
+					<Form.Fieldset
+						sx={ {
+							overflow: 'auto',
+							height: 100,
+							mt: 2,
+							border: 0,
+							backgroundColor: 'inherit',
+						} }
+					>
+						{ ' ' }
+						<ul sx={ { listStyleType: 'none', padding: 0, mt: 0, mb: 0, ml: -2 } }>
+							{ filteredOptions &&
+								filteredOptions.map( option => (
+									<li key={ option.value } sx={ { mt: 1 } }>
+										<Flex>
+											<Checkbox
+												sx={ { mr: 2 } }
+												id={ option.value }
+												aria-labelledby={ `label-${ option.value }` }
+												onCheckedChange={ e => {
+													if ( e ) {
+														onOptionSelect( option.label );
+													} else {
+														onOptionUnselect( option.label );
+													}
+												} }
+												checked={
+													selectedOptions.filter( op => op.label === option.label )?.length > 0
+												}
+											/>
+											<Label htmlFor={ option.value } id={ `label-${ option.value }` }>
+												{ option.label }
+											</Label>
+										</Flex>
+									</li>
+								) ) }
+						</ul>
+					</Form.Fieldset>
 				) : null }
 				{ hasError && errorMessage && (
 					<Validation isValid={ false } describedId={ forLabel }>
 						{ errorMessage }
 					</Validation>
 				) }
-			</div>
+			</>
 		);
 	}
 );
 
-FormAutocomplete.propTypes = {
+FormAutocompleteMultiselect.propTypes = {
 	autoFilter: PropTypes.bool,
 	className: PropTypes.any,
 	debounce: PropTypes.number,
@@ -362,6 +367,6 @@ FormAutocomplete.propTypes = {
 	dropdownArrow: PropTypes.node,
 };
 
-FormAutocomplete.displayName = 'FormAutocomplete';
+FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';
 
-export { FormAutocomplete, css };
+export { FormAutocompleteMultiselect };

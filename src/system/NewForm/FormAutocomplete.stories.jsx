@@ -193,3 +193,19 @@ export const WithCustomArrow = () => {
 };
 
 WithCustomArrow.displayName = 'WithCustomArrow';
+
+export const WithMulti = () => {
+	const customArgs = {
+		...args,
+		showAllValues: true,
+		isMulti: true,
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
+WithCustomArrow.displayName = 'WithMulti';
