@@ -278,12 +278,15 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							<Autocomplete
 								id={ forLabel }
 								aria-busy={ loading }
-								showAllValues={ false }
+								showAllValues={ showAllValues }
 								ref={ forwardRef }
-								source={ filterResults }
+								source={ source || filterResults }
+								defaultValue={ value }
+								displayMenu={ displayMenu }
+								onConfirm={ onValueChange }
+								tNoResults={ noOptionsMessage }
 								required={ required }
-								dropdownArrow={ '' }
-								showNoOptionsFound={ false }
+								dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
 								{ ...props }
 							/>
 
