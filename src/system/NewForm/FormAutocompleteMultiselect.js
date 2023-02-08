@@ -185,6 +185,19 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			[ onChange, getOptionByLabel, selectedOptions ]
 		);
 
+		const onValueChange = useCallback(
+			inputValue => {
+				if (
+					inputValue &&
+					selectedOptions.filter( option => option.label === inputValue ).length === 0
+				) {
+					const currentlySelected = getOptionByLabel( inputValue );
+					setSelectedOptions( [ ...selectedOptions, currentlySelected ] );
+				}
+			},
+			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
+		);
+
 		const handleTypeChange = useCallback(
 			query =>
 				options.filter(
