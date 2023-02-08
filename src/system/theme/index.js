@@ -104,8 +104,9 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	},
 
 	optionRow: {
+		...theme[ 'option-row' ],
 		hover: 'rgba(0,0,0,.02)',
-		border: gColor( 'border', '1' ),
+		border: gColor( 'border', '2' ),
 		text: gColor( 'text', 'secondary' ),
 		textAccent: gColor( 'link', 'default' ),
 		icon: gColor( 'icon', 'inverse' ),

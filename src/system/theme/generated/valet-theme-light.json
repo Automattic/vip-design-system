@@ -68,6 +68,11 @@
       "disabled": {
         "value": "#bfbcbb",
         "type": "color"
+      },
+      "error": {
+        "value": "#d3372b",
+        "type": "color",
+        "description": "Use for inputs which are in an error state."
       }
     },
     "switcher": {
@@ -945,6 +950,28 @@
       "value": "#13191e",
       "type": "color",
       "description": "Use for the pseudo terminal window background color."
+    }
+  },
+  "option-row": {
+    "default": {
+      "background": {
+        "value": "#d29137",
+        "type": "color"
+      },
+      "icon": {
+        "value": "#1b1918",
+        "type": "color"
+      }
+    },
+    "alt": {
+      "background": {
+        "value": "#13191e",
+        "type": "color"
+      },
+      "icon": {
+        "value": "#f4f3f2",
+        "type": "color"
+      }
     }
   },
   "rem": {

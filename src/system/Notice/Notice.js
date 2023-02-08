@@ -25,7 +25,7 @@ const NoticeIcon = ( { color, variant } ) => {
 		case 'info':
 			Icon = MdInfo;
 			break;
-		case 'alert':
+		case 'error':
 			Icon = MdError;
 			break;
 		case 'success':

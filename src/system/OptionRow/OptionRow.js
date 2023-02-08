@@ -47,7 +47,8 @@ const OptionRow = React.forwardRef(
 			disabled = false,
 			order = null,
 			className = null,
-			variant = 'h3',
+			titleVariant = 'h3',
+			variant = 'default',
 			...props
 		},
 		forwardRef
@@ -78,8 +79,8 @@ const OptionRow = React.forwardRef(
 								display: [ 'inline-block', 'inline-block', 'block' ],
 								p: small ? 12 : 20,
 								flex: '0 0 auto',
-								bg: 'optionRow.iconBackground',
-								color: 'optionRow.icon',
+								bg: `optionRow.${ variant }.background`,
+								color: `optionRow.${ variant }.icon`,
 								borderRadius: 1,
 								...mergedCard,
 							} }
@@ -95,7 +96,7 @@ const OptionRow = React.forwardRef(
 
 				<Box sx={ { flex: '1 1 auto' } }>
 					<Heading
-						variant={ variant }
+						titleVariant={ titleVariant }
 						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
 					>
 						<Link
@@ -149,7 +150,8 @@ OptionRow.propTypes = {
 	disabled: PropTypes.bool,
 	order: PropTypes.number,
 	className: PropTypes.any,
-	variant: PropTypes.string,
+	titleVariant: PropTypes.string,
+	variant: PropTypes.oneOf( [ 'default', 'alt' ] ),
 };
 
 export { OptionRow };
