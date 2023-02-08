@@ -44,7 +44,8 @@ const args = {
 
 // eslint-disable-next-line react/prop-types
 const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
-	const [ selectedValue, setSelectedValue ] = useState( null );
+	const [ selectedValue, setSelectedValue ] = useState( [] );
+
 	return (
 		<>
 			<Form.Root>
@@ -53,16 +54,13 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 						forLabel="form-autocompletemultiselect"
 						label={ label }
 						onChange={ ( obj, val ) => {
-							console.log( val );
-							setSelectedValue( val );
+							setSelectedValue( obj );
 						} }
 						isMulti={ true }
 						{ ...rest }
 					/>
 				</div>
-				<div sx={ { mt: 3 } }>
-					Selected value: { typeof selectedValue === 'object' ? selectedValue : selectedValue }
-				</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValue.join( ', ' ) }</div>
 			</Form.Root>
 		</>
 	);

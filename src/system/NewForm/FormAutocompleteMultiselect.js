@@ -127,6 +127,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
+		const [ inputValue, setInputValue ] = useState( '' );
 		let debounceTimeout;
 
 		const SelectLabel = () => (
@@ -165,15 +166,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		}, [ selectedOptions ] );
 
 		const onValueChange = useCallback(
-			inputValue => {
-				// if (
-				// 	inputValue &&
-				// 	selectedOptions.filter( option => ( option?.label || option ) === inputValue ).length ===
-				// 		0
-				// ) {
-				if ( inputValue ) {
-					// const currentlySelected = getOptionByLabel( inputValue );
-					setSelectedOptions( [ ...selectedOptions, inputValue ] );
+			value => {
+				if ( value && ! selectedOptions.includes( value ) ) {
+					setSelectedOptions( [ ...selectedOptions, value ] );
+					setInputValue( value );
 				}
 			},
 			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
@@ -241,11 +237,9 @@ const FormAutocompleteMultiselect = React.forwardRef(
 
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
-
 			if ( ! input || required === undefined ) {
 				return;
 			}
-
 			input.setAttribute( 'aria-required', required );
 		}, [ required ] );
 
@@ -258,12 +252,28 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		// For accessibility, we need to add the error message to the aria-describedby attribute
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
-
 			input?.setAttribute(
 				'aria-describedby',
 				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
 			);
 		}, [] );
+
+		const autocomplete = (
+			<Autocomplete
+				id={ forLabel }
+				aria-busy={ loading }
+				showAllValues={ showAllValues }
+				ref={ forwardRef }
+				source={ source || suggest }
+				defaultValue={ value }
+				displayMenu={ displayMenu }
+				onConfirm={ onValueChange }
+				tNoResults={ noOptionsMessage }
+				required={ required }
+				dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+				{ ...props }
+			/>
+		);
 
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
@@ -282,49 +292,38 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					>
 						{ searchIcon && <FormSelectSearch /> }
 
-						<Autocomplete
-							id={ forLabel }
-							aria-busy={ loading }
-							showAllValues={ showAllValues }
-							ref={ forwardRef }
-							source={ source || suggest }
-							defaultValue={ value }
-							displayMenu={ displayMenu }
-							onConfirm={ onValueChange }
-							tNoResults={ noOptionsMessage }
-							required={ required }
-							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
-							{ ...props }
-						/>
+						{ autocomplete }
 
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<ul sx={ { listStyleType: 'none', padding: 0, mt: 2, mb: 0 } }>
-					{ selectedOptions &&
-						selectedOptions.map( option => (
-							<li key={ option?.value || option } sx={ { mt: 1 } }>
-								{ option?.label || option }
-								<Button
-									variant={ 'secondary' }
-									sx={ {
-										ml: 2,
-										width: 100,
-										height: 25,
-										fontSize: 1,
-									} }
-									onClick={ () => {
-										unselectValue( option?.label || option );
-									} }
-								>
-									<ScreenReaderText>
-										{ option?.label || option } selected. Press enter or space to remove selection.
-									</ScreenReaderText>
-									<div aria->x remove</div>
-								</Button>
-							</li>
-						) ) }
-				</ul>
+				<div sx={ { height: 100, overflow: 'auto' } }>
+					<ul sx={ { listStyleType: 'none', padding: 0, mt: 2, mb: 0 } }>
+						{ selectedOptions &&
+							selectedOptions.map( option => (
+								<li key={ option } sx={ { mt: 1 } }>
+									{ option }
+									<Button
+										variant="tertiary"
+										sx={ {
+											ml: 2,
+											width: 100,
+											height: 20,
+											fontSize: 1,
+										} }
+										onClick={ () => {
+											unselectValue( option );
+										} }
+									>
+										<ScreenReaderText>
+											{ option }, selected. Press Enter or Space to remove selection
+										</ScreenReaderText>
+										<div aria-hidden="true">Remove</div>
+									</Button>
+								</li>
+							) ) }
+					</ul>
+				</div>
 				{ hasError && errorMessage && (
 					<Validation isValid={ false } describedId={ forLabel }>
 						{ errorMessage }
