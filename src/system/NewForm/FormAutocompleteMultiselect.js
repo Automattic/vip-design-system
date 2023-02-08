@@ -296,7 +296,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<div sx={ { overflow: 'auto', mt: 3 } }>
+				<div sx={ { overflow: 'auto', mt: 1 } }>
 					<ul sx={ { listStyleType: 'none', padding: 0 } }>
 						{ selectedOptions &&
 							selectedOptions.map( option => (
