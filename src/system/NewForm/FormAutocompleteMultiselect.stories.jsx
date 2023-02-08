@@ -67,27 +67,10 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 export const Default = () => {
 	const customArgs = {
 		...args,
+		isMulti: true,
 		hasError: true,
 		errorMessage: 'Please select a value.',
 		required: true,
-	};
-
-	return (
-		<>
-			<DefaultComponent { ...customArgs } />
-		</>
-	);
-};
-
-export const WithSource = () => {
-	const customArgs = {
-		...args,
-		source: async ( query, populateResults ) => {
-			const results = args.options.filter( option =>
-				option.label.toLowerCase().includes( query.toLowerCase() )
-			);
-			populateResults( results );
-		},
 	};
 
 	return (
