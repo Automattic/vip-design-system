@@ -131,7 +131,31 @@ export const WithDebounce = () => {
 		</>
 	);
 };
+export const WithSlowSearch = () => {
+	const results = args.options.map( option => option.label );
+	const customArgs = {
+		label: 'Label',
+		autoFilter: false,
+		minLength: 3,
+		required: true,
+		source: async ( query, populateResults ) => {
+			if ( ! query || query.length >= 3 ) {
+				setTimeout( () => {
+					const filteredResults = results.filter(
+						result => result.toLowerCase().indexOf( query?.toLowerCase() ) !== -1
+					);
+					populateResults( filteredResults );
+				}, 1000 );
+			}
+		},
+	};
 
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
 export const WithCustomMessages = () => {
 	const customArgs = {
 		...args,

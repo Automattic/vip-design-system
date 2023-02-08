@@ -198,7 +198,6 @@ const FormAutocomplete = React.forwardRef(
 
 		const handleTypeChange = useCallback(
 			query => {
-				setInputQuery( query );
 				return options.filter(
 					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
 				);
@@ -208,7 +207,6 @@ const FormAutocomplete = React.forwardRef(
 
 		const handleInputChange = useCallback(
 			query => {
-				setInputQuery( query );
 				if ( ! debounce ) {
 					return onInputChange( query );
 				}
@@ -236,7 +234,15 @@ const FormAutocomplete = React.forwardRef(
 			},
 			[ autoFilter, isDirty, onInputChange, options ]
 		);
-
+		// internal function to save the inputQuery
+		const handleSource = ( query, populateResults ) => {
+			setInputQuery( query );
+			// user function to fetch the results has the precedence
+			if ( source ) {
+				return source( query, populateResults );
+			}
+			return suggest( query, populateResults );
+		};
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__input' )
@@ -281,7 +287,7 @@ const FormAutocomplete = React.forwardRef(
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
-							source={ source || suggest }
+							source={ handleSource }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
