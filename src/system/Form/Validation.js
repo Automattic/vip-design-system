@@ -6,7 +6,7 @@
 import PropTypes from 'prop-types';
 import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 
-const errorColor = 'notice.link.error.default';
+const errorColor = 'texts.error';
 const helperColor = 'texts.helper';
 
 const Validation = ( { children, isValid, describedId = null, ...props } ) => {

@@ -14,7 +14,8 @@ export default {
 	component: OptionRow,
 };
 
-export const Default = () => (
+// eslint-disable-next-line react/prop-types
+const Base = ( { variant } ) => (
 	<Box>
 		<OptionRow
 			image={ <BiAddToQueue size={ 24 } /> }
@@ -22,6 +23,7 @@ export const Default = () => (
 			subTitle="Mostly used to link off to other pages."
 			as="a"
 			href="http://google.com/"
+			variant={ variant }
 		/>
 		<OptionRow
 			image={ <BiCalendarHeart size={ 24 } /> }
@@ -30,6 +32,7 @@ export const Default = () => (
 			as="a"
 			href="http://google.com/"
 			order={ 2 }
+			variant={ variant }
 		/>
 
 		<OptionRow
@@ -38,8 +41,13 @@ export const Default = () => (
 			subTitle="Use the variant prop to adjust the heading structure"
 			as="a"
 			href="http://google.com/"
-			variant="h2"
+			titleVariant="h2"
 			meta=""
+			variant={ variant }
 		/>
 	</Box>
 );
+
+export const Default = () => <Base />;
+
+export const Alternative = () => <Base variant="alt" />;

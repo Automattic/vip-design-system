@@ -29,7 +29,7 @@
       "type": "color"
     },
     "inverse": {
-      "value": "#080402",
+      "value": "#d7d4d3",
       "type": "color",
       "description": "Use as component background in high-contrast situations. "
     },
@@ -70,6 +70,10 @@
       },
       "disabled": {
         "value": "#444140",
+        "type": "color"
+      },
+      "error": {
+        "value": "#d3372b",
         "type": "color"
       }
     },
@@ -951,6 +955,28 @@
       "value": "#201e1d",
       "type": "color",
       "description": "Use for the pseudo terminal window background color."
+    }
+  },
+  "option-row": {
+    "default": {
+      "background": {
+        "value": "#c5832a",
+        "type": "color"
+      },
+      "icon": {
+        "value": "#1b1918",
+        "type": "color"
+      }
+    },
+    "alt": {
+      "background": {
+        "value": "#d7d4d3",
+        "type": "color"
+      },
+      "icon": {
+        "value": "#2c2a29",
+        "type": "color"
+      }
     }
   },
   "rem": {

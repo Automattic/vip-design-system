@@ -45,6 +45,11 @@ export const Default = () => (
 			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
 		</Notice>
 
+		<Notice variant="alert" sx={ { mb: 4 } } title="Please read this first">
+			This notice has a title and children and{ ' ' }
+			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
+		</Notice>
+
 		<Notice
 			variant="alert"
 			sx={ { mb: 4 } }
