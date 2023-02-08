@@ -162,18 +162,20 @@ const FormAutocomplete = React.forwardRef(
 		useEffect( () => {
 			onChange(
 				selectedOptions,
-				selectedOptions.map( option => option.label )
+				selectedOptions.map( option => option?.label || option )
 			);
 		}, [ selectedOptions ] );
 
 		const onValueChange = useCallback(
 			inputValue => {
-				if (
-					inputValue &&
-					selectedOptions.filter( option => option.label === inputValue ).length === 0
-				) {
-					const currentlySelected = getOptionByLabel( inputValue );
-					setSelectedOptions( [ ...selectedOptions, currentlySelected ] );
+				// if (
+				// 	inputValue &&
+				// 	selectedOptions.filter( option => ( option?.label || option ) === inputValue ).length ===
+				// 		0
+				// ) {
+				if ( inputValue ) {
+					// const currentlySelected = getOptionByLabel( inputValue );
+					setSelectedOptions( [ ...selectedOptions, inputValue ] );
 				}
 			},
 			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
@@ -182,7 +184,9 @@ const FormAutocomplete = React.forwardRef(
 		const unselectValue = useCallback(
 			inputValue => {
 				if ( inputValue ) {
-					setSelectedOptions( selectedOptions.filter( option => option.label !== inputValue ) );
+					setSelectedOptions(
+						selectedOptions.filter( option => ( option?.label || option ) !== inputValue )
+					);
 				}
 			},
 			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
@@ -303,22 +307,23 @@ const FormAutocomplete = React.forwardRef(
 					<ul sx={ { listStyleType: 'none', padding: 0, mt: 2, mb: 0 } }>
 						{ selectedOptions &&
 							selectedOptions.map( option => (
-								<li key={ option.value } sx={ { mt: 1 } }>
-									{ option.label }
+								<li key={ option?.value || option } sx={ { mt: 1 } }>
+									{ option?.label || option }
 									<Button
-										variant={ 'secondary' }
+										variant={ 'link' }
 										sx={ {
 											ml: 2,
 											width: 100,
-											height: 25,
+											height: 30,
 											fontSize: 1,
 										} }
 										onClick={ () => {
-											unselectValue( option.label );
+											unselectValue( option?.label || option );
 										} }
 									>
 										<ScreenReaderText>
-											{ option.label } selected. Press enter or space to remove selection.
+											{ option?.label || option } selected. Press enter or space to remove
+											selection.
 										</ScreenReaderText>
 										<div aria->x remove</div>
 									</Button>

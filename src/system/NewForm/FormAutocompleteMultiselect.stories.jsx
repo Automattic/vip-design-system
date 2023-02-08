@@ -7,7 +7,7 @@ import { useState } from 'react';
 import * as Form from '.';
 
 export default {
-	title: 'Form/AutocompleteMultiselect',
+	title: 'Form/AutocompleteMulti',
 	argTypes: {
 		placeholder: {
 			type: { name: 'string', required: false },
@@ -22,7 +22,7 @@ export default {
 
 const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
+	{ value: 'strawberry', label: 'Strawberry Chocolate Vanilla Chocolate Vanilla' },
 	{ value: 'vanilla', label: 'Vanilla' },
 	{ value: 'pistachio', label: 'Pistachio' },
 	{ value: 'bubblegum', label: 'Bubblegum' },
@@ -44,33 +44,42 @@ const args = {
 
 // eslint-disable-next-line react/prop-types
 const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
-	const [ selectedValues, setSelectedValues ] = useState( [] );
+	const [ selectedValue, setSelectedValue ] = useState( null );
 	return (
 		<>
 			<Form.Root>
 				<div sx={ { width } }>
 					<Form.AutocompleteMulti
-						forLabel="form-autocomplete"
+						forLabel="form-autocompletemultiselect"
 						label={ label }
 						onChange={ ( obj, val ) => {
-							setSelectedValues( val );
+							console.log( val );
+							setSelectedValue( val );
 						} }
+						isMulti={ true }
 						{ ...rest }
 					/>
 				</div>
-				<div sx={ { mt: 3 } }>Selected values: { selectedValues.join( ', ' ) }</div>
+				<div sx={ { mt: 3 } }>
+					Selected value: { typeof selectedValue === 'object' ? selectedValue : selectedValue }
+				</div>
 			</Form.Root>
 		</>
 	);
 };
 
 export const Default = () => {
+	return (
+		<>
+			<DefaultComponent required { ...args } placeholder="Start typing..." />
+		</>
+	);
+};
+
+export const WithMultiselectStatic = () => {
 	const customArgs = {
 		...args,
-		isMulti: true,
-		hasError: true,
-		errorMessage: 'Please select a value.',
-		required: true,
+		showAllValues: true,
 	};
 
 	return (
@@ -79,3 +88,22 @@ export const Default = () => {
 		</>
 	);
 };
+
+WithMultiselectStatic.displayName = 'WithMulti';
+
+export const WithMultiselectDynamic = () => {
+	const customArgs = {
+		source: ( q, populateResults ) => {
+			const filtered = options.filter( option => option.label.toLowerCase().includes( q ) );
+			populateResults( filtered.map( option => option.label ) );
+		},
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
+WithMultiselectDynamic.displayName = 'WithMulti';
