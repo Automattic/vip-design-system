@@ -165,9 +165,9 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		}, [ selectedOptions ] );
 
 		const onValueChange = useCallback(
-			value => {
-				if ( value && ! selectedOptions.includes( value ) ) {
-					setSelectedOptions( [ ...selectedOptions, value ] );
+			inputValue => {
+				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
+					setSelectedOptions( [ ...selectedOptions, inputValue ] );
 				}
 			},
 			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
@@ -296,8 +296,8 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<div sx={ { height: 120, overflow: 'auto' } }>
-					<ul sx={ { listStyleType: 'none', padding: 0, mt: 3 } }>
+				<div sx={ { height: 120, overflow: 'auto', mt: 3 } }>
+					<ul sx={ { listStyleType: 'none', padding: 0 } }>
 						{ selectedOptions &&
 							selectedOptions.map( option => (
 								<li key={ option } sx={ { mt: 1 } }>
