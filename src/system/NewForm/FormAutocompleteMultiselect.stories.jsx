@@ -53,7 +53,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 					<Form.AutocompleteMulti
 						forLabel="form-autocompletemultiselect"
 						label={ label }
-						onChange={ ( obj, val ) => {
+						onChange={ obj => {
 							setSelectedValue( obj );
 						} }
 						isMulti={ true }

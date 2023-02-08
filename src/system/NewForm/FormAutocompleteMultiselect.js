@@ -127,7 +127,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
-		const [ inputValue, setInputValue ] = useState( '' );
 		let debounceTimeout;
 
 		const SelectLabel = () => (
@@ -169,7 +168,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			value => {
 				if ( value && ! selectedOptions.includes( value ) ) {
 					setSelectedOptions( [ ...selectedOptions, value ] );
-					setInputValue( value );
 				}
 			},
 			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
@@ -271,6 +269,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				tNoResults={ noOptionsMessage }
 				required={ required }
 				dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+				confirmOnBlur={ false }
 				{ ...props }
 			/>
 		);
@@ -297,14 +296,14 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<div sx={ { height: 100, overflow: 'auto' } }>
-					<ul sx={ { listStyleType: 'none', padding: 0, mt: 2, mb: 0 } }>
+				<div sx={ { height: 120, overflow: 'auto' } }>
+					<ul sx={ { listStyleType: 'none', padding: 0, mt: 3 } }>
 						{ selectedOptions &&
 							selectedOptions.map( option => (
 								<li key={ option } sx={ { mt: 1 } }>
 									{ option }
 									<Button
-										variant="tertiary"
+										variant="text"
 										sx={ {
 											ml: 2,
 											width: 100,
