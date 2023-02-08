@@ -19,8 +19,6 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
-import { Button } from '../Button';
-import ScreenReaderText from '../ScreenReaderText';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -122,13 +120,11 @@ const FormAutocomplete = React.forwardRef(
 			showAllValues = false,
 			source,
 			value,
-			isMulti,
 			...props
 		},
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
-		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
 
 		const SelectLabel = () => (
@@ -159,37 +155,13 @@ const FormAutocomplete = React.forwardRef(
 			[ getAllOptions, optionLabel ]
 		);
 
-		useEffect( () => {
-			onChange(
-				selectedOptions,
-				selectedOptions.map( option => option?.label || option )
-			);
-		}, [ selectedOptions ] );
-
 		const onValueChange = useCallback(
 			inputValue => {
-				// if (
-				// 	inputValue &&
-				// 	selectedOptions.filter( option => ( option?.label || option ) === inputValue ).length ===
-				// 		0
-				// ) {
 				if ( inputValue ) {
-					// const currentlySelected = getOptionByLabel( inputValue );
-					setSelectedOptions( [ ...selectedOptions, inputValue ] );
+					onChange( getOptionByLabel( inputValue ), inputValue );
 				}
 			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
-		);
-
-		const unselectValue = useCallback(
-			inputValue => {
-				if ( inputValue ) {
-					setSelectedOptions(
-						selectedOptions.filter( option => ( option?.label || option ) !== inputValue )
-					);
-				}
-			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
+			[ onChange, getOptionByLabel ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -296,41 +268,13 @@ const FormAutocomplete = React.forwardRef(
 							tNoResults={ noOptionsMessage }
 							required={ required }
 							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
-							isMulti={ isMulti }
 							{ ...props }
 						/>
 
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				{ isMulti ? (
-					<ul sx={ { listStyleType: 'none', padding: 0, mt: 2, mb: 0 } }>
-						{ selectedOptions &&
-							selectedOptions.map( option => (
-								<li key={ option?.value || option } sx={ { mt: 1 } }>
-									{ option?.label || option }
-									<Button
-										variant={ 'link' }
-										sx={ {
-											ml: 2,
-											width: 100,
-											height: 30,
-											fontSize: 1,
-										} }
-										onClick={ () => {
-											unselectValue( option?.label || option );
-										} }
-									>
-										<ScreenReaderText>
-											{ option?.label || option } selected. Press enter or space to remove
-											selection.
-										</ScreenReaderText>
-										<div aria->x remove</div>
-									</Button>
-								</li>
-							) ) }
-					</ul>
-				) : null }
+
 				{ hasError && errorMessage && (
 					<Validation isValid={ false } describedId={ forLabel }>
 						{ errorMessage }
