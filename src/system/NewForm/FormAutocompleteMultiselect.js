@@ -121,7 +121,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		},
 		forwardRef
 	) => {
-		const [ isDirty, setIsDirty ] = useState( false );
 		const [ filteredOptions, setFilteredOptions ] = useState( options );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
@@ -160,6 +159,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				selectedOptions.map( option => option.label )
 			);
 		}, [ selectedOptions ] );
+
+		useEffect( () => {
+			setFilteredOptions( options?.map( option => option ) );
+		}, [ options ] );
 
 		const onOptionSelect = useCallback(
 			inputValue => {
@@ -280,7 +283,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 								aria-busy={ loading }
 								showAllValues={ false }
 								ref={ forwardRef }
-								source={ filterResults }
+								source={ source || filterResults }
 								required={ required }
 								dropdownArrow={ '' }
 								showNoOptionsFound={ false }
@@ -291,46 +294,44 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						</FormSelectContent>
 					</div>
 				</div>
-				{ isMulti ? (
-					<Form.Fieldset
-						sx={ {
-							overflow: 'auto',
-							height: 100,
-							mt: 2,
-							border: 0,
-							backgroundColor: 'inherit',
-						} }
-					>
-						{ ' ' }
-						<ul sx={ { listStyleType: 'none', padding: 0, mt: 0, mb: 0, ml: -2 } }>
-							{ filteredOptions &&
-								filteredOptions.map( option => (
-									<li key={ option.value } sx={ { mt: 1 } }>
-										<Flex>
-											<Checkbox
-												sx={ { mr: 2 } }
-												id={ option.value }
-												aria-labelledby={ `label-${ option.value }` }
-												onCheckedChange={ e => {
-													if ( e ) {
-														onOptionSelect( option.label );
-													} else {
-														onOptionUnselect( option.label );
-													}
-												} }
-												checked={
-													selectedOptions.filter( op => op.label === option.label )?.length > 0
+				<Form.Fieldset
+					sx={ {
+						overflow: 'auto',
+						height: 100,
+						mt: 2,
+						border: 0,
+						backgroundColor: 'inherit',
+					} }
+				>
+					{ ' ' }
+					<ul sx={ { listStyleType: 'none', padding: 0, mt: 0, mb: 0, ml: -2 } }>
+						{ filteredOptions &&
+							filteredOptions.map( option => (
+								<li key={ option.value } sx={ { mt: 1 } }>
+									<Flex>
+										<Checkbox
+											sx={ { mr: 2 } }
+											id={ option.value }
+											aria-labelledby={ `label-${ option.value }` }
+											onCheckedChange={ e => {
+												if ( e ) {
+													onOptionSelect( option.label );
+												} else {
+													onOptionUnselect( option.label );
 												}
-											/>
-											<Label htmlFor={ option.value } id={ `label-${ option.value }` }>
-												{ option.label }
-											</Label>
-										</Flex>
-									</li>
-								) ) }
-						</ul>
-					</Form.Fieldset>
-				) : null }
+											} }
+											checked={
+												selectedOptions.filter( op => op.label === option.label )?.length > 0
+											}
+										/>
+										<Label htmlFor={ option.value } id={ `label-${ option.value }` }>
+											{ option.label }
+										</Label>
+									</Flex>
+								</li>
+							) ) }
+					</ul>
+				</Form.Fieldset>
 				{ hasError && errorMessage && (
 					<Validation isValid={ false } describedId={ forLabel }>
 						{ errorMessage }
