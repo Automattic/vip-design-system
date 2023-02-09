@@ -130,19 +130,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
 
-		/**
-		 * Reset the underlying component state to show the selected value
-		 */
-		const resetInputState = useCallback( () => {
-			if ( showSelectionInsideInput && forwardRef?.current && inputQuery !== selectedValue ) {
-				// resets the input field to the selected value or the empty string
-				forwardRef.current.setState( {
-					...forwardRef.current.state,
-					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
-				} );
-			}
-		}, [ forwardRef ] );
-
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
 				{ label }
