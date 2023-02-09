@@ -91,6 +91,7 @@ export const WithSearchIcon = () => {
 	const customArgs = {
 		...args,
 		searchIcon: true,
+		placeholder: 'Type to search',
 	};
 
 	return (
