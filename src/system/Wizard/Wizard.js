@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MdArrowForward } from 'react-icons/md';
@@ -26,11 +26,12 @@ const Wizard = React.forwardRef(
 		},
 		forwardRef
 	) => {
-		const [ initialStep, setInitialStep ] = React.useState( activeStep );
+		const didMount = useRef( false );
+		// didMount helps us to track the initial render, so we can focus the title only subsequent renders
+		// to avoid stealing the focus from the page we're in.
 		useLayoutEffect( () => {
-			if ( titleAutofocus && activeStep !== initialStep ) {
-				// After the initial page load, the initial step can be focused
-				setInitialStep( -1 );
+			if ( ! didMount.current ) {
+				didMount.current = true;
 			}
 		}, [ activeStep ] );
 		return (
@@ -70,9 +71,7 @@ const Wizard = React.forwardRef(
 							subTitle={ subTitle }
 							title={ title }
 							titleVariant={ titleVariant }
-							shouldFocusTitle={
-								titleAutofocus && activeStep !== initialStep && index === activeStep
-							}
+							shouldFocusTitle={ titleAutofocus && didMount.current }
 						>
 							{ children }
 						</WizardStep>
