@@ -166,7 +166,7 @@ export default {
 	outline,
 	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
 	fonts,
-	fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
+	fontSizes: Object.values( ValetTheme.fontSize.static ),
 	fontWeights: {
 		body: 400,
 		heading: 500,
@@ -426,7 +426,7 @@ export default {
 			fontFamily: 'body',
 			lineHeight: 'body',
 			fontWeight: 'body',
-			fontSize: 2,
+			fontSize: '1rem',
 			color: 'text',
 			backgroundColor: 'backgrounds.primary',
 			'-webkit-font-smoothing': 'antialiased',
