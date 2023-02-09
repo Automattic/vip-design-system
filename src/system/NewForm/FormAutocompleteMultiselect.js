@@ -18,8 +18,9 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
-import { Button } from '../Button';
+import { Badge, Link } from '../';
 import ScreenReaderText from '../ScreenReaderText';
+import { MdClose } from 'react-icons/md';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -88,8 +89,8 @@ const inlineStyles = {
 };
 
 const searchIconStyles = {
-	'& .autocomplete__input.autocomplete__input--show-all-values': {
-		paddingLeft: '30px',
+	'& .autocomplete__input.autocomplete__input': {
+		paddingLeft: 4,
 	},
 };
 
@@ -129,6 +130,19 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
 
+		/**
+		 * Reset the underlying component state to show the selected value
+		 */
+		const resetInputState = useCallback( () => {
+			if ( showSelectionInsideInput && forwardRef?.current && inputQuery !== selectedValue ) {
+				// resets the input field to the selected value or the empty string
+				forwardRef.current.setState( {
+					...forwardRef.current.state,
+					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
+				} );
+			}
+		}, [ forwardRef ] );
+
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
 				{ label }
@@ -142,6 +156,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			[ getOptionLabel ]
 		);
 
+		const getOptionByLabel = useCallback(
+			inputValue =>
+				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
+			[ getAllOptions, optionLabel ]
+		);
+
 		const getAllOptions = useMemo(
 			() =>
 				[
@@ -149,12 +169,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					...options.filter( option => option.options ).map( option => option.options ),
 				].reduce( ( a, b ) => a.concat( b ), [] ),
 			[ options ]
-		);
-
-		const getOptionByLabel = useCallback(
-			inputValue =>
-				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
-			[ getAllOptions, optionLabel ]
 		);
 
 		useEffect( () => {
@@ -256,28 +270,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			);
 		}, [] );
 
-		const autocomplete = (
-			<Autocomplete
-				id={ forLabel }
-				aria-busy={ loading }
-				showAllValues={ showAllValues }
-				ref={ forwardRef }
-				source={ source || suggest }
-				defaultValue={ value }
-				displayMenu={ displayMenu }
-				onConfirm={ onValueChange }
-				tNoResults={ noOptionsMessage }
-				required={ required }
-				dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
-				confirmOnBlur={ false }
-				{ ...props }
-			/>
-		);
-
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
-
+				<Badge>{ selectedOptions.length } selected</Badge>
 				<div
 					sx={ {
 						...defaultStyles,
@@ -290,35 +286,53 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						label={ inlineLabel ? <SelectLabel /> : null }
 					>
 						{ searchIcon && <FormSelectSearch /> }
-
-						{ autocomplete }
-
+						<Autocomplete
+							id={ forLabel }
+							aria-busy={ loading }
+							showAllValues={ showAllValues }
+							ref={ forwardRef }
+							source={ source || suggest }
+							defaultValue={ value }
+							displayMenu={ displayMenu }
+							onConfirm={ onValueChange }
+							tNoResults={ noOptionsMessage }
+							required={ required }
+							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+							confirmOnBlur={ false }
+							{ ...props }
+						/>
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<div sx={ { overflow: 'auto', mt: 1 } }>
+				<div>
 					<ul sx={ { listStyleType: 'none', padding: 0 } }>
 						{ selectedOptions &&
 							selectedOptions.map( option => (
-								<li key={ option } sx={ { mt: 1 } }>
-									{ option }
-									<Button
-										variant="text"
-										sx={ {
-											ml: 2,
-											width: 100,
-											height: 20,
-											fontSize: 1,
-										} }
-										onClick={ () => {
+								<li key={ option }>
+									<Badge
+										variant="gray"
+										onClick={ e => {
+											e.preventDefault();
 											unselectValue( option );
 										} }
 									>
-										<ScreenReaderText>
-											{ option }, selected. Press Enter or Space to remove selection
-										</ScreenReaderText>
-										<div aria-hidden="true">Remove</div>
-									</Button>
+										<Link
+											href="#"
+											sx={ {
+												textDecoration: 'none',
+												'&:hover, &:focus, &:active': {
+													color: 'inherit',
+												},
+											} }
+										>
+											<ScreenReaderText>
+												{ option }, selected. Press Enter to remove.
+											</ScreenReaderText>
+											<div aria-hidden="true" sx={ { display: 'inline-flex' } }>
+												{ option } <MdClose sx={ { ml: 2, mt: 1 } } />
+											</div>
+										</Link>
+									</Badge>
 								</li>
 							) ) }
 					</ul>
