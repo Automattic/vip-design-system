@@ -318,40 +318,40 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				<div sx={ { ml: 1, mt: 2, textAlign: 'right', fontSize: 1 } }>
 					{ selectedOptions.length } item{ selectedOptions.length > 1 ? 's' : '' } selected
 				</div>
-				<div>
-					<ul sx={ { listStyleType: 'none', padding: 0, mt: 0 } }>
-						{ selectedOptions &&
-							selectedOptions.map( ( option, idx ) => (
-								<li key={ idx }>
-									<Button
-										variant="tertiary"
-										onClick={ () => {
-											unselectValue( option );
-										} }
+				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
+					{ selectedOptions &&
+						selectedOptions.map( ( option, idx ) => (
+							<div key={ idx } sx={ { mr: 1, maxWidth: '100%' } }>
+								<Button
+									variant="tertiary"
+									onClick={ e => {
+										e.preventDefault();
+										unselectValue( option );
+									} }
+									sx={ {
+										mt: 1,
+										fontSize: 0,
+										maxWidth: '100%',
+									} }
+								>
+									<div
+										aria-hidden="true"
 										sx={ {
-											fontSize: 1,
-											paddingLeft: 2,
-											paddingRight: 2,
-											mt: 2,
-											wordBreak: 'break-all',
+											overflow: 'hidden',
+											textOverflow: 'ellipsis',
+											whiteSpace: 'nowrap',
 										} }
 									>
-										<ScreenReaderText>
-											{ option }, selected. Press Space or Enter to remove.
-											{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
-										</ScreenReaderText>
-										<div
-											aria-hidden="true"
-											sx={ {
-												display: 'inline-flex',
-											} }
-										>
-											{ option } <MdClose sx={ { ml: 2, mt: 1 } } />
-										</div>
-									</Button>
-								</li>
-							) ) }
-					</ul>
+										{ option }
+									</div>
+									<ScreenReaderText>
+										{ option }, selected. Press Space or Enter to remove.
+										{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
+									</ScreenReaderText>
+									<MdClose sx={ { ml: 2 } } />
+								</Button>
+							</div>
+						) ) }
 				</div>
 				{ hasError && errorMessage && (
 					<Validation isValid={ false } describedId={ forLabel }>

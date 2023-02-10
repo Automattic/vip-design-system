@@ -20,7 +20,20 @@ export default {
 	},
 };
 
-const options = [
+const shortOptions = [
+	{ value: 'chocolate', label: 'Chocolate' },
+	{ value: 'strawberry', label: 'Strawberry' },
+	{ value: 'vanilla', label: 'Vanilla' },
+	{ value: 'pistachio', label: 'Pistachio' },
+	{ value: 'bubblegum', label: 'Bubblegum' },
+	{ value: 'ube', label: 'Ube' },
+	{ value: 'mango', label: 'Mango' },
+	{ value: 'buko', label: 'Buko' },
+	{ value: 'durian', label: 'Durian' },
+	{ value: 'lecheflan', label: 'Leche Flan' },
+];
+
+const longOptions = [
 	{ value: 'chocolate', label: 'www.chocolate.com' },
 	{ value: 'strawberry', label: 'www.chocolatevanillastrawberry.com' },
 	{ value: 'vanilla', label: 'www.vanilla.com' },
@@ -38,8 +51,8 @@ const options = [
 ];
 
 const args = {
-	label: 'Domains',
-	options,
+	label: 'Ice Cream Flavors',
+	options: shortOptions,
 };
 
 // eslint-disable-next-line react/prop-types
@@ -52,21 +65,14 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 					<Form.AutocompleteMulti
 						forLabel="form-autocompletemultiselect"
 						label={ label }
-						onChange={
-							rest.onChange ||
-							( obj => {
-								setSelectedValues( obj );
-							} )
-						}
+						onChange={ obj => {
+							setSelectedValues( obj );
+						} }
 						isMulti={ true }
 						{ ...rest }
 					/>
 				</div>
-				{ rest.onChange ? (
-					''
-				) : (
-					<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
-				) }
+				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
 			</Form.Root>
 		</>
 	);
@@ -98,7 +104,10 @@ Inline.displayName = 'Inline';
 
 export const WithStaticData = () => {
 	const customArgs = {
-		...args,
+		label: 'Select domains',
+		searchIcon: true,
+		required: true,
+		options: longOptions,
 		showAllValues: true,
 		placeholder: 'Select domains',
 	};
@@ -120,7 +129,7 @@ export const WithDynamicData = () => {
 		required: true,
 		placeholder: 'Start typing...',
 		source: ( q, populateResults ) => {
-			const filtered = options.filter( option => option.label.toLowerCase().includes( q ) );
+			const filtered = longOptions.filter( option => option.label.toLowerCase().includes( q ) );
 			const optionForDisplay = filtered?.map( option => option.label );
 			populateResults( optionForDisplay.filter( option => ! selectedValues.includes( option ) ) );
 		},
@@ -128,13 +137,24 @@ export const WithDynamicData = () => {
 			setSelectedValues( obj );
 		},
 	};
-
 	return (
 		<>
-			<DefaultComponent { ...customArgs } />
-			<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+			<Form.Root>
+				<div sx={ { width: '100%' } }>
+					<Form.AutocompleteMulti
+						forLabel="form-autocompletemultiselect"
+						label={ customArgs.label }
+						onChange={ obj => {
+							setSelectedValues( obj );
+						} }
+						isMulti={ true }
+						{ ...customArgs }
+					/>
+				</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+			</Form.Root>
 		</>
 	);
 };
 
-WithDynamicData.displayName = 'WithDynamicData';
+WithDynamicData.displayName = 'WithDynamicDataFullSize';
