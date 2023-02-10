@@ -130,7 +130,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
 		forwardRef = forwardRef || React.createRef();
-		const firstSelectedOption = React.useRef( null );
 
 		/**
 		 * Reset the underlying component state to show the selected value
@@ -279,8 +278,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				selectedOptions,
 				selectedOptions.map( option => option?.label || option )
 			);
-			// Focus on the first seleted option when the selected options change
-			firstSelectedOption?.current?.focus();
 			// Reset the input state when the selected options change
 			resetInputState();
 		}, [ selectedOptions ] );
@@ -288,7 +285,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
-				<Badge>{ selectedOptions.length } selected</Badge>
 				<div
 					sx={ {
 						...defaultStyles,
@@ -319,11 +315,14 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
+				<div sx={ { ml: 1, mt: 2, textAlign: 'right', fontSize: 1 } }>
+					{ selectedOptions.length } item{ selectedOptions.length > 1 ? 's' : '' } selected
+				</div>
 				<div>
 					<ul sx={ { listStyleType: 'none', padding: 0, mt: 0 } }>
 						{ selectedOptions &&
 							selectedOptions.map( ( option, idx ) => (
-								<li key={ option }>
+								<li key={ idx }>
 									<Button
 										variant="tertiary"
 										onClick={ () => {
@@ -336,7 +335,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 											mt: 2,
 											wordBreak: 'break-all',
 										} }
-										ref={ idx === 0 ? firstSelectedOption : null }
 									>
 										<ScreenReaderText>
 											{ option }, selected. Press Space or Enter to remove.
