@@ -18,7 +18,7 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
-import { Badge, Link } from '../';
+import { Badge, Button } from '../';
 import ScreenReaderText from '../ScreenReaderText';
 import { MdClose } from 'react-icons/md';
 
@@ -129,6 +129,21 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const [ isDirty, setIsDirty ] = useState( false );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		let debounceTimeout;
+		forwardRef = forwardRef || React.createRef();
+		const firstSelectedOption = React.useRef( null );
+
+		/**
+		 * Reset the underlying component state to show the selected value
+		 */
+		const resetInputState = useCallback( () => {
+			if ( forwardRef?.current ) {
+				// resets the input field to the selected value or the empty string
+				forwardRef.current.setState( {
+					...forwardRef.current.state,
+					query: '', // selected value should not be null or the component will crash
+				} );
+			}
+		}, [ forwardRef ] );
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
@@ -157,13 +172,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				].reduce( ( a, b ) => a.concat( b ), [] ),
 			[ options ]
 		);
-
-		useEffect( () => {
-			onChange(
-				selectedOptions,
-				selectedOptions.map( option => option?.label || option )
-			);
-		}, [ selectedOptions ] );
 
 		const onValueChange = useCallback(
 			inputValue => {
@@ -257,6 +265,23 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			);
 		}, [] );
 
+		useEffect( () => {
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
+				resetInputState();
+			} );
+		}, [ forwardRef ] );
+
+		useEffect( () => {
+			onChange(
+				selectedOptions,
+				selectedOptions.map( option => option?.label || option )
+			);
+			// Focus on the first seleted option when the selected options change
+			firstSelectedOption?.current?.focus();
+			// Reset the input state when the selected options change
+			resetInputState();
+		}, [ selectedOptions ] );
+
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
@@ -292,34 +317,37 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					</FormSelectContent>
 				</div>
 				<div>
-					<ul sx={ { listStyleType: 'none', padding: 0 } }>
+					<ul sx={ { listStyleType: 'none', padding: 0, mt: 0 } }>
 						{ selectedOptions &&
-							selectedOptions.map( option => (
+							selectedOptions.map( ( option, idx ) => (
 								<li key={ option }>
-									<Badge
-										variant="gray"
-										onClick={ e => {
-											e.preventDefault();
+									<Button
+										variant="tertiary"
+										onClick={ () => {
 											unselectValue( option );
 										} }
+										sx={ {
+											fontSize: 1,
+											paddingLeft: 2,
+											paddingRight: 2,
+											mt: 2,
+											wordBreak: 'break-all',
+										} }
+										ref={ idx === 0 ? firstSelectedOption : null }
 									>
-										<Link
-											href="#"
+										<ScreenReaderText>
+											{ option }, selected. Press Space or Enter to remove.
+											{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
+										</ScreenReaderText>
+										<div
+											aria-hidden="true"
 											sx={ {
-												textDecoration: 'none',
-												'&:hover, &:focus, &:active': {
-													color: 'inherit',
-												},
+												display: 'inline-flex',
 											} }
 										>
-											<ScreenReaderText>
-												{ option }, selected. Press Enter to remove.
-											</ScreenReaderText>
-											<div aria-hidden="true" sx={ { display: 'inline-flex' } }>
-												{ option } <MdClose sx={ { ml: 2, mt: 1 } } />
-											</div>
-										</Link>
-									</Badge>
+											{ option } <MdClose sx={ { ml: 2, mt: 1 } } />
+										</div>
+									</Button>
 								</li>
 							) ) }
 					</ul>
