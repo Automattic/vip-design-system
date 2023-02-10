@@ -17,68 +17,71 @@ const RadioOption = ( {
 	option: { id, value, className, label, description, labelProps = {}, ...restOption },
 	name,
 	onChangeHandler,
-} ) => (
-	<div
-		key={ value }
-		value={ value }
-		id={ `o${ id || value }` }
-		sx={ {
-			display: 'flex',
-			flexDirection: 'row-reverse',
-			alignItems: 'flex-start',
-			backgroundColor: 'input.radio-box.background.default',
-			cursor: 'pointer',
-			borderRadius: 2,
-			textAlign: 'left',
-			border: '1px solid',
-			borderColor: 'input.radio-box.border.default',
-			position: 'relative',
-			'&:hover': {
-				backgroundColor: 'input.radio-box.background.hover',
+} ) => {
+	const forLabel = id || value;
+	return (
+		<div
+			key={ value }
+			value={ value }
+			id={ `o${ forLabel }` }
+			sx={ {
+				display: 'flex',
+				flexDirection: 'row-reverse',
+				alignItems: 'flex-start',
+				backgroundColor: 'input.radio-box.background.default',
+				cursor: 'pointer',
+				borderRadius: 2,
+				textAlign: 'left',
+				border: '1px solid',
 				borderColor: 'input.radio-box.border.default',
-			},
-			...( `${ defaultValue }` === `${ value }` && {
-				borderColor: 'input.radio-box.border.active',
-			} ),
-			...( disabled && {
-				borderColor: 'input.radio-box.border.disabled',
-			} ),
-		} }
-	>
-		<input
-			checked={ `${ defaultValue }` === `${ value }` }
-			type="radio"
-			name={ name }
-			id={ id || value }
-			onChange={ onChangeHandler }
-			value={ `${ value }` }
-			sx={ { mr: 3, mt: 3 } }
-			{ ...restOption }
-		/>
-		<label
-			htmlFor={ value }
-			sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0 } }
-			{ ...labelProps }
+				position: 'relative',
+				'&:hover': {
+					backgroundColor: 'input.radio-box.background.hover',
+					borderColor: 'input.radio-box.border.default',
+				},
+				...( `${ defaultValue }` === `${ value }` && {
+					borderColor: 'input.radio-box.border.active',
+				} ),
+				...( disabled && {
+					borderColor: 'input.radio-box.border.disabled',
+				} ),
+			} }
 		>
-			{ label }
-			{ description && (
-				<>
-					<ScreenReaderText>.</ScreenReaderText>
-					<span
-						sx={ {
-							color: 'input.radio-box.label.secondary.default',
-							mb: 0,
-							fontSize: 1,
-							display: 'block',
-						} }
-					>
-						{ description }
-					</span>
-				</>
-			) }
-		</label>
-	</div>
-);
+			<input
+				checked={ `${ defaultValue }` === `${ value }` }
+				type="radio"
+				name={ name }
+				id={ forLabel }
+				onChange={ onChangeHandler }
+				value={ `${ value }` }
+				sx={ { mr: 3, mt: 3 } }
+				{ ...restOption }
+			/>
+			<label
+				htmlFor={ forLabel }
+				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0 } }
+				{ ...labelProps }
+			>
+				{ label }
+				{ description && (
+					<>
+						<ScreenReaderText>.</ScreenReaderText>
+						<span
+							sx={ {
+								color: 'input.radio-box.label.secondary.default',
+								mb: 0,
+								fontSize: 1,
+								display: 'block',
+							} }
+						>
+							{ description }
+						</span>
+					</>
+				) }
+			</label>
+		</div>
+	);
+};
 
 RadioOption.propTypes = {
 	defaultValue: PropTypes.string,
