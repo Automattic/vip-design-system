@@ -225,9 +225,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				if ( isDirty && autoFilter ) {
 					data = handleTypeChange( query );
 				}
-				populateResults( data?.map( option => optionLabel( option ) ) );
+				const optionForDisplay = data?.map( option => optionLabel( option ) );
+				populateResults(
+					optionForDisplay.filter( option => ! selectedOptions.includes( option ) )
+				);
 			},
-			[ autoFilter, isDirty, onInputChange, options ]
+			[ autoFilter, isDirty, onInputChange, options, selectedOptions ]
 		);
 
 		useEffect( () => {

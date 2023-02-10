@@ -44,8 +44,7 @@ const args = {
 
 // eslint-disable-next-line react/prop-types
 const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
-	const [ selectedValue, setSelectedValue ] = useState( [] );
-
+	const [ selectedValues, setSelectedValues ] = useState( [] );
 	return (
 		<>
 			<Form.Root>
@@ -53,14 +52,18 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 					<Form.AutocompleteMulti
 						forLabel="form-autocompletemultiselect"
 						label={ label }
-						onChange={ obj => {
-							setSelectedValue( obj );
-						} }
+						onChange={
+							rest.onChange
+								? rest.onChange
+								: obj => {
+										setSelectedValues( obj );
+								  }
+						}
 						isMulti={ true }
 						{ ...rest }
 					/>
 				</div>
-				<div sx={ { mt: 3 } }>Selected value: { selectedValue.join( ', ' ) }</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
 			</Form.Root>
 		</>
 	);
@@ -94,6 +97,7 @@ export const WithStaticData = () => {
 	const customArgs = {
 		...args,
 		showAllValues: true,
+		placeholder: 'Select domains',
 	};
 
 	return (
@@ -106,6 +110,7 @@ export const WithStaticData = () => {
 WithStaticData.displayName = 'WithStaticData';
 
 export const WithDynamicData = () => {
+	const [ selectedValues, setSelectedValues ] = useState( [] );
 	const customArgs = {
 		label: 'Select domains',
 		searchIcon: true,
@@ -113,7 +118,11 @@ export const WithDynamicData = () => {
 		placeholder: 'Start typing...',
 		source: ( q, populateResults ) => {
 			const filtered = options.filter( option => option.label.toLowerCase().includes( q ) );
-			populateResults( filtered.map( option => option.label ) );
+			const optionForDisplay = filtered?.map( option => option.label );
+			populateResults( optionForDisplay.filter( option => ! selectedValues.includes( option ) ) );
+		},
+		onChange: obj => {
+			setSelectedValues( obj );
 		},
 	};
 
