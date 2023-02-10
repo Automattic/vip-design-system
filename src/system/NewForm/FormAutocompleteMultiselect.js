@@ -330,7 +330,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 									} }
 									sx={ {
 										mt: 1,
-										fontSize: 0,
+										fontSize: 1,
 										maxWidth: '100%',
 									} }
 								>
