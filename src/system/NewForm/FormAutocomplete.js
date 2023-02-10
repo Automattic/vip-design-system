@@ -92,6 +92,8 @@ const searchIconStyles = {
 	},
 };
 
+const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
+
 const FormAutocomplete = React.forwardRef(
 	(
 		{
@@ -99,26 +101,26 @@ const FormAutocomplete = React.forwardRef(
 			className,
 			debounce = 0,
 			displayMenu = 'overlay',
-			forLabel,
+			dropdownArrow = DefaultArrow,
+			errorMessage,
+			forLabel = 'vip-autocomplete',
 			getOptionLabel,
 			getOptionValue,
-			id = 'vip-autocomplete',
+			hasError,
 			isInline,
 			label,
 			loading,
 			minLength = 0,
-			noOptionsMessage = () => 'No results found.',
+			noOptionsMessage = () => 'No results found. Type to search.',
 			onChange = () => {},
 			onInputChange,
 			options = [],
 			required,
 			searchIcon,
-			showAllValues = true,
-			showSelectionInsideInput = true,
+			showAllValues = false,
+			resetOnBlur = false, // resets the input value to the selection if the input is blurred. Returns null if selection is empty
 			source,
 			value,
-			hasError,
-			errorMessage,
 			...props
 		},
 		forwardRef
@@ -133,7 +135,7 @@ const FormAutocomplete = React.forwardRef(
 		}
 
 		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel || id }>
+			<Label required={ required } htmlFor={ forLabel }>
 				{ label }
 			</Label>
 		);
@@ -163,7 +165,7 @@ const FormAutocomplete = React.forwardRef(
 		 * Reset the underlying component state to show the selected value
 		 */
 		const resetInputState = useCallback( () => {
-			if ( showSelectionInsideInput && forwardRef?.current && inputQuery !== selectedValue ) {
+			if ( resetOnBlur && forwardRef?.current && inputQuery !== selectedValue ) {
 				// resets the input field to the selected value or the empty string
 				forwardRef.current.setState( {
 					...forwardRef.current.state,
@@ -183,7 +185,7 @@ const FormAutocomplete = React.forwardRef(
 			inputValue => {
 				if ( inputValue ) {
 					setAutocompleteState( inputValue );
-				} else if ( showSelectionInsideInput && inputQuery !== selectedValue ) {
+				} else if ( resetOnBlur && inputQuery !== selectedValue ) {
 					if ( inputQuery && inputQuery !== '' ) {
 						// reset the content to the selected value
 						setAutocompleteState( selectedValue );
@@ -256,13 +258,38 @@ const FormAutocomplete = React.forwardRef(
 		}, [ label ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ id }` ).addEventListener( 'keydown', () => {
-				setIsDirty( true );
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			if ( ! input || required === undefined ) {
+				return;
+			}
+
+			input.setAttribute( 'aria-required', required );
+		}, [ required ] );
+
+		useEffect( () => {
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', e => {
+				// pressed escape, we want to reset the status
+				if ( e.keyCode === 27 && resetOnBlur ) {
+					resetInputState();
+				} else {
+					setIsDirty( true );
+				}
 			} );
 		}, [ setIsDirty ] );
 
+		// For accessibility, we need to add the error message to the aria-describedby attribute
 		useEffect( () => {
-			global.document.querySelector( `#${ id }` ).addEventListener( 'blur', () => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			input?.setAttribute(
+				'aria-describedby',
+				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
+			);
+		}, [] );
+
+		useEffect( () => {
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
 				resetInputState();
 			} );
 		}, [ forwardRef ] );
@@ -282,8 +309,9 @@ const FormAutocomplete = React.forwardRef(
 						label={ inlineLabel ? <SelectLabel /> : null }
 					>
 						{ searchIcon && <FormSelectSearch /> }
+
 						<Autocomplete
-							id={ id }
+							id={ forLabel }
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
@@ -292,10 +320,12 @@ const FormAutocomplete = React.forwardRef(
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
+							required={ required }
+							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
 							{ ...props }
 						/>
-						{ loading && <FormSelectLoading /> }
-						<FormSelectArrow />
+
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
 
@@ -314,10 +344,11 @@ FormAutocomplete.propTypes = {
 	className: PropTypes.any,
 	debounce: PropTypes.number,
 	displayMenu: PropTypes.string,
+	errorMessage: PropTypes.string,
 	forLabel: PropTypes.string,
 	getOptionLabel: PropTypes.func,
 	getOptionValue: PropTypes.func,
-	id: PropTypes.string,
+	hasError: PropTypes.bool,
 	isInline: PropTypes.bool,
 	label: PropTypes.string,
 	loading: PropTypes.bool,
@@ -329,11 +360,10 @@ FormAutocomplete.propTypes = {
 	required: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	showAllValues: PropTypes.bool,
-	showSelectionInsideInput: PropTypes.bool,
+	resetOnBlur: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
-	hasError: PropTypes.bool,
-	errorMessage: PropTypes.string,
+	dropdownArrow: PropTypes.node,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
