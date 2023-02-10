@@ -53,17 +53,20 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 						forLabel="form-autocompletemultiselect"
 						label={ label }
 						onChange={
-							rest.onChange
-								? rest.onChange
-								: obj => {
-										setSelectedValues( obj );
-								  }
+							rest.onChange ||
+							( obj => {
+								setSelectedValues( obj );
+							} )
 						}
 						isMulti={ true }
 						{ ...rest }
 					/>
 				</div>
-				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+				{ rest.onChange ? (
+					''
+				) : (
+					<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+				) }
 			</Form.Root>
 		</>
 	);
@@ -129,6 +132,7 @@ export const WithDynamicData = () => {
 	return (
 		<>
 			<DefaultComponent { ...customArgs } />
+			<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
 		</>
 	);
 };

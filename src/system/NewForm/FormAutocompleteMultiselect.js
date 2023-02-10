@@ -18,7 +18,7 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
-import { Badge, Button } from '../';
+import { Button } from '../';
 import ScreenReaderText from '../ScreenReaderText';
 import { MdClose } from 'react-icons/md';
 
