@@ -3,9 +3,8 @@
 /**
  * Internal dependencies
  */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import * as Form from '.';
-import { Box } from '../Box';
 
 export default {
 	title: 'Form/Autocomplete',
