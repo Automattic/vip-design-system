@@ -12,6 +12,7 @@ import ScreenReaderText from '../ScreenReaderText';
  */
 
 const RadioOption = ( {
+	width,
 	disabled,
 	defaultValue,
 	option: { id, value, className, label, description, labelProps = {}, ...restOption },
@@ -25,6 +26,7 @@ const RadioOption = ( {
 			value={ value }
 			id={ `o${ forLabel }` }
 			sx={ {
+				width,
 				display: 'flex',
 				flexDirection: 'row-reverse',
 				alignItems: 'flex-start',
@@ -59,7 +61,7 @@ const RadioOption = ( {
 			/>
 			<label
 				htmlFor={ forLabel }
-				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0 } }
+				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0, flex: 'auto' } }
 				{ ...labelProps }
 			>
 				{ label }
@@ -90,11 +92,21 @@ RadioOption.propTypes = {
 	onChangeHandler: PropTypes.func,
 	checked: PropTypes.bool,
 	disabled: PropTypes.bool,
+	width: PropTypes.string,
 };
 
 const RadioBoxGroup = React.forwardRef(
 	(
-		{ name = '', onChange, groupLabel, defaultValue, options, disabled, ...props },
+		{
+			optionWidth = 'auto',
+			name = '',
+			onChange,
+			groupLabel,
+			defaultValue,
+			options,
+			disabled,
+			...props
+		},
 		forwardRef
 	) => {
 		const onChangeHandler = useCallback(
@@ -115,6 +127,7 @@ const RadioBoxGroup = React.forwardRef(
 				name={ name }
 				option={ option }
 				onChangeHandler={ onChangeHandler }
+				width={ optionWidth }
 			/>
 		) );
 
@@ -149,6 +162,7 @@ RadioBoxGroup.propTypes = {
 	name: PropTypes.string,
 	disabled: PropTypes.bool,
 	groupLabel: PropTypes.string,
+	optionWidth: PropTypes.string,
 };
 
 export { RadioBoxGroup };
