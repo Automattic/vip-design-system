@@ -27,11 +27,7 @@ const TableCell = ( { head, children, ...rest } ) => {
 	return (
 		<Box as={ head ? 'th' : 'td' } { ...{ ...rest, sx } }>
 			{ head ? (
-				<Heading
-					variant="caps"
-					as="div"
-					sx={ { mb: 0, color: head ? 'table.heading' : 'table.text', fontSize: 2 } }
-				>
+				<Heading as="div" sx={ { mb: 0, color: 'table.heading', fontSize: 2, fontWeight: 'bold' } }>
 					{ children }
 				</Heading>
 			) : (
