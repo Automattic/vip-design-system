@@ -110,6 +110,8 @@ export const WithStaticData = () => {
 		options: longOptions,
 		showAllValues: true,
 		placeholder: 'Select domains',
+		hasError: true,
+		errorMessage: 'Domain is required.',
 	};
 
 	return (
@@ -147,7 +149,8 @@ export const WithDynamicData = () => {
 						onChange={ obj => {
 							setSelectedValues( obj );
 						} }
-						isMulti={ true }
+						hasError={ true }
+						errorMessage="Please select a value."
 						{ ...customArgs }
 					/>
 				</div>

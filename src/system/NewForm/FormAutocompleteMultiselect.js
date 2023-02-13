@@ -18,7 +18,7 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
-import { Button } from '../';
+import { Button, Flex } from '../';
 import ScreenReaderText from '../ScreenReaderText';
 import { MdClose } from 'react-icons/md';
 
@@ -315,9 +315,16 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<div sx={ { ml: 1, mt: 2, textAlign: 'right', fontSize: 1 } }>
-					{ selectedOptions.length } item{ selectedOptions.length > 1 ? 's' : '' } selected
-				</div>
+				<Flex sx={ { justifyContent: 'space-between' } }>
+					{ hasError && errorMessage && (
+						<Validation isValid={ false } describedId={ forLabel }>
+							{ errorMessage }
+						</Validation>
+					) }
+					<div sx={ { fontSize: 1 } }>
+						{ selectedOptions.length } item{ selectedOptions.length > 1 ? 's' : '' } selected
+					</div>
+				</Flex>
 				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
 					{ selectedOptions &&
 						selectedOptions.map( ( option, idx ) => (
@@ -353,11 +360,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							</div>
 						) ) }
 				</div>
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
-						{ errorMessage }
-					</Validation>
-				) }
 			</div>
 		);
 	}
