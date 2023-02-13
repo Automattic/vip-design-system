@@ -29,6 +29,7 @@ const baseBorderTextColors = {
 
 const defaultStyles = {
 	width: '100%',
+	mb: 2,
 	...baseBorderTextColors,
 
 	py: 0,
@@ -87,8 +88,8 @@ const inlineStyles = {
 };
 
 const searchIconStyles = {
-	'& .autocomplete__input.autocomplete__input--show-all-values': {
-		paddingLeft: '30px',
+	'& .autocomplete__input.autocomplete__input': {
+		paddingLeft: 4,
 	},
 };
 

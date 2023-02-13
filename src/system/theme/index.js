@@ -104,8 +104,9 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	},
 
 	optionRow: {
+		...theme[ 'option-row' ],
 		hover: 'rgba(0,0,0,.02)',
-		border: gColor( 'border', '1' ),
+		border: gColor( 'border', '2' ),
 		text: gColor( 'text', 'secondary' ),
 		textAccent: gColor( 'link', 'default' ),
 		icon: gColor( 'icon', 'inverse' ),
@@ -288,6 +289,21 @@ export default {
 				color: 'button.tertiary.label.hover',
 				border: '1px solid',
 				borderColor: 'button.tertiary.border.hover',
+			},
+		},
+
+		display: {
+			variant: 'buttons.primary',
+			color: 'button.display.label.default',
+			bg: 'button.display.background.default',
+			border: '1px solid',
+			borderColor: 'transparent',
+
+			'&:hover, &:focus': {
+				backgroundColor: 'button.display.background.hover',
+				color: 'button.display.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
 			},
 		},
 

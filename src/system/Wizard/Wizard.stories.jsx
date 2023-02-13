@@ -59,6 +59,62 @@ export const Default = () => {
 	);
 };
 
+export const WithTitleAutoFocus = () => {
+	const [ activeStep, setActiveStep ] = React.useState( 0 );
+	const [ autoFocus, setAutoFocus ] = React.useState( true );
+	const steps = [
+		{
+			title: 'Choose Domain',
+			titleVariant: 'h2',
+			children: (
+				<Box>
+					<Label>Domain</Label>
+					<Input placeholder="yourdomain.com" />
+					<Button sx={ { mt: 3 } } onClick={ () => setActiveStep( 1 ) }>
+						Continue
+					</Button>
+				</Box>
+			),
+		},
+		{
+			title: 'Configure DNS',
+			titleVariant: 'h2',
+			children: (
+				<Box>
+					<Label>DNS</Label>
+					<Button sx={ { mt: 3 } } onClick={ () => setActiveStep( 0 ) }>
+						back
+					</Button>
+				</Box>
+			),
+		},
+	];
+	return (
+		<React.Fragment>
+			<Box mt={ 4 }>
+				<Wizard
+					activeStep={ activeStep }
+					steps={ steps }
+					titleAutofocus={ autoFocus }
+					className="vip-wizard-xyz"
+				/>
+			</Box>
+			<Box mt={ 4 }>
+				<Form.Select
+					id="wizard-autofocus"
+					label="Autofocus status"
+					value={ autoFocus }
+					onChange={ e => setAutoFocus( e.value ) }
+					options={ [
+						{ value: true, label: 'On' },
+						{ value: false, label: 'Off' },
+					] }
+				/>
+			</Box>
+		</React.Fragment>
+	);
+};
+
 export const CustomTitle = () => {
 	const steps = [
 		{

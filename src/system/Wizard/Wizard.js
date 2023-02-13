@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MdArrowForward } from 'react-icons/md';
@@ -14,7 +14,26 @@ import { MdArrowForward } from 'react-icons/md';
 import { Box, WizardStep, Flex, WizardStepHorizontal } from '..';
 
 const Wizard = React.forwardRef(
-	( { steps, activeStep, variant, completed = [], className = null, ...props }, forwardRef ) => {
+	(
+		{
+			steps,
+			activeStep,
+			variant,
+			completed = [],
+			className = null,
+			titleAutofocus = false,
+			...props
+		},
+		forwardRef
+	) => {
+		const didMount = useRef( false );
+		// didMount helps us to track the initial render, so we can focus the title only subsequent renders
+		// to avoid stealing the focus from the page we're in.
+		useLayoutEffect( () => {
+			if ( ! didMount.current ) {
+				didMount.current = true;
+			}
+		}, [ activeStep ] );
 		return (
 			<Box className={ classNames( 'vip-wizard-component', className ) } ref={ forwardRef }>
 				{ variant === 'horizontal' ? (
@@ -52,6 +71,7 @@ const Wizard = React.forwardRef(
 							subTitle={ subTitle }
 							title={ title }
 							titleVariant={ titleVariant }
+							shouldFocusTitle={ titleAutofocus && didMount.current }
 						>
 							{ children }
 						</WizardStep>
@@ -70,6 +90,7 @@ Wizard.propTypes = {
 	variant: PropTypes.string,
 	completed: PropTypes.array,
 	className: PropTypes.any,
+	titleAutofocus: PropTypes.bool,
 };
 
 export { Wizard };

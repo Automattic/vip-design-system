@@ -43,10 +43,10 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 				},
 				...sx,
 			} }
-			aria-disabled={ disabled }
-			className={ classNames( 'vip-button-component', props.className ) }
-			onClick={ handleOnClick }
 			{ ...props }
+			aria-disabled={ disabled }
+			onClick={ handleOnClick }
+			className={ classNames( 'vip-button-component', props.className ) }
 			ref={ forwardRef }
 		/>
 	);

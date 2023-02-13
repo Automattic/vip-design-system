@@ -183,12 +183,12 @@ const Radio = React.forwardRef(
 Radio.displayName = 'Radio';
 
 Radio.propTypes = {
-	disabled: PropTypes.bool,
+	className: PropTypes.any,
 	defaultValue: PropTypes.any,
+	disabled: PropTypes.bool,
+	name: PropTypes.string,
 	onChange: PropTypes.func,
 	options: PropTypes.any,
-	name: PropTypes.string,
-	className: PropTypes.any,
 };
 
 export { Radio };

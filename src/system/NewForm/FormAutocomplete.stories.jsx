@@ -34,6 +34,7 @@ const args = {
 	label: 'Label',
 	options,
 	resetOnBlur: false,
+	placeholder: 'Start typing...',
 };
 
 // eslint-disable-next-line react/prop-types
