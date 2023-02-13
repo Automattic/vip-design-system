@@ -343,7 +343,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 									} }
 								>
 									<div
-										aria-hidden="true"
 										sx={ {
 											overflow: 'hidden',
 											textOverflow: 'ellipsis',
@@ -353,7 +352,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 										{ option }
 									</div>
 									<ScreenReaderText>
-										{ option }, selected. Press Space or Enter to remove.
+										selected. Press Space or Enter to remove.
 										{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
 									</ScreenReaderText>
 									<MdClose sx={ { ml: 2 } } />
