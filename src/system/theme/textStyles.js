@@ -41,5 +41,6 @@ export const textStyles = {
 		marginBottom: 2,
 		color: 'muted',
 		fontWeight: 'bold',
+		letterSpacing: '.05em',
 	},
 };
