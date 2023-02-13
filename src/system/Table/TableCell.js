@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Heading, Box } from '../';
+import { Box } from '../';
 
 const TableCell = ( { head, children, ...rest } ) => {
 	const sx = {
@@ -27,9 +27,9 @@ const TableCell = ( { head, children, ...rest } ) => {
 	return (
 		<Box as={ head ? 'th' : 'td' } { ...{ ...rest, sx } }>
 			{ head ? (
-				<Heading as="div" sx={ { mb: 0, color: 'table.heading', fontSize: 2, fontWeight: 'bold' } }>
+				<span sx={ { mb: 0, color: 'table.heading', fontSize: 2, fontWeight: 'bold' } }>
 					{ children }
-				</Heading>
+				</span>
 			) : (
 				children
 			) }
