@@ -267,18 +267,19 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			);
 		}, [] );
 
+		// Reset the input state on input blur
 		useEffect( () => {
 			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
 				resetInputState();
 			} );
 		}, [ forwardRef ] );
 
+		// Update selectedOption and reset the input state on select input change
 		useEffect( () => {
 			onChange(
 				selectedOptions,
 				selectedOptions.map( option => option?.label || option )
 			);
-			// Reset the input state when the selected options change
 			resetInputState();
 		}, [ selectedOptions ] );
 
@@ -315,7 +316,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-				<Flex sx={ { justifyContent: 'space-between' } }>
+				<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
 					{ hasError && errorMessage && (
 						<Validation isValid={ false } describedId={ forLabel }>
 							{ errorMessage }
