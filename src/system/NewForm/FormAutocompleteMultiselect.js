@@ -267,13 +267,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			);
 		}, [] );
 
-		// Reset the input state on input blur
-		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
-				resetInputState();
-			} );
-		}, [ forwardRef ] );
-
 		// Update selectedOption and reset the input state on select input change
 		useEffect( () => {
 			onChange(
