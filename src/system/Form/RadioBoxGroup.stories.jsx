@@ -35,10 +35,10 @@ export const Default = () => {
 	const [ value, setValue ] = useState( 'one' );
 	return (
 		<RadioBoxGroup
-			value={ value }
-			onChange={ newValue => setValue( newValue ) }
-			groupLabel="group"
+			defaultValue={ value }
+			onChange={ e => setValue( e.target.value ) }
 			options={ options }
+			optionWidth="350px"
 		/>
 	);
 };
