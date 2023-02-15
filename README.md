@@ -92,7 +92,7 @@ npm run build
 npm publish
 ```
 
-Note: You need to have two-factor enabled in your npm account. The publish command will request a two-factor code to complete the publishing process.
+Note: You need to have two-factor enabled in your npm account. The publish command will request a two-factor code to complete the publishing process. You can also add `--otp=CODE` to the `npm publish` command if you already have the code.
 
 7. Push the tags to the repository and trunk updates.
 
@@ -102,6 +102,8 @@ git push origin trunk
 ```
 
 8. For major versions or breaking changes, it's recommended to [create a RELEASE](https://github.com/Automattic/vip-design-system/releases) with the published tag.
+
+Ps: Add a `BREAKING CHANGES` section to the release. This will avoid folks trying to figure out why their code is not working on the VIP Dashboard or any other system.
 
 ### Troubleshooting
 
