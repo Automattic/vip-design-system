@@ -55,7 +55,6 @@ const RadioOption = ( {
 		>
 			<input
 				ref={ ref }
-				role="radio"
 				checked={ checked }
 				type="radio"
 				name={ name }
