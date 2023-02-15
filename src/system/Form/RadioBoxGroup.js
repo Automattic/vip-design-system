@@ -6,6 +6,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ScreenReaderText from '../ScreenReaderText';
+import { Label } from './Label';
 
 /**
  * Internal dependencies
@@ -21,6 +22,7 @@ const RadioOption = ( {
 } ) => {
 	const forLabel = id || value;
 	const checked = `${ defaultValue }` === `${ value }`;
+	const ref = React.useRef( null );
 	return (
 		<div
 			id={ `o${ forLabel }` }
@@ -47,8 +49,12 @@ const RadioOption = ( {
 					borderColor: 'input.radio-box.border.disabled',
 				} ),
 			} }
+			onClick={ () => {
+				ref.current?.click();
+			} }
 		>
 			<input
+				ref={ ref }
 				role="radio"
 				checked={ checked }
 				type="radio"
@@ -131,8 +137,6 @@ const RadioBoxGroup = React.forwardRef(
 		return (
 			<fieldset
 				sx={ {
-					display: 'flex',
-					gap: 2,
 					border: 0,
 					padding: 0,
 				} }
@@ -140,11 +144,20 @@ const RadioBoxGroup = React.forwardRef(
 				{ ...props }
 			>
 				{ groupLabel ? (
-					<legend>{ groupLabel }</legend>
+					<Label as="legend" sx={ { mb: 2 } }>
+						{ groupLabel }
+					</Label>
 				) : (
 					<ScreenReaderText>Choose an option</ScreenReaderText>
 				) }
-				{ renderedOptions }
+				<div
+					sx={ {
+						display: 'flex',
+						gap: 2,
+					} }
+				>
+					{ renderedOptions }
+				</div>
 			</fieldset>
 		);
 	}
