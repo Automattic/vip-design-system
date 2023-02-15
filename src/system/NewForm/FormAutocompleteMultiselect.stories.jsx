@@ -68,7 +68,6 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 						onChange={ obj => {
 							setSelectedValues( obj );
 						} }
-						isMulti={ true }
 						{ ...rest }
 					/>
 				</div>
