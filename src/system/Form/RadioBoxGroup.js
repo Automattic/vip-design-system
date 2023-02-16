@@ -6,6 +6,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ScreenReaderText from '../ScreenReaderText';
+import { Label } from './Label';
 
 /**
  * Internal dependencies
@@ -20,10 +21,10 @@ const RadioOption = ( {
 	onChangeHandler,
 } ) => {
 	const forLabel = id || value;
+	const checked = `${ defaultValue }` === `${ value }`;
+	const ref = React.useRef( null );
 	return (
 		<div
-			key={ value }
-			value={ value }
 			id={ `o${ forLabel }` }
 			sx={ {
 				width,
@@ -41,16 +42,20 @@ const RadioOption = ( {
 					backgroundColor: 'input.radio-box.background.hover',
 					borderColor: 'input.radio-box.border.default',
 				},
-				...( `${ defaultValue }` === `${ value }` && {
+				...( checked && {
 					borderColor: 'input.radio-box.border.active',
 				} ),
 				...( disabled && {
 					borderColor: 'input.radio-box.border.disabled',
 				} ),
 			} }
+			onClick={ () => {
+				ref.current?.click();
+			} }
 		>
 			<input
-				checked={ `${ defaultValue }` === `${ value }` }
+				ref={ ref }
+				checked={ checked }
 				type="radio"
 				name={ name }
 				id={ forLabel }
@@ -59,28 +64,25 @@ const RadioOption = ( {
 				sx={ { mr: 3, mt: 3 } }
 				{ ...restOption }
 			/>
-			<label
-				htmlFor={ forLabel }
+			<div
 				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0, flex: 'auto' } }
-				{ ...labelProps }
 			>
-				{ label }
+				<label htmlFor={ forLabel } { ...labelProps }>
+					{ label }
+				</label>
 				{ description && (
-					<>
-						<ScreenReaderText>.</ScreenReaderText>
-						<span
-							sx={ {
-								color: 'input.radio-box.label.secondary.default',
-								mb: 0,
-								fontSize: 1,
-								display: 'block',
-							} }
-						>
-							{ description }
-						</span>
-					</>
+					<span
+						sx={ {
+							color: 'input.radio-box.label.secondary.default',
+							mb: 0,
+							fontSize: 1,
+							display: 'block',
+						} }
+					>
+						{ description }
+					</span>
 				) }
-			</label>
+			</div>
 		</div>
 	);
 };
@@ -134,8 +136,6 @@ const RadioBoxGroup = React.forwardRef(
 		return (
 			<fieldset
 				sx={ {
-					display: 'flex',
-					gap: 2,
 					border: 0,
 					padding: 0,
 				} }
@@ -143,11 +143,20 @@ const RadioBoxGroup = React.forwardRef(
 				{ ...props }
 			>
 				{ groupLabel ? (
-					<legend>{ groupLabel }</legend>
+					<Label as="legend" sx={ { mb: 2 } }>
+						{ groupLabel }
+					</Label>
 				) : (
 					<ScreenReaderText>Choose an option</ScreenReaderText>
 				) }
-				{ renderedOptions }
+				<div
+					sx={ {
+						display: 'flex',
+						gap: 2,
+					} }
+				>
+					{ renderedOptions }
+				</div>
 			</fieldset>
 		);
 	}
