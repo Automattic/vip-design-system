@@ -234,12 +234,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 
 		useEffect( () => {
 			global.document
-				.querySelector( '.autocomplete__input' )
-				.setAttribute( 'aria-activedescendant', '' );
-		}, [] );
-
-		useEffect( () => {
-			global.document
 				.querySelector( '.autocomplete__menu' )
 				.setAttribute( 'aria-label', `${ label } list` );
 		}, [ label ] );
