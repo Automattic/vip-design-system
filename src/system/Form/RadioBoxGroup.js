@@ -23,6 +23,8 @@ const RadioOption = ( {
 	const forLabel = id || value;
 	const checked = `${ defaultValue }` === `${ value }`;
 	const ref = React.useRef( null );
+	const describedById = `input-radio-box-${ forLabel }-description`;
+
 	return (
 		<div
 			id={ `o${ forLabel }` }
@@ -62,6 +64,7 @@ const RadioOption = ( {
 				onChange={ onChangeHandler }
 				value={ `${ value }` }
 				sx={ { mr: 3, mt: 3 } }
+				aria-describedby={ describedById }
 				{ ...restOption }
 			/>
 			<div
@@ -78,6 +81,7 @@ const RadioOption = ( {
 							fontSize: 1,
 							display: 'block',
 						} }
+						id={ describedById }
 					>
 						{ description }
 					</span>
