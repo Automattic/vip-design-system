@@ -53,6 +53,10 @@ const defaultStyles = {
 		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--show-all-values': { paddingRight: '40px' },
+		'&::placeholder': {
+			color: 'input.text.placeholder',
+			opacity: 1,
+		},
 	},
 	'& .autocomplete__menu': {
 		...baseBorderTextColors,
@@ -231,6 +235,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			},
 			[ autoFilter, isDirty, onInputChange, options, selectedOptions ]
 		);
+
+		useEffect( () => {
+			global.document
+				.querySelector( '.autocomplete__input' )
+				.setAttribute( 'aria-activedescendant', '' );
+		}, [] );
 
 		useEffect( () => {
 			global.document
