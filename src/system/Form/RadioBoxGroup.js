@@ -3,76 +3,163 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { MdCheckCircle } from 'react-icons/md';
+import ScreenReaderText from '../ScreenReaderText';
+import { Label } from './Label';
 
 /**
  * Internal dependencies
  */
-import { Heading, Text } from '../';
+
+const RadioOption = ( {
+	width,
+	disabled,
+	defaultValue,
+	option: { id, value, className, label, description, labelProps = {}, ...restOption },
+	name,
+	onChangeHandler,
+} ) => {
+	const forLabel = id || value;
+	const checked = `${ defaultValue }` === `${ value }`;
+	const ref = React.useRef( null );
+	return (
+		<div
+			id={ `o${ forLabel }` }
+			sx={ {
+				width,
+				display: 'flex',
+				flexDirection: 'row-reverse',
+				alignItems: 'flex-start',
+				backgroundColor: 'input.radio-box.background.default',
+				cursor: 'pointer',
+				borderRadius: 2,
+				textAlign: 'left',
+				border: '1px solid',
+				borderColor: 'input.radio-box.border.default',
+				position: 'relative',
+				'&:hover': {
+					backgroundColor: 'input.radio-box.background.hover',
+					borderColor: 'input.radio-box.border.default',
+				},
+				...( checked && {
+					borderColor: 'input.radio-box.border.active',
+				} ),
+				...( disabled && {
+					borderColor: 'input.radio-box.border.disabled',
+				} ),
+			} }
+			onClick={ () => {
+				ref.current?.click();
+			} }
+		>
+			<input
+				ref={ ref }
+				checked={ checked }
+				type="radio"
+				name={ name }
+				id={ forLabel }
+				onChange={ onChangeHandler }
+				value={ `${ value }` }
+				sx={ { mr: 3, mt: 3 } }
+				{ ...restOption }
+			/>
+			<div
+				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0, flex: 'auto' } }
+			>
+				<label htmlFor={ forLabel } { ...labelProps }>
+					{ label }
+				</label>
+				{ description && (
+					<span
+						sx={ {
+							color: 'input.radio-box.label.secondary.default',
+							mb: 0,
+							fontSize: 1,
+							display: 'block',
+						} }
+					>
+						{ description }
+					</span>
+				) }
+			</div>
+		</div>
+	);
+};
+
+RadioOption.propTypes = {
+	defaultValue: PropTypes.string,
+	option: PropTypes.object,
+	name: PropTypes.string,
+	onChangeHandler: PropTypes.func,
+	checked: PropTypes.bool,
+	disabled: PropTypes.bool,
+	width: PropTypes.string,
+};
 
 const RadioBoxGroup = React.forwardRef(
-	( { onChange, groupLabel, value, options, ...props }, forwardRef ) => (
-		<RadioGroupPrimitive.Root
-			onValueChange={ onChange }
-			value={ value }
-			aria-label={ groupLabel }
-			sx={ {
-				display: 'flex',
-				gap: 2,
-			} }
-			ref={ forwardRef }
-			{ ...props }
-		>
-			{ options.map( ( option, index ) => (
-				<RadioGroupPrimitive.Item
-					key={ option.value }
-					value={ option.value }
-					id={ `o${ index }` }
+	(
+		{
+			optionWidth = 'auto',
+			name = '',
+			onChange,
+			groupLabel,
+			defaultValue,
+			options,
+			disabled,
+			...props
+		},
+		forwardRef
+	) => {
+		const onChangeHandler = useCallback(
+			e => {
+				const optionTriggered = options.find(
+					option => `${ option.value }` === `${ e.target.value }`
+				);
+				onChange( e, optionTriggered );
+			},
+			[ onChange ]
+		);
+
+		const renderedOptions = options.map( option => (
+			<RadioOption
+				defaultValue={ defaultValue }
+				disabled={ disabled }
+				key={ option?.id || option?.value }
+				name={ name }
+				option={ option }
+				onChangeHandler={ onChangeHandler }
+				width={ optionWidth }
+			/>
+		) );
+
+		return (
+			<fieldset
+				sx={ {
+					border: 0,
+					padding: 0,
+				} }
+				ref={ forwardRef }
+				{ ...props }
+			>
+				{ groupLabel ? (
+					<Label as="legend" sx={ { mb: 2 } }>
+						{ groupLabel }
+					</Label>
+				) : (
+					<ScreenReaderText>Choose an option</ScreenReaderText>
+				) }
+				<div
 					sx={ {
-						p: 3,
-						backgroundColor: 'input.radio-box.background.default',
-						cursor: 'pointer',
-						borderRadius: 2,
-						textAlign: 'left',
-						border: '1px solid',
-						borderColor: 'input.radio-box.border.default',
-						position: 'relative',
-						'&:hover': {
-							backgroundColor: 'input.radio-box.background.hover',
-							borderColor: 'input.radio-box.border.default',
-						},
-						'&[data-state=checked]': {
-							borderColor: 'input.radio-box.border.active',
-						},
-						'&[data-state=disabled]': {
-							borderColor: 'input.radio-box.border.disabled',
-						},
+						display: 'flex',
+						gap: 2,
 					} }
 				>
-					<RadioGroupPrimitive.Indicator>
-						<MdCheckCircle
-							size={ 16 }
-							sx={ { position: 'absolute', top: 2, right: 2, color: 'icon.primary' } }
-						/>
-					</RadioGroupPrimitive.Indicator>
-					<Heading
-						variant="h4"
-						as="label"
-						htmlFor={ `o${ index }` }
-						sx={ { mb: 0, color: 'input.radio-box.label.primary.default' } }
-					>
-						{ option.label }
-					</Heading>
-					<Text sx={ { color: 'input.radio-box.label.secondary.default', mb: 0, fontSize: 1 } }>
-						{ option.description }
-					</Text>
-				</RadioGroupPrimitive.Item>
-			) ) }
-		</RadioGroupPrimitive.Root>
-	)
+					{ renderedOptions }
+				</div>
+			</fieldset>
+		);
+	}
 );
 
 RadioBoxGroup.displayName = 'RadioBoxGroup';
@@ -80,8 +167,11 @@ RadioBoxGroup.displayName = 'RadioBoxGroup';
 RadioBoxGroup.propTypes = {
 	onChange: PropTypes.func,
 	options: PropTypes.array,
-	value: PropTypes.string,
+	defaultValue: PropTypes.string,
+	name: PropTypes.string,
+	disabled: PropTypes.bool,
 	groupLabel: PropTypes.string,
+	optionWidth: PropTypes.string,
 };
 
 export { RadioBoxGroup };

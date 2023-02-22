@@ -29,6 +29,7 @@ const baseBorderTextColors = {
 
 const defaultStyles = {
 	width: '100%',
+	mb: 2,
 	...baseBorderTextColors,
 
 	py: 0,
@@ -87,8 +88,8 @@ const inlineStyles = {
 };
 
 const searchIconStyles = {
-	'& .autocomplete__input.autocomplete__input--show-all-values': {
-		paddingLeft: '30px',
+	'& .autocomplete__input.autocomplete__input': {
+		paddingLeft: 4,
 	},
 };
 
@@ -118,6 +119,7 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = false,
+			resetOnBlur = false, // resets the input value to the selection if the input is blurred. Returns null if selection is empty
 			source,
 			value,
 			...props
@@ -125,7 +127,13 @@ const FormAutocomplete = React.forwardRef(
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
+
+		const [ selectedValue, setSelectedValue ] = useState( value || '' );
+		const [ inputQuery, setInputQuery ] = useState( value );
 		let debounceTimeout;
+		if ( ! forwardRef ) {
+			forwardRef = React.createRef();
+		}
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
@@ -154,21 +162,49 @@ const FormAutocomplete = React.forwardRef(
 				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
 			[ getAllOptions, optionLabel ]
 		);
-
+		/**
+		 * Reset the underlying component state to show the selected value
+		 */
+		const resetInputState = useCallback( () => {
+			if ( resetOnBlur && forwardRef?.current && inputQuery !== selectedValue ) {
+				// resets the input field to the selected value or the empty string
+				forwardRef.current.setState( {
+					...forwardRef.current.state,
+					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
+				} );
+			}
+		}, [ forwardRef ] );
+		// sets the internal state variables and calls the onChange callback
+		const setAutocompleteState = inputValue => {
+			setInputQuery( inputValue );
+			setSelectedValue( inputValue );
+			onChange( getOptionByLabel( inputValue ), inputValue );
+			setIsDirty( false );
+		};
+		// this method gets called when we confirm the selection via click/enter
 		const onValueChange = useCallback(
 			inputValue => {
 				if ( inputValue ) {
-					onChange( getOptionByLabel( inputValue ), inputValue );
+					setAutocompleteState( inputValue );
+				} else if ( resetOnBlur && inputQuery !== selectedValue ) {
+					if ( inputQuery && inputQuery !== '' ) {
+						// reset the content to the selected value
+						setAutocompleteState( selectedValue );
+					} else {
+						// reset the content to empty if there's no match
+						setAutocompleteState( null );
+					}
 				}
 			},
-			[ onChange, getOptionByLabel ]
+			[ onChange, getOptionByLabel, setAutocompleteState ]
 		);
 
 		const handleTypeChange = useCallback(
-			query =>
-				options.filter(
+			query => {
+				return options.filter(
 					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-				),
+				);
+			},
 			[ options ]
 		);
 
@@ -178,6 +214,7 @@ const FormAutocomplete = React.forwardRef(
 					return onInputChange( query );
 				}
 				clearTimeout( debounceTimeout );
+
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
 						onInputChange( query );
@@ -200,7 +237,15 @@ const FormAutocomplete = React.forwardRef(
 			},
 			[ autoFilter, isDirty, onInputChange, options ]
 		);
-
+		// internal function to save the inputQuery
+		const handleSource = ( query, populateResults ) => {
+			setInputQuery( query );
+			// user function to fetch the results has the precedence
+			if ( source ) {
+				return source( query, populateResults );
+			}
+			return suggest( query, populateResults );
+		};
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__input' )
@@ -224,8 +269,13 @@ const FormAutocomplete = React.forwardRef(
 		}, [ required ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', () => {
-				setIsDirty( true );
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', e => {
+				// pressed escape, we want to reset the status
+				if ( e.keyCode === 27 && resetOnBlur ) {
+					resetInputState();
+				} else {
+					setIsDirty( true );
+				}
 			} );
 		}, [ setIsDirty ] );
 
@@ -239,6 +289,11 @@ const FormAutocomplete = React.forwardRef(
 			);
 		}, [] );
 
+		useEffect( () => {
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
+				resetInputState();
+			} );
+		}, [ forwardRef ] );
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
@@ -261,7 +316,7 @@ const FormAutocomplete = React.forwardRef(
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
-							source={ source || suggest }
+							source={ handleSource }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
@@ -306,6 +361,7 @@ FormAutocomplete.propTypes = {
 	required: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	showAllValues: PropTypes.bool,
+	resetOnBlur: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
 	dropdownArrow: PropTypes.node,
