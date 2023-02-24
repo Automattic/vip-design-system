@@ -373,14 +373,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			if ( currentOption.action === OPTION_ACTION.ADD ) {
 				setAddStatus( `${ currentOption.option } added to the list.` );
 				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
-			} else {
-				if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
-					// Move focus to the first selected item, if the last element is removed and there are other elements in the list
-					global.document.querySelector( '.vip-button-component' ).focus();
-				} else if ( selectedOptions.length === 0 ) {
-					// Move focus to the input field if the last element is removed and there are no other elements in the list
-					global.document.querySelector( '.autocomplete__input' ).focus();
-				}
+			} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
+				// Move focus to the first selected item, if the last element is removed and there are other elements in the list
+				global.document.querySelector( '.vip-button-component' ).focus();
+			} else if ( selectedOptions.length === 0 ) {
+				// Move focus to the input field if the last element is removed and there are no other elements in the list
+				global.document.querySelector( '.autocomplete__input' ).focus();
 			}
 		}, [ currentOption ] );
 
