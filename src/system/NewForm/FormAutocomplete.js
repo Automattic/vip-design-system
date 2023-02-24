@@ -291,6 +291,7 @@ const FormAutocomplete = React.forwardRef(
 
 		useEffect( () => {
 			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
+				setInputQuery( global.document.querySelector( `#${ forLabel }` ).value );
 				resetInputState();
 			} );
 		}, [ forwardRef ] );
