@@ -88,6 +88,40 @@ const defaultStyles = {
 	},
 };
 
+const SelectedOptions = ( { idx, option, unselectValue } ) => {
+	return (
+		<div key={ idx } sx={ { mr: 1, maxWidth: '100%' } }>
+			<Button
+				variant="tertiary"
+				onClick={ e => {
+					e.preventDefault();
+					unselectValue( option );
+				} }
+				sx={ {
+					mt: 1,
+					fontSize: 1,
+					maxWidth: '100%',
+				} }
+			>
+				<div
+					sx={ {
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						whiteSpace: 'nowrap',
+					} }
+				>
+					{ option }
+				</div>
+				<ScreenReaderText>
+					selected. Press Space or Enter to remove.
+					{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
+				</ScreenReaderText>
+				<MdClose sx={ { ml: 2 } } />
+			</Button>
+		</div>
+	);
+};
+
 const inlineStyles = {
 	borderWidth: 0,
 };
@@ -99,6 +133,31 @@ const searchIconStyles = {
 };
 
 const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
+
+const SelectionStatus = ( { status } ) => {
+	return (
+		<div
+			sx={ {
+				border: '0',
+				clip: 'rect(0 0 0 0)',
+				height: '1px',
+				marginBottom: '-1px',
+				marginRight: '-1px',
+				overflow: 'hidden',
+				padding: '0',
+				position: 'absolute',
+				whiteSpace: 'nowrap',
+				width: '1px',
+			} }
+			id="vip-autocompletemultiselect-status"
+			role="status"
+			aria-atomic="true"
+			aria-live="assertive"
+		>
+			{ status }
+		</div>
+	);
+};
 
 const FormAutocompleteMultiselect = React.forwardRef(
 	(
@@ -130,8 +189,18 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		},
 		forwardRef
 	) => {
+		const OPTION_ACTION = {
+			ADD: 'add',
+			REMOVE: 'remove',
+			NONE: 'none',
+		};
 		const [ isDirty, setIsDirty ] = useState( false );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
+		const [ selectStatus, setSelectStatus ] = useState( '' );
+		const [ currentOption, setCurrentOption ] = useState( {
+			action: OPTION_ACTION.NONE,
+			option: null,
+		} );
 		let debounceTimeout;
 		forwardRef = forwardRef || React.createRef();
 
@@ -179,21 +248,23 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const onValueChange = useCallback(
 			inputValue => {
 				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
+					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
 					setSelectedOptions( [ ...selectedOptions, inputValue ] );
 				}
 			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
+			[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
 		);
 
 		const unselectValue = useCallback(
 			inputValue => {
 				if ( inputValue ) {
+					setCurrentOption( { action: OPTION_ACTION.REMOVE, option: inputValue } );
 					setSelectedOptions(
 						selectedOptions.filter( option => ( option?.label || option ) !== inputValue )
 					);
 				}
 			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions ]
+			[ getOptionByLabel, setSelectedOptions, selectedOptions, setSelectedOptions ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -239,7 +310,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__input' )
-				.setAttribute( 'aria-activedescendant', '' );
+				.removeAttribute( 'aria-activedescendant' );
 		}, [] );
 
 		useEffect( () => {
@@ -280,6 +351,20 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			resetInputState();
 		}, [ selectedOptions ] );
 
+		// Update the select status for screen readers
+		useEffect( () => {
+			if ( currentOption.action !== OPTION_ACTION.NONE ) {
+				const optionState =
+					currentOption.action === OPTION_ACTION.ADD
+						? 'added to'
+						: currentOption.action === OPTION_ACTION.REMOVE
+						? 'removed from'
+						: '';
+				setSelectStatus( `${ currentOption.option } ${ optionState } the list.` );
+			}
+			setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
+		}, [ currentOption.action ] );
+
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
@@ -310,6 +395,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							confirmOnBlur={ false }
 							{ ...props }
 						/>
+						{ selectStatus && <SelectionStatus status={ selectStatus } /> }
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
@@ -326,35 +412,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
 					{ selectedOptions &&
 						selectedOptions.map( ( option, idx ) => (
-							<div key={ idx } sx={ { mr: 1, maxWidth: '100%' } }>
-								<Button
-									variant="tertiary"
-									onClick={ e => {
-										e.preventDefault();
-										unselectValue( option );
-									} }
-									sx={ {
-										mt: 1,
-										fontSize: 1,
-										maxWidth: '100%',
-									} }
-								>
-									<div
-										sx={ {
-											overflow: 'hidden',
-											textOverflow: 'ellipsis',
-											whiteSpace: 'nowrap',
-										} }
-									>
-										{ option }
-									</div>
-									<ScreenReaderText>
-										selected. Press Space or Enter to remove.
-										{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
-									</ScreenReaderText>
-									<MdClose sx={ { ml: 2 } } />
-								</Button>
-							</div>
+							<SelectedOptions
+								key={ idx }
+								idx={ idx }
+								option={ option }
+								unselectValue={ unselectValue }
+							/>
 						) ) }
 				</div>
 			</div>
