@@ -88,40 +88,6 @@ const defaultStyles = {
 	},
 };
 
-const SelectedOptions = ( { idx, option, unselectValue } ) => {
-	return (
-		<div key={ idx } sx={ { mr: 1, maxWidth: '100%' } }>
-			<Button
-				variant="tertiary"
-				onClick={ e => {
-					e.preventDefault();
-					unselectValue( option );
-				} }
-				sx={ {
-					mt: 1,
-					fontSize: 1,
-					maxWidth: '100%',
-				} }
-			>
-				<div
-					sx={ {
-						overflow: 'hidden',
-						textOverflow: 'ellipsis',
-						whiteSpace: 'nowrap',
-					} }
-				>
-					{ option }
-				</div>
-				<ScreenReaderText>
-					selected. Press Space or Enter to remove.
-					{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
-				</ScreenReaderText>
-				<MdClose sx={ { ml: 2 } } />
-			</Button>
-		</div>
-	);
-};
-
 const inlineStyles = {
 	borderWidth: 0,
 };
@@ -157,6 +123,50 @@ const SelectionStatus = ( { status } ) => {
 			{ status }
 		</div>
 	);
+};
+
+SelectionStatus.propTypes = {
+	status: PropTypes.string.isRequired,
+};
+
+const SelectedOptions = ( { idx, option, unselectValue } ) => {
+	return (
+		<div key={ idx } sx={ { mr: 1, maxWidth: '100%' } }>
+			<Button
+				variant="tertiary"
+				onClick={ e => {
+					e.preventDefault();
+					unselectValue( option );
+				} }
+				sx={ {
+					mt: 1,
+					fontSize: 1,
+					maxWidth: '100%',
+				} }
+			>
+				<div
+					sx={ {
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						whiteSpace: 'nowrap',
+					} }
+				>
+					{ option }
+				</div>
+				<ScreenReaderText>
+					selected. Press Space or Enter to remove.
+					{ idx === 0 ? ' Press Shift Tab to add	more.' : '' }
+				</ScreenReaderText>
+				<MdClose sx={ { ml: 2 } } />
+			</Button>
+		</div>
+	);
+};
+
+SelectedOptions.propTypes = {
+	idx: PropTypes.number.isRequired,
+	option: PropTypes.string.isRequired,
+	unselectValue: PropTypes.func.isRequired,
 };
 
 const FormAutocompleteMultiselect = React.forwardRef(
@@ -355,11 +365,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		useEffect( () => {
 			if ( currentOption.action !== OPTION_ACTION.NONE ) {
 				const optionState =
-					currentOption.action === OPTION_ACTION.ADD
-						? 'added to'
-						: currentOption.action === OPTION_ACTION.REMOVE
-						? 'removed from'
-						: '';
+					currentOption.action === OPTION_ACTION.ADD ? 'added to' : 'removed from';
 				setSelectStatus( `${ currentOption.option } ${ optionState } the list.` );
 			}
 			setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
