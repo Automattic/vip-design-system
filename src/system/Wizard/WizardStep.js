@@ -36,7 +36,7 @@ const WizardStep = React.forwardRef(
 			borderLeftColor = 'primary';
 		}
 
-		let color = 'text';
+		let color = 'text'; // TODO match the color with the correct inactive color.
 
 		if ( complete ) {
 			color = 'success';
