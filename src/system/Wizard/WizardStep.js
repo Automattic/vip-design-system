@@ -83,7 +83,7 @@ const WizardStep = React.forwardRef(
 							alignItems: 'center',
 							color,
 							fontSize: 2,
-							fontWeight: active ? 'bold' : 'normal',
+							fontWeight: '500',
 						} }
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
