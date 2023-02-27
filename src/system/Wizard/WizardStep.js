@@ -5,6 +5,7 @@
  */
 import React, { useLayoutEffect } from 'react';
 import { MdCheckCircle } from 'react-icons/md';
+import { BsCircleFill } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 
 /**
@@ -43,6 +44,8 @@ const WizardStep = React.forwardRef(
 		} else if ( active ) {
 			color = 'heading';
 		}
+
+		const StatusIcon = complete ? MdCheckCircle : BsCircleFill;
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
 				titleRef.current.focus();
@@ -85,17 +88,17 @@ const WizardStep = React.forwardRef(
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
-						<MdCheckCircle
+						<StatusIcon
 							aria-hidden="true"
-							sx={ { mr: 2, color: active ? 'icon.primary' : 'icon.disabled' } }
+							sx={ { mr: 3, color: active ? 'icon.primary' : 'icon.disabled' } }
 						/>
 						{ title }
 					</Heading>
 				) : (
 					<Flex sx={ { alignItems: 'center', color } }>
-						<MdCheckCircle
+						<StatusIcon
 							aria-hidden="true"
-							sx={ { mr: 2, color: active ? 'icon.primary' : 'icon.disabled' } }
+							sx={ { mr: 3, color: active ? 'icon.primary' : 'icon.disabled' } }
 						/>
 						{ title }
 					</Flex>
