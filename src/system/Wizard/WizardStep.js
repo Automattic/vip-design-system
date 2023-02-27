@@ -45,6 +45,7 @@ const WizardStep = React.forwardRef(
 		}
 
 		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
+		const statusIconColor = borderLeftColor; // TODO we will need to update this to use support.icon.color
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
 				titleRef.current.focus();
@@ -87,18 +88,12 @@ const WizardStep = React.forwardRef(
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
-						<StatusIcon
-							aria-hidden="true"
-							sx={ { mr: 3, color: active ? 'icon.primary' : 'icon.disabled' } }
-						/>
+						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
 						{ title }
 					</Heading>
 				) : (
 					<Flex sx={ { alignItems: 'center', color } }>
-						<StatusIcon
-							aria-hidden="true"
-							sx={ { mr: 3, color: active ? 'icon.primary' : 'icon.disabled' } }
-						/>
+						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
 						{ title }
 					</Flex>
 				) }
