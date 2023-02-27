@@ -98,7 +98,7 @@ const WizardStep = React.forwardRef(
 					</Flex>
 				) }
 
-				{ subTitle && active && <Text sx={ { mb: 3 } }>{ subTitle }</Text> }
+				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
 
 				{ active && children }
 			</Card>
