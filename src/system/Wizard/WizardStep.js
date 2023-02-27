@@ -4,8 +4,7 @@
  * External dependencies
  */
 import React, { useLayoutEffect } from 'react';
-import { MdCheckCircle } from 'react-icons/md';
-import { BsCircleFill } from 'react-icons/bs';
+import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 
 /**
@@ -45,7 +44,7 @@ const WizardStep = React.forwardRef(
 			color = 'heading';
 		}
 
-		const StatusIcon = complete ? MdCheckCircle : BsCircleFill;
+		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
 				titleRef.current.focus();
