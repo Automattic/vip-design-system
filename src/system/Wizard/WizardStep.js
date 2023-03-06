@@ -71,7 +71,7 @@ const WizardStep = React.forwardRef(
 					<Heading
 						variant={ titleVariant }
 						sx={ {
-							mb: 0,
+							mb: 2,
 							display: 'flex',
 							alignItems: 'center',
 							color: headingColor,
@@ -83,7 +83,7 @@ const WizardStep = React.forwardRef(
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
-						<Heading variant="caps" sx={ { flexBasis: '100%' } }>
+						<Heading variant="caps" sx={ { flexBasis: '100%', mb: 0 } }>
 							STEP { order } of { totalSteps }
 						</Heading>
 						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
