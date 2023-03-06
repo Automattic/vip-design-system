@@ -68,6 +68,7 @@ const Wizard = React.forwardRef(
 							complete={ completed.includes( index ) }
 							key={ index }
 							order={ index + 1 }
+							totalSteps={ steps.length }
 							subTitle={ subTitle }
 							title={ title }
 							titleVariant={ titleVariant }

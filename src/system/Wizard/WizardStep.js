@@ -21,6 +21,7 @@ const WizardStep = React.forwardRef(
 			children,
 			active,
 			order,
+			totalSteps,
 			shouldFocusTitle,
 			titleVariant = 'h3',
 		},
@@ -76,10 +77,15 @@ const WizardStep = React.forwardRef(
 							color: headingColor,
 							fontSize: 2,
 							fontWeight: '500',
+							rowGap: 3,
+							flexWrap: 'wrap',
 						} }
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
+						<Heading variant="caps" sx={ { flexBasis: '100%' } }>
+							STEP { order } of { totalSteps }
+						</Heading>
 						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
 						{ title }
 					</Heading>
@@ -105,6 +111,7 @@ WizardStep.propTypes = {
 	children: PropTypes.node,
 	complete: PropTypes.bool,
 	order: PropTypes.number.isRequired,
+	totalSteps: PropTypes.number.isRequired,
 	subTitle: PropTypes.node,
 	title: PropTypes.node,
 	titleVariant: PropTypes.string,
