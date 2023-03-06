@@ -86,8 +86,19 @@ const WizardStep = React.forwardRef(
 						<Heading variant="caps" sx={ { flexBasis: '100%', mb: 0 } }>
 							STEP { order } of { totalSteps }
 						</Heading>
-						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
-						{ title }
+						<Flex sx={ { alignItems: 'center' } } as="span">
+							<StatusIcon
+								aria-hidden="true"
+								sx={ { mr: 3, color: statusIconColor, flexBasis: '14px' } }
+							/>
+							<span
+								sx={ {
+									flexBasis: '100%', // the span+flexBasis here helps to keep the title in the box even if it's very long
+								} }
+							>
+								{ title }
+							</span>
+						</Flex>
 					</Heading>
 				) : (
 					<Flex sx={ { alignItems: 'center' } }>
