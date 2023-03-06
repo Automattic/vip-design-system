@@ -27,25 +27,18 @@ const WizardStep = React.forwardRef(
 		forwardRef
 	) => {
 		const titleRef = React.useRef( null );
-
-		let borderLeftColor = 'border';
-
+		let status = 'inactive';
 		if ( complete ) {
-			borderLeftColor = 'success';
+			status = 'complete';
 		} else if ( active ) {
-			borderLeftColor = 'primary';
+			status = 'active';
 		}
-
-		let color = 'text'; // TODO match the color with the correct inactive color.
-
-		if ( complete ) {
-			color = 'success';
-		} else if ( active ) {
-			color = 'heading';
-		}
+		const borderLeftColor = `wizard.step.border.${ status }`;
+		const statusIconColor = `wizard.step.icon.${ status }`;
+		const headingColor = `wizard.step.heading.${ status }`;
 
 		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
-		const statusIconColor = borderLeftColor; // TODO we will need to update this to use support.icon.color
+
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
 				titleRef.current.focus();
@@ -64,9 +57,9 @@ const WizardStep = React.forwardRef(
 					'&:first-of-type': {
 						borderTopWidth: '1px',
 						borderTopStyle: 'solid',
-						borderTopColor: 'borders.2',
+						borderTopColor: 'wizard.step.border.default',
 					},
-					borderColor: active ? 'primary' : 'borders.2',
+					borderColor: 'wizard.step.border.default',
 					borderLeftColor: borderLeftColor,
 					overflow: 'inherit',
 				} }
@@ -81,7 +74,7 @@ const WizardStep = React.forwardRef(
 							mb: 0,
 							display: 'flex',
 							alignItems: 'center',
-							color,
+							color: headingColor,
 							fontSize: 2,
 							fontWeight: '500',
 						} }
@@ -92,7 +85,7 @@ const WizardStep = React.forwardRef(
 						{ title }
 					</Heading>
 				) : (
-					<Flex sx={ { alignItems: 'center', color } }>
+					<Flex sx={ { alignItems: 'center' } }>
 						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
 						{ title }
 					</Flex>

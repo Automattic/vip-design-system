@@ -53,7 +53,7 @@ export const Default = () => {
 	return (
 		<React.Fragment>
 			<Box mt={ 4 }>
-				<Wizard activeStep={ 0 } steps={ steps } className="vip-wizard-xyz" />
+				<Wizard activeStep={ 0 } steps={ steps } completed={ [ 1 ] } className="vip-wizard-xyz" />
 			</Box>
 		</React.Fragment>
 	);
