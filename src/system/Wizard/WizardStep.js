@@ -57,7 +57,6 @@ const WizardStep = React.forwardRef(
 					'&:first-of-type': {
 						borderTopWidth: '1px',
 						borderTopStyle: 'solid',
-						borderTopColor: 'wizard.step.border.default',
 					},
 					borderColor: 'wizard.step.border.default',
 					borderLeftColor: borderLeftColor,
