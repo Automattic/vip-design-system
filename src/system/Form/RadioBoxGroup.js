@@ -146,7 +146,7 @@ const RadioBoxGroup = React.forwardRef(
 				<fieldset
 					sx={ {
 						border: 0,
-						padding: 2,
+						p: hasError ? 2 : 0,
 						display: 'inline-block',
 						mb: 2,
 						...( hasError
