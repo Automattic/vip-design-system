@@ -154,10 +154,6 @@ const SelectedOptions = ( { index, option, unselectValue } ) => {
 				>
 					{ option }
 				</div>
-				<ScreenReaderText>
-					{ `${ option } selected. Press Space or Enter to remove.` }
-					{ index === 0 ? ' Press Shift Tab to add more.' : '' }
-				</ScreenReaderText>
 				<MdClose sx={ { ml: 2 } } />
 			</Button>
 		</div>
