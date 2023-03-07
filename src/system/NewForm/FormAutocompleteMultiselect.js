@@ -149,7 +149,6 @@ const SelectedOptions = ( { index, option, unselectValue } ) => {
 						textOverflow: 'ellipsis',
 						whiteSpace: 'nowrap',
 					} }
-					aria-hidden="true"
 				>
 					{ option }
 				</div>
