@@ -17,7 +17,7 @@ const inputStyles = {
 	unset: 'all',
 	...baseControlStyle,
 	lineHeight: 'inherit',
-	height: '36px',
+	minHeight: '36px',
 	px: 3,
 	py: 2,
 	fontSize: 2,
