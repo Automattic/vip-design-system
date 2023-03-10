@@ -1,6 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 /**
+ * External dependencies
+ */
+import PropTypes from 'prop-types';
+
+/**
  * Internal dependencies
  */
 import { Table, TableRow, Flex, Text, TableCell } from '..';
@@ -48,6 +53,10 @@ const ExampleTable = ( { caption } ) => (
 		</tbody>
 	</Table>
 );
+
+ExampleTable.propTypes = {
+	caption: PropTypes.string.isRequired,
+};
 
 export const Default = () => <ExampleTable caption="Example Table" />;
 
