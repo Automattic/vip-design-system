@@ -28,7 +28,7 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 				display: 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				height: '36px',
+				minHeight: '36px',
 				py: 0,
 				textDecoration: 'none',
 				'&:hover': {
