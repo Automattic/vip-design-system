@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 /**
  * External dependencies
  */
@@ -58,6 +60,12 @@ const Template = args => (
 			<BiCalendarHeart size={ 24 } />
 			<ScreenReaderText>domain.com</ScreenReaderText>
 		</Button>
+
+		<div sx={ { maxWidth: '100px', mt: 3 } }>
+			<Button variant="secondary" href="https://google/com" { ...args }>
+				Button with constrained width
+			</Button>
+		</div>
 	</React.Fragment>
 );
 
