@@ -17,10 +17,13 @@ const Table = React.forwardRef(
 		}
 
 		return (
-			<Box sx={ { width: '100%', overflowX: 'auto' } }>
+			<Box
+				className={ classNames( 'vip-table-component', className ) }
+				sx={ { width: '100%', overflowX: 'auto' } }
+			>
 				<table
 					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }
-					className={ classNames( 'vip-table-component', className ) }
+					className={ classNames( 'vip-table-component-element', className ) }
 					ref={ forwardRef }
 					{ ...props }
 				>
