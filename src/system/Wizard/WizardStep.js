@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
  * Internal dependencies
  */
 import { Card, Heading, Text, Flex } from '..';
+import { ScreenReaderText } from '../ScreenReaderText';
 
 const WizardStep = React.forwardRef(
 	(
@@ -29,10 +30,13 @@ const WizardStep = React.forwardRef(
 	) => {
 		const titleRef = React.useRef( null );
 		let status = 'inactive';
+		let statusText = 'Step not completed';
 		if ( complete ) {
 			status = 'complete';
+			statusText = 'Step completed';
 		} else if ( active ) {
 			status = 'active';
+			statusText = 'Current step';
 		}
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
@@ -97,6 +101,7 @@ const WizardStep = React.forwardRef(
 								} }
 							>
 								{ title }
+								<ScreenReaderText>Status: { statusText }</ScreenReaderText>
 							</span>
 						</Flex>
 					</Heading>
