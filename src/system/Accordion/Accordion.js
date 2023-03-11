@@ -72,7 +72,7 @@ export const Trigger = React.forwardRef(
 					all: 'unset',
 					fontFamily: 'inherit',
 					px: 3,
-					height: 45,
+					minHeight: 45,
 					flex: 1,
 					display: 'flex',
 					alignItems: 'center',
