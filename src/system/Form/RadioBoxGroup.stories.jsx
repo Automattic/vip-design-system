@@ -42,3 +42,19 @@ export const Default = () => {
 		/>
 	);
 };
+
+export const Errors = () => {
+	const [ value, setValue ] = useState( null );
+
+	return (
+		<RadioBoxGroup
+			defaultValue={ value }
+			onChange={ e => setValue( e.target.value ) }
+			options={ options }
+			required
+			groupLabel="Radio Box Group"
+			hasError={ true }
+			errorMessage="This is an error message"
+		/>
+	);
+};

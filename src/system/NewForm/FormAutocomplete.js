@@ -103,10 +103,10 @@ const FormAutocomplete = React.forwardRef(
 			debounce = 0,
 			displayMenu = 'overlay',
 			dropdownArrow = DefaultArrow,
-			errorMessage,
 			forLabel = 'vip-autocomplete',
 			getOptionLabel,
 			getOptionValue,
+			errorMessage,
 			hasError,
 			isInline,
 			label,
@@ -304,6 +304,7 @@ const FormAutocomplete = React.forwardRef(
 						...defaultStyles,
 						...( isInline && inlineStyles ),
 						...( searchIcon && searchIconStyles ),
+						...( hasError ? { borderColor: 'input.border.error' } : {} ),
 					} }
 				>
 					<FormSelectContent

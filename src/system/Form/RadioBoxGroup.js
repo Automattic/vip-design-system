@@ -7,6 +7,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ScreenReaderText from '../ScreenReaderText';
 import { Label } from './Label';
+import { Validation } from './Validation';
 
 /**
  * Internal dependencies
@@ -111,6 +112,9 @@ const RadioBoxGroup = React.forwardRef(
 			defaultValue,
 			options,
 			disabled,
+			errorMessage,
+			hasError,
+			required,
 			...props
 		},
 		forwardRef
@@ -138,30 +142,43 @@ const RadioBoxGroup = React.forwardRef(
 		) );
 
 		return (
-			<fieldset
-				sx={ {
-					border: 0,
-					padding: 0,
-				} }
-				ref={ forwardRef }
-				{ ...props }
-			>
-				{ groupLabel ? (
-					<Label as="legend" sx={ { mb: 2 } }>
-						{ groupLabel }
-					</Label>
-				) : (
-					<ScreenReaderText>Choose an option</ScreenReaderText>
-				) }
-				<div
+			<div>
+				<fieldset
 					sx={ {
-						display: 'flex',
-						gap: 2,
+						border: 0,
+						p: hasError ? 2 : 0,
+						display: 'inline-block',
+						mb: 2,
+						...( hasError
+							? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2 }
+							: {} ),
 					} }
+					ref={ forwardRef }
+					{ ...props }
 				>
-					{ renderedOptions }
-				</div>
-			</fieldset>
+					{ groupLabel ? (
+						<Label as="legend" sx={ { mb: 2 } } required={ required }>
+							{ groupLabel }
+						</Label>
+					) : (
+						<ScreenReaderText>Choose an option</ScreenReaderText>
+					) }
+					<div
+						sx={ {
+							display: 'flex',
+							gap: 2,
+						} }
+					>
+						{ renderedOptions }
+					</div>
+				</fieldset>
+
+				{ hasError && errorMessage && (
+					<Validation isValid={ false } describedId={ groupLabel }>
+						{ errorMessage }
+					</Validation>
+				) }
+			</div>
 		);
 	}
 );
@@ -175,7 +192,11 @@ RadioBoxGroup.propTypes = {
 	name: PropTypes.string,
 	disabled: PropTypes.bool,
 	groupLabel: PropTypes.string,
+	id: PropTypes.string,
 	optionWidth: PropTypes.string,
+	errorMessage: PropTypes.string,
+	hasError: PropTypes.bool,
+	required: PropTypes.bool,
 };
 
 export { RadioBoxGroup };
