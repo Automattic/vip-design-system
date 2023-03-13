@@ -72,7 +72,7 @@ export const Trigger = React.forwardRef(
 					all: 'unset',
 					fontFamily: 'inherit',
 					px: 3,
-					height: 45,
+					minHeight: 45,
 					flex: 1,
 					display: 'flex',
 					alignItems: 'center',
@@ -103,6 +103,8 @@ export const Trigger = React.forwardRef(
 						color: 'icon.primary',
 						transform: 'rotate(90deg)',
 						transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+						minHeight: '20px',
+						minWidth: '20px',
 					} }
 					aria-hidden
 				/>
