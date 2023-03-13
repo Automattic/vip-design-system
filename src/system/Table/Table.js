@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
+import { Box } from '../';
 
 const Table = React.forwardRef(
 	( { sx, className, children, caption = null, ...props }, forwardRef ) => {
@@ -16,15 +17,20 @@ const Table = React.forwardRef(
 		}
 
 		return (
-			<table
-				sx={ { width: '100%', minWidth: 1024, borderSpacing: 0, ...sx } }
+			<Box
 				className={ classNames( 'vip-table-component', className ) }
-				ref={ forwardRef }
-				{ ...props }
+				sx={ { width: '100%', overflowX: 'auto' } }
 			>
-				{ caption && <caption sx={ screenReaderTextClass }>{ caption }</caption> }
-				{ children }
-			</table>
+				<table
+					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }
+					className={ classNames( 'vip-table-component-element', className ) }
+					ref={ forwardRef }
+					{ ...props }
+				>
+					{ caption && <caption sx={ screenReaderTextClass }>{ caption }</caption> }
+					{ children }
+				</table>
+			</Box>
 		);
 	}
 );

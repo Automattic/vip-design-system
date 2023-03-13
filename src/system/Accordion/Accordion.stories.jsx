@@ -23,33 +23,37 @@ const ExampleContent = () => (
 	</Box>
 );
 
-export const Default = () => (
-	<Box>
-		<Accordion.Root defaultValue="teamPermissions" sx={ { width: '450px' } }>
-			<Accordion.Item value="teamPermissions">
-				<Accordion.TriggerWithIcon icon={ <RiUserAddLine /> }>
-					Team & Permissions
-				</Accordion.TriggerWithIcon>
-				<Accordion.Content>
-					<ExampleContent />
-				</Accordion.Content>
-			</Accordion.Item>
-			<Accordion.Item value="addContentMedia">
-				<Accordion.TriggerWithIcon icon={ <BiBookContent /> }>
-					Add Content & Media
-				</Accordion.TriggerWithIcon>
-				<Accordion.Content>
-					<ExampleContent />
-				</Accordion.Content>
-			</Accordion.Item>
-			<Accordion.Item value="addCode">
-				<Accordion.TriggerWithIcon icon={ <RiCodeSSlashFill /> }>
-					Add Code
-				</Accordion.TriggerWithIcon>
-				<Accordion.Content>
-					<ExampleContent />
-				</Accordion.Content>
-			</Accordion.Item>
-		</Accordion.Root>
+const ExampleAccordion = () => (
+	<Accordion.Root defaultValue="teamPermissions" sx={ { width: '250px' } }>
+		<Accordion.Item value="teamPermissions">
+			<Accordion.TriggerWithIcon icon={ <RiUserAddLine /> }>
+				Team & Permissions
+			</Accordion.TriggerWithIcon>
+			<Accordion.Content>
+				<ExampleContent />
+			</Accordion.Content>
+		</Accordion.Item>
+		<Accordion.Item value="addContentMedia">
+			<Accordion.TriggerWithIcon icon={ <BiBookContent /> }>
+				Add Content & Media
+			</Accordion.TriggerWithIcon>
+			<Accordion.Content>
+				<ExampleContent />
+			</Accordion.Content>
+		</Accordion.Item>
+		<Accordion.Item value="addCode">
+			<Accordion.TriggerWithIcon icon={ <RiCodeSSlashFill /> }>Add Code</Accordion.TriggerWithIcon>
+			<Accordion.Content>
+				<ExampleContent />
+			</Accordion.Content>
+		</Accordion.Item>
+	</Accordion.Root>
+);
+
+export const Default = () => <ExampleAccordion />;
+
+export const WithLargeText = () => (
+	<Box sx={ { '.vip-heading-component > button': { fontSize: '25px' } } }>
+		<ExampleAccordion />
 	</Box>
 );

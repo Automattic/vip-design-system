@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MdArrowForward } from 'react-icons/md';
@@ -27,14 +27,15 @@ const Wizard = React.forwardRef(
 		},
 		forwardRef
 	) => {
-		const didMount = useRef( false );
+		const [ didMount, setDidMount ] = useState( false );
+		const [ initialStep ] = useState( activeStep );
 		// didMount helps us to track the initial render, so we can focus the title only subsequent renders
 		// to avoid stealing the focus from the page we're in.
 		useLayoutEffect( () => {
-			if ( ! didMount.current ) {
-				didMount.current = true;
+			if ( ! didMount && activeStep !== initialStep ) {
+				setDidMount( true );
 			}
-		}, [ activeStep ] );
+		}, [ initialStep, activeStep, didMount, setDidMount ] );
 		return (
 			<Box className={ classNames( 'vip-wizard-component', className ) } ref={ forwardRef }>
 				{ variant === 'horizontal' ? (
@@ -74,9 +75,9 @@ const Wizard = React.forwardRef(
 							subTitle={ subTitle }
 							title={ title }
 							titleVariant={ titleVariant }
-							shouldFocusTitle={ titleAutofocus && didMount.current }
 							summary={ summary }
 							onChange={ onChange }
+							shouldFocusTitle={ titleAutofocus && didMount }
 						>
 							{ children }
 						</WizardStep>

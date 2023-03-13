@@ -1,6 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 /**
+ * External dependencies
+ */
+import PropTypes from 'prop-types';
+
+/**
  * Internal dependencies
  */
 import { Table, TableRow, Flex, Text, TableCell } from '..';
@@ -10,8 +15,8 @@ export default {
 	component: Table,
 };
 
-export const Default = () => (
-	<Table caption="Storybook Example">
+const ExampleTable = ( { caption } ) => (
+	<Table caption={ caption }>
 		<thead>
 			<TableRow head cells={ [ 'User', 'Command', 'Duration', 'Time' ] } />
 		</thead>
@@ -47,4 +52,16 @@ export const Default = () => (
 			</TableRow>
 		</tbody>
 	</Table>
+);
+
+ExampleTable.propTypes = {
+	caption: PropTypes.string.isRequired,
+};
+
+export const Default = () => <ExampleTable caption="Example Table" />;
+
+export const WithHorizontalScroll = () => (
+	<div sx={ { maxWidth: '800px' } }>
+		<ExampleTable caption="Horizontal Scroll Example" />
+	</div>
 );

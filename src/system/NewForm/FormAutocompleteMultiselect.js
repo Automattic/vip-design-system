@@ -11,7 +11,6 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import css from './FormAutocomplete.css';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
@@ -19,6 +18,9 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
+import { Button, Flex } from '../';
+import ScreenReaderText from '../ScreenReaderText';
+import { MdClose } from 'react-icons/md';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -29,7 +31,6 @@ const baseBorderTextColors = {
 
 const defaultStyles = {
 	width: '100%',
-	mb: 2,
 	...baseBorderTextColors,
 
 	py: 0,
@@ -52,6 +53,10 @@ const defaultStyles = {
 		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--show-all-values': { paddingRight: '40px' },
+		'&::placeholder': {
+			color: 'input.text.placeholder',
+			opacity: 1,
+		},
 	},
 	'& .autocomplete__menu': {
 		...baseBorderTextColors,
@@ -95,7 +100,77 @@ const searchIconStyles = {
 
 const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
 
-const FormAutocomplete = React.forwardRef(
+const AddSelectionStatus = ( { status } ) => {
+	return (
+		<div
+			sx={ {
+				border: '0',
+				clip: 'rect(0 0 0 0)',
+				height: '1px',
+				marginBottom: '-1px',
+				marginRight: '-1px',
+				overflow: 'hidden',
+				padding: '0',
+				position: 'absolute',
+				whiteSpace: 'nowrap',
+				width: '1px',
+			} }
+			id="vip-autocompletemultiselect-status"
+			role="status"
+			aria-atomic="true"
+			aria-live="assertive"
+		>
+			{ status }
+		</div>
+	);
+};
+
+AddSelectionStatus.propTypes = {
+	status: PropTypes.string.isRequired,
+};
+
+const SelectedOptions = ( { index, option, unselectValue } ) => {
+	return (
+		<div key={ index } sx={ { mr: 1, maxWidth: '100%' } }>
+			<Button
+				variant="tertiary"
+				onClick={ e => {
+					e.preventDefault();
+					unselectValue( option, index );
+				} }
+				sx={ {
+					mt: 1,
+					fontSize: 1,
+					maxWidth: '100%',
+				} }
+			>
+				<div
+					sx={ {
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						whiteSpace: 'nowrap',
+					} }
+					aria-hidden="true"
+				>
+					{ option }
+				</div>
+				<ScreenReaderText>
+					{ `${ option } selected. Press Space or Enter to remove.` }
+					{ index === 0 ? ' Press Shift Tab to add more.' : '' }
+				</ScreenReaderText>
+				<MdClose sx={ { ml: 2 } } />
+			</Button>
+		</div>
+	);
+};
+
+SelectedOptions.propTypes = {
+	index: PropTypes.number.isRequired,
+	option: PropTypes.string.isRequired,
+	unselectValue: PropTypes.func.isRequired,
+};
+
+const FormAutocompleteMultiselect = React.forwardRef(
 	(
 		{
 			autoFilter = true,
@@ -103,10 +178,10 @@ const FormAutocomplete = React.forwardRef(
 			debounce = 0,
 			displayMenu = 'overlay',
 			dropdownArrow = DefaultArrow,
-			forLabel = 'vip-autocomplete',
+			errorMessage,
+			forLabel = 'vip-autocompletemultiselect',
 			getOptionLabel,
 			getOptionValue,
-			errorMessage,
 			hasError,
 			isInline,
 			label,
@@ -119,21 +194,40 @@ const FormAutocomplete = React.forwardRef(
 			required,
 			searchIcon,
 			showAllValues = false,
-			resetOnBlur = false, // resets the input value to the selection if the input is blurred. Returns null if selection is empty
 			source,
 			value,
 			...props
 		},
 		forwardRef
 	) => {
+		const OPTION_ACTION = {
+			ADD: 'add',
+			REMOVE: 'remove',
+			NONE: 'none',
+		};
 		const [ isDirty, setIsDirty ] = useState( false );
-
-		const [ selectedValue, setSelectedValue ] = useState( value || '' );
-		const [ inputQuery, setInputQuery ] = useState( value );
+		const [ selectedOptions, setSelectedOptions ] = useState( [] );
+		const [ addStatus, setAddStatus ] = useState( '' );
+		const [ currentOption, setCurrentOption ] = useState( {
+			action: OPTION_ACTION.NONE,
+			option: null,
+			index: -1,
+		} );
 		let debounceTimeout;
-		if ( ! forwardRef ) {
-			forwardRef = React.createRef();
-		}
+		forwardRef = forwardRef || React.createRef();
+
+		/**
+		 * Reset the underlying component state to show the selected value
+		 */
+		const resetInputState = useCallback( () => {
+			if ( forwardRef?.current ) {
+				// resets the input field to the selected value or the empty string
+				forwardRef.current.setState( {
+					...forwardRef.current.state,
+					query: '', // selected value should not be null or the component will crash
+				} );
+			}
+		}, [ forwardRef ] );
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
@@ -148,6 +242,12 @@ const FormAutocomplete = React.forwardRef(
 			[ getOptionLabel ]
 		);
 
+		const getOptionByLabel = useCallback(
+			inputValue =>
+				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
+			[ getAllOptions, optionLabel ]
+		);
+
 		const getAllOptions = useMemo(
 			() =>
 				[
@@ -157,54 +257,37 @@ const FormAutocomplete = React.forwardRef(
 			[ options ]
 		);
 
-		const getOptionByLabel = useCallback(
-			inputValue =>
-				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
-			[ getAllOptions, optionLabel ]
-		);
-		/**
-		 * Reset the underlying component state to show the selected value
-		 */
-		const resetInputState = useCallback( () => {
-			if ( resetOnBlur && forwardRef?.current && inputQuery !== selectedValue ) {
-				// resets the input field to the selected value or the empty string
-				forwardRef.current.setState( {
-					...forwardRef.current.state,
-					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
-				} );
-			}
-		}, [ forwardRef ] );
-		// sets the internal state variables and calls the onChange callback
-		const setAutocompleteState = inputValue => {
-			setInputQuery( inputValue );
-			setSelectedValue( inputValue );
-			onChange( getOptionByLabel( inputValue ), inputValue );
-			setIsDirty( false );
-		};
-		// this method gets called when we confirm the selection via click/enter
 		const onValueChange = useCallback(
 			inputValue => {
-				if ( inputValue ) {
-					setAutocompleteState( inputValue );
-				} else if ( resetOnBlur && inputQuery !== selectedValue ) {
-					if ( inputQuery && inputQuery !== '' ) {
-						// reset the content to the selected value
-						setAutocompleteState( selectedValue );
-					} else {
-						// reset the content to empty if there's no match
-						setAutocompleteState( null );
-					}
+				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
+					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
+					setSelectedOptions( [ ...selectedOptions, inputValue ] );
 				}
 			},
-			[ onChange, getOptionByLabel, setAutocompleteState ]
+			[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
+		);
+
+		const unselectValue = useCallback(
+			( inputValue, index ) => {
+				if ( inputValue ) {
+					setSelectedOptions(
+						selectedOptions.filter( option => ( option?.label || option ) !== inputValue )
+					);
+					setCurrentOption( {
+						action: OPTION_ACTION.REMOVE,
+						option: inputValue,
+						index: index,
+					} );
+				}
+			},
+			[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
 		);
 
 		const handleTypeChange = useCallback(
-			query => {
-				return options.filter(
+			query =>
+				options.filter(
 					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-				);
-			},
+				),
 			[ options ]
 		);
 
@@ -214,7 +297,6 @@ const FormAutocomplete = React.forwardRef(
 					return onInputChange( query );
 				}
 				clearTimeout( debounceTimeout );
-
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
 						onInputChange( query );
@@ -233,23 +315,18 @@ const FormAutocomplete = React.forwardRef(
 				if ( isDirty && autoFilter ) {
 					data = handleTypeChange( query );
 				}
-				populateResults( data?.map( option => optionLabel( option ) ) );
+				const optionForDisplay = data?.map( option => optionLabel( option ) );
+				populateResults(
+					optionForDisplay.filter( option => ! selectedOptions.includes( option ) )
+				);
 			},
-			[ autoFilter, isDirty, onInputChange, options ]
+			[ autoFilter, isDirty, onInputChange, options, selectedOptions ]
 		);
-		// internal function to save the inputQuery
-		const handleSource = ( query, populateResults ) => {
-			setInputQuery( query );
-			// user function to fetch the results has the precedence
-			if ( source ) {
-				return source( query, populateResults );
-			}
-			return suggest( query, populateResults );
-		};
+
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__input' )
-				.setAttribute( 'aria-activedescendant', '' );
+				.removeAttribute( 'aria-activedescendant' );
 		}, [] );
 
 		useEffect( () => {
@@ -260,51 +337,59 @@ const FormAutocomplete = React.forwardRef(
 
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
-
 			if ( ! input || required === undefined ) {
 				return;
 			}
-
 			input.setAttribute( 'aria-required', required );
 		}, [ required ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', e => {
-				// pressed escape, we want to reset the status
-				if ( e.keyCode === 27 && resetOnBlur ) {
-					resetInputState();
-				} else {
-					setIsDirty( true );
-				}
+			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', () => {
+				setIsDirty( true );
 			} );
 		}, [ setIsDirty ] );
 
 		// For accessibility, we need to add the error message to the aria-describedby attribute
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
-
 			input?.setAttribute(
 				'aria-describedby',
 				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
 			);
 		}, [] );
 
+		// Update selectedOption and reset the input state on select input change
+
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
-				setInputQuery( global.document.querySelector( `#${ forLabel }` ).value );
-				resetInputState();
-			} );
-		}, [ forwardRef ] );
+			onChange(
+				selectedOptions,
+				selectedOptions.map( option => option?.label || option )
+			);
+			resetInputState();
+		}, [ selectedOptions ] );
+
+		// Update the select status for screen readers
+		useEffect( () => {
+			if ( currentOption.action === OPTION_ACTION.ADD ) {
+				setAddStatus( `${ currentOption.option } added to the list.` );
+				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
+			} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
+				// Move focus to the first selected item, if the last element is removed and there are other elements in the list
+				global.document.querySelector( '.vip-button-component' ).focus();
+			} else if ( selectedOptions.length === 0 ) {
+				// Move focus to the input field if the last element is removed and there are no other elements in the list
+				global.document.querySelector( '.autocomplete__input' ).focus();
+			}
+		}, [ currentOption ] );
+
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
-
 				<div
 					sx={ {
 						...defaultStyles,
 						...( isInline && inlineStyles ),
 						...( searchIcon && searchIconStyles ),
-						...( hasError ? { borderColor: 'input.border.error' } : {} ),
 					} }
 				>
 					<FormSelectContent
@@ -312,37 +397,52 @@ const FormAutocomplete = React.forwardRef(
 						label={ inlineLabel ? <SelectLabel /> : null }
 					>
 						{ searchIcon && <FormSelectSearch /> }
-
 						<Autocomplete
 							id={ forLabel }
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
 							ref={ forwardRef }
-							source={ handleSource }
+							source={ source || suggest }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
 							required={ required }
 							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+							confirmOnBlur={ false }
 							{ ...props }
 						/>
-
+						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
 						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
 					</FormSelectContent>
 				</div>
-
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
-						{ errorMessage }
-					</Validation>
-				) }
+				<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
+					{ hasError && errorMessage && (
+						<Validation isValid={ false } describedId={ forLabel }>
+							{ errorMessage }
+						</Validation>
+					) }
+					<div sx={ { fontSize: 1 } }>
+						{ selectedOptions.length } item{ selectedOptions.length > 1 ? 's' : '' } selected
+					</div>
+				</Flex>
+				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
+					{ selectedOptions &&
+						selectedOptions.map( ( option, idx ) => (
+							<SelectedOptions
+								key={ idx }
+								index={ idx }
+								option={ option }
+								unselectValue={ unselectValue }
+							/>
+						) ) }
+				</div>
 			</div>
 		);
 	}
 );
 
-FormAutocomplete.propTypes = {
+FormAutocompleteMultiselect.propTypes = {
 	autoFilter: PropTypes.bool,
 	className: PropTypes.any,
 	debounce: PropTypes.number,
@@ -363,12 +463,11 @@ FormAutocomplete.propTypes = {
 	required: PropTypes.bool,
 	searchIcon: PropTypes.bool,
 	showAllValues: PropTypes.bool,
-	resetOnBlur: PropTypes.bool,
 	source: PropTypes.func,
 	value: PropTypes.string,
 	dropdownArrow: PropTypes.node,
 };
 
-FormAutocomplete.displayName = 'FormAutocomplete';
+FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';
 
-export { FormAutocomplete, css };
+export { FormAutocompleteMultiselect };
