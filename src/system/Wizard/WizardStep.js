@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Card, Heading, Text, Flex } from '..';
+import { Card, Heading, Text, Flex, Table, TableRow, TableCell, Button } from '..';
 import { ScreenReaderText } from '../ScreenReaderText';
 
 const WizardStep = React.forwardRef(
@@ -18,6 +18,7 @@ const WizardStep = React.forwardRef(
 		{
 			title,
 			subTitle,
+			skipped = false,
 			complete = false,
 			children,
 			active,
@@ -25,18 +26,23 @@ const WizardStep = React.forwardRef(
 			totalSteps,
 			shouldFocusTitle,
 			titleVariant = 'h3',
+			summary,
+			onChange,
 		},
 		forwardRef
 	) => {
 		const titleRef = React.useRef( null );
 		let status = 'inactive';
 		let statusText = 'Step not completed';
-		if ( complete ) {
-			status = 'complete';
-			statusText = 'Step completed';
-		} else if ( active ) {
+		if ( active ) {
 			status = 'active';
 			statusText = 'Current step';
+		} else if ( complete ) {
+			status = 'complete';
+			statusText = 'Step completed';
+		} else if ( skipped ) {
+			status = 'skipped';
+			statusText = 'Step skipped';
 		}
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
@@ -71,45 +77,81 @@ const WizardStep = React.forwardRef(
 				data-active={ active || undefined }
 				ref={ forwardRef }
 			>
-				{ typeof title === 'string' ? (
+				<Flex sx={ { alignItems: 'flex-end', mb: 2 } }>
 					<Heading
 						variant={ titleVariant }
 						sx={ {
-							mb: 2,
-							display: 'flex',
-							alignItems: 'center',
+							mb: 1,
 							color: headingColor,
 							fontSize: 2,
 							fontWeight: '500',
-							rowGap: 3,
-							flexWrap: 'wrap',
+							flexGrow: 1,
 						} }
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
-						<Heading variant="caps" sx={ { flexBasis: '100%', mb: 0 } }>
+						<Heading variant="caps" sx={ { mb: 0, display: 'block' } }>
 							STEP { order } of { totalSteps }
 						</Heading>
-						<Flex sx={ { alignItems: 'center' } } as="span">
+
+						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } }>
 							<StatusIcon
 								aria-hidden="true"
-								sx={ { mr: 3, color: statusIconColor, flexBasis: '14px' } }
-							/>
-							<span
 								sx={ {
-									flexBasis: '100%', // the span+flexBasis here helps to keep the title in the box even if it's very long
+									mr: 3,
+									mt: 0,
+									color: statusIconColor,
 								} }
-							>
-								{ title }
-								<ScreenReaderText>Status: { statusText }</ScreenReaderText>
-							</span>
+							/>
+							{ title }
+							<ScreenReaderText>Status: { statusText }</ScreenReaderText>
 						</Flex>
 					</Heading>
-				) : (
-					<Flex sx={ { alignItems: 'center' } }>
-						<StatusIcon aria-hidden="true" sx={ { mr: 3, color: statusIconColor } } />
-						{ title }
-					</Flex>
+
+					{ ! active && ( complete || skipped ) && onChange && (
+						<Button
+							variant="text"
+							onClick={ onChange }
+							sx={ { height: 'auto', alignSelf: 'flex-end' } }
+						>
+							Change <ScreenReaderText>the { title } step</ScreenReaderText>
+						</Button>
+					) }
+				</Flex>
+				{ ! active && ( complete || skipped ) && summary?.length > 0 && (
+					<Table
+						caption={ `Summary of ${ title }` }
+						sx={ {
+							width: 'auto',
+							minWidth: 'auto',
+							'> tbody > tr': {
+								'> td, > th': {
+									fontWeight: '500',
+									border: 'none',
+									pl: 0,
+									'&:first-of-type': { pl: 0 },
+								},
+							},
+						} }
+					>
+						<tbody>
+							{ summary.map( ( item, index ) => (
+								<TableRow key={ `summary_tb_${ index }` }>
+									<TableCell
+										as="th"
+										scope="row"
+										sx={ { color: 'gray', whiteSpace: 'nowrap', pr: 1 } }
+									>
+										{ item.label }
+										{ item.value ? ':' : '' }
+									</TableCell>
+									<TableCell sx={ { color: 'text' } }>
+										<strong>{ item.value }</strong>
+									</TableCell>
+								</TableRow>
+							) ) }
+						</tbody>
+					</Table>
 				) }
 
 				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
@@ -129,8 +171,16 @@ WizardStep.propTypes = {
 	order: PropTypes.number.isRequired,
 	totalSteps: PropTypes.number.isRequired,
 	subTitle: PropTypes.node,
-	title: PropTypes.node,
+	title: PropTypes.string,
 	titleVariant: PropTypes.string,
+	skipped: PropTypes.bool,
+	onChange: PropTypes.func,
+	summary: PropTypes.arrayOf(
+		PropTypes.shape( {
+			label: PropTypes.node,
+			value: PropTypes.node,
+		} )
+	),
 	shouldFocusTitle: PropTypes.bool,
 };
 

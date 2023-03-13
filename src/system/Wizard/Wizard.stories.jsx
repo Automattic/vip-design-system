@@ -66,6 +66,13 @@ export const WithTitleAutoFocus = () => {
 		{
 			title: 'Choose Domain',
 			titleVariant: 'h2',
+			summary: [
+				{
+					label: 'Demo Label',
+					value: 'Demo value',
+				},
+			],
+			onChange: () => setActiveStep( 0 ),
 			children: (
 				<Box>
 					<Label>Domain</Label>
@@ -79,6 +86,7 @@ export const WithTitleAutoFocus = () => {
 		{
 			title: 'Configure DNS',
 			titleVariant: 'h2',
+			onChange: () => setActiveStep( 1 ),
 			children: (
 				<Box>
 					<Label>DNS</Label>
@@ -88,11 +96,31 @@ export const WithTitleAutoFocus = () => {
 				</Box>
 			),
 		},
+
+		{
+			title: 'Certificate',
+			titleVariant: 'h2',
+			summary: [
+				{
+					label: 'Certificate status',
+					value: 'Not found',
+				},
+			],
+			onChange: () => setActiveStep( 2 ),
+			children: (
+				<Box>
+					<Label>Certificate validation</Label>
+					<Button sx={ { mt: 3 } }>Check certificate</Button>
+				</Box>
+			),
+		},
 	];
 	return (
 		<React.Fragment>
 			<Box mt={ 4 }>
 				<Wizard
+					completed={ [ 0, 1 ] }
+					skipped={ [ 2 ] }
 					activeStep={ activeStep }
 					steps={ steps }
 					titleAutofocus={ autoFocus }
@@ -102,6 +130,7 @@ export const WithTitleAutoFocus = () => {
 			<Box mt={ 4 }>
 				<Form.Select
 					id="wizard-autofocus"
+					forLabel="wizard-autofocus"
 					label="Autofocus status"
 					value={ autoFocus }
 					onChange={ e => setAutoFocus( e.value ) }
@@ -111,23 +140,6 @@ export const WithTitleAutoFocus = () => {
 					] }
 				/>
 			</Box>
-		</React.Fragment>
-	);
-};
-
-export const CustomTitle = () => {
-	const steps = [
-		{
-			title: <h3 sx={ { m: 0 } }>Choose Domain</h3>,
-			subTitle: <span>You can bring a domain name you already own, or buy a new one.</span>,
-		},
-		{
-			title: <h3 sx={ { m: 0 } }>Configure DNS</h3>,
-		},
-	];
-	return (
-		<React.Fragment>
-			<Wizard activeStep={ 0 } steps={ steps } className="vip-wizard-xyz" />
 		</React.Fragment>
 	);
 };
