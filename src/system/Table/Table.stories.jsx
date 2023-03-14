@@ -32,7 +32,6 @@ const ExampleTable = ( { caption } ) => (
 					</Text>,
 					<Text key="time">11th Mar 2020, 16:49:22</Text>,
 				] }
-				gbc
 			/>
 			<TableRow>
 				<TableCell>
