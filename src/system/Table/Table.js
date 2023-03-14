@@ -20,6 +20,7 @@ const Table = React.forwardRef(
 			<Box
 				className={ classNames( 'vip-table-component', className ) }
 				sx={ { width: '100%', overflowX: 'auto' } }
+				tabIndex={ 0 }
 			>
 				<table
 					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }
