@@ -95,9 +95,9 @@ const WizardStep = React.forwardRef(
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 						aria-current={ active ? 'step' : undefined }
 					>
-						<Heading variant="caps" sx={ { mb: 0, display: 'block' } } aria-hidden="true">
+						<Text sx={ { color: 'wizard.step.number.color' } } aria-hidden="true">
 							{ stepText }
-						</Heading>
+						</Text>
 
 						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
 							<StatusIcon

@@ -90,6 +90,9 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	// wizard
 	wizard: {
 		step: {
+			number: {
+				color: theme.text.helper,
+			},
 			heading: {
 				complete: theme.text.success,
 				active: theme.heading,
