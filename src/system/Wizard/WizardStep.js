@@ -44,6 +44,9 @@ const WizardStep = React.forwardRef(
 			status = 'skipped';
 			statusText = 'Step skipped';
 		}
+		statusText = `Status: ${ statusText }`;
+		const stepText = `Step ${ order } of ${ totalSteps }`;
+
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
 		const headingColor = `wizard.step.heading.${ status }`;
@@ -76,6 +79,7 @@ const WizardStep = React.forwardRef(
 				data-step={ order }
 				data-active={ active || undefined }
 				ref={ forwardRef }
+				// aria-current={ active ? 'step' : undefined }
 			>
 				<Flex sx={ { alignItems: 'flex-end', mb: 2 } }>
 					<Heading
@@ -90,13 +94,12 @@ const WizardStep = React.forwardRef(
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 					>
-						<Heading variant="caps" sx={ { mb: 0, display: 'block' } }>
-							STEP { order } of { totalSteps }
+						<Heading variant="caps" sx={ { mb: 0, display: 'block' } } aria-hidden="true">
+							{ stepText }
 						</Heading>
 
-						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } }>
+						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
 							<StatusIcon
-								aria-hidden="true"
 								sx={ {
 									mr: 3,
 									mt: 0,
@@ -104,8 +107,15 @@ const WizardStep = React.forwardRef(
 								} }
 							/>
 							{ title }
-							<ScreenReaderText>Status: { statusText }</ScreenReaderText>
 						</Flex>
+
+						<ScreenReaderText>{
+							/**
+							 * we are adding the composed title here so that it's announced correctly by the voiceover
+							 * Using tags inside the heading would make the voiceover read the heading in multiple parts
+							 **/
+							`${ stepText }: ${ title }. ${ statusText }`
+						}</ScreenReaderText>
 					</Heading>
 
 					{ ! active && ( complete || skipped ) && onChange && (
