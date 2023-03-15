@@ -93,6 +93,7 @@ const WizardStep = React.forwardRef(
 						} }
 						ref={ titleRef }
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
+						aria-current={ active ? 'step' : undefined }
 					>
 						<Heading variant="caps" sx={ { mb: 0, display: 'block' } } aria-hidden="true">
 							{ stepText }
