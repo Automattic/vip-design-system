@@ -125,7 +125,7 @@ const WizardStep = React.forwardRef(
 							onClick={ onChange }
 							sx={ { height: 'auto', alignSelf: 'flex-end' } }
 						>
-							Change <ScreenReaderText>the { title } step</ScreenReaderText>
+							Change <ScreenReaderText>{ `the ${ title } step` }</ScreenReaderText>
 						</Button>
 					) }
 				</Flex>
