@@ -87,6 +87,33 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.logs,
 	},
 
+	// wizard
+	wizard: {
+		step: {
+			number: {
+				color: theme.text.helper,
+			},
+			heading: {
+				complete: theme.text.success,
+				active: theme.heading,
+				inactive: theme.text.helper,
+				skipped: theme.text.helper,
+			},
+			icon: {
+				complete: theme.support.icon.success,
+				active: theme.link.default,
+				inactive: theme.input.border.disabled,
+				skipped: theme.input.border.disabled,
+			},
+			border: {
+				default: theme.border[ '2' ],
+				complete: theme.support.accent.success,
+				active: theme.border.accent,
+				inactive: theme.input.border.disabled,
+				skipped: theme.input.border.disabled,
+			},
+		},
+	},
 	// Accordion
 	accordion: {
 		content: {

@@ -20,6 +20,7 @@ const Wizard = React.forwardRef(
 			activeStep,
 			variant,
 			completed = [],
+			skipped = [],
 			className = null,
 			titleAutofocus = false,
 			...props
@@ -63,15 +64,19 @@ const Wizard = React.forwardRef(
 						{ steps[ activeStep ].children }
 					</Box>
 				) : (
-					steps.map( ( { title, subTitle, children, titleVariant }, index ) => (
+					steps.map( ( { title, subTitle, children, titleVariant, summary, onChange }, index ) => (
 						<WizardStep
 							active={ index === activeStep }
 							complete={ completed.includes( index ) }
+							skipped={ skipped.includes( index ) }
 							key={ index }
 							order={ index + 1 }
+							totalSteps={ steps.length }
 							subTitle={ subTitle }
 							title={ title }
 							titleVariant={ titleVariant }
+							summary={ summary }
+							onChange={ onChange }
 							shouldFocusTitle={ titleAutofocus && didMount }
 						>
 							{ children }
@@ -90,6 +95,7 @@ Wizard.propTypes = {
 	activeStep: PropTypes.number,
 	variant: PropTypes.string,
 	completed: PropTypes.array,
+	skipped: PropTypes.array,
 	className: PropTypes.any,
 	titleAutofocus: PropTypes.bool,
 };
