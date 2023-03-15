@@ -19,7 +19,6 @@ import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
 import { Button, Flex } from '../';
-import ScreenReaderText from '../ScreenReaderText';
 import { MdClose } from 'react-icons/md';
 
 const baseBorderTextColors = {
@@ -150,14 +149,9 @@ const SelectedOptions = ( { index, option, unselectValue } ) => {
 						textOverflow: 'ellipsis',
 						whiteSpace: 'nowrap',
 					} }
-					aria-hidden="true"
 				>
 					{ option }
 				</div>
-				<ScreenReaderText>
-					{ `${ option } selected. Press Space or Enter to remove.` }
-					{ index === 0 ? ' Press Shift Tab to add more.' : '' }
-				</ScreenReaderText>
 				<MdClose sx={ { ml: 2 } } />
 			</Button>
 		</div>
