@@ -98,6 +98,7 @@
 		"@babel/preset-flow": "7.13.13",
 		"@babel/preset-react": "^7.12.13",
 		"@babel/runtime": "7.14.0",
+		"@iconify-json/mdi": "^1.1.50",
 		"@mdx-js/react": "^2.1.1",
 		"@radix-ui/react-icons": "^1.1.1",
 		"@storybook/addon-a11y": "^6.5.9",
@@ -106,6 +107,7 @@
 		"@storybook/addon-essentials": "^6.5.9",
 		"@storybook/addon-links": "^6.5.9",
 		"@storybook/react": "^6.5.9",
+		"@svgr/core": "^6.5.1",
 		"@testing-library/dom": "^8.11.1",
 		"@testing-library/jest-dom": "^5.15.0",
 		"@testing-library/react": "^12.1.2",
@@ -138,6 +140,7 @@
 		"react-input-autosize": "^3.0.0",
 		"react-refresh": "^0.9.0",
 		"theme-ui": "0.10.0",
-		"token-transformer": "^0.0.29"
+		"token-transformer": "^0.0.29",
+		"unplugin-icons": "^0.15.3"
 	}
 }
