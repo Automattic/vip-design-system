@@ -6,7 +6,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
+import MdError from '~icons/mdi/error';
+import MdWarning from '~icons/mdi/warning';
+import MdInfo from '~icons/mdi/info';
+import MdCheckCircle from '~icons/mdi/check-circle';
 
 /**
  * Internal dependencies

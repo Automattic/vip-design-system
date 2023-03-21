@@ -4,7 +4,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
+import MdCheckCircle from '~icons/mdi/error-outline';
+import MdErrorOutline from '~icons/mdi/check-circle';
 
 const errorColor = 'texts.error';
 const helperColor = 'texts.helper';

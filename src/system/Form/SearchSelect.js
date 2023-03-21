@@ -3,7 +3,9 @@
 /**
  * External dependencies
  */
-import { MdDone, MdExpandMore, MdClose } from 'react-icons/md';
+import MdDone from '~icons/mdi/done';
+import MdExpandMore from '~icons/mdi/expand-more';
+import MdClose from '~icons/mdi/close';
 import Select, { components } from 'react-select';
 import PropTypes from 'prop-types';
 

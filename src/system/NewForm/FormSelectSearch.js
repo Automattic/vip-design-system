@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React from 'react';
-import { MdSearch } from 'react-icons/md';
+import MdSearch from '~icons/mdi/search';
 
 export const FormSelectSearch = React.forwardRef( ( props, forwardRef ) => (
 	<MdSearch

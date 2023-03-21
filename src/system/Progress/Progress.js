@@ -7,12 +7,11 @@ import React from 'react';
 import { Progress as ThemeProgress } from 'theme-ui';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
+import MdCheck from '~icons/mdi/check';
 /**
  * Internal dependencies
  */
 import { Spinner } from '../Spinner';
-import { MdCheck } from 'react-icons/md';
 import { Box, Text, Flex } from '../';
 
 const prefix = 'vip-progress-component';

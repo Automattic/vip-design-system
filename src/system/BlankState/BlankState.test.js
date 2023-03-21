@@ -3,7 +3,7 @@
  */
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { MdContentCopy } from 'react-icons/md';
+import MdContentCopy from '~icons/mdi/content-copy';
 
 /**
  * Internal dependencies

@@ -6,7 +6,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { MdArrowForward } from 'react-icons/md';
+import MdArrowForward from '~icons/mdi/arrow-forward';
 
 /**
  * Internal dependencies

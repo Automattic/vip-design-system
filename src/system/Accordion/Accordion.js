@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MdChevronRight } from 'react-icons/md';
+import MdChevronRight from '~icons/mdi/chevron-right';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { keyframes } from '@emotion/react';
 import classNames from 'classnames';

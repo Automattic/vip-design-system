@@ -4,7 +4,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { MdHelp } from 'react-icons/md';
+import MdHelp from '~icons/mdi/help';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 
 /**

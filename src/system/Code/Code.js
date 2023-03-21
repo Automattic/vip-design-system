@@ -6,7 +6,7 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { MdContentCopy } from 'react-icons/md';
+import MdContentCopy from '~icons/mdi/content-copy';
 
 const Code = React.forwardRef(
 	( { prompt = false, showCopy = false, onCopy = null, className, ...props }, forwardRef ) => {

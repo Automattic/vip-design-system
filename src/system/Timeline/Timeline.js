@@ -4,7 +4,7 @@
  * External dependencies
  */
 import { Flex } from 'theme-ui';
-import { MdWatchLater } from 'react-icons/md';
+import MdWatchLater from '~icons/mdi/watch-later';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 

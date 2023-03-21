@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React from 'react';
-import { MdCheckCircle } from 'react-icons/md';
+import MdCheckCircle from '~icons/mdi/check-circle';
 import PropTypes from 'prop-types';
 
 /**

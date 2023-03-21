@@ -5,7 +5,7 @@
  */
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import PropTypes from 'prop-types';
-import { MdDone } from 'react-icons/md';
+import MdDone from '~icons/mdi/done';
 import { baseControlBorderStyle, baseControlFocusStyle, inputBaseBackground } from './Input.styles';
 
 const StyledCheckbox = props => (
