@@ -2,7 +2,7 @@
  * External dependencies
  */
 
-import { BiAddToQueue, BiCalendarHeart, BiBellMinus } from 'react-icons/bi';
+import BiCalendarHeart from '~icons/bx/calendar-heart';
 import BiAddToQueue from '~icons/bx/add-to-queue';
 import BiBellMinus from '~icons/bx/bell-minus';
 
