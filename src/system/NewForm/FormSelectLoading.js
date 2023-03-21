@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import AiOutlineLoading3Quarters from '~icons/ant-design/loading-3-quarters-outlined';
 import { keyframes } from '@emotion/react';
 
 /**
