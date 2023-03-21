@@ -100,6 +100,7 @@
 		"@babel/runtime": "7.14.0",
 		"@iconify-json/bx": "^1.1.6",
 		"@iconify-json/bxs": "^1.1.6",
+		"@iconify-json/ion": "^1.1.8",
 		"@iconify-json/mdi": "^1.1.50",
 		"@mdx-js/react": "^2.1.1",
 		"@radix-ui/react-icons": "^1.1.1",
