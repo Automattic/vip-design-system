@@ -98,6 +98,7 @@
 		"@babel/preset-flow": "7.13.13",
 		"@babel/preset-react": "^7.12.13",
 		"@babel/runtime": "7.14.0",
+		"@iconify-json/bxs": "^1.1.6",
 		"@iconify-json/mdi": "^1.1.50",
 		"@mdx-js/react": "^2.1.1",
 		"@radix-ui/react-icons": "^1.1.1",
