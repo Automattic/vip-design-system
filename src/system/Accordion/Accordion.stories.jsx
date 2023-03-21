@@ -3,8 +3,9 @@
 /**
  * External dependencies
  */
-import { RiUserAddLine, RiCodeSSlashFill } from 'react-icons/ri';
-import { BiBookContent } from 'react-icons/bi';
+import RiCodeSSlashFill from '~icons/ion/code-slash';
+import RiUserAddLine from '~icons/ant-design/user-add-outlined';
+import BiBookContent from '~icons/bx/book-content';
 /**
  * Internal dependencies
  */
