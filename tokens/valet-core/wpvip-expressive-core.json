@@ -106,17 +106,41 @@
     }
   },
   "borderRadius": {
-    "small": {
-      "value": "{borderRadius.static.2}",
-      "type": "borderRadius"
+    "static": {
+      "small": {
+        "value": "{borderRadius.static.2}",
+        "type": "borderRadius"
+      },
+      "medium": {
+        "value": "{borderRadius.static.3}",
+        "type": "borderRadius"
+      },
+      "large": {
+        "value": "{borderRadius.static.4}",
+        "type": "borderRadius"
+      },
+      "x-large": {
+        "value": "{borderRadius.static.5}",
+        "type": "borderRadius"
+      },
+      "xx-large": {
+        "value": "{borderRadius.static.6}",
+        "type": "borderRadius"
+      },
+      "x-small": {
+        "value": "{borderRadius.static.1}",
+        "type": "borderRadius"
+      }
     },
-    "medium": {
-      "value": "{borderRadius.responsive.3-5}",
-      "type": "borderRadius"
-    },
-    "large": {
-      "value": "{borderRadius.responsive.4-6}",
-      "type": "borderRadius"
+    "responsive": {
+      "medium": {
+        "value": "{borderRadius.responsive.3-5}",
+        "type": "borderRadius"
+      },
+      "large": {
+        "value": "{borderRadius.responsive.4-6}",
+        "type": "borderRadius"
+      }
     }
   }
 }
