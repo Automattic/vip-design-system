@@ -36,7 +36,7 @@ const WizardStep = React.forwardRef(
 		let statusText = 'Step not completed';
 		if ( active ) {
 			status = 'active';
-			statusText = 'Current step';
+			statusText = ''; // not adding the status text for active step since it's announced by aria-current
 		} else if ( complete ) {
 			status = 'complete';
 			statusText = 'Step completed';
@@ -44,7 +44,9 @@ const WizardStep = React.forwardRef(
 			status = 'skipped';
 			statusText = 'Step skipped';
 		}
-		statusText = `Status: ${ statusText }`;
+		if ( statusText !== '' ) {
+			statusText = `Status: ${ statusText }`;
+		}
 		const stepText = `Step ${ order } of ${ totalSteps }`;
 
 		const borderLeftColor = `wizard.step.border.${ status }`;
