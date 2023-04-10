@@ -5,26 +5,10 @@
         "value": "{space.responsive.4-7}",
         "type": "spacing",
         "description": "Use for global padding for the application—usually the outer margins of the screen. "
-      },
-      "small": {
-        "value": "{space.responsive.6-7}",
-        "type": "spacing"
-      },
-      "medium": {
-        "value": "{space.responsive.7-8}",
-        "type": "spacing"
-      },
-      "large": {
-        "value": "{space.responsive.8-9}",
-        "type": "spacing"
-      },
-      "huge": {
-        "value": "{space.responsive.9-10}",
-        "type": "spacing"
       }
     },
-    "gap": {
-      "tiny": {
+    "responsive": {
+      "x-small": {
         "value": "{space.responsive.3-4}",
         "type": "spacing"
       },
@@ -40,6 +24,48 @@
         "value": "{space.responsive.6-7}",
         "type": "spacing",
         "description": "The default space between sequential blocks in a layout"
+      },
+      "x-large": {
+        "value": "{space.responsive.7-8}",
+        "type": "spacing"
+      },
+      "xx-large": {
+        "value": "{space.responsive.8-9}",
+        "type": "spacing"
+      },
+      "xxx-large": {
+        "value": "{space.responsive.9-10}",
+        "type": "spacing"
+      }
+    },
+    "static": {
+      "x-small": {
+        "value": "{space.static.1}",
+        "type": "spacing"
+      },
+      "small": {
+        "value": "{space.static.2}",
+        "type": "spacing"
+      },
+      "medium": {
+        "value": "{space.static.3}",
+        "type": "spacing"
+      },
+      "large": {
+        "value": "{space.static.4}",
+        "type": "spacing"
+      },
+      "x-large": {
+        "value": "{space.static.5}",
+        "type": "spacing"
+      },
+      "xx-large": {
+        "value": "{space.static.6}",
+        "type": "spacing"
+      },
+      "xxx-large": {
+        "value": "{space.static.7}",
+        "type": "spacing"
       }
     }
   },
