@@ -230,9 +230,9 @@
     "1": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.light}",
-        "lineHeight": "{lineHeight.4}",
-        "fontSize": "{fontSize.responsive.8}",
+        "fontWeight": "{fontWeight.regular}",
+        "lineHeight": "{lineHeight.responsive}",
+        "fontSize": "{fontSize.responsive.7}",
         "letterSpacing": "{letterSpacing.tight}"
       },
       "type": "typography"

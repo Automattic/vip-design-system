@@ -727,7 +727,7 @@
       "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
     "tight": {
-      "value": "-.01em",
+      "value": "-.02em",
       "type": "letterSpacing"
     },
     "loose": {
