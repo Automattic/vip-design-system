@@ -88,11 +88,11 @@ fs.readFile( '../../valet-core/valet-core.json', 'utf8', ( err, data ) => {
 
 	const updatedConfig = updateConfigJSON( calculatedValues, config );
 
-	fs.writeFile( 'config.json', JSON.stringify( updatedConfig, null, 2 ), err => {
+	fs.writeFile( '../../valet-core/valet-core.json', JSON.stringify( updatedConfig, null, 2 ), err => {
 		if ( err ) {
 			console.error( 'Error writing file:', err );
 			return;
 		}
-		console.log( 'Output written to config.json' );
+		console.log( 'Output written to valet-core.json' );
 	} );
 } );
