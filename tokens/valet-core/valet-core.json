@@ -30,391 +30,391 @@
     },
     "figma": {
       "1": {
-        "s": {
+        "S": {
           "value": "12.29",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "11.25",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "10.03",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "9.21",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "8.52",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "8.17",
           "type": "other"
         }
       },
       "2": {
-        "s": {
+        "S": {
           "value": "13.12",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "12.28",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "11.30",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "10.64",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "10.08",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "9.92",
           "type": "other"
         }
       },
       "3": {
-        "s": {
+        "S": {
           "value": "14.02",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "13.44",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "12.78",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "12.33",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "11.95",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "11.84",
           "type": "other"
         }
       },
       "4": {
-        "s": {
+        "S": {
           "value": "15.01",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "14.81",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "14.57",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "14.41",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "14.28",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "14.24",
           "type": "other"
         }
       },
       "5": {
-        "s": {
+        "S": {
           "value": "16.00",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "16.20",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "16.52",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "16.73",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "16.91",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "16.96",
           "type": "other"
         }
       },
       "6": {
-        "s": {
+        "S": {
           "value": "17.12",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "17.96",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "18.94",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "19.60",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "20.16",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "20.44",
           "type": "other"
         }
       },
       "7": {
-        "s": {
+        "S": {
           "value": "18.24",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "19.72",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "21.57",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "22.81",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "23.86",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "24.39",
           "type": "other"
         }
       },
       "8": {
-        "s": {
+        "S": {
           "value": "19.52",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "22.04",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "24.98",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "26.96",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "28.64",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "29.44",
           "type": "other"
         }
       },
       "9": {
-        "s": {
+        "S": {
           "value": "20.80",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "24.43",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "28.70",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "31.58",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "34.02",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "35.20",
           "type": "other"
         }
       },
       "10": {
-        "s": {
+        "S": {
           "value": "22.14",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "27.25",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "33.21",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "37.22",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "40.63",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "42.24",
           "type": "other"
         }
       },
       "11": {
-        "s": {
+        "S": {
           "value": "23.68",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "30.50",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "38.50",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "43.88",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "48.45",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "50.72",
           "type": "other"
         }
       },
       "12": {
-        "s": {
+        "S": {
           "value": "25.25",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "34.29",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "44.83",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "51.93",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "57.96",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "60.96",
           "type": "other"
         }
       },
       "13": {
-        "s": {
+        "S": {
           "value": "26.88",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "38.51",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "52.15",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "61.34",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "69.13",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "73.03",
           "type": "other"
         }
       },
       "14": {
-        "s": {
+        "S": {
           "value": "28.64",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "43.59",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "61.04",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "72.78",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "82.75",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "87.68",
           "type": "other"
         }
       },
       "15": {
-        "s": {
+        "S": {
           "value": "30.62",
           "type": "other"
         },
-        "m": {
+        "M": {
           "value": "49.51",
           "type": "other"
         },
-        "l": {
+        "L": {
           "value": "71.54",
           "type": "other"
         },
-        "xl": {
+        "XL": {
           "value": "86.37",
           "type": "other"
         },
-        "xxl": {
+        "XXL": {
           "value": "98.96",
           "type": "other"
         },
-        "max": {
+        "MAX": {
           "value": "105.26",
           "type": "other"
         }
