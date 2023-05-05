@@ -6,8 +6,8 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ScreenReaderText from '../ScreenReaderText';
-import { Label } from './Label';
 import { Validation } from './Validation';
+import { RequiredLabel } from './RequiredLabel';
 
 /**
  * Internal dependencies
@@ -154,12 +154,15 @@ const RadioBoxGroup = React.forwardRef(
 							: {} ),
 					} }
 					ref={ forwardRef }
+					aria-required={ required }
+					role="radiogroup"
 					{ ...props }
 				>
 					{ groupLabel ? (
-						<Label as="legend" sx={ { mb: 2 } } required={ required }>
+						<legend sx={ { mb: 2 } }>
 							{ groupLabel }
-						</Label>
+							{ required ? <RequiredLabel /> : null }
+						</legend>
 					) : (
 						<ScreenReaderText>Choose an option</ScreenReaderText>
 					) }
