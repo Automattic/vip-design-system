@@ -1008,7 +1008,7 @@
       },
       "background-secondary": {
         "type": "color",
-        "value": "{color.red.10"
+        "value": "{color.red.10}"
       },
       "text": {
         "type": "color",
@@ -1016,7 +1016,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.red.70"
+        "value": "{color.red.70}"
       },
       "icon": {
         "type": "color",
