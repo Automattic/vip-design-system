@@ -49,6 +49,7 @@ import { Time } from './Time';
 import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
+import { Sticker } from './Sticker';
 import { Table, TableRow, TableCell } from './Table';
 import { Text } from './Text';
 import theme from './theme';
@@ -86,6 +87,7 @@ export {
 	Input,
 	Label,
 	Spinner,
+	Sticker,
 	Table,
 	TableRow,
 	TableCell,
