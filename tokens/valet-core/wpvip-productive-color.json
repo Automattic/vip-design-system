@@ -916,9 +916,17 @@
         "type": "color",
         "value": "{color.gray.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.gray.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.gray.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.gray.70}"
       },
       "icon": {
         "type": "color",
@@ -938,9 +946,17 @@
         "type": "color",
         "value": "{color.blue.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.blue.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.blue.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.blue.70}"
       },
       "icon": {
         "type": "color",
@@ -960,9 +976,17 @@
         "type": "color",
         "value": "{color.green.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.green.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.green.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.green.70}"
       },
       "icon": {
         "type": "color",
@@ -982,9 +1006,17 @@
         "type": "color",
         "value": "{color.red.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.red.10"
+      },
       "text": {
         "type": "color",
         "value": "{color.red.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.red.70"
       },
       "icon": {
         "type": "color",
@@ -1004,9 +1036,17 @@
         "type": "color",
         "value": "{color.gold.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.gold.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.gold.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.gold.70}"
       },
       "icon": {
         "type": "color",
@@ -1026,9 +1066,17 @@
         "type": "color",
         "value": "{color.yellow.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.yellow.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.yellow.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.yellow.70}"
       },
       "icon": {
         "type": "color",
@@ -1048,9 +1096,17 @@
         "type": "color",
         "value": "{color.orange.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.orange.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.orange.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.orange.70}"
       },
       "icon": {
         "type": "color",
@@ -1070,9 +1126,17 @@
         "type": "color",
         "value": "{color.salmon.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.salmon.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.salmon.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.salmon.70}"
       },
       "icon": {
         "type": "color",
@@ -1092,9 +1156,17 @@
         "type": "color",
         "value": "{color.pink.60}"
       },
+      "background-secondary": {
+        "type": "color",
+        "value": "{color.pink.10}"
+      },
       "text": {
         "type": "color",
         "value": "{color.pink.3}"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "{color.pink.70}"
       },
       "icon": {
         "type": "color",
