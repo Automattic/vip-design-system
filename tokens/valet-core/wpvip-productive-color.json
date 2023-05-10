@@ -914,19 +914,19 @@
     "gray": {
       "background": {
         "type": "color",
-        "value": "{color.gray.7}"
+        "value": "{color.gray.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.gray.85}"
+        "value": "{color.gray.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.gray.65}"
+        "value": "{color.gray.3}"
       },
       "hover": {
         "type": "color",
-        "value": "{color.gray.15}"
+        "value": "{color.gray.70}"
       },
       "active": {
         "type": "color",
@@ -936,19 +936,19 @@
     "blue": {
       "background": {
         "type": "color",
-        "value": "{color.blue.7}"
+        "value": "{color.blue.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.blue.85}"
+        "value": "{color.blue.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.blue.65}"
+        "value": "{color.blue.3}"
       },
       "hover": {
         "type": "color",
-        "value": "{color.blue.15}"
+        "value": "{color.blue.70}"
       },
       "active": {
         "type": "color",
@@ -958,15 +958,15 @@
     "green": {
       "background": {
         "type": "color",
-        "value": "{color.green.7}"
+        "value": "{color.green.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.green.85}"
+        "value": "{color.green.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.green.65}"
+        "value": "{color.green.3}"
       },
       "hover": {
         "type": "color",
@@ -980,15 +980,15 @@
     "red": {
       "background": {
         "type": "color",
-        "value": "{color.red.7}"
+        "value": "{color.red.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.red.85}"
+        "value": "{color.red.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.red.65}"
+        "value": "{color.red.3}"
       },
       "hover": {
         "type": "color",
@@ -1002,15 +1002,15 @@
     "gold": {
       "background": {
         "type": "color",
-        "value": "{color.gold.7}"
+        "value": "{color.gold.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.gold.85}"
+        "value": "{color.gold.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.gold.65}"
+        "value": "{color.gold.3}"
       },
       "hover": {
         "type": "color",
@@ -1024,15 +1024,15 @@
     "yellow": {
       "background": {
         "type": "color",
-        "value": "{color.yellow.7}"
+        "value": "{color.yellow.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.yellow.85}"
+        "value": "{color.yellow.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.yellow.65}"
+        "value": "{color.yellow.3}"
       },
       "hover": {
         "type": "color",
@@ -1046,15 +1046,15 @@
     "orange": {
       "background": {
         "type": "color",
-        "value": "{color.orange.7}"
+        "value": "{color.orange.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.orange.85}"
+        "value": "{color.orange.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.orange.65}"
+        "value": "{color.orange.3}"
       },
       "hover": {
         "type": "color",
@@ -1068,15 +1068,15 @@
     "salmon": {
       "background": {
         "type": "color",
-        "value": "{color.salmon.7}"
+        "value": "{color.salmon.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.salmon.85}"
+        "value": "{color.salmon.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.salmon.65}"
+        "value": "{color.salmon.3}"
       },
       "hover": {
         "type": "color",
@@ -1090,15 +1090,15 @@
     "pink": {
       "background": {
         "type": "color",
-        "value": "{color.pink.7}"
+        "value": "{color.pink.60}"
       },
       "text": {
         "type": "color",
-        "value": "{color.pink.85}"
+        "value": "{color.pink.3}"
       },
       "icon": {
         "type": "color",
-        "value": "{color.pink.65}"
+        "value": "{color.pink.3}"
       },
       "hover": {
         "type": "color",
