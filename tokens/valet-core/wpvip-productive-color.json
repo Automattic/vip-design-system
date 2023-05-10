@@ -930,7 +930,7 @@
       },
       "active": {
         "type": "color",
-        "value": "{color.gray.20}"
+        "value": "{color.gray.75}"
       }
     },
     "blue": {
@@ -952,7 +952,7 @@
       },
       "active": {
         "type": "color",
-        "value": "{color.blue.20}"
+        "value": "{color.blue.75}"
       }
     },
     "green": {
@@ -970,11 +970,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.green.15}"
+        "value": "{color.green.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.green.20}"
+        "value": "{color.green.75}"
       }
     },
     "red": {
@@ -992,11 +992,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.red.15}"
+        "value": "{color.red.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.red.20}"
+        "value": "{color.red.75}"
       }
     },
     "gold": {
@@ -1014,11 +1014,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.gold.15}"
+        "value": "{color.gold.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.gold.20}"
+        "value": "{color.gold.75}"
       }
     },
     "yellow": {
@@ -1036,11 +1036,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.yellow.15}"
+        "value": "{color.yellow.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.yellow.20}"
+        "value": "{color.yellow.75}"
       }
     },
     "orange": {
@@ -1058,11 +1058,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.orange.15}"
+        "value": "{color.orange.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.orange.20}"
+        "value": "{color.orange.75}"
       }
     },
     "salmon": {
@@ -1080,11 +1080,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.salmon.15}"
+        "value": "{color.salmon.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.salmon.20}"
+        "value": "{color.salmon.75}"
       }
     },
     "pink": {
@@ -1102,11 +1102,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.pink.15}"
+        "value": "{color.pink.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.pink.20}"
+        "value": "{color.pink.75}"
       }
     }
   },
