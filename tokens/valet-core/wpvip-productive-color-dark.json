@@ -927,7 +927,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -945,7 +945,7 @@
     "blue": {
       "background": {
         "type": "color",
-        "value": "{color.blue.90}"
+        "value": "{color.blue.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -957,7 +957,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -975,7 +975,7 @@
     "green": {
       "background": {
         "type": "color",
-        "value": "{color.green.90}"
+        "value": "{color.green.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -987,7 +987,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -1005,7 +1005,7 @@
     "red": {
       "background": {
         "type": "color",
-        "value": "{color.red.60}"
+        "value": "{color.red.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -1017,7 +1017,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -1029,13 +1029,13 @@
       },
       "active": {
         "type": "color",
-        "value": "{color.red.75}"
+        "value": "{color.red.65}"
       }
     },
     "gold": {
       "background": {
         "type": "color",
-        "value": "{color.gold.90}"
+        "value": "{color.gold.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -1047,7 +1047,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -1065,7 +1065,7 @@
     "yellow": {
       "background": {
         "type": "color",
-        "value": "{color.yellow.90}"
+        "value": "{color.yellow.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -1077,7 +1077,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -1095,7 +1095,7 @@
     "orange": {
       "background": {
         "type": "color",
-        "value": "{color.orange.35}"
+        "value": "{color.orange.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -1107,7 +1107,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -1115,17 +1115,17 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.orange.75}"
+        "value": "{color.orange.80}"
       },
       "active": {
         "type": "color",
-        "value": "{color.orange.50}"
+        "value": "{color.orange.75}"
       }
     },
     "salmon": {
       "background": {
         "type": "color",
-        "value": "{color.salmon.90}"
+        "value": "{color.salmon.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -1137,7 +1137,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
@@ -1155,7 +1155,7 @@
     "pink": {
       "background": {
         "type": "color",
-        "value": "{color.pink.90}"
+        "value": "{color.pink.80}"
       },
       "background-secondary": {
         "type": "color",
@@ -1167,7 +1167,7 @@
       },
       "text-secondary": {
         "type": "color",
-        "value": "{color.pure-white}"
+        "value": "{color.black}"
       },
       "icon": {
         "type": "color",
