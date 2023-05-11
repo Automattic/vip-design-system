@@ -965,11 +965,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.blue.80}"
+        "value": "{color.blue.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.blue.75}"
+        "value": "{color.blue.65}"
       }
     },
     "green": {
@@ -995,11 +995,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.green.80}"
+        "value": "{color.green.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.green.75}"
+        "value": "{color.green.65}"
       }
     },
     "red": {
@@ -1055,11 +1055,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.gold.80}"
+        "value": "{color.gold.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.gold.75}"
+        "value": "{color.gold.65}"
       }
     },
     "yellow": {
@@ -1085,11 +1085,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.yellow.80}"
+        "value": "{color.yellow.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.yellow.75}"
+        "value": "{color.yellow.65}"
       }
     },
     "orange": {
@@ -1115,11 +1115,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.orange.80}"
+        "value": "{color.orange.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.orange.75}"
+        "value": "{color.orange.65}"
       }
     },
     "salmon": {
@@ -1145,11 +1145,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.salmon.80}"
+        "value": "{color.salmon.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.salmon.75}"
+        "value": "{color.salmon.65}"
       }
     },
     "pink": {
@@ -1175,11 +1175,11 @@
       },
       "hover": {
         "type": "color",
-        "value": "{color.pink.80}"
+        "value": "{color.pink.70}"
       },
       "active": {
         "type": "color",
-        "value": "{color.pink.75}"
+        "value": "{color.pink.65}"
       }
     }
   },
