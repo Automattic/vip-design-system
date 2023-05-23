@@ -346,5 +346,17 @@
       "value": "0.03em",
       "type": "letterSpacing"
     }
+  },
+  "statistic": {
+    "1": {
+      "value": {
+        "fontFamily": "{fontFamily.sans}",
+        "fontWeight": "{fontWeight.regular}",
+        "lineHeight": "{lineHeight.responsive}",
+        "fontSize": "{fontSize.responsive.12}",
+        "letterSpacing": "{letterSpacing.tight}"
+      },
+      "type": "typography"
+    }
   }
 }
