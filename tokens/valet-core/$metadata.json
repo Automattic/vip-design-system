@@ -4,9 +4,12 @@
     "valet-expressive-core",
     "valet-expressive-color",
     "wpvip-expressive-core",
+    "wpvip-services-expressive-core",
     "wpvip-expressive-color-dark",
     "wpvip-expressive-color",
+    "wpvip-services-expressive-color",
     "wpvip-expressive-type",
+    "wpvip-services-expressive-type",
     "wpvip-productive-color",
     "wpvip-productive-color-dark",
     "parsely-expressive-core",
@@ -14,6 +17,7 @@
     "parsely-expressive-type",
     "figma-valet-expressive-type",
     "figma-wpvip-expressive-type",
+    "figma-wpvip-services-expressive-type",
     "figma-parsely-expressive-type"
   ]
 }
