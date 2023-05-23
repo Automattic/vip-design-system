@@ -1209,5 +1209,19 @@
       "value": "3%",
       "type": "letterSpacing"
     }
+  },
+  "statistic": {
+    "1": {
+      "S": {
+        "value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontWeight": "{fontWeight.regular}",
+          "lineHeight": "{lineHeight.2}",
+          "fontSize": "",
+          "letterSpacing": "{letterSpacing.tight}"
+        },
+        "type": "typography"
+      }
+    }
   }
 }
