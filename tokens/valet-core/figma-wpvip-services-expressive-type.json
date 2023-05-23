@@ -1217,7 +1217,47 @@
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.regular}",
           "lineHeight": "{lineHeight.2}",
-          "fontSize": "",
+          "fontSize": "{fontSize.figma.12.S}",
+          "letterSpacing": "{letterSpacing.tight}"
+        },
+        "type": "typography"
+      },
+      "S": {
+        "value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontWeight": "{fontWeight.regular}",
+          "lineHeight": "{lineHeight.2}",
+          "fontSize": "{fontSize.figma.12.M}",
+          "letterSpacing": "{letterSpacing.tight}"
+        },
+        "type": "typography"
+      },
+      "S": {
+        "value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontWeight": "{fontWeight.regular}",
+          "lineHeight": "{lineHeight.2}",
+          "fontSize": "{fontSize.figma.12.L}",
+          "letterSpacing": "{letterSpacing.tight}"
+        },
+        "type": "typography"
+      },
+      "S": {
+        "value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontWeight": "{fontWeight.regular}",
+          "lineHeight": "{lineHeight.2}",
+          "fontSize": "{fontSize.figma.12.XL}",
+          "letterSpacing": "{letterSpacing.tight}"
+        },
+        "type": "typography"
+      },
+      "S": {
+        "value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontWeight": "{fontWeight.regular}",
+          "lineHeight": "{lineHeight.2}",
+          "fontSize": "{fontSize.figma.12.MAX}",
           "letterSpacing": "{letterSpacing.tight}"
         },
         "type": "typography"
