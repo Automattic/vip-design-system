@@ -1222,7 +1222,7 @@
         },
         "type": "typography"
       },
-      "S": {
+      "M": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.regular}",
@@ -1232,7 +1232,7 @@
         },
         "type": "typography"
       },
-      "S": {
+      "L": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.regular}",
@@ -1242,7 +1242,7 @@
         },
         "type": "typography"
       },
-      "S": {
+      "XL": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.regular}",
@@ -1252,7 +1252,7 @@
         },
         "type": "typography"
       },
-      "S": {
+      "MAX": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.regular}",
