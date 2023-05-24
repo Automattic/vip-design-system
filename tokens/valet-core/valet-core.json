@@ -481,6 +481,11 @@
       "15": {
         "value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)",
         "type": "fontSizes"
+      },
+      "12b": {
+        "value": "clamp(3.00rem, calc(2.82rem + 0.90vw), 3.75rem)",
+        "type": "fontSizes",
+        "description": "lower contrast token for statistics. "
       }
     }
   },

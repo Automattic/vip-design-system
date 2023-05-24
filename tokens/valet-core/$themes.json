@@ -1294,7 +1294,12 @@
       "supporting.support-text.2": "S:31631357dea3d94be5b7873ccc59f05101621c9b,",
       "shadow.high": "S:5257b59980e845509716bbb008d373186da08975,",
       "shadow.medium": "S:a2b2310a9c43eae15bc7ffc28c94ee8bc7ba0362,",
-      "shadow.low": "S:2f4e1d520b5a7961c3c5958583d05e941b9c07cb,"
+      "shadow.low": "S:2f4e1d520b5a7961c3c5958583d05e941b9c07cb,",
+      "statistic.1.S": "S:edb5769d9b9438c337178e5ad509bd4b4926754a,",
+      "statistic.1.M": "S:765accd9e6e85ed63609c591b6a067118e36d309,",
+      "statistic.1.L": "S:2fab8df88d076318cef33ec2c50e18fa0d1a7e3a,",
+      "statistic.1.XL": "S:784ca6bf7c0277dd940dbd5dfbeacd68c22d1554,",
+      "statistic.1.MAX": "S:dba3650814263048207727ab09c95fc2cba10d2b,"
     }
   }
 ]
