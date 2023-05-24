@@ -418,6 +418,32 @@
           "value": "105.26",
           "type": "other"
         }
+      },
+      "12b": {
+        "S": {
+          "value": "48.00",
+          "type": "other"
+        },
+        "M": {
+          "value": "51.02",
+          "type": "other"
+        },
+        "L": {
+          "value": "54.55",
+          "type": "other"
+        },
+        "XL": {
+          "value": "56.93",
+          "type": "other"
+        },
+        "XXL": {
+          "value": "58.94",
+          "type": "other"
+        },
+        "MAX": {
+          "value": "59.95",
+          "type": "other"
+        }
       }
     },
     "responsive": {
