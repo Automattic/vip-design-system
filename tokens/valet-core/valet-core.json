@@ -2032,7 +2032,8 @@
     },
     "L": {
       "value": "1048",
-      "type": "sizing"
+      "type": "sizing",
+      "description": "1048-1311px"
     },
     "XL": {
       "value": "1312",
