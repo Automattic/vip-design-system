@@ -81,7 +81,7 @@
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
-          "fontSize": "{fontSize.figma.4.S}",
+          "fontSize": "{fontSize.figma.6.S}",
           "letterSpacing": "{letterSpacing.tight}"
         },
         "type": "typography"
@@ -91,7 +91,7 @@
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
-          "fontSize": "{fontSize.figma.4.M}",
+          "fontSize": "{fontSize.figma.6.M}",
           "letterSpacing": "{letterSpacing.tight}"
         },
         "type": "typography"
@@ -101,7 +101,7 @@
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
-          "fontSize": "{fontSize.figma.4.L}",
+          "fontSize": "{fontSize.figma.6.L}",
           "letterSpacing": "{letterSpacing.tight}"
         },
         "type": "typography"
@@ -111,7 +111,7 @@
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
-          "fontSize": "{fontSize.figma.4.XL}",
+          "fontSize": "{fontSize.figma.6.XL}",
           "letterSpacing": "{letterSpacing.tight}"
         },
         "type": "typography"
@@ -121,7 +121,7 @@
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
-          "fontSize": "{fontSize.figma.4.MAX}",
+          "fontSize": "{fontSize.figma.6.MAX}",
           "letterSpacing": "{letterSpacing.tight}"
         },
         "type": "typography"
