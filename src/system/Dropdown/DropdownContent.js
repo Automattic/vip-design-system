@@ -5,6 +5,8 @@
  */
 import React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export const styles = {
 	minWidth: 220,
@@ -15,16 +17,34 @@ export const styles = {
 	py: 1,
 };
 
-export const DropdownContent = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.DropdownMenuContent ref={ forwardRef } sx={ styles } { ...props } />
+export const DropdownContent = React.forwardRef( ( { className, ...props }, forwardRef ) => (
+	<DropdownMenuPrimitive.DropdownMenuContent
+		className={ classNames( 'vip-dropdown-menu-content', className ) }
+		ref={ forwardRef }
+		sx={ styles }
+		{ ...props }
+	/>
 ) );
 
 DropdownContent.displayName = 'DropdownContent';
 
-export const DropdownSubContent = React.forwardRef( ( props, forwardRef ) => (
+DropdownContent.propTypes = {
+	className: PropTypes.string,
+};
+
+export const DropdownSubContent = React.forwardRef( ( { className, ...props }, forwardRef ) => (
 	<DropdownMenuPrimitive.Portal>
-		<DropdownMenuPrimitive.DropdownMenuSubContent ref={ forwardRef } sx={ styles } { ...props } />
+		<DropdownMenuPrimitive.DropdownMenuSubContent
+			className={ classNames( 'vip-dropdown-menu-sub-content', className ) }
+			ref={ forwardRef }
+			sx={ styles }
+			{ ...props }
+		/>
 	</DropdownMenuPrimitive.Portal>
 ) );
 
 DropdownSubContent.displayName = 'DropdownSubContent';
+
+DropdownSubContent.propTypes = {
+	className: PropTypes.string,
+};

@@ -5,6 +5,8 @@
  */
 import React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export const styles = {
 	unset: 'all',
@@ -36,26 +38,54 @@ export const styles = {
 	},
 };
 
-export const DropdownItem = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.DropdownMenuItem ref={ forwardRef } sx={ styles } { ...props } />
+export const DropdownItem = React.forwardRef( ( { className, ...props }, forwardRef ) => (
+	<DropdownMenuPrimitive.DropdownMenuItem
+		className={ classNames( 'vip-dropdown-menu-item', className ) }
+		ref={ forwardRef }
+		sx={ styles }
+		{ ...props }
+	/>
 ) );
 
 DropdownItem.displayName = 'DropdownItem';
 
-export const DropdownCheckboxItem = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.CheckboxItem ref={ forwardRef } sx={ styles } { ...props } />
+DropdownItem.propTypes = {
+	className: PropTypes.string,
+};
+
+export const DropdownCheckboxItem = React.forwardRef( ( { className, ...props }, forwardRef ) => (
+	<DropdownMenuPrimitive.CheckboxItem
+		className={ classNames( 'vip-dropdown-checkbox-item', className ) }
+		ref={ forwardRef }
+		sx={ styles }
+		{ ...props }
+	/>
 ) );
 
 DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';
 
-export const DropdownRadioItem = React.forwardRef( ( props, forwardRef ) => (
-	<DropdownMenuPrimitive.RadioItem ref={ forwardRef } sx={ styles } { ...props } />
+DropdownCheckboxItem.propTypes = {
+	className: PropTypes.string,
+};
+
+export const DropdownRadioItem = React.forwardRef( ( { className, ...props }, forwardRef ) => (
+	<DropdownMenuPrimitive.RadioItem
+		className={ classNames( 'vip-dropdown-radio-item', className ) }
+		ref={ forwardRef }
+		sx={ styles }
+		{ ...props }
+	/>
 ) );
 
 DropdownRadioItem.displayName = 'DropdownRadioItem';
 
-export const DropdownSubTrigger = React.forwardRef( ( props, forwardRef ) => (
+DropdownRadioItem.propTypes = {
+	className: PropTypes.string,
+};
+
+export const DropdownSubTrigger = React.forwardRef( ( { className, ...props }, forwardRef ) => (
 	<DropdownMenuPrimitive.SubTrigger
+		className={ classNames( 'vip-dropdown-sub-trigger', className ) }
 		ref={ forwardRef }
 		sx={ {
 			...styles,
@@ -71,3 +101,7 @@ export const DropdownSubTrigger = React.forwardRef( ( props, forwardRef ) => (
 ) );
 
 DropdownSubTrigger.displayName = 'DropdownSubTrigger';
+
+DropdownSubTrigger.propTypes = {
+	className: PropTypes.string,
+};

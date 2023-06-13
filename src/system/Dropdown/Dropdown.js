@@ -6,6 +6,7 @@
 import React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -33,6 +34,7 @@ export const Dropdown = ( {
 	dir = 'ltr',
 	contentProps = {},
 	portalProps = {},
+	className,
 } ) => {
 	const firstChild = React.useMemo(
 		() =>
@@ -42,13 +44,16 @@ export const Dropdown = ( {
 
 	return (
 		<DropdownMenu
+			className={ classNames( 'vip-dropdown-menu', className ) }
 			open={ open }
 			defaultOpen={ defaultOpen }
 			onOpenChange={ onOpenChange }
 			modal={ modal }
 			dir={ dir }
 		>
-			<DropdownTrigger asChild>{ trigger }</DropdownTrigger>
+			<DropdownTrigger className="vip-dropdown-trigger" asChild>
+				{ trigger }
+			</DropdownTrigger>
 
 			<DropdownMenuPrimitive.Portal { ...portalProps }>
 				{ /* User can customize the content */ }
@@ -80,6 +85,7 @@ Dropdown.propTypes = {
 	contentProps: PropTypes.any,
 	// Portal props in: https://www.radix-ui.com/docs/primitives/components/dropdown-menu#portal
 	portalProps: PropTypes.any,
+	className: PropTypes.string,
 };
 
 // Exports
