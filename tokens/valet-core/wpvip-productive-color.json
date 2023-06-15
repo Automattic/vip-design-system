@@ -708,11 +708,6 @@
     "inset": {
       "value": "{color.pure-white}",
       "type": "color"
-    },
-    "alternate": {
-      "value": "{color.gold.25}",
-      "type": "color",
-      "description": "this is for testing"
     }
   },
   "tag": {
