@@ -27,7 +27,17 @@ const inputStyles = {
 
 const Input = React.forwardRef(
 	(
-		{ variant, label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props },
+		{
+			variant,
+			label,
+			forLabel,
+			hasError = false,
+			required,
+			sx = {},
+			errorMessage,
+			flexComponent = null,
+			...props
+		},
 		ref
 	) => (
 		<React.Fragment>
@@ -36,21 +46,22 @@ const Input = React.forwardRef(
 					{ label }
 				</Label>
 			) }
-
-			<ThemeInput
-				ref={ ref }
-				id={ forLabel }
-				required={ required }
-				aria-required={ required }
-				aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-				sx={ {
-					...inputStyles,
-					...sx,
-					...( hasError ? { borderColor: 'input.border.error' } : {} ),
-				} }
-				{ ...props }
-			/>
-
+			<div sx={ flexComponent && flexComponent.display === 'flex' ? { display: 'flex' } : {} }>
+				<ThemeInput
+					ref={ ref }
+					id={ forLabel }
+					required={ required }
+					aria-required={ required }
+					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+					sx={ {
+						...inputStyles,
+						...sx,
+						...( hasError ? { borderColor: 'input.border.error' } : {} ),
+					} }
+					{ ...props }
+				/>
+				{ flexComponent && <div sx={ { ml: 2 } }>{ flexComponent.component }</div> }
+			</div>
 			{ hasError && errorMessage && (
 				<Validation isValid={ false } describedId={ forLabel }>
 					{ errorMessage }
