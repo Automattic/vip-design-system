@@ -48,7 +48,7 @@ export const WithFlexComponent = () => (
 			flexComponent={ {
 				display: 'flex',
 				component: (
-					<Button sx={ { height: '40px' } }>
+					<Button sx={ { height: '40px' } } aria-label="copy">
 						<MdContentCopy />
 					</Button>
 				),
