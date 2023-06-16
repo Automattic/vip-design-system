@@ -35,7 +35,7 @@ const Input = React.forwardRef(
 			required,
 			sx = {},
 			errorMessage,
-			flexComponent = null,
+			flexComponent = {},
 			...props
 		},
 		ref
@@ -79,6 +79,7 @@ Input.propTypes = {
 	forLabel: PropTypes.string,
 	errorMessage: PropTypes.string,
 	sx: PropTypes.object,
+	flexComponent: PropTypes.object,
 };
 
 Input.displayName = 'Input';
