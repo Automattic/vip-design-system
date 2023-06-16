@@ -20,7 +20,6 @@ const Tabs = React.forwardRef(
 			defaultValue = undefined,
 			value = undefined,
 			className = null,
-			sx = {},
 		},
 		ref
 	) => {
@@ -31,7 +30,6 @@ const Tabs = React.forwardRef(
 				defaultValue={ defaultValue }
 				onValueChange={ onValueChange }
 				className={ classNames( 'vip-tabs-component', className ) }
-				sx={ { ...sx } }
 			>
 				{ children }
 			</TabsPrimitive.Root>
@@ -41,7 +39,6 @@ const Tabs = React.forwardRef(
 
 Tabs.propTypes = {
 	className: PropTypes.any,
-	sx: PropTypes.object,
 	defaultValue: PropTypes.node,
 	value: PropTypes.node,
 	onValueChange: PropTypes.func,

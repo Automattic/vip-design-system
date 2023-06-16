@@ -11,13 +11,12 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 
-const TabsContent = ( { value, sx, children } ) => (
+const TabsContent = ( { value, children, className = null } ) => (
 	<TabsPrimitive.Content
-		className={ classNames( 'vip-tabs-content', `vip-tabs-content-${ value }` ) }
+		className={ classNames( 'vip-tabs-content', `vip-tabs-content-${ value }`, className ) }
 		value={ value }
 		sx={ {
 			mt: 4,
-			...sx,
 		} }
 	>
 		{ children }
@@ -25,7 +24,7 @@ const TabsContent = ( { value, sx, children } ) => (
 );
 
 TabsContent.propTypes = {
-	sx: PropTypes.object,
+	className: PropTypes.string,
 	value: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
