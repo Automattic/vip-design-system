@@ -6,12 +6,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MdContentCopy } from 'react-icons/md';
-import { Button } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Validation, Label } from '..';
+import { Button, Validation, Label } from '..';
 import { Input as ThemeInput } from 'theme-ui';
 import { baseControlStyle } from './Input.styles';
 
@@ -76,8 +75,10 @@ const InputWithCopyButton = React.forwardRef(
 							sx={ { height: '40px' } }
 							aria-label={ `Copy ${ label }` }
 							onClick={ handleCopy }
+							variant="ghost"
 						>
-							<MdContentCopy />
+							<MdContentCopy sx={ { mr: 2 } } />
+							Copy
 						</Button>
 					</div>
 				</div>
