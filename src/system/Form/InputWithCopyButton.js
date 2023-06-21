@@ -31,40 +31,64 @@ const InputWithCopyButton = React.forwardRef(
 	(
 		{ variant, label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props },
 		ref
-	) => (
-		<React.Fragment>
-			{ label && (
-				<Label required={ required } htmlFor={ forLabel }>
-					{ label }
-				</Label>
-			) }
-			<div sx={ { display: 'flex' } }>
-				<ThemeInput
-					ref={ ref }
-					id={ forLabel }
-					required={ required }
-					aria-required={ required }
-					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-					sx={ {
-						...inputStyles,
-						...sx,
-						...( hasError ? { borderColor: 'input.border.error' } : {} ),
-					} }
-					{ ...props }
-				/>
-				<div sx={ { ml: 2 } }>
-					<Button sx={ { height: '40px' } } aria-label={ `Copy ${ label }` }>
-						<MdContentCopy />
-					</Button>
+	) => {
+		if ( ! ref ) {
+			ref = React.createRef();
+		}
+
+		const handleCopy = e => {
+			e.preventDefault();
+			if ( ! ref.current ) {
+				return;
+			}
+			const originalTypeStatus = ref.current.getAttribute( 'type' ) || '';
+			if ( ref.current.getAttribute( 'value' ) === '' ) {
+				ref.current.setAttribute( 'value', '    ' );
+			}
+			ref.current.setAttribute( 'type', 'text' );
+			ref.current.select();
+			document.execCommand( 'copy' ); // eslint-disable-line no-undef
+			ref.current?.setAttribute( 'type', originalTypeStatus );
+		};
+		return (
+			<React.Fragment>
+				{ label && (
+					<Label required={ required } htmlFor={ forLabel }>
+						{ label }
+					</Label>
+				) }
+				<div sx={ { display: 'flex' } }>
+					<ThemeInput
+						ref={ ref }
+						id={ forLabel }
+						required={ required }
+						aria-required={ required }
+						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+						sx={ {
+							...inputStyles,
+							...sx,
+							...( hasError ? { borderColor: 'input.border.error' } : {} ),
+						} }
+						{ ...props }
+					/>
+					<div sx={ { ml: 2 } }>
+						<Button
+							sx={ { height: '40px' } }
+							aria-label={ `Copy ${ label }` }
+							onClick={ handleCopy }
+						>
+							<MdContentCopy />
+						</Button>
+					</div>
 				</div>
-			</div>
-			{ hasError && errorMessage && (
-				<Validation isValid={ false } describedId={ forLabel }>
-					{ errorMessage }
-				</Validation>
-			) }
-		</React.Fragment>
-	)
+				{ hasError && errorMessage && (
+					<Validation isValid={ false } describedId={ forLabel }>
+						{ errorMessage }
+					</Validation>
+				) }
+			</React.Fragment>
+		);
+	}
 );
 
 InputWithCopyButton.propTypes = {
