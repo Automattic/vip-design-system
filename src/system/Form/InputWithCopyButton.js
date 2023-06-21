@@ -5,11 +5,13 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MdContentCopy } from 'react-icons/md';
+import { Button } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Validation, Label } from '../';
+import { Validation, Label } from '..';
 import { Input as ThemeInput } from 'theme-ui';
 import { baseControlStyle } from './Input.styles';
 
@@ -25,7 +27,7 @@ const inputStyles = {
 	variant: 'inputs.default',
 };
 
-const Input = React.forwardRef(
+const InputWithCopyButton = React.forwardRef(
 	(
 		{ variant, label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props },
 		ref
@@ -36,19 +38,26 @@ const Input = React.forwardRef(
 					{ label }
 				</Label>
 			) }
-			<ThemeInput
-				ref={ ref }
-				id={ forLabel }
-				required={ required }
-				aria-required={ required }
-				aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-				sx={ {
-					...inputStyles,
-					...sx,
-					...( hasError ? { borderColor: 'input.border.error' } : {} ),
-				} }
-				{ ...props }
-			/>
+			<div sx={ { display: 'flex' } }>
+				<ThemeInput
+					ref={ ref }
+					id={ forLabel }
+					required={ required }
+					aria-required={ required }
+					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+					sx={ {
+						...inputStyles,
+						...sx,
+						...( hasError ? { borderColor: 'input.border.error' } : {} ),
+					} }
+					{ ...props }
+				/>
+				<div sx={ { ml: 2 } }>
+					<Button sx={ { height: '40px' } } aria-label={ `Copy ${ label }` }>
+						<MdContentCopy />
+					</Button>
+				</div>
+			</div>
 			{ hasError && errorMessage && (
 				<Validation isValid={ false } describedId={ forLabel }>
 					{ errorMessage }
@@ -58,7 +67,7 @@ const Input = React.forwardRef(
 	)
 );
 
-Input.propTypes = {
+InputWithCopyButton.propTypes = {
 	variant: PropTypes.string,
 	label: PropTypes.string,
 	hasError: PropTypes.bool,
@@ -68,6 +77,6 @@ Input.propTypes = {
 	sx: PropTypes.object,
 };
 
-Input.displayName = 'Input';
+InputWithCopyButton.displayName = 'InputWithCopyButton';
 
-export { Input };
+export { InputWithCopyButton };

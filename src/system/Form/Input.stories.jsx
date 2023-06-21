@@ -4,8 +4,6 @@
  * Internal dependencies
  */
 import { Form } from '..';
-import { Button } from '../Button';
-import { MdContentCopy } from 'react-icons/md';
 
 export default {
 	title: 'Form/Input',
@@ -36,25 +34,5 @@ export const Default = () => (
 
 		<Form.Label htmlFor="input-with-custom-label">Custom Label outside the Input</Form.Label>
 		<Form.Input forLabel="input-with-custom-label" required />
-	</Form.Root>
-);
-
-export const WithFlexComponent = () => (
-	<Form.Root>
-		<Form.Input
-			placeholder="Your input here..."
-			label="Always add a label to inputs"
-			forLabel="input-simple"
-			flexComponent={ {
-				display: 'flex',
-				component: (
-					<Button sx={ { height: '40px' } } aria-label="copy">
-						<MdContentCopy />
-					</Button>
-				),
-			} }
-			errorMessage="Please type numeric characters only"
-			hasError
-		/>
 	</Form.Root>
 );
