@@ -517,6 +517,10 @@
   },
   "borderRadius": {
     "static": {
+      "0": {
+        "value": "{rem}*.13",
+        "type": "borderRadius"
+      },
       "1": {
         "value": "{rem} * .25",
         "type": "borderRadius"
