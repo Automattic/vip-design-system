@@ -6,8 +6,7 @@
       "valet-core": "source",
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
-      "figma-parsely-expressive-type": "enabled",
-      "wpvip-productive-core": "disabled"
+      "figma-parsely-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:012ec39ef41de056297a03a4e4172cfd60fcb278,",
@@ -278,8 +277,7 @@
       "valet-core": "source",
       "wpvip-expressive-core": "enabled",
       "wpvip-expressive-color": "enabled",
-      "figma-wpvip-expressive-type": "enabled",
-      "wpvip-productive-core": "disabled"
+      "figma-wpvip-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:46afc7b71e3ccd83f9b20e7ec755b594b3225316,",
@@ -584,8 +582,7 @@
       "valet-core": "source",
       "valet-expressive-color": "enabled",
       "figma-valet-expressive-type": "enabled",
-      "valet-expressive-core": "enabled",
-      "wpvip-productive-core": "disabled"
+      "valet-expressive-core": "enabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:5d05042dd16a8fb9b8e9d352deec08498effa21b,",
@@ -857,8 +854,7 @@
       "valet-core": "source",
       "wpvip-expressive-type": "enabled",
       "wpvip-expressive-color": "enabled",
-      "wpvip-expressive-core": "enabled",
-      "wpvip-productive-core": "disabled"
+      "wpvip-expressive-core": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -867,8 +863,7 @@
     "name": "valet",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-expressive-color": "enabled",
-      "wpvip-productive-core": "disabled"
+      "valet-expressive-color": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -879,8 +874,7 @@
       "valet-core": "source",
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
-      "parsely-expressive-type": "enabled",
-      "wpvip-productive-core": "disabled"
+      "parsely-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -889,8 +883,7 @@
     "name": "wpvip-productive-color",
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-productive-color": "enabled",
-      "wpvip-productive-core": "disabled"
+      "wpvip-productive-color": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:45862ce00f315d42b819b0106bed72b5526744bb,",
@@ -1172,8 +1165,7 @@
       "valet-core": "source",
       "wpvip-services-expressive-core": "enabled",
       "wpvip-services-expressive-color": "enabled",
-      "wpvip-services-expressive-type": "enabled",
-      "wpvip-productive-core": "disabled"
+      "wpvip-services-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -1184,8 +1176,7 @@
       "valet-core": "source",
       "wpvip-services-expressive-core": "enabled",
       "wpvip-services-expressive-color": "enabled",
-      "figma-wpvip-services-expressive-type": "enabled",
-      "wpvip-productive-core": "disabled"
+      "figma-wpvip-services-expressive-type": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:e072faa89de4c6031d1fcb3e949abdfb50f09448,",
@@ -1477,8 +1468,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-productive-color-dark": "enabled",
-      "wpvip-productive-core": "disabled"
+      "wpvip-productive-color-dark": "enabled"
     }
   },
   {

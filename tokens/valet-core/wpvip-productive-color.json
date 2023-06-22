@@ -94,7 +94,7 @@
           "type": "color"
         },
         "hover": {
-          "value": "rgba({color.gray.0},0)",
+          "value": "{color.gray.3}",
           "type": "color"
         },
         "active": {
@@ -150,7 +150,7 @@
           "type": "color"
         },
         "hover": {
-          "value": "{color.gray.60}",
+          "value": "{color.gray.45}",
           "type": "color"
         },
         "active": {
