@@ -6,7 +6,7 @@
     "selectedTokenSets": {
       "valet-core": "enabled"
     },
-    "group": "internal_themes_no_group"
+    "group": "core"
   },
   {
     "id": "572dbd5878fed2689a833fc8b2f98ffdde5a5662",
@@ -199,7 +199,7 @@
       "borderRadius.static.xx-large": "VariableID:626:2498",
       "borderRadius.static.x-small": "VariableID:626:2499"
     },
-    "group": "parsely web"
+    "group": "parsely"
   },
   {
     "id": "fe54091f2245e76fef6ac71f9737d046725ae31f",
@@ -471,7 +471,7 @@
       "parsely-expressive-color": "enabled",
       "figma-parsely-expressive-type": "enabled"
     },
-    "group": "parsely web"
+    "group": "parsely"
   },
   {
     "id": "c9e11ebc1ce094f5b02ac4473e32ba5784c1ec27",
@@ -2088,7 +2088,7 @@
       "borderRadius.static.xx-large": "VariableID:626:2180",
       "borderRadius.static.x-small": "VariableID:626:2181"
     },
-    "group": "wpvip web"
+    "group": "wpvip"
   },
   {
     "id": "659f1e5a9e213def3f9e5075dddda585ba3dbdcb",
@@ -2277,7 +2277,7 @@
       "borderRadius.static.xx-large": "VariableID:626:2937",
       "borderRadius.static.x-small": "VariableID:626:2938"
     },
-    "group": "wpvip web"
+    "group": "wpvip"
   },
   {
     "id": "f21fd26753e01453bf5523e430d6b4e317dd8485",
@@ -2748,7 +2748,7 @@
       "borderRadius.static.xx-large": "VariableID:626:3111",
       "borderRadius.static.x-small": "VariableID:626:3112"
     },
-    "group": "wpvip web"
+    "group": "wpvip"
   },
   {
     "id": "30fdad110428809b3223a6c4fb7ac0d936b100cd",
@@ -3054,6 +3054,6 @@
       "wpvip-expressive-color": "enabled",
       "figma-wpvip-expressive-type": "enabled"
     },
-    "group": "wpvip web"
+    "group": "wpvip"
   }
 ]
