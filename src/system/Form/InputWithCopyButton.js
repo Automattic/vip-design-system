@@ -47,7 +47,7 @@ const InputWithCopyButton = React.forwardRef(
 
 		const handleCopy = e => {
 			e.preventDefault();
-			const clipboard = navigator.clipboard;
+			const clipboard = navigator.clipboard; // eslint-disable-line no-undef
 			clipboard.writeText( ref.current.value );
 			if ( copyHandler ) {
 				copyHandler( ref.current.value );

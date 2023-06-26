@@ -3,8 +3,7 @@
 /**
  * Internal dependencies
  */
-import { Form } from '..';
-import { Notice } from '..';
+import { Form, Notice } from '..';
 import { useState } from 'react';
 
 export default {
