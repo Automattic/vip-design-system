@@ -28,7 +28,17 @@ const inputStyles = {
 
 const InputWithCopyButton = React.forwardRef(
 	(
-		{ variant, label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props },
+		{
+			variant,
+			label,
+			forLabel,
+			hasError = false,
+			required,
+			sx = {},
+			errorMessage,
+			copyHandler,
+			...props
+		},
 		ref
 	) => {
 		if ( ! ref ) {
@@ -37,17 +47,11 @@ const InputWithCopyButton = React.forwardRef(
 
 		const handleCopy = e => {
 			e.preventDefault();
-			if ( ! ref.current ) {
-				return;
+			const clipboard = navigator.clipboard;
+			clipboard.writeText( ref.current.value );
+			if ( copyHandler ) {
+				copyHandler( ref.current.value );
 			}
-			const originalTypeStatus = ref.current.getAttribute( 'type' ) || '';
-			if ( ref.current.getAttribute( 'value' ) === '' ) {
-				ref.current.setAttribute( 'value', '    ' );
-			}
-			ref.current.setAttribute( 'type', 'text' );
-			ref.current.select();
-			document.execCommand( 'copy' ); // eslint-disable-line no-undef
-			ref.current?.setAttribute( 'type', originalTypeStatus );
 		};
 		return (
 			<React.Fragment>
@@ -100,6 +104,7 @@ InputWithCopyButton.propTypes = {
 	forLabel: PropTypes.string,
 	errorMessage: PropTypes.string,
 	sx: PropTypes.object,
+	copyHandler: PropTypes.func,
 };
 
 InputWithCopyButton.displayName = 'InputWithCopyButton';
