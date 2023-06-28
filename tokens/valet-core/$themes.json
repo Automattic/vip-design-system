@@ -5,9 +5,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "group": "core",
     "$figmaCollectionId": "VariableCollectionId:7883:10828",
@@ -422,9 +420,7 @@
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
       "parsely-expressive-type": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "$figmaStyleReferences": {},
     "$figmaCollectionId": "VariableCollectionId:7883:11228",
@@ -879,9 +875,7 @@
       "parsely-expressive-core": "enabled",
       "parsely-expressive-color": "enabled",
       "figma-parsely-expressive-type": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "group": "parsely",
     "$figmaCollectionId": "VariableCollectionId:7883:11228",
@@ -1072,9 +1066,7 @@
     "selectedTokenSets": {
       "valet-core": "source",
       "wpvip-productive-color": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:45862ce00f315d42b819b0106bed72b5526744bb,",
@@ -1624,10 +1616,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-productive-color-dark": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:7883:11406",
     "$figmaModeId": "7883:4",
@@ -1906,9 +1895,7 @@
       "valet-core": "source",
       "wpvip-productive-color": "enabled",
       "wpvip-productive-core": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "group": "wpvip product",
     "$figmaCollectionId": "VariableCollectionId:7883:11406",
@@ -2205,9 +2192,7 @@
       "valet-expressive-color": "enabled",
       "figma-valet-expressive-type": "enabled",
       "valet-expressive-core": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:5d05042dd16a8fb9b8e9d352deec08498effa21b,",
@@ -2644,9 +2629,7 @@
     "selectedTokenSets": {
       "valet-core": "source",
       "valet-expressive-color": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "$figmaStyleReferences": {},
     "$figmaCollectionId": "VariableCollectionId:7883:11688",
@@ -2801,9 +2784,7 @@
     "selectedTokenSets": {
       "valet-core": "source",
       "wpvip-expressive": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "group": "wpvip"
   },
@@ -3129,9 +3110,7 @@
       "valet-core": "source",
       "figma-wpvip-expressive-type": "enabled",
       "wpvip-expressive": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "group": "wpvip"
   },
@@ -3144,9 +3123,7 @@
       "wpvip-services-expressive-core": "enabled",
       "wpvip-services-expressive-color": "enabled",
       "wpvip-services-expressive-type": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "group": "wpvip services",
     "$figmaCollectionId": "VariableCollectionId:7883:12024",
@@ -3335,9 +3312,7 @@
       "wpvip-services-expressive-core": "enabled",
       "wpvip-services-expressive-color": "enabled",
       "figma-wpvip-services-expressive-type": "enabled",
-      "S-M": "disabled",
-      "M-XL": "disabled",
-      "XL-MAX+": "disabled"
+      "dark": "disabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:e072faa89de4c6031d1fcb3e949abdfb50f09448,",
