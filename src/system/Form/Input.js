@@ -36,7 +36,6 @@ const Input = React.forwardRef(
 					{ label }
 				</Label>
 			) }
-
 			<ThemeInput
 				ref={ ref }
 				id={ forLabel }
@@ -50,7 +49,6 @@ const Input = React.forwardRef(
 				} }
 				{ ...props }
 			/>
-
 			{ hasError && errorMessage && (
 				<Validation isValid={ false } describedId={ forLabel }>
 					{ errorMessage }
