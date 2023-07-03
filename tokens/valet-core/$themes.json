@@ -1177,7 +1177,6 @@
       "text.inverse": "S:f57657ad1060e14e3d8fac47c9195ae53bb9dee8,",
       "background.overlay": "S:3b6ef73f15de286f3c7dafc349afca0d5732fd55,",
       "layer.inverse": "S:6bb45d69487146ac9fe1a342a9b3b4f65e82795d,",
-      "input.background": "S:32b3c787eff8fe08ac7c573a9745392c6080ed69,",
       "input.label.default": "S:7520542cd1968431d72d112599febd0abd0f838c,",
       "input.text.default": "S:1b248481711556cb47ca90d858e8e19fb5ead204,",
       "input.text.placeholder": "S:a00a169d7fd9190103ca968879819990e3b8eaa1,",
@@ -1334,7 +1333,8 @@
       "option-row.default.background": "S:9845f6e882a67d0828d8ef554f7797c4cbc60d3c,",
       "option-row.default.icon": "S:9c29260c69706579fe3a27e212aa7b9b9720dc6a,",
       "option-row.alt.background": "S:bab9da0e30f06ba1a113e291434348f7ff328413,",
-      "option-row.alt.icon": "S:0dc2940b08632853de17986e32cfe2348cabd3d9,"
+      "option-row.alt.icon": "S:0dc2940b08632853de17986e32cfe2348cabd3d9,",
+      "input.background.default": "S:32b3c787eff8fe08ac7c573a9745392c6080ed69,"
     },
     "$figmaCollectionId": "VariableCollectionId:7883:11406",
     "$figmaModeId": "7883:3",
@@ -1347,7 +1347,6 @@
       "layer.4": "VariableID:7883:11412",
       "layer.inverse": "VariableID:7883:11413",
       "layer.accent": "VariableID:7883:11414",
-      "input.background": "VariableID:7883:11415",
       "input.label.default": "VariableID:7883:11416",
       "input.text.default": "VariableID:7883:11417",
       "input.text.placeholder": "VariableID:7883:11418",
@@ -1602,7 +1601,8 @@
       "option-row.default.background": "VariableID:7883:11667",
       "option-row.default.icon": "VariableID:7883:11668",
       "option-row.alt.background": "VariableID:7883:11669",
-      "option-row.alt.icon": "VariableID:7883:11670"
+      "option-row.alt.icon": "VariableID:7883:11670",
+      "input.background.default": "VariableID:7883:11415"
     },
     "group": "wpvip product"
   },
@@ -1625,7 +1625,6 @@
       "layer.4": "VariableID:7883:11412",
       "layer.inverse": "VariableID:7883:11413",
       "layer.accent": "VariableID:7883:11414",
-      "input.background": "VariableID:7883:11415",
       "input.label.default": "VariableID:7883:11416",
       "input.text.default": "VariableID:7883:11417",
       "input.text.placeholder": "VariableID:7883:11418",
@@ -1879,7 +1878,8 @@
       "option-row.default.background": "VariableID:7883:11667",
       "option-row.default.icon": "VariableID:7883:11668",
       "option-row.alt.background": "VariableID:7883:11669",
-      "option-row.alt.icon": "VariableID:7883:11670"
+      "option-row.alt.icon": "VariableID:7883:11670",
+      "input.background.default": "VariableID:7883:11415"
     },
     "group": "wpvip product"
   },
@@ -1904,7 +1904,6 @@
       "layer.4": "VariableID:7883:11412",
       "layer.inverse": "VariableID:7883:11413",
       "layer.accent": "VariableID:7883:11414",
-      "input.background": "VariableID:7883:11415",
       "input.label.default": "VariableID:7883:11416",
       "input.text.default": "VariableID:7883:11417",
       "input.text.placeholder": "VariableID:7883:11418",
@@ -2176,7 +2175,8 @@
       "borderRadius.static.medium.2": "VariableID:7883:11684",
       "borderRadius.static.large.1": "VariableID:7883:11685",
       "borderRadius.static.large.2": "VariableID:7883:11686",
-      "borderRadius.static.large.3": "VariableID:7883:11687"
+      "borderRadius.static.large.3": "VariableID:7883:11687",
+      "input.background.default": "VariableID:7883:11415"
     }
   },
   {
