@@ -112,7 +112,7 @@
           "type": "color"
         },
         "hover": {
-          "value": "{color.gray.3}",
+          "value": "{color.gray.90}",
           "type": "color"
         },
         "active": {
