@@ -1334,7 +1334,11 @@
       "option-row.default.icon": "S:9c29260c69706579fe3a27e212aa7b9b9720dc6a,",
       "option-row.alt.background": "S:bab9da0e30f06ba1a113e291434348f7ff328413,",
       "option-row.alt.icon": "S:0dc2940b08632853de17986e32cfe2348cabd3d9,",
-      "input.background.default": "S:32b3c787eff8fe08ac7c573a9745392c6080ed69,"
+      "input.background.default": "S:32b3c787eff8fe08ac7c573a9745392c6080ed69,",
+      "input.background.primary": "S:2fbd284d34ea98e9e75f0b7bcb05c8eea8feb194,",
+      "input.background.success": "S:50cc548558d4d502e03da2e8051b378397934597,",
+      "input.background.brand": "S:343604f8ac29724c1ab41cec8dcd97aa19102fcd,",
+      "input.background.inactive": "S:62e457dee19b2657def2dbe4ef8ac10dc27718cb,"
     },
     "$figmaCollectionId": "VariableCollectionId:7883:11406",
     "$figmaModeId": "7883:3",
