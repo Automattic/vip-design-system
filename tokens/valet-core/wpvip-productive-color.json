@@ -41,7 +41,7 @@
   "input": {
     "background": {
       "default": {
-        "value": "rgba({color.gray.0},0}",
+        "value": "rgba({color.gray.0},0)",
         "type": "color"
       },
       "primary": {
