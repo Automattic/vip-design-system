@@ -1633,7 +1633,6 @@
       "layer.4": "fe027f4140c2b466da11f0add7f29df8134b34db",
       "layer.inverse": "5d0ba2df8ad23ea10c657bb0dd7a116e91ce75a9",
       "layer.accent": "32ad08f30d917c084f1955aaed331744fb330201",
-      "input.background": "c529bd7f890ecc59f7750df1a3b9d281fe665979",
       "input.label.default": "832a579ce98f7010a1eac7de51948c8bc2f3ca45",
       "input.text.default": "322ddf6598e7ccca3b5f5852079485894a879229",
       "input.text.placeholder": "9a0fdff2ddf294b78f0fa8941756d319619e5baa",
@@ -1887,7 +1886,8 @@
       "option-row.default.background": "e489ef7d8bc6345a9a7ba99a46c3b9cf07a476bc",
       "option-row.default.icon": "ad3346d8714802a7f2399c6c2f8c72c5f48a7358",
       "option-row.alt.background": "70a0126d7c513e9304ade7cb3388a6c8d195bb1a",
-      "option-row.alt.icon": "dc0f9b84e6fedd9c5d89b7c30b2cbd973335e3d1"
+      "option-row.alt.icon": "dc0f9b84e6fedd9c5d89b7c30b2cbd973335e3d1",
+      "input.background.default": "c529bd7f890ecc59f7750df1a3b9d281fe665979"
     },
     "group": "wpvip product"
   },
