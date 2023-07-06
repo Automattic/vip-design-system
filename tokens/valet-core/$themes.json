@@ -416,9 +416,9 @@
     "name": "parsely",
     "selectedTokenSets": {
       "valet-core": "source",
-      "parsely-expressive-core": "enabled",
-      "parsely-expressive-color": "enabled",
-      "parsely-expressive-type": "enabled"
+      "parsely-web-core": "enabled",
+      "parsely-web-color": "enabled",
+      "parsely-web-type": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaCollectionId": "VariableCollectionId:7883:11228",
@@ -870,9 +870,9 @@
     },
     "selectedTokenSets": {
       "valet-core": "source",
-      "parsely-expressive-core": "enabled",
-      "parsely-expressive-color": "enabled",
-      "figma-parsely-expressive-type": "enabled"
+      "parsely-web-core": "enabled",
+      "parsely-web-color": "enabled",
+      "figma-parsely-web-type": "enabled"
     },
     "group": "parsely",
     "$figmaCollectionId": "VariableCollectionId:7883:11228",
@@ -1059,10 +1059,10 @@
   },
   {
     "id": "c9e11ebc1ce094f5b02ac4473e32ba5784c1ec27",
-    "name": "wpvip-productive-color",
+    "name": "wpvip-product-light",
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-productive-color": "enabled"
+      "wpvip-product-light": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:45862ce00f315d42b819b0106bed72b5526744bb,",
@@ -1608,7 +1608,7 @@
   },
   {
     "id": "2e4d6cb6bf4f77ff94c7f027e1b6262e798eb85e",
-    "name": "wpvip-productive-color-dark",
+    "name": "wpvip-product-light-dark",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
@@ -1885,12 +1885,12 @@
   },
   {
     "id": "87af97f52c0fad3ba19559d922240a10f217dbe3",
-    "name": "wpvip-productive",
+    "name": "wpvip-product",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-productive-color": "enabled",
-      "wpvip-productive-core": "enabled"
+      "wpvip-product-light": "enabled",
+      "wpvip-product-core": "enabled"
     },
     "group": "wpvip product",
     "$figmaCollectionId": "VariableCollectionId:7883:11406",
@@ -2184,9 +2184,9 @@
     "name": "valet-figma",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-expressive-color": "enabled",
-      "figma-valet-expressive-type": "enabled",
-      "valet-expressive-core": "enabled"
+      "valet-web-color": "enabled",
+      "figma-valet-web-type": "enabled",
+      "valet-web-core": "enabled"
     },
     "$figmaStyleReferences": {
       "body.1-short": "S:5d05042dd16a8fb9b8e9d352deec08498effa21b,",
@@ -2622,7 +2622,7 @@
     "name": "valet",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-expressive-color": "enabled"
+      "valet-web-color": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaCollectionId": "VariableCollectionId:7883:11688",
@@ -2776,7 +2776,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-expressive": "enabled"
+      "wpvip-web": "enabled"
     },
     "group": "wpvip"
   },
@@ -3100,8 +3100,8 @@
     },
     "selectedTokenSets": {
       "valet-core": "source",
-      "figma-wpvip-expressive-type": "enabled",
-      "wpvip-expressive": "enabled"
+      "figma-wpvip-web-type": "enabled",
+      "wpvip-web": "enabled"
     },
     "group": "wpvip"
   },
@@ -3111,9 +3111,9 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-services-expressive-core": "enabled",
-      "wpvip-services-expressive-color": "enabled",
-      "wpvip-services-expressive-type": "enabled"
+      "wpvip-services-web-core": "enabled",
+      "wpvip-services-web-color": "enabled",
+      "wpvip-services-web-type": "enabled"
     },
     "group": "wpvip services",
     "$figmaCollectionId": "VariableCollectionId:7883:12024",
@@ -3299,9 +3299,9 @@
     "name": "wpvip-services-figma",
     "selectedTokenSets": {
       "valet-core": "source",
-      "wpvip-services-expressive-core": "enabled",
-      "wpvip-services-expressive-color": "enabled",
-      "figma-wpvip-services-expressive-type": "enabled"
+      "wpvip-services-web-core": "enabled",
+      "wpvip-services-web-color": "enabled",
+      "figma-wpvip-services-web-type": "enabled"
     },
     "$figmaStyleReferences": {
       "background.primary": "S:e072faa89de4c6031d1fcb3e949abdfb50f09448,",
