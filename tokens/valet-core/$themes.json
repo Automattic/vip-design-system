@@ -602,7 +602,7 @@
       "borderRadius.static.xx-large": "VariableID:7883:11404",
       "borderRadius.static.x-small": "VariableID:7883:11405"
     },
-    "group": "parsely"
+    "group": "parsely web"
   },
   {
     "id": "fe54091f2245e76fef6ac71f9737d046725ae31f",
@@ -874,7 +874,7 @@
       "parsely-web-color": "enabled",
       "figma-parsely-web-type": "enabled"
     },
-    "group": "parsely",
+    "group": "parsely web",
     "$figmaCollectionId": "VariableCollectionId:7883:11228",
     "$figmaModeId": "7883:2",
     "$figmaVariableReferences": {
