@@ -1611,8 +1611,7 @@
     "name": "dark",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
-      "valet-core": "source",
-      "dark": "enabled"
+      "valet-core": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:7883:11406",
     "$figmaModeId": "7883:4",
