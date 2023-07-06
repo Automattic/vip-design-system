@@ -292,6 +292,10 @@
     "disabled": {
       "type": "color",
       "value": "{color.gray.45}"
+    },
+    "brand": {
+      "value": "{color.gold.60}",
+      "type": "color"
     }
   },
   "button": {

@@ -64,7 +64,7 @@
     },
     "label": {
       "default": {
-        "value": "{text.primary}",
+        "value": "{color.gray.10}",
         "type": "color"
       }
     },
@@ -88,6 +88,10 @@
       },
       "disabled": {
         "value": "{color.gray.75}",
+        "type": "color"
+      },
+      "error": {
+        "value": "{color.red.40}",
         "type": "color"
       }
     },
@@ -288,11 +292,15 @@
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.85}"
+      "value": "{color.gray.7}"
     },
     "disabled": {
       "type": "color",
       "value": "{color.gray.65}"
+    },
+    "brand": {
+      "value": "{color.gold.45}",
+      "type": "color"
     }
   },
   "button": {
