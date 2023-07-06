@@ -413,7 +413,7 @@
   },
   {
     "id": "572dbd5878fed2689a833fc8b2f98ffdde5a5662",
-    "name": "parsely",
+    "name": "core",
     "selectedTokenSets": {
       "valet-core": "source",
       "parsely-web-core": "enabled",
@@ -606,7 +606,7 @@
   },
   {
     "id": "fe54091f2245e76fef6ac71f9737d046725ae31f",
-    "name": "parsely-figma",
+    "name": "figma",
     "$figmaStyleReferences": {
       "body.1-short": "S:012ec39ef41de056297a03a4e4172cfd60fcb278,",
       "body.1-short-medium": "S:c4a62237417e709336f881e801642a315ec269df,",
@@ -1059,7 +1059,7 @@
   },
   {
     "id": "c9e11ebc1ce094f5b02ac4473e32ba5784c1ec27",
-    "name": "wpvip-product-light",
+    "name": "light",
     "selectedTokenSets": {
       "valet-core": "source",
       "wpvip-product-light": "enabled"
@@ -1608,7 +1608,7 @@
   },
   {
     "id": "2e4d6cb6bf4f77ff94c7f027e1b6262e798eb85e",
-    "name": "wpvip-product-light-dark",
+    "name": "dark",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
@@ -1885,7 +1885,7 @@
   },
   {
     "id": "87af97f52c0fad3ba19559d922240a10f217dbe3",
-    "name": "wpvip-product",
+    "name": "core",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
@@ -2181,7 +2181,7 @@
   },
   {
     "id": "80c2ab5dc5efa2745409f754559179ff5642a502",
-    "name": "valet-figma",
+    "name": "figma",
     "selectedTokenSets": {
       "valet-core": "source",
       "valet-web-color": "enabled",
@@ -2619,7 +2619,7 @@
   },
   {
     "id": "22bf7b17c2576c9ba4c472940aedcc3f3ae3618c",
-    "name": "valet",
+    "name": "core",
     "selectedTokenSets": {
       "valet-core": "source",
       "valet-web-color": "enabled"
@@ -2772,7 +2772,7 @@
   },
   {
     "id": "97662160426568966100d2dccc5dfcdefeb5d921",
-    "name": "wpvip",
+    "name": "core",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
@@ -2782,7 +2782,7 @@
   },
   {
     "id": "30fdad110428809b3223a6c4fb7ac0d936b100cd",
-    "name": "wpvip-figma",
+    "name": "figma",
     "$figmaStyleReferences": {
       "background.primary": "S:e8454ff9c418dd6117a47b04926fb64c38a98b03,",
       "background.brand": "S:4e1e6c6d9c1823da1f80ceea6273cb33f6ce55a0,",
@@ -3107,7 +3107,7 @@
   },
   {
     "id": "659f1e5a9e213def3f9e5075dddda585ba3dbdcb",
-    "name": "wpvip-services",
+    "name": "core",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
@@ -3296,7 +3296,7 @@
   },
   {
     "id": "f21fd26753e01453bf5523e430d6b4e317dd8485",
-    "name": "wpvip-services-figma",
+    "name": "figma",
     "selectedTokenSets": {
       "valet-core": "source",
       "wpvip-services-web-core": "enabled",
