@@ -2778,7 +2778,7 @@
       "valet-core": "source",
       "wpvip-web": "enabled"
     },
-    "group": "wpvip"
+    "group": "wpvip web"
   },
   {
     "id": "30fdad110428809b3223a6c4fb7ac0d936b100cd",
@@ -3103,7 +3103,7 @@
       "figma-wpvip-web-type": "enabled",
       "wpvip-web": "enabled"
     },
-    "group": "wpvip"
+    "group": "wpvip web"
   },
   {
     "id": "659f1e5a9e213def3f9e5075dddda585ba3dbdcb",
