@@ -165,8 +165,26 @@
   },
   "input": {
     "background": {
-      "value": "{color.pure-white}",
-      "type": "color"
+      "default": {
+        "value": "rgba({color.gray.0},0)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "{color.black}",
+        "type": "color"
+      },
+      "success": {
+        "value": "{color.green.60}",
+        "type": "color"
+      },
+      "brand": {
+        "value": "{color.gold.60}",
+        "type": "color"
+      },
+      "inactive": {
+        "value": "{color.gray.50}",
+        "type": "color"
+      }
     },
     "label": {
       "default": {

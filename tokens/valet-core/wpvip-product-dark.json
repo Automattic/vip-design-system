@@ -40,9 +40,27 @@
   },
   "input": {
     "background": {
-      "value": "{color.gray.93}",
-      "type": "color",
-      "description": "Use for input backgrounds"
+      "default": {
+        "value": "rgba( {color.gray.93},0)",
+        "type": "color",
+        "description": "Use for input backgrounds"
+      },
+      "primary": {
+        "value": "{color.gray.70}",
+        "type": "color"
+      },
+      "brand": {
+        "value": "{color.gold.60}",
+        "type": "color"
+      },
+      "success": {
+        "value": "{color.green.60}",
+        "type": "color"
+      },
+      "inactive": {
+        "value": "{color.gray.80}",
+        "type": "color"
+      }
     },
     "label": {
       "default": {
