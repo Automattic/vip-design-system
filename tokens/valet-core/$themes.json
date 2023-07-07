@@ -6,7 +6,7 @@
     "selectedTokenSets": {
       "valet-core": "enabled"
     },
-    "group": "core",
+    "group": ".core",
     "$figmaCollectionId": "VariableCollectionId:7967:11372",
     "$figmaModeId": "7967:0",
     "$figmaVariableReferences": {
