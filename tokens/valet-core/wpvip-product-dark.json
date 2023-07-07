@@ -64,7 +64,7 @@
     },
     "label": {
       "default": {
-        "value": "{text.primary}",
+        "value": "{color.gray.10}",
         "type": "color"
       }
     },
