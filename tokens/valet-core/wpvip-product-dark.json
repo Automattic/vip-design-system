@@ -89,6 +89,10 @@
       "disabled": {
         "value": "{color.gray.75}",
         "type": "color"
+      },
+      "error": {
+        "value": "{color.red.40}",
+        "type": "color"
       }
     },
     "switcher": {
@@ -110,11 +114,11 @@
           "type": "color"
         },
         "hover": {
-          "value": "rgba({color.black},0)",
+          "value": "{color.gray.85}",
           "type": "color"
         },
         "active": {
-          "value": "{color.gray.93}",
+          "value": "rgba( {color.gray.93} ,0)",
           "type": "color"
         },
         "disabled": {
@@ -288,11 +292,15 @@
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.85}"
+      "value": "{color.gray.7}"
     },
     "disabled": {
       "type": "color",
       "value": "{color.gray.65}"
+    },
+    "brand": {
+      "value": "{color.gold.45}",
+      "type": "color"
     }
   },
   "button": {

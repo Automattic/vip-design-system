@@ -241,7 +241,7 @@
           "type": "color"
         },
         "active": {
-          "value": "{color.gray.3}",
+          "value": "rgba({color.gray.0},0)",
           "type": "color"
         },
         "disabled": {
@@ -412,11 +412,15 @@
     },
     "inverse": {
       "type": "color",
-      "value": "{color.gray.3}"
+      "value": "{color.pure-white}"
     },
     "disabled": {
       "type": "color",
       "value": "{color.gray.45}"
+    },
+    "brand": {
+      "value": "{color.gold.60}",
+      "type": "color"
     }
   },
   "button": {
