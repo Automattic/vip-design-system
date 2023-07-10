@@ -184,6 +184,10 @@
       "inactive": {
         "value": "{color.gray.50}",
         "type": "color"
+      },
+      "disabled": {
+        "value": "{color.gray.20}",
+        "type": "color"
       }
     },
     "label": {
