@@ -186,7 +186,7 @@
         "type": "color"
       },
       "disabled": {
-        "value": "{color.gray.30}",
+        "value": "{color.gray.20}",
         "type": "color"
       }
     },
@@ -439,7 +439,7 @@
       "type": "color"
     },
     "inverse-disabled": {
-      "value": "{color.gray.15}",
+      "value": "{color.gray.10}",
       "type": "color"
     }
   },
