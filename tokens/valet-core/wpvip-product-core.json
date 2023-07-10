@@ -184,10 +184,6 @@
       "inactive": {
         "value": "{color.gray.50}",
         "type": "color"
-      },
-      "disabled": {
-        "value": "{color.gray.30}",
-        "type": "color"
       }
     },
     "label": {
@@ -309,18 +305,6 @@
           "type": "color"
         }
       }
-    },
-    "toggle": {
-      "switch": {
-        "default": {
-          "value": "{color.pure-white}",
-          "type": "color"
-        },
-        "disabled": {
-          "value": "{color.gray.7}",
-          "type": "color"
-        }
-      }
     }
   },
   "border": {
@@ -436,10 +420,6 @@
     },
     "brand": {
       "value": "{color.gold.60}",
-      "type": "color"
-    },
-    "inverse-disabled": {
-      "value": "{color.gray.15}",
       "type": "color"
     }
   },
