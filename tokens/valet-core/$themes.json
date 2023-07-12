@@ -1330,7 +1330,17 @@
       "input.background.success": "S:417781574839669e811fd898afdd9b66a56c2802,",
       "input.background.brand": "S:75403a04076125b49756be504e23cf98498aad76,",
       "input.background.inactive": "S:1a0630862668de8d25e55eeaf3d0352a7a32a32b,",
-      "icon.brand": "S:fe66350e068f76c124626f082a25957a9caf1825,"
+      "icon.brand": "S:fe66350e068f76c124626f082a25957a9caf1825,",
+      "heading.1": "S:bb72b147d2fc7d278fdd7cac253e33603a63176a,",
+      "heading.caps": "S:9917cc916435fb8d3d7008d64ee7aef7c378f9d9,",
+      "heading.2": "S:642cb11b7d3b027dfca7d62e623149787743b826,",
+      "heading.3": "S:c1da6743e33c4128b8bf5758a7f910a99b6f9518,",
+      "heading.4": "S:7d188139e10392856be7afa936d9d69d9d6c1b0a,",
+      "heading.5": "S:a5d346be1097d4b8c549ba3481daf4448a38aabc,",
+      "body.small": "S:7828f455ace6d3a8be8e61f51215242a34e38635,",
+      "body.default": "S:93d3170f10ae1b76c5ed804f0ec5e05e7f4ec71b,",
+      "body.large": "S:3ac840cbbeddb910784b575c743df86a06f20e91,",
+      "support.helper-text": "S:2ffd324aff338a6dd8cd7c4cc78011e5a1b4c4af,"
     },
     "selectedTokenSets": {
       "valet-core": "source",

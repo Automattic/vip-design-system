@@ -6,6 +6,10 @@
   },
   "fontSize": {
     "static": {
+      "0": {
+        "value": "{rem}*.625",
+        "type": "fontSizes"
+      },
       "1": {
         "value": ".75 * {rem}",
         "type": "fontSizes",

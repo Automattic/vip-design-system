@@ -865,6 +865,15 @@
           "value": "{color.green.70}"
         }
       }
+    },
+    "helper-text": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.body}",
+        "lineHeight": "{lineHeight.body}",
+        "fontSize": "{fontSize.1}"
+      },
+      "type": "typography"
     }
   },
   "focus": {
@@ -1411,6 +1420,158 @@
         "value": "{icon.inverse}",
         "type": "color"
       }
+    }
+  },
+  "fontFamily": {
+    "body": {
+      "value": "SF Pro Display",
+      "type": "fontFamilies"
+    },
+    "serif": {
+      "value": "Recoleta",
+      "type": "fontFamilies"
+    },
+    "monospace": {
+      "value": "SF Mono Regular",
+      "type": "fontFamilies"
+    }
+  },
+  "fontSize": {
+    "0": {
+      "value": "{fontSize.static.0}",
+      "type": "fontSizes"
+    },
+    "1": {
+      "value": "{fontSize.static.1}",
+      "type": "fontSizes"
+    },
+    "2": {
+      "value": "{fontSize.static.2}",
+      "type": "fontSizes"
+    },
+    "3": {
+      "value": "19",
+      "type": "fontSizes"
+    },
+    "4": {
+      "value": "32",
+      "type": "fontSizes"
+    },
+    "5": {
+      "value": "40",
+      "type": "fontSizes"
+    }
+  },
+  "lineHeight": {
+    "body": {
+      "value": "{lineHeight.5}",
+      "type": "lineHeights"
+    },
+    "heading": {
+      "value": "113%",
+      "type": "lineHeights"
+    }
+  },
+  "heading": {
+    "1": {
+      "value": {
+        "fontFamily": "{fontFamily.serif}",
+        "fontWeight": "{fontWeight.body}",
+        "lineHeight": "{lineHeight.heading}",
+        "fontSize": "{fontSize.5}",
+        "letterSpacing": "-2%"
+      },
+      "type": "typography"
+    },
+    "2": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.heading}",
+        "lineHeight": "{lineHeight.heading}",
+        "fontSize": "{fontSize.4}",
+        "letterSpacing": "-2%"
+      },
+      "type": "typography"
+    },
+    "3": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.heading}",
+        "lineHeight": "{lineHeight.heading}",
+        "fontSize": "{fontSize.3}",
+        "letterSpacing": "-2%"
+      },
+      "type": "typography"
+    },
+    "4": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.heading}",
+        "lineHeight": "{lineHeight.heading}",
+        "fontSize": "{fontSize.2}",
+        "letterSpacing": "-2%"
+      },
+      "type": "typography"
+    },
+    "5": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.heading}",
+        "lineHeight": "{lineHeight.heading}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "-2%"
+      },
+      "type": "typography"
+    },
+    "caps": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.bold}",
+        "lineHeight": "{lineHeight.heading}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "5%",
+        "textCase": "{textCase.uppercase}"
+      },
+      "type": "typography"
+    }
+  },
+  "fontWeight": {
+    "body": {
+      "value": "{fontWeight.regular}",
+      "type": "fontWeights"
+    },
+    "heading": {
+      "value": "{fontWeight.medium}",
+      "type": "fontWeights"
+    }
+  },
+  "body": {
+    "small": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.body}",
+        "lineHeight": "{lineHeight.body}",
+        "fontSize": "{fontSize.1}"
+      },
+      "type": "typography"
+    },
+    "default": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.body}",
+        "lineHeight": "{lineHeight.body}",
+        "fontSize": "{fontSize.2}"
+      },
+      "type": "typography"
+    },
+    "large": {
+      "value": {
+        "fontFamily": "{fontFamily.body}",
+        "fontWeight": "{fontWeight.body}",
+        "lineHeight": "{lineHeight.body}",
+        "fontSize": "20"
+      },
+      "type": "typography"
     }
   }
 }
