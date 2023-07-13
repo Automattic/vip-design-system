@@ -1613,6 +1613,24 @@
         "fontSize": "20"
       },
       "type": "typography"
+    },
+    "monospace": {
+      "value": {
+        "fontFamily": "{fontFamily.monospace}",
+        "fontWeight": "{fontWeight.body}",
+        "fontSize": "{fontSize.2}",
+        "lineHeight": "{lineHeight.body}"
+      },
+      "type": "typography"
+    },
+    "monospace-bold": {
+      "value": {
+        "fontFamily": "{fontFamily.monospace}",
+        "fontWeight": "700",
+        "lineHeight": "{lineHeight.body}",
+        "fontSize": "{fontSize.2}"
+      },
+      "type": "typography"
     }
   }
 }
