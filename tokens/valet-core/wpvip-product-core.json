@@ -870,10 +870,51 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.body}",
-        "lineHeight": "{lineHeight.body}",
         "fontSize": "{fontSize.1}"
       },
       "type": "typography"
+    },
+    "label": {
+      "x-small": {
+        "value": {
+          "fontFamily": "{fontFamily.body}",
+          "fontWeight": "{fontWeight.body}",
+          "fontSize": "11"
+        },
+        "type": "typography"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{fontFamily.body}",
+          "fontWeight": "{fontWeight.body}",
+          "fontSize": "{fontSize.1}"
+        },
+        "type": "typography"
+      },
+      "default": {
+        "value": {
+          "fontFamily": "{fontFamily.body}",
+          "fontWeight": "{fontWeight.heading}",
+          "fontSize": "{fontSize.2}"
+        },
+        "type": "typography"
+      },
+      "default-quiet": {
+        "value": {
+          "fontFamily": "{fontFamily.body}",
+          "fontSize": "{fontSize.2}",
+          "fontWeight": "{fontWeight.body}"
+        },
+        "type": "typography"
+      },
+      "default-loud": {
+        "value": {
+          "fontFamily": "{fontFamily.body}",
+          "fontWeight": "700",
+          "fontSize": "{fontSize.2}"
+        },
+        "type": "typography"
+      }
     }
   },
   "focus": {
