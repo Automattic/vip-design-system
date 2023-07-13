@@ -870,7 +870,8 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.body}",
-        "fontSize": "{fontSize.1}"
+        "fontSize": "{fontSize.1}",
+        "lineHeight": "150%"
       },
       "type": "typography"
     },
@@ -1521,9 +1522,9 @@
       "value": {
         "fontFamily": "{fontFamily.serif}",
         "fontWeight": "{fontWeight.body}",
-        "lineHeight": "{lineHeight.heading}",
+        "lineHeight": "135%",
         "fontSize": "{fontSize.5}",
-        "letterSpacing": "-2%"
+        "letterSpacing": "-1%"
       },
       "type": "typography"
     },
@@ -1531,9 +1532,9 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.heading}",
-        "lineHeight": "{lineHeight.heading}",
+        "lineHeight": "120%",
         "fontSize": "{fontSize.4}",
-        "letterSpacing": "-2%"
+        "letterSpacing": "0%"
       },
       "type": "typography"
     },
@@ -1541,9 +1542,9 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.heading}",
-        "lineHeight": "{lineHeight.heading}",
+        "lineHeight": "150%",
         "fontSize": "{fontSize.3}",
-        "letterSpacing": "-2%"
+        "letterSpacing": "0%"
       },
       "type": "typography"
     },
@@ -1551,9 +1552,9 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.heading}",
-        "lineHeight": "{lineHeight.heading}",
+        "lineHeight": "160%",
         "fontSize": "{fontSize.2}",
-        "letterSpacing": "-2%"
+        "letterSpacing": "0%"
       },
       "type": "typography"
     },
@@ -1561,9 +1562,8 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.heading}",
-        "lineHeight": "{lineHeight.heading}",
-        "fontSize": "{fontSize.1}",
-        "letterSpacing": "-2%"
+        "lineHeight": "150%",
+        "fontSize": "{fontSize.1}"
       },
       "type": "typography"
     },
@@ -1571,7 +1571,7 @@
       "value": {
         "fontFamily": "{fontFamily.body}",
         "fontWeight": "{fontWeight.bold}",
-        "lineHeight": "{lineHeight.heading}",
+        "lineHeight": "150%",
         "fontSize": "{fontSize.1}",
         "letterSpacing": "5%",
         "textCase": "{textCase.uppercase}"
@@ -1631,7 +1631,7 @@
         "fontFamily": "{fontFamily.monospace}",
         "lineHeight": "{lineHeight.body}",
         "fontSize": "{fontSize.2}",
-        "fontWeight": "700"
+        "fontWeight": "{fontWeight.bold}"
       },
       "type": "typography"
     }
