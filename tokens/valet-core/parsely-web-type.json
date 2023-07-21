@@ -147,7 +147,7 @@
     },
     "7-serif": {
       "value": {
-        "fontFamily": "{fontFamily.serif}",
+        "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.13}",
@@ -157,7 +157,7 @@
     },
     "6-serif": {
       "value": {
-        "fontFamily": "{fontFamily.serif}",
+        "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.12}",
@@ -167,7 +167,7 @@
     },
     "5-serif": {
       "value": {
-        "fontFamily": "{fontFamily.serif}",
+        "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.11}",
@@ -191,7 +191,7 @@
   "quotation": {
     "1": {
       "value": {
-        "fontFamily": "{fontFamily.serif}",
+        "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.responsive.7}",
@@ -201,7 +201,7 @@
     },
     "2": {
       "value": {
-        "fontFamily": "{fontFamily.serif}",
+        "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.responsive.8}",
@@ -211,7 +211,7 @@
     },
     "3": {
       "value": {
-        "fontFamily": "{fontFamily.serif}",
+        "fontFamily": "{fontFamily.display}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.3}",
         "fontSize": "{fontSize.responsive.9}",
