@@ -582,7 +582,7 @@
   "background": {
     "primary": {
       "type": "color",
-      "value": "{color.gold.30}",
+      "value": "{color.gold.0}",
       "description": "Use as main application background"
     },
     "inverse": {
@@ -592,7 +592,7 @@
     },
     "brand": {
       "type": "color",
-      "value": "{color.red.30}"
+      "value": "{color.gold.30}"
     }
   },
   "layer": {
