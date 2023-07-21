@@ -245,7 +245,7 @@
   "code": {
     "1": {
       "value": {
-        "fontFamily": "{fontFamily.monospace}",
+        "fontFamily": "{fontFamily.mono}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.static.2}"
@@ -254,7 +254,7 @@
     },
     "2": {
       "value": {
-        "fontFamily": "{fontFamily.monospace}",
+        "fontFamily": "{fontFamily.mono}",
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.static.3}"
