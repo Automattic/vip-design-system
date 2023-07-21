@@ -3,7 +3,7 @@
     "1": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.S}",
@@ -13,7 +13,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.M}",
@@ -23,7 +23,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.L}",
@@ -33,7 +33,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.XL}",
@@ -43,7 +43,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.MAX}",
@@ -55,7 +55,7 @@
     "2": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.S}",
@@ -65,7 +65,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.M}",
@@ -75,7 +75,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.L}",
@@ -85,7 +85,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.XL}",
@@ -95,7 +95,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.MAX}",
@@ -107,7 +107,7 @@
     "3": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.S}",
@@ -117,7 +117,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.M}",
@@ -127,7 +127,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.L}",
@@ -137,7 +137,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.XL}",
@@ -147,7 +147,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.MAX}",
@@ -159,7 +159,7 @@
     "4": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.S}",
@@ -169,7 +169,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.M}",
@@ -179,7 +179,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.L}",
@@ -189,7 +189,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.XL}",
@@ -199,7 +199,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.MAX}",
@@ -211,7 +211,7 @@
     "5": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.S}",
@@ -221,7 +221,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.M}",
@@ -231,7 +231,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.L}",
@@ -241,7 +241,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.XL}",
@@ -251,7 +251,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.MAX}",
@@ -263,7 +263,7 @@
     "6": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.12.S}",
@@ -273,7 +273,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.12.M}",
@@ -283,7 +283,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.12.L}",
@@ -293,7 +293,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.12.XL}",
@@ -303,7 +303,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.12.MAX}",
@@ -315,7 +315,7 @@
     "7": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.13.S}",
@@ -325,7 +325,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.13.M}",
@@ -335,7 +335,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.13.L}",
@@ -345,7 +345,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.13.XL}",
@@ -355,7 +355,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.medium}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.13.MAX}",
@@ -367,7 +367,7 @@
     "1-light": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.4.S}",
@@ -377,7 +377,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.4.M}",
@@ -387,7 +387,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.4.L}",
@@ -397,7 +397,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.4.XL}",
@@ -407,7 +407,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.4.MAX}",
@@ -419,7 +419,7 @@
     "2-light": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.S}",
@@ -429,7 +429,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.M}",
@@ -439,7 +439,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.L}",
@@ -449,7 +449,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.XL}",
@@ -459,7 +459,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.8.MAX}",
@@ -471,7 +471,7 @@
     "3-light": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.S}",
@@ -481,7 +481,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.M}",
@@ -491,7 +491,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.L}",
@@ -501,7 +501,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.XL}",
@@ -511,7 +511,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.9.MAX}",
@@ -523,7 +523,7 @@
     "4-light": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.S}",
@@ -533,7 +533,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.M}",
@@ -543,7 +543,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.L}",
@@ -553,7 +553,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.XL}",
@@ -563,7 +563,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.2}",
           "fontSize": "{fontSize.figma.10.MAX}",
@@ -575,7 +575,7 @@
     "5-light": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.S}",
@@ -585,7 +585,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.M}",
@@ -595,7 +595,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.L}",
@@ -605,7 +605,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.XL}",
@@ -615,7 +615,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.11.MAX}",
@@ -785,7 +785,7 @@
     "1": {
       "S": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.4}",
           "fontSize": "{fontSize.figma.9.S}",
@@ -795,7 +795,7 @@
       },
       "M": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.4}",
           "fontSize": "{fontSize.figma.9.M}",
@@ -805,7 +805,7 @@
       },
       "L": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.4}",
           "fontSize": "{fontSize.figma.9.L}",
@@ -815,7 +815,7 @@
       },
       "XL": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.4}",
           "fontSize": "{fontSize.figma.9.XL}",
@@ -825,7 +825,7 @@
       },
       "MAX": {
         "value": {
-          "fontFamily": "{fontFamily.body}",
+          "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.light}",
           "lineHeight": "{lineHeight.4}",
           "fontSize": "{fontSize.figma.9.MAX}",
