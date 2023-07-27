@@ -10,6 +10,7 @@ import { axe } from 'jest-axe';
 import { NewConfirmationDialog } from './NewConfirmationDialog';
 
 const defaultProps = {
+	className: 'my-custom-class',
 	needsConfirm: true,
 	title: 'My Custom Title',
 	body: 'My Custom Text',
@@ -17,6 +18,7 @@ const defaultProps = {
 	trigger: <button>Trigger</button>,
 };
 
+const getDialog = () => screen.getByRole( 'dialog' );
 const getButton = () => screen.getByText( 'Trigger' );
 const getConfirmButton = () => screen.getByText( defaultProps.label );
 const getTitle = () => screen.getByRole( 'heading', { level: 2 } );
@@ -28,6 +30,11 @@ describe( '<NewConfirmationDialog />', () => {
 		expect( getButton() ).toBeInTheDocument();
 
 		fireEvent.click( getButton() );
+
+		const dialog = getDialog();
+		expect( dialog ).toBeInTheDocument();
+		expect( dialog ).toHaveClass( 'vip-dialog-component' );
+		expect( dialog ).toHaveClass( defaultProps.className );
 
 		expect( getTitle() ).toHaveTextContent( defaultProps.title );
 
