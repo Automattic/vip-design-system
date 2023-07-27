@@ -17,6 +17,7 @@ export const Default = () => {
 		<Box>
 			<p>Confirm that your name is John doe?</p>
 			<NewConfirmationDialog
+				className="storybook-confirmation-dialog"
 				title={ 'Are you John Doe?' }
 				buttonVariant="danger"
 				description={ 'Please confirm that your name is John Doe.' }

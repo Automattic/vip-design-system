@@ -5,7 +5,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+
 /**
  * Internal dependencies
  */
@@ -25,6 +27,7 @@ export const NewDialog = ( {
 	style: extraStyles,
 	contentProps = {},
 	portalProps = {},
+	className = null,
 	...props
 } ) => {
 	const closeRef = React.useRef( null );
@@ -48,7 +51,7 @@ export const NewDialog = ( {
 				<DialogOverlay />
 
 				<DialogPrimitive.Content
-					className="vip-dialog-component"
+					className={ classNames( 'vip-dialog-component', className ) }
 					sx={ { ...contentStyles, ...extraStyles } }
 					{ ...contentProps }
 				>
@@ -71,6 +74,7 @@ NewDialog.propTypes = {
 	showHeading: PropTypes.bool,
 	disabled: PropTypes.bool,
 	style: PropTypes.oneOfType( [ PropTypes.object, PropTypes.func ] ),
+	className: PropTypes.any,
 
 	// Content props in: https://www.radix-ui.com/docs/primitives/components/dialog#content
 	contentProps: PropTypes.any,
