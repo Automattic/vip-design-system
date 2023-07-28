@@ -46,7 +46,7 @@ describe( '<Code />', () => {
 
 		fireEvent.click( screen.getByRole( 'button', { name: 'Copy code' } ) );
 
-		await waitFor( () => new Promise( res => setTimeout( res, 0 ) ) );
+		await waitFor( () => new Promise( resolve => setTimeout( resolve, 0 ) ) );
 
 		expect( screen.getByText( 'Code copied to clipboard' ) ).toBeInTheDocument();
 
