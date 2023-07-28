@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
-import { ThemeProvider } from 'theme-ui';
+import { ThemeUIProvider } from 'theme-ui';
 import { Box, theme } from '../../src/system';
 
 export default makeDecorator( {
@@ -8,9 +8,9 @@ export default makeDecorator( {
 	parameterName: 'themeUi',
 	wrapper: ( storyFn, context ) => {
 		return (
-			<ThemeProvider theme={ theme }>
+			<ThemeUIProvider theme={ theme }>
 				<Box sx={ { height: '100vh' } }>{ storyFn( context ) }</Box>
-			</ThemeProvider>
+			</ThemeUIProvider>
 		);
 	},
 } );

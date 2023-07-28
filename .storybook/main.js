@@ -8,4 +8,12 @@ module.exports = {
 		'@storybook/addon-controls',
 		'@storybook/addon-storysource',
 	],
+	docs: {
+		autodocs: true,
+	},
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {},
+	},
 };
+

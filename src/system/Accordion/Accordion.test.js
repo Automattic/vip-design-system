@@ -5,7 +5,7 @@
  */
 import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { ThemeProvider } from 'theme-ui';
+import { ThemeUIProvider } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -14,7 +14,7 @@ import * as Accordion from './Accordion';
 import { theme } from '../';
 
 const renderWithTheme = children =>
-	render( <ThemeProvider theme={ theme }>{ children }</ThemeProvider> );
+	render( <ThemeUIProvider theme={ theme }>{ children }</ThemeUIProvider> );
 
 const renderComponent = () =>
 	renderWithTheme(
