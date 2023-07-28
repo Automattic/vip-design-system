@@ -31,6 +31,6 @@ describe( '<ButtonSubmit />', () => {
 		expect( button ).toHaveAttribute( 'aria-disabled', 'true' );
 
 		// Spinner
-		expect( screen.getByTitle( 'Loading...' ) ).toBeInTheDocument();
+		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
 	} );
 } );
