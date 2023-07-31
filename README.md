@@ -67,9 +67,37 @@ Run this command to update the VIP Valet Theme with the latest `tokens/**` files
 npm run theme-update
 ```
 
-### Publish NPM Package Instructions
+## Publishing new version
 
-Once all the changes needed are merged to trunk, and you are ready to release a new version, follow these steps:
+The process to release to npm should be started when all pull requests intended for publishing have been merged and the software has been fully tested for publication. You can release either using GitHub Actions or locally.
+
+
+### Versioning Guidelines
+
+- `patch`: for non-breaking changes/bugfixes and small updates.
+- `minor`: for some new features, bug fixes, and other non-breaking changes.
+- `major`: for breaking changes.
+
+### Note on NPM token
+
+Publishing via the GitHub Action requires that the `NPM_TOKEN` be set correctly in GitHub Actions secrets. This should be an npm token generated for a bot user on [the npm @automattic org](https://www.npmjs.com/settings/automattic) that has publish access to this repo.
+
+### GitHub Actions (Preferred)
+
+This is the preferred method for pushing out the latest release. The workflow runs a bunch of validations, generates a build, bump versions + tags, pushes out to npm, and bumps to the next dev version.
+
+1. Initiate the [release process here](https://github.com/Automattic/vip-design-system/actions/workflows/npm-prepare-release.yml).
+1. On the right-hand side, select "Run Workflow".
+1. Pick your preferred version bump.
+1. Click `Run Workflow`.
+1. Wait for a pull request to appear. The pull request will update the version number and shall be assigned to you.
+1. When ready, merge the pull request. This will lead to a new version to be [published on npmjs.com](https://www.npmjs.com/package/@automattic/vip-design-system).
+1. Another pull request will be created to bump to a development version, also assigned to you. Merge it to finish the process.
+
+
+### Local
+
+Follow these steps to publish locally:
 
 1. Make sure you have NPM access to our @automattic organization. Ask for #vip-platform-pâtisserie help in case you need it.
 2. Pull all the changes to your local trunk. Make sure you have the latest trunk locally.
@@ -105,7 +133,7 @@ git push origin trunk
 
 Ps: Add a `BREAKING CHANGES` section to the release. This will avoid folks trying to figure out why their code is not working on the VIP Dashboard or any other system.
 
-### Troubleshooting
+## Troubleshooting
 
 ### Dialog + Dropdown usage
 
