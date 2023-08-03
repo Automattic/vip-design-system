@@ -255,11 +255,13 @@ const FormAutocomplete = React.forwardRef(
 					setSourceDebounceTimeout(
 						setTimeout( () => {
 							source( query, populateResults );
+							setSourceDebounceTimeout( null );
 						}, debounce )
 					);
 				}
+			} else {
+				suggest( query, populateResults );
 			}
-			suggest( query, populateResults );
 		};
 		useEffect( () => {
 			global.document
