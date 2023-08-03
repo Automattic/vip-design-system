@@ -103,13 +103,14 @@ export const WithDebounce = () => {
 		</>
 	);
 };
-export const WithSlowSearch = DefaultComponent.bind( {} );
-WithSlowSearch.args = {
+export const WithSlowSearchAndDebounce = DefaultComponent.bind( {} );
+WithSlowSearchAndDebounce.args = {
 	...Default.args,
 	label: 'Label',
 	autoFilter: false,
 	minLength: 3,
 	required: true,
+	debounce: 500,
 	source: async ( query, populateResults ) => {
 		if ( ! query || query.length >= 3 ) {
 			setTimeout( () => {
