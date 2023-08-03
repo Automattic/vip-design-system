@@ -13,6 +13,10 @@ export default {
 			type: { name: 'string', required: false },
 			control: { type: 'text' },
 		},
+		debounce: {
+			type: { name: 'number', required: false },
+			control: { type: 'number' },
+		},
 		label: {
 			type: { name: 'string', required: false },
 			control: { type: 'text' },
