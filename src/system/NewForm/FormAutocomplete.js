@@ -127,11 +127,10 @@ const FormAutocomplete = React.forwardRef(
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
-
+		const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState( null );
 		const [ selectedValue, setSelectedValue ] = useState( value || '' );
 		const [ inputQuery, setInputQuery ] = useState( value );
 		let debounceTimeout;
-		let sourceDebounceTimeout;
 		if ( ! forwardRef ) {
 			forwardRef = React.createRef();
 		}
@@ -247,12 +246,17 @@ const FormAutocomplete = React.forwardRef(
 					source( query, populateResults );
 					return;
 				}
-				clearTimeout( sourceDebounceTimeout );
+				if ( sourceDebounceTimeout ) {
+					clearTimeout( sourceDebounceTimeout );
+					setSourceDebounceTimeout( null );
+				}
 
 				if ( ! query.length || query.length >= minLength ) {
-					sourceDebounceTimeout = setTimeout( () => {
-						source( query, populateResults );
-					}, debounce );
+					setSourceDebounceTimeout(
+						setTimeout( () => {
+							source( query, populateResults );
+						}, debounce )
+					);
 				}
 			}
 			suggest( query, populateResults );
