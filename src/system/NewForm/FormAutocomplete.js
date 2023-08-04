@@ -127,7 +127,7 @@ const FormAutocomplete = React.forwardRef(
 		forwardRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
-
+		const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState( null );
 		const [ selectedValue, setSelectedValue ] = useState( value || '' );
 		const [ inputQuery, setInputQuery ] = useState( value );
 		let debounceTimeout;
@@ -242,9 +242,26 @@ const FormAutocomplete = React.forwardRef(
 			setInputQuery( query );
 			// user function to fetch the results has the precedence
 			if ( source ) {
-				return source( query, populateResults );
+				if ( ! debounce ) {
+					source( query, populateResults );
+					return;
+				}
+				if ( sourceDebounceTimeout ) {
+					clearTimeout( sourceDebounceTimeout );
+					setSourceDebounceTimeout( null );
+				}
+
+				if ( ! query.length || query.length >= minLength ) {
+					setSourceDebounceTimeout(
+						setTimeout( () => {
+							source( query, populateResults );
+							setSourceDebounceTimeout( null );
+						}, debounce )
+					);
+				}
+			} else {
+				suggest( query, populateResults );
 			}
-			return suggest( query, populateResults );
 		};
 		useEffect( () => {
 			global.document
