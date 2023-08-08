@@ -3,7 +3,6 @@
  */
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
-import { BlankState } from './BlankState';
 import { Box } from './Box';
 import { Button, ButtonSubmit } from './Button';
 import { Card } from './Card';
@@ -59,7 +58,6 @@ export {
 	Avatar,
 	Badge,
 	Box,
-	BlankState,
 	Button,
 	ButtonSubmit,
 	Card,
