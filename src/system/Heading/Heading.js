@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Heading = React.forwardRef(
-	( { variant = 'h3', sx, className = null, ...props }, forwardRef ) => (
+	( { variant = 'h3', sx, className = null, ...rest }, forwardRef ) => (
 		<ThemeHeading
 			as={ variant }
 			sx={ {
@@ -20,7 +20,7 @@ const Heading = React.forwardRef(
 			} }
 			className={ classNames( 'vip-heading-component', className ) }
 			ref={ forwardRef }
-			{ ...props }
+			{ ...rest }
 		/>
 	)
 );
