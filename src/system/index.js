@@ -33,7 +33,6 @@ import {
 	Validation,
 	Radio,
 	RadioBoxGroup,
-	Select,
 	Textarea,
 	Checkbox,
 } from './Form';
@@ -92,7 +91,6 @@ export {
 	Tooltip,
 	Notification,
 	Link,
-	Select,
 	Radio,
 	RadioBoxGroup,
 	Textarea,

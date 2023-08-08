@@ -7,7 +7,6 @@ import { Label } from './Label';
 import { Toggle } from './Toggle';
 import { Validation } from './Validation';
 import { ToggleRow } from './ToggleRow';
-import { Select } from './Select';
 import { Radio } from './Radio';
 import { RadioBoxGroup } from './RadioBoxGroup';
 import { Textarea } from './Textarea';
@@ -19,7 +18,6 @@ export {
 	Label,
 	Radio,
 	RadioBoxGroup,
-	Select,
 	Textarea,
 	Toggle,
 	ToggleRow,

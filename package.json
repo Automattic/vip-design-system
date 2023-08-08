@@ -34,9 +34,7 @@
 		"accessible-autocomplete": "^2.0.4",
 		"classnames": "^2.3.1",
 		"framer-motion": "^3.9.1",
-		"react-icons": "^4.7.0",
-		"react-select": "5.7.4",
-		"react-select-async-paginate": "0.7.3"
+		"react-icons": "^4.7.0"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0",
