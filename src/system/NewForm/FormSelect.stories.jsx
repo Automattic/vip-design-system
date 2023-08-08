@@ -30,11 +30,11 @@ const options = [
 const groupedOptions = [
 	{
 		label: 'Group name',
-		options: options,
+		options,
 	},
 	{
 		label: 'Another Group name',
-		options: options,
+		options,
 	},
 ];
 

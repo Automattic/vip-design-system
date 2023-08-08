@@ -81,7 +81,7 @@ Link.args = {
 export const WithOnClick = Template.bind( {} );
 Link.args = {
 	onClick: () => {
-		// eslint-disable-next-line no-undef
+		// eslint-disable-next-line no-alert
 		alert( 'Clicked' );
 	},
 };

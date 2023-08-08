@@ -270,7 +270,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					setCurrentOption( {
 						action: OPTION_ACTION.REMOVE,
 						option: inputValue,
-						index: index,
+						index,
 					} );
 				}
 			},

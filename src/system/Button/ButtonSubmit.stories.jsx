@@ -13,7 +13,6 @@ export default {
 	title: 'ButtonSubmit',
 	component: ButtonSubmit,
 	argTypes: {
-		label: { defaultValue: 'Load more items' },
 		loading: {
 			control: { type: 'boolean', defaultValue: true },
 		},
@@ -33,7 +32,7 @@ export default {
 const Template = args => (
 	<React.Fragment>
 		{ variants.map( v => (
-			<ButtonSubmit sx={ { m: 3 } } key={ v } variant={ v } { ...args } />
+			<ButtonSubmit sx={ { m: 3 } } key={ v } variant={ v } { ...args } label="Loading…" />
 		) ) }
 	</React.Fragment>
 );

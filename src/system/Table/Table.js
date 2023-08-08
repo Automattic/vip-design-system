@@ -28,7 +28,7 @@ const Table = React.forwardRef(
 				className={ classNames( 'vip-table-component', className ) }
 				sx={ { width: '100%', overflowX: 'auto' } }
 				role="region"
-				ariaLabelledby={ captionId }
+				aria-labelledby={ captionId }
 				// Because this container is scrollable, it needs to be focusable.
 				// A tabIndex value of 0 makes it focusable by keyboard and does not
 				// interfere with the tab order.

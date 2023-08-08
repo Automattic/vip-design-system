@@ -40,11 +40,11 @@ const Code = React.forwardRef(
 			/>
 		);
 
+		const [ copied, setCopied ] = useState( false );
+
 		if ( ! showCopy ) {
 			return codeDom;
 		}
-
-		const [ copied, setCopied ] = useState( false );
 
 		return (
 			<div

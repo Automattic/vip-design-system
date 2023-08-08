@@ -3,7 +3,6 @@
  */
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
-import { BlankState } from './BlankState';
 import { Box } from './Box';
 import { Button, ButtonSubmit } from './Button';
 import { Card } from './Card';
@@ -33,7 +32,6 @@ import {
 	Validation,
 	Radio,
 	RadioBoxGroup,
-	Select,
 	Textarea,
 	Checkbox,
 } from './Form';
@@ -45,8 +43,6 @@ import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
 import { Tooltip } from './Tooltip';
-import { Time } from './Time';
-import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
 import { Table, TableRow, TableCell } from './Table';
@@ -60,7 +56,6 @@ export {
 	Avatar,
 	Badge,
 	Box,
-	BlankState,
 	Button,
 	ButtonSubmit,
 	Card,
@@ -92,7 +87,6 @@ export {
 	Tooltip,
 	Notification,
 	Link,
-	Select,
 	Radio,
 	RadioBoxGroup,
 	Textarea,
@@ -104,8 +98,6 @@ export {
 	TabsList,
 	Toggle,
 	ToggleRow,
-	Time,
-	Timeline,
 	Validation,
 	Wizard,
 	WizardStep,

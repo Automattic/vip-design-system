@@ -75,7 +75,7 @@ const WizardStep = React.forwardRef(
 						borderTopStyle: 'solid',
 					},
 					borderColor: 'wizard.step.border.default',
-					borderLeftColor: borderLeftColor,
+					borderLeftColor,
 					overflow: 'inherit',
 				} }
 				data-step={ order }

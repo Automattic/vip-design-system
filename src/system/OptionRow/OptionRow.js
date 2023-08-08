@@ -49,7 +49,7 @@ const OptionRow = React.forwardRef(
 			className = null,
 			titleVariant = 'h3',
 			variant = 'default',
-			...props
+			...rest
 		},
 		forwardRef
 	) => {
@@ -96,7 +96,7 @@ const OptionRow = React.forwardRef(
 
 				<Box sx={ { flex: '1 1 auto' } }>
 					<Heading
-						titleVariant={ titleVariant }
+						variant={ titleVariant }
 						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
 					>
 						<Link
@@ -113,7 +113,7 @@ const OptionRow = React.forwardRef(
 									left: 0,
 								},
 							} }
-							{ ...props }
+							{ ...rest }
 						>
 							{ label }
 							{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
