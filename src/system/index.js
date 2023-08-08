@@ -43,8 +43,6 @@ import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
 import { Tooltip } from './Tooltip';
-import { Time } from './Time';
-import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
 import { Table, TableRow, TableCell } from './Table';
@@ -100,8 +98,6 @@ export {
 	TabsList,
 	Toggle,
 	ToggleRow,
-	Time,
-	Timeline,
 	Validation,
 	Wizard,
 	WizardStep,
