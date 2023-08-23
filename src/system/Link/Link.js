@@ -24,8 +24,10 @@ const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) 
 				textDecorationLine: 'underline',
 				textDecorationThickness: '2px',
 			},
-			'&button:focus': theme => theme.outline,
-			'&button:focus-visible': theme => theme.outline,
+			'&focus': {
+				outline: 'none',
+			},
+			'&focus-visible': theme => theme.outline,
 			...sx,
 		} }
 		ref={ forwardRef }

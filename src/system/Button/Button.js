@@ -34,8 +34,10 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 				'&:hover': {
 					textDecoration: 'none',
 				},
-				'&button:focus': theme => theme.outline,
-				'&button:focus-visible': theme => theme.outline,
+				'&focus': {
+					outline: 'none',
+				},
+				'&focus-visible': theme => theme.outline,
 				'&[aria-disabled="true"]': {
 					opacity: 0.7,
 					cursor: 'not-allowed',
