@@ -23,9 +23,11 @@ const dark = ColorBuilder( ValetThemeDark );
 
 const outline = {
 	outlineStyle: 'solid',
-	outlineColor: getColor( 'focus', 'inset' ),
+	outlineColor: getColor( 'button:focus', 'inset' ),
 	outlineWidth: '1px',
-	boxShadow: `0 0 0 1px ${ getColor( 'focus', 'inset' ) }, 0 0 0 3px ${ getColor( 'focus' ) }`,
+	boxShadow: `0 0 0 1px ${ getColor( 'button:focus', 'inset' ) }, 0 0 0 3px ${ getColor(
+		'button:focus'
+	) }`,
 };
 
 const fonts = {
