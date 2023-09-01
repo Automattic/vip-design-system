@@ -34,7 +34,6 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 				'&:hover': {
 					textDecoration: 'none',
 				},
-				'&:focus': theme => theme.outline,
 				'&:focus-visible': theme => theme.outline,
 				'&[aria-disabled="true"]': {
 					opacity: 0.7,
