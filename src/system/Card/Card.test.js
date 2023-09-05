@@ -1,9 +1,8 @@
 /**
  * External dependencies
  */
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { MdContentCopy } from 'react-icons/md';
 
 /**
  * Internal dependencies

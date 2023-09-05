@@ -9,8 +9,8 @@ export default {
 };
 
 export const Default = () => (
-	<Notification
-		title="My first notification"
-		subTitle="Use when providing success or error feedback on global action"
-	/>
+	<Notification title="Awesome!" body="Your message has been sent successfully." />
+);
+export const Error = () => (
+	<Notification status="error" title="Snag!" body="Your message could not be sent." />
 );

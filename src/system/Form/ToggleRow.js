@@ -36,7 +36,12 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 						flex: '0 0 auto',
 					} }
 				>
-					<img src={ image } width={ 32 } sx={ { display: 'block' } } alt="Icon representing a toggle" />
+					<img
+						src={ image }
+						width={ 32 }
+						sx={ { display: 'block' } }
+						alt="Icon representing a toggle"
+					/>
 				</Card>
 			</Box>
 		) }

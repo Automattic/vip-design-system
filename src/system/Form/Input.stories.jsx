@@ -3,11 +3,36 @@
 /**
  * Internal dependencies
  */
-import { Input } from '..';
+import { Form } from '..';
 
 export default {
-	title: 'Input',
-	component: Input,
+	title: 'Form/Input',
 };
 
-export const Default = () => <Input placeholder="Your input here..." />;
+export const Default = () => (
+	<Form.Root>
+		<Form.Input
+			placeholder="Your input here..."
+			label="Always add a label to inputs"
+			forLabel="input-simple"
+		/>
+
+		<hr sx={ { my: 4 } } />
+
+		<Form.Input
+			forLabel="input-with-error"
+			label="Error Input"
+			errorMessage="Please type numeric characters only"
+			hasError
+		/>
+
+		<hr sx={ { my: 4 } } />
+
+		<Form.Input forLabel="input-with-required" label="Required" required />
+
+		<hr sx={ { my: 4 } } />
+
+		<Form.Label htmlFor="input-with-custom-label">Custom Label outside the Input</Form.Label>
+		<Form.Input forLabel="input-with-custom-label" required />
+	</Form.Root>
+);

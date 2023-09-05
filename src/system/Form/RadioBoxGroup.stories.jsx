@@ -33,5 +33,28 @@ const options = [
 
 export const Default = () => {
 	const [ value, setValue ] = useState( 'one' );
-	return <RadioBoxGroup value={ value } onChange={ newValue => setValue( newValue ) } groupLabel="group" options={ options } />;
+	return (
+		<RadioBoxGroup
+			defaultValue={ value }
+			onChange={ e => setValue( e.target.value ) }
+			options={ options }
+			optionWidth="350px"
+		/>
+	);
+};
+
+export const Errors = () => {
+	const [ value, setValue ] = useState( null );
+
+	return (
+		<RadioBoxGroup
+			defaultValue={ value }
+			onChange={ e => setValue( e.target.value ) }
+			options={ options }
+			required
+			groupLabel="Radio Box Group"
+			hasError={ true }
+			errorMessage="This is an error message"
+		/>
+	);
 };

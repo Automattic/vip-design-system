@@ -1,0 +1,46 @@
+export const textStyles = {
+	h1: {
+		fontSize: 5,
+		marginBottom: 3,
+		letterSpacing: '-.02em',
+		fontWeight: 'body',
+		fontFamily: 'serif',
+		color: 'heading',
+	},
+	h2: {
+		fontSize: 4,
+		marginBottom: 2,
+		letterSpacing: '-.005em',
+		fontWeight: 400,
+		color: 'heading',
+	},
+	h3: {
+		fontSize: 3,
+		marginBottom: 3,
+		letterSpacing: '-.005em',
+		lineHeight: 1.4,
+		fontWeight: 'heading',
+		color: 'heading',
+	},
+	h4: {
+		fontSize: 2,
+		marginBottom: 1,
+		lineHeight: 1.5,
+		fontWeight: 'heading',
+		color: 'heading',
+	},
+	h5: {
+		fontSize: 1,
+		marginBottom: 1,
+		lineHeight: 1.5,
+		fontWeight: 'heading',
+		color: 'heading',
+	},
+	caps: {
+		fontSize: 1,
+		marginBottom: 2,
+		color: 'muted',
+		fontWeight: 'bold',
+		letterSpacing: '.05em',
+	},
+};

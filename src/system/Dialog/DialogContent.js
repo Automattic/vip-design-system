@@ -121,7 +121,7 @@ const DialogMotion = ( { variant, position, ...props } ) => {
 			transition={ { duration: 0.15 } }
 			sx={ {
 				marginTop: 2,
-				transformOrigin: transformOrigin,
+				transformOrigin,
 				borderRadius: 2,
 				backgroundColor: 'dialog',
 				boxShadow: 'low',

@@ -3,9 +3,8 @@
  */
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
-import { BlankState } from './BlankState';
 import { Box } from './Box';
-import { Button } from './Button';
+import { Button, ButtonSubmit } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
 import {
@@ -17,49 +16,55 @@ import {
 	DialogTrigger,
 	DialogContent,
 } from './Dialog';
+
+import * as NewDialog from './NewDialog';
+import * as Dropdown from './Dropdown';
+import * as Form from './NewForm';
+
 import { ConfirmationDialog } from './ConfirmationDialog';
+import { NewConfirmationDialog } from './NewConfirmationDialog';
 import { Flex } from './Flex';
 import {
 	Input,
 	Label,
 	Toggle,
 	ToggleRow,
-	ToggleGroup,
 	Validation,
 	Radio,
 	RadioBoxGroup,
-	Select,
 	Textarea,
 	Checkbox,
 } from './Form';
+import { Accordion } from './Accordion';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
 import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
-import { ResourceList, ResourceItem } from './ResourceList';
 import { Tooltip } from './Tooltip';
-import { Time } from './Time';
-import { Timeline } from './Timeline';
 import { Notification } from './Notification';
 import { OptionRow } from './OptionRow';
-import { Table, TableRow } from './Table';
-import { TabItem, Tabs } from './Tabs';
+import { Table, TableRow, TableCell } from './Table';
 import { Text } from './Text';
 import theme from './theme';
 import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
+import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 
 export {
+	Accordion,
 	Avatar,
 	Badge,
 	Box,
-	BlankState,
 	Button,
+	ButtonSubmit,
 	Card,
 	Checkbox,
 	Code,
 	Dialog,
+	NewDialog,
+	Form,
+	Dropdown,
 	DialogButton,
 	DialogMenu,
 	DialogMenuItem,
@@ -67,6 +72,7 @@ export {
 	DialogContent,
 	DialogTrigger,
 	ConfirmationDialog,
+	NewConfirmationDialog,
 	Grid,
 	Flex,
 	Notice,
@@ -77,24 +83,21 @@ export {
 	Spinner,
 	Table,
 	TableRow,
+	TableCell,
 	Tooltip,
 	Notification,
 	Link,
-	Select,
 	Radio,
 	RadioBoxGroup,
-	ResourceList,
-	ResourceItem,
 	Textarea,
 	Progress,
 	Text,
 	Tabs,
+	TabsTrigger,
+	TabsContent,
+	TabsList,
 	Toggle,
 	ToggleRow,
-	ToggleGroup,
-	TabItem,
-	Time,
-	Timeline,
 	Validation,
 	Wizard,
 	WizardStep,

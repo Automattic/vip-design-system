@@ -3,27 +3,36 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { Link as ThemeLink } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const Link = ( { active = false, sx, ...props } ) => (
+const Link = React.forwardRef( ( { active = false, sx, ...props }, forwardRef ) => (
 	<ThemeLink
-		{ ...props }
 		sx={ {
-			color: active ? 'heading' : 'link',
-			textDecoration: 'none',
-			borderBottom: '1px solid',
-			borderBottomColor: 'border',
+			textDdecorationThickness: '0.1em',
+			textUnderlineOffset: '0.1em',
+			color: active ? 'links.active' : 'link',
 			'&:visited': {
-				color: 'link',
+				color: 'links.visited',
+			},
+			'&:active': {
+				color: 'links.active',
 			},
 			'&:hover, &:focus': {
-				color: 'heading',
+				color: 'links.hover',
+				textDecorationLine: 'underline',
+				textDecorationThickness: '2px',
 			},
+			'&:focus-visible': theme => theme.outline,
 			...sx,
 		} }
+		ref={ forwardRef }
+		{ ...props }
 	/>
-);
+) );
+
+Link.displayName = 'Link';
 
 Link.propTypes = {
 	active: PropTypes.bool,

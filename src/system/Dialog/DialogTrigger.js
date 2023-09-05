@@ -6,6 +6,6 @@
 
 import { Box } from '../';
 
-const DialogTrigger = props => <Box sx={{ display: 'inline' }} {...props} />;
+const DialogTrigger = props => <Box sx={ { display: 'inline' } } { ...props } />;
 
 export { DialogTrigger };
