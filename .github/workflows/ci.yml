@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - trunk
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint and check types
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and install
+        uses: Automattic/vip-actions/nodejs-setup@trunk
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Check types
+        run: npm run check-types
+
+  dependaban:
+    name: Dependaban
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Automattic/vip-actions/dependaban@trunk
+
+  jest:
+    name: Jest tests
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and install
+        uses: Automattic/vip-actions/nodejs-setup@trunk
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run Tests
+        run: npm run jest
+
+  build:
+    name: Build
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and install
+        uses: Automattic/vip-actions/nodejs-setup@trunk
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build
+        run: npm run build
