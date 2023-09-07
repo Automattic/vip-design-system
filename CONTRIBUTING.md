@@ -65,7 +65,6 @@ npm run theme-update
 
 The process to release to npm should be started when all pull requests intended for publishing have been merged and the software has been fully tested for publication. You can release either using GitHub Actions or locally.
 
-
 ### Versioning Guidelines
 
 - `patch`: for non-breaking changes/bugfixes and small updates.
@@ -87,7 +86,6 @@ This is the preferred method for pushing out the latest release. The workflow ru
 1. Wait for a pull request to appear. The pull request will update the version number and shall be assigned to you.
 1. When ready, merge the pull request. This will lead to a new version to be [published on npmjs.com](https://www.npmjs.com/package/@automattic/vip-design-system).
 1. Another pull request will be created to bump to a development version, also assigned to you. Merge it to finish the process.
-
 
 ### Local
 
