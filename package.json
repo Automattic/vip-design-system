@@ -6,6 +6,7 @@
 		"build-storybook": "storybook build",
 		"prepare": "npm run build",
 		"build": "npm run theme-update && cross-env NODE_ENV=production babel src --out-dir build --copy-files && npm run theme-builder-copy",
+		"check-types": "tsc",
 		"format": "prettier --write \"src/**/*.{js,ts,tsx,md,mdx,json}\"",
 		"format:check": "prettier --list-different -- \"src/system/**/*.{js,ts,tsx,md,mdx,json}\"",
 		"jest": "NODE_ENV=test jest --detectOpenHandles --env=jsdom",
@@ -77,6 +78,7 @@
 		"@babel/core": "7.22.9",
 		"@babel/preset-env": "7.22.9",
 		"@babel/preset-react": "7.22.5",
+		"@babel/preset-typescript": "7.22.15",
 		"@babel/runtime": "7.22.6",
 		"@emotion/react": "11.11.1",
 		"@radix-ui/react-icons": "^1.1.1",
@@ -106,6 +108,7 @@
 		"react-refresh": "^0.9.0",
 		"storybook": "7.2.1",
 		"theme-ui": "0.16.0",
-		"token-transformer": "^0.0.29"
+		"token-transformer": "^0.0.29",
+		"typescript": "4.9.5"
 	}
 }
