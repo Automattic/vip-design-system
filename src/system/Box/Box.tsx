@@ -3,14 +3,14 @@
  */
 import React, { Ref } from 'react';
 import classNames, { Argument } from 'classnames';
-import { Box as ThemeBox, BoxProps } from 'theme-ui';
+import { Box as ThemeBox, BoxProps as ThemeBoxProps } from 'theme-ui';
 
-export interface Props extends Omit< BoxProps, 'className' > {
+export interface BoxProps extends Omit< ThemeBoxProps, 'className' > {
 	className?: Argument;
 }
 
-export const Box = React.forwardRef< HTMLDivElement, Props >(
-	( props: Props, ref: Ref< HTMLDivElement > ) => (
+export const Box = React.forwardRef< HTMLDivElement, BoxProps >(
+	( props: BoxProps, ref: Ref< HTMLDivElement > ) => (
 		<ThemeBox
 			{ ...props }
 			className={ classNames( 'vip-box-component', props.className ) }
