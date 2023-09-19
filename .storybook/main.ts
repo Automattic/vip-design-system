@@ -1,5 +1,7 @@
-module.exports = {
-	stories: [ '../src/**/*.stories.jsx' ],
+import type { StorybookConfig } from '@storybook/react-webpack5';
+
+const config: StorybookConfig = {
+	stories: [ '../src/**/*.stories.[jt]sx' ],
 	addons: [
 		'@storybook/addon-a11y',
 		'@storybook/addon-docs',
@@ -17,3 +19,4 @@ module.exports = {
 	},
 };
 
+export default config;

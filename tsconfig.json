@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    // Override lib since this code runs in a browser.
+    "lib": [ "es6", "dom" ],
+    // Process & infer types from .js files.
+    "allowJs": true,
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
+    // Disallow features that require cross-file information for emit.
+    "isolatedModules": true,
+
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "theme-ui",
+    "noImplicitAny": false
+  },
+  "include": [ ".storybook", "src", "test" ],
+  "exclude": [ "node_modules" ]
+}

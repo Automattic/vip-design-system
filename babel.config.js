@@ -16,5 +16,6 @@ module.exports = {
 				throwIfNamespace: false,
 			},
 		],
+		'@babel/preset-typescript',
 	],
 };
