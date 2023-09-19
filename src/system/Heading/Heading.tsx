@@ -21,6 +21,7 @@ export interface HeadingProps extends Omit< ThemeHeadingProps, 'className' > {
 export const Heading = React.forwardRef< HTMLHeadingElement, HeadingProps >(
 	( { variant = 'h3', sx, className, ...rest }, ref: Ref< HTMLHeadingElement > ) => (
 		<ThemeHeading
+			as={ variant }
 			sx={ {
 				color: 'heading',
 				// pass variant prop to sx
@@ -29,7 +30,6 @@ export const Heading = React.forwardRef< HTMLHeadingElement, HeadingProps >(
 			} }
 			className={ classNames( 'vip-heading-component', className ) }
 			ref={ ref }
-			variant={ variant }
 			{ ...rest }
 		/>
 	)
