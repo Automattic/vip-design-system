@@ -9,8 +9,8 @@ export interface BoxProps extends Omit< ThemeBoxProps, 'className' > {
 	className?: Argument;
 }
 
-export const Box = React.forwardRef< HTMLDivElement, BoxProps >(
-	( props: BoxProps, ref: Ref< HTMLDivElement > ) => (
+export const Box = React.forwardRef< HTMLElement, BoxProps >(
+	( props: BoxProps, ref: Ref< HTMLElement > ) => (
 		<ThemeBox
 			{ ...props }
 			className={ classNames( 'vip-box-component', props.className ) }
