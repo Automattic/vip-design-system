@@ -2,14 +2,10 @@
  * External dependencies
  */
 import { forwardRef, Ref } from 'react';
-import {
-	Heading as ThemeHeading,
-	HeadingProps as ThemeHeadingProps,
-	ThemeUIStyleObject,
-} from 'theme-ui';
+import { Heading as ThemeHeading, HeadingProps as ThemeHeadingProps } from 'theme-ui';
 import classNames, { Argument } from 'classnames';
 
-interface HeadingProps extends ThemeHeadingProps {
+export interface HeadingProps extends ThemeHeadingProps {
 	variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 

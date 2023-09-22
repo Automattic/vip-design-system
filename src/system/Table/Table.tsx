@@ -12,7 +12,7 @@ import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import { Box } from '../';
 import { generateId } from '../utils/random';
 
-interface TableProps {
+export interface TableProps {
 	caption?: string;
 	children?: ReactNode;
 	className?: Argument;

@@ -9,7 +9,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
  */
 import { Box } from '../';
 
-interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
+export interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
 	children: ReactNode;
 	head?: boolean;
 	sx?: ThemeUIStyleObject;
