@@ -9,7 +9,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
  */
 import { TableCell } from './TableCell';
 
-interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
+export interface TableRowProps extends React.HTMLProps< HTMLTableRowElement > {
 	cells?: ReactNode[];
 	children?: ReactNode;
 	head?: boolean;
@@ -17,7 +17,14 @@ interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
 	sx?: ThemeUIStyleObject;
 }
 
-export const TableRow = ( { onClick, head = false, cells = [], children, sx }: TableCellProps ) => {
+export const TableRow = ( {
+	onClick,
+	head = false,
+	cells = [],
+	children,
+	sx,
+	...rest
+}: TableRowProps ) => {
 	const hoverStyles: ThemeUIStyleObject = {
 		cursor: 'pointer',
 		'&:hover': {
@@ -39,6 +46,7 @@ export const TableRow = ( { onClick, head = false, cells = [], children, sx }: T
 			onClick={ onClick }
 			tabIndex={ onClick ? 0 : undefined }
 			onKeyDown={ handleKeyPress }
+			{ ...rest }
 		>
 			{ cells.map( ( cell, index ) => (
 				<TableCell key={ index } head={ head }>
