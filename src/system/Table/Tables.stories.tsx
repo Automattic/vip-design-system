@@ -1,9 +1,6 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
@@ -15,7 +12,11 @@ export default {
 	component: Table,
 };
 
-const ExampleTable = ( { caption } ) => (
+interface ExampleTableProps {
+	caption: string;
+}
+
+const ExampleTable = ( { caption }: ExampleTableProps ) => (
 	<Table caption={ caption }>
 		<thead>
 			<TableRow head cells={ [ 'User', 'Command', 'Duration', 'Time' ] } />
@@ -52,10 +53,6 @@ const ExampleTable = ( { caption } ) => (
 		</tbody>
 	</Table>
 );
-
-ExampleTable.propTypes = {
-	caption: PropTypes.string.isRequired,
-};
 
 export const Default = () => <ExampleTable caption="Example Table" />;
 

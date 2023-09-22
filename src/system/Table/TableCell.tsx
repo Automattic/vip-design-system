@@ -1,18 +1,22 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-
-import PropTypes from 'prop-types';
+import { ReactNode } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Box } from '../';
 
-const TableCell = ( { head, children, ...rest } ) => {
-	const sx = {
+interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
+	children: ReactNode;
+	head?: boolean;
+	sx?: ThemeUIStyleObject;
+}
+
+export const TableCell = ( { children, head, sx, ...rest }: TableCellProps ) => {
+	const style: ThemeUIStyleObject = {
 		borderBottom: '1px solid',
 		borderTop: head ? '1px solid' : 'none',
 		// borderColor should come after borderTop so it can override it
@@ -21,11 +25,11 @@ const TableCell = ( { head, children, ...rest } ) => {
 		px: 3,
 		py: 2,
 		textAlign: 'left',
-		...rest.sx,
+		...sx,
 	};
 
 	return (
-		<Box as={ head ? 'th' : 'td' } { ...{ ...rest, sx } }>
+		<Box { ...rest } as={ head ? 'th' : 'td' } ref={ undefined } sx={ style }>
 			{ head ? (
 				<span sx={ { mb: 0, color: 'table.heading', fontSize: 2, fontWeight: 'bold' } }>
 					{ children }
@@ -37,9 +41,4 @@ const TableCell = ( { head, children, ...rest } ) => {
 	);
 };
 
-TableCell.propTypes = {
-	children: PropTypes.node,
-	head: PropTypes.bool,
-};
-
-export { TableCell };
+TableCell.displayName = 'TableCell';

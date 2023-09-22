@@ -1,11 +1,9 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { forwardRef, ReactNode, Ref, useMemo } from 'react';
+import classNames, { Argument } from 'classnames';
+import type { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -14,8 +12,15 @@ import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import { Box } from '../';
 import { generateId } from '../utils/random';
 
-const Table = React.forwardRef(
-	( { sx, className, children, caption = null, ...props }, forwardRef ) => {
+interface TableProps {
+	caption?: string;
+	children?: ReactNode;
+	className?: Argument;
+	sx?: ThemeUIStyleObject;
+}
+
+export const Table = forwardRef< HTMLTableElement, TableProps >(
+	( { sx, className, children, caption, ...props }: TableProps, ref: Ref< HTMLTableElement > ) => {
 		if ( ! caption ) {
 			// eslint-disable-next-line no-console
 			console.warn( '[A11Y] Please, add a caption to your table.' );
@@ -29,15 +34,12 @@ const Table = React.forwardRef(
 				sx={ { width: '100%', overflowX: 'auto' } }
 				role="region"
 				aria-labelledby={ captionId }
-				// Because this container is scrollable, it needs to be focusable.
-				// A tabIndex value of 0 makes it focusable by keyboard and does not
-				// interfere with the tab order.
 				tabIndex={ 0 }
 			>
 				<table
 					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }
 					className={ classNames( 'vip-table-component-element', className ) }
-					ref={ forwardRef }
+					ref={ ref }
 					{ ...props }
 				>
 					{ caption && (
@@ -53,12 +55,3 @@ const Table = React.forwardRef(
 );
 
 Table.displayName = 'Table';
-
-Table.propTypes = {
-	sx: PropTypes.object,
-	className: PropTypes.any,
-	children: PropTypes.any,
-	caption: PropTypes.string.isRequired,
-};
-
-export { Table };
