@@ -16,15 +16,15 @@ describe( '<Badge />', () => {
 		expect( screen.getByText( 'Badge text' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the Badge component with a different variant', async () => {
-		const { container } = render( <Badge variant="primary">Badge text</Badge> );
+		const { container } = render( <Badge variant="red">Badge text</Badge> );
 
 		expect( screen.getByText( 'Badge text' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

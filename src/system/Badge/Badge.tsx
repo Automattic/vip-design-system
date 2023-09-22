@@ -1,19 +1,21 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import React from 'react';
+import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { TextProps as ThemeTextProps } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Text } from '../';
+import { Text } from '..';
 
-const Badge = React.forwardRef(
-	( { variant = 'blue', sx, className = null, ...props }, forwardRef ) => (
+export interface BadgeProps extends ThemeTextProps {
+	variant?: 'blue' | 'gold' | 'gray' | 'green' | 'orange' | 'red' | 'salmon' | 'yellow';
+}
+
+export const Badge = forwardRef< HTMLDivElement, BadgeProps >(
+	( { variant = 'blue', sx, className, ...props }: BadgeProps, ref: Ref< HTMLDivElement > ) => (
 		<Text
 			as="span"
 			sx={ {
@@ -39,17 +41,10 @@ const Badge = React.forwardRef(
 				...sx,
 			} }
 			className={ classNames( 'vip-badge-component', className ) }
-			ref={ forwardRef }
+			ref={ ref }
 			{ ...props }
 		/>
 	)
 );
 
 Badge.displayName = 'Badge';
-Badge.propTypes = {
-	variant: PropTypes.string,
-	sx: PropTypes.object,
-	className: PropTypes.any,
-};
-
-export { Badge };
