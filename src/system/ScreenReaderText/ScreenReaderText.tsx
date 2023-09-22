@@ -22,7 +22,7 @@ export const screenReaderTextClass: ThemeUIStyleObject = {
 	wordWrap: 'normal !important' as 'normal',
 };
 
-interface ScreenReaderTextProps {
+export interface ScreenReaderTextProps {
 	children: ReactNode;
 }
 

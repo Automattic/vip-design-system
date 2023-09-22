@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Produce .d.ts declaration files. Must be enabled via command-line flags
+    // since noEmit=true in this file. See `npm run build:types` script.
+    "declaration": true,
+
+    // Output directory for declaration files.
+    "outDir": "build/system"
+  },
+  "include": [ "src" ]
+}

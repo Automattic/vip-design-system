@@ -5,7 +5,7 @@ import { forwardRef, Ref } from 'react';
 import { Text as ThemeText, TextProps as ThemeTextProps, ThemeUIStyleObject } from 'theme-ui';
 import classNames, { Argument } from 'classnames';
 
-interface TextProps extends Omit< ThemeTextProps, 'className' > {
+export interface TextProps extends Omit< ThemeTextProps, 'className' > {
 	className?: Argument;
 	sx?: ThemeUIStyleObject;
 }
