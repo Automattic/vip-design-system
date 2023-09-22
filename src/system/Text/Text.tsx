@@ -5,13 +5,8 @@ import { forwardRef, Ref } from 'react';
 import { Text as ThemeText, TextProps as ThemeTextProps, ThemeUIStyleObject } from 'theme-ui';
 import classNames, { Argument } from 'classnames';
 
-export interface TextProps extends Omit< ThemeTextProps, 'className' > {
-	className?: Argument;
-	sx?: ThemeUIStyleObject;
-}
-
-export const Text = forwardRef< HTMLDivElement, TextProps >(
-	( { sx, className = null, ...props }: TextProps, ref: Ref< HTMLDivElement > ) => (
+export const Text = forwardRef< HTMLDivElement, ThemeTextProps >(
+	( { sx, className, ...props }: ThemeTextProps, ref: Ref< HTMLDivElement > ) => (
 		<ThemeText
 			as="p"
 			sx={ {
