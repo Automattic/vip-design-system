@@ -10,7 +10,7 @@ import { TextProps as ThemeTextProps } from 'theme-ui';
  */
 import { Text } from '..';
 
-interface BadgeProps extends ThemeTextProps {
+export interface BadgeProps extends ThemeTextProps {
 	variant?: 'blue' | 'gold' | 'gray' | 'green' | 'orange' | 'red' | 'salmon' | 'yellow';
 }
 

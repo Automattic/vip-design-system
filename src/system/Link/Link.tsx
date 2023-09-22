@@ -9,7 +9,7 @@ interface LinkTheme extends Theme {
 	outline?: Record< string, string >;
 }
 
-interface LinkProps extends ThemeLinkProps {
+export interface LinkProps extends ThemeLinkProps {
 	active?: boolean;
 }
 
