@@ -60,14 +60,8 @@
       "<rootDir>/src",
       "<rootDir>/test"
     ],
-    "setupFiles": [
-      "<rootDir>/test/setupTests.ts"
-    ],
     "setupFilesAfterEnv": [
       "<rootDir>/test/setupAfterEnv.ts"
-    ],
-    "transformIgnorePatterns": [
-      "\\.stories.jsx$"
     ],
     "transform": {
       "\\.[jt]sx?$": "babel-jest"
