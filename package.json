@@ -13,7 +13,7 @@
     "check-types": "tsc",
     "format": "npm run cmd:format -- --write",
     "format:check": "npm run cmd:format -- --check",
-    "jest": "NODE_ENV=test jest --detectOpenHandles --env=jsdom",
+    "jest": "NODE_ENV=test jest --env=jsdom",
     "jest:coverage": "npm run jest && open-cli ./coverage/index.html",
     "jest:watch": "npm run jest --watch",
     "theme-builder-copy": "npm run theme-builder-copy-light && npm run theme-builder-copy-dark",
