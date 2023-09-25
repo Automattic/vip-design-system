@@ -5,7 +5,7 @@ import withBoundingBox from './decorators/withBoundingBox';
 import withColorMode, { backgrounds } from './decorators/withColorMode';
 import withThemeProvider from './decorators/withThemeProvider';
 
-axe( React, ReactDOM, 1000 );
+void axe( React, ReactDOM, 1000 );
 
 export const decorators = [ withBoundingBox, withColorMode, withThemeProvider ];
 

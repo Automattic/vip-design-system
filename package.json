@@ -61,10 +61,10 @@
       "<rootDir>/test"
     ],
     "setupFiles": [
-      "<rootDir>/test/setupTests.js"
+      "<rootDir>/test/setupTests.ts"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/test/setupAfterEnv.js"
+      "<rootDir>/test/setupAfterEnv.ts"
     ],
     "transformIgnorePatterns": [
       "\\.stories.jsx$"
@@ -73,7 +73,7 @@
       "\\.[jt]sx?$": "babel-jest"
     },
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/test/fileMock.js"
+      "\\.(css|less)$": "<rootDir>/test/fileMock.ts"
     }
   },
   "devDependencies": {

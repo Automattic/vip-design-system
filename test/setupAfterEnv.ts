@@ -3,11 +3,8 @@
  */
 import 'jest-axe/extend-expect';
 import '@testing-library/jest-dom';
+import axe from '@axe-core/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-if ( process.env.NODE_ENV !== 'production' ) {
-	const axe = require( '@axe-core/react' );
-
-	axe( React, ReactDOM, 1000 );
-}
+void axe( React, ReactDOM, 1000 );
