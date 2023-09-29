@@ -40,7 +40,6 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 					color: 'text',
 					textDecoration: 'none',
 					cursor: 'default',
-					textDecoration: 'none',
 				},
 				...sx,
 			} }
