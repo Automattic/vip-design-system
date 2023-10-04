@@ -19,7 +19,7 @@ export const ToggleText = React.forwardRef(
 			name = 'toggleText',
 			onChange,
 			className = null,
-			variant = 'muted',
+			variant = '#e3e0df',
 			toggleOnLabel = 'On',
 			toggleOffLabel = 'Off',
 			...rest
@@ -36,7 +36,7 @@ export const ToggleText = React.forwardRef(
 				height: 20,
 				padding: '0.5px 0.5px 0.5px 0.5px',
 				borderRadius: '2.5px',
-				backgroundColor: '#e3e0df',
+				backgroundColor: variant,
 				backgroundRepeat: 'no-repeat',
 				backgroundPosition: 'right -5px top 2px',
 				backgroundImage: `url(\n\t\t\t\t'data:image/svg+xml;utf8,<svg width="60" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="1" y="14" fill="black">${ toggleOnLabel }</text></svg>')`,
@@ -47,7 +47,7 @@ export const ToggleText = React.forwardRef(
 					opacity: 0.7,
 				},
 				'&[data-state="checked"]': {
-					backgroundColor: '#e3e0df',
+					backgroundColor: variant,
 					backgroundPosition: 'right 50px top 2px',
 					backgroundRepeat: 'no-repeat',
 					backgroundImage: `url(\n\t\t\t\t\t'data:image/svg+xml;utf8,<svg width="60" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="1" y="14" fill="black">${ toggleOffLabel }</text></svg>')`,
