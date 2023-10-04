@@ -99,7 +99,13 @@ const ToggleTextStyling = args => (
 			toggleOffLabel="Chart"
 			checked={ args.checked }
 			disabled={ false }
-			variant="info"
+			variant="primary"
+		/>{ ' ' }
+		<ToggleText
+			toggleOnLabel="Table"
+			toggleOffLabel="Chart"
+			checked={ args.checked }
+			disabled={ false }
 		/>{ ' ' }
 		<ToggleText checked={ args.checked } disabled={ true } />{ ' ' }
 	</form>
