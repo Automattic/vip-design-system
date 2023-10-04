@@ -7,6 +7,7 @@
  * Internal dependencies
  */
 import { Toggle, Label } from '..';
+import { ToggleText } from './ToggleText';
 
 export default {
 	title: 'Toggle',
@@ -91,6 +92,20 @@ const CustomStyling = args => (
 	</form>
 );
 
+const ToggleTextStyling = args => (
+	<form>
+		<ToggleText
+			toggleOnLabel="Table"
+			toggleOffLabel="Chart"
+			checked={ args.checked }
+			disabled={ false }
+			variant="info"
+		/>{ ' ' }
+		<ToggleText checked={ args.checked } disabled={ true } />{ ' ' }
+	</form>
+);
+
 export const Primary = Default.bind( { checked: true } );
 export const ExternalLabel = WithLabel.bind( { checked: true } );
 export const CustomStyle = CustomStyling.bind( { checked: true } );
+export const ToggleTextComponent = ToggleTextStyling.bind( { checked: true } );
