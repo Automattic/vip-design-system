@@ -16,7 +16,7 @@ import * as Switch from '@radix-ui/react-switch';
 export const ToggleSlider = React.forwardRef(
 	(
 		{
-			name = 'toggleText',
+			name = 'toggleSlider',
 			onChange,
 			className = null,
 			variant = '#e3e0df',
