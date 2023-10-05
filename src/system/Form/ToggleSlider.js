@@ -13,7 +13,7 @@ import * as Switch from '@radix-ui/react-switch';
 // Documentation for Radix Switch component
 // https://www.radix-ui.com/docs/primitives/components/switch
 
-export const ToggleText = React.forwardRef(
+export const ToggleSlider = React.forwardRef(
 	(
 		{
 			name = 'toggleText',
@@ -84,11 +84,13 @@ export const ToggleText = React.forwardRef(
 	)
 );
 
-ToggleText.displayName = 'ToggleText';
+ToggleSlider.displayName = 'ToggleSlider';
 
-ToggleText.propTypes = {
+ToggleSlider.propTypes = {
 	name: PropTypes.string,
 	className: PropTypes.any,
 	onChange: PropTypes.func,
 	variant: PropTypes.string,
+	toggleOnLabel: PropTypes.string,
+	toggleOffLabel: PropTypes.string,
 };

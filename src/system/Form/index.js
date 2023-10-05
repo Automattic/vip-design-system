@@ -5,7 +5,7 @@ import { Input } from './Input';
 import { InputWithCopyButton } from './InputWithCopyButton';
 import { Label } from './Label';
 import { Toggle } from './Toggle';
-import { ToggleText } from './ToggleText';
+import { ToggleSlider } from './ToggleSlider';
 import { Validation } from './Validation';
 import { ToggleRow } from './ToggleRow';
 import { Radio } from './Radio';
@@ -21,7 +21,7 @@ export {
 	RadioBoxGroup,
 	Textarea,
 	Toggle,
-	ToggleText,
+	ToggleSlider,
 	ToggleRow,
 	Validation,
 	Checkbox,
