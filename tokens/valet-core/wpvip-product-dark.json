@@ -64,6 +64,10 @@
       "disabled": {
         "value": "{color.gray.80}",
         "type": "color"
+      },
+      "read-only": {
+        "value": "{layer.1}",
+        "type": "color"
       }
     },
     "label": {
@@ -96,6 +100,10 @@
       },
       "error": {
         "value": "{color.red.40}",
+        "type": "color"
+      },
+      "read-only": {
+        "value": "{border.2}",
         "type": "color"
       }
     },

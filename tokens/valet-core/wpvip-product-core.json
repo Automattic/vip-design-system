@@ -188,6 +188,10 @@
       "disabled": {
         "value": "{color.gray.20}",
         "type": "color"
+      },
+      "read-only": {
+        "value": "{layer.1}",
+        "type": "color"
       }
     },
     "label": {
@@ -220,6 +224,10 @@
         "value": "{color.red.55}",
         "type": "color",
         "description": "Use for inputs which are in an error state."
+      },
+      "read-only": {
+        "value": "{border.2}",
+        "type": "color"
       }
     },
     "switcher": {
