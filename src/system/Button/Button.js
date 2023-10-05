@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
 
+/** @type {FunctionComponent} */
 const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardRef ) => {
 	const handleOnClick = useCallback(
 		event => {

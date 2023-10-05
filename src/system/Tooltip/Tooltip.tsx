@@ -1,11 +1,8 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import { PropsWithChildren, ReactElement, ReactNode, cloneElement } from 'react';
+import { PropsWithChildren, ReactElement, cloneElement } from 'react';
 import { Global, css } from '@emotion/react';
-import { ReactJSXElementChildrenAttribute } from 'node_modules/@emotion/react/dist/declarations/types/jsx-namespace';
 
 /**
  * Internal dependencies
@@ -57,6 +54,7 @@ const Tooltip = ( {
 					color: #fff;
 					z-index: 1;
 				}
+
 				[data-vip-tooltip]:hover::after {
 					content: "";
 					position: absolute;
