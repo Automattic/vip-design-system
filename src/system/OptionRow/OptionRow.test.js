@@ -28,7 +28,7 @@ describe( '<OptionRow />', () => {
 				subTitle="Mostly used to link off to other pages."
 				as="a"
 				disabled
-				variant="h3"
+				variant="default"
 				meta=""
 			/>
 		);
