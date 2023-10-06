@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Tooltip, Button, Heading, Text } from '..';
+import { Tooltip, Button, Heading, Text, Link, Flex } from '..';
 
 export default {
 	title: 'Tooltip',
@@ -16,7 +16,8 @@ tooltip styles.
 
 ## Kwown issues
 
-The current implementation of this component is <strong>NOT</strong> protected from viewport
+- Storybook uses iframes to render the components. This means that the tooltip box will overlap in the demos, but you can click on each demo page to see the correct render.
+- The current implementation of this component is <strong>NOT</strong> protected from viewport
 clipping (collision). For now, you can pick another <code>vip-tooltip-position</code> if
 possible.
 
@@ -73,29 +74,60 @@ export const Basic = () => (
 			<code>[vip-tooltip]</code> HTML attribute.
 		</Text>
 
-		<Button sx={ { mr: 3 } }>Button with top tooltip</Button>
-
 		<Tooltip
 			trigger={ <Button sx={ { mr: 3 } }>Button with top tooltip</Button> }
-			title="At the top"
+			title="On the top"
 			position="top"
 		/>
 
 		<Tooltip
-			trigger={ <Button>Button with bottom tooltip</Button> }
-			title="At the bottom"
+			trigger={ <Button sx={ { mr: 3 } }>Button with bottom tooltip</Button> }
+			title="On the Bottom"
 			position="bottom"
+		/>
+
+		<Tooltip
+			trigger={ <Button sx={ { mr: 3 } }>Button with left tooltip</Button> }
+			title="On the Left"
+			position="left"
+		/>
+
+		<Tooltip
+			trigger={ <Button>Button with right tooltip</Button> }
+			title="On the Right"
+			position="right"
 		/>
 	</>
 );
 
 export const Container = () => (
-	<>
-		<Tooltip>
-			<button data-vip-tooltip="Test test">This is another way</button>
-			<a href="http://google.com" data-vip-tooltip="Hello moto">
-				Use with links too
-			</a>
-		</Tooltip>
-	</>
+	<div>
+		<Heading variant="h2">Container Usage</Heading>
+
+		<Text>
+			You can also wrap a component with the <code>Tooltip</code> component. To use tooltips you can
+			simply pass <code>data-vip-tooltip</code> as an HTML attribute to your component.
+		</Text>
+
+		<div sx={ { backgroundColor: 'red' } }>
+			<Tooltip>
+				<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 3 } }>
+					This is another way
+				</Button>
+
+				<br />
+				<br />
+				<br />
+
+				<Link
+					href="http://google.com"
+					data-vip-tooltip-position="right"
+					data-vip-tooltip="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500"
+					sx={ { ml: 3 } }
+				>
+					Use with links too
+				</Link>
+			</Tooltip>
+		</div>
+	</div>
 );
