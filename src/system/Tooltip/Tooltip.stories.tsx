@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Tooltip, Button, Heading, Text, Link, Flex } from '..';
+import { Tooltip, Button, Heading, Text, Link } from '..';
 
 export default {
 	title: 'Tooltip',
