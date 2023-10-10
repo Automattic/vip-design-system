@@ -109,7 +109,7 @@
       "value": {
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.medium}",
-        "lineHeight": "{lineHeight.3}",
+        "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.10}",
         "letterSpacing": "{letterSpacing.tight}"
       },
@@ -179,7 +179,7 @@
       "value": {
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.light}",
-        "lineHeight": "{lineHeight.3}",
+        "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.10}",
         "letterSpacing": "{letterSpacing.tight}"
       },
