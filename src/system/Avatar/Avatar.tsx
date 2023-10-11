@@ -22,7 +22,7 @@ type AvatarImageProps = AvatarProps & ImageProps;
 
 export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	(
-		{ isVIP = false, name = null, size = 32, src, className, ...props }: AvatarImageProps,
+		{ isVIP = false, name, size = 32, src, className, ...props }: AvatarImageProps,
 		ref: Ref< HTMLElement >
 	) => (
 		<Box
