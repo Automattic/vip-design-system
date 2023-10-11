@@ -18,7 +18,7 @@ describe( '<Card />', () => {
 		expect( screen.getByText( 'This is a Card' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the Card component with a different variant', async () => {
@@ -27,6 +27,6 @@ describe( '<Card />', () => {
 		expect( screen.getByText( 'Card text' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

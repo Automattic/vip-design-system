@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button as ThemeButton } from 'theme-ui';
 
+/** @type {FunctionComponent} */
 const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardRef ) => {
 	const handleOnClick = useCallback(
 		event => {
@@ -37,8 +38,10 @@ const Button = React.forwardRef( ( { disabled, onClick, sx, ...props }, forwardR
 				'&:focus-visible': theme => theme.outline,
 				'&[aria-disabled="true"]': {
 					opacity: 0.7,
+					backgroundColor: 'input.border.disabled',
+					color: 'texts.secondary',
 					cursor: 'not-allowed',
-					pointerEvents: 'all',
+					pointerEvents: 'none',
 				},
 				...sx,
 			} }

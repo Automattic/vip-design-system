@@ -1,3 +1,6 @@
+/** @jsxImportSource theme-ui */
+// we'll need jsxImportSource for the sx prop when used with html elements
+
 /**
  * External dependencies
  */

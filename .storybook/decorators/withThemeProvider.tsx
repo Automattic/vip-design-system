@@ -7,10 +7,6 @@ export default makeDecorator( {
 	name: 'withThemeProvider',
 	parameterName: 'themeUi',
 	wrapper: ( storyFn, context ) => {
-		return (
-			<ThemeUIProvider theme={ theme }>
-				<Box sx={ { height: '100vh' } }>{ storyFn( context ) }</Box>
-			</ThemeUIProvider>
-		);
+		return <ThemeUIProvider theme={ theme }>{ storyFn( context ) }</ThemeUIProvider>;
 	},
 } );
