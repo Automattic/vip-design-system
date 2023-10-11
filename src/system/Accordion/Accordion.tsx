@@ -178,21 +178,19 @@ interface ContentProps {
 	children: ReactNode;
 	sx?: ThemeUIStyleObject;
 }
-interface RootBaseProps {
+interface RootProps {
 	caption?: string;
 	children?: ReactNode;
 	className?: Argument;
 	sx?: ThemeUIStyleObject;
 	defaultValue?: string;
 }
-interface RootSingleProps extends RootBaseProps {
-	type: 'single';
-}
-export const Root = React.forwardRef< HTMLDivElement, RootSingleProps >(
+export const Root = React.forwardRef< HTMLDivElement, RootProps >(
 	( { sx = {}, children, className, ...props }, forwardRef ) => (
 		<AccordionPrimitive.Root
 			className={ classNames( 'vip-accordion-component', className ) }
 			collapsible
+			type="single"
 			ref={ forwardRef }
 			sx={ {
 				borderRadius: 6,
