@@ -23,6 +23,7 @@ interface LabelProps {
 	sx?: ThemeUIStyleObject;
 	as?: ElementType;
 	htmlFor?: string;
+	id?: string;
 }
 
 export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
