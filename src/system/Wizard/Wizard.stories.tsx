@@ -8,20 +8,13 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Wizard, Box, Label, Input, Button, Form } from '..';
+import { Wizard, Box, Label, Input, Button, Checkbox, Flex } from '..';
 import { WizardStepProps } from './WizardStep';
 
 export default {
 	title: 'Wizard',
 	component: Wizard,
 };
-
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' },
-	{ value: 'coffee', label: 'Coffee' },
-];
 
 export const Default = () => {
 	const steps: WizardStepProps[] = [
@@ -128,17 +121,19 @@ export const WithTitleAutoFocus = () => {
 				/>
 			</Box>
 			<Box mt={ 4 }>
-				<Form.Select
-					id="wizard-autofocus"
-					forLabel="wizard-autofocus"
-					label="Autofocus status"
-					value={ autoFocus }
-					onChange={ e => setAutoFocus( e.value ) }
-					options={ [
-						{ value: true, label: 'On' },
-						{ value: false, label: 'Off' },
-					] }
-				/>
+				<Flex sx={ { alignItems: 'center' } }>
+					<Checkbox
+						id="wizard-autofocus"
+						checked={ autoFocus }
+						aria-labelledby="label-check1"
+						onCheckedChange={ e => {
+							setAutoFocus( e === true );
+						} }
+					/>
+					<Label sx={ { m: 0, ml: 2 } } htmlFor="wizard-autofocus" id="label-check1">
+						Autofocus enabled?
+					</Label>
+				</Flex>
 			</Box>
 		</React.Fragment>
 	);
