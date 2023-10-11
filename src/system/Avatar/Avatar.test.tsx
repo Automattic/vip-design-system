@@ -16,7 +16,7 @@ describe( '<Avatar />', () => {
 		expect( screen.getByText( 'J' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the Avatar with image', async () => {
@@ -25,6 +25,6 @@ describe( '<Avatar />', () => {
 		expect( screen.getByAltText( 'Avatar image from John Doe' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

@@ -1,22 +1,29 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Image } from 'theme-ui';
-import classNames from 'classnames';
+import { forwardRef, Ref } from 'react';
+import { Image, ImageProps } from 'theme-ui';
+import classNames, { Argument } from 'classnames';
 
 /**
  * Internal dependencies
  */
 import { Box, Text } from '..';
 
-const Avatar = React.forwardRef(
+export interface AvatarProps {
+	isVIP?: boolean;
+	size?: number;
+	src?: string;
+	name?: string;
+	className?: Argument;
+}
+
+type AvatarImageProps = AvatarProps & ImageProps;
+
+export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	(
-		{ isVIP = false, name = null, size = 32, src = null, className = null, ...props },
-		forwardRef
+		{ isVIP = false, name, size = 32, src, className, ...props }: AvatarImageProps,
+		ref: Ref< HTMLElement >
 	) => (
 		<Box
 			sx={ {
@@ -36,7 +43,7 @@ const Avatar = React.forwardRef(
 			} }
 			className={ classNames( 'vip-avatar-component', className ) }
 			aria-hidden="true"
-			ref={ forwardRef }
+			ref={ ref }
 			{ ...props }
 		>
 			{ src ? (
@@ -68,12 +75,3 @@ const Avatar = React.forwardRef(
 );
 
 Avatar.displayName = 'Avatar';
-Avatar.propTypes = {
-	isVIP: PropTypes.bool,
-	size: PropTypes.number,
-	src: PropTypes.string,
-	name: PropTypes.string,
-	className: PropTypes.any,
-};
-
-export { Avatar };
