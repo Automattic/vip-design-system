@@ -4,25 +4,25 @@
  * External dependencies
  */
 import React, { useLayoutEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 /**
  * Internal dependencies
  */
 import { Box, WizardStep } from '..';
+import { WizardStepProps } from './WizardStep';
 
-const Wizard = React.forwardRef(
+interface WizardProps {
+	steps: WizardStepProps[];
+	activeStep?: number;
+	completed: number[];
+	skipped: number[];
+	className: string;
+	titleAutofocus: boolean;
+}
+export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 	(
-		{
-			steps,
-			activeStep,
-			completed = [],
-			skipped = [],
-			className = null,
-			titleAutofocus = false,
-			...props
-		},
+		{ steps, activeStep, completed = [], skipped = [], className = null, titleAutofocus = false },
 		forwardRef
 	) => {
 		const [ didMount, setDidMount ] = useState( false );
@@ -60,14 +60,3 @@ const Wizard = React.forwardRef(
 );
 
 Wizard.displayName = 'Wizard';
-
-Wizard.propTypes = {
-	steps: PropTypes.array,
-	activeStep: PropTypes.number,
-	completed: PropTypes.array,
-	skipped: PropTypes.array,
-	className: PropTypes.any,
-	titleAutofocus: PropTypes.bool,
-};
-
-export { Wizard };

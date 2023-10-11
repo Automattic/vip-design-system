@@ -5,15 +5,35 @@
  */
 import React, { useLayoutEffect } from 'react';
 import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
-import PropTypes from 'prop-types';
+import { IconType } from 'react-icons/lib';
 
 /**
  * Internal dependencies
  */
 import { Card, Heading, Text, Flex, Table, TableRow, TableCell, Button } from '..';
 import { ScreenReaderText } from '../ScreenReaderText';
+import { HeadingProps } from '../Heading/Heading';
 
-const WizardStep = React.forwardRef(
+export interface WizardStepSummary {
+	label?: React.ReactNode;
+	value?: React.ReactNode;
+}
+export interface WizardStepProps {
+	active?: boolean;
+	children?: React.ReactNode;
+	complete?: boolean;
+	order: number;
+	totalSteps: number;
+	subTitle?: React.ReactNode;
+	title?: React.ReactNode;
+	titleVariant?: HeadingProps[ 'variant' ];
+	skipped?: boolean;
+	onChange?: () => void;
+	summary: WizardStepSummary[];
+	shouldFocusTitle?: boolean;
+}
+
+export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 	(
 		{
 			title,
@@ -31,7 +51,7 @@ const WizardStep = React.forwardRef(
 		},
 		forwardRef
 	) => {
-		const titleRef = React.useRef( null );
+		const titleRef = React.useRef< HTMLHeadingElement >( null );
 		let status = 'inactive';
 		let statusText = 'Step not completed';
 		if ( active ) {
@@ -53,7 +73,7 @@ const WizardStep = React.forwardRef(
 		const statusIconColor = `wizard.step.icon.${ status }`;
 		const headingColor = `wizard.step.heading.${ status }`;
 
-		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
+		const StatusIcon: IconType = complete ? BsFillCheckCircleFill : BsCircleFill;
 
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
@@ -81,7 +101,6 @@ const WizardStep = React.forwardRef(
 				data-step={ order }
 				data-active={ active || undefined }
 				ref={ forwardRef }
-				// aria-current={ active ? 'step' : undefined }
 			>
 				<Flex sx={ { alignItems: 'flex-end', mb: 2 } }>
 					<Heading
@@ -176,25 +195,3 @@ const WizardStep = React.forwardRef(
 );
 
 WizardStep.displayName = 'WizardStep';
-
-WizardStep.propTypes = {
-	active: PropTypes.bool,
-	children: PropTypes.node,
-	complete: PropTypes.bool,
-	order: PropTypes.number.isRequired,
-	totalSteps: PropTypes.number.isRequired,
-	subTitle: PropTypes.node,
-	title: PropTypes.string,
-	titleVariant: PropTypes.string,
-	skipped: PropTypes.bool,
-	onChange: PropTypes.func,
-	summary: PropTypes.arrayOf(
-		PropTypes.shape( {
-			label: PropTypes.node,
-			value: PropTypes.node,
-		} )
-	),
-	shouldFocusTitle: PropTypes.bool,
-};
-
-export { WizardStep };
