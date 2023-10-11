@@ -10,7 +10,7 @@ import { Box } from '..';
 import classNames, { Argument } from 'classnames';
 import { BoxProps } from 'theme-ui';
 
-interface CardProps {
+export interface CardProps {
 	variant?: string;
 	sx?: BoxProps[ 'sx' ];
 	className?: Argument;
