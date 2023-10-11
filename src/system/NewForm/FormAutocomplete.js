@@ -11,7 +11,7 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import css from './FormAutocomplete.css';
+import './FormAutocomplete.css';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
@@ -388,4 +388,4 @@ FormAutocomplete.propTypes = {
 
 FormAutocomplete.displayName = 'FormAutocomplete';
 
-export { FormAutocomplete, css };
+export { FormAutocomplete };
