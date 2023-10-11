@@ -3,7 +3,7 @@
  */
 import { forwardRef, Ref } from 'react';
 import { Spinner as ThemeSpinner, SpinnerProps, ThemeUIStyleObject } from 'theme-ui';
-import classNames, { Argument } from 'classnames';
+import classNames from 'classnames';
 
 export interface ThemeSpinnerProps extends SpinnerProps {
 	sx?: ThemeUIStyleObject;
@@ -13,13 +13,17 @@ export interface ThemeSpinnerProps extends SpinnerProps {
 }
 
 export const Spinner = forwardRef< SVGSVGElement, ThemeSpinnerProps >(
-	( { sx, className, color, ...props }: ThemeSpinnerProps, ref: Ref< SVGSVGElement > ) => (
+	(
+		{ sx, color = 'icon.helper', strokeWidth = 2, className, ...props }: ThemeSpinnerProps,
+		ref: Ref< SVGSVGElement >
+	) => (
 		<ThemeSpinner
 			as={ 'svg' }
 			sx={ {
-				color: 'icon.helper',
+				...sx,
+				color,
 			} }
-			strokeWidth={ 2 }
+			strokeWidth={ strokeWidth }
 			className={ classNames( 'vip-spinner-component', className ) }
 			ref={ ref }
 			{ ...props }
