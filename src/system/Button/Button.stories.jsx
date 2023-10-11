@@ -40,6 +40,10 @@ const Template = args => (
 			Tertiary
 		</Button>
 
+		<Button disabled={ true } sx={ { ml: 2 } } { ...args }>
+			Disabled
+		</Button>
+
 		<Button variant="ghost" sx={ { ml: 2 } } { ...args }>
 			Ghost
 		</Button>
