@@ -12,17 +12,17 @@ export interface ThemeSpinnerProps extends SpinnerProps {
 	strokeWidth?: number;
 }
 
-export const Spinner = forwardRef<SVGSVGElement, ThemeSpinnerProps>(
-	({ sx, className, color, ...props }: ThemeSpinnerProps, ref: Ref<SVGSVGElement>) => (
+export const Spinner = forwardRef< SVGSVGElement, ThemeSpinnerProps >(
+	( { sx, className, color, ...props }: ThemeSpinnerProps, ref: Ref< SVGSVGElement > ) => (
 		<ThemeSpinner
-			as={'svg'}
-			sx={{
+			as={ 'svg' }
+			sx={ {
 				color: 'icon.helper',
-			}}
-			strokeWidth={2}
-			className={classNames('vip-spinner-component', className)}
-			ref={ref}
-			{...props}
+			} }
+			strokeWidth={ 2 }
+			className={ classNames( 'vip-spinner-component', className ) }
+			ref={ ref }
+			{ ...props }
 		/>
 	)
 );
