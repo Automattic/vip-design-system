@@ -70,9 +70,12 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
+		const statusIconStyles = {
+			mr: 3,
+			mt: 0,
+			color: statusIconColor,
+		};
 		const headingColor = `wizard.step.heading.${ status }`;
-
-		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
 
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
@@ -120,13 +123,11 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						</Text>
 
 						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
-							<StatusIcon
-								sx={ {
-									mr: 3,
-									mt: 0,
-									color: statusIconColor,
-								} }
-							/>
+							{ complete ? (
+								<BsFillCheckCircleFill sx={ statusIconStyles } />
+							) : (
+								<BsCircleFill sx={ statusIconStyles } />
+							) }
 							{ title }
 						</Flex>
 

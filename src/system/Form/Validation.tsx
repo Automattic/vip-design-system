@@ -15,8 +15,6 @@ interface ValidationProps {
 }
 
 export const Validation = ( { children, isValid, describedId, ...props }: ValidationProps ) => {
-	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
-
 	return (
 		<p
 			sx={ {
@@ -29,7 +27,11 @@ export const Validation = ( { children, isValid, describedId, ...props }: Valida
 			id={ describedId ? `describe-${ describedId }-validation` : undefined }
 			{ ...props }
 		>
-			<Icon sx={ { mr: 1 } } aria-hidden="true" />
+			{ isValid ? (
+				<MdCheckCircle sx={ { mr: 1 } } aria-hidden="true" />
+			) : (
+				<MdErrorOutline sx={ { mr: 1 } } aria-hidden="true" />
+			) }
 			{ children }
 		</p>
 	);
