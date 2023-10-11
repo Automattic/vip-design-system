@@ -2,8 +2,8 @@
  * External dependencies
  */
 import React, { useCallback, forwardRef, Ref } from 'react';
-import { Theme, Button as ThemeButton } from 'theme-ui';
-import classNames, { Argument } from 'classnames';
+import { Theme, Button as ThemeButton, ButtonProps as ThemeButtonProps } from 'theme-ui';
+import classNames from 'classnames';
 
 type ButtonClickType = React.MouseEvent< HTMLButtonElement, MouseEvent >;
 
@@ -11,11 +11,9 @@ interface ButtonTheme extends Theme {
 	outline?: Record< string, string >;
 }
 
-export interface ButtonProps {
-	className: Argument;
-	disabled: boolean;
+export interface ButtonProps extends ThemeButtonProps {
+	disabled?: boolean;
 	onClick: ( event: ButtonClickType ) => void;
-	sx: object;
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
