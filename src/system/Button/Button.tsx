@@ -13,7 +13,7 @@ interface ButtonTheme extends Theme {
 
 export interface ButtonProps extends ThemeButtonProps {
 	disabled?: boolean;
-	onClick: ( event: ButtonClickType ) => void;
+	onClick?: ( event: ButtonClickType ) => void;
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
