@@ -26,6 +26,7 @@ const slideUp = keyframes( {
 	to: { height: 0 },
 } );
 
+// temporary solution while we converte the theme to TS
 interface AccordionTheme extends Theme {
 	outline?: Record< string, string >;
 }
