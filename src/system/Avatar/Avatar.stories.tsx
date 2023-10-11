@@ -13,6 +13,6 @@ export default {
 	component: Avatar,
 };
 
-type Avatar = StoryObj< typeof Avatar >;
+type Story = StoryObj< typeof Avatar >;
 
-export const Default: Avatar = {};
+export const Default: Story = {};

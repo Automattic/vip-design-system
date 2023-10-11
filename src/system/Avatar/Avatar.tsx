@@ -10,7 +10,7 @@ import classNames, { Argument } from 'classnames';
  */
 import { Box, Text } from '..';
 
-interface AvatarProps {
+export interface AvatarProps {
 	isVIP?: boolean;
 	size?: number;
 	src?: string;
