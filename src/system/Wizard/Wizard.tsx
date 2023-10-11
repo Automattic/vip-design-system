@@ -12,7 +12,7 @@ import classNames from 'classnames';
 import { Box, WizardStep } from '..';
 import { WizardStepProps } from './WizardStep';
 
-interface WizardProps {
+export interface WizardProps {
 	steps: WizardStepProps[];
 	activeStep?: number;
 	completed?: number[];

@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import classNames from 'classnames';
-interface FormProps {
+export interface FormProps {
 	children?: React.ReactNode;
 	className?: string;
 }
