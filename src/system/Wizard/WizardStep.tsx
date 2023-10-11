@@ -20,16 +20,16 @@ export interface WizardStepSummary {
 }
 export interface WizardStepProps {
 	active?: boolean;
-	children?: React.ReactNode;
 	complete?: boolean;
-	order: number;
-	totalSteps: number;
-	subTitle?: React.ReactNode;
-	title?: React.ReactNode;
+	order?: number;
+	totalSteps?: number;
+	title?: React.ReactNode | string;
 	titleVariant?: HeadingProps[ 'variant' ];
+	subTitle?: React.ReactNode | string;
+	children?: React.ReactNode;
 	skipped?: boolean;
 	onChange?: () => void;
-	summary: WizardStepSummary[];
+	summary?: WizardStepSummary[];
 	shouldFocusTitle?: boolean;
 }
 
@@ -136,7 +136,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 							 * we are adding the composed title here so that it's announced correctly by the voiceover
 							 * Using tags inside the heading would make the voiceover read the heading in multiple parts
 							 **/
-							`${ stepText }: ${ title }. ${ statusText }`
+							`${ stepText }: ${ title?.toString() }. ${ statusText }`
 						}</ScreenReaderText>
 					</Heading>
 
@@ -146,13 +146,13 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 							onClick={ onChange }
 							sx={ { height: 'auto', alignSelf: 'flex-end' } }
 						>
-							Change <ScreenReaderText>{ `the ${ title } step` }</ScreenReaderText>
+							Change <ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
 						</Button>
 					) }
 				</Flex>
-				{ ! active && ( complete || skipped ) && summary?.length > 0 && (
+				{ ! active && ( complete || skipped ) && summary && summary.length > 0 && (
 					<Table
-						caption={ `Summary of ${ title }` }
+						caption={ `Summary of ${ title?.toString() }` }
 						sx={ {
 							width: 'auto',
 							minWidth: 'auto',
