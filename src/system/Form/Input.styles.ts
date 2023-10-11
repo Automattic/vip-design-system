@@ -1,15 +1,21 @@
+import { Theme } from 'theme-ui';
+
 export const baseControlBorderStyle = {
 	borderWidth: '1px',
 	borderStyle: 'solid',
 	borderColor: 'input.border.default',
 };
+// Temporary interface until we add types to the theme definition.
+interface InputTheme extends Theme {
+	outline?: Record< string, string >;
+}
 
 export const inputBaseText = 'input.text.default';
 export const inputBaseBackground = 'input.background';
 export const baseControlFocusStyle = {
-	'&:focus': theme => theme.outline,
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
+	'&:focus': ( theme: InputTheme ) => theme.outline,
+	'&:focus-visible': ( theme: InputTheme ) => theme.outline,
+	'&:focus-within': ( theme: InputTheme ) => theme.outline,
 };
 
 export const baseControlStyle = {

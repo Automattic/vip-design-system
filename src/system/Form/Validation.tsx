@@ -3,13 +3,18 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 
 const errorColor = 'texts.error';
 const helperColor = 'texts.helper';
 
-const Validation = ( { children, isValid, describedId = null, ...props } ) => {
+interface ValidationProps {
+	children?: React.ReactNode;
+	isValid?: boolean;
+	describedId?: string;
+}
+
+export const Validation = ( { children, isValid, describedId, ...props } ) => {
 	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
 
 	return (
@@ -29,11 +34,3 @@ const Validation = ( { children, isValid, describedId = null, ...props } ) => {
 		</p>
 	);
 };
-
-Validation.propTypes = {
-	children: PropTypes.node,
-	isValid: PropTypes.bool,
-	describedId: PropTypes.string,
-};
-
-export { Validation };
