@@ -9,6 +9,7 @@ import React from 'react';
  * Internal dependencies
  */
 import { Wizard, Box, Label, Input, Button, Form } from '..';
+import { WizardStepProps } from './WizardStep';
 
 export default {
 	title: 'Wizard',
@@ -23,7 +24,7 @@ const options = [
 ];
 
 export const Default = () => {
-	const steps = [
+	const steps: WizardStepProps[] = [
 		{
 			title: 'Choose Domain',
 			titleVariant: 'h2',
@@ -62,7 +63,7 @@ export const Default = () => {
 export const WithTitleAutoFocus = () => {
 	const [ activeStep, setActiveStep ] = React.useState( 0 );
 	const [ autoFocus, setAutoFocus ] = React.useState( true );
-	const steps = [
+	const steps: WizardStepProps[] = [
 		{
 			title: 'Choose Domain',
 			titleVariant: 'h2',

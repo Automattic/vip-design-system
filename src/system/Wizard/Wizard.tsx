@@ -15,10 +15,10 @@ import { WizardStepProps } from './WizardStep';
 interface WizardProps {
 	steps: WizardStepProps[];
 	activeStep?: number;
-	completed: number[];
-	skipped: number[];
-	className: string;
-	titleAutofocus: boolean;
+	completed?: number[];
+	skipped?: number[];
+	className?: string;
+	titleAutofocus?: boolean;
 }
 export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 	(
