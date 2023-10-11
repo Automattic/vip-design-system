@@ -1,11 +1,8 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import React from 'react';
-import { Progress as ThemeProgress } from 'theme-ui';
-import PropTypes from 'prop-types';
+import { forwardRef, Ref } from 'react';
+import { Progress as ThemeProgress, ThemeUIStyleObject } from 'theme-ui';
 import classNames from 'classnames';
 
 /**
@@ -13,13 +10,24 @@ import classNames from 'classnames';
  */
 import { Spinner } from '../Spinner';
 import { MdCheck } from 'react-icons/md';
-import { Box, Text, Flex } from '../';
+import { Box, Text, Flex } from '..';
 
 const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );
 
-const Progress = React.forwardRef(
-	( { steps, activeStep, sx, forLabel = '', className, ...props }, forwardRef ) => {
+export interface ProgressProps {
+	steps: string[];
+	activeStep: number;
+	forLabel?: string;
+	sx?: ThemeUIStyleObject;
+	className?: string;
+}
+
+export const Progress = forwardRef< HTMLProgressElement, ProgressProps >(
+	(
+		{ steps, activeStep, sx, forLabel = '', className, ...props }: ProgressProps,
+		ref: Ref< HTMLProgressElement >
+	) => {
 		const stepsTotal = steps.length;
 		const isDone = activeStep === stepsTotal - 1;
 		const instance = uniqueID();
@@ -38,7 +46,7 @@ const Progress = React.forwardRef(
 					value={ currentValue }
 					id={ htmlFor }
 					aria-label={ forLabel }
-					ref={ forwardRef }
+					ref={ ref }
 					{ ...props }
 				/>
 
@@ -66,13 +74,3 @@ const Progress = React.forwardRef(
 );
 
 Progress.displayName = 'Progress';
-
-Progress.propTypes = {
-	steps: PropTypes.array,
-	activeStep: PropTypes.number,
-	forLabel: PropTypes.node,
-	sx: PropTypes.object,
-	className: PropTypes.any,
-};
-
-export { Progress };
