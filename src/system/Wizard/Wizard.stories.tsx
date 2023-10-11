@@ -33,7 +33,6 @@ export const Default = () => {
 				<Box>
 					<Label>Domain</Label>
 					<Input autoFocus placeholder="yourdomain.com" />
-					<Form.Autocomplete label="Autocomplete" options={ options } />
 					<Button sx={ { mt: 3 } }>Continue</Button>
 				</Box>
 			),
