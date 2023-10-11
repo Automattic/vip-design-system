@@ -18,7 +18,7 @@ export const Spinner = forwardRef< SVGSVGElement, ThemeSpinnerProps >(
 		ref: Ref< SVGSVGElement >
 	) => (
 		<ThemeSpinner
-			as={ 'svg' }
+			as="svg"
 			sx={ {
 				...sx,
 				color,
