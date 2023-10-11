@@ -4,7 +4,6 @@
  * External dependencies
  */
 import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
-import { IconType } from 'react-icons/lib';
 
 const errorColor = 'texts.error';
 const helperColor = 'texts.helper';
@@ -16,7 +15,7 @@ interface ValidationProps {
 }
 
 export const Validation = ( { children, isValid, describedId, ...props }: ValidationProps ) => {
-	const Icon: IconType = isValid ? MdCheckCircle : MdErrorOutline;
+	const Icon = isValid ? MdCheckCircle : MdErrorOutline;
 
 	return (
 		<p

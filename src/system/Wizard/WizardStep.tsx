@@ -5,7 +5,6 @@
  */
 import React, { useLayoutEffect } from 'react';
 import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
-import { IconType } from 'react-icons/lib';
 
 /**
  * Internal dependencies
@@ -73,7 +72,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 		const statusIconColor = `wizard.step.icon.${ status }`;
 		const headingColor = `wizard.step.heading.${ status }`;
 
-		const StatusIcon: IconType = complete ? BsFillCheckCircleFill : BsCircleFill;
+		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
 
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
