@@ -3,17 +3,18 @@
 /**
  * External dependencies
  */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import { MdChevronRight } from 'react-icons/md';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { keyframes } from '@emotion/react';
-import classNames from 'classnames';
+import classNames, { Argument } from 'classnames';
 
 /**
  * Internal dependencies
  */
 import { Heading } from '../Heading';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
+import { HeadingProps } from '../Heading/Heading';
 
 const slideDown = keyframes( {
 	from: { height: 0 },
@@ -25,7 +26,36 @@ const slideUp = keyframes( {
 	to: { height: 0 },
 } );
 
-export const Item = ( { children, ...props } ) => (
+// temporary solution while we converte the theme to TS
+interface AccordionTheme extends Theme {
+	outline?: Record< string, string >;
+}
+interface AccordionItemProps {
+	children: ReactNode;
+	value: string;
+}
+interface TriggerProps {
+	children: ReactNode;
+	headingVariant?: HeadingProps[ 'variant' ];
+	sx?: ThemeUIStyleObject;
+}
+interface TriggerWithIconProps {
+	children: ReactNode;
+	icon: ReactNode;
+}
+
+interface ContentProps {
+	children: ReactNode;
+	sx?: ThemeUIStyleObject;
+}
+interface RootProps {
+	caption?: string;
+	children?: ReactNode;
+	className?: Argument;
+	sx?: ThemeUIStyleObject;
+	defaultValue?: string;
+}
+export const Item = ( { children, ...props }: AccordionItemProps ) => (
 	<AccordionPrimitive.Item
 		{ ...props }
 		sx={ {
@@ -43,7 +73,7 @@ export const Item = ( { children, ...props } ) => (
 				borderBottomLeftRadius: 4,
 				borderBottomRightRadius: 4,
 			},
-			'&:focus-within': theme => theme.outline,
+			'&:focus-within': ( theme: AccordionTheme ) => theme.outline,
 		} }
 	>
 		{ children }
@@ -52,11 +82,7 @@ export const Item = ( { children, ...props } ) => (
 
 Item.displayName = 'Accordion.Item';
 
-Item.propTypes = {
-	children: PropTypes.node.isRequired,
-};
-
-export const Trigger = React.forwardRef(
+export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 	( { children, headingVariant = 'h3', sx = {}, ...props }, forwardedRef ) => (
 		<Heading
 			sx={ {
@@ -115,85 +141,66 @@ export const Trigger = React.forwardRef(
 
 Trigger.displayName = 'Accordion.Trigger';
 
-Trigger.propTypes = {
-	children: PropTypes.node.isRequired,
-	headingVariant: PropTypes.string,
-	sx: PropTypes.object,
-};
-
-export const TriggerWithIcon = React.forwardRef( ( { children, icon, ...props }, forwardedRef ) => (
-	<Trigger { ...props } ref={ forwardedRef }>
-		<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
-		<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 3 } }>
-			{ children }
-		</div>
-	</Trigger>
-) );
+export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithIconProps >(
+	( { children, icon, ...props }, forwardedRef ) => (
+		<Trigger { ...props } ref={ forwardedRef }>
+			<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
+			<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 3 } }>
+				{ children }
+			</div>
+		</Trigger>
+	)
+);
 
 TriggerWithIcon.displayName = 'Accordion.TriggerWithIcon';
 
-TriggerWithIcon.propTypes = {
-	children: PropTypes.node.isRequired,
-	icon: PropTypes.node.isRequired,
-};
+export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
+	( { children, sx = {}, ...props }, forwardedRef ) => {
+		return (
+			<AccordionPrimitive.Content
+				sx={ {
+					backgroundColor: 'accordion.content.background',
+					color: 'accordion.content.text',
+					fontSize: 2,
+					overflow: 'hidden',
+					px: 3,
+					py: 2,
 
-export const Content = React.forwardRef( ( { children, sx = {}, ...props }, forwardedRef ) => {
-	return (
-		<AccordionPrimitive.Content
-			sx={ {
-				backgroundColor: 'accordion.content.background',
-				color: 'accordion.content.text',
-				fontSize: 2,
-				overflow: 'hidden',
-				px: 3,
-				py: 2,
-
-				'&[data-state="open"]': {
-					animation: `${ slideDown } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
-				},
-				'&[data-state="closed"]': {
-					animation: `${ slideUp } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
-				},
-				...sx,
-			} }
-			{ ...props }
-			ref={ forwardedRef }
-		>
-			{ children }
-		</AccordionPrimitive.Content>
-	);
-} );
+					'&[data-state="open"]': {
+						animation: `${ slideDown } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
+					},
+					'&[data-state="closed"]': {
+						animation: `${ slideUp } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
+					},
+					...sx,
+				} }
+				{ ...props }
+				ref={ forwardedRef }
+			>
+				{ children }
+			</AccordionPrimitive.Content>
+		);
+	}
+);
 
 Content.displayName = 'Accordion.Content';
 
-Content.propTypes = {
-	children: PropTypes.node.isRequired,
-	sx: PropTypes.object,
-};
-
-const Root = React.forwardRef( ( { sx = {}, children, className, ...props }, forwardRef ) => (
-	<AccordionPrimitive.Root
-		className={ classNames( 'vip-accordion-component', className ) }
-		collapsible
-		ref={ forwardRef }
-		sx={ {
-			borderRadius: 6,
-			...sx,
-		} }
-		{ ...props }
-	>
-		{ children }
-	</AccordionPrimitive.Root>
-) );
+export const Root = React.forwardRef< HTMLDivElement, RootProps >(
+	( { sx = {}, children, className, ...props }, forwardRef ) => (
+		<AccordionPrimitive.Root
+			className={ classNames( 'vip-accordion-component', className ) }
+			collapsible
+			type="single"
+			ref={ forwardRef }
+			sx={ {
+				borderRadius: 6,
+				...sx,
+			} }
+			{ ...props }
+		>
+			{ children }
+		</AccordionPrimitive.Root>
+	)
+);
 
 Root.displayName = 'Accordion';
-
-Root.propTypes = {
-	children: PropTypes.node,
-	className: PropTypes.any,
-	defaultValue: PropTypes.any,
-	sx: PropTypes.object,
-	type: PropTypes.oneOf( [ 'single', 'multiple' ] ),
-};
-
-export { Root };

@@ -41,7 +41,7 @@ describe( '<Accordion />', () => {
 		expect( screen.queryByText( 'content two' ) ).toBeNull();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'should open the content when clicking on its trigger', async () => {
@@ -56,6 +56,6 @@ describe( '<Accordion />', () => {
 		expect( screen.queryByText( 'content two' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
