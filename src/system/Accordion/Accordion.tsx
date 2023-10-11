@@ -30,6 +30,31 @@ const slideUp = keyframes( {
 interface AccordionTheme extends Theme {
 	outline?: Record< string, string >;
 }
+interface AccordionItemProps {
+	children: ReactNode;
+	value: string;
+}
+interface TriggerProps {
+	children: ReactNode;
+	headingVariant?: HeadingProps[ 'variant' ];
+	sx?: ThemeUIStyleObject;
+}
+interface TriggerWithIconProps {
+	children: ReactNode;
+	icon: ReactNode;
+}
+
+interface ContentProps {
+	children: ReactNode;
+	sx?: ThemeUIStyleObject;
+}
+interface RootProps {
+	caption?: string;
+	children?: ReactNode;
+	className?: Argument;
+	sx?: ThemeUIStyleObject;
+	defaultValue?: string;
+}
 export const Item = ( { children, ...props }: AccordionItemProps ) => (
 	<AccordionPrimitive.Item
 		{ ...props }
@@ -56,11 +81,6 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 );
 
 Item.displayName = 'Accordion.Item';
-
-interface AccordionItemProps {
-	children: ReactNode;
-	value: string;
-}
 
 export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 	( { children, headingVariant = 'h3', sx = {}, ...props }, forwardedRef ) => (
@@ -121,11 +141,6 @@ export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 
 Trigger.displayName = 'Accordion.Trigger';
 
-interface TriggerProps {
-	children: ReactNode;
-	headingVariant?: HeadingProps[ 'variant' ];
-	sx?: ThemeUIStyleObject;
-}
 export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithIconProps >(
 	( { children, icon, ...props }, forwardedRef ) => (
 		<Trigger { ...props } ref={ forwardedRef }>
@@ -138,10 +153,6 @@ export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithI
 );
 
 TriggerWithIcon.displayName = 'Accordion.TriggerWithIcon';
-interface TriggerWithIconProps {
-	children: ReactNode;
-	icon: ReactNode;
-}
 
 export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
 	( { children, sx = {}, ...props }, forwardedRef ) => {
@@ -174,17 +185,6 @@ export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
 
 Content.displayName = 'Accordion.Content';
 
-interface ContentProps {
-	children: ReactNode;
-	sx?: ThemeUIStyleObject;
-}
-interface RootProps {
-	caption?: string;
-	children?: ReactNode;
-	className?: Argument;
-	sx?: ThemeUIStyleObject;
-	defaultValue?: string;
-}
 export const Root = React.forwardRef< HTMLDivElement, RootProps >(
 	( { sx = {}, children, className, ...props }, forwardRef ) => (
 		<AccordionPrimitive.Root
