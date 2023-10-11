@@ -8,4 +8,4 @@ export default {
 	component: Card,
 };
 
-export const Default = () => <Card>Hello</Card>;
+export const Default = () => <Card> Hello </Card>;
