@@ -37,8 +37,7 @@ export const DefaultWithIcon: Story = {
 
 export const DefaultWithConsoleInfo: Story = {
 	render: () => (
-		// eslint-disable-next-line no-console
-		<Code showCopy={ true } onCopy={ () => console.info( 'Hello world' ) }>
+		<Code showCopy={ true } onCopy={ () => global.alert( 'Hello world' ) }>
 			Code with Icon and Click callback — console.info
 		</Code>
 	),

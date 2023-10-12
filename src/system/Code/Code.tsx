@@ -53,6 +53,21 @@ const Code = React.forwardRef< HTMLDivElement, CodeProps >(
 			return codeDom;
 		}
 
+		const onClickCopy = () => {
+			const copyText = async () => {
+				await window.navigator.clipboard.writeText( ref.current?.innerText ?? '' );
+
+				setCopied( true );
+
+				if ( onCopy ) {
+					onCopy();
+				}
+			};
+
+			// eslint-disable-next-line @typescript-eslint/no-floating-promises
+			copyText();
+		};
+
 		return (
 			<div
 				sx={ {
@@ -81,16 +96,7 @@ const Code = React.forwardRef< HTMLDivElement, CodeProps >(
 								cursor: 'pointer',
 							},
 						} }
-						onClick={ () => {
-							// eslint-disable-next-line @typescript-eslint/no-floating-promises
-							window.navigator.clipboard.writeText( ref?.current?.innerText || '' );
-
-							setCopied( true );
-
-							if ( onCopy ) {
-								onCopy();
-							}
-						} }
+						onClick={ onClickCopy }
 					>
 						{ copied ? (
 							<span role="alert">Code copied to clipboard</span>
