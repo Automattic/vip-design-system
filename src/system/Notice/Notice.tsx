@@ -106,19 +106,18 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 			>
 				<Flex
 					sx={ {
-						alignItems: 'center',
+						alignItems: 'start',
 					} }
 				>
-					<Flex
+					<Box
 						sx={ {
-							alignItems: 'start',
 							mr: 3,
 							mt: title ? 2 : 0,
 							flexShrink: 0,
 						} }
 					>
 						<NoticeIcon color={ `notice.icon.${ systemVariant }` } variant={ variant } />
-					</Flex>
+					</Box>
 
 					<Box>
 						{ title && (
