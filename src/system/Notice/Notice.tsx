@@ -5,43 +5,61 @@
  */
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 
 /**
  * Internal dependencies
  */
 import { Box, Flex, Heading, Card } from '../';
+import { ThemeUIStyleObject } from 'theme-ui';
 
-const colorSystemVariant = color =>
-	( { warning: 'warning', error: 'error', alert: 'error', success: 'success', info: 'info' }[
-		color
-	] );
+interface NoticeIconProps {
+	color: string;
+	variant: keyof COLOR_VARIANTS;
+}
 
-const NoticeIcon = ( { color, variant } ) => {
-	let Icon = MdWarning;
+interface NoticeProps {
+	children?: React.ReactNode;
+	inline?: boolean;
+	sx?: ThemeUIStyleObject;
+	title?: React.ReactNode;
+	variant?: keyof COLOR_VARIANTS;
+	headingVariant?: React.ElementType;
+	className?: string;
+}
+type COLOR_VARIANTS = {
+	warning: string;
+	error: string;
+	alert: string;
+	success: string;
+	info: string;
+};
+const COLOR_VARIANTS_MAPPING: COLOR_VARIANTS = {
+	warning: 'warning',
+	error: 'error',
+	alert: 'error',
+	success: 'success',
+	info: 'info',
+};
+const colorSystemVariant = ( color: keyof COLOR_VARIANTS ) => COLOR_VARIANTS_MAPPING[ color ];
+
+const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
+	const sx = { color, flex: '0 0 auto' };
+	const size = 21;
 
 	switch ( variant ) {
 		case 'info':
-			Icon = MdInfo;
-			break;
+			return <MdInfo sx={ sx } size={ size } aria-hidden="true" />;
 		case 'error':
-			Icon = MdError;
-			break;
+			return <MdError sx={ sx } size={ size } aria-hidden="true" />;
 		case 'success':
-			Icon = MdCheckCircle;
-			break;
+			return <MdCheckCircle sx={ sx } size={ size } aria-hidden="true" />;
 	}
 
-	return <Icon sx={ { color, flex: '0 0 auto' } } size={ 21 } aria-hidden="true" />;
+	return <MdWarning sx={ sx } size={ size } aria-hidden="true" />;
 };
 
-NoticeIcon.propTypes = {
-	color: PropTypes.string,
-	variant: PropTypes.string,
-};
-
-const Notice = React.forwardRef(
+export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 	(
 		{
 			children,
@@ -122,15 +140,3 @@ const Notice = React.forwardRef(
 );
 
 Notice.displayName = 'Notice';
-
-Notice.propTypes = {
-	children: PropTypes.node,
-	inline: PropTypes.bool,
-	sx: PropTypes.object,
-	title: PropTypes.node,
-	variant: PropTypes.string,
-	headingVariant: PropTypes.string,
-	className: PropTypes.any,
-};
-
-export { Notice };
