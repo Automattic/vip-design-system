@@ -19,7 +19,7 @@ interface NoticeIconProps {
 }
 
 interface NoticeProps {
-	children?: React.ReactNode;
+	children: React.ReactNode;
 	inline?: boolean;
 	sx?: ThemeUIStyleObject;
 	title?: React.ReactNode;
@@ -111,13 +111,16 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 				>
 					<Flex
 						sx={ {
-							alignItems: 'center',
+							alignItems: 'start',
+							mr: 3,
+							mt: title ? 2 : 0,
+							flexShrink: 0,
 						} }
 					>
 						<NoticeIcon color={ `notice.icon.${ systemVariant }` } variant={ variant } />
 					</Flex>
 
-					<Box sx={ { ml: 3 } }>
+					<Box>
 						{ title && (
 							<Heading
 								as={ headingVariant }
