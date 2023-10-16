@@ -45,7 +45,7 @@ const colorSystemVariant = ( color: keyof COLOR_VARIANTS ) => COLOR_VARIANTS_MAP
 
 const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
 	const sx = { color, flex: '0 0 auto' };
-	const size = 21;
+	const size = 20;
 
 	switch ( variant ) {
 		case 'info':
