@@ -16,7 +16,9 @@ const defaultProps = {
 // Mock navigator.clipboard because jsdom doesn't support it
 Object.defineProperty( window.navigator, 'clipboard', {
 	value: {
-		writeText: () => {},
+		writeText: () => {
+			return Promise.resolve();
+		},
 	},
 } );
 
