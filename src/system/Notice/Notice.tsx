@@ -18,7 +18,7 @@ interface NoticeIconProps {
 	variant: keyof COLOR_VARIANTS;
 }
 
-interface NoticeProps {
+export interface NoticeProps {
 	children: React.ReactNode;
 	inline?: boolean;
 	sx?: ThemeUIStyleObject;
