@@ -9,7 +9,7 @@ import React from 'react';
  * Internal dependencies
  */
 import { Validation, Label } from '../';
-import { Input as ThemeInput, InputProps as ThemeInputProps, ThemeUIStyleObject } from 'theme-ui';
+import { Input as ThemeInput, InputProps as ThemeInputProps } from 'theme-ui';
 import { baseControlStyle } from './Input.styles';
 
 const inputStyles = {
@@ -30,7 +30,6 @@ interface InputProps extends ThemeInputProps {
 	required?: boolean;
 	forLabel?: string;
 	errorMessage?: string;
-	sx?: ThemeUIStyleObject;
 }
 export const Input = React.forwardRef< HTMLInputElement, InputProps >(
 	( { label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props }, ref ) => (
