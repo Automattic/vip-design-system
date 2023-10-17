@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import ThemeBuilder from './getColor';
+import ThemeBuilder from './getPropValue';
 
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
@@ -9,12 +9,12 @@ import ColorBuilder from './colors';
 import { textStyles } from './textStyles';
 
 // Light
-const { getColor, getVariants, ValetTheme } = ThemeBuilder( Valet );
+const { getPropValue, getVariants, ValetTheme } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
 
 // Dark
 const {
-	getColor: getColorDark,
+	getPropValue: getPropValueDark,
 	getVariants: getVariantsDark,
 	ValetTheme: ValetThemeDark,
 } = ThemeBuilder( ValetDark );
@@ -23,9 +23,11 @@ const dark = ColorBuilder( ValetThemeDark );
 
 const outline = {
 	outlineStyle: 'solid',
-	outlineColor: getColor( 'focus', 'inset' ),
+	outlineColor: getPropValue( 'focus', 'inset' ),
 	outlineWidth: '1px',
-	boxShadow: `0 0 0 1px ${ getColor( 'focus', 'inset' ) }, 0 0 0 3px ${ getColor( 'focus' ) }`,
+	boxShadow: `0 0 0 1px ${ getPropValue( 'focus', 'inset' ) }, 0 0 0 3px ${ getPropValue(
+		'focus'
+	) }`,
 };
 
 const fonts = {
@@ -214,31 +216,31 @@ export default {
 	fonts,
 	fontSizes: getVariants( 'fontSize.static' ),
 	fontWeights: {
-		body: getColor( 'fontWeight', 'body' ),
-		heading: getColor( 'fontWeight', 'heading' ),
-		regular: getColor( 'fontWeight', 'regular' ),
-		bold: getColor( 'fontWeight', 'bold' ),
-		medium: getColor( 'fontWeight', 'medium' ),
-		light: getColor( 'fontWeight', 'light' ),
+		body: getPropValue( 'fontWeight', 'body' ),
+		heading: getPropValue( 'fontWeight', 'heading' ),
+		regular: getPropValue( 'fontWeight', 'regular' ),
+		bold: getPropValue( 'fontWeight', 'bold' ),
+		medium: getPropValue( 'fontWeight', 'medium' ),
+		light: getPropValue( 'fontWeight', 'light' ),
 	},
 	lineHeights: {
-		body: 1.6,
-		heading: 1.125,
+		body: getPropValue( 'lineHeight', '1' ),
+		heading: getPropValue( 'lineHeight', '2' ),
 	},
 	sizes: {
 		sidebar: 260,
 	},
-	radii: [ 0, 4, 8 ],
+	radii: getVariants( 'borderRadius.static' ),
 	config: {
 		useColorSchemeMediaQuery: false,
 	},
 	initialColorModeName: 'light',
 	colors: {
-		...getComponentColors( ValetTheme, getColor, getVariants ),
+		...getComponentColors( ValetTheme, getPropValue, getVariants ),
 		...light,
 		modes: {
 			dark: {
-				...getComponentColors( ValetThemeDark, getColorDark, getVariantsDark ),
+				...getComponentColors( ValetThemeDark, getPropValueDark, getVariantsDark ),
 				...dark,
 			},
 		},

@@ -66,12 +66,12 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 
 			'&:first-of-type': {
 				borderTopWidth: '1px',
-				borderTopLeftRadius: 4,
-				borderTopRightRadius: 4,
+				borderTopLeftRadius: 1,
+				borderTopRightRadius: 1,
 			},
 			'&:last-child': {
-				borderBottomLeftRadius: 4,
-				borderBottomRightRadius: 4,
+				borderBottomLeftRadius: 1,
+				borderBottomRightRadius: 1,
 			},
 			'&:focus-within': ( theme: AccordionTheme ) => theme.outline,
 		} }
@@ -193,7 +193,7 @@ export const Root = React.forwardRef< HTMLDivElement, RootProps >(
 			type="single"
 			ref={ forwardRef }
 			sx={ {
-				borderRadius: 6,
+				borderRadius: 2,
 				...sx,
 			} }
 			{ ...props }

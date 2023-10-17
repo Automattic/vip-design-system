@@ -6,12 +6,12 @@
 // https://www.figma.com/file/sILtW5Cs2tAnPWrSOEVyER/Productive-Color?node-id=1%3A17&t=4kHdpoprxntk5Ilw-0
 
 export default theme => {
-	const getColor = ( color, variant = 'default' ) => {
-		if ( ! theme[ color ] ) {
+	const getPropValue = ( prop, variant = 'default' ) => {
+		if ( ! theme[ prop ] ) {
 			return '#000000';
 		}
 
-		return theme[ color ][ variant ].value;
+		return theme[ prop ][ variant ].value;
 	};
 
 	const resolvePath = ( object, path, defaultValue ) => {
@@ -45,7 +45,7 @@ export default theme => {
 
 	return {
 		ValetTheme: traverse( theme ),
-		getColor,
+		getPropValue,
 		getVariants,
 		traverse,
 		resolvePath,
