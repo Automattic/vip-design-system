@@ -16,7 +16,9 @@ const defaultProps = {
 // Mock navigator.clipboard because jsdom doesn't support it
 Object.defineProperty( window.navigator, 'clipboard', {
 	value: {
-		writeText: () => {},
+		writeText: () => {
+			return Promise.resolve();
+		},
 	},
 } );
 
@@ -27,7 +29,7 @@ describe( '<Code />', () => {
 		expect( screen.getByText( 'This is a code' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the Code component with a copy button', async () => {
@@ -37,7 +39,7 @@ describe( '<Code />', () => {
 		expect( screen.getByRole( 'button', { name: 'Copy code' } ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'updates the the UI after clicking on "Copy"', async () => {
@@ -51,6 +53,6 @@ describe( '<Code />', () => {
 		expect( screen.getByText( 'Code copied to clipboard' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

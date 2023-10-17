@@ -3,14 +3,21 @@
 /**
  * External dependencies
  */
-import React, { useRef, useState } from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import React, { ReactNode, createRef, useState } from 'react';
+import classNames, { Argument } from 'classnames';
 import { MdContentCopy } from 'react-icons/md';
 
-const Code = React.forwardRef(
-	( { prompt = false, showCopy = false, onCopy = null, className, ...props }, forwardRef ) => {
-		const ref = useRef();
+export interface CodeProps {
+	prompt?: boolean;
+	showCopy?: boolean;
+	onCopy?: () => void;
+	className?: Argument;
+	children?: ReactNode;
+}
+
+const Code = React.forwardRef< HTMLDivElement, CodeProps >(
+	( { prompt = false, showCopy = false, onCopy, className, ...props }: CodeProps, forwardRef ) => {
+		const ref = createRef< HTMLElement >();
 
 		const codeDom = (
 			<code
@@ -46,6 +53,19 @@ const Code = React.forwardRef(
 			return codeDom;
 		}
 
+		const onClickCopy = () => {
+			window.navigator.clipboard
+				.writeText( ref.current?.innerText ?? '' )
+				.then( () => {
+					setCopied( true );
+
+					if ( onCopy ) {
+						onCopy();
+					}
+				} )
+				.catch( () => {} );
+		};
+
 		return (
 			<div
 				sx={ {
@@ -74,15 +94,7 @@ const Code = React.forwardRef(
 								cursor: 'pointer',
 							},
 						} }
-						onClick={ () => {
-							window.navigator.clipboard.writeText( ref.current?.innerText );
-
-							setCopied( true );
-
-							if ( onCopy ) {
-								onCopy();
-							}
-						} }
+						onClick={ onClickCopy }
 					>
 						{ copied ? (
 							<span role="alert">Code copied to clipboard</span>
@@ -97,12 +109,5 @@ const Code = React.forwardRef(
 );
 
 Code.displayName = 'Code';
-
-Code.propTypes = {
-	prompt: PropTypes.bool,
-	showCopy: PropTypes.bool,
-	onCopy: PropTypes.func,
-	className: PropTypes.any,
-};
 
 export { Code };
