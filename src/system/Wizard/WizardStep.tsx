@@ -22,9 +22,9 @@ export interface WizardStepProps {
 	complete?: boolean;
 	order?: number;
 	totalSteps?: number;
-	title?: React.ReactNode | string;
+	title: React.ReactNode;
 	titleVariant?: HeadingProps[ 'variant' ];
-	subTitle?: React.ReactNode | string;
+	subTitle?: React.ReactNode;
 	children?: React.ReactNode;
 	skipped?: boolean;
 	onChange?: () => void;
