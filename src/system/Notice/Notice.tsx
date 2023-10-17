@@ -15,7 +15,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
 
 interface NoticeIconProps {
 	color: string;
-	variant: keyof COLOR_VARIANTS;
+	variant: ColorVariants;
 }
 
 export interface NoticeProps {
@@ -23,25 +23,11 @@ export interface NoticeProps {
 	inline?: boolean;
 	sx?: ThemeUIStyleObject;
 	title?: React.ReactNode;
-	variant?: keyof COLOR_VARIANTS;
+	variant?: ColorVariants;
 	headingVariant?: React.ElementType;
 	className?: string;
 }
-type COLOR_VARIANTS = {
-	warning: string;
-	error: string;
-	alert: string;
-	success: string;
-	info: string;
-};
-const COLOR_VARIANTS_MAPPING: COLOR_VARIANTS = {
-	warning: 'warning',
-	error: 'error',
-	alert: 'error',
-	success: 'success',
-	info: 'info',
-};
-const colorSystemVariant = ( color: keyof COLOR_VARIANTS ) => COLOR_VARIANTS_MAPPING[ color ];
+type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
 
 const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
 	const sx = { color, flex: '0 0 auto' };
@@ -56,6 +42,7 @@ const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
 			return <MdCheckCircle sx={ sx } size={ size } aria-hidden="true" />;
 	}
 
+	// alert and warning will get the Warning icon
 	return <MdWarning sx={ sx } size={ size } aria-hidden="true" />;
 };
 
@@ -73,29 +60,27 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 		},
 		forwardRef
 	) => {
-		const systemVariant = colorSystemVariant( variant );
-
 		return (
 			<Card
 				sx={ {
 					boxShadow: 'none',
 					borderRadius: 2,
-					bg: inline ? 'transparent' : `notice.background.${ systemVariant }`,
+					bg: inline ? 'transparent' : `notice.background.${ variant }`,
 					padding: inline ? 0 : 3,
-					color: `notice.text.${ systemVariant }`,
+					color: `notice.text.${ variant }`,
 					p: {
-						color: `notice.text.${ systemVariant }`,
+						color: `notice.text.${ variant }`,
 					},
 					a: {
-						color: `notice.link.${ systemVariant }.default`,
+						color: `notice.link.${ variant }.default`,
 						'&:visited': {
-							color: `notice.link.${ systemVariant }.visited`,
+							color: `notice.link.${ variant }.visited`,
 						},
 						'&:active': {
-							color: `notice.link.${ systemVariant }.active`,
+							color: `notice.link.${ variant }.active`,
 						},
 						'&:hover, &:focus': {
-							color: `notice.link.${ systemVariant }.hover`,
+							color: `notice.link.${ variant }.hover`,
 						},
 					},
 					...sx,
@@ -116,7 +101,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							flexShrink: 0,
 						} }
 					>
-						<NoticeIcon color={ `notice.icon.${ systemVariant }` } variant={ variant } />
+						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
 					</Box>
 
 					<Box>
@@ -124,7 +109,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							<Heading
 								as={ headingVariant }
 								sx={ {
-									color: `notice.text.${ systemVariant }`,
+									color: `notice.text.${ variant }`,
 									mb: 0,
 									fontSize: 2,
 									fontWeight: 'bold',

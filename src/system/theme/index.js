@@ -54,7 +54,27 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	// Notice
 	notice: {
-		...theme.support,
+		// extending the notice theme to support the alert variant
+		background: {
+			alert: theme.support.background.error,
+			...theme.support.background,
+		},
+		link: {
+			alert: theme.support.link.error,
+			...theme.support.link,
+		},
+		accent: {
+			alert: theme.support.accent.error,
+			...theme.support.accent,
+		},
+		icon: {
+			alert: theme.support.icon.error,
+			...theme.support.icon,
+		},
+		text: {
+			alert: theme.support.text.error,
+			...theme.support.text,
+		},
 	},
 
 	// layer
