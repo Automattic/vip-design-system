@@ -25,6 +25,13 @@ export const Default = () => (
 
 		<Text sx={ { color: 'texts.helper' } }>Text Helper</Text>
 
+		<Text sx={ { color: 'texts.helper', fontWeight: 'body' } }>Text Helper</Text>
+		<Text sx={ { color: 'texts.helper', fontWeight: 'heading' } }>Text Helper</Text>
+		<Text sx={ { color: 'texts.helper', fontWeight: 'regular' } }>Text Helper</Text>
+		<Text sx={ { color: 'texts.helper', fontWeight: 'medium' } }>Text Helper</Text>
+		<Text sx={ { color: 'texts.helper', fontWeight: 'bold' } }>Text Helper</Text>
+		<Text sx={ { color: 'texts.helper', fontWeight: 'light' } }>Text Helper</Text>
+
 		<Text sx={ { color: 'texts.secondary' } }>Text Secondary</Text>
 
 		<Text sx={ { color: 'texts.primary' } }>Text Primary</Text>

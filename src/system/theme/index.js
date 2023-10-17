@@ -41,7 +41,6 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	// This has to be in the plural because we already have a flag: text
 	texts: {
 		...theme.text,
-		disabled: '#716e6e',
 	},
 
 	button: {
@@ -211,13 +210,16 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 export default {
 	outline,
-	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
+	space: getVariants( 'space.static' ),
 	fonts,
-	fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
+	fontSizes: getVariants( 'fontSize.static' ),
 	fontWeights: {
-		body: 400,
-		heading: 500,
-		bold: 600,
+		body: getColor( 'fontWeight', 'body' ),
+		heading: getColor( 'fontWeight', 'heading' ),
+		regular: getColor( 'fontWeight', 'regular' ),
+		bold: getColor( 'fontWeight', 'bold' ),
+		medium: getColor( 'fontWeight', 'medium' ),
+		light: getColor( 'fontWeight', 'light' ),
 	},
 	lineHeights: {
 		body: 1.6,
@@ -237,24 +239,6 @@ export default {
 		modes: {
 			dark: {
 				...getComponentColors( ValetThemeDark, getColorDark, getVariantsDark ),
-				// text: dark.grey[ '90' ],
-				// heading: dark.grey[ '100' ],
-				// background: dark.grey[ '5' ],
-				// backgroundSecondary: dark.grey[ '10' ],
-				// primary: light.brand[ '70' ],
-				// secondary: '#30c',
-				// muted: dark.grey[ '90' ],
-				// link: dark.brand[ '90' ],
-				// card: dark.grey[ '20' ],
-				// placeholder: dark.grey[ '70' ],
-				// border: dark.grey[ '30' ],
-				// hover: 'rgba(255,255,255,.02)',
-				// midnight: dark.grey[ '90' ],
-				// success: dark.green[ '90' ],
-				// error: dark.red[ '90' ],
-				// warning: dark.yellow[ '90' ],
-				// dialog: dark.grey[ '40' ],
-				// backgroundMuted: dark.grey[ '10' ],
 				...dark,
 			},
 		},

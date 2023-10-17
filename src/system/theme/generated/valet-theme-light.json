@@ -1,4 +1,267 @@
 {
+  "space": {
+    "responsive": {
+      "small": {
+        "1": {
+          "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
+          "type": "spacing"
+        }
+      },
+      "medium": {
+        "1": {
+          "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
+          "type": "spacing"
+        },
+        "2": {
+          "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
+          "type": "spacing"
+        }
+      },
+      "large": {
+        "1": {
+          "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+          "type": "spacing",
+          "description": "The default space between sequential blocks in a layout"
+        },
+        "2": {
+          "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
+          "type": "spacing"
+        },
+        "3": {
+          "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
+          "type": "spacing"
+        },
+        "4": {
+          "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
+          "type": "spacing"
+        }
+      },
+      "0-1": {
+        "value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)",
+        "type": "spacing"
+      },
+      "1-2": {
+        "value": "clamp(0.25rem, calc(0.19rem + 0.30vw), 0.50rem)",
+        "type": "spacing"
+      },
+      "2-3": {
+        "value": "clamp(0.50rem, calc(0.44rem + 0.30vw), 0.75rem)",
+        "type": "spacing"
+      },
+      "3-4": {
+        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
+        "type": "spacing"
+      },
+      "4-5": {
+        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
+        "type": "spacing"
+      },
+      "5-6": {
+        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "6-7": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "spacing"
+      },
+      "7-8": {
+        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "8-9": {
+        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
+        "type": "spacing"
+      },
+      "9-10": {
+        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
+        "type": "spacing"
+      },
+      "3-6": {
+        "value": "clamp(0.75rem, calc(0.45rem + 1.51vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "4-7": {
+        "value": "clamp(1.00rem, calc(0.40rem + 3.01vw), 3.50rem)",
+        "type": "spacing"
+      },
+      "5-8": {
+        "value": "clamp(1.50rem, calc(0.66rem + 4.22vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "6-9": {
+        "value": "clamp(2.00rem, calc(0.80rem + 6.02vw), 7.00rem)",
+        "type": "spacing"
+      }
+    },
+    "static": {
+      "0": {
+        "value": 2.08,
+        "type": "spacing"
+      },
+      "1": {
+        "value": 4,
+        "type": "spacing"
+      },
+      "2": {
+        "value": 8,
+        "type": "spacing"
+      },
+      "3": {
+        "value": 12,
+        "type": "spacing"
+      },
+      "4": {
+        "value": 16,
+        "type": "spacing"
+      },
+      "5": {
+        "value": 24,
+        "type": "spacing"
+      },
+      "6": {
+        "value": 32,
+        "type": "spacing"
+      },
+      "7": {
+        "value": 56,
+        "type": "spacing"
+      },
+      "8": {
+        "value": 80,
+        "type": "spacing"
+      },
+      "9": {
+        "value": 112,
+        "type": "spacing"
+      },
+      "10": {
+        "value": 160,
+        "type": "spacing"
+      },
+      "small": {
+        "1": {
+          "value": 2.08,
+          "type": "spacing"
+        },
+        "2": {
+          "value": 4,
+          "type": "spacing"
+        },
+        "3": {
+          "value": 8,
+          "type": "spacing"
+        },
+        "4": {
+          "value": 12,
+          "type": "spacing"
+        }
+      },
+      "medium": {
+        "1": {
+          "value": 16,
+          "type": "spacing"
+        },
+        "2": {
+          "value": 24,
+          "type": "spacing"
+        },
+        "3": {
+          "value": 32,
+          "type": "spacing"
+        }
+      },
+      "large": {
+        "1": {
+          "value": 56,
+          "type": "spacing"
+        },
+        "2": {
+          "value": 80,
+          "type": "spacing"
+        },
+        "3": {
+          "value": 160,
+          "type": "spacing"
+        }
+      }
+    }
+  },
+  "borderRadius": {
+    "static": {
+      "0": {
+        "value": 2.08,
+        "type": "borderRadius"
+      },
+      "1": {
+        "value": 4,
+        "type": "borderRadius"
+      },
+      "2": {
+        "value": 8,
+        "type": "borderRadius"
+      },
+      "3": {
+        "value": 16,
+        "type": "borderRadius"
+      },
+      "4": {
+        "value": 32,
+        "type": "borderRadius"
+      },
+      "5": {
+        "value": 40,
+        "type": "borderRadius"
+      },
+      "6": {
+        "value": 56,
+        "type": "borderRadius"
+      },
+      "small": {
+        "1": {
+          "value": 2.08,
+          "type": "borderRadius"
+        },
+        "2": {
+          "value": 4,
+          "type": "borderRadius"
+        }
+      },
+      "medium": {
+        "1": {
+          "value": 8,
+          "type": "borderRadius"
+        },
+        "2": {
+          "value": 16,
+          "type": "borderRadius"
+        }
+      },
+      "large": {
+        "1": {
+          "value": 32,
+          "type": "borderRadius"
+        },
+        "2": {
+          "value": 40,
+          "type": "borderRadius"
+        },
+        "3": {
+          "value": 56,
+          "type": "borderRadius"
+        }
+      }
+    },
+    "responsive": {
+      "3-5": {
+        "value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)",
+        "type": "borderRadius"
+      },
+      "4-6": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "borderRadius"
+      }
+    }
+  },
   "background": {
     "primary": {
       "type": "color",
@@ -40,8 +303,34 @@
   },
   "input": {
     "background": {
-      "value": "#ffffff",
-      "type": "color"
+      "default": {
+        "value": "#fbfbfb00",
+        "type": "color"
+      },
+      "primary": {
+        "value": "#13191e",
+        "type": "color"
+      },
+      "success": {
+        "value": "#007934",
+        "type": "color"
+      },
+      "brand": {
+        "value": "#9a6014",
+        "type": "color"
+      },
+      "inactive": {
+        "value": "#827f7e",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#cbc7c6",
+        "type": "color"
+      },
+      "read-only": {
+        "value": "#f4f3f2",
+        "type": "color"
+      }
     },
     "label": {
       "default": {
@@ -73,6 +362,10 @@
         "value": "#d3372b",
         "type": "color",
         "description": "Use for inputs which are in an error state."
+      },
+      "read-only": {
+        "value": "#e3e0df",
+        "type": "color"
       }
     },
     "switcher": {
@@ -94,11 +387,11 @@
           "type": "color"
         },
         "hover": {
-          "value": "#fbfbfb00",
+          "value": "#f4f3f2",
           "type": "color"
         },
         "active": {
-          "value": "#f4f3f2",
+          "value": "#fbfbfb00",
           "type": "color"
         },
         "disabled": {
@@ -150,7 +443,7 @@
           "type": "color"
         },
         "hover": {
-          "value": "#6a6766",
+          "value": "#8f8c8b",
           "type": "color"
         },
         "active": {
@@ -159,6 +452,18 @@
         },
         "disabled": {
           "value": "#bfbcbb",
+          "type": "color"
+        }
+      }
+    },
+    "toggle": {
+      "switch": {
+        "default": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#ebe9e8",
           "type": "color"
         }
       }
@@ -269,11 +574,19 @@
     },
     "inverse": {
       "type": "color",
-      "value": "#f4f3f2"
+      "value": "#ffffff"
     },
     "disabled": {
       "type": "color",
       "value": "#8f8c8b"
+    },
+    "brand": {
+      "value": "#9a6014",
+      "type": "color"
+    },
+    "inverse-disabled": {
+      "value": "#e3e0df",
+      "type": "color"
     }
   },
   "button": {
@@ -698,6 +1011,60 @@
           "value": "#00611e"
         }
       }
+    },
+    "helper-text": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "fontSize": 12,
+        "lineHeight": "150%"
+      },
+      "type": "typography"
+    },
+    "label-xs": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "lineHeight": "100%",
+        "fontSize": 11
+      },
+      "type": "typography"
+    },
+    "label-small": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "lineHeight": "100%",
+        "fontSize": 12
+      },
+      "type": "typography"
+    },
+    "label-default": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 500,
+        "lineHeight": "100%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "label-default-quiet": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "lineHeight": "100%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "label-default-loud": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 700,
+        "lineHeight": "100%",
+        "fontSize": 14
+      },
+      "type": "typography"
     }
   },
   "focus": {
@@ -910,6 +1277,278 @@
       }
     }
   },
+  "sticker": {
+    "gray": {
+      "background": {
+        "type": "color",
+        "value": "#201e1d"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#cbc7c6"
+      },
+      "text": {
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#383635"
+      },
+      "active": {
+        "type": "color",
+        "value": "#444140"
+      }
+    },
+    "blue": {
+      "background": {
+        "type": "color",
+        "value": "#54c0cd"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#ddebf3"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#19a8b8"
+      },
+      "active": {
+        "type": "color",
+        "value": "#009bad"
+      }
+    },
+    "green": {
+      "background": {
+        "type": "color",
+        "value": "#4dc679"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#d7efdf"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#30ac63"
+      },
+      "active": {
+        "type": "color",
+        "value": "#1da158"
+      }
+    },
+    "red": {
+      "background": {
+        "type": "color",
+        "value": "#bf2a23"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#ffdedb"
+      },
+      "text": {
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#9a1a19"
+      },
+      "active": {
+        "type": "color",
+        "value": "#840b10"
+      }
+    },
+    "gold": {
+      "background": {
+        "type": "color",
+        "value": "#d8a45f"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#eeeae5"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#d29137"
+      },
+      "active": {
+        "type": "color",
+        "value": "#c5832a"
+      }
+    },
+    "yellow": {
+      "background": {
+        "type": "color",
+        "value": "#f09d01"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#ffe2c2"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#d38500"
+      },
+      "active": {
+        "type": "color",
+        "value": "#c67a00"
+      }
+    },
+    "orange": {
+      "background": {
+        "type": "color",
+        "value": "#ff7b28"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#ffe0cc"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#e76205"
+      },
+      "active": {
+        "type": "color",
+        "value": "#d75001"
+      }
+    },
+    "salmon": {
+      "background": {
+        "type": "color",
+        "value": "#f9945e"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#fedfd8"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#e07b4d"
+      },
+      "active": {
+        "type": "color",
+        "value": "#d27146"
+      }
+    },
+    "pink": {
+      "background": {
+        "type": "color",
+        "value": "#e29e9d"
+      },
+      "background-secondary": {
+        "type": "color",
+        "value": "#ffdedb"
+      },
+      "text": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "text-secondary": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "icon": {
+        "type": "color",
+        "value": "#13191e"
+      },
+      "hover": {
+        "type": "color",
+        "value": "#ca8588"
+      },
+      "active": {
+        "type": "color",
+        "value": "#bc7a7e"
+      }
+    }
+  },
   "toolbar": {
     "background": {
       "value": "#13191e",
@@ -969,18 +1608,55 @@
         "type": "color"
       },
       "icon": {
-        "value": "#f4f3f2",
+        "value": "#ffffff",
         "type": "color"
       }
     }
   },
-  "rem": {
-    "value": 16,
-    "type": "other",
-    "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
+  "fontFamily": {
+    "body": {
+      "value": "SF Pro Display",
+      "type": "fontFamilies"
+    },
+    "serif": {
+      "value": "Recoleta",
+      "type": "fontFamilies"
+    },
+    "monospace": {
+      "value": "SF Mono Regular",
+      "type": "fontFamilies"
+    }
   },
   "fontSize": {
+    "0": {
+      "value": 10,
+      "type": "fontSizes"
+    },
+    "1": {
+      "value": 12,
+      "type": "fontSizes"
+    },
+    "2": {
+      "value": 14,
+      "type": "fontSizes"
+    },
+    "3": {
+      "value": 19,
+      "type": "fontSizes"
+    },
+    "4": {
+      "value": 32,
+      "type": "fontSizes"
+    },
+    "5": {
+      "value": 40,
+      "type": "fontSizes"
+    },
     "static": {
+      "0": {
+        "value": 10,
+        "type": "fontSizes"
+      },
       "1": {
         "value": 12,
         "type": "fontSizes",
@@ -1005,334 +1681,419 @@
     },
     "figma": {
       "1": {
-        "s": {
-          "value": 12.34,
-          "type": "other",
-          "description": "All of these fontSizes.figma tokens are used exclusively for convenience in Figma. We use them to generate the suite of styles we use in Figma and correspond to the screen size values in breakpoints. They are a representation of the responsive sizes generated by the clamp functions in the fontSizes.responsive object"
+        "S": {
+          "value": 12.29,
+          "type": "number"
         },
-        "m": {
-          "value": 11.07,
-          "type": "other"
+        "M": {
+          "value": 11.25,
+          "type": "number"
         },
-        "l": {
-          "value": 9.8,
-          "type": "other"
+        "L": {
+          "value": 10.03,
+          "type": "number"
         },
-        "xl": {
-          "value": 9.05,
-          "type": "other"
+        "XL": {
+          "value": 9.21,
+          "type": "number"
         },
-        "max": {
-          "value": 11.07,
-          "type": "other"
+        "XXL": {
+          "value": 8.52,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 8.17,
+          "type": "number"
         }
       },
       "2": {
-        "s": {
-          "value": 13.17,
-          "type": "other"
+        "S": {
+          "value": 13.12,
+          "type": "number"
         },
-        "m": {
-          "value": 12.19,
-          "type": "other"
+        "M": {
+          "value": 12.28,
+          "type": "number"
         },
-        "l": {
-          "value": 11.17,
-          "type": "other"
+        "L": {
+          "value": 11.3,
+          "type": "number"
         },
-        "xl": {
-          "value": 10.55,
-          "type": "other"
+        "XL": {
+          "value": 10.64,
+          "type": "number"
         },
-        "max": {
-          "value": 9.84,
-          "type": "other"
+        "XXL": {
+          "value": 10.08,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 9.92,
+          "type": "number"
         }
       },
       "3": {
-        "s": {
-          "value": 14.05,
-          "type": "other"
+        "S": {
+          "value": 14.02,
+          "type": "number"
         },
-        "m": {
-          "value": 13.42,
-          "type": "other"
+        "M": {
+          "value": 13.44,
+          "type": "number"
         },
-        "l": {
-          "value": 12.74,
-          "type": "other"
+        "L": {
+          "value": 12.78,
+          "type": "number"
         },
-        "xl": {
-          "value": 12.31,
-          "type": "other"
+        "XL": {
+          "value": 12.33,
+          "type": "number"
         },
-        "max": {
-          "value": 11.81,
-          "type": "other"
+        "XXL": {
+          "value": 11.95,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 11.84,
+          "type": "number"
         }
       },
       "4": {
-        "s": {
-          "value": 15,
-          "type": "other"
+        "S": {
+          "value": 15.01,
+          "type": "number"
         },
-        "m": {
-          "value": 14.77,
-          "type": "other"
+        "M": {
+          "value": 14.81,
+          "type": "number"
         },
-        "l": {
-          "value": 14.52,
-          "type": "other"
+        "L": {
+          "value": 14.57,
+          "type": "number"
         },
-        "xl": {
-          "value": 14.36,
-          "type": "other"
+        "XL": {
+          "value": 14.41,
+          "type": "number"
         },
-        "max": {
-          "value": 14.17,
-          "type": "other"
+        "XXL": {
+          "value": 14.28,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 14.24,
+          "type": "number"
         }
       },
       "5": {
-        "s": {
+        "S": {
           "value": 16,
-          "type": "other"
+          "type": "number"
         },
-        "m": {
-          "value": 16.25,
-          "type": "other"
+        "M": {
+          "value": 16.2,
+          "type": "number"
         },
-        "l": {
-          "value": 16.55,
-          "type": "other"
+        "L": {
+          "value": 16.52,
+          "type": "number"
         },
-        "xl": {
-          "value": 16.75,
-          "type": "other"
+        "XL": {
+          "value": 16.73,
+          "type": "number"
         },
-        "max": {
-          "value": 17,
-          "type": "other"
+        "XXL": {
+          "value": 16.91,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 16.96,
+          "type": "number"
         }
       },
       "6": {
-        "s": {
-          "value": 17.07,
-          "type": "other"
+        "S": {
+          "value": 17.12,
+          "type": "number"
         },
-        "m": {
-          "value": 17.89,
-          "type": "other"
+        "M": {
+          "value": 17.96,
+          "type": "number"
         },
-        "l": {
-          "value": 18.86,
-          "type": "other"
+        "L": {
+          "value": 18.94,
+          "type": "number"
         },
-        "xl": {
-          "value": 19.53,
-          "type": "other"
+        "XL": {
+          "value": 19.6,
+          "type": "number"
         },
-        "max": {
-          "value": 20.4,
-          "type": "other"
+        "XXL": {
+          "value": 20.16,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 20.44,
+          "type": "number"
         }
       },
       "7": {
-        "s": {
-          "value": 18.22,
-          "type": "other"
+        "S": {
+          "value": 18.24,
+          "type": "number"
         },
-        "m": {
-          "value": 19.69,
-          "type": "other"
+        "M": {
+          "value": 19.72,
+          "type": "number"
         },
-        "l": {
-          "value": 21.5,
-          "type": "other"
+        "L": {
+          "value": 21.57,
+          "type": "number"
         },
-        "xl": {
-          "value": 22.78,
-          "type": "other"
+        "XL": {
+          "value": 22.81,
+          "type": "number"
         },
-        "max": {
-          "value": 24.48,
-          "type": "other"
+        "XXL": {
+          "value": 23.86,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 24.39,
+          "type": "number"
         }
       },
       "8": {
-        "s": {
-          "value": 19.44,
-          "type": "other"
+        "S": {
+          "value": 19.52,
+          "type": "number"
         },
-        "m": {
-          "value": 21.67,
-          "type": "other"
+        "M": {
+          "value": 22.04,
+          "type": "number"
         },
-        "l": {
-          "value": 24.51,
-          "type": "other"
+        "L": {
+          "value": 24.98,
+          "type": "number"
         },
-        "xl": {
-          "value": 26.57,
-          "type": "other"
+        "XL": {
+          "value": 26.96,
+          "type": "number"
         },
-        "max": {
-          "value": 29.38,
-          "type": "other"
+        "XXL": {
+          "value": 28.64,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 29.44,
+          "type": "number"
         }
       },
       "9": {
-        "s": {
-          "value": 20.74,
-          "type": "other"
+        "S": {
+          "value": 20.8,
+          "type": "number"
         },
-        "m": {
-          "value": 23.85,
-          "type": "other"
+        "M": {
+          "value": 24.43,
+          "type": "number"
         },
-        "l": {
-          "value": 27.94,
-          "type": "other"
+        "L": {
+          "value": 28.7,
+          "type": "number"
         },
-        "xl": {
-          "value": 30.99,
-          "type": "other"
+        "XL": {
+          "value": 31.58,
+          "type": "number"
         },
-        "max": {
-          "value": 35.25,
-          "type": "other"
+        "XXL": {
+          "value": 34.02,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 35.2,
+          "type": "number"
         }
       },
       "10": {
-        "s": {
-          "value": 22.13,
-          "type": "other"
+        "S": {
+          "value": 22.14,
+          "type": "number"
         },
-        "m": {
-          "value": 26.25,
-          "type": "other"
+        "M": {
+          "value": 27.25,
+          "type": "number"
         },
-        "l": {
-          "value": 31.85,
-          "type": "other"
+        "L": {
+          "value": 33.21,
+          "type": "number"
         },
-        "xl": {
-          "value": 36.15,
-          "type": "other"
+        "XL": {
+          "value": 37.22,
+          "type": "number"
         },
-        "max": {
-          "value": 42.3,
-          "type": "other"
+        "XXL": {
+          "value": 40.63,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 42.24,
+          "type": "number"
         }
       },
       "11": {
-        "s": {
-          "value": 23.61,
-          "type": "other"
+        "S": {
+          "value": 23.68,
+          "type": "number"
         },
-        "m": {
-          "value": 28.9,
-          "type": "other"
+        "M": {
+          "value": 30.5,
+          "type": "number"
         },
-        "l": {
-          "value": 36.31,
-          "type": "other"
+        "L": {
+          "value": 38.5,
+          "type": "number"
         },
-        "xl": {
-          "value": 42.16,
-          "type": "other"
+        "XL": {
+          "value": 43.88,
+          "type": "number"
         },
-        "max": {
-          "value": 50.76,
-          "type": "other"
+        "XXL": {
+          "value": 48.45,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 50.72,
+          "type": "number"
         }
       },
       "12": {
-        "s": {
-          "value": 25.19,
-          "type": "other"
+        "S": {
+          "value": 25.25,
+          "type": "number"
         },
-        "m": {
-          "value": 31.8,
-          "type": "other"
+        "M": {
+          "value": 34.29,
+          "type": "number"
         },
-        "l": {
-          "value": 41.39,
-          "type": "other"
+        "L": {
+          "value": 44.83,
+          "type": "number"
         },
-        "xl": {
-          "value": 49.17,
-          "type": "other"
+        "XL": {
+          "value": 51.93,
+          "type": "number"
         },
-        "max": {
-          "value": 60.91,
-          "type": "other"
+        "XXL": {
+          "value": 57.96,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 60.96,
+          "type": "number"
         }
       },
       "13": {
-        "s": {
+        "S": {
           "value": 26.88,
-          "type": "other"
+          "type": "number"
         },
-        "m": {
-          "value": 35,
-          "type": "other"
+        "M": {
+          "value": 38.51,
+          "type": "number"
         },
-        "l": {
-          "value": 47.18,
-          "type": "other"
+        "L": {
+          "value": 52.15,
+          "type": "number"
         },
-        "xl": {
-          "value": 57.35,
-          "type": "other"
+        "XL": {
+          "value": 61.34,
+          "type": "number"
         },
-        "max": {
-          "value": 73.1,
-          "type": "other"
+        "XXL": {
+          "value": 69.13,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 73.03,
+          "type": "number"
         }
       },
       "14": {
-        "s": {
-          "value": 28.68,
-          "type": "other"
+        "S": {
+          "value": 28.64,
+          "type": "number"
         },
-        "m": {
-          "value": 38.53,
-          "type": "other"
+        "M": {
+          "value": 43.59,
+          "type": "number"
         },
-        "l": {
-          "value": 53.78,
-          "type": "other"
+        "L": {
+          "value": 61.04,
+          "type": "number"
         },
-        "xl": {
-          "value": 66.9,
-          "type": "other"
+        "XL": {
+          "value": 72.78,
+          "type": "number"
         },
-        "max": {
-          "value": 87.72,
-          "type": "other"
+        "XXL": {
+          "value": 82.75,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 87.68,
+          "type": "number"
         }
       },
       "15": {
-        "s": {
-          "value": 30.6,
-          "type": "other"
+        "S": {
+          "value": 30.62,
+          "type": "number"
         },
-        "m": {
-          "value": 42.41,
-          "type": "other"
+        "M": {
+          "value": 49.51,
+          "type": "number"
         },
-        "l": {
-          "value": 61.3,
-          "type": "other"
+        "L": {
+          "value": 71.54,
+          "type": "number"
         },
-        "xl": {
-          "value": 78.02,
-          "type": "other"
+        "XL": {
+          "value": 86.37,
+          "type": "number"
         },
-        "max": {
+        "XXL": {
+          "value": 98.96,
+          "type": "number"
+        },
+        "MAX": {
           "value": 105.26,
-          "type": "other"
+          "type": "number"
+        }
+      },
+      "12b": {
+        "S": {
+          "value": 48,
+          "type": "number"
+        },
+        "M": {
+          "value": 51.02,
+          "type": "number"
+        },
+        "L": {
+          "value": 54.55,
+          "type": "number"
+        },
+        "XL": {
+          "value": 56.93,
+          "type": "number"
+        },
+        "XXL": {
+          "value": 58.94,
+          "type": "number"
+        },
+        "MAX": {
+          "value": 59.95,
+          "type": "number"
         }
       }
     },
@@ -1397,152 +2158,197 @@
       "15": {
         "value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)",
         "type": "fontSizes"
+      },
+      "12b": {
+        "value": "clamp(3.00rem, calc(2.82rem + 0.90vw), 3.75rem)",
+        "type": "fontSizes",
+        "description": "lower contrast token for statistics. "
       }
     }
   },
-  "borderRadius": {
-    "static": {
-      "1": {
-        "value": 4,
-        "type": "borderRadius"
-      },
-      "2": {
-        "value": 8,
-        "type": "borderRadius"
-      },
-      "3": {
-        "value": 16,
-        "type": "borderRadius"
-      },
-      "4": {
-        "value": 32,
-        "type": "borderRadius"
-      },
-      "5": {
-        "value": 40,
-        "type": "borderRadius"
-      },
-      "6": {
-        "value": 56,
-        "type": "borderRadius"
-      }
+  "lineHeight": {
+    "1": {
+      "value": "110%",
+      "type": "lineHeights",
+      "description": "Use only for display."
+    },
+    "2": {
+      "value": "120%",
+      "type": "lineHeights",
+      "description": "Use for larger headings."
+    },
+    "3": {
+      "value": "130%",
+      "type": "lineHeights",
+      "description": "Use for small and medium sized headings."
+    },
+    "4": {
+      "value": "140%",
+      "type": "lineHeights",
+      "description": "Use for body-sized text"
+    },
+    "5": {
+      "value": "150%",
+      "type": "lineHeights",
+      "description": "Use for body-sized text in long-form reading applications."
+    },
+    "body": {
+      "value": "150%",
+      "type": "lineHeights"
+    },
+    "heading": {
+      "value": "113%",
+      "type": "lineHeights"
+    },
+    "description": {
+      "value": "In production, all units are in %.",
+      "type": "other"
     },
     "responsive": {
-      "3-5": {
-        "value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)",
-        "type": "borderRadius"
-      },
-      "4-6": {
-        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
-        "type": "borderRadius"
-      }
+      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
+      "type": "lineHeights",
+      "description": "This is the responsive line height for the responsive type sizes."
     }
   },
-  "space": {
-    "static": {
-      "0": {
-        "value": 2.08,
-        "type": "spacing"
+  "heading": {
+    "1": {
+      "value": {
+        "fontFamily": "Recoleta",
+        "fontWeight": 400,
+        "lineHeight": "135%",
+        "fontSize": 40,
+        "letterSpacing": "-1%"
       },
-      "1": {
-        "value": 4,
-        "type": "spacing"
-      },
-      "2": {
-        "value": 8,
-        "type": "spacing"
-      },
-      "3": {
-        "value": 12,
-        "type": "spacing"
-      },
-      "4": {
-        "value": 16,
-        "type": "spacing"
-      },
-      "5": {
-        "value": 24,
-        "type": "spacing"
-      },
-      "6": {
-        "value": 32,
-        "type": "spacing"
-      },
-      "7": {
-        "value": 56,
-        "type": "spacing"
-      },
-      "8": {
-        "value": 80,
-        "type": "spacing"
-      },
-      "9": {
-        "value": 112,
-        "type": "spacing"
-      },
-      "10": {
-        "value": 160,
-        "type": "spacing"
-      }
+      "type": "typography"
     },
-    "responsive": {
-      "0-1": {
-        "value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)",
-        "type": "spacing"
+    "2": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 500,
+        "lineHeight": "120%",
+        "fontSize": 32,
+        "letterSpacing": "0%"
       },
-      "1-2": {
-        "value": "clamp(0.25rem, calc(0.19rem + 0.30vw), 0.50rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "3": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 500,
+        "lineHeight": "150%",
+        "fontSize": 19,
+        "letterSpacing": "0%"
       },
-      "2-3": {
-        "value": "clamp(0.50rem, calc(0.44rem + 0.30vw), 0.75rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "4": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 500,
+        "lineHeight": "160%",
+        "fontSize": 14,
+        "letterSpacing": "0%"
       },
-      "3-4": {
-        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "5": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 500,
+        "lineHeight": "150%",
+        "fontSize": 12
       },
-      "4-5": {
-        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "caps": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 700,
+        "lineHeight": "150%",
+        "fontSize": 12,
+        "letterSpacing": "5%",
+        "textCase": "uppercase"
       },
-      "5-6": {
-        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
-        "type": "spacing"
-      },
-      "6-7": {
-        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
-        "type": "spacing"
-      },
-      "7-8": {
-        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
-        "type": "spacing"
-      },
-      "8-9": {
-        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
-        "type": "spacing"
-      },
-      "9-10": {
-        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
-        "type": "spacing"
-      },
-      "3-6": {
-        "value": "clamp(0.75rem, calc(0.45rem + 1.51vw), 2.00rem)",
-        "type": "spacing"
-      },
-      "4-7": {
-        "value": "clamp(1.00rem, calc(0.40rem + 3.01vw), 3.50rem)",
-        "type": "spacing"
-      },
-      "5-8": {
-        "value": "clamp(1.50rem, calc(0.66rem + 4.22vw), 5.00rem)",
-        "type": "spacing"
-      },
-      "6-9": {
-        "value": "clamp(2.00rem, calc(0.80rem + 6.02vw), 7.00rem)",
-        "type": "spacing"
-      }
+      "type": "typography"
     }
+  },
+  "fontWeight": {
+    "body": {
+      "value": 400,
+      "type": "fontWeights"
+    },
+    "heading": {
+      "value": 500,
+      "type": "fontWeights"
+    },
+    "regular": {
+      "value": 400,
+      "type": "fontWeights"
+    },
+    "medium": {
+      "value": 500,
+      "type": "fontWeights"
+    },
+    "bold": {
+      "value": 700,
+      "type": "fontWeights"
+    },
+    "light": {
+      "value": 200,
+      "type": "fontWeights"
+    }
+  },
+  "body": {
+    "small": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 12
+      },
+      "type": "typography"
+    },
+    "default": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "large": {
+      "value": {
+        "fontFamily": "SF Pro Display",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 20
+      },
+      "type": "typography"
+    },
+    "mono": {
+      "value": {
+        "fontFamily": "SF Mono Regular",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "mono-bold": {
+      "value": {
+        "fontFamily": "SF Mono Regular",
+        "lineHeight": "150%",
+        "fontSize": 14,
+        "fontWeight": 700
+      },
+      "type": "typography"
+    }
+  },
+  "rem": {
+    "value": 16,
+    "type": "other",
+    "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
   },
   "shadow": {
     "1": {
@@ -1641,60 +2447,6 @@
       "type": "boxShadow"
     }
   },
-  "lineHeight": {
-    "1": {
-      "value": "110%",
-      "type": "lineHeights",
-      "description": "Use only for display."
-    },
-    "2": {
-      "value": "120%",
-      "type": "lineHeights",
-      "description": "Use for larger headings."
-    },
-    "3": {
-      "value": "130%",
-      "type": "lineHeights",
-      "description": "Use for small and medium sized headings."
-    },
-    "4": {
-      "value": "140%",
-      "type": "lineHeights",
-      "description": "Use for body-sized text"
-    },
-    "5": {
-      "value": "150%",
-      "type": "lineHeights",
-      "description": "Use for body-sized text in long-form reading applications."
-    },
-    "description": {
-      "value": "In production, all units are in %.",
-      "type": "other"
-    },
-    "responsive": {
-      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
-      "type": "lineHeights",
-      "description": "This is the responsive line height for the responsive type sizes."
-    }
-  },
-  "fontWeight": {
-    "regular": {
-      "value": 400,
-      "type": "fontWeights"
-    },
-    "medium": {
-      "value": 500,
-      "type": "fontWeights"
-    },
-    "bold": {
-      "value": 700,
-      "type": "fontWeights"
-    },
-    "light": {
-      "value": 200,
-      "type": "fontWeights"
-    }
-  },
   "letterSpacing": {
     "none": {
       "value": "0em",
@@ -1702,7 +2454,7 @@
       "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
     "tight": {
-      "value": "-0.01em",
+      "value": "-0.02em",
       "type": "letterSpacing"
     },
     "loose": {
@@ -2916,8 +3668,9 @@
       "description": "656–1047px"
     },
     "L": {
-      "value": "1048–1311px",
-      "type": "sizing"
+      "value": 1048,
+      "type": "sizing",
+      "description": "1048-1311px"
     },
     "XL": {
       "value": 1312,

@@ -5,7 +5,7 @@ export const baseControlBorderStyle = {
 };
 
 export const inputBaseText = 'input.text.default';
-export const inputBaseBackground = 'input.background';
+export const inputBaseBackground = 'input.background.default';
 export const baseControlFocusStyle = {
 	'&:focus': theme => theme.outline,
 	'&:focus-visible': theme => theme.outline,
