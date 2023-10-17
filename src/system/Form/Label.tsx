@@ -3,8 +3,8 @@
 /**
  * External dependencies
  */
-import React, { ElementType } from 'react';
-import { Box, ThemeUIStyleObject } from 'theme-ui';
+import React from 'react';
+import { Box, BoxProps } from 'theme-ui';
 /**
  * Internal dependencies
  */
@@ -17,13 +17,10 @@ export const baseLabelStyle = {
 	lineHeight: 1.5,
 	color: baseLabelColor,
 };
-interface LabelProps {
+interface LabelProps extends Pick< BoxProps, 'as' | 'sx' | 'id' > {
 	children?: React.ReactNode;
 	required?: boolean;
-	sx?: ThemeUIStyleObject;
-	as?: ElementType;
 	htmlFor?: string;
-	id?: string;
 }
 
 export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
