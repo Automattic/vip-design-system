@@ -47,8 +47,10 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 					'&:focus-visible': ( theme: ButtonTheme ) => theme.outline,
 					'&[aria-disabled="true"]': {
 						opacity: 0.7,
+						backgroundColor: 'input.border.disabled',
+						color: 'texts.secondary',
 						cursor: 'not-allowed',
-						pointerEvents: 'all',
+						pointerEvents: 'none',
 					},
 					...sx,
 				} }
