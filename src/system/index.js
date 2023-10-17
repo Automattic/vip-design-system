@@ -43,7 +43,7 @@ import { Notice } from './Notice';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
 import { Tooltip } from './Tooltip';
-import { Notification } from './Notification';
+
 import { OptionRow } from './OptionRow';
 import { Table, TableRow, TableCell } from './Table';
 import { Text } from './Text';
@@ -85,7 +85,6 @@ export {
 	TableRow,
 	TableCell,
 	Tooltip,
-	Notification,
 	Link,
 	Radio,
 	RadioBoxGroup,

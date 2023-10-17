@@ -6,7 +6,7 @@ import { Heading as ThemeHeading, HeadingProps as ThemeHeadingProps } from 'them
 import classNames from 'classnames';
 
 export interface HeadingProps extends ThemeHeadingProps {
-	variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+	variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 export const Heading = forwardRef< HTMLHeadingElement, HeadingProps >(
