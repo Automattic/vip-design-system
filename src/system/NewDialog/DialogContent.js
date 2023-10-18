@@ -3,7 +3,7 @@
 export const contentStyles = {
 	background: 'dialog',
 	variant: 'dialog.modal',
-	borderRadius: 10,
+	borderRadius: 2,
 	boxShadow: 'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
 	position: 'fixed',
 	top: '50%',
