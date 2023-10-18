@@ -1356,16 +1356,6 @@
     "$figmaCollectionId": "VariableCollectionId:7973:13160",
     "$figmaModeId": "7973:2",
     "$figmaVariableReferences": {
-      "space.static.small.1": "0ce5f27a87544c8c29ae3c1d1ffee4c21159484c",
-      "space.static.small.2": "f8ea631d165b0b9dabea25a673e05e52d53660a9",
-      "space.static.small.3": "c9c6566e580cb50b368403ca9eaa15a15e0f4010",
-      "space.static.small.4": "3ef7f06357252b4485b477196d0e1d98ef47ac35",
-      "space.static.medium.1": "258d9fc27beeee0b4aa34253a89ca39e62d3cbce",
-      "space.static.medium.2": "58305c6f2b8559061b741d7db7c5c47b3b213ea9",
-      "space.static.medium.3": "774ebcbf6447c80be7d76e1ca43a2ee48567a5aa",
-      "space.static.large.1": "95ec7f54bc15e189b0e48c1cee40f11d304df8b7",
-      "space.static.large.2": "af502c4b2d1033f75af071f0253973821fa77658",
-      "space.static.large.3": "6bfad5362856677c4e0144686bb86770752dfcdc",
       "borderRadius.static.small.1": "a00c425d99920bcf8894af8f899067a73998a5c3",
       "borderRadius.static.small.2": "dea957d86cc7e335677c4cb6b67b340e80b080b1",
       "borderRadius.static.medium.1": "aa097299e3a7aa41c6890287caca6f9edb5ec7fe",
@@ -1647,7 +1637,17 @@
       "option-row.default.background": "3c200da2f024f05c12ef3c89ba3350a6709b3804",
       "option-row.default.icon": "6ac03bc500264895b97425b302a058f7a03aa607",
       "option-row.alt.background": "95b3f410a8e4dd3430d1153bba8860f93b8f986e",
-      "option-row.alt.icon": "35b1f980db1009692f4389f3cd8d3eb9d94f682c"
+      "option-row.alt.icon": "35b1f980db1009692f4389f3cd8d3eb9d94f682c",
+      "space.static.0": "0ce5f27a87544c8c29ae3c1d1ffee4c21159484c",
+      "space.static.1": "f8ea631d165b0b9dabea25a673e05e52d53660a9",
+      "space.static.2": "c9c6566e580cb50b368403ca9eaa15a15e0f4010",
+      "space.static.3": "3ef7f06357252b4485b477196d0e1d98ef47ac35",
+      "space.static.4": "258d9fc27beeee0b4aa34253a89ca39e62d3cbce",
+      "space.static.5": "58305c6f2b8559061b741d7db7c5c47b3b213ea9",
+      "space.static.6": "774ebcbf6447c80be7d76e1ca43a2ee48567a5aa",
+      "space.static.7": "95ec7f54bc15e189b0e48c1cee40f11d304df8b7",
+      "space.static.8": "af502c4b2d1033f75af071f0253973821fa77658",
+      "space.static.9": "6bfad5362856677c4e0144686bb86770752dfcdc"
     },
     "group": "wpvip product"
   },
@@ -1676,12 +1676,14 @@
       "input.background.success": "265b9da622beabfbf483bcc33325e564283d73bb",
       "input.background.inactive": "52e669429ae82c3fdbfc50c7d4350fe04b2c6691",
       "input.background.disabled": "8d27dd9253fa706656311526433fc9b4f54855bc",
+      "input.background.read-only": "d732af0b22132458899a4a4d73b1e074804fb43f",
       "input.label.default": "a82a94507c6d0f0631f9c6a7544e03097870ff2d",
       "input.text.default": "acfd3925f41fd407aa8b928f7812bf502b157563",
       "input.text.placeholder": "45a49e5b1d54493daac8b09c44e09b4dfde39821",
       "input.border.default": "48a9e2e225c96ac5f5ef506488319d4460813f3c",
       "input.border.disabled": "2fa5cfbd417d841dde661fc9ca5d794af7460530",
       "input.border.error": "61a1023342ebfc653104fdab2a595ce05dae0d45",
+      "input.border.read-only": "4933146e6893d62ac5b017f0ba86d87b8fa0573e",
       "input.switcher.background.primary": "9cc0f7a2682fca7e8b828876d44e2d013368df5e",
       "input.switcher.background.secondary": "9c2b8d75a10514f87e7b552031a51fd48e75b604",
       "input.radio-box.background.default": "3b1957575a1795004b272c7b00c4a15493250209",
@@ -1934,9 +1936,7 @@
       "option-row.default.background": "3c200da2f024f05c12ef3c89ba3350a6709b3804",
       "option-row.default.icon": "6ac03bc500264895b97425b302a058f7a03aa607",
       "option-row.alt.background": "95b3f410a8e4dd3430d1153bba8860f93b8f986e",
-      "option-row.alt.icon": "35b1f980db1009692f4389f3cd8d3eb9d94f682c",
-      "input.background.read-only": "d732af0b22132458899a4a4d73b1e074804fb43f",
-      "input.border.read-only": "4933146e6893d62ac5b017f0ba86d87b8fa0573e"
+      "option-row.alt.icon": "35b1f980db1009692f4389f3cd8d3eb9d94f682c"
     },
     "group": "wpvip product"
   },
@@ -3880,4 +3880,4 @@
     },
     "group": "wpvip services"
   }
-]
+] 
