@@ -40,31 +40,31 @@
     },
     "static": {
       "x-small": {
-        "value": "{space.1}",
+        "value": "{space.static.1}",
         "type": "spacing"
       },
       "small": {
-        "value": "{space.2}",
+        "value": "{space.static.2}",
         "type": "spacing"
       },
       "medium": {
-        "value": "{space.3}",
+        "value": "{space.static.3}",
         "type": "spacing"
       },
       "large": {
-        "value": "{space.4}",
+        "value": "{space.static.4}",
         "type": "spacing"
       },
       "x-large": {
-        "value": "{space.5}",
+        "value": "{space.static.5}",
         "type": "spacing"
       },
       "xx-large": {
-        "value": "{space.6}",
+        "value": "{space.static.6}",
         "type": "spacing"
       },
       "xxx-large": {
-        "value": "{space.7}",
+        "value": "{space.static.7}",
         "type": "spacing"
       }
     }
@@ -134,27 +134,27 @@
   "borderRadius": {
     "static": {
       "small": {
-        "value": "{borderRadius.2}",
+        "value": "{borderRadius.static.2}",
         "type": "borderRadius"
       },
       "medium": {
-        "value": "{borderRadius.3}",
+        "value": "{borderRadius.static.3}",
         "type": "borderRadius"
       },
       "large": {
-        "value": "{borderRadius.4}",
+        "value": "{borderRadius.static.4}",
         "type": "borderRadius"
       },
       "x-large": {
-        "value": "{borderRadius.5}",
+        "value": "{borderRadius.static.5}",
         "type": "borderRadius"
       },
       "xx-large": {
-        "value": "{borderRadius.6}",
+        "value": "{borderRadius.static.6}",
         "type": "borderRadius"
       },
       "x-small": {
-        "value": "{borderRadius.1}",
+        "value": "{borderRadius.static.1}",
         "type": "borderRadius"
       }
     },
