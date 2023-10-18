@@ -10,7 +10,6 @@ import { useState } from 'react';
  * Internal dependencies
  */
 import { Button, Text, Input, Label } from '../../system';
-import ScreenReaderText from '../ScreenReaderText';
 import * as NewDialog from '.';
 
 export default {
