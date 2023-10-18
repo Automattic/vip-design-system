@@ -1,0 +1,21 @@
+{
+  "name": "colors",
+  "version": "1.0.0",
+  "description": "color calculation utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "David Bowman",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^4.2.3",
+    "colorjs.io": "^0.4.3",
+    "csv-writer": "^1.6.0",
+    "natural-spline-interpolator": "^1.0.2",
+    "nodeplotlib": "^1.1.2",
+    "plotly.js": "^2.23.0",
+    "plotly.js-dist-min": "^2.23.0",
+    "regression": "^2.0.1"
+  }
+}

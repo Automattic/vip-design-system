@@ -13,11 +13,6 @@
     "brand": {
       "type": "color",
       "value": "{color.gold.30}"
-    },
-    "display": {
-      "value": "{color.blue.10}",
-      "type": "color",
-      "description": "Never use this"
     }
   },
   "layer": {
@@ -38,6 +33,38 @@
       "type": "color"
     },
     "accent": {
+      "1": {
+        "type": "color",
+        "value": "{color.gold.20}"
+      },
+      "2": {
+        "type": "color",
+        "value": "{color.pink.20}"
+      },
+      "3": {
+        "type": "color",
+        "value": "{color.red.30}"
+      },
+      "4": {
+        "type": "color",
+        "value": "{color.salmon.25}"
+      },
+      "5": {
+        "type": "color",
+        "value": "{color.orange.25}"
+      },
+      "6": {
+        "type": "color",
+        "value": "{color.yellow.20}"
+      },
+      "7": {
+        "type": "color",
+        "value": "{color.green.25}"
+      },
+      "8": {
+        "type": "color",
+        "value": "{color.blue.25}"
+      },
       "neutral-1": {
         "type": "color",
         "value": "{color.gradient.neutral-light-1}"
@@ -57,38 +84,6 @@
       "brand": {
         "type": "color",
         "value": "{color.gold.30}"
-      },
-      "gold": {
-        "type": "color",
-        "value": "{color.gold.20}"
-      },
-      "pink": {
-        "type": "color",
-        "value": "{color.pink.20}"
-      },
-      "red": {
-        "type": "color",
-        "value": "{color.red.30}"
-      },
-      "salmon": {
-        "type": "color",
-        "value": "{color.salmon.25}"
-      },
-      "orange": {
-        "type": "color",
-        "value": "{color.orange.25}"
-      },
-      "yellow": {
-        "type": "color",
-        "value": "{color.yellow.20}"
-      },
-      "green": {
-        "type": "color",
-        "value": "{color.green.25}"
-      },
-      "blue": {
-        "type": "color",
-        "value": "{color.blue.25}"
       },
       "colorful-1": {
         "type": "color",
@@ -526,7 +521,7 @@
   },
   "overlay": {
     "type": "color",
-    "value": "{color.gray.55}"
+    "value": "rgba({color.gray.55},.25)"
   },
   "interactive": {
     "type": "color",

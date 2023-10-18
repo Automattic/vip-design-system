@@ -2,8 +2,8 @@
   "background": {
     "primary": {
       "type": "color",
-      "value": "{color.pure-white}",
-      "description": "Use as main application background"
+      "description": "Use as main application background",
+      "value": "{color.blue.3}"
     },
     "inverse": {
       "value": "{color.black}",
@@ -12,7 +12,7 @@
     },
     "brand": {
       "type": "color",
-      "value": "#70A452"
+      "value": "{color.blue.30}"
     }
   },
   "layer": {
@@ -25,98 +25,94 @@
       "value": "{color.gray.3}"
     },
     "3": {
-      "value": "{color.gray.0}",
-      "type": "color"
+      "type": "color",
+      "value": "{color.gray.0}"
     },
     "4": {
-      "value": "{color.gray.3}",
+      "value": "{color.pure-white}",
       "type": "color"
     },
     "accent": {
-      "1": {
-        "value": "{color.gray.0}",
-        "type": "color"
-      },
-      "2": {
-        "value": "{color.gray.3}",
-        "type": "color"
-      },
-      "3": {
-        "value": "{color.parsely-green.0}",
-        "type": "color"
-      },
-      "4": {
-        "value": "{color.parsely-green.3}",
-        "type": "color"
-      },
-      "5": {
-        "type": "color",
-        "value": "{color.parsely-green.7}"
-      },
-      "6": {
-        "type": "color",
-        "value": "{color.parsely-green.25}"
-      },
-      "7": {
-        "value": "{color.blue.25}",
-        "type": "color"
-      },
-      "8": {
-        "value": "{color.blue.15}",
-        "type": "color"
-      },
       "neutral-1": {
         "type": "color",
-        "value": "linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%)"
+        "value": "{color.gradient.neutral-light-1}"
       },
       "neutral-2": {
         "type": "color",
-        "value": "linear-gradient(180deg, #fbfbfb 0%, #ffffff 100%)"
+        "value": "{color.gradient.neutral-light-2}"
       },
       "neutral-3": {
         "type": "color",
-        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #ffffff 0%, #fbfbfb 100%)"
+        "value": "{color.gradient.neutral-light-3}"
       },
       "neutral-4": {
         "type": "color",
-        "value": "radial-gradient(53.72% 53.72% at 50% 46.28%, #fbfbfb 0%, #ffffff 100%)"
+        "value": "{color.gradient.neutral-light-4}"
       },
       "brand": {
         "type": "color",
-        "value": "{color.parsely-green.40}"
+        "value": "{color.blue.30}"
+      },
+      "gold": {
+        "type": "color",
+        "value": "{color.gold.20}"
+      },
+      "pink": {
+        "type": "color",
+        "value": "{color.pink.20}"
+      },
+      "red": {
+        "type": "color",
+        "value": "{color.red.30}"
+      },
+      "salmon": {
+        "type": "color",
+        "value": "{color.salmon.25}"
+      },
+      "orange": {
+        "type": "color",
+        "value": "{color.orange.25}"
+      },
+      "yellow": {
+        "type": "color",
+        "value": "{color.yellow.20}"
+      },
+      "green": {
+        "type": "color",
+        "value": "{color.green.25}"
+      },
+      "blue": {
+        "type": "color",
+        "value": "{color.blue.25}"
       },
       "colorful-1": {
-        "value": "{color.gradient.colorful-light-1}",
-        "type": "color"
+        "type": "color",
+        "value": "{color.gradient.colorful-light-1}"
       },
       "colorful-2": {
-        "value": "{color.gradient.colorful-light-2}",
-        "type": "color"
+        "type": "color",
+        "value": "{color.gradient.colorful-light-2}"
       },
       "colorful-3": {
-        "value": "{color.gradient.colorful-light-3}",
-        "type": "color"
+        "type": "color",
+        "value": "{color.gradient.colorful-light-3}"
       },
       "colorful-4": {
         "type": "color",
-        "value": "radial-gradient(76.07% 148.86% at -11.17% -116.98%, #AAE1B7 0%, rgba(198, 234, 208, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.92% 102.55% at 119.14% -38.37%, #FFC876 0%, rgba(255, 216, 165, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47% 99.55% at -5.01% 114.81%, rgba(84, 192, 205, 0.65) 0%, rgba(48, 181, 196, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #89DAA0"
+        "value": "{color.gradient.colorful-light-4}"
+      },
+      "dark-1": {
+        "type": "color",
+        "value": "{color.gradient.colorful-dark-1}"
+      },
+      "dark-2": {
+        "type": "color",
+        "value": "{color.gradient.colorful-dark-2}"
       },
       "black": {
         "value": "{color.black}",
         "type": "color"
-      },
-      "dark-1": {
-        "value": "{color.gradient.colorful-dark-1}",
-        "type": "color"
-      },
-      "dark-2": {
-        "value": "{color.gradient.colorful-dark-2}",
-        "type": "color"
       }
-    },
-    "blur": {
-      "value": "rgba({background.primary}, .75)",
-      "type": "color"
     }
   },
   "field": {
@@ -156,23 +152,7 @@
     },
     "accent": {
       "type": "color",
-      "value": "{color.parsely-green.40}"
-    },
-    "inverse-1": {
-      "value": "{color.pure-white}",
-      "type": "color"
-    },
-    "inverse-2": {
-      "value": "{color.gray.30}",
-      "type": "color"
-    },
-    "inverse-3": {
-      "value": "{color.gray.75}",
-      "type": "color"
-    },
-    "inverse-4": {
-      "value": "{color.gray.80}",
-      "type": "color"
+      "value": "{color.blue.50}"
     }
   },
   "text": {
@@ -183,53 +163,49 @@
     },
     "secondary": {
       "type": "color",
-      "value": "{color.gray.85}",
-      "description": "Use for body text "
+      "description": "Use for body text ",
+      "value": "{color.gray.75}"
     },
     "helper": {
       "type": "color",
-      "value": "{color.gray.55}",
-      "description": "Use for helper text"
+      "description": "Use for helper text",
+      "value": "{color.gray.60}"
     },
     "placeholder": {
       "type": "color",
-      "value": "{color.gray.55}",
-      "description": "Use for placeholder text in fields"
+      "description": "Use for placeholder text in fields",
+      "value": "{color.gray.45}"
     },
     "disabled": {
       "type": "color",
-      "value": "{color.gray.30}"
+      "value": "{color.gray.25}"
     },
     "inverse": {
       "type": "color",
-      "value": "{color.pure-white}"
-    },
-    "inverse-secondary": {
-      "value": "{color.gray.15}",
-      "type": "color"
+      "value": "{color.gray.0}"
     },
     "interactive": {
       "type": "color",
-      "value": "{color.parsely-green.60}"
+      "value": "{color.blue.60}"
     }
   },
   "link": {
     "default": {
       "type": "color",
-      "value": "{color.parsely-green.60}",
-      "description": "Use for text links"
+      "description": "Use for text links",
+      "value": "{color.blue.60}"
     },
     "hover": {
       "type": "color",
-      "value": "{color.parsely-green.65}"
+      "value": "{color.blue.70}"
     },
     "active": {
       "type": "color",
-      "value": "{color.parsely-green.65}"
+      "value": "{color.blue.80}"
     },
     "visited": {
       "type": "color",
-      "value": "{color.parsely-green.60}"
+      "value": "{color.blue.70}"
     }
   },
   "icon": {
@@ -245,13 +221,9 @@
       "type": "color",
       "value": "{color.gray.40}"
     },
-    "background": {
-      "value": "{color.gray.15}",
-      "type": "color"
-    },
     "inverse": {
       "type": "color",
-      "value": "{color.pure-white}"
+      "value": "{color.gray.0}"
     },
     "disabled": {
       "type": "color",
@@ -261,49 +233,37 @@
   "button": {
     "primary": {
       "default": {
-        "value": "{color.parsely-green.35}",
+        "value": "{color.black}",
         "type": "color"
       },
       "hover": {
         "type": "color",
-        "value": "{color.parsely-green.45}"
+        "value": "{color.blue.30}"
       },
       "active": {
         "type": "color",
-        "value": "{color.parsely-green.45}"
+        "value": "{color.blue.50}"
       },
       "disabled": {
         "type": "color",
-        "value": "{color.gray.25}"
-      },
-      "label": {
-        "value": "{color.pure-black}",
-        "type": "color"
-      },
-      "label hover": {
-        "value": "{color.pure-black}",
-        "type": "color"
+        "value": "{color.gray.50}"
       }
     },
     "secondary": {
       "default": {
-        "value": "{color.parsely-green.7}",
+        "value": "rgba(0,0,0,0)",
         "type": "color"
       },
       "hover": {
         "type": "color",
-        "value": "{color.parsely-green.10}"
+        "value": "{color.blue.30}"
       },
       "active": {
         "type": "color",
-        "value": "{color.parsely-green.10}"
+        "value": "{color.blue.50}"
       },
       "disabled": {
-        "value": "{color.gray.25}",
-        "type": "color"
-      },
-      "label": {
-        "value": "{color.pure-black}",
+        "value": "rgba(0,0,0,0)",
         "type": "color"
       }
     },
@@ -323,36 +283,24 @@
       "disabled": {
         "value": "rgba(0,0,0,0)",
         "type": "color"
-      },
-      "label": {
-        "value": "{color.pure-black}",
-        "type": "color"
       }
     },
     "display": {
       "default": {
-        "value": "{color.parsely-green.35}",
+        "value": "linear-gradient(55deg, {color.blue.30} 10%, {color.blue.20} 90%)",
         "type": "color"
       },
       "hover": {
-        "value": "{color.parsely-green.45}",
+        "value": "linear-gradient(55deg, {color.blue.65} 10%, {color.blue.45} 90%)",
         "type": "color"
       },
       "active": {
         "type": "color",
-        "value": "{color.parsely-green.45}"
+        "value": "{color.blue.65}"
       },
       "disabled": {
         "type": "color",
-        "value": "{color.gray.25}"
-      },
-      "label": {
-        "value": "{color.pure-black}",
-        "type": "color"
-      },
-      "label hover": {
-        "value": "{color.pure-black}",
-        "type": "color"
+        "value": "{color.gray.50}"
       }
     }
   },
@@ -372,7 +320,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.parsely-green.7}"
+        "value": "{color.green.7}"
       }
     },
     "text": {
@@ -390,7 +338,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.parsely-green.60}"
+        "value": "{color.green.60}"
       }
     },
     "icon": {
@@ -408,7 +356,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.parsely-green.50}"
+        "value": "{color.green.50}"
       }
     },
     "accent": {
@@ -426,7 +374,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.parsely-green.60}"
+        "value": "{color.green.60}"
       }
     },
     "link": {
@@ -490,20 +438,20 @@
       "success": {
         "default": {
           "type": "color",
-          "value": "{color.parsely-green.60}",
-          "description": "Use for text links"
+          "description": "Use for text links",
+          "value": "{color.green.60}"
         },
         "hover": {
           "type": "color",
-          "value": "{color.parsely-green.70}"
+          "value": "{color.green.70}"
         },
         "active": {
           "type": "color",
-          "value": "{color.parsely-green.80}"
+          "value": "{color.green.80}"
         },
         "visited": {
           "type": "color",
-          "value": "{color.parsely-green.60}"
+          "value": "{color.green.70}"
         }
       }
     }
@@ -520,17 +468,17 @@
   },
   "overlay": {
     "type": "color",
-    "value": "rgba({color.gray.55},.25)"
+    "value": "{color.gray.55}"
   },
   "interactive": {
     "type": "color",
-    "value": "{color.parsely-green.55}"
+    "value": "{color.blue.55}"
   },
   "tag": {
     "gray": {
       "background": {
         "type": "color",
-        "value": "{color.gray.10}"
+        "value": "{color.gray.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -552,7 +500,7 @@
     "blue": {
       "background": {
         "type": "color",
-        "value": "{color.blue.10}"
+        "value": "{color.blue.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -574,7 +522,7 @@
     "green": {
       "background": {
         "type": "color",
-        "value": "{color.parsely-green.10}"
+        "value": "{color.green.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -582,21 +530,21 @@
       },
       "icon": {
         "type": "color",
-        "value": "{color.parsely-green.65}"
+        "value": "{color.green.65}"
       },
       "hover": {
         "type": "color",
-        "value": "{color.parsely-green.15}"
+        "value": "{color.green.15}"
       },
       "active": {
         "type": "color",
-        "value": "{color.parsely-green.20}"
+        "value": "{color.green.20}"
       }
     },
     "red": {
       "background": {
         "type": "color",
-        "value": "{color.red.10}"
+        "value": "{color.red.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -618,7 +566,7 @@
     "gold": {
       "background": {
         "type": "color",
-        "value": "{color.gold.10}"
+        "value": "{color.gold.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -640,7 +588,7 @@
     "yellow": {
       "background": {
         "type": "color",
-        "value": "{color.yellow.10}"
+        "value": "{color.yellow.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -662,7 +610,7 @@
     "orange": {
       "background": {
         "type": "color",
-        "value": "{color.orange.10}"
+        "value": "{color.orange.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -684,7 +632,7 @@
     "salmon": {
       "background": {
         "type": "color",
-        "value": "{color.salmon.10}"
+        "value": "{color.salmon.7}"
       },
       "text": {
         "value": "{color.black}",
@@ -706,7 +654,7 @@
     "pink": {
       "background": {
         "type": "color",
-        "value": "{color.pink.10}"
+        "value": "{color.pink.7}"
       },
       "text": {
         "value": "{color.black}",

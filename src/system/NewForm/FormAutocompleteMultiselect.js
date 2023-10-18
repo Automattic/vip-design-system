@@ -16,14 +16,14 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
 import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
-import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
+import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
 import { Button, Flex } from '../';
 import { MdClose } from 'react-icons/md';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
-	backgroundColor: inputBaseBackground,
+	backgroundColor: 'layer.2',
 	color: inputBaseText,
 	borderRadius: 1,
 };
@@ -41,7 +41,7 @@ const defaultStyles = {
 	'&.autocomplete__input--focused': theme => theme.outline,
 	'& .autocomplete__input': {
 		width: '100%',
-		paddingLeft: 3,
+		paddingLeft: 4,
 		py: 0,
 		borderWidth: 0,
 		color: 'text',
@@ -81,7 +81,7 @@ const defaultStyles = {
 	},
 	'& .autocomplete__hint': {
 		border: 'none',
-		paddingLeft: 3,
+		paddingLeft: 4,
 		minHeight: '27px',
 		lineHeight: '27px',
 	},
@@ -93,7 +93,7 @@ const inlineStyles = {
 
 const searchIconStyles = {
 	'& .autocomplete__input.autocomplete__input': {
-		paddingLeft: 4,
+		paddingLeft: 6,
 	},
 };
 
@@ -407,7 +407,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							{ ...props }
 						/>
 						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? '40px' : '10px' } } /> }
 					</FormSelectContent>
 				</div>
 				<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
