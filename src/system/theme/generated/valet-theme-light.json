@@ -1014,7 +1014,7 @@
     },
     "helper-text": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "fontSize": 12,
         "lineHeight": "150%"
@@ -1023,7 +1023,7 @@
     },
     "label-xs": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "lineHeight": "100%",
         "fontSize": 11
@@ -1032,7 +1032,7 @@
     },
     "label-small": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "lineHeight": "100%",
         "fontSize": 12
@@ -1041,7 +1041,7 @@
     },
     "label-default": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 500,
         "lineHeight": "100%",
         "fontSize": 14
@@ -1050,7 +1050,7 @@
     },
     "label-default-quiet": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "lineHeight": "100%",
         "fontSize": 14
@@ -1059,7 +1059,7 @@
     },
     "label-default-loud": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 700,
         "lineHeight": "100%",
         "fontSize": 14
@@ -1615,7 +1615,7 @@
   },
   "fontFamily": {
     "body": {
-      "value": "SF Pro Display",
+      "value": "SF Pro Text",
       "type": "fontFamilies"
     },
     "serif": {
@@ -1623,7 +1623,7 @@
       "type": "fontFamilies"
     },
     "monospace": {
-      "value": "SF Mono Regular",
+      "value": "SF Mono",
       "type": "fontFamilies"
     }
   },
@@ -2223,7 +2223,7 @@
     },
     "2": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 500,
         "lineHeight": "120%",
         "fontSize": 32,
@@ -2233,7 +2233,7 @@
     },
     "3": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 500,
         "lineHeight": "150%",
         "fontSize": 19,
@@ -2243,7 +2243,7 @@
     },
     "4": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 500,
         "lineHeight": "160%",
         "fontSize": 14,
@@ -2253,7 +2253,7 @@
     },
     "5": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 500,
         "lineHeight": "150%",
         "fontSize": 12
@@ -2262,7 +2262,7 @@
     },
     "caps": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 700,
         "lineHeight": "150%",
         "fontSize": 12,
@@ -2301,7 +2301,7 @@
   "body": {
     "small": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 12
@@ -2310,7 +2310,7 @@
     },
     "default": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 14
@@ -2319,7 +2319,7 @@
     },
     "large": {
       "value": {
-        "fontFamily": "SF Pro Display",
+        "fontFamily": "SF Pro Text",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 20
@@ -2328,7 +2328,7 @@
     },
     "mono": {
       "value": {
-        "fontFamily": "SF Mono Regular",
+        "fontFamily": "SF Mono",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 14
@@ -2337,7 +2337,7 @@
     },
     "mono-bold": {
       "value": {
-        "fontFamily": "SF Mono Regular",
+        "fontFamily": "SF Mono",
         "lineHeight": "150%",
         "fontSize": 14,
         "fontWeight": 700
