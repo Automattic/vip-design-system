@@ -1387,12 +1387,14 @@
       "input.background.brand": "06e12bbde191b794f984d87ad2f169d676143f82",
       "input.background.inactive": "52e669429ae82c3fdbfc50c7d4350fe04b2c6691",
       "input.background.disabled": "8d27dd9253fa706656311526433fc9b4f54855bc",
+      "input.background.read-only": "d732af0b22132458899a4a4d73b1e074804fb43f",
       "input.label.default": "a82a94507c6d0f0631f9c6a7544e03097870ff2d",
       "input.text.default": "acfd3925f41fd407aa8b928f7812bf502b157563",
       "input.text.placeholder": "45a49e5b1d54493daac8b09c44e09b4dfde39821",
       "input.border.default": "48a9e2e225c96ac5f5ef506488319d4460813f3c",
       "input.border.disabled": "2fa5cfbd417d841dde661fc9ca5d794af7460530",
       "input.border.error": "61a1023342ebfc653104fdab2a595ce05dae0d45",
+      "input.border.read-only": "4933146e6893d62ac5b017f0ba86d87b8fa0573e",
       "input.switcher.background.primary": "9cc0f7a2682fca7e8b828876d44e2d013368df5e",
       "input.switcher.background.secondary": "9c2b8d75a10514f87e7b552031a51fd48e75b604",
       "input.radio-box.background.default": "3b1957575a1795004b272c7b00c4a15493250209",
@@ -1645,9 +1647,7 @@
       "option-row.default.background": "3c200da2f024f05c12ef3c89ba3350a6709b3804",
       "option-row.default.icon": "6ac03bc500264895b97425b302a058f7a03aa607",
       "option-row.alt.background": "95b3f410a8e4dd3430d1153bba8860f93b8f986e",
-      "option-row.alt.icon": "35b1f980db1009692f4389f3cd8d3eb9d94f682c",
-      "input.background.read-only": "d732af0b22132458899a4a4d73b1e074804fb43f",
-      "input.border.read-only": "4933146e6893d62ac5b017f0ba86d87b8fa0573e"
+      "option-row.alt.icon": "35b1f980db1009692f4389f3cd8d3eb9d94f682c"
     },
     "group": "wpvip product"
   },
