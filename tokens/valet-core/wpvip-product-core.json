@@ -1477,7 +1477,7 @@
   },
   "fontFamily": {
     "body": {
-      "value": "SF Pro Display",
+      "value": "SF Pro Text",
       "type": "fontFamilies"
     },
     "serif": {

@@ -18,20 +18,6 @@
     "figma-valet-web-type",
     "figma-wpvip-web-type",
     "figma-wpvip-services-web-type",
-    "figma-parsely-web-type",
-    "figma-parsely-expressive-type",
-    "figma-valet-expressive-type",
-    "figma-wpvip-expressive-type",
-    "parsely-expressive-color",
-    "parsely-expressive-core",
-    "parsely-expressive-type",
-    "valet-expressive-color",
-    "valet-expressive-core",
-    "wpvip-expressive-color",
-    "wpvip-expressive-color-dark",
-    "wpvip-expressive-core",
-    "wpvip-expressive-type",
-    "wpvip-productive-color",
-    "wpvip-productive-color-dark"
+    "figma-parsely-web-type"
   ]
 }

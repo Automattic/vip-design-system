@@ -1340,7 +1340,14 @@
       "body.small": "S:7828f455ace6d3a8be8e61f51215242a34e38635,",
       "body.default": "S:93d3170f10ae1b76c5ed804f0ec5e05e7f4ec71b,",
       "body.large": "S:3ac840cbbeddb910784b575c743df86a06f20e91,",
-      "support.helper-text": "S:2ffd324aff338a6dd8cd7c4cc78011e5a1b4c4af,"
+      "support.helper-text": "S:2ffd324aff338a6dd8cd7c4cc78011e5a1b4c4af,",
+      "support.label-xs": "S:72cd491e1ff725611279ddc6d1110865ff7bfe17,",
+      "support.label-small": "S:b43350f14fc2b6f02d947161c5eb95b64ccfb4b2,",
+      "support.label-default": "S:b91dafb14448c14894993730b19020fd09b4e4e9,",
+      "support.label-default-quiet": "S:6086212bf26b40bd3dc1c9e694ca9f675882b896,",
+      "support.label-default-loud": "S:47ab3b323a4a1b918655442890d3f16dafdff081,",
+      "body.mono": "S:5e42a9844f90d2c5ff6a0af5fdc97e844573b627,",
+      "body.mono-bold": "S:bc5fa086ca21bdac62ec85a5a46765de34a446b9,"
     },
     "selectedTokenSets": {
       "valet-core": "source",
