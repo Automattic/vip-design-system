@@ -63,6 +63,8 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 			borderWidth: '0 1px 1px 1px',
 			borderStyle: 'solid',
 			borderColor: 'borders.2',
+			padding: 'sm',
+			pl: 2,
 
 			'&:first-of-type': {
 				borderTopWidth: '1px',

@@ -212,7 +212,9 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 export default {
 	outline,
-	space: getVariants( 'space.static' ),
+	space: {
+		...getVariants( 'space.static' ),
+	},
 	fonts,
 	fontSizes: getVariants( 'fontSize.static' ),
 	fontWeights: {
