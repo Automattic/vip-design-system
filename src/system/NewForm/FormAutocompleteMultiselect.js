@@ -407,7 +407,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							{ ...props }
 						/>
 						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? '40px' : '10px' } } /> }
 					</FormSelectContent>
 				</div>
 				<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
