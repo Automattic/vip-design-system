@@ -24,6 +24,27 @@ export type ValueEntry = {
 	description?: string;
 };
 
+export type HeadingValueEntry = {
+	value: HeadingEntry;
+	type: string;
+	description?: string;
+};
+
+export type HeadingEntry = {
+	fontFamily: string;
+	fontWeight: string | number;
+	lineHeight: string | number;
+	fontSize: string | number;
+	letterSpacing: string | number;
+	color?: string;
+};
+
+export type VariantList = {
+	[ key: string ]: {
+		[ key: string ]: ValueEntry;
+	};
+};
+
 export type ThemeMainEntry =
 	| 'space'
 	| 'borderRadius'
