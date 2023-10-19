@@ -4,6 +4,8 @@
 
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
+import { ThemeMainEntry, ValueEntry } from './types';
+import { Value } from 'classnames';
 
 // Valet Theme Productive Theme
 // https://www.figma.com/file/sILtW5Cs2tAnPWrSOEVyER/Productive-Color?node-id=1%3A17&t=4kHdpoprxntk5Ilw-0
@@ -14,19 +16,20 @@ import ValetDark from './generated/valet-theme-dark.json';
 
 const defaultReturnProp = 'noop';
 
-type ValueEntry = {
-	value: string | number;
-	type: string;
-	description?: string;
-};
-
 type JSONTheme = Record<
-	string,
+	ThemeMainEntry,
 	ValueEntry | Record< string, ValueEntry | Record< string, ValueEntry > >
 >;
 
+type CommonParsedEntry = {
+	[ key: string ]: string | number;
+};
+
 export default ( theme: JSONTheme ) => {
-	const getPropValue = ( prop = '', variant = 'default' ): Pick< ValueEntry, 'value' > | string => {
+	const getPropValue = (
+		prop: ThemeMainEntry,
+		variant = 'default'
+	): Pick< ValueEntry, 'value' > | string => {
 		if ( ! ( prop in theme ) ) {
 			return defaultReturnProp;
 		}
@@ -35,19 +38,24 @@ export default ( theme: JSONTheme ) => {
 			return defaultReturnProp;
 		}
 
-		return theme[ prop ][ variant ].value;
+		const value = theme[ prop ][ variant ] as ValueEntry;
+
+		return value;
 	};
 
-	const resolvePath = ( object: JSONTheme, path = '', defaultValue ): JSONTheme =>
+	const resolvePath = ( object: JSONTheme, path = '', defaultValue ) =>
 		path
 			.split( '.' )
 			.reduce( ( acc, property ) => ( property in acc ? acc[ property ] : defaultValue ), object );
 
-	const getVariants = ( color: string ): JSONTheme => {
-		const property = resolvePath( theme, color, {} );
+	const getVariants = ( path: string ): CommonParsedEntry => {
+		const property = resolvePath( theme, path, {} );
 
 		return Object.keys( property ).reduce(
-			( variants, variant ) => ( { ...variants, [ variant ]: property[ variant ].value } ),
+			( acc, variant ): CommonParsedEntry => ( {
+				...acc,
+				[ variant ]: ( property[ variant ] as ValueEntry ).value, // "static.1.value"
+			} ),
 			{}
 		);
 	};
@@ -57,13 +65,12 @@ export default ( theme: JSONTheme ) => {
 			return root.value;
 		}
 
-		return Object.entries( root ).reduce(
-			( acc, [ key, value ] ) => ( {
-				...acc,
-				[ key ]: traverse( value ),
-			} ),
-			{}
-		);
+		const reTraverse = ( acc, [ key, value ] ) => ( {
+			...acc,
+			[ key ]: traverse( value ),
+		} );
+
+		return Object.entries( root ).reduce( reTraverse, {} );
 	};
 
 	// We get the following format: '1', '2', '3', 'caps'.
