@@ -4,13 +4,12 @@
  * External dependencies
  */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
  */
 import { Validation, Label } from '../';
-import { Input as ThemeInput } from 'theme-ui';
+import { Input as ThemeInput, InputProps as ThemeInputProps } from 'theme-ui';
 import { baseControlStyle } from './Input.styles';
 
 const inputStyles = {
@@ -25,11 +24,15 @@ const inputStyles = {
 	variant: 'inputs.default',
 };
 
-const Input = React.forwardRef(
-	(
-		{ variant, label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props },
-		ref
-	) => (
+interface InputProps extends ThemeInputProps {
+	label?: string;
+	hasError?: boolean;
+	required?: boolean;
+	forLabel?: string;
+	errorMessage?: string;
+}
+export const Input = React.forwardRef< HTMLInputElement, InputProps >(
+	( { label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props }, ref ) => (
 		<React.Fragment>
 			{ label && (
 				<Label required={ required } htmlFor={ forLabel }>
@@ -58,16 +61,4 @@ const Input = React.forwardRef(
 	)
 );
 
-Input.propTypes = {
-	variant: PropTypes.string,
-	label: PropTypes.string,
-	hasError: PropTypes.bool,
-	required: PropTypes.bool,
-	forLabel: PropTypes.string,
-	errorMessage: PropTypes.string,
-	sx: PropTypes.object,
-};
-
 Input.displayName = 'Input';
-
-export { Input };

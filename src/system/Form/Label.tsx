@@ -4,8 +4,7 @@
  * External dependencies
  */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Box } from 'theme-ui';
+import { Box, BoxProps } from 'theme-ui';
 /**
  * Internal dependencies
  */
@@ -18,8 +17,13 @@ export const baseLabelStyle = {
 	lineHeight: 1.5,
 	color: baseLabelColor,
 };
+interface LabelProps extends BoxProps {
+	children?: React.ReactNode;
+	required?: boolean;
+	htmlFor?: string;
+}
 
-const Label = React.forwardRef(
+export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
 	( { sx, children, required, as = 'label', ...rest }, forwardRef ) => (
 		<Box
 			as={ as }
@@ -39,13 +43,4 @@ const Label = React.forwardRef(
 	)
 );
 
-Label.propTypes = {
-	children: PropTypes.any,
-	required: PropTypes.bool,
-	sx: PropTypes.object,
-	as: PropTypes.node,
-};
-
 Label.displayName = 'Label';
-
-export { Label };
