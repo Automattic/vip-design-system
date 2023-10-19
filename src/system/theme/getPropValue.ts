@@ -68,22 +68,34 @@ export default ( theme: JSONTheme ) => {
 
 	// We get the following format: '1', '2', '3', 'caps'.
 	// We need to build h1: {}, h2: {}, h3: {}, caps: {}.
-	interface HeadingStyle {
-		[ key: string ]: {
+	type HeadingStyle = Record<
+		string,
+		{
 			fontFamily: string;
 			fontWeight: string | number;
 			fontSize: string | number;
 			letterSpacing: string | number;
-		};
-	}
+			color: string;
+		}
+	>;
+
 	const getHeadingStyles = () => {
 		const variantValues = getVariants( 'heading' );
 
 		const headingStyles: HeadingStyle = {};
 
 		Object.keys( variantValues ).forEach( variant => {
+			const baseStyles = {
+				fontFamily: '',
+				fontWeight: '',
+				fontSize: '',
+				letterSpacing: '',
+				color: 'heading',
+			};
+
 			if ( variant === 'caps' ) {
 				headingStyles.caps = {
+					...baseStyles,
 					...variantValues[ variant ],
 					color: 'heading',
 				};
@@ -91,6 +103,7 @@ export default ( theme: JSONTheme ) => {
 
 			if ( parseInt( variant, 10 ) > 0 ) {
 				headingStyles[ `h${ variant }` ] = {
+					...baseStyles,
 					...variantValues[ variant ],
 					color: 'heading',
 				};
