@@ -14,7 +14,7 @@ export const inlineStyles = {
 	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
 	alignItems: 'center',
-	backgroundColor: 'input.background',
+	backgroundColor: 'input.background.default',
 	borderRadius: 1,
 	...baseControlBorderStyle,
 	paddingRight: 0,

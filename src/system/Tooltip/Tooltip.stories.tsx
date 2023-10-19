@@ -52,7 +52,7 @@ elements that appear interactive, like buttons or links.
 events.
 - <strong>Use consistently.</strong> If using tooltips in one context, use in all similar
 contexts.
-- <strong>Don&apos;t block content.</strong> Use the <code>data-position</code> attribute to
+- <strong>Don&apos;t block content.</strong> Use the <code>vip-tooltip-position</code> attribute to
 prevent the tooltip from covering other page elements.
 
 -------
