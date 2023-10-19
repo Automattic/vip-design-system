@@ -17,15 +17,15 @@ describe( '<ButtonSubmit />', () => {
 	it( 'renders the ButtonSubmit component', async () => {
 		const { container } = render( <ButtonSubmit { ...defaultProps } /> );
 
-		expect( screen.getByRole( 'button', { label: 'Load more items' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Load more items' } ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
-	it( 'renders the ButtonSubmit loading', async () => {
+	it( 'renders the ButtonSubmit loading', () => {
 		render( <ButtonSubmit { ...defaultProps } loading={ true } /> );
-		const button = screen.getByRole( 'button', { label: 'Load more items' } );
+		const button = screen.getByRole( 'button', { name: 'Load more items Loading' } );
 
 		// Button
 		expect( button ).toHaveAttribute( 'aria-disabled', 'true' );
