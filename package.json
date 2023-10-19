@@ -21,7 +21,7 @@
     "theme-builder-copy-dark": "mkdir -p build/system/theme/generated/ && cp src/system/theme/generated/valet-theme-dark.json build/system/theme/generated/valet-theme-dark.json",
     "theme-update": "npm run theme-update-light && npm run theme-update-dark",
     "theme-update-light": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-light.json valet-core,wpvip-product-core",
-    "theme-update-dark": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-dark.json valet-core,wpvip-product-dark",
+    "theme-update-dark": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-dark.json valet-core,wpvip-product-core,wpvip-product-dark",
     "lint": "npm run cmd:lint .",
     "lint:fix": "npm run cmd:lint . -- --fix",
     "storybook": "storybook dev -p 6006",
