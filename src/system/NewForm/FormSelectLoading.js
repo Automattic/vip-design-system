@@ -25,7 +25,7 @@ export const FormSelectLoading = React.forwardRef( ( { sx = {}, ...rest }, forwa
 		size={ 18 }
 		sx={ {
 			position: 'absolute',
-			right: 10,
+			right: '10px',
 			pointerEvents: 'none',
 			animation: `${ kf } 1s infinite linear`,
 			opacity: 0.5,

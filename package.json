@@ -1,6 +1,6 @@
 {
   "name": "@automattic/vip-design-system",
-  "version": "1.2.2-dev.0",
+  "version": "1.2.4-dev.0",
   "main": "build/system/index.js",
   "scripts": {
     "build-storybook": "storybook build",
@@ -20,8 +20,8 @@
     "theme-builder-copy-light": "mkdir -p build/system/theme/generated/ && cp src/system/theme/generated/valet-theme-light.json build/system/theme/generated/valet-theme-light.json",
     "theme-builder-copy-dark": "mkdir -p build/system/theme/generated/ && cp src/system/theme/generated/valet-theme-dark.json build/system/theme/generated/valet-theme-dark.json",
     "theme-update": "npm run theme-update-light && npm run theme-update-dark",
-    "theme-update-light": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-light.json valet-core,wpvip-productive-color",
-    "theme-update-dark": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-dark.json valet-core,wpvip-productive-color-dark",
+    "theme-update-light": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-light.json valet-core,wpvip-product-core",
+    "theme-update-dark": "token-transformer tokens/valet-core src/system/theme/generated/valet-theme-dark.json valet-core,wpvip-product-dark",
     "lint": "npm run cmd:lint .",
     "lint:fix": "npm run cmd:lint . -- --fix",
     "storybook": "storybook dev -p 6006",
@@ -106,7 +106,7 @@
     "react-dom": "18.2.0",
     "storybook": "7.4.5",
     "theme-ui": "0.16.0",
-    "token-transformer": "^0.0.29",
+    "token-transformer": "0.0.33",
     "typescript": "5.2.2"
   }
 }

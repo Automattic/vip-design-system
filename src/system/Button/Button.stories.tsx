@@ -90,6 +90,10 @@ const Template = args => (
 			Danger
 		</Button>
 
+		<Button variant="primary" disabled={ true } sx={ { ml: 2 } } { ...args }>
+			Disabled
+		</Button>
+
 		<Button variant="text" sx={ { ml: 2 } } as="a" href="https://google/com" { ...args }>
 			Button link
 		</Button>

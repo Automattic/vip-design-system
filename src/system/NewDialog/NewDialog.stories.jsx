@@ -10,7 +10,6 @@ import { useState } from 'react';
  * Internal dependencies
  */
 import { Button, Text, Input, Label } from '../../system';
-import ScreenReaderText from '../ScreenReaderText';
 import * as NewDialog from '.';
 
 export default {
@@ -30,31 +29,6 @@ export const Default = () => (
 			user.
 		</Text>
 		<NewDialog.Root { ...defaultProps } trigger={ <Button>Trigger Dialog</Button> } />
-	</>
-);
-
-export const AutoOpen = () => (
-	<>
-		<Text sx={ { fontSize: 3, mb: 3 } }>Auto Opens when rendered. Press escape to close it.</Text>
-		<NewDialog.Root
-			{ ...defaultProps }
-			defaultOpen={ true }
-			content={
-				<div>
-					<h3>Test</h3>
-					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-						has been the industry standard dummy text ever since the 1500s, when an unknown printer
-						took a galley of type and scrambled it to make a type specimen book. It has survived not
-						only five centuries, but also the leap into electronic typesetting, remaining
-						essentially unchanged. It was popularised in the 1960s with the release of Letraset
-						sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-						software like Aldus PageMaker including versions of Lorem Ipsum.
-					</p>
-				</div>
-			}
-			trigger={ <ScreenReaderText>hey</ScreenReaderText> }
-		/>
 	</>
 );
 
@@ -96,7 +70,6 @@ export const CustomStyling = () => (
 
 		<NewDialog.Root
 			{ ...defaultProps }
-			defaultOpen
 			trigger={ <Button>Trigger Dialog</Button> }
 			title="Custom dialog title"
 			style={ {

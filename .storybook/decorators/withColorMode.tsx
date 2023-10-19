@@ -9,16 +9,16 @@ import { useColorMode } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import ThemeBuilder from '../../src/system/theme/getColor';
+import ThemeBuilder from '../../src/system/theme/getPropValue';
 
 import Valet from '../../src/system/theme/generated/valet-theme-light.json';
 import ValetDark from '../../src/system/theme/generated/valet-theme-dark.json';
-const { getColor } = ThemeBuilder( Valet );
-const { getColor: getColorDark } = ThemeBuilder( ValetDark );
+const { getPropValue } = ThemeBuilder( Valet );
+const { getPropValue: getPropValueDark } = ThemeBuilder( ValetDark );
 
 // These need to be updated to import VIP design tokens;
-const lightBackground = getColor( 'background', 'primary' );
-const darkBackground = getColorDark( 'background', 'primary' );
+const lightBackground = getPropValue( 'background', 'primary' );
+const darkBackground = getPropValueDark( 'background', 'primary' );
 
 export const backgrounds = {
 	default: 'Light',

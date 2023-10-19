@@ -17,12 +17,12 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { Label } from '../Form/Label';
 import { FormSelectSearch } from './FormSelectSearch';
 import { FormSelectLoading } from './FormSelectLoading';
-import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
+import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
-	backgroundColor: inputBaseBackground,
+	backgroundColor: 'layer.2',
 	color: inputBaseText,
 	borderRadius: 1,
 };
@@ -89,7 +89,7 @@ const inlineStyles = {
 
 const searchIconStyles = {
 	'& .autocomplete__input.autocomplete__input': {
-		paddingLeft: 4,
+		paddingLeft: 6,
 	},
 };
 
@@ -345,7 +345,7 @@ const FormAutocomplete = React.forwardRef(
 							{ ...props }
 						/>
 
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 40 : 10 } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? '40px' : '10px' } } /> }
 					</FormSelectContent>
 				</div>
 

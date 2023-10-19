@@ -53,7 +53,7 @@ const ExampleAccordion = () => (
 export const Default = () => <ExampleAccordion />;
 
 export const WithLargeText = () => (
-	<Box sx={ { '.vip-heading-component > button': { fontSize: '25px' } } }>
+	<Box sx={ { '.vip-heading-component > button': { fontSize: 4 } } }>
 		<ExampleAccordion />
 	</Box>
 );

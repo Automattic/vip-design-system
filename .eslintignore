@@ -5,3 +5,4 @@ flow-typed
 jest_0
 node_modules
 storybook-static
+tokens/

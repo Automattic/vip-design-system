@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import ThemeBuilder from './getColor';
+import ThemeBuilder from './getPropValue';
 
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
@@ -9,12 +9,12 @@ import ColorBuilder from './colors';
 import { textStyles } from './textStyles';
 
 // Light
-const { getColor, getVariants, ValetTheme } = ThemeBuilder( Valet );
+const { getPropValue, getVariants, ValetTheme } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
 
 // Dark
 const {
-	getColor: getColorDark,
+	getPropValue: getPropValueDark,
 	getVariants: getVariantsDark,
 	ValetTheme: ValetThemeDark,
 } = ThemeBuilder( ValetDark );
@@ -23,9 +23,11 @@ const dark = ColorBuilder( ValetThemeDark );
 
 const outline = {
 	outlineStyle: 'solid',
-	outlineColor: getColor( 'focus', 'inset' ),
+	outlineColor: getPropValue( 'focus', 'inset' ),
 	outlineWidth: '1px',
-	boxShadow: `0 0 0 1px ${ getColor( 'focus', 'inset' ) }, 0 0 0 3px ${ getColor( 'focus' ) }`,
+	boxShadow: `0 0 0 1px ${ getPropValue( 'focus', 'inset' ) }, 0 0 0 3px ${ getPropValue(
+		'focus'
+	) }`,
 };
 
 const fonts = {
@@ -41,7 +43,6 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	// This has to be in the plural because we already have a flag: text
 	texts: {
 		...theme.text,
-		disabled: '#716e6e',
 	},
 
 	button: {
@@ -54,7 +55,27 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	// Notice
 	notice: {
-		...theme.support,
+		// extending the notice theme to support the alert variant
+		background: {
+			alert: theme.support.background.error,
+			...theme.support.background,
+		},
+		link: {
+			alert: theme.support.link.error,
+			...theme.support.link,
+		},
+		accent: {
+			alert: theme.support.accent.error,
+			...theme.support.accent,
+		},
+		icon: {
+			alert: theme.support.icon.error,
+			...theme.support.icon,
+		},
+		text: {
+			alert: theme.support.text.error,
+			...theme.support.text,
+		},
 	},
 
 	// layer
@@ -191,50 +212,35 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 export default {
 	outline,
-	space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
+	space: getVariants( 'space.static' ),
 	fonts,
-	fontSizes: [ 10, 12, 14, 19, 32, 40, 56, 64, 96 ],
+	fontSizes: getVariants( 'fontSize.static' ),
 	fontWeights: {
-		body: 400,
-		heading: 500,
-		bold: 600,
+		body: getPropValue( 'fontWeight', 'body' ),
+		heading: getPropValue( 'fontWeight', 'heading' ),
+		regular: getPropValue( 'fontWeight', 'regular' ),
+		bold: getPropValue( 'fontWeight', 'bold' ),
+		medium: getPropValue( 'fontWeight', 'medium' ),
+		light: getPropValue( 'fontWeight', 'light' ),
 	},
 	lineHeights: {
-		body: 1.6,
-		heading: 1.125,
+		body: getPropValue( 'lineHeight', '1' ),
+		heading: getPropValue( 'lineHeight', '2' ),
 	},
 	sizes: {
 		sidebar: 260,
 	},
-	radii: [ 0, 4, 8 ],
+	radii: getVariants( 'borderRadius.static' ),
 	config: {
 		useColorSchemeMediaQuery: false,
 	},
 	initialColorModeName: 'light',
 	colors: {
-		...getComponentColors( ValetTheme, getColor, getVariants ),
+		...getComponentColors( ValetTheme, getPropValue, getVariants ),
 		...light,
 		modes: {
 			dark: {
-				...getComponentColors( ValetThemeDark, getColorDark, getVariantsDark ),
-				// text: dark.grey[ '90' ],
-				// heading: dark.grey[ '100' ],
-				// background: dark.grey[ '5' ],
-				// backgroundSecondary: dark.grey[ '10' ],
-				// primary: light.brand[ '70' ],
-				// secondary: '#30c',
-				// muted: dark.grey[ '90' ],
-				// link: dark.brand[ '90' ],
-				// card: dark.grey[ '20' ],
-				// placeholder: dark.grey[ '70' ],
-				// border: dark.grey[ '30' ],
-				// hover: 'rgba(255,255,255,.02)',
-				// midnight: dark.grey[ '90' ],
-				// success: dark.green[ '90' ],
-				// error: dark.red[ '90' ],
-				// warning: dark.yellow[ '90' ],
-				// dialog: dark.grey[ '40' ],
-				// backgroundMuted: dark.grey[ '10' ],
+				...getComponentColors( ValetThemeDark, getPropValueDark, getVariantsDark ),
 				...dark,
 			},
 		},
