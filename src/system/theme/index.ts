@@ -5,20 +5,29 @@ import ThemeBuilder from './getPropValue';
 
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
-import ColorBuilder from './colors';
+import { VIPTheme } from './types';
 
 // Light
-const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
-const light = ColorBuilder( ValetTheme );
+const { getPropValue, getVariants, parsedTheme, getHeadingStyles } = ThemeBuilder( Valet );
+
+const light = {
+	...parsedTheme,
+	brand: parsedTheme.gold,
+	grey: parsedTheme.gray,
+};
 
 // Dark
 const {
 	getPropValue: getPropValueDark,
 	getVariants: getVariantsDark,
-	ValetTheme: ValetThemeDark,
+	parsedTheme: ValetThemeDark,
 } = ThemeBuilder( ValetDark );
 
-const dark = ColorBuilder( ValetThemeDark );
+const dark = {
+	...ValetThemeDark,
+	brand: ValetThemeDark.gold,
+	grey: ValetThemeDark.gray,
+};
 
 const outline = {
 	outlineStyle: 'solid',
@@ -36,7 +45,7 @@ const fonts = {
 	serif: 'recoletaregular, Georgia, serif',
 };
 
-const getComponentColors = ( theme, gColor, gVariants ) => ( {
+const getComponentColors = ( theme, gColor, gVariants ): VIPTheme => ( {
 	// Valet Theme Colors
 
 	// This has to be in the plural because we already have a flag: text
@@ -209,7 +218,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	},
 } );
 
-export default {
+const theme: VIPTheme = {
 	outline,
 	space: getVariants( 'space' ),
 	fonts,
@@ -483,3 +492,5 @@ export default {
 		},
 	},
 };
+
+export default theme;
