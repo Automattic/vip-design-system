@@ -6,10 +6,9 @@ import ThemeBuilder from './getPropValue';
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
 import ColorBuilder from './colors';
-import { textStyles } from './textStyles';
 
 // Light
-const { getPropValue, getVariants, ValetTheme } = ThemeBuilder( Valet );
+const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
 
 // Dark
@@ -419,7 +418,7 @@ export default {
 		},
 	},
 
-	text: textStyles,
+	text: getHeadingStyles(),
 
 	dialog: {
 		modal: {
@@ -480,7 +479,7 @@ export default {
 			p: {
 				color: 'text',
 			},
-			...textStyles,
+			...getHeadingStyles(),
 		},
 	},
 };

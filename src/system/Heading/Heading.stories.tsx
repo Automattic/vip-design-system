@@ -15,5 +15,6 @@ export const Default = () => (
 		<Heading variant="h3">Heading Three</Heading>
 		<Heading variant="h4">Heading Four</Heading>
 		<Heading variant="h5">Heading Five</Heading>
+		<Heading variant="h6">Heading Six</Heading>
 	</Box>
 );
