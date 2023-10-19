@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { forwardRef, Ref } from 'react';
-import { Progress as ThemeProgress, ThemeUIStyleObject } from 'theme-ui';
+import { ProgressProps, Progress as ThemeProgress } from 'theme-ui';
 import classNames from 'classnames';
 
 /**
@@ -15,17 +15,16 @@ import { Box, Text, Flex } from '..';
 const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );
 
-export interface ProgressProps {
+export interface ThemeProgressProps extends ProgressProps {
 	steps: string[];
 	activeStep: number;
 	forLabel?: string;
-	sx?: ThemeUIStyleObject;
 	className?: string;
 }
 
-export const Progress = forwardRef< HTMLProgressElement, ProgressProps >(
+export const Progress = forwardRef< HTMLProgressElement, ThemeProgressProps >(
 	(
-		{ steps, activeStep, sx, forLabel = '', className, ...props }: ProgressProps,
+		{ steps, activeStep, sx, forLabel = '', className, ...props }: ThemeProgressProps,
 		ref: Ref< HTMLProgressElement >
 	) => {
 		const stepsTotal = steps.length;
