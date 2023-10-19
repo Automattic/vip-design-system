@@ -1,5 +1,45 @@
 {
   "space": {
+    "0": {
+      "value": 0,
+      "type": "spacing"
+    },
+    "1": {
+      "value": 4,
+      "type": "spacing"
+    },
+    "2": {
+      "value": 8,
+      "type": "spacing"
+    },
+    "3": {
+      "value": 12,
+      "type": "spacing"
+    },
+    "4": {
+      "value": 16,
+      "type": "spacing"
+    },
+    "5": {
+      "value": 24,
+      "type": "spacing"
+    },
+    "6": {
+      "value": 32,
+      "type": "spacing"
+    },
+    "7": {
+      "value": 56,
+      "type": "spacing"
+    },
+    "8": {
+      "value": 80,
+      "type": "spacing"
+    },
+    "9": {
+      "value": 160,
+      "type": "spacing"
+    },
     "responsive": {
       "0": {
         "value": 0,
@@ -93,51 +133,43 @@
     },
     "static": {
       "0": {
-        "value": 0,
+        "value": 2.08,
         "type": "spacing"
       },
       "1": {
-        "value": "{space.static.1}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 4,
+        "type": "spacing"
       },
       "2": {
-        "value": "{space.static.2}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 8,
+        "type": "spacing"
       },
       "3": {
-        "value": "{space.static.3}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 12,
+        "type": "spacing"
       },
       "4": {
-        "value": "{space.static.4}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 16,
+        "type": "spacing"
       },
       "5": {
-        "value": "{space.static.5}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 24,
+        "type": "spacing"
       },
       "6": {
-        "value": "{space.static.6}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 32,
+        "type": "spacing"
       },
       "7": {
-        "value": "{space.static.7}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 56,
+        "type": "spacing"
       },
       "8": {
-        "value": "{space.static.8}",
-        "type": "spacing",
-        "failedToResolve": true
+        "value": 80,
+        "type": "spacing"
       },
       "9": {
-        "value": 160,
+        "value": 112,
         "type": "spacing"
       },
       "10": {
@@ -147,6 +179,38 @@
     }
   },
   "borderRadius": {
+    "0": {
+      "value": 0,
+      "type": "borderRadius"
+    },
+    "1": {
+      "value": 2.08,
+      "type": "borderRadius"
+    },
+    "2": {
+      "value": 4,
+      "type": "borderRadius"
+    },
+    "3": {
+      "value": 8,
+      "type": "borderRadius"
+    },
+    "4": {
+      "value": 16,
+      "type": "borderRadius"
+    },
+    "5": {
+      "value": 32,
+      "type": "borderRadius"
+    },
+    "6": {
+      "value": 40,
+      "type": "borderRadius"
+    },
+    "7": {
+      "value": 56,
+      "type": "borderRadius"
+    },
     "static": {
       "0": {
         "value": 2.08,
@@ -175,40 +239,6 @@
       "6": {
         "value": 56,
         "type": "borderRadius"
-      },
-      "small": {
-        "1": {
-          "value": 2.08,
-          "type": "borderRadius"
-        },
-        "2": {
-          "value": 4,
-          "type": "borderRadius"
-        }
-      },
-      "medium": {
-        "1": {
-          "value": 8,
-          "type": "borderRadius"
-        },
-        "2": {
-          "value": 16,
-          "type": "borderRadius"
-        }
-      },
-      "large": {
-        "1": {
-          "value": 32,
-          "type": "borderRadius"
-        },
-        "2": {
-          "value": 40,
-          "type": "borderRadius"
-        },
-        "3": {
-          "value": 56,
-          "type": "borderRadius"
-        }
       }
     },
     "responsive": {
