@@ -23,7 +23,7 @@ export const Toggle = React.forwardRef(
 				position: 'relative',
 				width: 40,
 				height: 20,
-				borderRadius: '32px',
+				borderRadius: 5,
 				backgroundColor: 'muted',
 				backgroundRepeat: 'no-repeat',
 				backgroundPosition: 'right 2px top 2px',
