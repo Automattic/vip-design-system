@@ -38,7 +38,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 				alignItems: 'center',
 				justifyContent: 'center',
 				color: 'white',
-				padding: '1px',
+				padding: '1px', // this should probably be replaced with a token
 				textAlign: 'center',
 			} }
 			className={ classNames( 'vip-avatar-component', className ) }
