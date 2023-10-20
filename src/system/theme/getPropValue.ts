@@ -2,8 +2,7 @@
  * Internal dependencies
  */
 
-import Valet from './generated/valet-theme-light.json';
-import { HeadingValueEntry, ThemeMainEntry, ValueEntry, HeadingEntry } from './types';
+import { ThemeMainEntry, ValueEntry, HeadingEntry } from './types';
 
 // Valet Theme Productive Theme
 // https://www.figma.com/file/sILtW5Cs2tAnPWrSOEVyER/Productive-Color?node-id=1%3A17&t=4kHdpoprxntk5Ilw-0
@@ -102,43 +101,31 @@ export default ( theme: ValetTheme ) => {
 		}, {} );
 	};
 
-	// We get the following format: '1', '2', '3', 'caps'.
-	// We need to build h1: {}, h2: {}, h3: {}, caps: {}.
-	type HeadingVariant = keyof ( typeof Valet )[ 'heading' ];
-	type HeadingParsedVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'caps';
-
-	type HeadingValues = {
-		[ key: HeadingVariant ]: HeadingValueEntry;
-	};
-
+	type HeadingParsedVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'caps' | 'color';
 	type HeadingParsedValues = {
-		[ key: HeadingParsedVariant ]: HeadingEntry;
+		[ key in HeadingParsedVariant ]?: HeadingEntry;
 	};
 
-	const getHeadingStyles = () => {
-		const variantValues: ThemeLevel = getVariants( 'heading' );
-		const headings: HeadingParsedValues = {};
+	const getHeadingStyles = (): HeadingParsedValues => {
+		const headings = getVariants( 'heading' );
+		const headingKeys = Object.keys( headings );
+		const headingsEntries: Record< string, HeadingEntry | string | number > = {};
 
-		Object.keys( variantValues ).forEach( ( variantName: string ) => {
-			const value = variantValues[ variantName ];
+		headingKeys.forEach( ( variantName: string ) => {
+			const entry = headings[ variantName ];
 
 			switch ( variantName ) {
-				case '1':
-				case '2':
-				case '3':
-				case '4':
-				case '5':
-				case '6':
-					headings[ `h${ variantName }` ] = {
-						...variantValues[ variantName ],
-						color: 'heading',
-					};
+				case 'caps':
+					headingsEntries.caps = entry;
+					break;
+
+				default: {
+					headingsEntries[ `h${ variantName }` ] = entry;
+				}
 			}
 		} );
 
-		headings.caps = headings.hcaps;
-
-		return headings;
+		return headingsEntries;
 	};
 
 	return {
