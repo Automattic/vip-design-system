@@ -16,7 +16,9 @@ export interface ThemeLevel {
 	[ key: string ]: string | number | ValueEntryValue;
 }
 
-export interface VIPTheme extends Theme {}
+export type VIPTheme = Theme & {
+	[ key: string ]: VIPTheme | string | number;
+};
 
 export type ValueEntryValue = string | number | HeadingEntry | ShadowEntry[] | LabelEntry;
 export type ValueEntry = {
