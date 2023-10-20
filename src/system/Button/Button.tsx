@@ -11,9 +11,21 @@ interface ButtonTheme extends Theme {
 	outline?: Record< string, string >;
 }
 
+export enum ButtonVariant {
+	'danger',
+	'display',
+	'ghost',
+	'icon',
+	'primary',
+	'secondary',
+	'tertiary',
+	'text',
+}
+
 export interface ButtonProps extends ThemeButtonProps {
 	disabled?: boolean;
 	onClick?: ( event: ButtonClickType ) => void;
+	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(

@@ -1,39 +1,43 @@
-/** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from './Button';
+import { Button, ButtonProps } from './Button';
 import { Spinner } from '../Spinner';
 import classNames from 'classnames';
-import variants from './variants';
 
-const DefaultSpinner = ( { size, color = 'link' } ) => (
-	<Spinner size={ size } sx={ { ml: 2, color } } className="vip-button-submit-spinner" />
-);
+interface DefaultSpinnerProps {
+	color?: string;
+	size: number;
+}
 
-DefaultSpinner.propTypes = {
-	size: PropTypes.number,
-	color: PropTypes.string,
-};
+function DefaultSpinner( { size, color = 'link' }: DefaultSpinnerProps ) {
+	return <Spinner size={ size } sx={ { ml: 2, color } } className="vip-button-submit-spinner" />;
+}
 
 DefaultSpinner.displayName = 'DefaultSpinner';
 
-export const ButtonSubmit = React.forwardRef(
+export interface ButtonSubmitProps extends ButtonProps {
+	label: React.ReactNode;
+	loading?: boolean;
+	loadingIcon?: ( props: DefaultSpinnerProps ) => JSX.Element;
+	loadingIconSize?: number;
+	show?: boolean;
+}
+
+export const ButtonSubmit = React.forwardRef< HTMLButtonElement, ButtonSubmitProps >(
 	(
 		{
 			show = true,
-			variant = variants[ 1 ],
+			variant = 'secondary',
 			label,
 			loading = false,
 			disabled = false,
 			loadingIcon = DefaultSpinner,
 			loadingIconSize = 20,
 			...rest
-		},
-		forwardRef
+		}: ButtonSubmitProps,
+		ref: React.Ref< HTMLButtonElement >
 	) => {
 		if ( ! show ) {
 			return null;
@@ -41,7 +45,7 @@ export const ButtonSubmit = React.forwardRef(
 
 		return (
 			<Button
-				ref={ forwardRef }
+				ref={ ref }
 				className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
 				disabled={ disabled || loading }
 				variant={ variant }
@@ -57,13 +61,3 @@ export const ButtonSubmit = React.forwardRef(
 );
 
 ButtonSubmit.displayName = 'ButtonSubmit';
-
-ButtonSubmit.propTypes = {
-	label: PropTypes.node.isRequired,
-	disabled: PropTypes.bool,
-	loading: PropTypes.bool,
-	variant: PropTypes.oneOf( variants ),
-	show: PropTypes.bool,
-	loadingIcon: PropTypes.any,
-	loadingIconSize: PropTypes.number,
-};

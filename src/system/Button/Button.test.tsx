@@ -23,7 +23,7 @@ describe( '<Button />', () => {
 		expect( onClick ).toHaveBeenCalledTimes( 1 );
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the Button with disabled prop', async () => {
@@ -43,6 +43,6 @@ describe( '<Button />', () => {
 		expect( onClick ).toHaveBeenCalledTimes( 0 );
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
