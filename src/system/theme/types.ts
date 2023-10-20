@@ -24,12 +24,6 @@ export type ValueEntry = {
 	description?: string;
 };
 
-export type HeadingValueEntry = {
-	value: HeadingEntry;
-	type: string;
-	description?: string;
-};
-
 export type HeadingEntry = {
 	fontFamily: string;
 	fontWeight: string | number;
