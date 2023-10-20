@@ -9,17 +9,18 @@ export interface ValetTheme {
 }
 
 export interface TraversedTheme {
-	[ key: string ]: TraversedTheme | string | number;
+	[ key: string ]: TraversedTheme | ValueEntryValue;
 }
 
 export interface ThemeLevel {
-	[ key: string ]: string | number | HeadingEntry;
+	[ key: string ]: string | number | ValueEntryValue;
 }
 
 export interface VIPTheme extends ValetTheme {}
 
+export type ValueEntryValue = string | number | HeadingEntry | ShadowEntry[] | LabelEntry;
 export type ValueEntry = {
-	value: string | number | HeadingEntry | ShadowEntry[] | LabelEntry;
+	value: ValueEntryValue;
 	type: string;
 	description?: string;
 };

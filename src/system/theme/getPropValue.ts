@@ -5,10 +5,10 @@
 import {
 	ThemeMainEntry,
 	ValueEntry,
-	HeadingEntry,
 	ValetTheme,
 	ThemeLevel,
 	TraversedTheme,
+	ValueEntryValue,
 } from './types';
 
 const defaultReturnProp = 'noop';
@@ -23,7 +23,7 @@ function isValueEntry( entry: unknown ): entry is ValueEntry {
 }
 
 export default ( theme: ValetTheme ) => {
-	const getPropValue = ( prop: ThemeMainEntry, variant = 'default' ): string | number => {
+	const getPropValue = ( prop: ThemeMainEntry, variant = 'default' ): ValueEntryValue => {
 		if ( ! ( prop in theme ) ) {
 			return defaultReturnProp;
 		}
@@ -91,13 +91,13 @@ export default ( theme: ValetTheme ) => {
 
 	type HeadingParsedVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'caps' | 'color';
 	type HeadingParsedValues = {
-		[ key in HeadingParsedVariant ]?: HeadingEntry;
+		[ key in HeadingParsedVariant ]?: ValueEntryValue;
 	};
 
 	const getHeadingStyles = (): HeadingParsedValues => {
 		const headings = getVariants( 'heading' );
 		const headingKeys = Object.keys( headings );
-		const headingsEntries: Record< string, HeadingEntry | string | number > = {};
+		const headingsEntries: Record< string, ValueEntryValue | string | number > = {};
 
 		headingKeys.forEach( ( variantName: string ) => {
 			const entry = headings[ variantName ];

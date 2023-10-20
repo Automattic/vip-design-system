@@ -222,7 +222,7 @@ const theme: VIPTheme = {
 	outline,
 	space: getVariants( 'space' ),
 	fonts,
-	fontSizes: getVariants( 'fontSize.static' ),
+	fontSizes: getVariants( 'fontSize' ),
 	fontWeights: {
 		body: getPropValue( 'fontWeight', 'body' ),
 		heading: getPropValue( 'fontWeight', 'heading' ),
@@ -238,7 +238,7 @@ const theme: VIPTheme = {
 	sizes: {
 		sidebar: 260,
 	},
-	radii: getVariants( 'borderRadius.static' ),
+	radii: getVariants( 'borderRadius' ),
 	config: {
 		useColorSchemeMediaQuery: false,
 	},
