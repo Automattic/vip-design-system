@@ -23,7 +23,7 @@ function isValueEntry( entry: unknown ): entry is ValueEntry {
 }
 
 export default ( theme: ValetTheme ) => {
-	const getPropValue = ( prop: ThemeMainEntry, variant = 'default' ): ValueEntryValue => {
+	const getPropValue = ( prop: ThemeMainEntry, variant = 'default' ): string | number => {
 		if ( ! ( prop in theme ) ) {
 			return defaultReturnProp;
 		}

@@ -5,7 +5,8 @@ import ThemeBuilder from './getPropValue';
 
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
-import { VIPTheme, ValetTheme } from './types';
+import { TraversedTheme, ValetTheme, ValueEntryValue } from './types';
+import { Theme } from 'theme-ui';
 
 // Light
 const { getPropValue, getVariants, parsedTheme, getHeadingStyles } = ThemeBuilder( Valet );
@@ -21,7 +22,7 @@ const {
 	getPropValue: getPropValueDark,
 	getVariants: getVariantsDark,
 	parsedTheme: ValetThemeDark,
-} = ThemeBuilder( ValetDark as ValetTheme );
+} = ThemeBuilder( ValetDark );
 
 const dark = {
 	...ValetThemeDark,
@@ -45,180 +46,184 @@ const fonts = {
 	serif: 'recoletaregular, Georgia, serif',
 };
 
-const getComponentColors = ( theme, gColor, gVariants ): VIPTheme => ( {
-	// Valet Theme Colors
+const getComponentColors = ( theme: ValetTheme, gColor, gVariants ) => {
+	const themeObject = {
+		// Valet Theme Colors
 
-	// This has to be in the plural because we already have a flag: text
-	texts: {
-		...theme.text,
-	},
-
-	button: {
-		...theme.button,
-	},
-
-	tag: {
-		...theme.tag,
-	},
-
-	// Notice
-	notice: {
-		// extending the notice theme to support the alert variant
-		background: {
-			alert: theme.support.background.error,
-			...theme.support.background,
+		// This has to be in the plural because we already have a flag: text
+		texts: {
+			...theme.text,
 		},
-		link: {
-			alert: theme.support.link.error,
-			...theme.support.link,
+
+		button: {
+			...theme.button,
 		},
-		accent: {
-			alert: theme.support.accent.error,
-			...theme.support.accent,
+
+		tag: {
+			...theme.tag,
 		},
-		icon: {
-			alert: theme.support.icon.error,
-			...theme.support.icon,
-		},
-		text: {
-			alert: theme.support.text.error,
-			...theme.support.text,
-		},
-	},
 
-	// layer
-	layer: {
-		...theme.layer,
-	},
-
-	// icon
-	icon: {
-		...theme.icon,
-	},
-
-	// Form Controls
-	input: {
-		...theme.input,
-	},
-
-	// Toolbar Controls
-	toolbar: {
-		...theme.toolbar,
-	},
-
-	// Toolbar Controls
-	backgrounds: {
-		...theme.background,
-	},
-
-	// Logs Controls
-	logs: {
-		...theme.logs,
-	},
-
-	// wizard
-	wizard: {
-		step: {
-			number: {
-				color: theme.text.helper,
+		// Notice
+		notice: {
+			// extending the notice theme to support the alert variant
+			background: {
+				alert: theme.support.background.error,
+				...theme.support.background,
 			},
-			heading: {
-				complete: theme.text.success,
-				active: theme.heading,
-				inactive: theme.text.helper,
-				skipped: theme.text.helper,
+			link: {
+				alert: theme.support.link.error,
+				...theme.support.link,
+			},
+			accent: {
+				alert: theme.support.accent.error,
+				...theme.support.accent,
 			},
 			icon: {
-				complete: theme.support.icon.success,
-				active: theme.link.default,
-				inactive: theme.input.border.disabled,
-				skipped: theme.input.border.disabled,
+				alert: theme.support.icon.error,
+				...theme.support.icon,
 			},
-			border: {
-				default: theme.border[ '2' ],
-				complete: theme.support.accent.success,
-				active: theme.border.accent,
-				inactive: theme.input.border.disabled,
-				skipped: theme.input.border.disabled,
+			text: {
+				alert: theme.support.text.error,
+				...theme.support.text,
 			},
 		},
-	},
-	// Accordion
-	accordion: {
-		content: {
-			background: gColor( 'layer', '2' ),
+
+		// layer
+		layer: {
+			...theme.layer,
+		},
+
+		// icon
+		icon: {
+			...theme.icon,
+		},
+
+		// Form Controls
+		input: {
+			...theme.input,
+		},
+
+		// Toolbar Controls
+		toolbar: {
+			...theme.toolbar,
+		},
+
+		// Toolbar Controls
+		backgrounds: {
+			...theme.background,
+		},
+
+		// Logs Controls
+		logs: {
+			...theme.logs,
+		},
+
+		// wizard
+		wizard: {
+			step: {
+				number: {
+					color: theme.text.helper,
+				},
+				heading: {
+					complete: theme.text.success,
+					active: theme.heading,
+					inactive: theme.text.helper,
+					skipped: theme.text.helper,
+				},
+				icon: {
+					complete: theme.support.icon.success,
+					active: theme.link.default,
+					inactive: theme.input.border.disabled,
+					skipped: theme.input.border.disabled,
+				},
+				border: {
+					default: theme.border[ '2' ],
+					complete: theme.support.accent.success,
+					active: theme.border.accent,
+					inactive: theme.input.border.disabled,
+					skipped: theme.input.border.disabled,
+				},
+			},
+		},
+		// Accordion
+		accordion: {
+			content: {
+				background: gColor( 'layer', '2' ),
+				text: gColor( 'text', 'secondary' ),
+			},
+			trigger: {
+				text: gColor( 'text', 'primary' ),
+			},
+			background: {
+				open: gColor( 'layer', '3' ),
+				closed: 'transparent',
+				hover: gColor( 'layer', '3' ),
+			},
+		},
+
+		optionRow: {
+			...theme[ 'option-row' ],
+			hover: 'rgba(0,0,0,.02)',
+			border: gColor( 'border', '2' ),
+			text: gColor( 'text', 'secondary' ),
+			textAccent: gColor( 'link', 'default' ),
+			icon: gColor( 'icon', 'inverse' ),
+			iconBackground: gColor( 'layer', 'accent' ),
+		},
+
+		table: {
+			border: gColor( 'border', '2' ),
+			heading: gColor( 'text', 'primary' ),
 			text: gColor( 'text', 'secondary' ),
 		},
-		trigger: {
-			text: gColor( 'text', 'primary' ),
-		},
-		background: {
-			open: gColor( 'layer', '3' ),
-			closed: 'transparent',
-			hover: gColor( 'layer', '3' ),
-		},
-	},
 
-	optionRow: {
-		...theme[ 'option-row' ],
-		hover: 'rgba(0,0,0,.02)',
-		border: gColor( 'border', '2' ),
+		// Common Tokens
 		text: gColor( 'text', 'secondary' ),
-		textAccent: gColor( 'link', 'default' ),
-		icon: gColor( 'icon', 'inverse' ),
-		iconBackground: gColor( 'layer', 'accent' ),
-	},
-
-	table: {
-		border: gColor( 'border', '2' ),
 		heading: gColor( 'text', 'primary' ),
-		text: gColor( 'text', 'secondary' ),
-	},
+		background: gColor( 'layer', '2' ),
+		backgroundSecondary: gColor( 'layer', '1' ),
+		primary: gColor( 'link', 'default' ),
+		secondary: light.gray[ '70' ],
+		muted: gColor( 'text', 'helper' ),
+		border: gColor( 'border', '1' ),
+		borders: {
+			1: gColor( 'border', '1' ),
+			2: gColor( 'border', '2' ),
+			3: gColor( 'border', '3' ),
+			4: gColor( 'border', '4' ),
+			inverse: gColor( 'border', 'inverse' ),
+			accent: gColor( 'border', 'accent' ),
+		},
+		hover: 'rgba(0,0,0,.02)',
+		darken: 'rgba(0,0,0,.05)',
+		placeholder: gVariants( 'input.text' ).placeholder,
+		midnight: '#13191E',
+		dialog: light.gray[ '0' ],
+		backgroundMuted: gColor( 'layer', '1' ),
 
-	// Common Tokens
-	text: gColor( 'text', 'secondary' ),
-	heading: gColor( 'text', 'primary' ),
-	background: gColor( 'layer', '2' ),
-	backgroundSecondary: gColor( 'layer', '1' ),
-	primary: gColor( 'link', 'default' ),
-	secondary: light.gray[ '70' ],
-	muted: gColor( 'text', 'helper' ),
-	border: gColor( 'border', '1' ),
-	borders: {
-		1: gColor( 'border', '1' ),
-		2: gColor( 'border', '2' ),
-		3: gColor( 'border', '3' ),
-		4: gColor( 'border', '4' ),
-		inverse: gColor( 'border', 'inverse' ),
-		accent: gColor( 'border', 'accent' ),
-	},
-	hover: 'rgba(0,0,0,.02)',
-	darken: 'rgba(0,0,0,.05)',
-	placeholder: gVariants( 'input.text' ).placeholder,
-	midnight: '#13191E',
-	dialog: light.gray[ '0' ],
-	backgroundMuted: gColor( 'layer', '1' ),
+		// Variant colors
+		success: theme.support.link.success.default,
+		error: theme.support.link.error.default,
+		warning: theme.support.link.warning.default,
+		info: theme.support.link.info.default,
 
-	// Variant colors
-	success: theme.support.link.success.default,
-	error: theme.support.link.error.default,
-	warning: theme.support.link.warning.default,
-	info: theme.support.link.info.default,
+		// Card≈™
+		card: '#fff',
 
-	// Card≈™
-	card: '#fff',
+		// Link
+		link: gColor( 'link', 'default' ),
+		links: {
+			default: gColor( 'link', 'default' ),
+			hover: gColor( 'link', 'hover' ),
+			active: gColor( 'link', 'active' ),
+			visited: gColor( 'link', 'visited' ),
+		},
+	};
 
-	// Link
-	link: gColor( 'link', 'default' ),
-	links: {
-		default: gColor( 'link', 'default' ),
-		hover: gColor( 'link', 'hover' ),
-		active: gColor( 'link', 'active' ),
-		visited: gColor( 'link', 'visited' ),
-	},
-} );
+	return themeObject;
+};
 
-const theme: VIPTheme = {
+const theme: Theme = {
 	outline,
 	space: getVariants( 'space' ),
 	fonts,
@@ -244,7 +249,7 @@ const theme: VIPTheme = {
 	},
 	initialColorModeName: 'light',
 	colors: {
-		...getComponentColors( ValetTheme, getPropValue, getVariants ),
+		...getComponentColors( Valet, getPropValue, getVariants ),
 		...light,
 		modes: {
 			dark: {
