@@ -5,7 +5,7 @@ import ThemeBuilder from './getPropValue';
 
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
-import { VIPTheme } from './types';
+import { VIPTheme, ValetTheme } from './types';
 
 // Light
 const { getPropValue, getVariants, parsedTheme, getHeadingStyles } = ThemeBuilder( Valet );
@@ -21,7 +21,7 @@ const {
 	getPropValue: getPropValueDark,
 	getVariants: getVariantsDark,
 	parsedTheme: ValetThemeDark,
-} = ThemeBuilder( ValetDark );
+} = ThemeBuilder( ValetDark as ValetTheme );
 
 const dark = {
 	...ValetThemeDark,
@@ -205,7 +205,7 @@ const getComponentColors = ( theme, gColor, gVariants ): VIPTheme => ( {
 	warning: theme.support.link.warning.default,
 	info: theme.support.link.info.default,
 
-	// Card
+	// Card≈™
 	card: '#fff',
 
 	// Link

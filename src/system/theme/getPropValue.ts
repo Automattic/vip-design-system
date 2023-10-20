@@ -2,26 +2,14 @@
  * Internal dependencies
  */
 
-import { ThemeMainEntry, ValueEntry, HeadingEntry } from './types';
-
-// Valet Theme Productive Theme
-// https://www.figma.com/file/sILtW5Cs2tAnPWrSOEVyER/Productive-Color?node-id=1%3A17&t=4kHdpoprxntk5Ilw-0
-
-// interface ThemeProp extends Record< string, string > {
-// 	default: string;
-// }
-
-interface ValetTheme {
-	[ key: string ]: ValetTheme | ValueEntry;
-}
-
-interface TraversedTheme {
-	[ key: string ]: TraversedTheme | string | number;
-}
-
-interface ThemeLevel {
-	[ key: string ]: string | number | HeadingEntry;
-}
+import {
+	ThemeMainEntry,
+	ValueEntry,
+	HeadingEntry,
+	ValetTheme,
+	ThemeLevel,
+	TraversedTheme,
+} from './types';
 
 const defaultReturnProp = 'noop';
 

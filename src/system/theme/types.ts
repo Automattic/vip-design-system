@@ -4,22 +4,22 @@
 
 import { Theme } from 'theme-ui';
 
-export interface VIPTheme extends Theme {
-	texts: {
-		[ key: string ]: unknown;
-	};
-	outline: {
-		outlineStyle: string;
-		outlineColor: string;
-		outlineWidth: string;
-		boxShadow: string;
-	};
+export interface ValetTheme {
+	[ key: string ]: ValetTheme | ValueEntry;
 }
 
-export interface ThemeJSON extends Record< string, Record< string, { value: string } > > {}
+export interface TraversedTheme {
+	[ key: string ]: TraversedTheme | string | number;
+}
+
+export interface ThemeLevel {
+	[ key: string ]: string | number | HeadingEntry;
+}
+
+export interface VIPTheme extends ValetTheme {}
 
 export type ValueEntry = {
-	value: string | number;
+	value: string | number | HeadingEntry | ShadowEntry[] | LabelEntry;
 	type: string;
 	description?: string;
 };
@@ -31,6 +31,22 @@ export type HeadingEntry = {
 	fontSize?: string | number;
 	letterSpacing?: string | number;
 	color?: string;
+};
+
+export type ShadowEntry = {
+	color?: string | number;
+	type?: string | number;
+	x?: string | number;
+	y?: string | number;
+	blur?: string | number;
+	spread?: string | number;
+};
+
+export type LabelEntry = {
+	fontFamily?: string | number;
+	fontWeight?: string | number;
+	lineHeight?: string | number;
+	fontSize?: string | number;
 };
 
 export type VariantList = {
