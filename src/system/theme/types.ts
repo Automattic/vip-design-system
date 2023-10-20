@@ -25,11 +25,11 @@ export type ValueEntry = {
 };
 
 export type HeadingEntry = {
-	fontFamily: string;
-	fontWeight: string | number;
-	lineHeight: string | number;
-	fontSize: string | number;
-	letterSpacing: string | number;
+	fontFamily?: string;
+	fontWeight?: string | number;
+	lineHeight?: string | number;
+	fontSize?: string | number;
+	letterSpacing?: string | number;
 	color?: string;
 };
 
