@@ -4,7 +4,7 @@ Testing is an integral part of creating new features and maintaining the softwar
 
 ## Automated testing
 
-A [few actions](https://github.com/Automattic/vip-go-crontab/blob/trunk/.github/workflows/ci.yml) are automatically run via Github Actions when a pull request is created or updated.
+A [few actions](https://github.com/Automattic/vip-design-system/tree/trunk/.github/workflows) are automatically run via Github Actions when a pull request is created or updated.
 
 ### Linting
 
@@ -16,11 +16,11 @@ We run the following checks:
 
 ### Unit tests
 
-Unit tests in [\_\_tests\_\_](https://github.com/Automattic/vip-go-crontab/tree/trunk/__tests__) are run.
+Located in [test/](https://github.com/Automattic/vip-design-system/tree/trunk/test).
 
 #### Adding new unit tests
 
-When creating a new component, please consider adding a new unit test. Please ensure that the file name of the test matches the file name of the job. Example: `Button.test.tsx`.
+When creating a new component, please consider adding a new unit test. Please ensure that the file name of the test matches the file name of the job. Example: `Button.test.tsx`. Put the test in the same folder as the component.
 
 ### Manual tests
 
