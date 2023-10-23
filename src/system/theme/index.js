@@ -30,9 +30,9 @@ const outline = {
 };
 
 const fonts = {
-	body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+	body: '-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
 	heading: 'inherit',
-	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+	monospace: 'inherit',
 	serif: 'recoletaregular, Georgia, serif',
 };
 
