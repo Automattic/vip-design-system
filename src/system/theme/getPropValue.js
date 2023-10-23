@@ -62,7 +62,7 @@ export default theme => {
 				headingStyles[ `h${ variant }` ] = {
 					...variantValues[ variant ],
 					color: 'heading',
-					fontFamily: 'serif',
+					fontFamily: variant.toString() === '1' ? 'serif' : 'body',
 				};
 			}
 		} );
