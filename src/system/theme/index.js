@@ -186,7 +186,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	hover: 'rgba(0,0,0,.02)',
 	darken: 'rgba(0,0,0,.05)',
 	placeholder: gVariants( 'input.text' ).placeholder,
-	midnight: '#13191E',
+	midnight: gVariants( 'input.background' ).primary,
 	dialog: light.gray[ '0' ],
 	backgroundMuted: gColor( 'layer', '1' ),
 

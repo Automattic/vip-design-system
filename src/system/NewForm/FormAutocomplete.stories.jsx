@@ -151,9 +151,7 @@ WithCustomArrow.args = {
 	showAllValues: true,
 	// eslint-disable-next-line react/display-name
 	dropdownArrow: () => (
-		<span sx={ { position: 'absolute', top: '2px', right: '10px', pointerEvents: 'none' } }>
-			👇
-		</span>
+		<span sx={ { position: 'absolute', top: 1, right: 3, pointerEvents: 'none' } }>👇</span>
 	),
 };
 WithCustomArrow.displayName = 'WithCustomArrow';

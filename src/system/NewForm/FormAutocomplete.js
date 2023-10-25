@@ -51,7 +51,7 @@ const defaultStyles = {
 		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
 		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--show-all-values': { paddingRight: '40px' },
+		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
 	},
 	'& .autocomplete__menu': {
 		...baseBorderTextColors,
@@ -66,11 +66,11 @@ const defaultStyles = {
 		borderColor: baseControlBorderStyle.borderColor,
 	},
 	'& .autocomplete__option--odd': {
-		bg: 'backgroundSecondary',
+		bg: 'layer.1',
 	},
 	'& .autocomplete__option:hover, & .autocomplete__option--focused': {
-		bg: 'midnight',
-		borderColor: 'midnight',
+		bg: 'input.background.primary',
+		borderColor: 'input.background.primary',
 	},
 	'& .autocomplete__input--show-all-values': {
 		paddingRight: 0,
@@ -345,7 +345,7 @@ const FormAutocomplete = React.forwardRef(
 							{ ...props }
 						/>
 
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? '40px' : '10px' } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
 					</FormSelectContent>
 				</div>
 
