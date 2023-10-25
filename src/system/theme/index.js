@@ -222,10 +222,7 @@ export default {
 		medium: getPropValue( 'fontWeight', 'medium' ),
 		light: getPropValue( 'fontWeight', 'light' ),
 	},
-	lineHeights: {
-		body: getPropValue( 'lineHeight', '1' ),
-		heading: getPropValue( 'lineHeight', '2' ),
-	},
+	lineHeights: getVariants( 'lineHeight' ),
 	sizes: {
 		sidebar: 260,
 	},
