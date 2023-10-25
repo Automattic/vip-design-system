@@ -77,7 +77,7 @@ const OptionRow = React.forwardRef(
 						<Box
 							sx={ {
 								display: [ 'inline-block', 'inline-block', 'block' ],
-								p: small ? 12 : 20,
+								p: small ? 3 : 5,
 								flex: '0 0 auto',
 								bg: `optionRow.${ variant }.background`,
 								color: `optionRow.${ variant }.icon`,

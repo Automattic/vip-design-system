@@ -90,7 +90,7 @@ const WizardStep = React.forwardRef(
 							mb: 1,
 							color: headingColor,
 							fontSize: 2,
-							fontWeight: '500',
+							fontWeight: 'heading',
 							flexGrow: 1,
 						} }
 						ref={ titleRef }
@@ -139,7 +139,7 @@ const WizardStep = React.forwardRef(
 							minWidth: 'auto',
 							'> tbody > tr': {
 								'> td, > th': {
-									fontWeight: '500',
+									fontWeight: 'heading',
 									border: 'none',
 									pl: 0,
 									'&:first-of-type': { pl: 0 },

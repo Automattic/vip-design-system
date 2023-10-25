@@ -69,7 +69,7 @@ export const Default = () => {
 									<Label
 										htmlFor="option-custom-a"
 										className="custom-class"
-										sx={ { color: '#bf2a23' } }
+										sx={ { color: 'error' } }
 									>
 										(Custom) All domains listed on this environment, and all subdomains
 									</Label>
