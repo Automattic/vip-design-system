@@ -49,19 +49,23 @@ export default theme => {
 		const variantValues = getVariants( 'heading' );
 
 		const headingStyles = {};
+		const baseProps = {
+			fontWeight: 'heading',
+			color: 'heading',
+		};
 
 		Object.keys( variantValues ).forEach( variant => {
 			if ( variant === 'caps' ) {
 				headingStyles.caps = {
 					...variantValues[ variant ],
-					color: 'heading',
+					...baseProps,
 				};
 			}
 
 			if ( parseInt( variant, 10 ) > 0 ) {
 				headingStyles[ `h${ variant }` ] = {
 					...variantValues[ variant ],
-					color: 'heading',
+					...baseProps,
 					fontFamily: variant.toString() === '1' ? 'serif' : 'body',
 				};
 			}

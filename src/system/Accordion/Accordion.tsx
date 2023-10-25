@@ -104,7 +104,7 @@ export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 					alignItems: 'center',
 					justifyContent: 'space-between',
 					fontSize: 1,
-					fontWeight: 600,
+					fontWeight: 'bold',
 
 					'&[data-state="closed"]': {
 						backgroundColor: 'accordion.background.closed',

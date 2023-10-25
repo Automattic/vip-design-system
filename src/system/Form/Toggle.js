@@ -54,7 +54,7 @@ export const Toggle = React.forwardRef(
 					width: 16,
 					height: 16,
 					backgroundColor: 'white',
-					borderRadius: '50%',
+					borderRadius: '100%',
 					boxShadow: 'rgb(0 0 0 / 5%) 0px 1px 5px, rgb(0 0 0 / 15%) 0px 1px 1px',
 					transition: 'transform 100ms',
 					transform: 'translateX(2px)',

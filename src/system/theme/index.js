@@ -289,7 +289,7 @@ export default {
 			bg: 'button.primary.background.default',
 			border: '1px solid transparent',
 			cursor: 'pointer',
-			fontWeight: '500',
+			fontWeight: 'medium',
 			boxShadow: 'none',
 			borderRadius: 1,
 			'&:hover, &:focus': {

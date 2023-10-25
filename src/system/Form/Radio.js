@@ -49,7 +49,7 @@ const labelStyle = {
 	color: inputBaseText,
 	lineHeight: 1.5,
 	'&:before, &:after': {
-		borderRadius: '50%',
+		borderRadius: '100%',
 		position: 'absolute',
 		top: 0,
 		left: `${ -1 * radioPosition }px`,

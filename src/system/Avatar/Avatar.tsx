@@ -27,7 +27,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	) => (
 		<Box
 			sx={ {
-				borderRadius: 9999,
+				borderRadius: '100%',
 				height: size + 2, // +2 to compensate padding on both sides
 				width: size + 2, // +2 to compensate padding on both sides
 				border: '2px solid',
@@ -51,7 +51,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 					src={ src }
 					alt={ `Avatar image from ${ name }` }
 					sx={ {
-						borderRadius: 9999,
+						borderRadius: '100%',
 						width: '100%',
 						display: 'block',
 					} }
