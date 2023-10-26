@@ -18,16 +18,17 @@ The code is structured in the following way:
 
 - [.github/](https://github.com/Automattic/vip-design-system/tree/trunk/.github) — configuration and templates for GitHub actions.
 - [.storybook/](https://github.com/Automattic/vip-design-system/tree/trunk/.storybook) — configuration files for Storybook
-- [src/](https://github.com/Automattic/vip-design-system/tree/trunk/src) — Javascript and Typescript react component files + Theme configuration
+- [src/](https://github.com/Automattic/vip-design-system/tree/trunk/src) — Javascript and Typescript react component files + Theme configuration + Components tests (on each component folder).
 - [test/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — Unit tests
 - [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — VIP Design Sytem tokens exported using [Figma Studio](https://docs.tokens.studio/). This is the source of truth for the Design team tokens, variables, etc.
 
 ## Updating the Theme with VIP Design System Tokens
 
-You need to update the tokens once the VIP Design System updates the core files. The Figma Studio plugin will push files into the [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) folder. Once these files are there, you can run the following: 
-```bash
+You need to update the tokens once the VIP Design System updates the core files. The Figma Studio plugin will push files into the [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) folder. Once these files are there, you can run the following:
+
+````bash
 npm run theme-update
-\``` 
+\```
 to have an updated json theme under [src/system/theme/generated/](https://github.com/Automattic/vip-design-system/tree/trunk/src/system/theme/generated).
 
 ### How the theming works
@@ -50,7 +51,7 @@ Run this command to update the VIP Valet Theme with the latest `tokens/**` files
 
 ```bash
 npm run theme-update
-```
+````
 
 ## Feature flags
 
