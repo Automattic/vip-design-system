@@ -2,7 +2,7 @@
 
 ## Basic functionality
 
-`vip-design-system` is a React component released in the NPM registry. It's a public package that anyone can install.
+`vip-design-system` is a React component released in the NPM registry. It's a [public package](https://www.npmjs.com/package/@automattic/vip-design-system) that anyone can install.
 
 ## Languages & coding standard
 
