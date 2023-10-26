@@ -19,7 +19,7 @@ The code is structured in the following way:
 - [.github/](https://github.com/Automattic/vip-design-system/tree/trunk/.github) — configuration and templates for GitHub actions.
 - [.storybook/](https://github.com/Automattic/vip-design-system/tree/trunk/.storybook) — configuration files for Storybook
 - [src/](https://github.com/Automattic/vip-design-system/tree/trunk/src) — Javascript and Typescript react component files + Theme configuration + Components tests (on each component folder).
-- [test/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — Unit tests
+- [test/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — Test utilities, mocks or configuration for the test suite.
 - [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — VIP Design Sytem tokens exported using [Figma Studio](https://docs.tokens.studio/). This is the source of truth for the Design team tokens, variables, etc.
 
 ## Updating the Theme with VIP Design System Tokens

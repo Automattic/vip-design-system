@@ -16,7 +16,9 @@ We run the following checks:
 
 ### Unit tests
 
-Located in [test/](https://github.com/Automattic/vip-design-system/tree/trunk/test).
+The tests are located inside of of each component. For example: [src/system/Accordion/Accordion.test.tsx](https://github.com/Automattic/vip-design-system/tree/trunk/src/system/Accordion/Accordion.test.tsx).
+
+We recommend you to write tests close to the component implementation.
 
 #### Adding new unit tests
 
