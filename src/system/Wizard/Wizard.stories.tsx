@@ -25,7 +25,7 @@ export const Default = () => {
 			children: (
 				<Box>
 					<Label>Domain</Label>
-					<Input autoFocus placeholder="yourdomain.com" />
+					<Input placeholder="yourdomain.com" />
 					<Button sx={ { mt: 3 } }>Continue</Button>
 				</Box>
 			),
