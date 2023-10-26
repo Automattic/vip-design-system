@@ -30,7 +30,7 @@ export const baseControlStyle = {
 	'&:disabled': {
 		borderColor: 'input.border.disabled',
 	},
-	'&:read-only': {
+	'&[readonly]': {
 		borderColor: 'input.border.disabled',
 		backgroundColor: 'input.background.read-only',
 	},
