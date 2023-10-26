@@ -16,7 +16,6 @@ import { ThemeUIStyleObject } from 'theme-ui';
 interface NoticeIconProps {
 	color: string;
 	variant: ColorVariants;
-	hasTitle: boolean;
 }
 
 export interface NoticeProps {
@@ -103,11 +102,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							alignSelf: 'center',
 						} }
 					>
-						<NoticeIcon
-							hasTitle={ !! title }
-							color={ `notice.icon.${ variant }` }
-							variant={ variant }
-						/>
+						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
 					</Flex>
 
 					<Box>
