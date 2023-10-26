@@ -22,7 +22,7 @@ const styles = {
 	border: 'none',
 	color: 'heading',
 	'&[data-state="active"]': {
-		color: 'borders.accent',
+		color: 'link',
 		fontWeight: 'regular',
 		boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
 	},
