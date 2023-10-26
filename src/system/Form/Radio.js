@@ -20,7 +20,7 @@ const itemStyle = {
 	my: 2,
 };
 
-const radioPosition = mainTheme.space[ 4 ] - mainTheme.space[ 1 ];
+const radioPosition = mainTheme.space[ 5 ];
 
 const inputStyle = {
 	...screenReaderTextClass,
@@ -47,11 +47,11 @@ const labelStyle = {
 	marginBottom: 0,
 	userSelect: 'none',
 	color: inputBaseText,
-	lineHeight: 1.5,
+	lineHeight: 'body',
 	'&:before, &:after': {
-		borderRadius: '50%',
+		borderRadius: '100%',
 		position: 'absolute',
-		top: 0,
+		top: 1,
 		left: `${ -1 * radioPosition }px`,
 		transition: 'all .3s ease-out',
 		zIndex: 2,

@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Tooltip, Button, Heading, Text, Link } from '..';
+import { Tooltip, Button, Heading, Text, Link, Box } from '..';
 
 export default {
 	title: 'Tooltip',
@@ -109,7 +109,7 @@ export const Container = () => (
 			simply pass <code>data-vip-tooltip</code> as an HTML attribute to your component.
 		</Text>
 
-		<div sx={ { backgroundColor: 'red' } }>
+		<Box sx={ { backgroundColor: 'red' } }>
 			<Tooltip>
 				<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 3 } }>
 					This is another way
@@ -128,6 +128,6 @@ export const Container = () => (
 					Use with links too
 				</Link>
 			</Tooltip>
-		</div>
+		</Box>
 	</div>
 );

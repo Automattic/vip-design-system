@@ -111,7 +111,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 							mb: 1,
 							color: headingColor,
 							fontSize: 2,
-							fontWeight: '500',
+							fontWeight: 'heading',
 							flexGrow: 1,
 						} }
 						ref={ titleRef }
@@ -158,7 +158,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 							minWidth: 'auto',
 							'> tbody > tr': {
 								'> td, > th': {
-									fontWeight: '500',
+									fontWeight: 'heading',
 									border: 'none',
 									pl: 0,
 									'&:first-of-type': { pl: 0 },

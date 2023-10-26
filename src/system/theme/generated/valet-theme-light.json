@@ -1,40 +1,78 @@
 {
   "space": {
+    "0": {
+      "value": 0,
+      "type": "spacing"
+    },
+    "1": {
+      "value": 4,
+      "type": "spacing"
+    },
+    "2": {
+      "value": 8,
+      "type": "spacing"
+    },
+    "3": {
+      "value": 12,
+      "type": "spacing"
+    },
+    "4": {
+      "value": 16,
+      "type": "spacing"
+    },
+    "5": {
+      "value": 24,
+      "type": "spacing"
+    },
+    "6": {
+      "value": 32,
+      "type": "spacing"
+    },
+    "7": {
+      "value": 56,
+      "type": "spacing"
+    },
+    "8": {
+      "value": 80,
+      "type": "spacing"
+    },
+    "9": {
+      "value": 160,
+      "type": "spacing"
+    },
     "responsive": {
-      "small": {
-        "1": {
-          "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
-          "type": "spacing"
-        }
+      "0": {
+        "value": 0,
+        "type": "spacing"
       },
-      "medium": {
-        "1": {
-          "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
-          "type": "spacing"
-        },
-        "2": {
-          "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
-          "type": "spacing"
-        }
+      "1": {
+        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
+        "type": "spacing"
       },
-      "large": {
-        "1": {
-          "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
-          "type": "spacing",
-          "description": "The default space between sequential blocks in a layout"
-        },
-        "2": {
-          "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
-          "type": "spacing"
-        },
-        "3": {
-          "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
-          "type": "spacing"
-        },
-        "4": {
-          "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
-          "type": "spacing"
-        }
+      "2": {
+        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
+        "type": "spacing"
+      },
+      "3": {
+        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "4": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "spacing",
+        "description": "The default space between sequential blocks in a layout"
+      },
+      "5": {
+        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "6": {
+        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
+        "type": "spacing"
+      },
+      "7": {
+        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
+        "type": "spacing"
       },
       "0-1": {
         "value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)",
@@ -137,56 +175,42 @@
       "10": {
         "value": 160,
         "type": "spacing"
-      },
-      "small": {
-        "1": {
-          "value": 2.08,
-          "type": "spacing"
-        },
-        "2": {
-          "value": 4,
-          "type": "spacing"
-        },
-        "3": {
-          "value": 8,
-          "type": "spacing"
-        },
-        "4": {
-          "value": 12,
-          "type": "spacing"
-        }
-      },
-      "medium": {
-        "1": {
-          "value": 16,
-          "type": "spacing"
-        },
-        "2": {
-          "value": 24,
-          "type": "spacing"
-        },
-        "3": {
-          "value": 32,
-          "type": "spacing"
-        }
-      },
-      "large": {
-        "1": {
-          "value": 56,
-          "type": "spacing"
-        },
-        "2": {
-          "value": 80,
-          "type": "spacing"
-        },
-        "3": {
-          "value": 160,
-          "type": "spacing"
-        }
       }
     }
   },
   "borderRadius": {
+    "0": {
+      "value": 0,
+      "type": "borderRadius"
+    },
+    "1": {
+      "value": 2.08,
+      "type": "borderRadius"
+    },
+    "2": {
+      "value": 4,
+      "type": "borderRadius"
+    },
+    "3": {
+      "value": 8,
+      "type": "borderRadius"
+    },
+    "4": {
+      "value": 16,
+      "type": "borderRadius"
+    },
+    "5": {
+      "value": 32,
+      "type": "borderRadius"
+    },
+    "6": {
+      "value": 40,
+      "type": "borderRadius"
+    },
+    "7": {
+      "value": 56,
+      "type": "borderRadius"
+    },
     "static": {
       "0": {
         "value": 2.08,
@@ -215,40 +239,6 @@
       "6": {
         "value": 56,
         "type": "borderRadius"
-      },
-      "small": {
-        "1": {
-          "value": 2.08,
-          "type": "borderRadius"
-        },
-        "2": {
-          "value": 4,
-          "type": "borderRadius"
-        }
-      },
-      "medium": {
-        "1": {
-          "value": 8,
-          "type": "borderRadius"
-        },
-        "2": {
-          "value": 16,
-          "type": "borderRadius"
-        }
-      },
-      "large": {
-        "1": {
-          "value": 32,
-          "type": "borderRadius"
-        },
-        "2": {
-          "value": 40,
-          "type": "borderRadius"
-        },
-        "3": {
-          "value": 56,
-          "type": "borderRadius"
-        }
       }
     },
     "responsive": {

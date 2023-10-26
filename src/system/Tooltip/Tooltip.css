@@ -22,11 +22,15 @@
   [data-vip-tooltip]::before {
 	content: attr(data-vip-tooltip);
 	z-index: 9999;
-	width: 210px;
+	width: max-content;
+	max-width: 210px;
 	color: #fff;
 	background: rgba(0,0,0, .7);
 	border-radius: 5px;
-	padding: 5px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 8px;
+	padding-bottom: 8px;
   }
 
   [data-vip-tooltip]::after {

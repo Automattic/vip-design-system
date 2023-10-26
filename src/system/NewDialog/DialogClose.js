@@ -39,8 +39,8 @@ export const DialogCloseDefault = React.forwardRef( ( props, forwardedRef ) => (
 				justifyContent: 'center',
 				color: 'icon.primary',
 				position: 'absolute',
-				top: '10px',
-				right: '10px',
+				top: 3,
+				right: 3,
 
 				'&:hover': {
 					backgroundColor: 'borders.2',

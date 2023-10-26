@@ -36,5 +36,3 @@ export const ScreenReaderText = forwardRef< HTMLSpanElement, ScreenReaderTextPro
 		</span>
 	)
 );
-
-ScreenReaderText.displayName = 'ScreenReaderText';

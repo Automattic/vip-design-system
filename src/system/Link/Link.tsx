@@ -17,7 +17,7 @@ export const Link = forwardRef< HTMLAnchorElement, LinkProps >(
 	( { active = false, sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
 		<ThemeLink
 			sx={ {
-				textDdecorationThickness: '0.1em',
+				textDecorationThickness: '0.1em',
 				textUnderlineOffset: '0.1em',
 				color: active ? 'links.active' : 'link',
 				'&:visited': {

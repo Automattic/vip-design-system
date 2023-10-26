@@ -21,7 +21,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 const defaultStyles = {
 	...baseControlStyle,
 	paddingLeft: 3,
-	paddingRight: 40, // 40px for the icon
+	paddingRight: 7,
 	py: 0,
 	appearance: 'none',
 	minHeight: '36px',

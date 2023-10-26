@@ -6,10 +6,9 @@ import ThemeBuilder from './getPropValue';
 import Valet from './generated/valet-theme-light.json';
 import ValetDark from './generated/valet-theme-dark.json';
 import ColorBuilder from './colors';
-import { textStyles } from './textStyles';
 
 // Light
-const { getPropValue, getVariants, ValetTheme } = ThemeBuilder( Valet );
+const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
 
 // Dark
@@ -31,9 +30,9 @@ const outline = {
 };
 
 const fonts = {
-	body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+	body: '-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
 	heading: 'inherit',
-	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+	monospace: 'inherit',
 	serif: 'recoletaregular, Georgia, serif',
 };
 
@@ -176,18 +175,11 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	secondary: light.gray[ '70' ],
 	muted: gColor( 'text', 'helper' ),
 	border: gColor( 'border', '1' ),
-	borders: {
-		1: gColor( 'border', '1' ),
-		2: gColor( 'border', '2' ),
-		3: gColor( 'border', '3' ),
-		4: gColor( 'border', '4' ),
-		inverse: gColor( 'border', 'inverse' ),
-		accent: gColor( 'border', 'accent' ),
-	},
+	borders: gVariants( 'border' ),
 	hover: 'rgba(0,0,0,.02)',
 	darken: 'rgba(0,0,0,.05)',
 	placeholder: gVariants( 'input.text' ).placeholder,
-	midnight: '#13191E',
+	midnight: gVariants( 'input.background' ).primary,
 	dialog: light.gray[ '0' ],
 	backgroundMuted: gColor( 'layer', '1' ),
 
@@ -202,17 +194,12 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	// Link
 	link: gColor( 'link', 'default' ),
-	links: {
-		default: gColor( 'link', 'default' ),
-		hover: gColor( 'link', 'hover' ),
-		active: gColor( 'link', 'active' ),
-		visited: gColor( 'link', 'visited' ),
-	},
+	links: gVariants( 'link' ),
 } );
 
 export default {
 	outline,
-	space: getVariants( 'space.static' ),
+	space: getVariants( 'space' ),
 	fonts,
 	fontSizes: getVariants( 'fontSize.static' ),
 	fontWeights: {
@@ -223,10 +210,7 @@ export default {
 		medium: getPropValue( 'fontWeight', 'medium' ),
 		light: getPropValue( 'fontWeight', 'light' ),
 	},
-	lineHeights: {
-		body: getPropValue( 'lineHeight', '1' ),
-		heading: getPropValue( 'lineHeight', '2' ),
-	},
+	lineHeights: getVariants( 'lineHeight' ),
 	sizes: {
 		sidebar: 260,
 	},
@@ -290,7 +274,7 @@ export default {
 			bg: 'button.primary.background.default',
 			border: '1px solid transparent',
 			cursor: 'pointer',
-			fontWeight: '500',
+			fontWeight: 'medium',
 			boxShadow: 'none',
 			borderRadius: 1,
 			'&:hover, &:focus': {
@@ -419,7 +403,7 @@ export default {
 		},
 	},
 
-	text: textStyles,
+	text: getHeadingStyles(),
 
 	dialog: {
 		modal: {
@@ -480,7 +464,7 @@ export default {
 			p: {
 				color: 'text',
 			},
-			...textStyles,
+			...getHeadingStyles(),
 		},
 	},
 };

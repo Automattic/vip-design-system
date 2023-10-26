@@ -20,7 +20,7 @@ export const Badge = forwardRef< HTMLDivElement, BadgeProps >(
 			as="span"
 			sx={ {
 				fontSize: 0,
-				padding: 0,
+				padding: 0, // do we need padding declared twice here?
 				bg: `tag.${ variant }.background`,
 				color: `tag.${ variant }.text`,
 				py: 1,

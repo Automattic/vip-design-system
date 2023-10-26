@@ -27,7 +27,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	) => (
 		<Box
 			sx={ {
-				borderRadius: 9999,
+				borderRadius: '100%',
 				height: size + 2, // +2 to compensate padding on both sides
 				width: size + 2, // +2 to compensate padding on both sides
 				border: '2px solid',
@@ -38,7 +38,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 				alignItems: 'center',
 				justifyContent: 'center',
 				color: 'white',
-				padding: '1px',
+				padding: '1px', // this should probably be replaced with a token
 				textAlign: 'center',
 			} }
 			className={ classNames( 'vip-avatar-component', className ) }
@@ -51,7 +51,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 					src={ src }
 					alt={ `Avatar image from ${ name }` }
 					sx={ {
-						borderRadius: 9999,
+						borderRadius: '100%',
 						width: '100%',
 						display: 'block',
 					} }

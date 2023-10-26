@@ -22,7 +22,7 @@ export const FormSelectArrow = React.forwardRef( ( props, forwardRef ) => (
 			borderLeftWidth: borderStyle.borderWidth,
 			borderLeftStyle: borderStyle.borderStyle,
 			borderLeftColor: borderStyle.borderColor,
-			right: '10px',
+			right: 3,
 			top: '7px',
 			pointerEvents: 'none',
 			svg: {

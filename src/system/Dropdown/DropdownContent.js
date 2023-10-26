@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 export const styles = {
 	minWidth: 220,
-	borderRadius: 6,
+	borderRadius: 2,
 	backgroundColor: 'background',
 	boxShadow: 'high',
 	px: 2,

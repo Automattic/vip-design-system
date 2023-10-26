@@ -38,17 +38,6 @@
 	cursor: pointer;
 }
 
-/* .autocomplete__dropdown-arrow-down {
-	z-index: -1;
-	display: inline-block;
-	position: absolute;
-	right: 8px;
-	width: 24px;
-	height: 24px;
-	top: 10px;
-	pointer-events: none;
-} */
-
 .autocomplete__menu {
 	background-color: #fff;
 	border: 2px solid #0b0c0c;

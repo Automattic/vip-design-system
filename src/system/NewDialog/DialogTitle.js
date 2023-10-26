@@ -19,7 +19,9 @@ export const DialogTitle = ( { title, hidden = false } ) => {
 	}
 
 	return (
-		<DialogPrimitive.Title sx={ { margin: 0, fontSize: 3, fontWeight: 500, color: 'heading' } }>
+		<DialogPrimitive.Title
+			sx={ { margin: 0, fontSize: 3, fontWeight: 'medium', color: 'heading' } }
+		>
 			{ titleNode }
 		</DialogPrimitive.Title>
 	);

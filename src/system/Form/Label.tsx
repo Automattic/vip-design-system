@@ -12,7 +12,7 @@ import { RequiredLabel } from './RequiredLabel';
 
 export const baseLabelColor = 'input.label.default';
 export const baseLabelStyle = {
-	fontWeight: 500,
+	fontWeight: 'heading',
 	fontSize: 2,
 	lineHeight: 1.5,
 	color: baseLabelColor,

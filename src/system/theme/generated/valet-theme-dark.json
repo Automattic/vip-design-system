@@ -753,6 +753,60 @@
           "value": "#89daa0"
         }
       }
+    },
+    "helper-text": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "fontSize": 12,
+        "lineHeight": "150%"
+      },
+      "type": "typography"
+    },
+    "label-xs": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "lineHeight": "100%",
+        "fontSize": 11
+      },
+      "type": "typography"
+    },
+    "label-small": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "lineHeight": "100%",
+        "fontSize": 12
+      },
+      "type": "typography"
+    },
+    "label-default": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 500,
+        "lineHeight": "100%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "label-default-quiet": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "lineHeight": "100%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "label-default-loud": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 700,
+        "lineHeight": "100%",
+        "fontSize": 14
+      },
+      "type": "typography"
     }
   },
   "focus": {
@@ -1301,12 +1355,298 @@
       }
     }
   },
-  "rem": {
-    "value": 16,
-    "type": "other",
-    "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
+  "space": {
+    "0": {
+      "value": 0,
+      "type": "spacing"
+    },
+    "1": {
+      "value": 4,
+      "type": "spacing"
+    },
+    "2": {
+      "value": 8,
+      "type": "spacing"
+    },
+    "3": {
+      "value": 12,
+      "type": "spacing"
+    },
+    "4": {
+      "value": 16,
+      "type": "spacing"
+    },
+    "5": {
+      "value": 24,
+      "type": "spacing"
+    },
+    "6": {
+      "value": 32,
+      "type": "spacing"
+    },
+    "7": {
+      "value": 56,
+      "type": "spacing"
+    },
+    "8": {
+      "value": 80,
+      "type": "spacing"
+    },
+    "9": {
+      "value": 160,
+      "type": "spacing"
+    },
+    "responsive": {
+      "0": {
+        "value": 0,
+        "type": "spacing"
+      },
+      "1": {
+        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
+        "type": "spacing"
+      },
+      "2": {
+        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
+        "type": "spacing"
+      },
+      "3": {
+        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "4": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "spacing",
+        "description": "The default space between sequential blocks in a layout"
+      },
+      "5": {
+        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "6": {
+        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
+        "type": "spacing"
+      },
+      "7": {
+        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
+        "type": "spacing"
+      },
+      "0-1": {
+        "value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)",
+        "type": "spacing"
+      },
+      "1-2": {
+        "value": "clamp(0.25rem, calc(0.19rem + 0.30vw), 0.50rem)",
+        "type": "spacing"
+      },
+      "2-3": {
+        "value": "clamp(0.50rem, calc(0.44rem + 0.30vw), 0.75rem)",
+        "type": "spacing"
+      },
+      "3-4": {
+        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
+        "type": "spacing"
+      },
+      "4-5": {
+        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
+        "type": "spacing"
+      },
+      "5-6": {
+        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "6-7": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "spacing"
+      },
+      "7-8": {
+        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "8-9": {
+        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
+        "type": "spacing"
+      },
+      "9-10": {
+        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
+        "type": "spacing"
+      },
+      "3-6": {
+        "value": "clamp(0.75rem, calc(0.45rem + 1.51vw), 2.00rem)",
+        "type": "spacing"
+      },
+      "4-7": {
+        "value": "clamp(1.00rem, calc(0.40rem + 3.01vw), 3.50rem)",
+        "type": "spacing"
+      },
+      "5-8": {
+        "value": "clamp(1.50rem, calc(0.66rem + 4.22vw), 5.00rem)",
+        "type": "spacing"
+      },
+      "6-9": {
+        "value": "clamp(2.00rem, calc(0.80rem + 6.02vw), 7.00rem)",
+        "type": "spacing"
+      }
+    },
+    "static": {
+      "0": {
+        "value": 2.08,
+        "type": "spacing"
+      },
+      "1": {
+        "value": 4,
+        "type": "spacing"
+      },
+      "2": {
+        "value": 8,
+        "type": "spacing"
+      },
+      "3": {
+        "value": 12,
+        "type": "spacing"
+      },
+      "4": {
+        "value": 16,
+        "type": "spacing"
+      },
+      "5": {
+        "value": 24,
+        "type": "spacing"
+      },
+      "6": {
+        "value": 32,
+        "type": "spacing"
+      },
+      "7": {
+        "value": 56,
+        "type": "spacing"
+      },
+      "8": {
+        "value": 80,
+        "type": "spacing"
+      },
+      "9": {
+        "value": 112,
+        "type": "spacing"
+      },
+      "10": {
+        "value": 160,
+        "type": "spacing"
+      }
+    }
+  },
+  "borderRadius": {
+    "0": {
+      "value": 0,
+      "type": "borderRadius"
+    },
+    "1": {
+      "value": 2.08,
+      "type": "borderRadius"
+    },
+    "2": {
+      "value": 4,
+      "type": "borderRadius"
+    },
+    "3": {
+      "value": 8,
+      "type": "borderRadius"
+    },
+    "4": {
+      "value": 16,
+      "type": "borderRadius"
+    },
+    "5": {
+      "value": 32,
+      "type": "borderRadius"
+    },
+    "6": {
+      "value": 40,
+      "type": "borderRadius"
+    },
+    "7": {
+      "value": 56,
+      "type": "borderRadius"
+    },
+    "static": {
+      "0": {
+        "value": 2.08,
+        "type": "borderRadius"
+      },
+      "1": {
+        "value": 4,
+        "type": "borderRadius"
+      },
+      "2": {
+        "value": 8,
+        "type": "borderRadius"
+      },
+      "3": {
+        "value": 16,
+        "type": "borderRadius"
+      },
+      "4": {
+        "value": 32,
+        "type": "borderRadius"
+      },
+      "5": {
+        "value": 40,
+        "type": "borderRadius"
+      },
+      "6": {
+        "value": 56,
+        "type": "borderRadius"
+      }
+    },
+    "responsive": {
+      "3-5": {
+        "value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)",
+        "type": "borderRadius"
+      },
+      "4-6": {
+        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
+        "type": "borderRadius"
+      }
+    }
+  },
+  "fontFamily": {
+    "body": {
+      "value": "SF Pro Text",
+      "type": "fontFamilies"
+    },
+    "serif": {
+      "value": "Recoleta",
+      "type": "fontFamilies"
+    },
+    "monospace": {
+      "value": "SF Mono",
+      "type": "fontFamilies"
+    }
   },
   "fontSize": {
+    "0": {
+      "value": 10,
+      "type": "fontSizes"
+    },
+    "1": {
+      "value": 12,
+      "type": "fontSizes"
+    },
+    "2": {
+      "value": 14,
+      "type": "fontSizes"
+    },
+    "3": {
+      "value": 19,
+      "type": "fontSizes"
+    },
+    "4": {
+      "value": 32,
+      "type": "fontSizes"
+    },
+    "5": {
+      "value": 40,
+      "type": "fontSizes"
+    },
     "static": {
       "0": {
         "value": 10,
@@ -1821,153 +2161,189 @@
       }
     }
   },
-  "borderRadius": {
-    "static": {
-      "0": {
-        "value": 2.08,
-        "type": "borderRadius"
-      },
-      "1": {
-        "value": 4,
-        "type": "borderRadius"
-      },
-      "2": {
-        "value": 8,
-        "type": "borderRadius"
-      },
-      "3": {
-        "value": 16,
-        "type": "borderRadius"
-      },
-      "4": {
-        "value": 32,
-        "type": "borderRadius"
-      },
-      "5": {
-        "value": 40,
-        "type": "borderRadius"
-      },
-      "6": {
-        "value": 56,
-        "type": "borderRadius"
-      }
+  "lineHeight": {
+    "1": {
+      "value": "110%",
+      "type": "lineHeights",
+      "description": "Use only for display."
+    },
+    "2": {
+      "value": "120%",
+      "type": "lineHeights",
+      "description": "Use for larger headings."
+    },
+    "3": {
+      "value": "130%",
+      "type": "lineHeights",
+      "description": "Use for small and medium sized headings."
+    },
+    "4": {
+      "value": "140%",
+      "type": "lineHeights",
+      "description": "Use for body-sized text"
+    },
+    "5": {
+      "value": "150%",
+      "type": "lineHeights",
+      "description": "Use for body-sized text in long-form reading applications."
+    },
+    "body": {
+      "value": "150%",
+      "type": "lineHeights"
+    },
+    "heading": {
+      "value": "113%",
+      "type": "lineHeights"
+    },
+    "description": {
+      "value": "In production, all units are in %.",
+      "type": "other"
     },
     "responsive": {
-      "3-5": {
-        "value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)",
-        "type": "borderRadius"
-      },
-      "4-6": {
-        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
-        "type": "borderRadius"
-      }
+      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
+      "type": "lineHeights",
+      "description": "This is the responsive line height for the responsive type sizes."
     }
   },
-  "space": {
-    "static": {
-      "0": {
-        "value": 2.08,
-        "type": "spacing"
+  "heading": {
+    "1": {
+      "value": {
+        "fontFamily": "Recoleta",
+        "fontWeight": 400,
+        "lineHeight": "135%",
+        "fontSize": 40,
+        "letterSpacing": "-1%"
       },
-      "1": {
-        "value": 4,
-        "type": "spacing"
-      },
-      "2": {
-        "value": 8,
-        "type": "spacing"
-      },
-      "3": {
-        "value": 12,
-        "type": "spacing"
-      },
-      "4": {
-        "value": 16,
-        "type": "spacing"
-      },
-      "5": {
-        "value": 24,
-        "type": "spacing"
-      },
-      "6": {
-        "value": 32,
-        "type": "spacing"
-      },
-      "7": {
-        "value": 56,
-        "type": "spacing"
-      },
-      "8": {
-        "value": 80,
-        "type": "spacing"
-      },
-      "9": {
-        "value": 112,
-        "type": "spacing"
-      },
-      "10": {
-        "value": 160,
-        "type": "spacing"
-      }
+      "type": "typography"
     },
-    "responsive": {
-      "0-1": {
-        "value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)",
-        "type": "spacing"
+    "2": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 500,
+        "lineHeight": "120%",
+        "fontSize": 32,
+        "letterSpacing": "0%"
       },
-      "1-2": {
-        "value": "clamp(0.25rem, calc(0.19rem + 0.30vw), 0.50rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "3": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 500,
+        "lineHeight": "150%",
+        "fontSize": 19,
+        "letterSpacing": "0%"
       },
-      "2-3": {
-        "value": "clamp(0.50rem, calc(0.44rem + 0.30vw), 0.75rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "4": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 500,
+        "lineHeight": "160%",
+        "fontSize": 14,
+        "letterSpacing": "0%"
       },
-      "3-4": {
-        "value": "clamp(0.75rem, calc(0.69rem + 0.30vw), 1.00rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "5": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 500,
+        "lineHeight": "150%",
+        "fontSize": 12
       },
-      "4-5": {
-        "value": "clamp(1.00rem, calc(0.88rem + 0.60vw), 1.50rem)",
-        "type": "spacing"
+      "type": "typography"
+    },
+    "caps": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 700,
+        "lineHeight": "150%",
+        "fontSize": 12,
+        "letterSpacing": "5%",
+        "textCase": "uppercase"
       },
-      "5-6": {
-        "value": "clamp(1.50rem, calc(1.38rem + 0.60vw), 2.00rem)",
-        "type": "spacing"
-      },
-      "6-7": {
-        "value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)",
-        "type": "spacing"
-      },
-      "7-8": {
-        "value": "clamp(3.50rem, calc(3.14rem + 1.81vw), 5.00rem)",
-        "type": "spacing"
-      },
-      "8-9": {
-        "value": "clamp(5.00rem, calc(4.52rem + 2.41vw), 7.00rem)",
-        "type": "spacing"
-      },
-      "9-10": {
-        "value": "clamp(7.00rem, calc(6.28rem + 3.61vw), 10.00rem)",
-        "type": "spacing"
-      },
-      "3-6": {
-        "value": "clamp(0.75rem, calc(0.45rem + 1.51vw), 2.00rem)",
-        "type": "spacing"
-      },
-      "4-7": {
-        "value": "clamp(1.00rem, calc(0.40rem + 3.01vw), 3.50rem)",
-        "type": "spacing"
-      },
-      "5-8": {
-        "value": "clamp(1.50rem, calc(0.66rem + 4.22vw), 5.00rem)",
-        "type": "spacing"
-      },
-      "6-9": {
-        "value": "clamp(2.00rem, calc(0.80rem + 6.02vw), 7.00rem)",
-        "type": "spacing"
-      }
+      "type": "typography"
     }
+  },
+  "fontWeight": {
+    "body": {
+      "value": 400,
+      "type": "fontWeights"
+    },
+    "heading": {
+      "value": 500,
+      "type": "fontWeights"
+    },
+    "regular": {
+      "value": 400,
+      "type": "fontWeights"
+    },
+    "medium": {
+      "value": 500,
+      "type": "fontWeights"
+    },
+    "bold": {
+      "value": 700,
+      "type": "fontWeights"
+    },
+    "light": {
+      "value": 200,
+      "type": "fontWeights"
+    }
+  },
+  "body": {
+    "small": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 12
+      },
+      "type": "typography"
+    },
+    "default": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "large": {
+      "value": {
+        "fontFamily": "SF Pro Text",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 20
+      },
+      "type": "typography"
+    },
+    "mono": {
+      "value": {
+        "fontFamily": "SF Mono",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 14
+      },
+      "type": "typography"
+    },
+    "mono-bold": {
+      "value": {
+        "fontFamily": "SF Mono",
+        "lineHeight": "150%",
+        "fontSize": 14,
+        "fontWeight": 700
+      },
+      "type": "typography"
+    }
+  },
+  "rem": {
+    "value": 16,
+    "type": "other",
+    "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
   },
   "shadow": {
     "1": {
@@ -2064,60 +2440,6 @@
         }
       ],
       "type": "boxShadow"
-    }
-  },
-  "lineHeight": {
-    "1": {
-      "value": "110%",
-      "type": "lineHeights",
-      "description": "Use only for display."
-    },
-    "2": {
-      "value": "120%",
-      "type": "lineHeights",
-      "description": "Use for larger headings."
-    },
-    "3": {
-      "value": "130%",
-      "type": "lineHeights",
-      "description": "Use for small and medium sized headings."
-    },
-    "4": {
-      "value": "140%",
-      "type": "lineHeights",
-      "description": "Use for body-sized text"
-    },
-    "5": {
-      "value": "150%",
-      "type": "lineHeights",
-      "description": "Use for body-sized text in long-form reading applications."
-    },
-    "description": {
-      "value": "In production, all units are in %.",
-      "type": "other"
-    },
-    "responsive": {
-      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
-      "type": "lineHeights",
-      "description": "This is the responsive line height for the responsive type sizes."
-    }
-  },
-  "fontWeight": {
-    "regular": {
-      "value": 400,
-      "type": "fontWeights"
-    },
-    "medium": {
-      "value": 500,
-      "type": "fontWeights"
-    },
-    "bold": {
-      "value": 700,
-      "type": "fontWeights"
-    },
-    "light": {
-      "value": 200,
-      "type": "fontWeights"
     }
   },
   "letterSpacing": {
