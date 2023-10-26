@@ -35,4 +35,9 @@ The best experience is to use Storybook preview for set up and development.
 
 ### Starting up locally
 
-Run `npm run dev` and you can use the address: [http://localhost:60006/](http://localhost:60006/).
+Run: 
+```bash
+npm run dev
+\``` 
+
+You can then visit [http://localhost:60006/](http://localhost:60006/) to view.

@@ -1,6 +1,6 @@
 # Releasing
 
-The process to release to npm should be started when all pull requests intended for publishing have been merged and the software has been fully tested for publication. You can release either using GitHub Actions or locally.
+This package is published to [NPM](https://www.npmjs.com/package/@automattic/vip-design-system). The process to release to NPM should be started when all pull requests intended for publishing have been merged and the software has been fully tested for publication. You can release either using GitHub Actions or locally.
 
 ## Versioning Guidelines
 
@@ -10,7 +10,7 @@ The process to release to npm should be started when all pull requests intended 
 
 ## Note on NPM token
 
-Publishing via the GitHub Action requires that the `NPM_TOKEN` be set correctly in GitHub Actions secrets. This should be an npm token generated for a bot user on [the npm @automattic org](https://www.npmjs.com/settings/automattic) that has publish access to this repo.
+Publishing via the GitHub Action requires that the `NPM_TOKEN` be set correctly in [GitHub Actions secrets](https://github.com/Automattic/vip-design-system/settings/secrets/actions). This should be an npm token generated for a bot user on [the npm @automattic org](https://www.npmjs.com/settings/automattic) that has publish access to this repo.
 
 ## Release Methods
 
@@ -30,15 +30,15 @@ This is the preferred method for pushing out the latest release. The workflow ru
 
 Follow these steps to publish locally:
 
-1. Make sure you have NPM access to our @automattic organization. Ask for #vip-platform-pâtisserie help in case you need it.
-2. Pull all the changes to your local trunk. Make sure you have the latest trunk locally.
+1. Make sure you have NPM access to our @Automattic organization. Ask for #vip-platform-pâtisserie help in case you need it.
+2. Pull all the changes to your local `trunk` branch. Make sure you have the latest changes (`git pull`).
 3. We follow the [https://semver.org/](https://semver.org/) versioning. You should run the specific version you are trying to publish:
 
 ```bash
 npm version major|minor|patch
 ```
 
-4. You should see a version bump in the `package.json` file.
+4. You should see a version bump in the [package.json](https://github.com/Automattic/vip-design-system/blob/trunk/package.json) file.
 5. Build the application:
 
 ```bash

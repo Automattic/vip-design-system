@@ -32,13 +32,13 @@ to have an updated json theme under [src/system/theme/generated/](https://github
 
 ### How the theming works
 
-We use the VIP Design System Tokens as our base theme structure. All colors, spaces, types should come from a dynamic token system provided by the VIP Design team, currently using Figma as the design software. When the design system is updated by the Design team, they push files to the root of this repository: `tokens/`.
+We use the VIP Design System Tokens as our base theme structure. All colors, spaces, types should come from a dynamic token system provided by the VIP Design team, currently using Figma as the design software. When the design system is updated by the Design team, they push files to the [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) directory.
 
 By using the [Token Transformer](https://docs.tokens.studio/sync/github#7-how-to-use-tokens-stored-in-github-in-development) and a custom npm script, we parse this file getting only the VIP Dashboard theme we need for the react components. The light theme is called: `wpvip-product-core`, and the dark theme is called `wpvip-product-dark`.
 
-Once the new file is updated, we need to generate a custom theme file in `src/generated/valet-theme-light.json`. It will also generate a Dark theme version. This operation generates json files with the colors we need already filled in.
+Once the new file is updated, we need to generate a custom theme file in [src/system/theme/generated/valet-theme-light.json](https://github.com/Automattic/vip-design-system/blob/trunk/src/system/theme/generated/valet-theme-light.json). It will also generate a Dark theme version. This operation generates JSON files with the colors we need already filled in.
 
-Once the theme is updated, the file `src/system/theme/index.js` reads the colors and apply to all components.
+Once the theme is updated, the file [src/system/theme/index.js](https://github.com/Automattic/vip-design-system/blob/trunk/src/system/theme/index.js) reads the colors and apply to all components.
 
 Use the section below to run the script and update the theme.
 
@@ -62,7 +62,7 @@ This project has no database storage.
 
 ## Dependencies
 
-This is a standalone NPM package. Currently there's no API communication. All the code dependencies are listed in the `package.json` file of this project.
+This is a standalone NPM package. Currently there's no API communication. All the code dependencies are listed in the [package.json](https://github.com/Automattic/vip-design-system/blob/trunk/package.json) file of this project.
 
 Major dependencies of this project are:
 
