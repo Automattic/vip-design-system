@@ -12,7 +12,7 @@ Before writing a patch or a larger chunk of code, please ensure to study the [AR
 
 You can build it continuously so that every time you make a change, build files are automatically updated:
 
-```
+```bash
 npm run watch
 ```
 

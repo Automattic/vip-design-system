@@ -26,9 +26,10 @@ The code is structured in the following way:
 
 You need to update the tokens once the VIP Design System updates the core files. The Figma Studio plugin will push files into the [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) folder. Once these files are there, you can run the following:
 
-````bash
+```bash
 npm run theme-update
-\```
+```
+
 to have an updated json theme under [src/system/theme/generated/](https://github.com/Automattic/vip-design-system/tree/trunk/src/system/theme/generated).
 
 ### How the theming works
@@ -51,7 +52,7 @@ Run this command to update the VIP Valet Theme with the latest `tokens/**` files
 
 ```bash
 npm run theme-update
-````
+```
 
 ## Feature flags
 

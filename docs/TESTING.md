@@ -46,7 +46,7 @@ Note: it's super useful to run `npm run watch` in another process, so any change
 1. Create your local changes and push to origin a new branch.
 2. In a local copy of the [the VIP Dashboard](https://github.com/automattic/vip-dashboard) edit the vip-design-system line inside of the `package.json` file. Change the line with this:
 
-```
+```bash
 "@automattic/vip-design-system": "github:automattic/vip-design-system#YOUR_PUSHED_COMMIT_HASH",
 ```
 

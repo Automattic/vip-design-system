@@ -35,9 +35,10 @@ The best experience is to use Storybook preview for set up and development.
 
 ### Starting up locally
 
-Run: 
+Run:
+
 ```bash
 npm run dev
-\``` 
+```
 
 You can then visit [http://localhost:60006/](http://localhost:60006/) to view.

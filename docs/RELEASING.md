@@ -47,7 +47,7 @@ npm run build
 
 6. Publish the application
 
-```
+```bash
 npm publish
 ```
 
@@ -55,7 +55,7 @@ Note: You need to have two-factor enabled in your npm account. The publish comma
 
 7. Push the tags to the repository and trunk updates.
 
-```
+```bash
 git push --tags
 git push origin trunk
 ```
