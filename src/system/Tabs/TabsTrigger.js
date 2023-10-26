@@ -22,10 +22,9 @@ const styles = {
 	border: 'none',
 	color: 'heading',
 	'&[data-state="active"]': {
-		color: 'link',
+		color: 'borders.accent',
 		fontWeight: 'regular',
 		boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
-		boxShadowColor: 'borders.accent',
 	},
 	'&:disabled': {
 		color: 'muted',

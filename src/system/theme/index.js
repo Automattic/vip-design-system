@@ -194,12 +194,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	// Link
 	link: gColor( 'link', 'default' ),
-	links: {
-		default: gColor( 'link', 'default' ),
-		hover: gColor( 'link', 'hover' ),
-		active: gColor( 'link', 'active' ),
-		visited: gColor( 'link', 'visited' ),
-	},
+	links: gVariants( 'link' ),
 } );
 
 export default {

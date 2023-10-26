@@ -26,6 +26,9 @@ export default makeDecorator( {
 						font-weight: normal;
 						font-style: normal;
 					}
+					body {
+						backgroundcolor: '#fbfbfb';
+					}
 				` }
 			/>
 			<Box sx={ { p: 3 } }>{ storyFn() }</Box>
