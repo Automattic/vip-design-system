@@ -10,6 +10,7 @@ import { Form } from '..';
 import { Checkbox } from './Checkbox';
 import { Label } from './Label';
 import { Flex } from '../Flex';
+import { CheckedState } from '@radix-ui/react-checkbox';
 
 export default {
 	title: 'Form/Checkbox',
@@ -17,8 +18,8 @@ export default {
 };
 
 export const Default = () => {
-	const [ checked, setChecked ] = useState( true );
-	const [ checked2, setChecked2 ] = useState( false );
+	const [ checked, setChecked ] = useState< CheckedState >( true );
+	const [ checked2, setChecked2 ] = useState< CheckedState >( false );
 
 	return (
 		<Form.Root>

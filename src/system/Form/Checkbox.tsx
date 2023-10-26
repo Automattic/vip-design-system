@@ -4,11 +4,13 @@
  * External dependencies
  */
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import PropTypes from 'prop-types';
 import { MdDone } from 'react-icons/md';
 import { baseControlBorderStyle, baseControlFocusStyle, inputBaseBackground } from './Input.styles';
 
-const StyledCheckbox = props => (
+export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
+	disabled?: boolean;
+}
+const StyledCheckbox = ( props: CheckboxProps ) => (
 	<CheckboxPrimitive.Root
 		sx={ {
 			all: 'unset',
@@ -33,7 +35,7 @@ const StyledCheckbox = props => (
 	/>
 );
 
-const StyledIndicator = props => (
+const StyledIndicator = ( props: CheckboxPrimitive.CheckboxIndicatorProps ) => (
 	<CheckboxPrimitive.Indicator
 		sx={ {
 			color: 'white',
@@ -42,7 +44,7 @@ const StyledIndicator = props => (
 	/>
 );
 
-const Checkbox = ( { disabled, ...props } ) => (
+export const Checkbox = ( { disabled, ...props }: CheckboxProps ) => (
 	<StyledCheckbox
 		sx={ {
 			opacity: disabled ? 0.4 : 1,
@@ -55,9 +57,3 @@ const Checkbox = ( { disabled, ...props } ) => (
 		</StyledIndicator>
 	</StyledCheckbox>
 );
-
-Checkbox.propTypes = {
-	disabled: PropTypes.bool,
-};
-
-export { Checkbox };

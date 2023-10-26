@@ -5,15 +5,34 @@
  */
 import React, { useLayoutEffect } from 'react';
 import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
  */
 import { Card, Heading, Text, Flex, Table, TableRow, TableCell, Button } from '..';
 import { ScreenReaderText } from '../ScreenReaderText';
+import { HeadingProps } from '../Heading/Heading';
 
-const WizardStep = React.forwardRef(
+export interface WizardStepSummary {
+	label?: React.ReactNode;
+	value?: React.ReactNode;
+}
+export interface WizardStepProps {
+	active?: boolean;
+	complete?: boolean;
+	order?: number;
+	totalSteps?: number;
+	title: React.ReactNode;
+	titleVariant?: HeadingProps[ 'variant' ];
+	subTitle?: React.ReactNode;
+	children?: React.ReactNode;
+	skipped?: boolean;
+	onChange?: () => void;
+	summary?: WizardStepSummary[];
+	shouldFocusTitle?: boolean;
+}
+
+export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 	(
 		{
 			title,
@@ -31,7 +50,7 @@ const WizardStep = React.forwardRef(
 		},
 		forwardRef
 	) => {
-		const titleRef = React.useRef( null );
+		const titleRef = React.useRef< HTMLHeadingElement >( null );
 		let status = 'inactive';
 		let statusText = 'Step not completed';
 		if ( active ) {
@@ -51,9 +70,12 @@ const WizardStep = React.forwardRef(
 
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
+		const statusIconStyles = {
+			mr: 3,
+			mt: 0,
+			color: statusIconColor,
+		};
 		const headingColor = `wizard.step.heading.${ status }`;
-
-		const StatusIcon = complete ? BsFillCheckCircleFill : BsCircleFill;
 
 		useLayoutEffect( () => {
 			if ( active && titleRef?.current && shouldFocusTitle ) {
@@ -81,7 +103,6 @@ const WizardStep = React.forwardRef(
 				data-step={ order }
 				data-active={ active || undefined }
 				ref={ forwardRef }
-				// aria-current={ active ? 'step' : undefined }
 			>
 				<Flex sx={ { alignItems: 'flex-end', mb: 2 } }>
 					<Heading
@@ -102,13 +123,11 @@ const WizardStep = React.forwardRef(
 						</Text>
 
 						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
-							<StatusIcon
-								sx={ {
-									mr: 3,
-									mt: 0,
-									color: statusIconColor,
-								} }
-							/>
+							{ complete ? (
+								<BsFillCheckCircleFill sx={ statusIconStyles } />
+							) : (
+								<BsCircleFill sx={ statusIconStyles } />
+							) }
 							{ title }
 						</Flex>
 
@@ -117,7 +136,7 @@ const WizardStep = React.forwardRef(
 							 * we are adding the composed title here so that it's announced correctly by the voiceover
 							 * Using tags inside the heading would make the voiceover read the heading in multiple parts
 							 **/
-							`${ stepText }: ${ title }. ${ statusText }`
+							`${ stepText }: ${ title?.toString() }. ${ statusText }`
 						}</ScreenReaderText>
 					</Heading>
 
@@ -127,13 +146,13 @@ const WizardStep = React.forwardRef(
 							onClick={ onChange }
 							sx={ { height: 'auto', alignSelf: 'flex-end' } }
 						>
-							Change <ScreenReaderText>{ `the ${ title } step` }</ScreenReaderText>
+							Change <ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
 						</Button>
 					) }
 				</Flex>
-				{ ! active && ( complete || skipped ) && summary?.length > 0 && (
+				{ ! active && ( complete || skipped ) && summary && summary.length > 0 && (
 					<Table
-						caption={ `Summary of ${ title }` }
+						caption={ `Summary of ${ title?.toString() }` }
 						sx={ {
 							width: 'auto',
 							minWidth: 'auto',
@@ -176,25 +195,3 @@ const WizardStep = React.forwardRef(
 );
 
 WizardStep.displayName = 'WizardStep';
-
-WizardStep.propTypes = {
-	active: PropTypes.bool,
-	children: PropTypes.node,
-	complete: PropTypes.bool,
-	order: PropTypes.number.isRequired,
-	totalSteps: PropTypes.number.isRequired,
-	subTitle: PropTypes.node,
-	title: PropTypes.string,
-	titleVariant: PropTypes.string,
-	skipped: PropTypes.bool,
-	onChange: PropTypes.func,
-	summary: PropTypes.arrayOf(
-		PropTypes.shape( {
-			label: PropTypes.node,
-			value: PropTypes.node,
-		} )
-	),
-	shouldFocusTitle: PropTypes.bool,
-};
-
-export { WizardStep };

@@ -8,22 +8,16 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Wizard, Box, Label, Input, Button, Form } from '..';
+import { Wizard, Box, Label, Input, Button, Checkbox, Flex } from '..';
+import { WizardStepProps } from './WizardStep';
 
 export default {
 	title: 'Wizard',
 	component: Wizard,
 };
 
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' },
-	{ value: 'coffee', label: 'Coffee' },
-];
-
 export const Default = () => {
-	const steps = [
+	const steps: WizardStepProps[] = [
 		{
 			title: 'Choose Domain',
 			titleVariant: 'h2',
@@ -32,7 +26,6 @@ export const Default = () => {
 				<Box>
 					<Label>Domain</Label>
 					<Input autoFocus placeholder="yourdomain.com" />
-					<Form.Autocomplete label="Autocomplete" options={ options } />
 					<Button sx={ { mt: 3 } }>Continue</Button>
 				</Box>
 			),
@@ -62,7 +55,7 @@ export const Default = () => {
 export const WithTitleAutoFocus = () => {
 	const [ activeStep, setActiveStep ] = React.useState( 0 );
 	const [ autoFocus, setAutoFocus ] = React.useState( true );
-	const steps = [
+	const steps: WizardStepProps[] = [
 		{
 			title: 'Choose Domain',
 			titleVariant: 'h2',
@@ -128,17 +121,19 @@ export const WithTitleAutoFocus = () => {
 				/>
 			</Box>
 			<Box mt={ 4 }>
-				<Form.Select
-					id="wizard-autofocus"
-					forLabel="wizard-autofocus"
-					label="Autofocus status"
-					value={ autoFocus }
-					onChange={ e => setAutoFocus( e.value ) }
-					options={ [
-						{ value: true, label: 'On' },
-						{ value: false, label: 'Off' },
-					] }
-				/>
+				<Flex sx={ { alignItems: 'center' } }>
+					<Checkbox
+						id="wizard-autofocus"
+						checked={ autoFocus }
+						aria-labelledby="label-check1"
+						onCheckedChange={ e => {
+							setAutoFocus( e === true );
+						} }
+					/>
+					<Label sx={ { m: 0, ml: 2 } } htmlFor="wizard-autofocus" id="label-check1">
+						Autofocus enabled?
+					</Label>
+				</Flex>
 			</Box>
 		</React.Fragment>
 	);
