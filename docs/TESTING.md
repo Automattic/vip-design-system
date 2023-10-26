@@ -14,6 +14,10 @@ We run the following checks:
 - format checking (`npm run format:check`)
 - type checks (`npm run check-types`)
 
+### Dependency checks
+
+We use the [dependaban action](https://github.com/Automattic/vip-actions/tree/trunk/dependaban) from [Automattic/vip-actions](https://github.com/Automattic/vip-actions/) to verify that no dependencies have install scripts.
+
 ### Unit tests
 
 The tests are located inside of of each component. For example: [src/system/Accordion/Accordion.test.tsx](https://github.com/Automattic/vip-design-system/tree/trunk/src/system/Accordion/Accordion.test.tsx).
