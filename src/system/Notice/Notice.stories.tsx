@@ -68,5 +68,16 @@ export const Default = () => (
 				</li>
 			</ul>
 		</Notice>
+
+		<Notice variant="alert" sx={ { mb: 4 } }>
+			Bucket names in Amazon S3 are globally unique, external link ↗. To ensure that shipped data is
+			delivered to the correct location, the Bucket Name and Bucket Region entered below must match
+			the details used to set up your S3 bucket, external link ↗.
+			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
+		</Notice>
+
+		<Notice variant="info" sx={ { mb: 4 } }>
+			Bucket names in Amazon S3 are globally unique.
+		</Notice>
 	</React.Fragment>
 );

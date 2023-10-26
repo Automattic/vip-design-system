@@ -30,7 +30,7 @@ export interface NoticeProps {
 type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
 
 const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
-	const sx = { color, flex: '0 0 auto' };
+	const sx = { color, flex: '0 0 auto', mt: 0 };
 	const size = 20;
 
 	switch ( variant ) {
@@ -94,15 +94,16 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 						alignItems: 'start',
 					} }
 				>
-					<Box
+					<Flex
 						sx={ {
 							mr: 3,
-							mt: title ? 2 : 0,
+							mt: 0,
 							flexShrink: 0,
+							alignSelf: 'center',
 						} }
 					>
 						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
-					</Box>
+					</Flex>
 
 					<Box>
 						{ title && (
