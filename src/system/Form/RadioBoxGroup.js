@@ -64,7 +64,7 @@ const RadioOption = ( {
 				id={ forLabel }
 				onChange={ onChangeHandler }
 				value={ `${ value }` }
-				sx={ { mr: 3, mt: 3 } }
+				sx={ { mr: 5, mt: 3 } }
 				aria-describedby={ describedById }
 				{ ...restOption }
 			/>
