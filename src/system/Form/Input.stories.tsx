@@ -34,6 +34,8 @@ export const Default = () => (
 
 		<Form.Label htmlFor="input-with-custom-label">Custom Label outside the Input</Form.Label>
 		<Form.Input forLabel="input-with-custom-label" required />
+
+		<Form.Label htmlFor="input-readonly">Ready only input</Form.Label>
 		<Form.Input forLabel="input-readonly" readOnly value="This is a readonly input" />
 	</Form.Root>
 );
