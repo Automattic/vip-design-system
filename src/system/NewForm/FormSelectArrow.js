@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React from 'react';
-import { MdExpandMore } from 'react-icons/md';
+import { MdExpandMore } from '@react-icons/all-files/md/MdExpandMore';
 
 /**
  * Internal dependencies

@@ -19,7 +19,7 @@ import { FormSelectLoading } from './FormSelectLoading';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Validation } from '../Form';
 import { Button, Flex } from '../';
-import { MdClose } from 'react-icons/md';
+import { MdClose } from '@react-icons/all-files/md/MdClose';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,

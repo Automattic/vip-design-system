@@ -3,7 +3,8 @@
 /**
  * External dependencies
  */
-import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
+import { MdErrorOutline } from '@react-icons/all-files/md/MdErrorOutline';
+import { MdCheckCircle } from '@react-icons/all-files/md/MdCheckCircle';
 
 const errorColor = 'texts.error';
 const helperColor = 'texts.helper';

@@ -5,7 +5,10 @@
  */
 import React from 'react';
 import classNames from 'classnames';
-import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
+import { MdError } from '@react-icons/all-files/md/MdError';
+import { MdWarning } from '@react-icons/all-files/md/MdWarning';
+import { MdCheckCircle } from '@react-icons/all-files/md/MdCheckCircle';
+import { MdInfo } from '@react-icons/all-files/md/MdInfo';
 
 /**
  * Internal dependencies

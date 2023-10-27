@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React from 'react';
-import { MdArrowForward } from 'react-icons/md';
+import { MdArrowForward } from '@react-icons/all-files/md/MdArrowForward';
 import PropTypes from 'prop-types';
 
 /**

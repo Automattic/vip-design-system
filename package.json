@@ -37,10 +37,10 @@
     "@radix-ui/react-switch": "^1.0.0",
     "@radix-ui/react-tabs": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",
+    "@react-icons/all-files": "https://github.com/react-icons/react-icons/releases/download/v4.11.0/react-icons-all-files-4.11.0.tgz",
     "accessible-autocomplete": "^2.0.4",
     "classnames": "^2.3.1",
-    "framer-motion": "^3.9.1",
-    "react-icons": "^4.7.0"
+    "framer-motion": "^3.9.1"
   },
   "peerDependencies": {
     "react": "^18.0.0",

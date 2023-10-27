@@ -4,7 +4,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { MdExpandMore } from 'react-icons/md';
+import { MdExpandMore } from '@react-icons/all-files/md/MdExpandMore';
 
 /**
  * Internal dependencies

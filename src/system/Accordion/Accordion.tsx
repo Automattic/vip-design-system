@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React, { ReactNode } from 'react';
-import { MdChevronRight } from 'react-icons/md';
+import { MdChevronRight } from '@react-icons/all-files/md/MdChevronRight';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { keyframes } from '@emotion/react';
 import classNames, { Argument } from 'classnames';

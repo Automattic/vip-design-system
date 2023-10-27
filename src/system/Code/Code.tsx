@@ -5,7 +5,7 @@
  */
 import React, { ReactNode, createRef, useState } from 'react';
 import classNames, { Argument } from 'classnames';
-import { MdContentCopy } from 'react-icons/md';
+import { MdContentCopy } from '@react-icons/all-files/md/MdContentCopy';
 
 export interface CodeProps {
 	prompt?: boolean;

@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MdContentCopy } from 'react-icons/md';
+import { MdContentCopy } from '@react-icons/all-files/md/MdContentCopy';
 
 /**
  * Internal dependencies

@@ -9,7 +9,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import { Spinner } from '../Spinner';
-import { MdCheck } from 'react-icons/md';
+import { MdCheck } from '@react-icons/all-files/md/MdCheck';
 import { Box, Text, Flex } from '..';
 
 const prefix = 'vip-progress-component';

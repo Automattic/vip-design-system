@@ -4,7 +4,8 @@
  * External dependencies
  */
 import React, { useLayoutEffect } from 'react';
-import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
+import { BsCircleFill } from '@react-icons/all-files/bs/BsCircleFill';
+import { BsFillCheckCircleFill } from '@react-icons/all-files/bs/BsFillCheckCircleFill';
 
 /**
  * Internal dependencies
