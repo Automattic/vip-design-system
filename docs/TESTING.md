@@ -40,6 +40,8 @@ For components that include storybooks, we can run `npm run dev` to view the com
 
 Once you create a Pull request, a netlify bot will add a comment to your Pull Request with a preview link of the Storybook preview. This is helpful to share with other folks.
 
+### External Applications tests
+
 **npm link (not reliable)**
 
 1. Run `npm link` in your checkout of this repo.

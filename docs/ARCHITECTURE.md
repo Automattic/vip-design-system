@@ -12,6 +12,8 @@ We require that the WPVIP defined coding style to be used, defined in [.eslintrc
 
 We also use [.prettierrc](https://github.com/Automattic/vip-design-system/blob/trunk/.prettierrc) to have a standard on coding formatting. It's recommended to set your Editor to apply "Format on Save".
 
+[JEST](https://github.com/Automattic/vip-design-system/blob/readme-update/package.json#L16-L17) is the test-runnner used in this application.
+
 ## Code structure
 
 The code is structured in the following way:
@@ -21,6 +23,19 @@ The code is structured in the following way:
 - [src/](https://github.com/Automattic/vip-design-system/tree/trunk/src) — Javascript and Typescript react component files + Theme configuration + Components tests (on each component folder).
 - [test/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — Test utilities, mocks or configuration for the test suite.
 - [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/test) — VIP Design Sytem tokens exported using [Figma Studio](https://docs.tokens.studio/). This is the source of truth for the Design team tokens, variables, etc.
+
+### Components structure
+
+Components lives under the `src/system/ComponentName` directory. Each component folder contains a similar set of files. Let's use the [Avatar](https://github.com/Automattic/vip-design-system/tree/trunk/src/system/Avatar) component as an example:
+
+- **Avatar.stories.tsx**: This is the documentation file of the component. The `*.stories` is related to the Storybook story files.
+- **Avatar.test.tsx**: This is the test file for this component. We run `jest` as a runner in this application.
+- **Avatar.tsx**: This is the TypeScript component itself.
+- **index.ts**: Some components has a index file to export different files. This is not recommended anymore.
+
+### Theme UI & Radix UI Primitives
+
+Most of our components are based on [https://theme-ui.com/](https://theme-ui.com/) components. We try to write our own components as much as we can. Other components are based on [Radix UI Primitives](https://www.radix-ui.com/primitives) components. Radix usually has some solid and accessible components that we can use as a base.
 
 ## Updating the Theme with VIP Design System Tokens
 
