@@ -19,10 +19,4 @@ This is the main repository to store Design system tokens and components used th
 
 ## Links to historical documents
 
-The majority of the links listed below are not publicly accessible.
-
-- https://veetoop2.wordpress.com/2021/08/23/beta-testing-vip-design-system/
-- https://vippatisseriep2.wordpress.com/2022/05/03/renaming-main-branch-to-trunk-on-the-vip-design-system/
-- https://veetoop2.wordpress.com/2023/06/27/rfc-pull-the-vip-design-system-into-the-dashboard-repo/
-- https://pixelsandpointsp2.wordpress.com/2022/01/25/refining-the-vip-design-system/
-- https://pixelsandpointsp2.wordpress.com/2022/06/14/project-thread-vip-design-system-figma-organization/
+For VIP folks: Please see internal documentation on vip-design-system regarding historical documents (search for vip-design-system).
