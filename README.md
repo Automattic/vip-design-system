@@ -4,9 +4,6 @@
 
 This is the main repository to store Design system tokens and components used throughout VIP projects.
 
-- [React Components Website](https://vip-design-system-components.netlify.app/)
-- [Figma Productive Components](https://www.figma.com/file/jcGe2KIAlh2PxaAZ5liYWi/Productive-Components?type=design&node-id=7378-4230&mode=design&t=QUgpLoxTpJvAfTiN-0)
-
 ## Further documentation
 
 - [SETUP.md](https://github.com/Automattic/vip-design-system/blob/trunk/docs/SETUP.md) for installation and setup instructions, basic usage and environmental variables.
@@ -17,8 +14,9 @@ This is the main repository to store Design system tokens and components used th
 
 ## Health, logs and monitoring
 
-- TBD
+- [React Components Website](https://vip-design-system-components.netlify.app/)
+- [Figma Productive Components](https://www.figma.com/file/jcGe2KIAlh2PxaAZ5liYWi/Productive-Components?type=design&node-id=7378-4230&mode=design&t=QUgpLoxTpJvAfTiN-0)
 
 ## Links to historical documents
 
-- TBD
+For VIP folks: Please see internal documentation on vip-design-system regarding historical documents (search for vip-design-system).
