@@ -48,7 +48,7 @@ import { OptionRow } from './OptionRow';
 import { Table, TableRow, TableCell } from './Table';
 import { Text } from './Text';
 import theme from './theme';
-import { Wizard, WizardStep, WizardStepHorizontal } from './Wizard';
+import { Wizard, WizardStep } from './Wizard';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 
 export {
@@ -101,6 +101,5 @@ export {
 	Validation,
 	Wizard,
 	WizardStep,
-	WizardStepHorizontal,
 	theme,
 };
