@@ -3,19 +3,19 @@
 /**
  * External dependencies
  */
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 /**
  * Internal dependencies
  */
-import { DialogOverlay } from './DialogOverlay';
 import { DialogCloseDefault as DialogClose } from './DialogClose';
-import { DialogTitle } from './DialogTitle';
-import { DialogDescription } from './DialogDescription';
 import { contentStyles } from './DialogContent';
+import { DialogDescription } from './DialogDescription';
+import { DialogOverlay } from './DialogOverlay';
+import { DialogTitle } from './DialogTitle';
 
 export const NewDialog = ( {
 	trigger = null,

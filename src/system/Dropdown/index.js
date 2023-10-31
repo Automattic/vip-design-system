@@ -9,17 +9,15 @@ import {
 	DropdownItemIndicator,
 	DropdownSub,
 } from './Dropdown';
-
+import { DropdownSubContent, DropdownContent } from './DropdownContent';
 import {
 	DropdownItem,
 	DropdownCheckboxItem,
 	DropdownRadioItem,
 	DropdownSubTrigger,
 } from './DropdownItem';
-
-import { DropdownSeparator } from './DropdownSeparator';
-import { DropdownSubContent, DropdownContent } from './DropdownContent';
 import { DropdownLabel } from './DropdownLabel';
+import { DropdownSeparator } from './DropdownSeparator';
 
 const Root = Dropdown;
 const Content = DropdownContent;

@@ -1,11 +1,10 @@
 /**
  * Internal dependencies
  */
-import ThemeBuilder from './getPropValue';
-
-import Valet from './generated/valet-theme-light.json';
-import ValetDark from './generated/valet-theme-dark.json';
 import ColorBuilder from './colors';
+import ValetDark from './generated/valet-theme-dark.json';
+import Valet from './generated/valet-theme-light.json';
+import ThemeBuilder from './getPropValue';
 
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );

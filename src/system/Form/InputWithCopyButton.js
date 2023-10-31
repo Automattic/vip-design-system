@@ -3,16 +3,16 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { MdContentCopy } from 'react-icons/md';
+import { Input as ThemeInput } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Button, Validation, Label } from '..';
-import { Input as ThemeInput } from 'theme-ui';
 import { baseControlStyle } from './Input.styles';
+import { Button, Validation, Label } from '..';
 
 const inputStyles = {
 	unset: 'all',

@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import { Box, BoxProps } from 'theme-ui';
+
 /**
  * Internal dependencies
  */

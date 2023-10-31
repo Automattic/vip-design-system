@@ -3,14 +3,14 @@
 /**
  * External dependencies
  */
-import React, { useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
+import React, { useLayoutEffect, useState } from 'react';
 
 /**
  * Internal dependencies
  */
-import { Box, WizardStep } from '..';
 import { WizardStepProps } from './WizardStep';
+import { Box, WizardStep } from '..';
 
 export interface WizardProps {
 	steps: WizardStepProps[];

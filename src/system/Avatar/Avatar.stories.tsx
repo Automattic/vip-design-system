@@ -1,12 +1,13 @@
 /**
  * External dependencies
  */
+import { Avatar } from '..';
+
 import type { StoryObj } from '@storybook/react';
 
 /**
  * Internal dependencies
  */
-import { Avatar } from '..';
 
 export default {
 	title: 'Avatar',

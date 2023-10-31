@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import React from 'react';
+
 import { Box, NewConfirmationDialog, Button } from '..';
 
 export default {

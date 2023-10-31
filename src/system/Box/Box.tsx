@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
-import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
+import { forwardRef, Ref } from 'react';
 import { Box as ThemeBox, BoxProps as ThemeBoxProps } from 'theme-ui';
 
 export const Box = forwardRef< HTMLElement, ThemeBoxProps >(

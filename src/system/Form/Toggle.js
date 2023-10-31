@@ -4,11 +4,10 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import * as Switch from '@radix-ui/react-switch';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-
-import * as Switch from '@radix-ui/react-switch';
+import React from 'react';
 
 // Documentation for Radix Switch component
 // https://www.radix-ui.com/docs/primitives/components/switch

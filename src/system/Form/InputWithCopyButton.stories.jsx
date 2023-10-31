@@ -3,8 +3,9 @@
 /**
  * Internal dependencies
  */
-import { Form, Notice } from '..';
 import { useState } from 'react';
+
+import { Form, Notice } from '..';
 
 export default {
 	title: 'Form/InputWithCopyButton',

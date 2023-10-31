@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import React, { useEffect } from 'react';
+
 import { Progress } from '..';
 
 export default {

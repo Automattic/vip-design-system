@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import { DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import React from 'react';
 
 /**
 /**
@@ -11,8 +11,8 @@ import { DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icon
 
 import * as Dropdown from '.';
 import { Button } from '../Button';
-import * as NewDialog from '../NewDialog';
 import { Link } from '../Link';
+import * as NewDialog from '../NewDialog';
 import { Text } from '../Text';
 
 export default {

@@ -2,12 +2,14 @@
  * External dependencies
  */
 import React from 'react';
+
+import { ButtonSubmit } from '..';
+
 import type { StoryObj } from '@storybook/react';
 
 /**
  * Internal dependencies
  */
-import { ButtonSubmit } from '..';
 
 export default {
 	title: 'ButtonSubmit',

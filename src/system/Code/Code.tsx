@@ -3,8 +3,8 @@
 /**
  * External dependencies
  */
-import React, { ReactNode, createRef, useState } from 'react';
 import classNames, { Argument } from 'classnames';
+import React, { ReactNode, createRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';
 
 export interface CodeProps {

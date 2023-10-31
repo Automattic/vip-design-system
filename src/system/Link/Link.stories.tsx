@@ -1,12 +1,13 @@
 /**
  * External dependencies
  */
+import { Link } from '..';
+
 import type { StoryObj } from '@storybook/react';
 
 /**
  * Internal dependencies
  */
-import { Link } from '..';
 
 export default {
 	title: 'Navigation/Link',

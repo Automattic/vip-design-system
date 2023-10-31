@@ -3,10 +3,10 @@
 /**
  * External dependencies
  */
-import React from 'react';
-import PropTypes from 'prop-types';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 /**
  * Internal dependencies

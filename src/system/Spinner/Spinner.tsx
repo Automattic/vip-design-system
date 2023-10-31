@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import { forwardRef, Ref } from 'react';
 import { Spinner as ThemeSpinner, SpinnerProps, ThemeUIStyleObject } from 'theme-ui';
-import classNames from 'classnames';
 
 export interface ThemeSpinnerProps extends SpinnerProps {
 	sx?: ThemeUIStyleObject;

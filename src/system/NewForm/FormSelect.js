@@ -3,17 +3,17 @@
 /**
  * External dependencies
  */
-import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Label } from '../Form/Label';
+import React, { useCallback, useMemo } from 'react';
 
 /**
  * Internal dependencies
  */
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
-import { baseControlStyle } from '../Form/Input.styles';
 import { Validation } from '../Form';
+import { baseControlStyle } from '../Form/Input.styles';
+import { Label } from '../Form/Label';
 
 const MAX_SUGGESTED_OPTIONS = 15;
 const isDev = process.env.NODE_ENV !== 'production';
@@ -107,7 +107,7 @@ const FormSelect = React.forwardRef(
 			</Label>
 		);
 
-		const inlineLabel = !! ( isInline && label );
+		const inlineLabel = Boolean( isInline && label );
 
 		return (
 			<>

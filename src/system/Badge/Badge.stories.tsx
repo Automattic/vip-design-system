@@ -1,12 +1,13 @@
 /**
  * External dependencies
  */
+import { Badge, Link } from '..';
+
 import type { StoryObj } from '@storybook/react';
 
 /**
  * Internal dependencies
  */
-import { Badge, Link } from '..';
 
 export default {
 	component: Badge,

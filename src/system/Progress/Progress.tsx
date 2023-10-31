@@ -1,16 +1,16 @@
 /**
  * External dependencies
  */
-import { forwardRef, Ref } from 'react';
-import { ProgressProps, Progress as ThemeProgress } from 'theme-ui';
 import classNames from 'classnames';
+import { forwardRef, Ref } from 'react';
+import { MdCheck } from 'react-icons/md';
+import { ProgressProps, Progress as ThemeProgress } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Spinner } from '../Spinner';
-import { MdCheck } from 'react-icons/md';
 import { Box, Text, Flex } from '..';
+import { Spinner } from '../Spinner';
 
 const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );

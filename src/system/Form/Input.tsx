@@ -4,13 +4,13 @@
  * External dependencies
  */
 import React from 'react';
+import { Input as ThemeInput, InputProps as ThemeInputProps } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Validation, Label } from '../';
-import { Input as ThemeInput, InputProps as ThemeInputProps } from 'theme-ui';
 import { baseControlStyle } from './Input.styles';
+import { Validation, Label } from '../';
 
 const inputStyles = {
 	unset: 'all',

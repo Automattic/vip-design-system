@@ -2,16 +2,16 @@
  * Internal dependencies
  */
 
-import { FormSelect } from './FormSelect';
+import { Fieldset } from './Fieldset';
+import { Form } from './Form';
 import { FormAutocomplete } from './FormAutocomplete';
 import { FormAutocompleteMultiselect } from './FormAutocompleteMultiselect';
-import { Textarea } from '../Form/Textarea';
+import { FormSelect } from './FormSelect';
+import { Legend } from './Legend';
 import { Input } from '../Form/Input';
 import { InputWithCopyButton } from '../Form/InputWithCopyButton';
-import { Form } from './Form';
-import { Fieldset } from './Fieldset';
-import { Legend } from './Legend';
 import { Label } from '../Form/Label';
+import { Textarea } from '../Form/Textarea';
 
 const Select = FormSelect;
 const Autocomplete = FormAutocomplete;

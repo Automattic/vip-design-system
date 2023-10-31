@@ -2,12 +2,14 @@
  * External dependencies
  */
 import React from 'react';
+
+import { Code } from '..';
+
 import type { StoryObj } from '@storybook/react';
 
 /**
  * Internal dependencies
  */
-import { Code } from '..';
 
 export default {
 	title: 'Code',

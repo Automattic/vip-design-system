@@ -7,6 +7,7 @@
  * Internal dependencies
  */
 import React from 'react';
+
 import { Notice, Link, Heading } from '..';
 
 export default {
