@@ -97,7 +97,7 @@ export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 					cursor: 'pointer',
 					all: 'unset',
 					fontFamily: 'inherit',
-					px: 4,
+					px: 3,
 					minHeight: 45,
 					flex: 1,
 					display: 'flex',
@@ -145,7 +145,7 @@ export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithI
 	( { children, icon, ...props }, forwardedRef ) => (
 		<Trigger { ...props } ref={ forwardedRef }>
 			<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
-			<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 4 } }>
+			<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 3 } }>
 				{ children }
 			</div>
 		</Trigger>
@@ -163,7 +163,7 @@ export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
 					color: 'accordion.content.text',
 					fontSize: 2,
 					overflow: 'hidden',
-					px: 4,
+					px: 3,
 					py: 2,
 
 					'&[data-state="open"]': {

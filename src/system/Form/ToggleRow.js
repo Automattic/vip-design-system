@@ -14,7 +14,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 	<Flex
 		sx={ {
 			alignItems: 'center',
-			py: 4,
+			py: 3,
 			borderBottom: '1px solid',
 			textDecoration: 'none',
 			color: 'inherit',
@@ -27,10 +27,10 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 		} }
 	>
 		{ image && (
-			<Box sx={ { mr: 4 } }>
+			<Box sx={ { mr: 3 } }>
 				<Card
 					sx={ {
-						p: 4,
+						p: 3,
 						m: 0,
 						boxShadow: 'low',
 						flex: '0 0 auto',
@@ -46,7 +46,7 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 			</Box>
 		) }
 
-		<Box sx={ { flex: '1 1 auto', mr: 4 } }>
+		<Box sx={ { flex: '1 1 auto', mr: 3 } }>
 			<Heading variant="h4" sx={ { mb: subTitle || body ? 1 : 0 } }>
 				{ title }
 				{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }

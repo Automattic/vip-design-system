@@ -75,19 +75,19 @@ export const Basic = () => (
 		</Text>
 
 		<Tooltip
-			trigger={ <Button sx={ { mr: 4 } }>Button with top tooltip</Button> }
+			trigger={ <Button sx={ { mr: 3 } }>Button with top tooltip</Button> }
 			title="On the top"
 			position="top"
 		/>
 
 		<Tooltip
-			trigger={ <Button sx={ { mr: 4 } }>Button with bottom tooltip</Button> }
+			trigger={ <Button sx={ { mr: 3 } }>Button with bottom tooltip</Button> }
 			title="On the Bottom"
 			position="bottom"
 		/>
 
 		<Tooltip
-			trigger={ <Button sx={ { mr: 4 } }>Button with left tooltip</Button> }
+			trigger={ <Button sx={ { mr: 3 } }>Button with left tooltip</Button> }
 			title="On the Left"
 			position="left"
 		/>
@@ -111,7 +111,7 @@ export const Container = () => (
 
 		<Box sx={ { backgroundColor: 'red' } }>
 			<Tooltip>
-				<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 4 } }>
+				<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 3 } }>
 					This is another way
 				</Button>
 
@@ -123,7 +123,7 @@ export const Container = () => (
 					href="http://google.com"
 					data-vip-tooltip-position="right"
 					data-vip-tooltip="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500"
-					sx={ { ml: 4 } }
+					sx={ { ml: 3 } }
 				>
 					Use with links too
 				</Link>

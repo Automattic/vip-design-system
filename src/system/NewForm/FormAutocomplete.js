@@ -41,7 +41,7 @@ const defaultStyles = {
 	'&.autocomplete__input--focused': theme => theme.outline,
 	'& .autocomplete__input': {
 		width: '100%',
-		paddingLeft: 4,
+		paddingLeft: 3,
 		py: 0,
 		borderWidth: 0,
 		color: 'text',
@@ -77,7 +77,7 @@ const defaultStyles = {
 	},
 	'& .autocomplete__hint': {
 		border: 'none',
-		paddingLeft: 4,
+		paddingLeft: 3,
 		minHeight: '27px',
 		lineHeight: '27px',
 	},
@@ -345,7 +345,7 @@ const FormAutocomplete = React.forwardRef(
 							{ ...props }
 						/>
 
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? '256px' : 4 } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
 					</FormSelectContent>
 				</div>
 

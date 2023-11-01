@@ -27,8 +27,8 @@ const gridInlineStyle = {
 };
 
 const regularGridStyle = () => ( {
-	py: 4,
-	px: 4,
+	py: 3,
+	px: 3,
 	borderBottom: '1px solid',
 	borderColor: 'optionRow.border',
 } );
@@ -59,7 +59,7 @@ const OptionRow = React.forwardRef(
 		return (
 			<Grid
 				columns={ [ 1, 1, 'auto 1fr auto' ] }
-				gap={ [ 3, 3, `${ small ? 4 : 6 }` ] }
+				gap={ [ 3, 3, `${ small ? 3 : 4 }` ] }
 				data-order={ order || undefined }
 				className={ classNames( 'vip-option-row-component', className ) }
 				ref={ forwardRef }

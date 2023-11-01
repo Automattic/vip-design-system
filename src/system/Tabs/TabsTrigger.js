@@ -15,10 +15,10 @@ import classNames from 'classnames';
 const styles = {
 	cursor: 'pointer',
 	background: 'none',
-	mr: 4,
+	mr: 3,
 	fontSize: 2,
 	px: 0,
-	pb: 4,
+	pb: 3,
 	border: 'none',
 	color: 'heading',
 	'&[data-state="active"]': {

@@ -14,7 +14,7 @@ export const FormSelectSearch = React.forwardRef( ( props, forwardRef ) => (
 		sx={ {
 			position: 'absolute',
 			pr: 2,
-			left: 4,
+			left: 3,
 			pointerEvents: 'none',
 		} }
 		{ ...props }

@@ -21,7 +21,7 @@ export const styles = {
 	m: 0,
 	color: 'heading',
 	px: 2,
-	paddingLeft: 4,
+	paddingLeft: 3,
 	py: 1,
 	'&:hover, &:focus': {
 		backgroundColor: 'hover',

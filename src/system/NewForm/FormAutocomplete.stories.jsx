@@ -57,7 +57,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 						{ ...rest }
 					/>
 				</div>
-				<div sx={ { mt: 4 } }>Selected value: { selectedValue }</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValue }</div>
 			</Form.Root>
 		</>
 	);
@@ -151,7 +151,7 @@ WithCustomArrow.args = {
 	showAllValues: true,
 	// eslint-disable-next-line react/display-name
 	dropdownArrow: () => (
-		<span sx={ { position: 'absolute', top: 1, right: 4, pointerEvents: 'none' } }>👇</span>
+		<span sx={ { position: 'absolute', top: 1, right: 3, pointerEvents: 'none' } }>👇</span>
 	),
 };
 WithCustomArrow.displayName = 'WithCustomArrow';

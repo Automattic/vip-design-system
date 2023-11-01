@@ -20,7 +20,7 @@ const NewConfirmationDialogContent = ( {
 	className = null,
 } ) => (
 	<Box className={ classNames( 'vip-confirmation-dialog-component', className ) }>
-		<Flex sx={ { justifyContent: 'flex-end', mt: 6 } }>
+		<Flex sx={ { justifyContent: 'flex-end', mt: 4 } }>
 			<Button variant="secondary" sx={ { mr: 2 } } onClick={ onClose }>
 				Cancel
 			</Button>

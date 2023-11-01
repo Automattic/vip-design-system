@@ -25,7 +25,7 @@ export const TableCell = ( { children, head, sx, ...rest }: TableCellProps ) => 
 		// borderColor should come after borderTop so it can override it
 		borderColor: 'table.border',
 		fontWeight: 'body',
-		px: 4,
+		px: 3,
 		py: 2,
 		textAlign: 'left',
 		...sx,

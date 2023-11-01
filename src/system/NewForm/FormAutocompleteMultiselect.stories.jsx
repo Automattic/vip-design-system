@@ -71,7 +71,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 						{ ...rest }
 					/>
 				</div>
-				<div sx={ { mt: 4 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
 			</Form.Root>
 		</>
 	);
@@ -153,7 +153,7 @@ export const WithDynamicData = () => {
 						{ ...customArgs }
 					/>
 				</div>
-				<div sx={ { mt: 4 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
 			</Form.Root>
 		</>
 	);

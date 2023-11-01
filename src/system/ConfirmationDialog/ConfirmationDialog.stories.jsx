@@ -8,7 +8,7 @@ export default {
 	component: ConfirmationDialog,
 };
 
-const ConfirmationTrigger = <Button sx={ { mr: 4 } }>Dangerous Action</Button>;
+const ConfirmationTrigger = <Button sx={ { mr: 3 } }>Dangerous Action</Button>;
 
 const ConfirmationContent = (
 	<Box p={ 5 }>

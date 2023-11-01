@@ -19,7 +19,7 @@ export default {
 };
 
 const DropdownTrigger = <Button>Trigger Dropdown</Button>;
-const ModalTrigger = <Button sx={ { mr: 4 } }>Trigger Modal</Button>;
+const ModalTrigger = <Button sx={ { mr: 3 } }>Trigger Modal</Button>;
 
 const DropdownContent = (
 	<div>
