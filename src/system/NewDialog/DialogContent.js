@@ -12,6 +12,6 @@ export const contentStyles = {
 	width: '90vw',
 	maxWidth: '640px',
 	maxHeight: '85vh',
-	padding: 6,
+	padding: 9,
 	'> h1, > h2': { marginTop: '0 !important' },
 };

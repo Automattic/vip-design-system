@@ -93,7 +93,7 @@ const inlineStyles = {
 
 const searchIconStyles = {
 	'& .autocomplete__input.autocomplete__input': {
-		paddingLeft: 6,
+		paddingLeft: 9,
 	},
 };
 
