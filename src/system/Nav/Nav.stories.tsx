@@ -46,23 +46,53 @@ A navigation menu is a list of links used to navigate a website. It is usually p
 
 type Story = StoryObj< typeof Nav >;
 
-const variants = [ 'primary', 'secondary', 'display' ] as NavItemProps[ 'variant' ][];
+const variants = [
+	'primary',
+	'secondary',
+	'display',
+	'link',
+	'tabs',
+] as NavItemProps[ 'variant' ][];
 
 export const Default: Story = {
 	render: () => (
 		<>
 			{ variants.map( variant => (
-				<Nav.Root key={ variant } variant={ variant } sx={ { mb: 4 } }>
-					<Nav.Item active href="#">
-						PHP
-					</Nav.Item>
-					<Nav.Item href="https://wordpress.com">WordPress</Nav.Item>
-					<Nav.Item href="htpps://newrelic.com/">New Relic</Nav.Item>
-					<Nav.Item disabled href="https://google.com/">
-						Disabled anchor
-					</Nav.Item>
-				</Nav.Root>
+				<>
+					<p>
+						<strong>Variant:</strong> { variant }
+					</p>
+					<Nav.Root
+						key={ variant }
+						variant={ variant }
+						sx={ { mb: 4, width: variant === 'tabs' ? '100%' : 'fit-content' } }
+						label={ `Nav ${ variant }` }
+					>
+						<Nav.Item href="#">PHP</Nav.Item>
+						<Nav.Item href="https://wordpress.com">WordPress</Nav.Item>
+						<Nav.Item active href="htpps://newrelic.com/">
+							New Relic
+						</Nav.Item>
+						<Nav.Item disabled href="https://google.com/">
+							Not accessible
+						</Nav.Item>
+					</Nav.Root>
+				</>
 			) ) }
 		</>
+	),
+};
+
+export const SubMenus: Story = {
+	render: () => (
+		<Nav.Root variant="primary" sx={ { mb: 4 } } label="Submenu navigation">
+			<Nav.Item href="#">Home</Nav.Item>
+			<Nav.ItemGroup label="Departament">
+				<Nav.Item active href="htpps://newrelic.com/">
+					Sports
+				</Nav.Item>
+				<Nav.Item href="https://google.com/">Juices</Nav.Item>
+			</Nav.ItemGroup>
+		</Nav.Root>
 	),
 };

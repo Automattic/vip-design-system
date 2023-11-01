@@ -11,13 +11,14 @@ import { NavItemProps } from './NavItem';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
-	variant?: 'primary' | 'secondary' | 'display' | 'ghost';
+	variant?: 'primary' | 'secondary' | 'display' | 'text' | 'tabs';
 	sx?: ThemeUIStyleObject;
+	label: string;
 }
 
 const Nav = forwardRef< HTMLElement, NavProps >(
 	(
-		{ className, children, orientation, variant = 'primary', sx = {} }: NavProps,
+		{ className, children, orientation, variant = 'primary', sx = {}, label }: NavProps,
 		ref: Ref< HTMLElement >
 	) => {
 		const childrenWithVariant = React.Children.map(
@@ -33,14 +34,20 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 
 		return (
 			<NavigationMenu.Root
+				aria-label={ label }
 				ref={ ref }
 				className={ classNames( VIP_NAV, className ) }
 				sx={ {
 					position: 'relative',
 					display: 'flex',
 					justifyContent: 'flex-start',
-					width: '100%',
+					width: 'max-content',
 					zIndex: 1,
+					padding: 2,
+					pb: 0,
+					borderRadius: 1,
+					borderBottom: '1px solid',
+					borderColor: 'borders.2',
 					...sx,
 				} }
 				orientation={ orientation }
@@ -54,6 +61,9 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 						m: 0,
 						px: 0,
 						flexDirection: 'row',
+						'.vip-nav-component-item:last-child': {
+							mr: 0,
+						},
 					} }
 				>
 					{ childrenWithVariant }
