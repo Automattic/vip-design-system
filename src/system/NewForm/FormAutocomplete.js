@@ -345,7 +345,7 @@ const FormAutocomplete = React.forwardRef(
 							{ ...props }
 						/>
 
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 4 } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? '256px' : 4 } } /> }
 					</FormSelectContent>
 				</div>
 
