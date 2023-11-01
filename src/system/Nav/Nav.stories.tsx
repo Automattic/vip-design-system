@@ -24,7 +24,6 @@ A navigation menu is a list of links used to navigate a website. It is usually p
 
 - To link internal or external links in a menu format.
 - To link to pages that are not part of the main navigation.
--
 
 ### When to consider something else
 
@@ -40,6 +39,24 @@ Pick one of the available variants:
 - display
 - link
 - tabs
+
+### Usage with Next.js framwork
+
+~~~jsx filename="index.jsx"
+import Link from 'next/link';
+
+<Nav.Root label="Etc">
+	<Nav.Item
+		active
+		href="https://google.com"
+		asChild // This is important to pass the link styles to the child
+	>
+		<Link href={ \`/orgs/\${ id }/sso/configurations/\${ idP }/edit/\${ tab.path }\` }>
+			Your page name
+		</Link>
+	</Nav.Item>
+</Nav.Root>
+~~~
 
 -------
 
