@@ -30,6 +30,13 @@ A navigation menu is a list of links used to navigate a website. It is usually p
 - If you have content inside the same page that will not affect the page Route/URL, use [Tabs](/docs/tabs--docs) component instead.
 - If you are planning to have buttons in your navigation, use another navigation solution, for example: [Dropdown](/docs/dropdown--docs) component instead.
 
+## Accessibility Considerations guidance
+
+This component is based on the Radix Navigation Menu primitive, so it contains all the accessibility features from the primitive.
+
+- Adheres to the [navigation role requirements.](https://www.w3.org/TR/wai-aria-1.2/#navigation)
+- Keyboard Interactions: https://www.radix-ui.com/primitives/docs/components/navigation-menu#keyboard-interactions
+
 ### Usability guidance
 
 Pick one of the available variants:
