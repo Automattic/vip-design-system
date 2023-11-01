@@ -51,7 +51,7 @@ const defaultStyles = {
 		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
 		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--show-all-values': { paddingRight: '256px' },
+		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
 		'&::placeholder': {
 			color: 'input.text.placeholder',
 			opacity: 1,
@@ -93,7 +93,7 @@ const inlineStyles = {
 
 const searchIconStyles = {
 	'& .autocomplete__input.autocomplete__input': {
-		paddingLeft: 9,
+		paddingLeft: 6,
 	},
 };
 
