@@ -38,12 +38,9 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 				sx={ {
 					position: 'relative',
 					display: 'flex',
-					justifyContent: 'flex-start',
 					width: 'max-content',
 					zIndex: 1,
-					padding: 2,
 					pb: 0,
-					borderRadius: 1,
 					borderBottom: '1px solid',
 					borderColor: variant === 'tabs' ? 'borders.2' : 'transparent',
 					...sx,
