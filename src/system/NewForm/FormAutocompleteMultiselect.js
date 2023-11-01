@@ -51,7 +51,7 @@ const defaultStyles = {
 		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
 		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
 		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
+		'&.autocomplete__input--show-all-values': { paddingRight: '256px' },
 		'&::placeholder': {
 			color: 'input.text.placeholder',
 			opacity: 1,
