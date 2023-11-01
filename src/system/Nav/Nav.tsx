@@ -3,8 +3,6 @@ import React, { Ref, forwardRef } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 
-import './style.css';
-
 import { VIP_NAV } from '.';
 import { ThemeUIStyleObject } from 'theme-ui';
 import { NavItemProps } from './NavItem';
