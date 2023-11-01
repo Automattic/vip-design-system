@@ -32,8 +32,8 @@ export const Fieldset = React.forwardRef< HTMLFieldSetElement, FieldsetProps >(
 				display: 'block',
 				pt: 1,
 				pb: 2,
-				px: 3,
-				mb: 3,
+				px: 4,
+				mb: 4,
 				...sx,
 			} }
 			{ ...props }

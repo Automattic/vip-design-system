@@ -23,7 +23,7 @@ const DefaultComponent = () => (
 	<Form.Root>
 		<Form.Textarea forLabel="my-text-area" rows="5" label="Regular textarea" />
 
-		<hr sx={ { my: 4 } } />
+		<hr sx={ { my: 6 } } />
 
 		<Form.Textarea
 			forLabel="my-text-area-error"

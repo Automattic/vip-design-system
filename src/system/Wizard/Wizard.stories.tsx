@@ -26,7 +26,7 @@ export const Default = () => {
 				<Box>
 					<Label>Domain</Label>
 					<Input placeholder="yourdomain.com" />
-					<Button sx={ { mt: 3 } }>Continue</Button>
+					<Button sx={ { mt: 4 } }>Continue</Button>
 				</Box>
 			),
 		},
@@ -70,7 +70,7 @@ export const WithTitleAutoFocus = () => {
 				<Box>
 					<Label>Domain</Label>
 					<Input placeholder="yourdomain.com" />
-					<Button sx={ { mt: 3 } } onClick={ () => setActiveStep( 1 ) }>
+					<Button sx={ { mt: 4 } } onClick={ () => setActiveStep( 1 ) }>
 						Continue
 					</Button>
 				</Box>
@@ -83,7 +83,7 @@ export const WithTitleAutoFocus = () => {
 			children: (
 				<Box>
 					<Label>DNS</Label>
-					<Button sx={ { mt: 3 } } onClick={ () => setActiveStep( 0 ) }>
+					<Button sx={ { mt: 4 } } onClick={ () => setActiveStep( 0 ) }>
 						back
 					</Button>
 				</Box>
@@ -103,7 +103,7 @@ export const WithTitleAutoFocus = () => {
 			children: (
 				<Box>
 					<Label>Certificate validation</Label>
-					<Button sx={ { mt: 3 } }>Check certificate</Button>
+					<Button sx={ { mt: 4 } }>Check certificate</Button>
 				</Box>
 			),
 		},

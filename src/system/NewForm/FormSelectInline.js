@@ -18,7 +18,7 @@ export const inlineStyles = {
 	borderRadius: 1,
 	...baseControlBorderStyle,
 	paddingRight: 0,
-	paddingLeft: 3,
+	paddingLeft: 4,
 
 	label: {
 		margin: 0,

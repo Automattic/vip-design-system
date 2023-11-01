@@ -18,7 +18,7 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 			textAlign: 'left',
 			display: 'inline-flex',
 			py: 2,
-			pl: 3,
+			pl: 4,
 			pr: 2,
 			alignItems: 'center',
 		} }

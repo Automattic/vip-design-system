@@ -41,7 +41,7 @@ const defaultStyles = {
 	'&.autocomplete__input--focused': theme => theme.outline,
 	'& .autocomplete__input': {
 		width: '100%',
-		paddingLeft: 4,
+		paddingLeft: 6,
 		py: 0,
 		borderWidth: 0,
 		color: 'text',
@@ -81,7 +81,7 @@ const defaultStyles = {
 	},
 	'& .autocomplete__hint': {
 		border: 'none',
-		paddingLeft: 4,
+		paddingLeft: 6,
 		minHeight: '27px',
 		lineHeight: '27px',
 	},
@@ -407,7 +407,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							{ ...props }
 						/>
 						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
+						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 4 } } /> }
 					</FormSelectContent>
 				</div>
 				<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>

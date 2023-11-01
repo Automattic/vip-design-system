@@ -24,7 +24,7 @@ const defaultProps = {
 
 export const Default = () => (
 	<>
-		<Text sx={ { fontSize: 3, mb: 3 } }>
+		<Text sx={ { fontSize: 3, mb: 4 } }>
 			Regular Dialog where the title and description are built-in and the content is provided by the
 			user.
 		</Text>
@@ -34,7 +34,7 @@ export const Default = () => (
 
 export const HiddenHeadings = () => (
 	<>
-		<Text sx={ { fontSize: 3, mb: 3 } }>
+		<Text sx={ { fontSize: 3, mb: 4 } }>
 			Title and description are hidden, but still announced using a screen reader. Activate
 			VoiceOver or any similar screen reader to listen to: Custom dialog title, Description of the
 			dialog content.
@@ -66,7 +66,7 @@ export const HiddenHeadings = () => (
 
 export const CustomStyling = () => (
 	<>
-		<Text sx={ { fontSize: 3, mb: 3 } }>Custom Styling on Dialog Content</Text>
+		<Text sx={ { fontSize: 3, mb: 4 } }>Custom Styling on Dialog Content</Text>
 
 		<NewDialog.Root
 			{ ...defaultProps }
@@ -94,7 +94,7 @@ export const CustomStyling = () => (
 
 export const CustomClose = () => (
 	<>
-		<Text sx={ { fontSize: 3, mb: 3 } }>
+		<Text sx={ { fontSize: 3, mb: 4 } }>
 			This example shows how you can create a custom Close trigger to your dialog
 		</Text>
 		<NewDialog.Root
@@ -115,7 +115,7 @@ export const CustomStateManagement = () => {
 	const [ open, setOpen ] = useState( false );
 	return (
 		<>
-			<Text sx={ { fontSize: 3, mb: 3 } }>
+			<Text sx={ { fontSize: 3, mb: 4 } }>
 				This example shows how you can create a custom state management. To achieve accessibility,
 				you need to control the <strong>open</strong> state, but also keep consistency using the{ ' ' }
 				<strong>onOpenChange</strong> attribute.
@@ -146,7 +146,7 @@ export const CustomStateManagement = () => {
 export const CustomOnClose = () => {
 	return (
 		<>
-			<Text sx={ { fontSize: 3, mb: 3 } }>
+			<Text sx={ { fontSize: 3, mb: 4 } }>
 				This example shows how you can use the content as a function to use the onClose method (same
 				behavior as the original Dialog component).
 			</Text>

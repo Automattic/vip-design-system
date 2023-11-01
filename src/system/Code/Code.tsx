@@ -29,7 +29,7 @@ const Code = React.forwardRef< HTMLDivElement, CodeProps >(
 					color: 'logs.text.primary',
 					borderRadius: 1,
 					py: 2,
-					px: 3,
+					px: 4,
 					verticalAlign: 'middle',
 					fontFamily: 'monospace',
 					time: {

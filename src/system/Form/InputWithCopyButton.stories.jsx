@@ -15,7 +15,7 @@ export const Default = () => {
 	return (
 		<Form.Root>
 			{ copiedText && (
-				<Notice variant="success" sx={ { mb: 4 } }>
+				<Notice variant="success" sx={ { mb: 6 } }>
 					Input successfully copied value! <strong>{ copiedText }</strong>
 				</Notice>
 			) }

@@ -9,7 +9,7 @@ export default {
 	component: NewConfirmationDialog,
 };
 
-const ConfirmationTrigger = <Button sx={ { mr: 3 } }>Click to answer</Button>;
+const ConfirmationTrigger = <Button sx={ { mr: 4 } }>Click to answer</Button>;
 
 export const Default = () => {
 	const [ answer, setAnswer ] = React.useState( '🤔' );

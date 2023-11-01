@@ -102,7 +102,7 @@ const Template = args => (
 			<ScreenReaderText>domain.com</ScreenReaderText>
 		</Button>
 
-		<div sx={ { maxWidth: '100px', mt: 3 } }>
+		<div sx={ { maxWidth: '100px', mt: 4 } }>
 			<Button variant="secondary" href="https://google/com" { ...args }>
 				Button with constrained width
 			</Button>

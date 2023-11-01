@@ -16,7 +16,7 @@ const TabsContent = ( { value, children, className = null } ) => (
 		className={ classNames( 'vip-tabs-content', `vip-tabs-content-${ value }`, className ) }
 		value={ value }
 		sx={ {
-			mt: 4,
+			mt: 6,
 		} }
 	>
 		{ children }

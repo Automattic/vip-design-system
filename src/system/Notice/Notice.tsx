@@ -66,7 +66,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 					boxShadow: 'none',
 					borderRadius: 2,
 					bg: inline ? 'transparent' : `notice.background.${ variant }`,
-					padding: inline ? 0 : 3,
+					padding: inline ? 0 : 4,
 					color: `notice.text.${ variant }`,
 					p: {
 						color: `notice.text.${ variant }`,
@@ -96,7 +96,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 				>
 					<Flex
 						sx={ {
-							mr: 3,
+							mr: 4,
 							mt: title ? 2 : 0,
 							flexShrink: 0,
 							alignSelf: title ? undefined : 'center',

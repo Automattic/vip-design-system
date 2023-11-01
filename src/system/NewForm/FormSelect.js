@@ -20,7 +20,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 const defaultStyles = {
 	...baseControlStyle,
-	paddingLeft: 3,
+	paddingLeft: 4,
 	paddingRight: '256px',
 	py: 0,
 	appearance: 'none',

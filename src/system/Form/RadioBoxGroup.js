@@ -64,12 +64,12 @@ const RadioOption = ( {
 				id={ forLabel }
 				onChange={ onChangeHandler }
 				value={ `${ value }` }
-				sx={ { mr: 7, mt: 3 } }
+				sx={ { mr: 7, mt: 4 } }
 				aria-describedby={ describedById }
 				{ ...restOption }
 			/>
 			<div
-				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0, flex: 'auto' } }
+				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 4, pr: 0, flex: 'auto' } }
 			>
 				<label htmlFor={ forLabel } { ...labelProps }>
 					{ label }

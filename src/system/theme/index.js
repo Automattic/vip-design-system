@@ -246,21 +246,21 @@ export default {
 
 	cards: {
 		primary: {
-			padding: 3,
+			padding: 4,
 			borderRadius: 2,
 			backgroundColor: 'layer.2',
 			boxShadow: 'low',
 		},
 		secondary: {
 			borderRadius: 2,
-			p: 3,
+			p: 4,
 			boxShadow: 'none',
 			border: '1px solid',
 			borderColor: 'borders.2',
 		},
 		indent: {
 			borderRadius: 2,
-			p: 3,
+			p: 4,
 			boxShadow: 'none',
 			backgroundColor: 'backgroundMuted',
 		},

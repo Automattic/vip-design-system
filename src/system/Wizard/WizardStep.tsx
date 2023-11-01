@@ -71,7 +71,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
 		const statusIconStyles = {
-			mr: 3,
+			mr: 4,
 			mt: 0,
 			color: statusIconColor,
 		};
@@ -88,7 +88,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 				sx={ {
 					boxShadow: active ? 'low' : 'none',
 					borderLeft: '2px solid',
-					p: 4,
+					p: 6,
 					backgroundColor: active ? 'background' : 'transparent',
 					borderRadius: 0,
 					borderBottom: active ? 'none' : '1px solid',
@@ -122,7 +122,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 							{ stepText }
 						</Text>
 
-						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
+						<Flex as="span" sx={ { mt: 4, alignItems: 'center' } } aria-hidden="true">
 							{ complete ? (
 								<BsFillCheckCircleFill sx={ statusIconStyles } />
 							) : (
@@ -186,7 +186,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					</Table>
 				) }
 
-				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
+				{ subTitle && active && <Text sx={ { mb: 4, mt: 2 } }>{ subTitle }</Text> }
 
 				{ active && children }
 			</Card>

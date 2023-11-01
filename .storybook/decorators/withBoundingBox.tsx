@@ -31,7 +31,7 @@ export default makeDecorator( {
 					}
 				` }
 			/>
-			<Box sx={ { p: 3 } }>{ storyFn() }</Box>
+			<Box sx={ { p: 4 } }>{ storyFn() }</Box>
 		</>
 	),
 } );

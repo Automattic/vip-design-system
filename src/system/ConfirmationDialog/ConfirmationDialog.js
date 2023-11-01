@@ -25,7 +25,7 @@ const ConfirmationDialogContent = ( {
 			{ title }
 		</Heading>
 		<Text>{ body }</Text>
-		<Flex sx={ { justifyContent: 'flex-end', mt: 4 } }>
+		<Flex sx={ { justifyContent: 'flex-end', mt: 6 } }>
 			<Button variant="text" sx={ { mr: 2 } } onClick={ onClose }>
 				Cancel
 			</Button>

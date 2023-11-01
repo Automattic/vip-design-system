@@ -17,7 +17,7 @@ export const Default = () => (
 			forLabel="input-simple"
 		/>
 
-		<hr sx={ { my: 4 } } />
+		<hr sx={ { my: 6 } } />
 
 		<Form.Input
 			forLabel="input-with-error"
@@ -26,11 +26,11 @@ export const Default = () => (
 			hasError
 		/>
 
-		<hr sx={ { my: 4 } } />
+		<hr sx={ { my: 6 } } />
 
 		<Form.Input forLabel="input-with-required" label="Required" required />
 
-		<hr sx={ { my: 4 } } />
+		<hr sx={ { my: 6 } } />
 
 		<Form.Label htmlFor="input-with-custom-label">Custom Label outside the Input</Form.Label>
 		<Form.Input forLabel="input-with-custom-label" required />

@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 export const styles = {
-	paddingLeft: 3,
+	paddingLeft: 4,
 	fontSize: 12,
 	lineHeight: '25px',
 	color: 'muted',
