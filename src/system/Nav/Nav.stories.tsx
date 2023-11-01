@@ -65,7 +65,7 @@ export const Default: Story = {
 					<Nav.Root
 						key={ variant }
 						variant={ variant }
-						sx={ { mb: 4, width: variant === 'tabs' ? '100%' : 'fit-content' } }
+						sx={ { mb: 4 } }
 						label={ `Nav ${ variant }` }
 					>
 						<Nav.Item href="#">PHP</Nav.Item>
@@ -80,19 +80,5 @@ export const Default: Story = {
 				</>
 			) ) }
 		</>
-	),
-};
-
-export const SubMenus: Story = {
-	render: () => (
-		<Nav.Root variant="primary" sx={ { mb: 4 } } label="Submenu navigation">
-			<Nav.Item href="#">Home</Nav.Item>
-			<Nav.ItemGroup label="Departament">
-				<Nav.Item active href="htpps://newrelic.com/">
-					Sports
-				</Nav.Item>
-				<Nav.Item href="https://google.com/">Juices</Nav.Item>
-			</Nav.ItemGroup>
-		</Nav.Root>
 	),
 };

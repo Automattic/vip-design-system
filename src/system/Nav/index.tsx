@@ -2,14 +2,13 @@
  * Internal dependencies
  */
 import Nav from './Nav';
-import NavItem, { NavItemGroup } from './NavItem';
+import NavItem from './NavItem';
 
 export const VIP_NAV = 'vip-nav-component';
 
 const Root = Nav;
 const Item = NavItem;
-const ItemGroup = NavItemGroup;
 
-export { Root, Item, ItemGroup };
+export { Root, Item };
 
 export default Nav;

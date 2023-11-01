@@ -38,7 +38,7 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 				sx={ {
 					position: 'relative',
 					display: 'flex',
-					width: 'max-content',
+					width: variant === 'tabs' ? '100%' : 'max-content',
 					zIndex: 1,
 					pb: 0,
 					borderBottom: '1px solid',
@@ -59,6 +59,7 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 						'.vip-nav-component-item:last-child': {
 							mr: 0,
 						},
+						'.vip-nav-component-item-link': variant === 'tabs' ? { px: 0, mr: 2 } : {},
 					} }
 				>
 					{ childrenWithVariant }
