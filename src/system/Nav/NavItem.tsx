@@ -36,7 +36,7 @@ const NavItemBase = ( { children, sx = {}, className, ...rest }: NavItemBaseProp
 
 const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
-		{ children, href, active, disabled, variant }: NavItemProps,
+		{ children, href, active, disabled, variant, ...props }: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
 	) => (
 		<NavigationMenu.Link
@@ -46,6 +46,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 			sx={ styles( variant ) }
 			active={ active }
 			aria-disabled={ disabled }
+			{ ...props }
 		>
 			{ children }
 		</NavigationMenu.Link>
@@ -109,7 +110,7 @@ const styles = variant => {
 
 const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
-		{ className, children, href, active, disabled, variant = 'primary' }: NavItemProps,
+		{ className, children, href, active, disabled, variant = 'primary', ...props }: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
 	) => (
 		<NavItemBase className={ className }>
@@ -119,6 +120,7 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 				ref={ ref }
 				active={ active }
 				disabled={ disabled }
+				{ ...props }
 			>
 				{ children }
 			</NavLink>
