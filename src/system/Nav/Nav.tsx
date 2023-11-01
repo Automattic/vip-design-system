@@ -45,7 +45,7 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 					pb: 0,
 					borderRadius: 1,
 					borderBottom: '1px solid',
-					borderColor: 'borders.2',
+					borderColor: variant === 'tabs' ? 'borders.2' : 'transparent',
 					...sx,
 				} }
 				orientation={ orientation }
