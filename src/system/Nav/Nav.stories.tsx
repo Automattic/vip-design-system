@@ -33,7 +33,13 @@ A navigation menu is a list of links used to navigate a website. It is usually p
 
 ### Usability guidance
 
-- Pick one of the available variants: \`primary\`, \`secondary\`, \`display\`.
+Pick one of the available variants:
+
+- primary
+- secondary
+- display
+- link
+- tabs
 
 -------
 
