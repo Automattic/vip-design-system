@@ -9,8 +9,8 @@ import type { StoryObj } from '@storybook/react';
 import { Link } from '..';
 
 export default {
+	title: 'Navigation/Link',
 	component: Link,
-	title: 'Link',
 };
 
 type Story = StoryObj< typeof Link >;
