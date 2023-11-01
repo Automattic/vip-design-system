@@ -74,7 +74,7 @@ export const CustomStyling = () => (
 			title="Custom dialog title"
 			style={ {
 				background: theme => `${ theme.colors.primary }`,
-				padding: 7,
+				padding: 5,
 				borderRadius: 20,
 				h2: { fontSize: 4, color: theme => `${ theme.colors.text }` },
 				h3: { fontSize: 3, color: theme => `${ theme.colors.heading }` },
