@@ -45,7 +45,12 @@ const styles = variant => ( {
 		color: 'texts.secondary',
 		cursor: 'not-allowed',
 	},
-	':hover': { fontWeight: 'regular', color: 'link' },
+	':hover': {
+		fontWeight: 'regular',
+		color: `button.${ variant }.label.hover`,
+		backgroundColor: `button.${ variant }.background.hover`,
+		textDecoration: 'none',
+	},
 	'&:focus': ( theme: NavItemTheme ) => theme.outline,
 	'&:focus-visible': ( theme: NavItemTheme ) => theme.outline,
 } );
