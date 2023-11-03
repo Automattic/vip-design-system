@@ -1,14 +1,30 @@
 /**
  * Internal dependencies
  */
-import Nav from './Nav';
-import NavItem from './NavItem';
+import {
+	NavPrimary as Primary,
+	NavSecondary as Secondary,
+	NavDisplay as Display,
+	NavLink as Link,
+	NavTab as Tab,
+} from './Nav';
+
+import { ItemPrimary, ItemSecondary, ItemDisplay, ItemLink, ItemTab } from './NavItem';
 
 export const VIP_NAV = 'vip-nav-component';
 
-const Root = Nav;
-const Item = NavItem;
+export const Nav = {
+	Primary,
+	Secondary,
+	Display,
+	Link,
+	Tab,
+};
 
-export { Root, Item };
-
-export default Nav;
+export const NavItem = {
+	Primary: ItemPrimary,
+	Secondary: ItemSecondary,
+	Display: ItemDisplay,
+	Link: ItemLink,
+	Tab: ItemTab,
+};

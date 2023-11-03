@@ -7,7 +7,8 @@ import { Box } from './Box';
 import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
-import * as Nav from './Nav';
+import { Nav, NavItem } from './Nav';
+
 import {
 	Dialog,
 	DialogButton,
@@ -95,6 +96,7 @@ export {
 	Text,
 	Tabs,
 	Nav,
+	NavItem,
 	TabsTrigger,
 	TabsContent,
 	TabsList,

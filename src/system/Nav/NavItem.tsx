@@ -12,7 +12,7 @@ import classNames from 'classnames';
  */
 import { VIP_NAV } from '.';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
-import { NavProps } from './Nav';
+import { NavVariant } from './Nav';
 
 interface NavItemTheme extends Theme {
 	outline?: Record< string, string >;
@@ -20,7 +20,7 @@ interface NavItemTheme extends Theme {
 
 export interface NavItemBaseProps extends NavigationMenu.NavigationMenuItemProps {
 	className?: string;
-	sx?: ThemeUIStyleObject | undefined;
+	sx?: ThemeUIStyleObject;
 }
 
 const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
@@ -65,7 +65,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	className?: string;
 	disabled?: boolean | undefined;
-	variant?: NavProps[ 'variant' ];
+	variant?: NavVariant;
 }
 
 const styles = variant => {
@@ -139,4 +139,32 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
-export default NavItem;
+export const ItemPrimary = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItem variant="primary" ref={ ref } { ...props } />
+	)
+);
+
+export const ItemSecondary = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItem variant="secondary" ref={ ref } { ...props } />
+	)
+);
+
+export const ItemDisplay = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItem variant="display" ref={ ref } { ...props } />
+	)
+);
+
+export const ItemLink = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItem variant="link" ref={ ref } { ...props } />
+	)
+);
+
+export const ItemTab = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItem variant="tabs" ref={ ref } { ...props } />
+	)
+);

@@ -6,12 +6,14 @@ import type { StoryObj } from '@storybook/react';
 /**
  * Internal dependencies
  */
-import * as Nav from '.';
-import { NavItemProps } from './NavItem';
+import { Nav, NavItem } from '../../system';
+import { NavVariant } from './Nav';
+
+console.log( Nav );
 
 export default {
 	title: 'Navigation/Nav',
-	component: Nav.Root,
+	component: Nav.Primary,
 	parameters: {
 		docs: {
 			description: {
@@ -52,8 +54,8 @@ Pick one of the available variants:
 ~~~jsx filename="index.jsx"
 import Link from 'next/link';
 
-<Nav.Root label="Etc">
-	<Nav.Item
+<Nav.Primary label="Etc">
+	<NavItem.Primary
 		active
 		href="https://google.com"
 		asChild // This is important to pass the link styles to the child
@@ -61,8 +63,8 @@ import Link from 'next/link';
 		<Link href={ \`/orgs/\${ id }/sso/configurations/\${ idP }/edit/\${ tab.path }\` }>
 			Your page name
 		</Link>
-	</Nav.Item>
-</Nav.Root>
+	</NavItem.Primary>
+</Nav.Primary>
 ~~~
 
 -------
@@ -76,39 +78,102 @@ import Link from 'next/link';
 
 type Story = StoryObj< typeof Nav >;
 
-const variants = [
-	'primary',
-	'secondary',
-	'display',
-	'link',
-	'tabs',
-] as NavItemProps[ 'variant' ][];
-
 export const Default: Story = {
 	render: () => (
 		<>
-			{ variants.map( variant => (
-				<>
-					<p>
-						<strong>Variant:</strong> { variant }
-					</p>
-					<Nav.Root
-						key={ variant }
-						variant={ variant }
-						sx={ { mb: 4 } }
-						label={ `Nav ${ variant }` }
-					>
-						<Nav.Item active href="#">
-							PHP
-						</Nav.Item>
-						<Nav.Item href="https://wordpress.com">WordPress</Nav.Item>
-						<Nav.Item href="htpps://newrelic.com/">New Relic</Nav.Item>
-						<Nav.Item disabled href="https://google.com/">
-							Not accessible
-						</Nav.Item>
-					</Nav.Root>
-				</>
-			) ) }
+			<p>
+				<strong>Variant: Primary</strong>
+			</p>
+			<Nav.Primary sx={ { mb: 4 } } label="Nav Primary">
+				<NavItem.Primary active href="#">
+					PHP
+				</NavItem.Primary>
+				<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
+				<NavItem.Primary href="htpps://newrelic.com/">New Relic</NavItem.Primary>
+				<NavItem.Primary disabled href="https://google.com/">
+					Not accessible
+				</NavItem.Primary>
+			</Nav.Primary>
+		</>
+	),
+};
+
+export const Secondary: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Secondary</strong>
+			</p>
+			<Nav.Secondary sx={ { mb: 4 } } label="Nav Secondary">
+				<NavItem.Secondary active href="#">
+					PHP
+				</NavItem.Secondary>
+				<NavItem.Secondary href="https://wordpress.com">WordPress</NavItem.Secondary>
+				<NavItem.Secondary href="htpps://newrelic.com/">New Relic</NavItem.Secondary>
+				<NavItem.Secondary disabled href="https://google.com/">
+					Not accessible
+				</NavItem.Secondary>
+			</Nav.Secondary>
+		</>
+	),
+};
+
+export const Display: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Display</strong>
+			</p>
+			<Nav.Display sx={ { mb: 4 } } label="Nav Display">
+				<NavItem.Display active href="#">
+					PHP
+				</NavItem.Display>
+				<NavItem.Display href="https://wordpress.com">WordPress</NavItem.Display>
+				<NavItem.Display href="htpps://newrelic.com/">New Relic</NavItem.Display>
+				<NavItem.Display disabled href="https://google.com/">
+					Not accessible
+				</NavItem.Display>
+			</Nav.Display>
+		</>
+	),
+};
+
+export const Link: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Link</strong>
+			</p>
+			<Nav.Link sx={ { mb: 4 } } label="Nav Link">
+				<NavItem.Link active href="#">
+					PHP
+				</NavItem.Link>
+				<NavItem.Link href="https://wordpress.com">WordPress</NavItem.Link>
+				<NavItem.Link href="htpps://newrelic.com/">New Relic</NavItem.Link>
+				<NavItem.Link disabled href="https://google.com/">
+					Not accessible
+				</NavItem.Link>
+			</Nav.Link>
+		</>
+	),
+};
+
+export const Tab: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Tab</strong>
+			</p>
+			<Nav.Tab sx={ { mb: 4 } } label="Nav Tab">
+				<NavItem.Tab active href="#">
+					PHP
+				</NavItem.Tab>
+				<NavItem.Tab href="https://wordpress.com">WordPress</NavItem.Tab>
+				<NavItem.Tab href="htpps://newrelic.com/">New Relic</NavItem.Tab>
+				<NavItem.Tab disabled href="https://google.com/">
+					Not accessible
+				</NavItem.Tab>
+			</Nav.Tab>
 		</>
 	),
 };
