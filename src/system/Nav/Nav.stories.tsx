@@ -98,11 +98,11 @@ export const Default: Story = {
 						sx={ { mb: 4 } }
 						label={ `Nav ${ variant }` }
 					>
-						<Nav.Item href="#">PHP</Nav.Item>
-						<Nav.Item href="https://wordpress.com">WordPress</Nav.Item>
-						<Nav.Item active href="htpps://newrelic.com/">
-							New Relic
+						<Nav.Item active href="#">
+							PHP
 						</Nav.Item>
+						<Nav.Item href="https://wordpress.com">WordPress</Nav.Item>
+						<Nav.Item href="htpps://newrelic.com/">New Relic</Nav.Item>
 						<Nav.Item disabled href="https://google.com/">
 							Not accessible
 						</Nav.Item>

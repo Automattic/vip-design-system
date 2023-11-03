@@ -56,10 +56,6 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 						m: 0,
 						px: 0,
 						flexDirection: 'row',
-						'.vip-nav-component-item:last-child': {
-							mr: 0,
-						},
-						'.vip-nav-component-item-link': variant === 'tabs' ? { px: 0, mr: 2 } : {},
 					} }
 				>
 					{ childrenWithVariant }

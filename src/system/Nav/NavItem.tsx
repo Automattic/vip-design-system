@@ -28,7 +28,14 @@ const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
 		<NavigationMenu.Item
 			className={ classNames( `${ VIP_NAV }-item`, className ) }
 			{ ...rest }
-			sx={ { mr: 2, ...sx } }
+			sx={ {
+				mr: 2,
+				'&:last-of-type': {
+					mr: 0,
+				},
+
+				...sx,
+			} }
 			ref={ ref }
 		>
 			{ children }
@@ -63,8 +70,22 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 
 const styles = variant => {
 	const defaultVariantStyles: ThemeUIStyleObject =
-		variant !== 'tabs'
+		variant === 'tabs'
 			? {
+					px: 0,
+					mr: 2,
+					color: 'heading',
+					'&[data-active]': {
+						color: 'link',
+						fontWeight: 'normal',
+						boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
+					},
+					'&[aria-disabled="true"]': {
+						color: 'muted',
+					},
+					':hover': { fontWeight: 'regular', color: 'heading' },
+			  }
+			: {
 					variant: `buttons.${ variant === 'link' ? 'text' : 'tertiary' }`,
 					borderRadius: 1,
 					'&[data-active]': {
@@ -79,18 +100,6 @@ const styles = variant => {
 						backgroundColor: `button.${ variant }.background.hover`,
 						textDecoration: 'none',
 					},
-			  }
-			: {
-					color: 'heading',
-					'&[data-active]': {
-						color: 'link',
-						fontWeight: 'normal',
-						boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
-					},
-					'&[aria-disabled="true"]': {
-						color: 'muted',
-					},
-					':hover': { fontWeight: 'regular', color: 'heading' },
 			  };
 
 	return {
