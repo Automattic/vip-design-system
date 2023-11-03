@@ -7,9 +7,6 @@ import type { StoryObj } from '@storybook/react';
  * Internal dependencies
  */
 import { Nav, NavItem } from '../../system';
-import { NavVariant } from './Nav';
-
-console.log( Nav );
 
 export default {
 	title: 'Navigation/Nav',
