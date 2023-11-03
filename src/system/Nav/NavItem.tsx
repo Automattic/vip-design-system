@@ -64,7 +64,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 
 export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	className?: string;
-	disabled?: boolean | undefined;
+	disabled?: boolean;
 	variant?: NavVariant;
 }
 

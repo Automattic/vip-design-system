@@ -10,7 +10,7 @@ import { Nav, NavItem } from '../../system';
 
 export default {
 	title: 'Navigation/Nav',
-	component: Nav.Primary,
+	component: Nav,
 	parameters: {
 		docs: {
 			description: {
