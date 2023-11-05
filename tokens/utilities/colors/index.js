@@ -1,8 +1,6 @@
 const Color = require('colorjs.io').default;
 const fs = require('fs');
 const interpolator = require('natural-spline-interpolator');
-const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-// import { plot, Plot } from 'nodeplotlib';
 
 const colorsData = fs.readFileSync('colors.json');
 const allColors = JSON.parse(colorsData).color;
@@ -11,18 +9,22 @@ const channels = ['l', 'a', 'b'];
 let output = {};
 
 for (let colorKey in allColors) {
-    const colorRange = allColors[colorKey];
+    const colorArray = allColors[colorKey];
     const inputColors = {};
     const interpolators = {};
 
-    for (let x in colorRange) {
-        inputColors[x] = new Color(colorRange[x].value);
-    }
+    // Process the color array to handle null values and generate the inputColors object
+    colorArray.forEach((colorValue, index) => {
+        if (colorValue !== null) {
+            const x = index * 10; // Convert index to the range 0-100
+            inputColors[x] = new Color(colorValue);
+        }
+    });
 
     // Create interpolation functions for each channel
     channels.forEach((channel) => {
         const indexedLabColors = [];
-        for (let x in colorRange) {
+        for (let x in inputColors) {
             indexedLabColors.push([
                 Number(x),
                 inputColors[x].lab[channels.indexOf(channel)],
@@ -36,83 +38,77 @@ for (let colorKey in allColors) {
     function getColor(x) {
         const labValues = channels.map((channel) => interpolators[channel](x));
         const color = new Color({ space: 'lab', coords: labValues });
-        return color;
+        return color.to('srgb').toString({ format: 'hex' });
     }
 
     // Generate output object for this color
     const colorOutput = {};
-    const colorOutputL = {};
-    const colorOutputA = {};
-    const colorOutputB = {};
-
     for (let x = 0; x <= 100; x++) {
         colorOutput[x] = {
-            input: colorRange[x] ? colorRange[x].value : null,
-            output: getColor(x).to('srgb').toString({ format: 'hex' }),
-        };
-    }
-    for (let x = 0; x <= 100; x++) {
-        colorOutputL[x] = {
-            // input: colorRange[x] ? colorRange[x].value : null,
-            output: getColor(x).lab[0],
-        };
-    }
-    for (let x = 0; x <= 100; x++) {
-        colorOutputA[x] = {
-            // input: colorRange[x] ? colorRange[x].value : null,
-            output: getColor(x).lab[1],
-        };
-    }
-    for (let x = 0; x <= 100; x++) {
-        colorOutputB[x] = {
-            // input: colorRange[x] ? colorRange[x].value : null,
-            output: getColor(x).lab[2],
+            input: (typeof colorArray[Math.floor(x / 10)] !== "undefined") ? colorArray[Math.floor(x / 10)] : null,
+            output: getColor(x),
         };
     }
 
     output[colorKey] = colorOutput;
 
-    const csvWriter = createCsvWriter({
-        path: colorKey + '.csv',
-        header: [
-            // { id: 'x', title: 'X' },
-            { id: 'l', title: 'L' },
-            { id: 'a', title: 'A' },
-            { id: 'b', title: 'B' },
-        ],
-    });
-
-    // Generate CSV data
-    const csvData = [];
-    for (let x = 0; x <= 100; x++) {
-        const color = new Color(getColor(x));
-        csvData.push({
-            // x: x,
-            l: color.lab[0],
-            a: color.lab[1],
-            b: color.lab[2],
-        });
-    }
-
-    // Write to CSV
-    csvWriter
-        .writeRecords(csvData)
-        .then(() => console.log('The CSV file was written successfully'));
 
 }
 
-// Write output object to a JSON file
-fs.writeFile('colorOutput.json', JSON.stringify(output, null, 2), (err) => {
-    if (err) throw err;
-    console.log('Data written to file');
-});
+fs.writeFileSync('colorOutput.json', JSON.stringify(output, null, 2));
+
+// Generate SVG string based on the output
+function generateSVG(output) {
+    const svgWidth = 2400;
+    const rectWidth = 200;
+    const rectHeight = 50;
+
+    let svgContent = `<svg viewBox="0 0 ${svgWidth} 550">`;
+
+    let offsetX = 0;
+    for (let colorKey in output) {
+        svgContent += `<g id="${colorKey}">`;
+
+        let offsetY = 0;
+        for (let x = 0; x <= 100; x++) {
+            const color = output[colorKey][x].output;
+            svgContent += `<rect x="${offsetX}" y="${offsetY}" width="${rectWidth}" height="${rectHeight}" fill="${color}"/>`;
+            offsetY += rectHeight;
+        }
+
+        svgContent += `</g>`;
+        offsetX += rectWidth;
+    }
+
+    svgContent += `</svg>`;
+    return svgContent;
+}
+
+const svgData = generateSVG(output);
+
+// Write SVG string to SVG file
+fs.writeFileSync('colors.svg', svgData);
+console.log('Data and SVG written to file');
+
+// Step 1: Read the colorTokens.json into an object.
+const tokenData = fs.readFileSync('colorTokens.json');
+const colorTokens = JSON.parse(tokenData);
+
+// Step 2: Iterate through the output object and update the corresponding values in the colorTokens object.
+for (let colorKey in output) {
+    if (colorTokens.color[colorKey]) { // Check if the colorKey exists in colorTokens
+        for (let x in output[colorKey]) {
+            if (colorTokens.color[colorKey][x]) { // Check if the specific shade exists in colorTokens
+                colorTokens.color[colorKey][x].value = output[colorKey][x].output;
+            }
+        }
+    }
+}
+
+// Step 3: Save the modified colorTokens object back to colorTokens.json.
+fs.writeFileSync('colorTokens.json', JSON.stringify(colorTokens, null, 2));
+
+console.log('colorTokens.json updated with new color values.');
+
 
 module.exports = getColor;
-
-// const Plot = {
-//     x: colorOutputL[],
-//     y: colorOutputA[],
-//     z: colorOutputB[],
-//     type: 'scatter3d',
-//   };
-//   plot([trace]);
