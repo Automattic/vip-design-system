@@ -2381,10 +2381,10 @@
   },
   {
     "id": "22bf7b17c2576c9ba4c472940aedcc3f3ae3618c",
-    "name": "core",
+    "name": "light",
     "selectedTokenSets": {
       "valet-core": "source",
-      "valet-web-color": "enabled"
+      "valet-web-core": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaCollectionId": "VariableCollectionId:8366:28052",
@@ -3880,5 +3880,16 @@
       "borderRadius.static.x-small": "ce06a53efea460d1191009ed230bcd87f78082bb"
     },
     "group": "wpvip services"
+  },
+  {
+    "id": "bd9f66b3c5f80b3ac3255c7ae3a8d0335d3f1a45",
+    "name": "dark",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "valet-core": "source",
+      "valet-web-core": "enabled",
+      "valet-web-dark": "enabled"
+    },
+    "group": "valet"
   }
 ]

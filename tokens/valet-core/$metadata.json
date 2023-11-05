@@ -2,6 +2,7 @@
   "tokenSetOrder": [
     "valet-core",
     "valet-web-core",
+    "valet-web-dark",
     "valet-web-color",
     "wpvip-product-core",
     "wpvip-product-dark",
