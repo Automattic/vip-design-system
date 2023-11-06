@@ -3,7 +3,7 @@
  */
 import classNames, { Argument } from 'classnames';
 import { forwardRef, Ref } from 'react';
-import { Image, ImageProps } from 'theme-ui';
+import { Image, ImageProps, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -16,13 +16,14 @@ export interface AvatarProps {
 	src?: string;
 	name?: string;
 	className?: Argument;
+	sx?: ThemeUIStyleObject;
 }
 
 type AvatarImageProps = AvatarProps & ImageProps;
 
 export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	(
-		{ isVIP = false, name, size = 32, src, className, ...props }: AvatarImageProps,
+		{ isVIP = false, name, size = 32, src, className, sx = {}, ...props }: AvatarImageProps,
 		ref: Ref< HTMLElement >
 	) => (
 		<Box
@@ -30,8 +31,9 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 				borderRadius: '100%',
 				height: size + 2, // +2 to compensate padding on both sides
 				width: size + 2, // +2 to compensate padding on both sides
-				border: '2px solid',
-				borderColor: isVIP ? 'primary' : 'transparent',
+				borderWidth: '2px',
+				borderStyle: 'solid',
+				borderColor: isVIP || isVIP === undefined ? 'primary' : 'transparent',
 				overflow: 'hidden',
 				backgroundColor: 'primary',
 				display: 'inline-flex',
@@ -40,6 +42,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 				color: 'white',
 				padding: '1px', // this should probably be replaced with a token
 				textAlign: 'center',
+				...sx,
 			} }
 			className={ classNames( 'vip-avatar-component', className ) }
 			aria-hidden="true"
