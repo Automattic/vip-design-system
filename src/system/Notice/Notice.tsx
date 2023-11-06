@@ -94,12 +94,12 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 						height: '100%', // required for the dynamic height of the icon box to work
 					} }
 				>
-					<Box sx={ { minWidth: '32px', mr: 3 } }>
+					<Box sx={ { minWidth: '32px', mr: 3, mt: 0 } }>
 						<Flex
 							sx={ {
 								flexDirection: 'column', // the trick here is to have a flex column with the icon at the bottom and an empty div that fills the space
 								minHeight: '20px',
-								maxHeight: '28px', // we're forcing the max height so that the icon is, at max, aligned between the first and the second line of text
+								maxHeight: '32px', // we're forcing the max height so that the icon is, at max, aligned between the first and the second line of text
 								alignItems: 'flex-end', // we want the icon to be aligned to the bottom
 								height: '100%', // specifying the height will allow the box to match the height of the content.
 							} }
