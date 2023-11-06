@@ -11,7 +11,7 @@ import React from 'react';
 import { Tabs, TabsTrigger, TabsList, TabsContent, Text, Link, Button } from '..';
 
 export default {
-	title: 'Tabs',
+	title: 'Navigation/Tabs',
 	component: Tabs,
 };
 

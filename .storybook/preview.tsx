@@ -21,6 +21,9 @@ export const parameters = {
 				<Stories />
 			</>
 		),
+		canvas: {
+			sourceState: 'shown',
+		},
 	},
 	options: {
 		storySort: {

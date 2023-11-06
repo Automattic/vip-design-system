@@ -12,7 +12,7 @@ import { Wizard, Box, Label, Input, Button, Checkbox, Flex } from '..';
 import { WizardStepProps } from './WizardStep';
 
 export default {
-	title: 'Wizard',
+	title: 'Navigation/Wizard',
 	component: Wizard,
 };
 
