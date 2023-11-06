@@ -91,20 +91,27 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 			>
 				<Flex
 					sx={ {
-						alignItems: 'start',
+						height: '100%', // required for the dynamic height of the icon box to work
 					} }
 				>
-					<Flex
-						sx={ {
-							mr: 3,
-							mt: title ? 2 : 0,
-							flexShrink: 0,
-							alignSelf: title ? undefined : 'center',
-						} }
-					>
-						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
-					</Flex>
-
+					<Box sx={ { minWidth: '32px', mr: 3, mt: 0 } }>
+						<Flex
+							sx={ {
+								flexDirection: 'column', // the trick here is to have a flex column with the icon at the bottom and an empty div that fills the space
+								minHeight: '20px',
+								maxHeight: '32px', // we're forcing the max height so that the icon is, at max, aligned between the first and the second line of text
+								alignItems: 'flex-end', // we want the icon to be aligned to the bottom
+								height: '100%', // specifying the height will allow the box to match the height of the content.
+							} }
+						>
+							<Box
+								sx={ {
+									flex: '1 100%', // we need this empty div to make the icon align to the bottom
+								} }
+							></Box>
+							<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
+						</Flex>
+					</Box>
 					<Box>
 						{ title && (
 							<Heading
