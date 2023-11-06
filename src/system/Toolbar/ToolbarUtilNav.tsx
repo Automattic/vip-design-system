@@ -8,9 +8,10 @@ export type ToolbarUtilNavProps = {
 };
 
 export const ToolbarUtilNav = forwardRef< HTMLElement, ToolbarUtilNavProps >(
-	( { label = 'Utility', children }: ToolbarUtilNavProps ) => (
+	( { label = 'Utility', children }: ToolbarUtilNavProps, ref: Ref< HTMLElement > ) => (
 		<nav
 			aria-label={ label }
+			ref={ ref }
 			sx={ {
 				marginLeft: 'auto',
 				alignItems: 'center',

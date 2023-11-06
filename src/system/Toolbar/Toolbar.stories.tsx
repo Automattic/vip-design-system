@@ -6,7 +6,7 @@ import type { StoryObj } from '@storybook/react';
 /**
  * Internal dependencies
  */
-import { Text, Dropdown, Button, Avatar } from '../../system';
+import { Text, Avatar } from '../../system';
 import { Toolbar } from '.';
 import ScreenReaderText from '../ScreenReaderText';
 
