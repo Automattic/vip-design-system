@@ -31,7 +31,6 @@ const inputStyle = {
 		content: '""',
 		border: '1px solid',
 		borderColor: baseControlBorderStyle.borderColor,
-		zIndex: 3,
 		left: `${ -1 * radioPosition }px`,
 	} ),
 	'&:checked ~ label::after': {
@@ -54,7 +53,6 @@ const labelStyle = {
 		top: 1,
 		left: `${ -1 * radioPosition }px`,
 		transition: 'all .3s ease-out',
-		zIndex: 2,
 		width: '16px',
 		height: '16px',
 	},
