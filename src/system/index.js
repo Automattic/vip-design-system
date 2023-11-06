@@ -9,6 +9,7 @@ import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
 import { ConfirmationDialog } from './ConfirmationDialog';
+import { Toolbar } from './Toolbar';
 import {
 	Dialog,
 	DialogButton,
@@ -98,6 +99,7 @@ export {
 	TabsList,
 	Toggle,
 	ToggleRow,
+	Toolbar,
 	Validation,
 	Wizard,
 	WizardStep,
