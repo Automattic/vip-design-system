@@ -27,7 +27,7 @@ export default makeDecorator( {
 						font-style: normal;
 					}
 					body {
-						backgroundcolor: '#fbfbfb';
+						background-color: #fbfbfb;
 					}
 				` }
 			/>
