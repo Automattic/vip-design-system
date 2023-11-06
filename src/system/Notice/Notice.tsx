@@ -91,20 +91,23 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 			>
 				<Flex
 					sx={ {
-						alignItems: 'start',
+						height: '100%',
 					} }
 				>
-					<Flex
-						sx={ {
-							mr: 3,
-							mt: title ? 2 : 0,
-							flexShrink: 0,
-							alignSelf: title ? undefined : 'center',
-						} }
-					>
-						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
-					</Flex>
-
+					<Box sx={ { minWidth: '32px', mr: 3 } }>
+						<Flex
+							sx={ {
+								flexDirection: 'column',
+								minHeight: '20px',
+								maxHeight: '28px',
+								alignItems: 'flex-end',
+								height: '100%',
+							} }
+						>
+							<Box sx={ { flex: '1 100%' } }></Box>
+							<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
+						</Flex>
+					</Box>
 					<Box>
 						{ title && (
 							<Heading
