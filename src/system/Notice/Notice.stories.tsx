@@ -6,7 +6,7 @@
  * Internal dependencies
  */
 import React from 'react';
-import { Notice, Link } from '..';
+import { Notice, Link, Heading } from '..';
 
 export default {
 	title: 'Notice',
@@ -67,6 +67,23 @@ export const Default = () => (
 					<Link href="#terms">Please agree to the terms.</Link>
 				</li>
 			</ul>
+		</Notice>
+
+		<Notice variant="alert" sx={ { mb: 4 } }>
+			<>
+				<Heading variant={ 'h4' } sx={ { fontSize: 2 } }>
+					Alternative way of printing errors
+				</Heading>
+
+				<ul sx={ { mb: 0 } }>
+					<li>
+						<Link href="#name">Please enter your name.</Link>
+					</li>
+					<li>
+						<Link href="#email">Please enter your email address.</Link>
+					</li>
+				</ul>
+			</>
 		</Notice>
 
 		<Notice variant="alert" sx={ { mb: 4 } }>
