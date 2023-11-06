@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { VIP_NAV } from '.';
 import { ThemeUIStyleObject } from 'theme-ui';
 
-export type NavVariant = 'primary' | 'secondary' | 'display' | 'link' | 'tabs';
+export type NavVariant = 'primary' | 'tabs';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
@@ -55,20 +55,6 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 
 export const NavPrimary = forwardRef< HTMLElement, NavProps >(
 	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="primary" ref={ ref } />
-);
-
-export const NavSecondary = forwardRef< HTMLElement, NavProps >(
-	( props: NavProps, ref: Ref< HTMLElement > ) => (
-		<Nav { ...props } variant="secondary" ref={ ref } />
-	)
-);
-
-export const NavDisplay = forwardRef< HTMLElement, NavProps >(
-	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="display" ref={ ref } />
-);
-
-export const NavLink = forwardRef< HTMLElement, NavProps >(
-	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="link" ref={ ref } />
 );
 
 export const NavTab = forwardRef< HTMLElement, NavProps >(

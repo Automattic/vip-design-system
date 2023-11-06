@@ -145,24 +145,6 @@ export const ItemPrimary = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
-export const ItemSecondary = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="secondary" ref={ ref } { ...props } />
-	)
-);
-
-export const ItemDisplay = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="display" ref={ ref } { ...props } />
-	)
-);
-
-export const ItemLink = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="link" ref={ ref } { ...props } />
-	)
-);
-
 export const ItemTab = forwardRef< HTMLAnchorElement, NavItemProps >(
 	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
 		<NavItem variant="tabs" ref={ ref } { ...props } />

@@ -38,13 +38,14 @@ This component is based on the Radix Navigation Menu primitive, so it contains a
 
 ### Usability guidance
 
-Pick one of the available variants:
+Pick one of the available variants: Primary or Tabs. You can use the components directly from the \`Nav\` component:
 
-- primary
-- secondary
-- display
-- link
-- tabs
+~~~jsx filename="index.jsx"
+import { Nav, NavItem } from '@automattic/components';
+
+<Nav.Primary> or <Nav.Tab>
+<NavItem.Primary> or <NavItem.Tab>
+~~~
 
 ### Usage with Next.js framwork
 
@@ -91,66 +92,6 @@ export const Default: Story = {
 					Not accessible
 				</NavItem.Primary>
 			</Nav.Primary>
-		</>
-	),
-};
-
-export const Secondary: Story = {
-	render: () => (
-		<>
-			<p>
-				<strong>Variant: Secondary</strong>
-			</p>
-			<Nav.Secondary sx={ { mb: 4 } } label="Nav Secondary">
-				<NavItem.Secondary active href="#">
-					PHP
-				</NavItem.Secondary>
-				<NavItem.Secondary href="https://wordpress.com">WordPress</NavItem.Secondary>
-				<NavItem.Secondary href="htpps://newrelic.com/">New Relic</NavItem.Secondary>
-				<NavItem.Secondary disabled href="https://google.com/">
-					Not accessible
-				</NavItem.Secondary>
-			</Nav.Secondary>
-		</>
-	),
-};
-
-export const Display: Story = {
-	render: () => (
-		<>
-			<p>
-				<strong>Variant: Display</strong>
-			</p>
-			<Nav.Display sx={ { mb: 4 } } label="Nav Display">
-				<NavItem.Display active href="#">
-					PHP
-				</NavItem.Display>
-				<NavItem.Display href="https://wordpress.com">WordPress</NavItem.Display>
-				<NavItem.Display href="htpps://newrelic.com/">New Relic</NavItem.Display>
-				<NavItem.Display disabled href="https://google.com/">
-					Not accessible
-				</NavItem.Display>
-			</Nav.Display>
-		</>
-	),
-};
-
-export const Link: Story = {
-	render: () => (
-		<>
-			<p>
-				<strong>Variant: Link</strong>
-			</p>
-			<Nav.Link sx={ { mb: 4 } } label="Nav Link">
-				<NavItem.Link active href="#">
-					PHP
-				</NavItem.Link>
-				<NavItem.Link href="https://wordpress.com">WordPress</NavItem.Link>
-				<NavItem.Link href="htpps://newrelic.com/">New Relic</NavItem.Link>
-				<NavItem.Link disabled href="https://google.com/">
-					Not accessible
-				</NavItem.Link>
-			</Nav.Link>
 		</>
 	),
 };
