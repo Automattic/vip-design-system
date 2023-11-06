@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 /**
  * External dependencies
  */
@@ -52,11 +53,11 @@ export const Default = () => (
 
 		<Notice
 			variant="alert"
-			sx={ { mb: 4 } }
+			sx={ { mb: 2 } }
 			title="There are errors in your form"
 			headingVariant="h2"
 		>
-			<ul sx={ { mb: 0 } }>
+			<ul sx={ { m: 0, pl: 3 } }>
 				<li>
 					<Link href="#name">Please enter your name.</Link>
 				</li>
@@ -69,13 +70,13 @@ export const Default = () => (
 			</ul>
 		</Notice>
 
-		<Notice variant="alert" sx={ { mb: 4 } }>
+		<Notice variant="alert" sx={ { mb: 2 } }>
 			<>
 				<Heading variant={ 'h4' } sx={ { fontSize: 2 } }>
 					Alternative way of printing errors
 				</Heading>
 
-				<ul sx={ { mb: 0 } }>
+				<ul sx={ { m: 0, pl: 3 } }>
 					<li>
 						<Link href="#name">Please enter your name.</Link>
 					</li>
