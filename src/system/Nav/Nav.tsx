@@ -1,10 +1,10 @@
 /** @jsxImportSource theme-ui */
-import React, { Ref, forwardRef } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
+import { Ref, forwardRef } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 import { VIP_NAV } from '.';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 export type NavVariant = 'primary' | 'tabs';
 

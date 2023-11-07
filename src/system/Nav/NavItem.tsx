@@ -3,15 +3,15 @@
 /**
  * External dependencies
  */
-import React, { Ref, forwardRef } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
+import { Ref, forwardRef } from 'react';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { VIP_NAV } from '.';
-import { Theme, ThemeUIStyleObject } from 'theme-ui';
 import { NavVariant } from './Nav';
 
 interface NavItemTheme extends Theme {
