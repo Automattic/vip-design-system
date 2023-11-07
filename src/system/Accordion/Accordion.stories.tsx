@@ -3,8 +3,9 @@
 /**
  * External dependencies
  */
-import { RiUserAddLine, RiCodeSSlashFill } from 'react-icons/ri';
 import { BiBookContent } from 'react-icons/bi';
+import { RiUserAddLine, RiCodeSSlashFill } from 'react-icons/ri';
+
 /**
  * Internal dependencies
  */

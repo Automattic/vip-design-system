@@ -2,12 +2,12 @@
  * Internal dependencies
  */
 import { Dialog } from './Dialog';
+import { DialogButton } from './DialogButton';
 import { DialogContent } from './DialogContent';
-import { DialogTrigger } from './DialogTrigger';
+import { DialogDivider } from './DialogDivider';
 import { DialogMenu } from './DialogMenu';
 import { DialogMenuItem } from './DialogMenuItem';
-import { DialogDivider } from './DialogDivider';
-import { DialogButton } from './DialogButton';
+import { DialogTrigger } from './DialogTrigger';
 
 export {
 	Dialog,

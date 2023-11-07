@@ -1,16 +1,16 @@
 /**
  * External dependencies
  */
+import { CheckedState } from '@radix-ui/react-checkbox';
 import { useState } from 'react';
 
 /**
  * Internal dependencies
  */
-import { Form } from '..';
 import { Checkbox } from './Checkbox';
 import { Label } from './Label';
+import { Form } from '..';
 import { Flex } from '../Flex';
-import { CheckedState } from '@radix-ui/react-checkbox';
 
 export default {
 	title: 'Form/Checkbox',

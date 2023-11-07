@@ -3,10 +3,10 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 export const styles = {
 	paddingLeft: 3,

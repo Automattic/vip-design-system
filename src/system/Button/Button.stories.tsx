@@ -9,8 +9,8 @@ import { BiCalendarHeart } from 'react-icons/bi';
 /**
  * Internal dependencies
  */
-import ScreenReaderText from '../ScreenReaderText';
 import { Button, ButtonVariant } from '..';
+import ScreenReaderText from '../ScreenReaderText';
 
 export default {
 	title: 'Button',

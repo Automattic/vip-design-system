@@ -3,15 +3,15 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { MdArrowForward } from 'react-icons/md';
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
  */
 import { Badge, Box, Grid, Heading, Text, Link } from '..';
-import classNames from 'classnames';
 
 const disabledStyles = {
 	border: '1px solid',
@@ -73,7 +73,7 @@ const OptionRow = React.forwardRef(
 				} }
 			>
 				<Box>
-					{ !! image && (
+					{ Boolean( image ) && (
 						<Box
 							sx={ {
 								display: [ 'inline-block', 'inline-block', 'block' ],

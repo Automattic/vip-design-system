@@ -2,12 +2,12 @@
 /**
  * External dependencies
  */
+import * as Dialog from '@radix-ui/react-dialog';
 import React from 'react';
 
 /**
  * Internal dependencies
  */
-import * as Dialog from '@radix-ui/react-dialog';
 
 export const DialogOverlay = React.forwardRef( ( props, forwardedRef ) => (
 	<Dialog.Overlay

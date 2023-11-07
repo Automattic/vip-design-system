@@ -2,8 +2,8 @@
  * Internal dependencies
  */
 import { Tabs } from './Tabs';
-import { TabsTrigger } from './TabsTrigger';
-import { TabsList } from './TabsList';
 import { TabsContent } from './TabsContent';
+import { TabsList } from './TabsList';
+import { TabsTrigger } from './TabsTrigger';
 
 export { Tabs, TabsList, TabsTrigger, TabsContent };

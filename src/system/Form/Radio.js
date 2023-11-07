@@ -4,13 +4,14 @@
 /**
  * External dependencies
  */
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
+
+import { baseControlBorderStyle, inputBaseText } from './Input.styles';
 import { Label } from './Label';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import mainTheme from '../theme';
-import { baseControlBorderStyle, inputBaseText } from './Input.styles';
 
 const prefix = 'vip-radio-component-';
 

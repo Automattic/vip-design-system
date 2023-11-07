@@ -3,15 +3,15 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Box, Flex, Heading, Card } from '../';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 interface NoticeIconProps {
 	color: string;

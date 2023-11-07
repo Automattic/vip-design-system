@@ -9,8 +9,8 @@ import { useState } from 'react';
 /**
  * Internal dependencies
  */
-import { Button, Text, Input, Label } from '../../system';
 import * as NewDialog from '.';
+import { Button, Text, Input, Label } from '../../system';
 
 export default {
 	title: 'Dialog/NewDialog',

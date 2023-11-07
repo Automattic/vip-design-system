@@ -3,22 +3,22 @@
 /**
  * External dependencies
  */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import Autocomplete from 'accessible-autocomplete/react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 /**
  * Internal dependencies
  */
 import './FormAutocomplete.css';
-import { FormSelectContent } from './FormSelectContent';
 import { FormSelectArrow } from './FormSelectArrow';
-import { Label } from '../Form/Label';
-import { FormSelectSearch } from './FormSelectSearch';
+import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
-import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
+import { FormSelectSearch } from './FormSelectSearch';
 import { Validation } from '../Form';
+import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
+import { Label } from '../Form/Label';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -141,7 +141,7 @@ const FormAutocomplete = React.forwardRef(
 			</Label>
 		);
 
-		const inlineLabel = !! ( isInline && label );
+		const inlineLabel = Boolean( isInline && label );
 
 		const optionLabel = useCallback(
 			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),

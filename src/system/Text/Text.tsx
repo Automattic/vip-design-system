@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import { forwardRef, Ref } from 'react';
 import { Text as ThemeText, TextProps as ThemeTextProps } from 'theme-ui';
-import classNames from 'classnames';
 
 export const Text = forwardRef< HTMLDivElement, ThemeTextProps >(
 	( { sx, className, ...props }: ThemeTextProps, ref: Ref< HTMLDivElement > ) => (

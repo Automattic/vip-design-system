@@ -1,10 +1,11 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import React from 'react';
+
 import { Button, ButtonProps } from './Button';
 import { Spinner } from '../Spinner';
-import classNames from 'classnames';
 
 interface DefaultSpinnerProps {
 	color?: string;
@@ -53,7 +54,7 @@ export const ButtonSubmit = React.forwardRef< HTMLButtonElement, ButtonSubmitPro
 				{ ...rest }
 			>
 				{ label }{ ' ' }
-				{ !! loading &&
+				{ Boolean( loading ) &&
 					loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
 			</Button>
 		);

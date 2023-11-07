@@ -10,8 +10,8 @@ import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
  * Internal dependencies
  */
 import { Card, Heading, Text, Flex, Table, TableRow, TableCell, Button } from '..';
-import { ScreenReaderText } from '../ScreenReaderText';
 import { HeadingProps } from '../Heading/Heading';
+import { ScreenReaderText } from '../ScreenReaderText';
 
 export interface WizardStepSummary {
 	label?: React.ReactNode;

@@ -3,10 +3,10 @@
 /**
  * External dependencies
  */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { keyframes } from '@emotion/react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 /**
  * Internal dependencies

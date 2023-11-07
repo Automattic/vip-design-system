@@ -3,8 +3,9 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import PropTypes from 'prop-types';
+
 import ScreenReaderText from '../ScreenReaderText';
 
 /**

@@ -8,10 +8,10 @@ import { useState } from 'react';
 /**
  * Internal dependencies
  */
-import { Form, Link } from '..';
-import { Radio } from './Radio';
-import { Flex } from '../Flex';
 import { Label } from './Label';
+import { Radio } from './Radio';
+import { Form, Link } from '..';
+import { Flex } from '../Flex';
 
 export default {
 	title: 'Form/Radio',

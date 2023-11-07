@@ -3,17 +3,17 @@
 /**
  * External dependencies
  */
+import { keyframes } from '@emotion/react';
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import classNames, { Argument } from 'classnames';
 import React, { ReactNode } from 'react';
 import { MdChevronRight } from 'react-icons/md';
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { keyframes } from '@emotion/react';
-import classNames, { Argument } from 'classnames';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Heading } from '../Heading';
-import { Theme, ThemeUIStyleObject } from 'theme-ui';
 import { HeadingProps } from '../Heading/Heading';
 
 const slideDown = keyframes( {

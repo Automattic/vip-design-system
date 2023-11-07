@@ -1,14 +1,14 @@
 /**
  * Internal dependencies
  */
+import { Accordion } from './Accordion';
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
 import { Box } from './Box';
 import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
-import { Nav, NavItem } from './Nav';
-
+import { ConfirmationDialog } from './ConfirmationDialog';
 import {
 	Dialog,
 	DialogButton,
@@ -18,13 +18,7 @@ import {
 	DialogTrigger,
 	DialogContent,
 } from './Dialog';
-
-import * as NewDialog from './NewDialog';
 import * as Dropdown from './Dropdown';
-import * as Form from './NewForm';
-
-import { ConfirmationDialog } from './ConfirmationDialog';
-import { NewConfirmationDialog } from './NewConfirmationDialog';
 import { Flex } from './Flex';
 import {
 	Input,
@@ -37,21 +31,23 @@ import {
 	Textarea,
 	Checkbox,
 } from './Form';
-import { Accordion } from './Accordion';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
+import { Nav, NavItem } from './Nav';
+import { NewConfirmationDialog } from './NewConfirmationDialog';
+import * as NewDialog from './NewDialog';
+import * as Form from './NewForm';
 import { Notice } from './Notice';
+import { OptionRow } from './OptionRow';
 import { Progress } from './Progress';
 import { Spinner } from './Spinner';
-import { Tooltip } from './Tooltip';
-
-import { OptionRow } from './OptionRow';
 import { Table, TableRow, TableCell } from './Table';
-import { Text } from './Text';
-import theme from './theme';
-import { Wizard, WizardStep } from './Wizard';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
+import { Text } from './Text';
+import { Tooltip } from './Tooltip';
+import { Wizard, WizardStep } from './Wizard';
+import theme from './theme';
 
 export {
 	Accordion,

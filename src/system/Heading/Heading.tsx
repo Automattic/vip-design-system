@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import { forwardRef, Ref } from 'react';
 import { Heading as ThemeHeading, HeadingProps as ThemeHeadingProps } from 'theme-ui';
-import classNames from 'classnames';
 
 export interface HeadingProps extends ThemeHeadingProps {
 	variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

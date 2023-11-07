@@ -1,12 +1,13 @@
 /**
  * External dependencies
  */
+import { Box } from '..';
+
 import type { StoryObj } from '@storybook/react';
 
 /**
  * Internal dependencies
  */
-import { Box } from '..';
 
 export default {
 	title: 'Box',

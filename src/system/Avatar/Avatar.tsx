@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
+import classNames, { Argument } from 'classnames';
 import { forwardRef, Ref } from 'react';
 import { Image, ImageProps } from 'theme-ui';
-import classNames, { Argument } from 'classnames';
 
 /**
  * Internal dependencies

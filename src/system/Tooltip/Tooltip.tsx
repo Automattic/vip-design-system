@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { PropsWithChildren, ReactElement, cloneElement } from 'react';
+
 import css from './Tooltip.css';
 
 /**

@@ -1,14 +1,14 @@
 /**
  * External dependencies
  */
+import classNames, { Argument } from 'classnames';
 import { forwardRef, Ref } from 'react';
+import { BoxProps } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Box } from '..';
-import classNames, { Argument } from 'classnames';
-import { BoxProps } from 'theme-ui';
 
 export interface CardProps {
 	variant?: string;

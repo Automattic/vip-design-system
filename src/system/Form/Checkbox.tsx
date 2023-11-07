@@ -5,6 +5,7 @@
  */
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { MdDone } from 'react-icons/md';
+
 import { baseControlBorderStyle, baseControlFocusStyle, inputBaseBackground } from './Input.styles';
 
 export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {

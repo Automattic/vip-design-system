@@ -3,15 +3,14 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-
 import { baseControlBorderStyle, inputBaseBackground, inputBaseText } from '../Form/Input.styles';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 interface FieldsetProps {
 	children?: React.ReactNode;

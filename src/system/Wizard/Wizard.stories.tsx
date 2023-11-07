@@ -8,8 +8,8 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Wizard, Box, Label, Input, Button, Checkbox, Flex } from '..';
 import { WizardStepProps } from './WizardStep';
+import { Wizard, Box, Label, Input, Button, Checkbox, Flex } from '..';
 
 export default {
 	title: 'Navigation/Wizard',

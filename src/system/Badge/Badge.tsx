@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
-import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
+import { forwardRef, Ref } from 'react';
 import { TextProps as ThemeTextProps } from 'theme-ui';
 
 /**

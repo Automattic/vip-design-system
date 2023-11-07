@@ -3,15 +3,14 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-
 import { baseLabelStyle } from '../Form/Label';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 interface LegendProps {
 	children?: React.ReactNode;

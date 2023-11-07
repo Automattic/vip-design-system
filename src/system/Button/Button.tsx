@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import React, { useCallback, forwardRef, Ref } from 'react';
 import { Theme, Button as ThemeButton, ButtonProps as ThemeButtonProps } from 'theme-ui';
-import classNames from 'classnames';
 
 type ButtonClickType = React.MouseEvent< HTMLButtonElement, MouseEvent >;
 

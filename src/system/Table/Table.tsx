@@ -4,16 +4,17 @@
 /**
  * External dependencies
  */
-import { forwardRef, ReactNode, Ref, useMemo } from 'react';
 import classNames, { Argument } from 'classnames';
-import type { ThemeUIStyleObject } from 'theme-ui';
+import { forwardRef, ReactNode, Ref, useMemo } from 'react';
 
 /**
  * Internal dependencies
  */
-import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import { Box } from '../';
+import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 import { generateId } from '../utils/random';
+
+import type { ThemeUIStyleObject } from 'theme-ui';
 
 export interface TableProps {
 	caption?: string;

@@ -3,11 +3,12 @@
 /**
  * External dependencies
  */
-import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import ScreenReaderText from '../ScreenReaderText';
-import { Validation } from './Validation';
+import React, { useCallback } from 'react';
+
 import { RequiredLabel } from './RequiredLabel';
+import { Validation } from './Validation';
+import ScreenReaderText from '../ScreenReaderText';
 
 /**
  * Internal dependencies
