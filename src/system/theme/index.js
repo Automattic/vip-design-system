@@ -10,6 +10,26 @@ import ThemeBuilder from './getPropValue';
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
 
+const generateBreakpoints = breakpoints => {
+	const bps = [];
+	const values = Object.values( breakpoints );
+	const lastBpIndex = values.length - 1;
+
+	values.forEach( ( bp, index ) => {
+		const after = values?.[ index + 1 ];
+
+		if ( index === 0 ) {
+			bps.push( `@media screen and (max-width: ${ after - 1 }px)` );
+		} else if ( index === lastBpIndex ) {
+			bps.push( `@media screen and (min-width: ${ bp }px)` );
+		} else {
+			bps.push( `@media screen and (min-width: ${ bp }px) and (max-width: ${ after - 1 }px)` );
+		}
+	} );
+
+	return bps;
+};
+
 // Dark
 const {
 	getPropValue: getPropValueDark,
@@ -201,6 +221,7 @@ export default {
 	space: getVariants( 'space' ),
 	fonts,
 	fontSizes: getVariants( 'fontSize.static' ),
+	breakpoints: generateBreakpoints( getVariants( 'breakpoint' ) ),
 	fontWeights: {
 		body: getPropValue( 'fontWeight', 'body' ),
 		heading: getPropValue( 'fontWeight', 'heading' ),

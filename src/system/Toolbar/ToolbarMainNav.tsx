@@ -19,11 +19,11 @@ const defaultLinkStyle = {
 	},
 };
 
-const responsiveStyles = {
-	'@media screen and (min-width: 567px)': {
-		display: 'flex',
-	},
-};
+// const responsiveStyles = {
+// 	'@media screen and (min-width: 567px)': {
+// 		display: 'flex',
+// 	},
+// };
 
 export const ToolbarMainNav = forwardRef< HTMLElement, ToolbarMainNavProps >(
 	( { label = 'Main', children }: ToolbarMainNavProps, ref: Ref< HTMLElement > ) => (
@@ -31,7 +31,7 @@ export const ToolbarMainNav = forwardRef< HTMLElement, ToolbarMainNavProps >(
 			aria-label={ label }
 			ref={ ref }
 			sx={ {
-				display: 'none',
+				display: [ 'flex', 'none' ],
 				height: '100%',
 				ml: 0,
 				'a[aria-current="page"]': {
@@ -53,7 +53,6 @@ export const ToolbarMainNav = forwardRef< HTMLElement, ToolbarMainNavProps >(
 					ml: 3,
 					mr: 3,
 				},
-				...responsiveStyles,
 			} }
 		>
 			{ children }
