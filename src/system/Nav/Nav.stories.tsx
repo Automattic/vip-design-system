@@ -1,4 +1,4 @@
-import { Nav, NavItem } from '../../system';
+import { Nav, NavItem, Box } from '../../system';
 
 import type { StoryObj } from '@storybook/react';
 
@@ -22,6 +22,7 @@ A navigation menu is a list of links used to navigate a website. It is usually p
 
 - If you have content inside the same page that will not affect the page Route/URL, use [Tabs](/docs/tabs--docs) component instead.
 - If you are planning to have buttons in your navigation, use another navigation solution, for example: [Dropdown](/docs/dropdown--docs) component instead.
+- **We don't recommend you to use the Nav.Toolbar in any other place than the [Toolbar](/docs/navigation-toolbar--docs) component.**
 
 ## Accessibility Considerations guidance
 
@@ -81,7 +82,7 @@ export const Default: Story = {
 					PHP
 				</NavItem.Primary>
 				<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
-				<NavItem.Primary href="htpps://newrelic.com/">New Relic</NavItem.Primary>
+				<NavItem.Primary href="https://newrelic.com/">New Relic</NavItem.Primary>
 				<NavItem.Primary disabled href="https://google.com/">
 					Not accessible
 				</NavItem.Primary>
@@ -101,11 +102,34 @@ export const Tab: Story = {
 					PHP
 				</NavItem.Tab>
 				<NavItem.Tab href="https://wordpress.com">WordPress</NavItem.Tab>
-				<NavItem.Tab href="htpps://newrelic.com/">New Relic</NavItem.Tab>
+				<NavItem.Tab href="https://newrelic.com/">New Relic</NavItem.Tab>
 				<NavItem.Tab disabled href="https://google.com/">
 					Not accessible
 				</NavItem.Tab>
 			</Nav.Tab>
+		</>
+	),
+};
+export const Toolbar: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Toolbar</strong>. This variant is used inside the Toolbar component.
+				Currently there is no use case for this variant outside the Toolbar component.
+			</p>
+
+			<Box sx={ { p: 6, backgroundColor: 'toolbar.background' } }>
+				<Nav.Toolbar sx={ { mb: 4 } } label="Nav Toolbar">
+					<NavItem.Toolbar active href="#">
+						PHP
+					</NavItem.Toolbar>
+					<NavItem.Toolbar href="https://wordpress.com">WordPress</NavItem.Toolbar>
+					<NavItem.Toolbar href="https://newrelic.com/">New Relic</NavItem.Toolbar>
+					<NavItem.Toolbar disabled href="https://google.com/">
+						Not accessible
+					</NavItem.Toolbar>
+				</Nav.Toolbar>
+			</Box>
 		</>
 	),
 };

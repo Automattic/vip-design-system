@@ -22,7 +22,7 @@ const renderComponent = () =>
 		<Nav.Primary variant="primary" label="Main">
 			<NavItem.Primary href="#">PHP</NavItem.Primary>
 			<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
-			<NavItem.Primary active href="htpps://newrelic.com/">
+			<NavItem.Primary active href="https://newrelic.com/">
 				New Relic
 			</NavItem.Primary>
 			<NavItem.Primary disabled href="https://google.com/">

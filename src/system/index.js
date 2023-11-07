@@ -45,6 +45,7 @@ import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 import { Text } from './Text';
+import { Toolbar } from './Toolbar';
 import { Tooltip } from './Tooltip';
 import { Wizard, WizardStep } from './Wizard';
 import theme from './theme';
@@ -98,6 +99,7 @@ export {
 	TabsList,
 	Toggle,
 	ToggleRow,
+	Toolbar,
 	Validation,
 	Wizard,
 	WizardStep,

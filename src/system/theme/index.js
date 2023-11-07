@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import { generateBreakpoints } from './breakpoints';
 import ColorBuilder from './colors';
 import ValetDark from './generated/valet-theme-dark.json';
 import Valet from './generated/valet-theme-light.json';
@@ -201,6 +202,7 @@ export default {
 	space: getVariants( 'space' ),
 	fonts,
 	fontSizes: getVariants( 'fontSize.static' ),
+	breakpoints: generateBreakpoints( getVariants( 'breakpoint' ) ),
 	fontWeights: {
 		body: getPropValue( 'fontWeight', 'body' ),
 		heading: getPropValue( 'fontWeight', 'heading' ),
