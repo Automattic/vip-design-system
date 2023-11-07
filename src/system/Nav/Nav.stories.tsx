@@ -26,6 +26,7 @@ A navigation menu is a list of links used to navigate a website. It is usually p
 
 - If you have content inside the same page that will not affect the page Route/URL, use [Tabs](/docs/tabs--docs) component instead.
 - If you are planning to have buttons in your navigation, use another navigation solution, for example: [Dropdown](/docs/dropdown--docs) component instead.
+- **We don't recommend you to use the Nav.Toolbar in any other place than the [Toolbar](/docs/navigation-toolbar--docs) component.**
 
 ## Accessibility Considerations guidance
 

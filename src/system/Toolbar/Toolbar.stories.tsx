@@ -19,24 +19,26 @@ export default {
 		docs: {
 			description: {
 				component: `
-A description of the Toolbar component.
+The Toolbar component provides a way to users reach the main sections of a website, and also provides a way to users identify where they are. It is usually placed in a prominent position at the top of a site, or anywhere that needs a linked-navigation.
 
 ## Guidance
 
 ### When to use the Toolbar component
 
-- TBD
+- When you need a main Header, and a navigation for your website.
 
 ### When to consider something else
 
-- TBD
+- If you need a navigation, but not a header for your page, use the [Nav](/docs/navigation-nav--docs) component instead.
 
 ## Accessibility Considerations guidance
 
-- TBD
+- This component uses the \`header\` as the main landmark HTML element
+- The Nav.Toolbar uses the same accessibility features from the Nav component.
+
 ### Usability guidance
 
-- TBD
+- It's not recommended to have two Toolbars on a page. If you use two instances of this component, you will probably get landmarks errors in your accessibility tests.
 
 -------
 
