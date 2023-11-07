@@ -1,16 +1,10 @@
 /** @jsxImportSource theme-ui */
 
-/**
- * External dependencies
- */
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
-/**
- * Internal dependencies
- */
 import { VIP_NAV } from '.';
 import { NavVariant } from './Nav';
 import { navItemStyles } from './styles';

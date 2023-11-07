@@ -1,6 +1,3 @@
-/**
- * Internal dependencies
- */
 import { NavPrimary as Primary, NavTab as Tab, NavToolbar as Toolbar } from './Nav';
 import { ItemPrimary, ItemTab, ItemToolbar } from './NavItem';
 

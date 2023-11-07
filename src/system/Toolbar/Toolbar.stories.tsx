@@ -1,11 +1,5 @@
-/**
- * External dependencies
- */
 import { Link } from 'theme-ui';
 
-/**
- * Internal dependencies
- */
 import { Toolbar } from '.';
 import { Text, Avatar, Nav, NavItem } from '../../system';
 import ScreenReaderText from '../ScreenReaderText';

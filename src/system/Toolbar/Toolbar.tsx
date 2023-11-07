@@ -3,9 +3,6 @@
 import classNames from 'classnames';
 import React, { Ref, forwardRef } from 'react';
 
-/**
- * Internal dependencies
- */
 import { VIP_TOOLBAR } from './index';
 import { Flex } from '..';
 

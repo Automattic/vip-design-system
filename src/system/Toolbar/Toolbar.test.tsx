@@ -2,16 +2,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 /** @jsxImportSource theme-ui */
-/**
- * External dependencies
- */
+
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-/**
- * Internal dependencies
- */
 import { Toolbar, Nav, NavItem, Text, theme } from '../../system';
 
 const renderWithTheme = children =>

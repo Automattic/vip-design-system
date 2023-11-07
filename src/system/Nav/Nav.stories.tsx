@@ -1,7 +1,3 @@
-/**
- * Internal dependencies
- */
-
 import { Nav, NavItem, Box } from '../../system';
 
 import type { StoryObj } from '@storybook/react';
@@ -86,7 +82,7 @@ export const Default: Story = {
 					PHP
 				</NavItem.Primary>
 				<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
-				<NavItem.Primary href="htpps://newrelic.com/">New Relic</NavItem.Primary>
+				<NavItem.Primary href="https://newrelic.com/">New Relic</NavItem.Primary>
 				<NavItem.Primary disabled href="https://google.com/">
 					Not accessible
 				</NavItem.Primary>
@@ -106,7 +102,7 @@ export const Tab: Story = {
 					PHP
 				</NavItem.Tab>
 				<NavItem.Tab href="https://wordpress.com">WordPress</NavItem.Tab>
-				<NavItem.Tab href="htpps://newrelic.com/">New Relic</NavItem.Tab>
+				<NavItem.Tab href="https://newrelic.com/">New Relic</NavItem.Tab>
 				<NavItem.Tab disabled href="https://google.com/">
 					Not accessible
 				</NavItem.Tab>
@@ -128,7 +124,7 @@ export const Toolbar: Story = {
 						PHP
 					</NavItem.Toolbar>
 					<NavItem.Toolbar href="https://wordpress.com">WordPress</NavItem.Toolbar>
-					<NavItem.Toolbar href="htpps://newrelic.com/">New Relic</NavItem.Toolbar>
+					<NavItem.Toolbar href="https://newrelic.com/">New Relic</NavItem.Toolbar>
 					<NavItem.Toolbar disabled href="https://google.com/">
 						Not accessible
 					</NavItem.Toolbar>
