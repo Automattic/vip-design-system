@@ -2,7 +2,6 @@
  * Internal dependencies
  */
 import { NavPrimary as Primary, NavTab as Tab } from './Nav';
-
 import { ItemPrimary, ItemTab } from './NavItem';
 
 export const VIP_NAV = 'vip-nav-component';

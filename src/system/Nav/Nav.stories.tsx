@@ -1,12 +1,6 @@
-/**
- * External dependencies
- */
-import type { StoryObj } from '@storybook/react';
-
-/**
- * Internal dependencies
- */
 import { Nav, NavItem } from '../../system';
+
+import type { StoryObj } from '@storybook/react';
 
 export default {
 	title: 'Navigation/Nav',
