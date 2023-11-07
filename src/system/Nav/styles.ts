@@ -1,4 +1,5 @@
 import { ThemeUIStyleObject } from 'theme-ui';
+
 import { NavVariant } from './Nav';
 import { NavItemTheme } from './NavItem';
 

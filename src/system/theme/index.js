@@ -1,11 +1,11 @@
 /**
  * Internal dependencies
  */
+import { generateBreakpoints } from './breakpoints';
 import ColorBuilder from './colors';
 import ValetDark from './generated/valet-theme-dark.json';
 import Valet from './generated/valet-theme-light.json';
 import ThemeBuilder from './getPropValue';
-import { generateBreakpoints } from './breakpoints';
 
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );

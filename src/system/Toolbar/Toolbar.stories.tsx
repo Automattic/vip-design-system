@@ -1,14 +1,16 @@
 /**
  * External dependencies
  */
-import type { StoryObj } from '@storybook/react';
+import { Link } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Text, Avatar, Nav, NavItem } from '../../system';
 import { Toolbar } from '.';
+import { Text, Avatar, Nav, NavItem } from '../../system';
 import ScreenReaderText from '../ScreenReaderText';
+
+import type { StoryObj } from '@storybook/react';
 
 export default {
 	title: 'Navigation/Toolbar',
@@ -78,11 +80,14 @@ export const RawBar: Story = {
 	),
 };
 
+const CustomLink = props => <Link { ...props } href="https://google.com" />;
+
 export const VIPDashboardLike: Story = {
 	render: () => (
 		<>
 			<Toolbar.Primary>
-				<Toolbar.Logo href="https://wpvip.com/" />
+				{ /* Next.js customization of this link */ }
+				<Toolbar.Logo as={ CustomLink } />
 
 				<Nav.Toolbar label="Main">
 					<NavItem.Toolbar href="https://googles.com">My Applications</NavItem.Toolbar>

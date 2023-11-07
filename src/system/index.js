@@ -9,7 +9,6 @@ import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
 import { ConfirmationDialog } from './ConfirmationDialog';
-import { Toolbar } from './Toolbar';
 import {
 	Dialog,
 	DialogButton,
@@ -46,6 +45,7 @@ import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 import { Text } from './Text';
+import { Toolbar } from './Toolbar';
 import { Tooltip } from './Tooltip';
 import { Wizard, WizardStep } from './Wizard';
 import theme from './theme';

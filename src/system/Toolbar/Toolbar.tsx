@@ -1,18 +1,19 @@
 /** @jsxImportSource theme-ui */
 
-import React, { Ref, forwardRef } from 'react';
 import classNames from 'classnames';
+import React, { Ref, forwardRef } from 'react';
 
+/**
+ * Internal dependencies
+ */
 import { VIP_TOOLBAR } from './index';
-import { ThemeUIStyleObject } from 'theme-ui';
 import { Flex } from '..';
 
 export type ToolbarVariant = 'primary';
 
 export interface ToolbarProps {
 	className?: string;
-	sx?: ThemeUIStyleObject;
-	children?: React.ReactNode;
+	children: React.ReactNode;
 }
 
 const HEADER_HEIGHT = 56;
@@ -27,7 +28,7 @@ const responsiveStyles = {
 };
 
 const Toolbar = forwardRef< HTMLElement, ToolbarProps >(
-	( { className, sx = {}, children }: ToolbarProps, ref: Ref< HTMLElement > ) => (
+	( { className, children }: ToolbarProps, ref: Ref< HTMLElement > ) => (
 		<Flex
 			ref={ ref }
 			className={ classNames( VIP_TOOLBAR, className ) }
@@ -41,7 +42,6 @@ const Toolbar = forwardRef< HTMLElement, ToolbarProps >(
 				alignItems: 'center',
 				px: 4,
 				...responsiveStyles,
-				...sx,
 			} }
 		>
 			{ children }
