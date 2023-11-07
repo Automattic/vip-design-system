@@ -6,7 +6,7 @@ import type { StoryObj } from '@storybook/react';
 /**
  * Internal dependencies
  */
-import { Text, Avatar } from '../../system';
+import { Text, Avatar, Nav, NavItem } from '../../system';
 import { Toolbar } from '.';
 import ScreenReaderText from '../ScreenReaderText';
 
@@ -52,13 +52,12 @@ export const Default: Story = {
 		<>
 			<Toolbar.Primary>
 				<Toolbar.Logo href="https://wpvip.com/" />
-				<Toolbar.MainNav label="Main">
-					<a aria-current="page" href="/">
+				<Nav.Toolbar label="Main">
+					<NavItem.Toolbar active href="https://googles.com">
 						My Applications
-					</a>
-
-					<a href="/orgs/1">My Organization</a>
-				</Toolbar.MainNav>
+					</NavItem.Toolbar>
+					<NavItem.Toolbar href="https://google.com">My Organization</NavItem.Toolbar>
+				</Nav.Toolbar>
 
 				<Toolbar.UtilNav>
 					<Text sx={ { color: 'toolbar.text.default', mb: 0 } }>Utility</Text>
@@ -73,7 +72,7 @@ export const RawBar: Story = {
 		<>
 			<Toolbar.Primary>
 				<Toolbar.Logo href="https://wpvip.com/" />
-				<Toolbar.MainNav label="Main" />
+				<Nav.Toolbar label="Main" />
 			</Toolbar.Primary>
 		</>
 	),
@@ -85,13 +84,13 @@ export const VIPDashboardLike: Story = {
 			<Toolbar.Primary>
 				<Toolbar.Logo href="https://wpvip.com/" />
 
-				<Toolbar.MainNav label="Main">
-					<a href="/">My Applications</a>
-
-					<a aria-current="page" href="/orgs/1">
-						My Organization
-					</a>
-				</Toolbar.MainNav>
+				<Nav.Toolbar label="Main">
+					<NavItem.Toolbar href="https://googles.com">My Applications</NavItem.Toolbar>
+					{ /* Example below if you have Next.js <Link /> */ }
+					<NavItem.Toolbar active href="https://google.com" asChild>
+						<a href="https://google.com">Custom Link</a>
+					</NavItem.Toolbar>
+				</Nav.Toolbar>
 
 				<Toolbar.UtilNav>
 					<Toolbar.Separator />

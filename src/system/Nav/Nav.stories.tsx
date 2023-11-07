@@ -1,6 +1,12 @@
-import { Nav, NavItem } from '../../system';
-
+/**
+ * External dependencies
+ */
 import type { StoryObj } from '@storybook/react';
+
+/**
+ * Internal dependencies
+ */
+import { Nav, NavItem, Box } from '../../system';
 
 export default {
 	title: 'Navigation/Nav',
@@ -106,6 +112,29 @@ export const Tab: Story = {
 					Not accessible
 				</NavItem.Tab>
 			</Nav.Tab>
+		</>
+	),
+};
+export const Toolbar: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Toolbar</strong>. This variant is used inside the Toolbar component.
+				Currently there is no use case for this variant outside the Toolbar component.
+			</p>
+
+			<Box sx={ { p: 6, backgroundColor: 'toolbar.background' } }>
+				<Nav.Toolbar sx={ { mb: 4 } } label="Nav Toolbar">
+					<NavItem.Toolbar active href="#">
+						PHP
+					</NavItem.Toolbar>
+					<NavItem.Toolbar href="https://wordpress.com">WordPress</NavItem.Toolbar>
+					<NavItem.Toolbar href="htpps://newrelic.com/">New Relic</NavItem.Toolbar>
+					<NavItem.Toolbar disabled href="https://google.com/">
+						Not accessible
+					</NavItem.Toolbar>
+				</Nav.Toolbar>
+			</Box>
 		</>
 	),
 };
