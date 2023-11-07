@@ -2,7 +2,6 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 import { VIP_NAV } from '.';
 import { navStyles } from './styles';
@@ -12,20 +11,19 @@ export type NavVariant = 'primary' | 'tabs' | 'toolbar';
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
 	variant?: NavVariant;
-	sx?: ThemeUIStyleObject;
 	label: string;
 }
 
 const Nav = forwardRef< HTMLElement, NavProps >(
 	(
-		{ className, children, orientation, variant = 'primary', sx = {}, label }: NavProps,
+		{ className, children, orientation, variant = 'primary', label }: NavProps,
 		ref: Ref< HTMLElement >
 	) => (
 		<NavigationMenu.Root
 			aria-label={ label }
 			ref={ ref }
 			className={ classNames( VIP_NAV, className ) }
-			sx={ navStyles( variant, sx ) }
+			sx={ navStyles( variant ) }
 			orientation={ orientation }
 		>
 			<NavigationMenu.List

@@ -130,7 +130,7 @@ export const navVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	}
 };
 
-export const navStyles = ( variant: NavVariant, sx?: ThemeUIStyleObject ): ThemeUIStyleObject => {
+export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	const defaultVariantStyles = navVariantStyles( variant );
 
 	return {
@@ -140,6 +140,5 @@ export const navStyles = ( variant: NavVariant, sx?: ThemeUIStyleObject ): Theme
 		pb: 0,
 		borderBottom: '1px solid',
 		...defaultVariantStyles,
-		...sx,
 	};
 };
