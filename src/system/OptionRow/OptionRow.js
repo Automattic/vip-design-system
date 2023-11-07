@@ -58,7 +58,7 @@ const OptionRow = React.forwardRef(
 
 		return (
 			<Grid
-				columns={ [ 1, 1, 'auto 1fr auto' ] }
+				columns={ [ 'auto 1fr auto' ] }
 				gap={ [ 3, 3, `${ small ? 3 : 4 }` ] }
 				data-order={ order || undefined }
 				className={ classNames( 'vip-option-row-component', className ) }
@@ -77,7 +77,7 @@ const OptionRow = React.forwardRef(
 						<Box
 							sx={ {
 								display: [ 'inline-block', 'inline-block', 'block' ],
-								p: small ? 3 : 5,
+								p: small ? 3 : 4,
 								flex: '0 0 auto',
 								bg: `optionRow.${ variant }.background`,
 								color: `optionRow.${ variant }.icon`,
