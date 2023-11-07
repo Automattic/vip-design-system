@@ -136,7 +136,6 @@ export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	return {
 		position: 'relative',
 		display: 'flex',
-		zIndex: 1,
 		pb: 0,
 		borderBottom: '1px solid',
 		...defaultVariantStyles,
