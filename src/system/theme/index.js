@@ -32,7 +32,7 @@ const outline = {
 const fonts = {
 	body: '-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
 	heading: 'inherit',
-	monospace: 'inherit',
+	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 	serif: 'recoletaregular, Georgia, serif',
 };
 

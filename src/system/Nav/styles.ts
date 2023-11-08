@@ -118,7 +118,7 @@ export const navVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 		case 'toolbar': {
 			return {
 				...defaultStyles,
-				display: [ 'flex', 'none' ],
+				display: [ 'none', 'none', 'flex' ],
 				height: '100%',
 				ml: 0,
 			};
