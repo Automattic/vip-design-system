@@ -13,17 +13,6 @@ export interface ToolbarProps {
 	children: React.ReactNode;
 }
 
-const HEADER_HEIGHT = 56;
-
-const responsiveStyles = {
-	'@media screen and (min-width: 567px)': {
-		px: 5,
-	},
-	'@media screen and (min-width: 1049px)': {
-		height: 64,
-	},
-};
-
 const Toolbar = forwardRef< HTMLElement, ToolbarProps >(
 	( { className, children }: ToolbarProps, ref: Ref< HTMLElement > ) => (
 		<Flex
@@ -33,12 +22,11 @@ const Toolbar = forwardRef< HTMLElement, ToolbarProps >(
 			role="banner"
 			sx={ {
 				display: 'flex',
-				height: HEADER_HEIGHT,
+				height: [ 64, 56 ],
 				backgroundColor: 'toolbar.background',
 				flexDirection: 'row',
 				alignItems: 'center',
-				px: 4,
-				...responsiveStyles,
+				px: [ 4, 4, 5 ],
 			} }
 		>
 			{ children }

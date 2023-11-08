@@ -146,7 +146,7 @@
 	padding: 5px;
 }
 
-@media ( min-width: 641px ) {
+@media ( min-width: 657px ) {
 	.autocomplete__hint,
 	.autocomplete__input,
 	.autocomplete__option {
