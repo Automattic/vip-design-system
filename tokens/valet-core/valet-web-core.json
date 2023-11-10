@@ -172,8 +172,8 @@
   "background": {
     "primary": {
       "type": "color",
-      "description": "Use as main application background",
-      "value": "{color.blue.3}"
+      "value": "{color.pure-white}",
+      "description": "Use as main application background"
     },
     "inverse": {
       "value": "{color.black}",
