@@ -4,19 +4,20 @@ import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
 
 import { VIP_NAV } from '.';
-import { navStyles } from './styles';
+import { navMenuListStyles, navStyles } from './styles';
 
-export type NavVariant = 'primary' | 'tabs' | 'toolbar';
+export type NavVariant = 'primary' | 'tabs' | 'toolbar' | 'menu';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
 	variant?: NavVariant;
 	label: string;
+	orientation?: 'horizontal' | 'vertical';
 }
 
 const Nav = forwardRef< HTMLElement, NavProps >(
 	(
-		{ className, children, orientation, variant = 'primary', label }: NavProps,
+		{ className, children, orientation = 'horizontal', variant = 'primary', label }: NavProps,
 		ref: Ref< HTMLElement >
 	) => (
 		<NavigationMenu.Root
@@ -28,15 +29,7 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 		>
 			<NavigationMenu.List
 				className={ classNames( `${ VIP_NAV }-list` ) }
-				sx={ {
-					display: 'flex',
-					listStyle: 'none',
-					justifyContent: 'flex-start',
-					m: 0,
-					height: '100%',
-					px: 0,
-					flexDirection: 'row',
-				} }
+				sx={ navMenuListStyles( orientation ) }
 			>
 				{ children }
 			</NavigationMenu.List>
@@ -54,4 +47,10 @@ export const NavTab = forwardRef< HTMLElement, NavProps >(
 
 export const NavToolbar = forwardRef< HTMLElement, NavProps >(
 	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="toolbar" ref={ ref } />
+);
+
+export const NavMenu = forwardRef< HTMLElement, NavProps >(
+	( props: NavProps, ref: Ref< HTMLElement > ) => (
+		<Nav { ...props } variant="menu" orientation="vertical" ref={ ref } />
+	)
 );

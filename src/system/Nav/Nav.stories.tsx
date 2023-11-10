@@ -1,6 +1,20 @@
 import { Nav, NavItem, Box } from '../../system';
 
 import type { StoryObj } from '@storybook/react';
+import { AiOutlineLock } from 'react-icons/ai';
+import {
+	BiBulb,
+	BiCodeAlt,
+	BiData,
+	BiHistory,
+	BiGridAlt,
+	BiTachometer,
+	BiLock,
+	BiWindows,
+	BiBell,
+} from 'react-icons/bi';
+import { MdOutlinePhotoLibrary } from 'react-icons/md';
+import { Link } from 'theme-ui';
 
 export default {
 	title: 'Navigation/Nav',
@@ -130,6 +144,52 @@ export const Toolbar: Story = {
 					</NavItem.Toolbar>
 				</Nav.Toolbar>
 			</Box>
+		</>
+	),
+};
+
+const CustomLink = props => <a { ...props } />;
+
+export const Menu: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Menu</strong>. This variant is used inside the Toolbar component. Currently
+				there is no use case for this variant outside the Toolbar component.
+			</p>
+
+			<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
+				<NavItem.Menu as={ CustomLink } icon={ <BiGridAlt /> } href="https://wordpress.com">
+					Overview
+				</NavItem.Menu>
+				<NavItem.Menu active href="#" icon={ <BiWindows /> }>
+					Network Sites
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <AiOutlineLock /> }>
+					Domains & TLS [v]
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <BiHistory /> }>
+					Logs [v]
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <BiTachometer /> }>
+					Performance [v]
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <BiCodeAlt /> }>
+					Code [v]
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <BiData /> }>
+					Database [v]
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <MdOutlinePhotoLibrary /> }>
+					Media [v]
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <BiBell /> }>
+					Notifications
+				</NavItem.Menu>
+				<NavItem.Menu href="#" icon={ <BiBulb /> }>
+					Features
+				</NavItem.Menu>
+			</Nav.Menu>
 		</>
 	),
 };

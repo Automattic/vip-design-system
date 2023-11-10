@@ -1,6 +1,6 @@
 import { ThemeUIStyleObject } from 'theme-ui';
 
-import { NavVariant } from './Nav';
+import { NavProps, NavVariant } from './Nav';
 import { NavItemTheme } from './NavItem';
 
 export const defaultToolbarLinkStyle = {
@@ -15,27 +15,24 @@ export const defaultToolbarLinkStyle = {
 	},
 };
 
-export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
-	const defaultStyles = {
-		variant: `buttons.tertiary`,
-		borderRadius: 1,
-		'&[data-active]': {
-			variant: `buttons.${ variant }`,
-		},
-		'&[aria-disabled="true"]': {
-			opacity: 0.7,
-			color: 'texts.secondary',
-			cursor: 'not-allowed',
-		},
-		':hover': {
-			backgroundColor: `button.${ variant }.background.hover`,
-			textDecoration: 'none',
-		},
-	};
+const baseVariantStyle = {
+	alignItems: 'center',
+	display: 'inline-flex',
+	fontSize: 2,
+	justifyContent: 'center',
+	lineHeight: 'inherit',
+	minHeight: '36px',
+	px: 3,
+	py: 0,
+	textDecoration: 'none',
+	verticalAlign: 'middle',
+};
 
+export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 	switch ( variant ) {
 		case 'tabs': {
 			return {
+				...baseVariantStyle,
 				px: 0,
 				mr: 2,
 				color: 'heading',
@@ -53,6 +50,7 @@ export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 
 		case 'toolbar': {
 			return {
+				...baseVariantStyle,
 				position: 'relative',
 				ml: 3,
 				mr: 3,
@@ -75,33 +73,130 @@ export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 			};
 		}
 
+		case 'menu': {
+			return {
+				position: 'relative',
+				alignItems: 'center',
+				backgroundColor: 'layer.1',
+				border: 'none',
+				borderRadius: 1,
+				color: 'text',
+				display: 'inline-flex',
+				fontWeight: 'body',
+				gap: 3,
+				height: 38,
+				mx: 0,
+				mb: 0,
+				pl: 5,
+				pr: 3,
+				py: 2,
+				textDecoration: 'none',
+				width: '100%',
+				'&:visited': {
+					color: 'text',
+				},
+				'&[data-active]::after': {
+					position: 'absolute',
+					content: "''",
+					overflow: 'hidden',
+					width: 3,
+					backgroundColor: 'borders.accent',
+					borderRadius: '90px',
+					height: 26,
+					top: '6px',
+					left: 3,
+				},
+				'&[data-active]': {
+					color: 'heading',
+					backgroundColor: 'layer.2',
+					textDecoration: 'none',
+					cursor: 'default',
+					svg: {
+						color: 'icon.primary',
+						fill: 'icon.primary',
+					},
+				},
+				'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
+					color: 'heading',
+					backgroundColor: 'layer.3',
+					svg: {
+						color: 'icon.primary',
+					},
+				},
+				':not(&:hover)': {
+					transition: 'background-color 200ms ease-out',
+				},
+				svg: {
+					color: 'icon.secondary',
+					fill: 'icon.secondary',
+					display: 'block',
+				},
+			};
+		}
+
+		// Primary and any Other
+		case 'primary':
 		default: {
-			return defaultStyles;
+			return {
+				...baseVariantStyle,
+				variant: `buttons.tertiary`,
+				borderRadius: 1,
+				'&[data-active]': {
+					variant: `buttons.${ variant }`,
+				},
+				'&[aria-disabled="true"]': {
+					opacity: 0.7,
+					color: 'texts.secondary',
+					cursor: 'not-allowed',
+				},
+				':hover': {
+					backgroundColor: `button.${ variant }.background.hover`,
+					textDecoration: 'none',
+				},
+			};
 		}
 	}
 };
 
-export const navItemStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	const defaultVariantStyles = itemVariantStyle( variant );
+export const navItemStyles = (
+	orientation: NavProps[ 'orientation' ],
+	variant?: NavVariant
+): ThemeUIStyleObject => {
+	const defaultStyle = {
+		mr: 2,
+		'&:last-of-type': {
+			mr: orientation === 'horizontal' ? 0 : undefined,
+		},
+	};
+
+	switch ( variant ) {
+		case 'menu': {
+			return {
+				...defaultStyle,
+				border: 'none',
+				height: 38,
+				width: '100%',
+				mb: 2,
+			};
+		}
+
+		default: {
+			return defaultStyle;
+		}
+	}
+};
+
+export const navItemLinkStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
+	const itemLinkVariantStyles = itemVariantStyle( variant );
 
 	return {
-		alignItems: 'center',
-		display: 'inline-flex',
-		fontSize: 2,
-		justifyContent: 'center',
-		lineHeight: 'inherit',
-		minHeight: '36px',
-		px: 3,
-		py: 0,
-		textDecoration: 'none',
-		verticalAlign: 'middle',
-		...defaultVariantStyles,
 		'&:focus': ( theme: NavItemTheme ) => theme.outline,
 		'&:focus-visible': ( theme: NavItemTheme ) => theme.outline,
+		...itemLinkVariantStyles,
 	};
 };
 
-export const navVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
+export const navItemLinkVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	const defaultStyles = {
 		width: 'max-content',
 		borderColor: 'transparent',
@@ -131,7 +226,7 @@ export const navVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 };
 
 export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	const defaultVariantStyles = navVariantStyles( variant );
+	const defaultVariantStyles = navItemLinkVariantStyles( variant );
 
 	return {
 		position: 'relative',
@@ -139,5 +234,17 @@ export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 		pb: 0,
 		borderBottom: '1px solid',
 		...defaultVariantStyles,
+	};
+};
+
+export const navMenuListStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeUIStyleObject => {
+	return {
+		display: 'flex',
+		listStyle: 'none',
+		justifyContent: 'flex-start',
+		m: 0,
+		height: '100%',
+		px: 0,
+		flexDirection: orientation === 'horizontal' ? 'row' : 'column',
 	};
 };
