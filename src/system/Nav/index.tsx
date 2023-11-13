@@ -5,6 +5,7 @@ import {
 	NavMenu as Menu,
 } from './Nav';
 import { ItemMenu, ItemPrimary, ItemTab, ItemToolbar } from './NavItem';
+import { ItemGroupMenu } from './NavItemGroup';
 
 export const VIP_NAV = 'vip-nav-component';
 
@@ -20,5 +21,6 @@ export const NavItem = {
 	Tab: ItemTab,
 	Toolbar: ItemToolbar,
 	Menu: ItemMenu,
+	MenuGroup: ItemGroupMenu,
 	Icon: props => <span className="vip-nav-item-icon" { ...props } />,
 };

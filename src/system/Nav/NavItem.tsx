@@ -2,7 +2,7 @@
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { Ref, createElement, forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { Ref, forwardRef } from 'react';
 import { LinkProps, Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { VIP_NAV } from '.';
@@ -29,7 +29,7 @@ const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
 		<NavigationMenu.Item
 			className={ classNames( `${ VIP_NAV }-item`, className ) }
 			{ ...rest }
-			data-active={ active }
+			data-active={ active || undefined }
 			sx={ {
 				...navItemStyles( orientation, variant ),
 				...sx,
@@ -47,7 +47,6 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	variant?: NavVariant;
 	icon?: JSX.Element;
 	render?: React.FC< { href?: string; children?: React.ReactNode } >;
-	as?: React.ElementType;
 	orientation?: NavProps[ 'orientation' ];
 	href?: LinkProps[ 'href' ];
 }
@@ -107,7 +106,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 			ref={ ref }
 			href={ href }
 			sx={ navItemLinkStyles( variant ) }
-			data-active={ active }
+			data-active={ active || undefined }
 			aria-current={ active ? 'page' : undefined }
 			aria-disabled={ disabled }
 			asChild={ RenderComponent ? true : undefined }

@@ -28,6 +28,35 @@ const baseVariantStyle = {
 	verticalAlign: 'middle',
 };
 
+export const navItemGroupTriggerStyles = (): ThemeUIStyleObject => ( {
+	mb: 2,
+	'svg[data-arrow-indicator]': {
+		position: 'absolute',
+		right: 3,
+		top: 2,
+		transform: 'rotate(0deg)',
+	},
+	'&[data-open]': {
+		backgroundColor: 'red',
+		'svg[data-arrow-indicator]': {
+			transform: 'rotate(180deg)',
+			transition: 'transform 200ms',
+		},
+	},
+	'&[data-active]': {
+		'&::after': {
+			display: 'none',
+		},
+	},
+} );
+
+export const navItemGroupContentStyles = (): ThemeUIStyleObject => ( {
+	m: 0,
+	p: 0,
+	pl: 3,
+	listStyle: 'none',
+} );
+
 export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 	switch ( variant ) {
 		case 'tabs': {
@@ -122,6 +151,9 @@ export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 					svg: {
 						color: 'icon.primary',
 					},
+					// This will make the trigger button look like a link
+					textDecorationLine: 'underline',
+					textDecorationThickness: '2px',
 				},
 				':not(&:hover)': {
 					transition: 'background-color 200ms ease-out',
@@ -162,7 +194,6 @@ export const navItemStyles = (
 	orientation: NavProps[ 'orientation' ],
 	variant?: NavVariant
 ): ThemeUIStyleObject => {
-	console.log( 'Variant', variant );
 	const defaultStyle = {
 		mr: 2,
 		'&:last-of-type': {
@@ -174,10 +205,36 @@ export const navItemStyles = (
 		case 'menu': {
 			return {
 				...defaultStyle,
+				mr: 0,
 				border: 'none',
 				height: 38,
 				width: '100%',
 				mb: 2,
+			};
+		}
+
+		default: {
+			return defaultStyle;
+		}
+	}
+};
+
+export const navItemGroupStyles = (
+	orientation: NavProps[ 'orientation' ],
+	variant?: NavVariant
+): ThemeUIStyleObject => {
+	const defaultStyle = {
+		'&:last-of-type': {
+			mr: orientation === 'horizontal' ? 0 : undefined,
+		},
+	};
+
+	switch ( variant ) {
+		case 'menu': {
+			return {
+				...defaultStyle,
+				mr: 0,
+				width: '100%',
 			};
 		}
 
@@ -230,6 +287,7 @@ export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	const defaultVariantStyles = navItemLinkVariantStyles( variant );
 
 	return {
+		'> div:first-of-type': { width: '100%' },
 		position: 'relative',
 		display: 'flex',
 		pb: 0,

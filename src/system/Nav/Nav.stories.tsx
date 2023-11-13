@@ -158,7 +158,7 @@ export const Menu: Story = {
 				<strong>Variant: Menu</strong>.
 			</p>
 
-			<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
+			<Nav.Menu sx={ { mb: 4, width: 250 } } label="Nav Menu">
 				<NavItem.Menu href="https://wordpress.com" icon={ <BiGridAlt /> } render={ CustomLink }>
 					Overview
 				</NavItem.Menu>
@@ -166,14 +166,26 @@ export const Menu: Story = {
 					Network Sites
 				</NavItem.Menu>
 				<NavItem.Menu href="#" icon={ <AiOutlineLock /> }>
-					Domains & TLS [v]
+					Domains & TLS
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiHistory /> }>
-					Logs [v]
-				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiTachometer /> }>
-					Performance [v]
-				</NavItem.Menu>
+
+				<NavItem.MenuGroup label="Logs" icon={ <BiHistory /> }>
+					<NavItem.Menu render={ CustomLink } href="https://google.com/">
+						Audit
+					</NavItem.Menu>
+					<NavItem.Menu render={ CustomLink } active href="https://wpvip.com/">
+						Runtime
+					</NavItem.Menu>
+					<NavItem.Menu render={ CustomLink } href="https://dashboard.wpvip.com/">
+						Slow Query
+					</NavItem.Menu>
+				</NavItem.MenuGroup>
+
+				<NavItem.MenuGroup label="Performance" icon={ <BiTachometer /> }>
+					<NavItem.Menu href="#">Metrics</NavItem.Menu>
+					<NavItem.Menu href="#">Monitor</NavItem.Menu>
+					<NavItem.Menu href="#">Cache</NavItem.Menu>
+				</NavItem.MenuGroup>
 				<NavItem.Menu href="#" icon={ <BiCodeAlt /> }>
 					Code [v]
 				</NavItem.Menu>
