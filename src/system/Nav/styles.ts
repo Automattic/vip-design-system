@@ -37,7 +37,6 @@ export const navItemGroupTriggerStyles = (): ThemeUIStyleObject => ( {
 		transform: 'rotate(0deg)',
 	},
 	'&[data-open]': {
-		backgroundColor: 'red',
 		'svg[data-arrow-indicator]': {
 			transform: 'rotate(180deg)',
 			transition: 'transform 200ms',
