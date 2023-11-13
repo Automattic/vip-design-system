@@ -148,18 +148,18 @@ export const Toolbar: Story = {
 	),
 };
 
+// eslint-disable-next-line jsx-a11y/anchor-has-content
 const CustomLink = props => <a { ...props } />;
 
 export const Menu: Story = {
 	render: () => (
 		<>
 			<p>
-				<strong>Variant: Menu</strong>. This variant is used inside the Toolbar component. Currently
-				there is no use case for this variant outside the Toolbar component.
+				<strong>Variant: Menu</strong>.
 			</p>
 
 			<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
-				<NavItem.Menu as={ CustomLink } icon={ <BiGridAlt /> } href="https://wordpress.com">
+				<NavItem.Menu href="https://wordpress.com" icon={ <BiGridAlt /> } render={ CustomLink }>
 					Overview
 				</NavItem.Menu>
 				<NavItem.Menu active href="#" icon={ <BiWindows /> }>

@@ -162,6 +162,7 @@ export const navItemStyles = (
 	orientation: NavProps[ 'orientation' ],
 	variant?: NavVariant
 ): ThemeUIStyleObject => {
+	console.log( 'Variant', variant );
 	const defaultStyle = {
 		mr: 2,
 		'&:last-of-type': {

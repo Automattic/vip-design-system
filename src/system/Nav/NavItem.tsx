@@ -2,8 +2,8 @@
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { Ref, forwardRef } from 'react';
-import { Link, LinkProps, Theme, ThemeUIStyleObject } from 'theme-ui';
+import { Ref, createElement, forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { LinkProps, Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { VIP_NAV } from '.';
 import { NavProps, NavVariant } from './Nav';
@@ -31,7 +31,7 @@ const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
 			{ ...rest }
 			data-active={ active }
 			sx={ {
-				...navItemStyles( orientation, 'menu' ), // use context
+				...navItemStyles( orientation, variant ),
 				...sx,
 			} }
 			ref={ ref }
@@ -46,6 +46,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	disabled?: boolean;
 	variant?: NavVariant;
 	icon?: JSX.Element;
+	render?: React.FC< { href?: string; children?: React.ReactNode } >;
 	as?: React.ElementType;
 	orientation?: NavProps[ 'orientation' ];
 	href?: LinkProps[ 'href' ];
@@ -66,7 +67,12 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 		}: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
 	) => (
-		<NavItemBase className={ className } orientation={ orientation } active={ active }>
+		<NavItemBase
+			className={ className }
+			orientation={ orientation }
+			active={ active }
+			variant={ variant }
+		>
 			<NavLink
 				variant={ variant }
 				href={ href }
@@ -82,12 +88,11 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
-const NavigationMenuLink = NavigationMenu.Link;
 const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
 		{
 			children,
-			as = NavigationMenuLink,
+			render: RenderComponent,
 			icon,
 			href,
 			active,
@@ -97,8 +102,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 		}: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
 	) => (
-		<Link
-			as={ as }
+		<NavigationMenu.Link
 			className={ classNames( `${ VIP_NAV }-item-link` ) }
 			ref={ ref }
 			href={ href }
@@ -106,11 +110,21 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 			data-active={ active }
 			aria-current={ active ? 'page' : undefined }
 			aria-disabled={ disabled }
+			asChild={ RenderComponent ? true : undefined }
 			{ ...rest }
 		>
-			{ icon }
-			{ children }
-		</Link>
+			{ RenderComponent ? (
+				<RenderComponent href={ href }>
+					{ icon }
+					{ children }
+				</RenderComponent>
+			) : (
+				<>
+					{ icon }
+					{ children }
+				</>
+			) }
+		</NavigationMenu.Link>
 	)
 );
 
