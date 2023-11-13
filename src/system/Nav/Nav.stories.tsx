@@ -11,7 +11,8 @@ import {
 } from 'react-icons/bi';
 import { MdOutlinePhotoLibrary } from 'react-icons/md';
 
-import { Nav, NavItem, Box } from '../../system';
+import { Nav, NavItem } from '.';
+import { Box } from '../../system';
 
 import type { StoryObj } from '@storybook/react';
 
@@ -64,11 +65,9 @@ import Link from 'next/link';
 	<NavItem.Primary
 		active
 		href="https://google.com"
-		asChild // This is important to pass the link styles to the child
+		render={ Link } // This is important to pass the link styles to the child
 	>
-		<Link href={ \`/orgs/\${ id }/sso/configurations/\${ idP }/edit/\${ tab.path }\` }>
-			Your page name
-		</Link>
+		Your page name
 	</NavItem.Primary>
 </Nav.Primary>
 ~~~
