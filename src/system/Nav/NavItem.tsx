@@ -3,7 +3,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
-import { LinkProps, Theme, ThemeUIStyleObject } from 'theme-ui';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { VIP_NAV } from '.';
 import { NavProps, NavVariant } from './Nav';
@@ -48,7 +48,6 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	icon?: JSX.Element;
 	render?: React.FC< { href?: string; children?: React.ReactNode } >;
 	orientation?: NavProps[ 'orientation' ];
-	href?: LinkProps[ 'href' ];
 }
 
 const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
