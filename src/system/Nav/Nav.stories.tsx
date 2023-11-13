@@ -158,17 +158,21 @@ export const Menu: Story = {
 			</p>
 
 			<Nav.Menu sx={ { mb: 4, width: 250 } } label="Nav Menu">
-				<NavItem.Menu href="https://wordpress.com" icon={ <BiGridAlt /> } render={ CustomLink }>
+				<NavItem.Menu
+					href="https://wordpress.com"
+					icon={ <BiGridAlt size={ 20 } /> }
+					render={ CustomLink }
+				>
 					Overview
 				</NavItem.Menu>
-				<NavItem.Menu active href="#" icon={ <BiWindows /> }>
+				<NavItem.Menu active href="#" icon={ <BiWindows size={ 20 } /> }>
 					Network Sites
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <AiOutlineLock /> }>
+				<NavItem.Menu href="#" icon={ <AiOutlineLock size={ 20 } /> }>
 					Domains & TLS
 				</NavItem.Menu>
 
-				<NavItem.MenuGroup label="Logs" icon={ <BiHistory /> }>
+				<NavItem.MenuGroup label="Logs" icon={ <BiHistory size={ 20 } /> }>
 					<NavItem.Menu render={ CustomLink } href="https://google.com/">
 						Audit
 					</NavItem.Menu>
@@ -180,24 +184,24 @@ export const Menu: Story = {
 					</NavItem.Menu>
 				</NavItem.MenuGroup>
 
-				<NavItem.MenuGroup label="Performance" icon={ <BiTachometer /> }>
+				<NavItem.MenuGroup label="Performance" icon={ <BiTachometer size={ 20 } /> }>
 					<NavItem.Menu href="#">Metrics</NavItem.Menu>
 					<NavItem.Menu href="#">Monitor</NavItem.Menu>
 					<NavItem.Menu href="#">Cache</NavItem.Menu>
 				</NavItem.MenuGroup>
-				<NavItem.Menu href="#" icon={ <BiCodeAlt /> }>
+				<NavItem.Menu href="#" icon={ <BiCodeAlt size={ 20 } /> }>
 					Code [v]
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiData /> }>
+				<NavItem.Menu href="#" icon={ <BiData size={ 20 } /> }>
 					Database [v]
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <MdOutlinePhotoLibrary /> }>
+				<NavItem.Menu href="#" icon={ <MdOutlinePhotoLibrary size={ 20 } /> }>
 					Media [v]
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiBell /> }>
+				<NavItem.Menu href="#" icon={ <BiBell size={ 20 } /> }>
 					Notifications
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiBulb /> }>
+				<NavItem.Menu href="#" icon={ <BiBulb size={ 20 } /> }>
 					Features
 				</NavItem.Menu>
 			</Nav.Menu>
