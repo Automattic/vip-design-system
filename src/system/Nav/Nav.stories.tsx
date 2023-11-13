@@ -1,6 +1,3 @@
-import { Nav, NavItem, Box } from '../../system';
-
-import type { StoryObj } from '@storybook/react';
 import { AiOutlineLock } from 'react-icons/ai';
 import {
 	BiBulb,
@@ -9,12 +6,14 @@ import {
 	BiHistory,
 	BiGridAlt,
 	BiTachometer,
-	BiLock,
 	BiWindows,
 	BiBell,
 } from 'react-icons/bi';
 import { MdOutlinePhotoLibrary } from 'react-icons/md';
-import { Link } from 'theme-ui';
+
+import { Nav, NavItem, Box } from '../../system';
+
+import type { StoryObj } from '@storybook/react';
 
 export default {
 	title: 'Navigation/Nav',

@@ -48,6 +48,12 @@ export const navItemGroupTriggerStyles = (): ThemeUIStyleObject => ( {
 			display: 'none',
 		},
 	},
+	'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
+		// This will make the trigger button look like a link
+		cursor: 'pointer',
+		textDecorationLine: 'underline',
+		textDecorationThickness: '2px',
+	},
 } );
 
 export const navItemGroupContentStyles = (): ThemeUIStyleObject => ( {
@@ -151,9 +157,6 @@ export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 					svg: {
 						color: 'icon.primary',
 					},
-					// This will make the trigger button look like a link
-					textDecorationLine: 'underline',
-					textDecorationThickness: '2px',
 				},
 				':not(&:hover)': {
 					transition: 'background-color 200ms ease-out',
