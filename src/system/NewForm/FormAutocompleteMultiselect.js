@@ -236,12 +236,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			[ getOptionLabel ]
 		);
 
-		const getOptionByLabel = useCallback(
-			inputValue =>
-				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
-			[ getAllOptions, optionLabel ]
-		);
-
 		const getAllOptions = useMemo(
 			() =>
 				[
@@ -249,6 +243,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					...options.filter( option => option.options ).map( option => option.options ),
 				].reduce( ( a, b ) => a.concat( b ), [] ),
 			[ options ]
+		);
+
+		const getOptionByLabel = useCallback(
+			inputValue =>
+				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
+			[ getAllOptions, optionLabel ]
 		);
 
 		const onValueChange = useCallback(
