@@ -13,25 +13,30 @@ export interface LinkProps extends ThemeLinkProps {
 	active?: boolean;
 }
 
+export const defaultLinkVariantStyle = {
+	color: 'link',
+	textDecorationThickness: '0.1em',
+	textUnderlineOffset: '0.1em',
+	'&:visited': {
+		color: 'links.visited',
+	},
+	'&:active': {
+		color: 'links.active',
+	},
+	'&:hover, &:focus': {
+		color: 'links.hover',
+		textDecorationLine: 'underline',
+		textDecorationThickness: '2px',
+	},
+	'&:focus-visible': ( theme: LinkTheme ) => theme.outline,
+};
+
 export const Link = forwardRef< HTMLAnchorElement, LinkProps >(
 	( { active = false, sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
 		<ThemeLink
 			sx={ {
-				textDecorationThickness: '0.1em',
-				textUnderlineOffset: '0.1em',
+				...defaultLinkVariantStyle,
 				color: active ? 'links.active' : 'link',
-				'&:visited': {
-					color: 'links.visited',
-				},
-				'&:active': {
-					color: 'links.active',
-				},
-				'&:hover, &:focus': {
-					color: 'links.hover',
-					textDecorationLine: 'underline',
-					textDecorationThickness: '2px',
-				},
-				'&:focus-visible': ( theme: LinkTheme ) => theme.outline,
 				...sx,
 			} }
 			ref={ ref }

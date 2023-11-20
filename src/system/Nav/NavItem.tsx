@@ -46,7 +46,12 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	disabled?: boolean;
 	variant?: NavVariant;
 	icon?: JSX.Element;
-	render?: React.FC< { href?: string; children?: React.ReactNode } >;
+	href?: string;
+	as?: React.ComponentType< {
+		href?: string;
+		'aria-disabled'?: boolean;
+		children?: React.ReactNode;
+	} >;
 	orientation?: NavProps[ 'orientation' ];
 }
 
@@ -86,11 +91,14 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
+// eslint-disable-next-line jsx-a11y/anchor-has-content
+export const NavRawLink = props => <a { ...props } />;
+
 const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
 		{
 			children,
-			render: RenderComponent,
+			as: LinkComponent = NavRawLink,
 			icon,
 			href,
 			active,
@@ -103,25 +111,18 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 		<NavigationMenu.Link
 			className={ classNames( `${ VIP_NAV }-item-link` ) }
 			ref={ ref }
-			href={ href }
 			sx={ navItemLinkStyles( variant ) }
+			href={ href }
 			data-active={ active || undefined }
 			aria-current={ active ? 'page' : undefined }
 			aria-disabled={ disabled }
-			asChild={ RenderComponent ? true : undefined }
+			asChild
 			{ ...rest }
 		>
-			{ RenderComponent ? (
-				<RenderComponent href={ href }>
-					{ icon }
-					{ children }
-				</RenderComponent>
-			) : (
-				<>
-					{ icon }
-					{ children }
-				</>
-			) }
+			<LinkComponent>
+				{ icon }
+				{ children }
+			</LinkComponent>
 		</NavigationMenu.Link>
 	)
 );
@@ -129,6 +130,12 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 export const ItemPrimary = forwardRef< HTMLAnchorElement, NavItemProps >(
 	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
 		<NavItem variant="primary" ref={ ref } { ...props } />
+	)
+);
+
+export const ItemBreadcrumb = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItem variant="breadcrumbs" ref={ ref } { ...props } />
 	)
 );
 

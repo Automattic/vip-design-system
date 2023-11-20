@@ -15,6 +15,8 @@ export const defaultToolbarLinkStyle = {
 	},
 };
 
+import { defaultLinkVariantStyle } from '../Link/Link';
+
 const baseVariantStyle = {
 	alignItems: 'center',
 	display: 'inline-flex',
@@ -168,6 +170,13 @@ export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 			};
 		}
 
+		case 'breadcrumbs': {
+			return {
+				...defaultLinkVariantStyle,
+				m: 0,
+			};
+		}
+
 		// Primary and any Other
 		case 'primary':
 		default: {
@@ -212,6 +221,25 @@ export const navItemStyles = (
 				height: 38,
 				width: '100%',
 				mb: 2,
+			};
+		}
+
+		case 'breadcrumbs': {
+			return {
+				'&::before': {
+					display: 'inline-block',
+					margin: '0 0.45em',
+					transform: 'rotate(15deg)',
+					borderRightColor: 'text',
+					borderRightStyle: 'solid',
+					borderRightWidth: '0.1em',
+					height: '0.8em',
+					content: '""',
+				},
+
+				'&:first-of-type::before': {
+					display: 'none',
+				},
 			};
 		}
 

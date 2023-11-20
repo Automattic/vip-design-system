@@ -5,6 +5,7 @@ import { Accordion } from './Accordion';
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
 import { Box } from './Box';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
@@ -95,6 +96,7 @@ export {
 	Nav,
 	NavItem,
 	TabsTrigger,
+	Breadcrumbs,
 	TabsContent,
 	TabsList,
 	Toggle,

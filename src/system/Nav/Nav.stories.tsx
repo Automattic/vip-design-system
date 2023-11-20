@@ -16,6 +16,9 @@ import { Box } from '../../system';
 
 import type { StoryObj } from '@storybook/react';
 
+// eslint-disable-next-line jsx-a11y/anchor-has-content
+const CustomLink = props => <a { ...props } />;
+
 export default {
 	title: 'Navigation/Nav',
 	component: Nav,
@@ -65,7 +68,7 @@ import Link from 'next/link';
 	<NavItem.Primary
 		active
 		href="https://google.com"
-		render={ Link } // This is important to pass the link styles to the child
+		as={ Link } // This is important to pass the link styles to the child
 	>
 		Your page name
 	</NavItem.Primary>
@@ -90,12 +93,16 @@ export const Default: Story = {
 				<strong>Variant: Primary</strong>
 			</p>
 			<Nav.Primary sx={ { mb: 4 } } label="Nav Primary">
-				<NavItem.Primary active href="#">
+				<NavItem.Primary active as={ CustomLink } href="#">
 					PHP
 				</NavItem.Primary>
-				<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
-				<NavItem.Primary href="https://newrelic.com/">New Relic</NavItem.Primary>
-				<NavItem.Primary disabled href="https://google.com/">
+				<NavItem.Primary as={ CustomLink } href="https://wordpress.com">
+					WordPress
+				</NavItem.Primary>
+				<NavItem.Primary as={ CustomLink } href="https://newrelic.com/">
+					New Relic
+				</NavItem.Primary>
+				<NavItem.Primary disabled as={ CustomLink } href="https://google.com/">
 					Not accessible
 				</NavItem.Primary>
 			</Nav.Primary>
@@ -110,18 +117,23 @@ export const Tab: Story = {
 				<strong>Variant: Tab</strong>
 			</p>
 			<Nav.Tab sx={ { mb: 4 } } label="Nav Tab">
-				<NavItem.Tab active href="#">
+				<NavItem.Tab active as={ CustomLink } href="#">
 					PHP
 				</NavItem.Tab>
-				<NavItem.Tab href="https://wordpress.com">WordPress</NavItem.Tab>
-				<NavItem.Tab href="https://newrelic.com/">New Relic</NavItem.Tab>
-				<NavItem.Tab disabled href="https://google.com/">
+				<NavItem.Tab as={ CustomLink } href="https://wordpress.com">
+					WordPress
+				</NavItem.Tab>
+				<NavItem.Tab as={ CustomLink } href="https://newrelic.com/">
+					New Relic
+				</NavItem.Tab>
+				<NavItem.Tab disabled as={ CustomLink } href="https://google.com/">
 					Not accessible
 				</NavItem.Tab>
 			</Nav.Tab>
 		</>
 	),
 };
+
 export const Toolbar: Story = {
 	render: () => (
 		<>
@@ -132,12 +144,16 @@ export const Toolbar: Story = {
 
 			<Box sx={ { p: 6, backgroundColor: 'toolbar.background' } }>
 				<Nav.Toolbar sx={ { mb: 4 } } label="Nav Toolbar">
-					<NavItem.Toolbar active href="#">
+					<NavItem.Toolbar active as={ CustomLink } href="#">
 						PHP
 					</NavItem.Toolbar>
-					<NavItem.Toolbar href="https://wordpress.com">WordPress</NavItem.Toolbar>
-					<NavItem.Toolbar href="https://newrelic.com/">New Relic</NavItem.Toolbar>
-					<NavItem.Toolbar disabled href="https://google.com/">
+					<NavItem.Toolbar as={ CustomLink } href="https://wordpress.com">
+						WordPress
+					</NavItem.Toolbar>
+					<NavItem.Toolbar as={ CustomLink } href="https://newrelic.com/">
+						New Relic
+					</NavItem.Toolbar>
+					<NavItem.Toolbar disabled as={ CustomLink } href="https://google.com/">
 						Not accessible
 					</NavItem.Toolbar>
 				</Nav.Toolbar>
@@ -145,9 +161,6 @@ export const Toolbar: Story = {
 		</>
 	),
 };
-
-// eslint-disable-next-line jsx-a11y/anchor-has-content
-const CustomLink = props => <a { ...props } />;
 
 export const Menu: Story = {
 	render: () => (
@@ -160,47 +173,53 @@ export const Menu: Story = {
 				<NavItem.Menu
 					href="https://wordpress.com"
 					icon={ <BiGridAlt size={ 20 } /> }
-					render={ CustomLink }
+					as={ CustomLink }
 				>
 					Overview
 				</NavItem.Menu>
-				<NavItem.Menu active href="#" icon={ <BiWindows size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } active href="#" icon={ <BiWindows size={ 20 } /> }>
 					Network Sites
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <AiOutlineLock size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } href="#" icon={ <AiOutlineLock size={ 20 } /> }>
 					Domains & TLS
 				</NavItem.Menu>
 
 				<NavItem.MenuGroup label="Logs" icon={ <BiHistory size={ 20 } /> }>
-					<NavItem.Menu render={ CustomLink } href="https://google.com/">
+					<NavItem.Menu as={ CustomLink } href="https://google.com/">
 						Audit
 					</NavItem.Menu>
-					<NavItem.Menu render={ CustomLink } active href="https://wpvip.com/">
+					<NavItem.Menu as={ CustomLink } active href="https://wpvip.com/">
 						Runtime
 					</NavItem.Menu>
-					<NavItem.Menu render={ CustomLink } href="https://dashboard.wpvip.com/">
+					<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
 						Slow Query
 					</NavItem.Menu>
 				</NavItem.MenuGroup>
 
 				<NavItem.MenuGroup label="Performance" icon={ <BiTachometer size={ 20 } /> }>
-					<NavItem.Menu href="#">Metrics</NavItem.Menu>
-					<NavItem.Menu href="#">Monitor</NavItem.Menu>
-					<NavItem.Menu href="#">Cache</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="#">
+						Metrics
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="#">
+						Monitor
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="#">
+						Cache
+					</NavItem.Menu>
 				</NavItem.MenuGroup>
-				<NavItem.Menu href="#" icon={ <BiCodeAlt size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiCodeAlt size={ 20 } /> }>
 					Code [v]
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiData size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiData size={ 20 } /> }>
 					Database [v]
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <MdOutlinePhotoLibrary size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } href="#" icon={ <MdOutlinePhotoLibrary size={ 20 } /> }>
 					Media [v]
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiBell size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiBell size={ 20 } /> }>
 					Notifications
 				</NavItem.Menu>
-				<NavItem.Menu href="#" icon={ <BiBulb size={ 20 } /> }>
+				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiBulb size={ 20 } /> }>
 					Features
 				</NavItem.Menu>
 			</Nav.Menu>
