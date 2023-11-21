@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
-import { VIP_NAV } from '.';
-import { NavProps, NavVariant } from './Nav';
+import { NavProps, NavVariant, VIP_NAV } from './Nav';
+import { ItemGroupMenu } from './NavItemGroup';
 import { navItemLinkStyles, navItemStyles } from './styles';
 
 export interface NavItemTheme extends Theme {
@@ -57,7 +57,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	orientation?: NavProps[ 'orientation' ];
 }
 
-const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
+const NavItemRoot = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
 		{ className, children, active, variant = 'primary', orientation, ...rest }: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
@@ -117,25 +117,25 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 
 export const ItemPrimary = forwardRef< HTMLAnchorElement, NavItemProps >(
 	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="primary" ref={ ref } { ...props } />
+		<NavItemRoot variant="primary" ref={ ref } { ...props } />
 	)
 );
 
 export const ItemBreadcrumb = forwardRef< HTMLAnchorElement, NavItemProps >(
 	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="breadcrumbs" ref={ ref } { ...props } />
+		<NavItemRoot variant="breadcrumbs" ref={ ref } { ...props } />
 	)
 );
 
 export const ItemTab = forwardRef< HTMLAnchorElement, NavItemProps >(
 	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="tabs" ref={ ref } { ...props } />
+		<NavItemRoot variant="tabs" ref={ ref } { ...props } />
 	)
 );
 
 export const ItemToolbar = forwardRef< HTMLAnchorElement, NavItemProps >(
 	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="toolbar" ref={ ref } { ...props } />
+		<NavItemRoot variant="toolbar" ref={ ref } { ...props } />
 	)
 );
 
@@ -145,6 +145,14 @@ export interface NavItemMenuProps extends NavItemProps {
 
 export const ItemMenu = forwardRef< HTMLAnchorElement, NavItemMenuProps >(
 	( props: NavItemMenuProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItem variant="menu" ref={ ref } { ...props } />
+		<NavItemRoot variant="menu" ref={ ref } { ...props } />
 	)
 );
+
+export const NavItem = {
+	Primary: ItemPrimary,
+	Tab: ItemTab,
+	Toolbar: ItemToolbar,
+	Menu: ItemMenu,
+	MenuGroup: ItemGroupMenu,
+};

@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-import { Breadcrumbs } from '.';
+import { Breadcrumbs } from './Breadcrumbs';
 import { theme } from '../';
 
 // eslint-disable-next-line jsx-a11y/anchor-has-content

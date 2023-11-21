@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { Ref, forwardRef, useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 
-import { VIP_NAV } from '.';
+import { VIP_NAV } from './Nav';
 import { NavItemBaseProps } from './NavItem';
 import {
 	itemVariantStyle,

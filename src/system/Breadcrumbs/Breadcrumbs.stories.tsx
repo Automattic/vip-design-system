@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BreadcrumbsBase as Breadcrumbs } from './Breadcrumbs';
+import { Breadcrumbs as Breadcrumbs } from './Breadcrumbs';
 
 import type { StoryObj } from '@storybook/react';
 

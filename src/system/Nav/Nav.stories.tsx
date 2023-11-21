@@ -11,7 +11,8 @@ import {
 } from 'react-icons/bi';
 import { MdOutlinePhotoLibrary } from 'react-icons/md';
 
-import { Nav, NavItem } from '.';
+import { Nav } from './Nav';
+import { NavItem } from './NavItem';
 
 import type { StoryObj } from '@storybook/react';
 

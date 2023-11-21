@@ -26,7 +26,7 @@ export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
 	links?: BreadcrumbsLinkProps[];
 }
 
-export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
+export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 	(
 		{ className, links = [], label = 'Breadcrumbs', LinkComponent = NavRawLink }: BreacrumbsProps,
 		ref: Ref< HTMLElement >

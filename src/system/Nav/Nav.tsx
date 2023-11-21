@@ -3,9 +3,9 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
 
-import { VIP_NAV } from '.';
 import { navMenuListStyles, navStyles } from './styles';
 
+export const VIP_NAV = 'vip-nav-component';
 export type NavVariant = 'primary' | 'tabs' | 'toolbar' | 'menu' | 'breadcrumbs';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
@@ -15,7 +15,7 @@ export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	orientation?: 'horizontal' | 'vertical';
 }
 
-const Nav = forwardRef< HTMLElement, NavProps >(
+const NavBase = forwardRef< HTMLElement, NavProps >(
 	(
 		{ className, children, orientation = 'horizontal', variant = 'primary', label }: NavProps,
 		ref: Ref< HTMLElement >
@@ -37,20 +37,33 @@ const Nav = forwardRef< HTMLElement, NavProps >(
 	)
 );
 
-export const NavPrimary = forwardRef< HTMLElement, NavProps >(
-	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="primary" ref={ ref } />
-);
-
-export const NavTab = forwardRef< HTMLElement, NavProps >(
-	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="tabs" ref={ ref } />
-);
-
-export const NavToolbar = forwardRef< HTMLElement, NavProps >(
-	( props: NavProps, ref: Ref< HTMLElement > ) => <Nav { ...props } variant="toolbar" ref={ ref } />
-);
-
-export const NavMenu = forwardRef< HTMLElement, NavProps >(
+const NavPrimary = forwardRef< HTMLElement, NavProps >(
 	( props: NavProps, ref: Ref< HTMLElement > ) => (
-		<Nav { ...props } variant="menu" orientation="vertical" ref={ ref } />
+		<NavBase { ...props } variant="primary" ref={ ref } />
 	)
 );
+
+const NavTab = forwardRef< HTMLElement, NavProps >(
+	( props: NavProps, ref: Ref< HTMLElement > ) => (
+		<NavBase { ...props } variant="tabs" ref={ ref } />
+	)
+);
+
+const NavToolbar = forwardRef< HTMLElement, NavProps >(
+	( props: NavProps, ref: Ref< HTMLElement > ) => (
+		<NavBase { ...props } variant="toolbar" ref={ ref } />
+	)
+);
+
+const NavMenu = forwardRef< HTMLElement, NavProps >(
+	( props: NavProps, ref: Ref< HTMLElement > ) => (
+		<NavBase { ...props } variant="menu" orientation="vertical" ref={ ref } />
+	)
+);
+
+export const Nav = {
+	Primary: NavPrimary,
+	Tab: NavTab,
+	Toolbar: NavToolbar,
+	Menu: NavMenu,
+};
