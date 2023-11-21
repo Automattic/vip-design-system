@@ -1,14 +1,16 @@
 /** @jsxImportSource theme-ui */
+
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useBreakpointIndex } from '@theme-ui/match-media';
 import classNames from 'classnames';
-import { ThemeUIStyleObject } from 'theme-ui';
 import React, { Ref, forwardRef } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
 
 import { ItemBreadcrumb, NavItemProps, NavRawLink } from '../Nav/NavItem';
 import { navItemStyles, navMenuListStyles } from '../Nav/styles';
+import { smallestScreenStyles } from './styles';
 
 export type BreadcrumbsLinkProps = {
 	href?: string;
@@ -56,18 +58,7 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 						{
 							...penultimateLink,
 							active: true,
-							sx: {
-								'&::before': {
-									display: 'inline-block',
-									margin: 0,
-									mr: 1,
-									transform: 'rotate(0deg)',
-									border: 'none',
-									color: 'link',
-									height: '0.8em',
-									content: "'←'",
-								},
-							},
+							sx: smallestScreenItemStyles,
 						},
 				  ]
 				: links?.slice( 0, totalLinks - 1 );
