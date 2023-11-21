@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { ComponentProps, Ref, forwardRef } from 'react';
 
 import { Breadcrumbs as Breadcrumbs } from './Breadcrumbs';
 
 import type { StoryObj } from '@storybook/react';
 
-// eslint-disable-next-line jsx-a11y/anchor-has-content
-const CustomLink = props => <a { ...props } />;
+const CustomLink = forwardRef< HTMLAnchorElement, ComponentProps< 'a' > >(
+	// eslint-disable-next-line jsx-a11y/anchor-has-content
+	( props: ComponentProps< 'a' >, ref: Ref< HTMLAnchorElement > ) => <a { ...props } ref={ ref } />
+);
 
 export default {
 	title: 'Navigation/Breadcrumbs',

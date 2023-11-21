@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { useBreakpointIndex } from '@theme-ui/match-media';
+import { useBreakpointIndex, useResponsiveValue } from '@theme-ui/match-media';
 import classNames from 'classnames';
 import React, { Ref, forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
@@ -33,7 +33,8 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 	) => {
 		// The breadcrumb shrinks on smaller screens (mobile) and we need to hide some links
 		const bpIndex = useBreakpointIndex( { defaultIndex: 1 } );
-		const isSmallestScreen = bpIndex < 2;
+
+		const isSmallestScreen = bpIndex < 3;
 
 		let penultimateLink: BreadcrumbsLinkProps | null = null;
 		let lastLink: BreadcrumbsLinkProps | null = null;
