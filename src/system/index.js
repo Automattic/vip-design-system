@@ -36,6 +36,7 @@ import { Heading } from './Heading';
 import { Link } from './Link';
 import { Nav, NavItem } from './Nav';
 import { NewConfirmationDialog } from './NewConfirmationDialog';
+import { Breadcrumbs } from './Breadcrumbs';
 import * as NewDialog from './NewDialog';
 import * as Form from './NewForm';
 import { Notice } from './Notice';
@@ -55,6 +56,7 @@ export {
 	Avatar,
 	Badge,
 	Box,
+	Breadcrumbs,
 	Button,
 	ButtonSubmit,
 	ButtonVariant,
