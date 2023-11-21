@@ -8,9 +8,9 @@ import { ThemeUIStyleObject } from 'theme-ui';
 
 export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
 
+import { smallestScreenItemStyles } from './styles';
 import { ItemBreadcrumb, NavItemProps, NavRawLink } from '../Nav/NavItem';
 import { navItemStyles, navMenuListStyles } from '../Nav/styles';
-import { smallestScreenStyles } from './styles';
 
 export type BreadcrumbsLinkProps = {
 	href?: string;
