@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { useBreakpointIndex, useResponsiveValue } from '@theme-ui/match-media';
+import { useBreakpointIndex } from '@theme-ui/match-media';
 import classNames from 'classnames';
 import React, { Ref, forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
