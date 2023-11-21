@@ -42,7 +42,6 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			<NavigationMenu.Item
 				className={ classNames( `${ VIP_NAV }-item`, className ) }
 				ref={ ref }
-				data-active={ active || undefined }
 				sx={ {
 					...navItemGroupStyles( orientation, variant ),
 					...sx,
@@ -62,6 +61,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 						>
 							{ icon }
 							{ label }
+
 							<BiChevronDown
 								data-arrow-indicator
 								aria-hidden="true"

@@ -44,11 +44,6 @@ export const navItemGroupTriggerStyles = (): ThemeUIStyleObject => ( {
 			transition: 'transform 200ms',
 		},
 	},
-	'&[data-active]': {
-		'&::after': {
-			display: 'none',
-		},
-	},
 	'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
 		// This will make the trigger button look like a link
 		cursor: 'pointer',

@@ -156,11 +156,11 @@ export const Menu: Story = {
 					Domains & TLS
 				</NavItem.Menu>
 
-				<NavItem.MenuGroup label="Logs" icon={ <BiHistory size={ 20 } /> }>
-					<NavItem.Menu as={ CustomLink } href="https://google.com/">
+				<NavItem.MenuGroup active label="Logs" icon={ <BiHistory size={ 20 } /> }>
+					<NavItem.Menu active as={ CustomLink } href="https://google.com/">
 						Audit
 					</NavItem.Menu>
-					<NavItem.Menu as={ CustomLink } active href="https://wpvip.com/">
+					<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
 						Runtime
 					</NavItem.Menu>
 					<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
