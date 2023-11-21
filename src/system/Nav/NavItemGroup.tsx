@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-
 import * as Collapsible from '@radix-ui/react-collapsible';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
@@ -13,6 +12,7 @@ import {
 	navItemGroupTriggerStyles,
 	navItemGroupStyles,
 	navItemGroupContentStyles,
+	navItemGroupContentUlStyles,
 } from './styles';
 
 export interface NavItemGroupProps extends NavItemBaseProps {
@@ -70,8 +70,8 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							/>
 						</button>
 					</Collapsible.Trigger>
-					<Collapsible.Content>
-						<ul sx={ navItemGroupContentStyles() }>{ children }</ul>
+					<Collapsible.Content sx={ navItemGroupContentStyles }>
+						<ul sx={ navItemGroupContentUlStyles() }>{ children }</ul>
 					</Collapsible.Content>
 				</Collapsible.Root>
 			</NavigationMenu.Item>
