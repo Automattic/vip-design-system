@@ -15,25 +15,32 @@ export default {
 			description: {
 				component: `
 
-The Breacrumbs component is used to show the current location of the user in the application. It is usually placed in a prominent position at the top of a site, or anywhere that needs a linked-navigation.
+Breadcrumbs provide secondary navigation to help users understand where they are in a website. It is usually placed close to the H1 of a page. The last item of the breadrumb becomes a text.
 
 ## Guidance
 
 ### When to use the Breadcrumbs component
 
-- TBD
+- *Provide orientation to users*. When you need to provide a secondary navigation to help users understand where they are in a website.
+- *To facilitate navigation*. Breadcrumbs simplifies the understanding of complex navigation structures.
 
 ### When to consider something else
 
-- TBD
+- If you need all navigation items to be clickable and are not explicitly trying to recreate the path to the current page, use the [Nav](/docs/navigation-nav--docs) component instead.
+- Step-by-step processes. Use breadcrumbs for hierarchical relationships, not linear relationships (like individual steps in a multi-step process).
 
 ## Accessibility Considerations guidance
 
-- TBD
+- This component uses the \`nav\` element. This allows assistive technology to present the breadcrumbs in context as a navigational element on the page.
+- We use the proper AA contrast for separators.
+- We use ordered lists and list items. The component uses \`ol\` for breadcrumbs and an \`li\` for each item. This allows assistive technology to enumerate the items in the breadcrumbs and allows shortcuts between list items.
+- We have ARIA markup for additional context. We add \`aria-label="Breadcrumbs"\` on the main element and \`aria-current="page"\` on the current page.
+- Hide separators from screen readers. The separators between links in the breadcrumbs should not be read by screen readers. We built with CSS-only.
 
 ### Usability guidance
 
-- TBD
+- Use complete page titles. Use the same wording in breadcrumb text as in the page title.
+- If possible, start with the word "Home”" Rather than using a house icon, spell out the word "Home" as the first link in the breadcrumbs.
 
 -------
 
