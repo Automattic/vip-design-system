@@ -47,6 +47,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	variant?: NavVariant;
 	icon?: JSX.Element;
 	href?: string;
+	sx?: ThemeUIStyleObject;
 	as?: React.ComponentType< {
 		href?: string;
 		'aria-disabled'?: boolean;
@@ -87,6 +88,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 			active,
 			disabled,
 			variant = 'primary',
+			sx = {},
 			...rest
 		}: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
@@ -94,7 +96,10 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 		<NavigationMenu.Link
 			className={ classNames( `${ VIP_NAV }-item-link` ) }
 			ref={ ref }
-			sx={ navItemLinkStyles( variant ) }
+			sx={ {
+				...navItemLinkStyles( variant ),
+				...sx,
+			} }
 			href={ href }
 			data-active={ active || undefined }
 			aria-current={ active ? 'page' : undefined }

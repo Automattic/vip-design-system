@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { useBreakpointIndex } from '@theme-ui/match-media';
 import classNames from 'classnames';
+import { ThemeUIStyleObject } from 'theme-ui';
 import React, { Ref, forwardRef } from 'react';
 
 export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
@@ -11,6 +13,8 @@ import { navItemStyles, navMenuListStyles } from '../Nav/styles';
 export type BreadcrumbsLinkProps = {
 	href?: string;
 	label: string;
+	active?: boolean;
+	sx?: ThemeUIStyleObject;
 };
 
 export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
@@ -25,6 +29,10 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 		{ className, links = [], label = 'Breadcrumbs', LinkComponent = NavRawLink }: BreacrumbsProps,
 		ref: Ref< HTMLElement >
 	) => {
+		// The breadcrumb shrinks on smaller screens (mobile) and we need to hide some links
+		const bpIndex = useBreakpointIndex( { defaultIndex: 1 } );
+		const isSmallestScreen = bpIndex < 2;
+
 		let penultimateLink: BreadcrumbsLinkProps | null = null;
 		let lastLink: BreadcrumbsLinkProps | null = null;
 		let otherLinks: BreadcrumbsLinkProps[] = [];
@@ -38,13 +46,33 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 		if ( totalLinks === 1 ) {
 			lastLink = links?.[ 0 ];
 			otherLinks = [];
-			penultimateLink = null;
 		}
 
 		if ( totalLinks > 1 ) {
-			lastLink = links?.[ totalLinks - 1 ];
 			penultimateLink = links?.[ totalLinks - 2 ];
-			otherLinks = links?.slice( 0, totalLinks - 1 ) || [];
+
+			otherLinks = isSmallestScreen
+				? [
+						{
+							...penultimateLink,
+							active: true,
+							sx: {
+								'&::before': {
+									display: 'inline-block',
+									margin: 0,
+									mr: 1,
+									transform: 'rotate(0deg)',
+									border: 'none',
+									color: 'link',
+									height: '0.8em',
+									content: "'←'",
+								},
+							},
+						},
+				  ]
+				: links?.slice( 0, totalLinks - 1 );
+
+			lastLink = links?.[ totalLinks - 1 ];
 		}
 
 		return (
@@ -61,44 +89,28 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 				>
 					<ol>
 						{ otherLinks.map( link => (
-							<ItemBreadcrumb key={ link.href } as={ LinkComponent } href={ link.href }>
+							<ItemBreadcrumb
+								active={ link.active }
+								sx={ link.sx }
+								key={ link.href }
+								as={ LinkComponent }
+								href={ link.href }
+							>
 								{ link.label }
 							</ItemBreadcrumb>
 						) ) }
 
-						{ penultimateLink && (
-							<ItemBreadcrumb
-								key={ penultimateLink.href }
-								as={ LinkComponent }
-								href={ penultimateLink.href }
-								active
+						{ ! isSmallestScreen && (
+							<li
 								sx={ {
-									display: [ 'none', 'block', 'none' ],
-									'&::before': {
-										display: 'inline-block',
-										margin: 0,
-										mr: 1,
-										transform: 'rotate(0deg)',
-										border: 'none',
-										color: 'link',
-										height: '0.8em',
-										content: "'←'",
-									},
+									...navItemStyles( 'horizontal', 'breadcrumbs' ),
+									color: 'text',
 								} }
+								data-current="page"
 							>
-								{ penultimateLink.label }
-							</ItemBreadcrumb>
+								{ lastLink?.label }
+							</li>
 						) }
-
-						<li
-							sx={ {
-								...navItemStyles( 'horizontal', 'breadcrumbs' ),
-								color: 'text',
-							} }
-							data-current="page"
-						>
-							{ lastLink?.label }
-						</li>
 					</ol>
 				</NavigationMenu.List>
 			</NavigationMenu.Root>
