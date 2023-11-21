@@ -242,6 +242,7 @@ export const navItemStyles = (
 
 		case 'breadcrumbs': {
 			return {
+				// This code will generate the breadcrumb separator: /. We create the separator via CSS to hide it from screen readers.
 				'&::before': {
 					display: 'inline-block',
 					margin: '0 0.45em',
