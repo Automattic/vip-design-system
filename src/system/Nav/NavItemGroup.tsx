@@ -70,7 +70,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							/>
 						</button>
 					</Collapsible.Trigger>
-					<Collapsible.Content sx={ navItemGroupContentStyles }>
+					<Collapsible.Content sx={ navItemGroupContentStyles() }>
 						<ul sx={ navItemGroupContentUlStyles() }>{ children }</ul>
 					</Collapsible.Content>
 				</Collapsible.Root>
