@@ -134,34 +134,6 @@ export const Tab: Story = {
 	),
 };
 
-export const Toolbar: Story = {
-	render: () => (
-		<>
-			<p>
-				<strong>Variant: Toolbar</strong>. This variant is used inside the Toolbar component.
-				Currently there is no use case for this variant outside the Toolbar component.
-			</p>
-
-			<Box sx={ { p: 6, backgroundColor: 'toolbar.background' } }>
-				<Nav.Toolbar sx={ { mb: 4 } } label="Nav Toolbar">
-					<NavItem.Toolbar active as={ CustomLink } href="#">
-						PHP
-					</NavItem.Toolbar>
-					<NavItem.Toolbar as={ CustomLink } href="https://wordpress.com">
-						WordPress
-					</NavItem.Toolbar>
-					<NavItem.Toolbar as={ CustomLink } href="https://newrelic.com/">
-						New Relic
-					</NavItem.Toolbar>
-					<NavItem.Toolbar disabled as={ CustomLink } href="https://google.com/">
-						Not accessible
-					</NavItem.Toolbar>
-				</Nav.Toolbar>
-			</Box>
-		</>
-	),
-};
-
 export const Menu: Story = {
 	render: () => (
 		<>
