@@ -261,6 +261,8 @@ export const navItemStyles = (
 				'&:first-of-type::before': {
 					display: 'none',
 				},
+
+				display: [ 'block', 'none', 'block' ],
 			};
 		}
 

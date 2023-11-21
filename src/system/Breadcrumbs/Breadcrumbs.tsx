@@ -17,17 +17,35 @@ export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
 	label: string;
 	LinkComponent: NavItemProps[ 'as' ];
-	links: BreadcrumbsLinkProps[];
+	links?: BreadcrumbsLinkProps[];
 }
 
 export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 	(
-		{ className, links, label, LinkComponent = NavRawLink }: BreacrumbsProps,
+		{ className, links = [], label, LinkComponent = NavRawLink }: BreacrumbsProps,
 		ref: Ref< HTMLElement >
 	) => {
-		const otherLinksTotal = links.length - 1;
-		const otherLinks = links.slice( 0, otherLinksTotal );
-		const lastLink = links[ otherLinksTotal ];
+		let penultimateLink: BreadcrumbsLinkProps | null = null;
+		let lastLink: BreadcrumbsLinkProps | null = null;
+		let otherLinks: BreadcrumbsLinkProps[] = [];
+
+		const totalLinks = links?.length || 0;
+
+		if ( totalLinks === 0 ) {
+			return null;
+		}
+
+		if ( totalLinks === 1 ) {
+			lastLink = links?.[ 0 ];
+			otherLinks = [];
+			penultimateLink = null;
+		}
+
+		if ( totalLinks > 1 ) {
+			lastLink = links?.[ totalLinks - 1 ];
+			penultimateLink = links?.[ totalLinks - 2 ];
+			otherLinks = links?.slice( 0, totalLinks - 1 ) || [];
+		}
 
 		return (
 			<NavigationMenu.Root
@@ -48,11 +66,38 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 							</ItemBreadcrumb>
 						) ) }
 
+						{ penultimateLink && (
+							<ItemBreadcrumb
+								key={ penultimateLink.href }
+								as={ LinkComponent }
+								href={ penultimateLink.href }
+								active
+								sx={ {
+									display: [ 'none', 'block', 'none' ],
+									'&::before': {
+										display: 'inline-block',
+										margin: 0,
+										mr: 1,
+										transform: 'rotate(0deg)',
+										border: 'none',
+										color: 'link',
+										height: '0.8em',
+										content: "'←'",
+									},
+								} }
+							>
+								{ penultimateLink.label }
+							</ItemBreadcrumb>
+						) }
+
 						<li
-							sx={ { ...navItemStyles( 'horizontal', 'breadcrumbs' ), color: 'text' } }
+							sx={ {
+								...navItemStyles( 'horizontal', 'breadcrumbs' ),
+								color: 'text',
+							} }
 							data-current="page"
 						>
-							{ lastLink.label }
+							{ lastLink?.label }
 						</li>
 					</ol>
 				</NavigationMenu.List>
