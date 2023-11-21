@@ -48,9 +48,9 @@ This component is based on the Radix Navigation Menu primitive, so it contains a
 - Adheres to the [navigation role requirements.](https://www.w3.org/TR/wai-aria-1.2/#navigation)
 - Keyboard Interactions: https://www.radix-ui.com/primitives/docs/components/navigation-menu#keyboard-interactions
 
-### Usability guidance
+### Using the component
 
-Pick one of the available variants: Primary or Tabs. You can use the components directly from the \`Nav\` component:
+Pick one of the available variants: Primary, Tabs or Menu. You can use the components directly from the \`Nav\` component:
 
 ~~~jsx filename="index.jsx"
 import { Nav, NavItem } from '@automattic/components';
@@ -59,7 +59,7 @@ import { Nav, NavItem } from '@automattic/components';
 <NavItem.Primary> or <NavItem.Tab>
 ~~~
 
-### Usage with Next.js framwork
+### Usage with Next.js or other frameworks
 
 ~~~jsx filename="index.jsx"
 import Link from 'next/link';
@@ -68,7 +68,7 @@ import Link from 'next/link';
 	<NavItem.Primary
 		active
 		href="https://google.com"
-		as={ Link } // This is important to pass the link styles to the child
+		as={ Link } // We required you to pass the link component you want to use. This will apply the proper styles.
 	>
 		Your page name
 	</NavItem.Primary>

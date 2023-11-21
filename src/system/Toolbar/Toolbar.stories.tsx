@@ -30,7 +30,7 @@ The Toolbar component provides a way to users reach the main sections of a websi
 - This component uses the \`header\` as the main landmark HTML element
 - The Nav.Toolbar uses the same accessibility features from the Nav component.
 
-### Usability guidance
+### Using the component
 
 - It's not recommended to have two Toolbars on a page. If you use two instances of this component, you will probably get landmarks errors in your accessibility tests.
 

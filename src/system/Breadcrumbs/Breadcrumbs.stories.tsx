@@ -37,10 +37,22 @@ Breadcrumbs provide secondary navigation to help users understand where they are
 - We have ARIA markup for additional context. We add \`aria-label="Breadcrumbs"\` on the main element and \`aria-current="page"\` on the current page.
 - Hide separators from screen readers. The separators between links in the breadcrumbs should not be read by screen readers. We built with CSS-only.
 
-### Usability guidance
+### Using the component
 
 - Use complete page titles. Use the same wording in breadcrumb text as in the page title.
 - If possible, start with the word "Home”" Rather than using a house icon, spell out the word "Home" as the first link in the breadcrumbs.
+
+### Usage with Next.js or other frameworks
+
+~~~jsx filename="index.jsx"
+import Link from 'next/link';
+
+<Breadcrumbs
+	LinkComponent={ Link } // We required you to pass the link component you want to use for the child links. This will apply the proper styles.
+	label="Nav Breadcrumbs"
+	links={ [] }
+/>
+~~~
 
 -------
 
