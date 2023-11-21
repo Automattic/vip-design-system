@@ -1,4 +1,3 @@
-import { ComponentProps, Ref, forwardRef } from 'react';
 import { AiOutlineLock } from 'react-icons/ai';
 import {
 	BiBulb,
@@ -17,10 +16,8 @@ import { NavItem } from './NavItem';
 
 import type { StoryObj } from '@storybook/react';
 
-const CustomLink = forwardRef< HTMLAnchorElement, ComponentProps< 'a' > >(
-	// eslint-disable-next-line jsx-a11y/anchor-has-content
-	( props: ComponentProps< 'a' >, ref: Ref< HTMLAnchorElement > ) => <a { ...props } ref={ ref } />
-);
+// eslint-disable-next-line jsx-a11y/anchor-has-content
+const CustomLink = props => <a { ...props } />;
 
 export default {
 	title: 'Navigation/Nav',
