@@ -72,7 +72,7 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 				  ]
 				: links?.slice( 0, totalLinks - 1 );
 
-			lastLink = links?.[ totalLinks - 1 ];
+			lastLink = isSmallestScreen ? null : links?.[ totalLinks - 1 ];
 		}
 
 		return (
@@ -100,7 +100,7 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 							</ItemBreadcrumb>
 						) ) }
 
-						{ ! isSmallestScreen && (
+						{ lastLink && (
 							<li
 								sx={ {
 									...navItemStyles( 'horizontal', 'breadcrumbs' ),
