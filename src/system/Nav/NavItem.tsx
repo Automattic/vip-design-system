@@ -5,9 +5,11 @@ import classNames from 'classnames';
 import { Ref, forwardRef } from 'react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
-import { NavProps, NavVariant, VIP_NAV } from './Nav';
+import { NavItemRenderIconProp, NavProps, NavVariant, VIP_NAV } from './Nav';
 import { ItemGroupMenu } from './NavItemGroup';
 import { navItemLinkStyles, navItemStyles } from './styles';
+
+export const NAV_ITEM_ICON_SIZE = 20;
 
 export interface NavItemTheme extends Theme {
 	outline?: Record< string, string >;
@@ -45,7 +47,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	className?: string;
 	disabled?: boolean;
 	variant?: NavVariant;
-	icon?: JSX.Element;
+	renderIcon?: NavItemRenderIconProp;
 	href?: string;
 	sx?: ThemeUIStyleObject;
 	as?: React.ComponentType< {
@@ -83,7 +85,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 		{
 			children,
 			as: LinkComponent = NavRawLink,
-			icon,
+			renderIcon = () => null,
 			href,
 			active,
 			disabled,
@@ -108,7 +110,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 			{ ...rest }
 		>
 			<LinkComponent>
-				{ icon }
+				{ renderIcon( NAV_ITEM_ICON_SIZE ) }
 				{ children }
 			</LinkComponent>
 		</NavigationMenu.Link>
@@ -139,12 +141,8 @@ export const ItemToolbar = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
-export interface NavItemMenuProps extends NavItemProps {
-	icon?: JSX.Element;
-}
-
-export const ItemMenu = forwardRef< HTMLAnchorElement, NavItemMenuProps >(
-	( props: NavItemMenuProps, ref: Ref< HTMLAnchorElement > ) => (
+export const ItemMenu = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
 		<NavItemRoot variant="menu" ref={ ref } { ...props } />
 	)
 );

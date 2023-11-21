@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { Ref, forwardRef, useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 
-import { VIP_NAV } from './Nav';
-import { NavItemBaseProps } from './NavItem';
+import { NavItemRenderIconProp, VIP_NAV } from './Nav';
+import { NAV_ITEM_ICON_SIZE, NavItemBaseProps } from './NavItem';
 import {
 	itemVariantStyle,
 	navItemGroupTriggerStyles,
@@ -16,7 +16,7 @@ import {
 } from './styles';
 
 export interface NavItemGroupProps extends NavItemBaseProps {
-	icon?: JSX.Element;
+	renderIcon?: NavItemRenderIconProp;
 	label: string;
 }
 
@@ -28,7 +28,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			orientation,
 			className,
 			active,
-			icon,
+			renderIcon = () => null,
 			children,
 			sx,
 		}: NavItemGroupProps,
@@ -59,13 +59,13 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 								...navItemGroupTriggerStyles(),
 							} }
 						>
-							{ icon }
+							{ renderIcon( NAV_ITEM_ICON_SIZE ) }
 							{ label }
 
 							<BiChevronDown
 								data-arrow-indicator
 								aria-hidden="true"
-								size={ 20 }
+								size={ NAV_ITEM_ICON_SIZE }
 								sx={ { color: 'icon.secondary' } }
 							/>
 						</button>

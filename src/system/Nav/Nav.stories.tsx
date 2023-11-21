@@ -93,7 +93,7 @@ export const Default: Story = {
 				<strong>Variant: Primary</strong>
 			</p>
 			<Nav.Primary sx={ { mb: 4 } } label="Nav Primary">
-				<NavItem.Primary active as={ CustomLink } href="#">
+				<NavItem.Primary active as={ CustomLink } href="https://random-website.com/">
 					PHP
 				</NavItem.Primary>
 				<NavItem.Primary as={ CustomLink } href="https://wordpress.com">
@@ -117,7 +117,7 @@ export const Tab: Story = {
 				<strong>Variant: Tab</strong>
 			</p>
 			<Nav.Tab sx={ { mb: 4 } } label="Nav Tab">
-				<NavItem.Tab active as={ CustomLink } href="#">
+				<NavItem.Tab active as={ CustomLink } href="https://random-website.com/">
 					PHP
 				</NavItem.Tab>
 				<NavItem.Tab as={ CustomLink } href="https://wordpress.com">
@@ -144,19 +144,28 @@ export const Menu: Story = {
 			<Nav.Menu sx={ { mb: 4, width: 250 } } label="Nav Menu">
 				<NavItem.Menu
 					href="https://wordpress.com"
-					icon={ <BiGridAlt size={ 20 } /> }
+					renderIcon={ size => <BiGridAlt size={ size } /> }
 					as={ CustomLink }
 				>
 					Overview
 				</NavItem.Menu>
-				<NavItem.Menu as={ CustomLink } active href="#" icon={ <BiWindows size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					active
+					href="https://random-website.com/"
+					renderIcon={ size => <BiWindows size={ size } /> }
+				>
 					Network Sites
 				</NavItem.Menu>
-				<NavItem.Menu as={ CustomLink } href="#" icon={ <AiOutlineLock size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <AiOutlineLock size={ size } /> }
+				>
 					Domains & TLS
 				</NavItem.Menu>
 
-				<NavItem.MenuGroup active label="Logs" icon={ <BiHistory size={ 20 } /> }>
+				<NavItem.MenuGroup active label="Logs" renderIcon={ size => <BiHistory size={ size } /> }>
 					<NavItem.Menu active as={ CustomLink } href="https://google.com/">
 						Audit
 					</NavItem.Menu>
@@ -168,30 +177,53 @@ export const Menu: Story = {
 					</NavItem.Menu>
 				</NavItem.MenuGroup>
 
-				<NavItem.MenuGroup label="Performance" icon={ <BiTachometer size={ 20 } /> }>
-					<NavItem.Menu as={ CustomLink } href="#">
+				<NavItem.MenuGroup
+					label="Performance"
+					renderIcon={ size => <BiTachometer size={ size } /> }
+				>
+					<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
 						Metrics
 					</NavItem.Menu>
-					<NavItem.Menu as={ CustomLink } href="#">
+					<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
 						Monitor
 					</NavItem.Menu>
-					<NavItem.Menu as={ CustomLink } href="#">
+					<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
 						Cache
 					</NavItem.Menu>
 				</NavItem.MenuGroup>
-				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiCodeAlt size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiCodeAlt size={ size } /> }
+				>
 					Code [v]
 				</NavItem.Menu>
-				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiData size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiData size={ size } /> }
+				>
 					Database [v]
 				</NavItem.Menu>
-				<NavItem.Menu as={ CustomLink } href="#" icon={ <MdOutlinePhotoLibrary size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
+				>
 					Media [v]
 				</NavItem.Menu>
-				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiBell size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiBell size={ size } /> }
+				>
 					Notifications
 				</NavItem.Menu>
-				<NavItem.Menu as={ CustomLink } href="#" icon={ <BiBulb size={ 20 } /> }>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiBulb size={ size } /> }
+				>
 					Features
 				</NavItem.Menu>
 			</Nav.Menu>

@@ -61,6 +61,8 @@ const NavMenu = forwardRef< HTMLElement, NavProps >(
 	)
 );
 
+export type NavItemRenderIconProp = ( size: number ) => JSX.Element | null;
+
 export const Nav = {
 	Primary: NavPrimary,
 	Tab: NavTab,
