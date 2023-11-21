@@ -1,9 +1,9 @@
+import { keyframes } from '@emotion/react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { NavProps, NavVariant } from './Nav';
 import { NavItemTheme } from './NavItem';
 import { defaultLinkVariantStyle } from '../Link/Link';
-import { keyframes } from '@emotion/react';
 
 export const defaultToolbarLinkStyle = {
 	color: 'toolbar.text.default',
