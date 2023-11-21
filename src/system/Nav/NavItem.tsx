@@ -50,6 +50,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	as?: React.ComponentType< {
 		href?: string;
 		'aria-disabled'?: boolean;
+		disabled?: boolean;
 		children?: React.ReactNode;
 	} >;
 	orientation?: NavProps[ 'orientation' ];
@@ -57,16 +58,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 
 const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
-		{
-			className,
-			children,
-			href,
-			active,
-			disabled,
-			variant = 'primary',
-			orientation,
-			...rest
-		}: NavItemProps,
+		{ className, children, active, variant = 'primary', orientation, ...rest }: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
 	) => (
 		<NavItemBase
