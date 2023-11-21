@@ -65,7 +65,6 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 			disabled,
 			variant = 'primary',
 			orientation,
-			icon,
 			...rest
 		}: NavItemProps,
 		ref: Ref< HTMLAnchorElement >
@@ -76,15 +75,7 @@ const NavItem = forwardRef< HTMLAnchorElement, NavItemProps >(
 			active={ active }
 			variant={ variant }
 		>
-			<NavLink
-				variant={ variant }
-				href={ href }
-				ref={ ref }
-				active={ active }
-				icon={ icon }
-				disabled={ disabled }
-				{ ...rest }
-			>
+			<NavLink variant={ variant } ref={ ref } active={ active } { ...rest }>
 				{ children }
 			</NavLink>
 		</NavItemBase>

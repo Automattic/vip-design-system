@@ -1,10 +1,11 @@
 /** @jsxImportSource theme-ui */
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { Ref, forwardRef } from 'react';
+import React, { Ref, forwardRef } from 'react';
 
-import { VIP_BREACRUMBS } from '.';
-import { ItemBreadcrumb, NavItemProps } from '../Nav/NavItem';
+export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
+
+import { ItemBreadcrumb, NavItemProps, NavRawLink } from '../Nav/NavItem';
 import { navItemStyles, navMenuListStyles } from '../Nav/styles';
 
 export type BreadcrumbsLinkProps = {
@@ -19,10 +20,11 @@ export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
 	links: BreadcrumbsLinkProps[];
 }
 
-export const RawSpan = props => <span { ...props } />;
-
 export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
-	( { className, links, label, LinkComponent }: BreacrumbsProps, ref: Ref< HTMLElement > ) => {
+	(
+		{ className, links, label, LinkComponent = NavRawLink }: BreacrumbsProps,
+		ref: Ref< HTMLElement >
+	) => {
 		const otherLinksTotal = links.length - 1;
 		const otherLinks = links.slice( 0, otherLinksTotal );
 		const lastLink = links[ otherLinksTotal ];
@@ -32,7 +34,6 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 				aria-label={ label }
 				ref={ ref }
 				className={ classNames( VIP_BREACRUMBS, className ) }
-				sx={ {} }
 				orientation="horizontal"
 			>
 				<NavigationMenu.List

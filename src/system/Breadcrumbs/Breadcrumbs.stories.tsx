@@ -1,4 +1,6 @@
-import { Breadcrumbs } from '.';
+import React from 'react';
+
+import { BreadcrumbsBase as Breadcrumbs } from './Breadcrumbs';
 
 import type { StoryObj } from '@storybook/react';
 
@@ -6,7 +8,7 @@ import type { StoryObj } from '@storybook/react';
 const CustomLink = props => <a { ...props } />;
 
 export default {
-	title: 'Navigation/BreadCrumbs',
+	title: 'Navigation/Breadcrumbs',
 	component: Breadcrumbs,
 	parameters: {
 		docs: {

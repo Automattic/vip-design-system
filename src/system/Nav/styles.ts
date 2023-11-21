@@ -2,6 +2,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
 
 import { NavProps, NavVariant } from './Nav';
 import { NavItemTheme } from './NavItem';
+import { defaultLinkVariantStyle } from '../Link/Link';
 
 export const defaultToolbarLinkStyle = {
 	color: 'toolbar.text.default',
@@ -14,8 +15,6 @@ export const defaultToolbarLinkStyle = {
 		color: 'toolbar.text.hover',
 	},
 };
-
-import { defaultLinkVariantStyle } from '../Link/Link';
 
 const baseVariantStyle = {
 	alignItems: 'center',
@@ -31,7 +30,7 @@ const baseVariantStyle = {
 };
 
 export const navItemGroupTriggerStyles = (): ThemeUIStyleObject => ( {
-	mb: 2,
+	mb: 1,
 	'svg[data-arrow-indicator]': {
 		position: 'absolute',
 		right: 3,
@@ -118,6 +117,7 @@ export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
 				borderRadius: 1,
 				color: 'text',
 				display: 'inline-flex',
+				fontSize: 'inherit',
 				fontWeight: 'body',
 				gap: 3,
 				height: 38,
@@ -220,7 +220,7 @@ export const navItemStyles = (
 				border: 'none',
 				height: 38,
 				width: '100%',
-				mb: 2,
+				mb: 1,
 			};
 		}
 

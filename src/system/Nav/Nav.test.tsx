@@ -11,7 +11,7 @@ import { ThemeUIProvider } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Nav, NavItem } from './';
+import { Nav, NavItem } from '.';
 import { theme } from '../';
 
 const renderWithTheme = children =>

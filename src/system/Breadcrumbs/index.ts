@@ -1,3 +1,3 @@
-export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
+import { BreadcrumbsBase } from './Breadcrumbs';
 
-export { BreadcrumbsBase as Breadcrumbs } from './Breadcrumbs';
+export const Breadcrumbs = BreadcrumbsBase;
