@@ -12,7 +12,6 @@ import {
 import { MdOutlinePhotoLibrary } from 'react-icons/md';
 
 import { Nav, NavItem } from '.';
-import { Box } from '../../system';
 
 import type { StoryObj } from '@storybook/react';
 
