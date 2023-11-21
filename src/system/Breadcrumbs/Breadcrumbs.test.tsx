@@ -28,6 +28,17 @@ const renderComponent = () =>
 	);
 
 describe( '<Breadcrumbs />', () => {
+	beforeAll( () => {
+		Object.defineProperty( window, 'matchMedia', {
+			value: jest.fn( () => {
+				return {
+					matches: true,
+					addListener: jest.fn(),
+					removeListener: jest.fn(),
+				};
+			} ),
+		} );
+	} );
 	it( 'renders the Breadcrumbs component', async () => {
 		const { container } = renderComponent();
 
@@ -35,8 +46,8 @@ describe( '<Breadcrumbs />', () => {
 		expect( screen.getByLabelText( 'Main Breadcrumb' ) ).toBeInTheDocument();
 
 		// Should find all links
-		expect( screen.queryByText( 'Home' ) ).toBeInTheDocument();
-		expect( screen.queryByText( 'Applications' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Home' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Applications' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Application Name' ) ).toHaveAttribute( 'aria-current', 'page' );
 
 		// Check for accessibility issues

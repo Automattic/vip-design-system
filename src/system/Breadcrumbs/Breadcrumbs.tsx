@@ -97,7 +97,7 @@ export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 									...navItemStyles( 'horizontal', 'breadcrumbs' ),
 									color: 'text',
 								} }
-								data-current="page"
+								aria-current="page"
 							>
 								{ lastLink?.label }
 							</li>
