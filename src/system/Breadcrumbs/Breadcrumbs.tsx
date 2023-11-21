@@ -15,14 +15,14 @@ export type BreadcrumbsLinkProps = {
 
 export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
-	label: string;
+	label?: string;
 	LinkComponent: NavItemProps[ 'as' ];
 	links?: BreadcrumbsLinkProps[];
 }
 
 export const BreadcrumbsBase = forwardRef< HTMLElement, BreacrumbsProps >(
 	(
-		{ className, links = [], label, LinkComponent = NavRawLink }: BreacrumbsProps,
+		{ className, links = [], label = 'Breadcrumbs', LinkComponent = NavRawLink }: BreacrumbsProps,
 		ref: Ref< HTMLElement >
 	) => {
 		let penultimateLink: BreadcrumbsLinkProps | null = null;
