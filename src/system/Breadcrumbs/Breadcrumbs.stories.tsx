@@ -37,7 +37,7 @@ Breadcrumbs provide secondary navigation to help users understand where they are
 - We have ARIA markup for additional context. We add \`aria-label="Breadcrumbs"\` on the main element and \`aria-current="page"\` on the current page.
 - Hide separators from screen readers. The separators between links in the breadcrumbs should not be read by screen readers. We built with CSS-only.
 
-### Using the component
+## Using the component
 
 - Use complete page titles. Use the same wording in breadcrumb text as in the page title.
 - If possible, start with the word "Home”" Rather than using a house icon, spell out the word "Home" as the first link in the breadcrumbs.

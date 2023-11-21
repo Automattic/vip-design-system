@@ -44,7 +44,7 @@ or if usability is obvious.
 - <strong>Sufficient space.</strong> If content can fit outside a tooltip, don&apos;t use a
 tooltip.
 
-### Using the component
+## Using the component
 
 - <strong>Use affordances.</strong> A hidden tooltip is unusable. Use tooltips only on
 elements that appear interactive, like buttons or links.
