@@ -19,19 +19,28 @@ The Drawer component is a navigation component that is hidden by default and can
 
 ### When to use the Drawer component
 
-- TBD
+- Use the Drawer component when you want to hide content that is not essential to the user experience. The Drawer component is a good choice for navigation menus, settings panels, and other non-essential content.
+- The VIP Dashboard uses this component to help users with some Responsive behavior.
 
 ### When to consider something else
 
-- TBD
+- For essencial content, use other components.
 
 ## Accessibility Considerations guidance
 
-- TBD
+- The Drawer is based on the Dialog component and inherits all of its accessibility considerations.
+- The trigger should be a button
+- The focus gets back to the trigger when the Drawer is closed
+- The Drawer should be closed when the Escape key is pressed
+- The Drawer should be closed when the overlay is clicked
+- The Drawer should be closed when the focus moves outside of the Drawer
+- The Drawer has a close button that should be used to close the Drawer
 
 ## Using the component
 
-- TBD
+- Look at the examples below to see how the Drawer component is used.
+- You can use the \`variant\` prop to change the position of the Drawer. The default is \`left\`. Other options are: \`top\`, \`right\`, \`bottom\`.
+- You can pass some styles to the Drawer using the \`sx\` prop. It will be attached o the Content component. This is useful to change the width of the Drawer.
 
 ## Component Properties
 `,
