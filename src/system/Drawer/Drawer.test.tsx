@@ -39,21 +39,14 @@ describe( '<Drawer />', () => {
 	it( 'renders the Drawer component', async () => {
 		const { container } = renderComponent();
 
-		// Should find the trigger with the button label: Open Drawer
-
 		const trigger = screen.getByRole( 'button', { name: 'Open Drawer' } );
 
 		expect( trigger ).toBeInTheDocument();
 
 		fireEvent.click( trigger );
 
-		// Should find the content
+		expect( screen.getByText( 'Hello from default' ) ).toBeInTheDocument();
 
-		const content = screen.getByText( 'Hello from default' );
-
-		expect( content ).toBeInTheDocument();
-
-		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
