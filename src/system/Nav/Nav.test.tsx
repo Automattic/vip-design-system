@@ -11,8 +11,9 @@ import { ThemeUIProvider } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Nav, NavItem } from './';
-import { theme } from '../';
+import { Nav } from './Nav';
+import { NavItem } from './NavItem';
+import { Link, theme } from '../';
 
 const renderWithTheme = children =>
 	render( <ThemeUIProvider theme={ theme }>{ children }</ThemeUIProvider> );
@@ -20,12 +21,16 @@ const renderWithTheme = children =>
 const renderComponent = () =>
 	renderWithTheme(
 		<Nav.Primary variant="primary" label="Main">
-			<NavItem.Primary href="#">PHP</NavItem.Primary>
-			<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
-			<NavItem.Primary active href="https://newrelic.com/">
+			<NavItem.Primary as={ Link } href="#">
+				PHP
+			</NavItem.Primary>
+			<NavItem.Primary as={ Link } href="https://wordpress.com">
+				WordPress
+			</NavItem.Primary>
+			<NavItem.Primary as={ Link } active href="https://newrelic.com/">
 				New Relic
 			</NavItem.Primary>
-			<NavItem.Primary disabled href="https://google.com/">
+			<NavItem.Primary as={ Link } disabled href="https://google.com/">
 				Not accessible
 			</NavItem.Primary>
 		</Nav.Primary>

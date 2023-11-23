@@ -42,7 +42,7 @@ A button draws attention to important actions with a large selectable surface.
 Linking between a site’s pages. Use regular links instead.
 If the action is less popular or less important. Less popular or less important actions may be visually styled as links.
 
-### Usability guidance
+## Using the component
 
 - Keep button text short. Button text should be as short as possible with action words that clearly explain what will happen when the button is selected (for example, Download, View, or Sign up).
 

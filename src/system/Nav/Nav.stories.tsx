@@ -1,6 +1,23 @@
-import { Nav, NavItem, Box } from '../../system';
+import { AiOutlineLock } from 'react-icons/ai';
+import {
+	BiBulb,
+	BiCodeAlt,
+	BiData,
+	BiHistory,
+	BiGridAlt,
+	BiTachometer,
+	BiWindows,
+	BiBell,
+} from 'react-icons/bi';
+import { MdOutlinePhotoLibrary } from 'react-icons/md';
+
+import { Nav } from './Nav';
+import { NavItem } from './NavItem';
 
 import type { StoryObj } from '@storybook/react';
+
+// eslint-disable-next-line jsx-a11y/anchor-has-content
+const CustomLink = props => <a { ...props } />;
 
 export default {
 	title: 'Navigation/Nav',
@@ -31,9 +48,9 @@ This component is based on the Radix Navigation Menu primitive, so it contains a
 - Adheres to the [navigation role requirements.](https://www.w3.org/TR/wai-aria-1.2/#navigation)
 - Keyboard Interactions: https://www.radix-ui.com/primitives/docs/components/navigation-menu#keyboard-interactions
 
-### Usability guidance
+## Using the component
 
-Pick one of the available variants: Primary or Tabs. You can use the components directly from the \`Nav\` component:
+Pick one of the available variants: Primary, Tabs or Menu. You can use the components directly from the \`Nav\` component:
 
 ~~~jsx filename="index.jsx"
 import { Nav, NavItem } from '@automattic/components';
@@ -42,7 +59,7 @@ import { Nav, NavItem } from '@automattic/components';
 <NavItem.Primary> or <NavItem.Tab>
 ~~~
 
-### Usage with Next.js framwork
+### Usage with Next.js or other frameworks
 
 ~~~jsx filename="index.jsx"
 import Link from 'next/link';
@@ -51,11 +68,9 @@ import Link from 'next/link';
 	<NavItem.Primary
 		active
 		href="https://google.com"
-		asChild // This is important to pass the link styles to the child
+		as={ Link } // We required you to pass the link component you want to use. This will apply the proper styles.
 	>
-		<Link href={ \`/orgs/\${ id }/sso/configurations/\${ idP }/edit/\${ tab.path }\` }>
-			Your page name
-		</Link>
+		Your page name
 	</NavItem.Primary>
 </Nav.Primary>
 ~~~
@@ -78,12 +93,16 @@ export const Default: Story = {
 				<strong>Variant: Primary</strong>
 			</p>
 			<Nav.Primary sx={ { mb: 4 } } label="Nav Primary">
-				<NavItem.Primary active href="#">
+				<NavItem.Primary active as={ CustomLink } href="https://random-website.com/">
 					PHP
 				</NavItem.Primary>
-				<NavItem.Primary href="https://wordpress.com">WordPress</NavItem.Primary>
-				<NavItem.Primary href="https://newrelic.com/">New Relic</NavItem.Primary>
-				<NavItem.Primary disabled href="https://google.com/">
+				<NavItem.Primary as={ CustomLink } href="https://wordpress.com">
+					WordPress
+				</NavItem.Primary>
+				<NavItem.Primary as={ CustomLink } href="https://newrelic.com/">
+					New Relic
+				</NavItem.Primary>
+				<NavItem.Primary disabled as={ CustomLink } href="https://google.com/">
 					Not accessible
 				</NavItem.Primary>
 			</Nav.Primary>
@@ -98,38 +117,116 @@ export const Tab: Story = {
 				<strong>Variant: Tab</strong>
 			</p>
 			<Nav.Tab sx={ { mb: 4 } } label="Nav Tab">
-				<NavItem.Tab active href="#">
+				<NavItem.Tab active as={ CustomLink } href="https://random-website.com/">
 					PHP
 				</NavItem.Tab>
-				<NavItem.Tab href="https://wordpress.com">WordPress</NavItem.Tab>
-				<NavItem.Tab href="https://newrelic.com/">New Relic</NavItem.Tab>
-				<NavItem.Tab disabled href="https://google.com/">
+				<NavItem.Tab as={ CustomLink } href="https://wordpress.com">
+					WordPress
+				</NavItem.Tab>
+				<NavItem.Tab as={ CustomLink } href="https://newrelic.com/">
+					New Relic
+				</NavItem.Tab>
+				<NavItem.Tab disabled as={ CustomLink } href="https://google.com/">
 					Not accessible
 				</NavItem.Tab>
 			</Nav.Tab>
 		</>
 	),
 };
-export const Toolbar: Story = {
+
+export const Menu: Story = {
 	render: () => (
 		<>
 			<p>
-				<strong>Variant: Toolbar</strong>. This variant is used inside the Toolbar component.
-				Currently there is no use case for this variant outside the Toolbar component.
+				<strong>Variant: Menu</strong>.
 			</p>
 
-			<Box sx={ { p: 6, backgroundColor: 'toolbar.background' } }>
-				<Nav.Toolbar sx={ { mb: 4 } } label="Nav Toolbar">
-					<NavItem.Toolbar active href="#">
-						PHP
-					</NavItem.Toolbar>
-					<NavItem.Toolbar href="https://wordpress.com">WordPress</NavItem.Toolbar>
-					<NavItem.Toolbar href="https://newrelic.com/">New Relic</NavItem.Toolbar>
-					<NavItem.Toolbar disabled href="https://google.com/">
-						Not accessible
-					</NavItem.Toolbar>
-				</Nav.Toolbar>
-			</Box>
+			<Nav.Menu sx={ { mb: 4, width: 250 } } label="Nav Menu">
+				<NavItem.Menu
+					href="https://wordpress.com"
+					renderIcon={ size => <BiGridAlt size={ size } /> }
+					as={ CustomLink }
+				>
+					Overview
+				</NavItem.Menu>
+				<NavItem.Menu
+					as={ CustomLink }
+					active
+					href="https://random-website.com/"
+					renderIcon={ size => <BiWindows size={ size } /> }
+				>
+					Network Sites
+				</NavItem.Menu>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <AiOutlineLock size={ size } /> }
+				>
+					Domains & TLS
+				</NavItem.Menu>
+
+				<NavItem.MenuGroup active label="Logs" renderIcon={ size => <BiHistory size={ size } /> }>
+					<NavItem.Menu active as={ CustomLink } href="https://google.com/">
+						Audit
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
+						Runtime
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
+						Slow Query
+					</NavItem.Menu>
+				</NavItem.MenuGroup>
+
+				<NavItem.MenuGroup
+					label="Performance"
+					renderIcon={ size => <BiTachometer size={ size } /> }
+				>
+					<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+						Metrics
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+						Monitor
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+						Cache
+					</NavItem.Menu>
+				</NavItem.MenuGroup>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiCodeAlt size={ size } /> }
+				>
+					Code [v]
+				</NavItem.Menu>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiData size={ size } /> }
+				>
+					Database [v]
+				</NavItem.Menu>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
+				>
+					Media [v]
+				</NavItem.Menu>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiBell size={ size } /> }
+				>
+					Notifications
+				</NavItem.Menu>
+				<NavItem.Menu
+					as={ CustomLink }
+					href="https://random-website.com/"
+					renderIcon={ size => <BiBulb size={ size } /> }
+				>
+					Features
+				</NavItem.Menu>
+			</Nav.Menu>
 		</>
 	),
 };

@@ -5,6 +5,7 @@ import { Accordion } from './Accordion';
 import { Avatar } from './Avatar';
 import { Badge } from './Badge';
 import { Box } from './Box';
+import { Breadcrumbs } from './Breadcrumbs/Breadcrumbs';
 import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
@@ -34,7 +35,8 @@ import {
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
-import { Nav, NavItem } from './Nav';
+import { Nav } from './Nav/Nav';
+import { NavItem } from './Nav/NavItem';
 import { NewConfirmationDialog } from './NewConfirmationDialog';
 import * as NewDialog from './NewDialog';
 import * as Form from './NewForm';
@@ -55,6 +57,7 @@ export {
 	Avatar,
 	Badge,
 	Box,
+	Breadcrumbs,
 	Button,
 	ButtonSubmit,
 	ButtonVariant,
