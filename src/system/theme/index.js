@@ -439,6 +439,36 @@ export default {
 		},
 	},
 
+	drawer: {
+		top: {
+			transform: 'translate3d(0,-100%,0)',
+			styles: {
+				width: '100%',
+				height: 300,
+				bottom: 'auto',
+			},
+		},
+		right: {
+			transform: 'translate3d(100%,0,0)',
+			styles: {
+				right: 0,
+			},
+		},
+		bottom: {
+			transform: 'translate3d(0,100%,0)',
+			styles: {
+				width: '100%',
+				height: 300,
+				bottom: 0,
+				top: 'auto',
+			},
+		},
+		left: {
+			transform: 'translate3d(-100%,0,0)',
+			left: 0,
+		},
+	},
+
 	styles: {
 		root: {
 			fontFamily: 'body',
