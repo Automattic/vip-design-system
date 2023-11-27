@@ -88,8 +88,8 @@ export const VIPDashboardLike: Story = {
 				<Nav.Toolbar label="Main">
 					<NavItem.Toolbar href="https://googles.com">My Applications</NavItem.Toolbar>
 					{ /* Example below if you have Next.js <Link /> */ }
-					<NavItem.Toolbar active href="https://google.com" asChild>
-						<a href="https://google.com">Custom Link</a>
+					<NavItem.Toolbar active href="https://google.com" as={ CustomLink }>
+						Custom Link
 					</NavItem.Toolbar>
 				</Nav.Toolbar>
 
