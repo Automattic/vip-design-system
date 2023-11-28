@@ -1,16 +1,10 @@
-/**
- * External dependencies
- */
 import { Dialog } from '@radix-ui/react-dialog';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import React from 'react';
 
-/**
- * Internal dependencies
- */
-import { DialogCloseDefault as DialogClose, DialogCloseProps } from './DialogClose';
+import { DialogCloseDefault as DialogClose } from './DialogClose';
 
-// If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
 const Wrapper = props => <Dialog open={ true } { ...props } />;
 
 describe( '<DialogClose />', () => {

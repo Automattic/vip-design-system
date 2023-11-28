@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import React, { Ref, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { Theme } from 'theme-ui';
 
