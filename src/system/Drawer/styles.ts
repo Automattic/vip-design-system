@@ -59,7 +59,7 @@ export const drawerContentStyles = (
 			return {
 				...defaultStyles,
 				backgroundColor: 'layer.1',
-				top: [ 56, 0, 0, 64 ],
+				top: [ 56, 56, 56, 64 ],
 			};
 		}
 		default: {
@@ -105,7 +105,7 @@ export const drawerOverlayStyles = (
 		case 'right-header': {
 			return {
 				...defaultStyles,
-				top: [ 56, 0, 0, 64 ],
+				top: [ 56, 56, 56, 64 ],
 			};
 		}
 		default: {
