@@ -5,34 +5,25 @@ import React, { Ref, forwardRef } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { Theme } from 'theme-ui';
 
-/**
- * Internal dependencies
- */
-
-export interface DialogCloseProps {
+interface DialogCloseProps {
 	children: React.ReactNode;
 }
 
-export const DialogClose = forwardRef<
+const DialogClose = forwardRef<
 	React.ElementRef< typeof DialogPrimitive.Close >,
 	DialogCloseProps
->(
-	(
-		{ children, ...rest }: DialogCloseProps,
-		forwardedRef: Ref< React.ElementRef< typeof DialogPrimitive.Close > >
-	) => (
-		<DialogPrimitive.Close asChild { ...rest } ref={ forwardedRef }>
-			{ children }
-		</DialogPrimitive.Close>
-	)
-);
+>( ( props, forwardedRef ) => (
+	<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
+		{ props.children }
+	</DialogPrimitive.Close>
+) );
 
-export interface ThemeProps extends Theme {
+interface ThemeProps extends Theme {
 	outline?: Record< string, Record< string, string > >;
 }
 
-export const DialogCloseDefault = forwardRef< React.ElementRef< typeof DialogClose > >(
-	( props, forwardedRef: Ref< React.ElementRef< typeof DialogClose > > ) => (
+const DialogCloseDefault = forwardRef< React.ElementRef< typeof DialogClose > >(
+	( props, forwardedRef ) => (
 		<DialogClose { ...props } ref={ forwardedRef }>
 			<button
 				aria-label="Close"
@@ -49,15 +40,13 @@ export const DialogCloseDefault = forwardRef< React.ElementRef< typeof DialogClo
 					position: 'absolute',
 					top: 4,
 					right: 4,
-
 					'&:hover': {
 						backgroundColor: 'borders.2',
 						outlineStyle: 'solid',
 						outlineColor: 'border.accent',
 						outlineWidth: '2px',
 					},
-					'&:focus': ( theme: ThemeProps ) => theme.outline,
-					'&:focus-visible': ( theme: ThemeProps ) => theme.outline,
+					'&:focus, &:focus-visible': ( theme: ThemeProps ) => theme.outline,
 				} }
 			>
 				<IoClose aria-hidden="true" sx={ { fill: 'icon.primary' } } />
@@ -65,3 +54,5 @@ export const DialogCloseDefault = forwardRef< React.ElementRef< typeof DialogClo
 		</DialogClose>
 	)
 );
+
+export { DialogClose, DialogCloseDefault };
