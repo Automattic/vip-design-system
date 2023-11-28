@@ -138,10 +138,11 @@ export const Menu: Story = {
 	render: () => (
 		<>
 			<p>
-				<strong>Variant: Menu</strong>.
+				<strong>Variant: Menu</strong>. This menu takes full-width by default. You can customize by
+				passing a custom <code>sx</code> prop.
 			</p>
 
-			<Nav.Menu sx={ { mb: 4, width: 250 } } label="Nav Menu">
+			<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
 				<NavItem.Menu
 					href="https://wordpress.com"
 					renderIcon={ size => <BiGridAlt size={ size } /> }
