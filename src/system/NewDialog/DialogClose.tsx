@@ -9,7 +9,7 @@ import { Theme } from 'theme-ui';
  * Internal dependencies
  */
 
-interface DialogCloseProps {
+export interface DialogCloseProps {
 	children: React.ReactNode;
 }
 

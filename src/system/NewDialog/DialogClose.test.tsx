@@ -8,25 +8,22 @@ import { axe } from 'jest-axe';
 /**
  * Internal dependencies
  */
-import { DialogCloseDefault as DialogClose } from './DialogClose';
+import { DialogCloseDefault as DialogClose, DialogCloseProps } from './DialogClose';
 
 // If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
 const Wrapper = props => <Dialog open={ true } { ...props } />;
-const defaultProps = {
-	title: 'This is a DialogClose',
-};
 
 describe( '<DialogClose />', () => {
 	it( 'renders the DialogClose component', async () => {
 		const { container } = render(
 			<Wrapper>
-				<DialogClose { ...defaultProps } />
+				<DialogClose />
 			</Wrapper>
 		);
 
 		expect( screen.getByLabelText( 'Close' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
