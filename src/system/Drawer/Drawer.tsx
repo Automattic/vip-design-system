@@ -8,16 +8,16 @@ import { DialogCloseDefault } from '../NewDialog/DialogClose';
 
 export interface DrawerContentProps extends DialogPrimitive.DialogContentProps {
 	children?: React.ReactNode;
-	variant?: 'top' | 'right' | 'bottom' | 'left';
+	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
 	sx?: ThemeUIStyleObject;
 }
 
-const DrawerContent = React.forwardRef<
+const Content = React.forwardRef<
 	React.ElementRef< typeof DialogPrimitive.Content >,
 	DrawerContentProps
 >( ( { children, sx, variant = 'left', ...props }, forwardedRef ) => (
 	<DialogPrimitive.Portal>
-		<DialogPrimitive.Overlay sx={ drawerOverlayStyles } />
+		<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
 		<DialogPrimitive.Content
 			{ ...props }
 			sx={ {
@@ -32,7 +32,7 @@ const DrawerContent = React.forwardRef<
 	</DialogPrimitive.Portal>
 ) );
 
-const Drawer = DialogPrimitive.Root;
-const DrawerTrigger = DialogPrimitive.Trigger;
+const Root = DialogPrimitive.Root;
+const Trigger = DialogPrimitive.Trigger;
 
-export { Drawer, DrawerTrigger, DrawerContent };
+export { Root, Trigger, Content };

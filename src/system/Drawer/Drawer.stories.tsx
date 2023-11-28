@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 
-import { Drawer, DrawerContent, DrawerTrigger } from './Drawer';
+import * as Drawer from './Drawer';
 import { Button } from '..';
 
 import type { StoryObj } from '@storybook/react';
@@ -54,47 +54,63 @@ type Story = StoryObj< typeof Drawer >;
 export const Default: Story = {
 	render: () => (
 		<>
-			<Drawer>
-				<DrawerTrigger asChild>
-					<Button>Open Drawer</Button>
-				</DrawerTrigger>
-				<DrawerContent sx={ { width: 320 } }>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
+					<Button>Open Drawer.</Button>
+				</Drawer.Trigger>
+				<Drawer.Content sx={ { width: 320 } }>
 					<p sx={ { ml: 3 } }>Hello from default</p>
-				</DrawerContent>
-			</Drawer>
+				</Drawer.Content>
+			</Drawer.Root>
 
-			<Drawer>
-				<DrawerTrigger asChild>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
 					<Button>Top</Button>
-				</DrawerTrigger>
-				<DrawerContent variant="top">
+				</Drawer.Trigger>
+				<Drawer.Content variant="top">
 					<p sx={ { ml: 3 } }>Hello from top</p>
-				</DrawerContent>
-			</Drawer>
-			<Drawer>
-				<DrawerTrigger asChild>
+				</Drawer.Content>
+			</Drawer.Root>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
 					<Button>Right</Button>
-				</DrawerTrigger>
-				<DrawerContent variant="right">
+				</Drawer.Trigger>
+				<Drawer.Content variant="right">
 					<p sx={ { ml: 3 } }>Hello from right</p>
-				</DrawerContent>
-			</Drawer>
-			<Drawer>
-				<DrawerTrigger asChild>
+				</Drawer.Content>
+			</Drawer.Root>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
 					<Button>Bottom</Button>
-				</DrawerTrigger>
-				<DrawerContent variant="bottom">
+				</Drawer.Trigger>
+				<Drawer.Content variant="bottom">
 					<p sx={ { ml: 3 } }>Hello from bottom</p>
-				</DrawerContent>
-			</Drawer>
-			<Drawer>
-				<DrawerTrigger asChild>
+				</Drawer.Content>
+			</Drawer.Root>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
 					<Button>Left</Button>
-				</DrawerTrigger>
-				<DrawerContent variant="left">
+				</Drawer.Trigger>
+				<Drawer.Content variant="left">
 					<p sx={ { ml: 3 } }>Hello from left</p>
-				</DrawerContent>
-			</Drawer>
+				</Drawer.Content>
+			</Drawer.Root>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
+					<Button>Left Header</Button>
+				</Drawer.Trigger>
+				<Drawer.Content variant="left-header">
+					<p sx={ { ml: 3 } }>Hello from left header (VIP Dashboard needs)</p>
+				</Drawer.Content>
+			</Drawer.Root>
+			<Drawer.Root>
+				<Drawer.Trigger asChild>
+					<Button>Right Header</Button>
+				</Drawer.Trigger>
+				<Drawer.Content variant="left-header">
+					<p sx={ { ml: 3 } }>Hello from right header (VIP Dashboard needs)</p>
+				</Drawer.Content>
+			</Drawer.Root>
 		</>
 	),
 };

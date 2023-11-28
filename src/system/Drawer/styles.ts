@@ -28,7 +28,7 @@ const slideOut = ( theme: ThemeProps, variant: DrawerContentProps[ 'variant' ] )
 export const drawerContentStyles = (
 	variant: DrawerContentProps[ 'variant' ]
 ): ThemeUIStyleObject => {
-	return {
+	const defaultStyles: ThemeUIStyleObject = {
 		p: 0,
 		m: 0,
 		backgroundColor: 'layer.2',
@@ -52,6 +52,22 @@ export const drawerContentStyles = (
 			animation: theme => `${ slideOut( theme, variant ) } 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
 		},
 	};
+
+	switch ( variant ) {
+		case 'left-header':
+		case 'right-header': {
+			return {
+				...defaultStyles,
+				backgroundColor: 'layer.1',
+				top: [ 56, 0, 0, 64 ],
+			};
+		}
+		default: {
+			return defaultStyles;
+		}
+	}
+
+	return defaultStyles;
 };
 
 const fadeIn = keyframes( {
@@ -64,19 +80,36 @@ const fadeOut = keyframes( {
 	to: { opacity: '0' },
 } );
 
-export const drawerOverlayStyles: ThemeUIStyleObject = {
-	position: 'fixed',
-	top: 0,
-	right: 0,
-	bottom: 0,
-	left: 0,
-	backgroundColor: 'backgrounds.overlay',
+export const drawerOverlayStyles = (
+	variant: DrawerContentProps[ 'variant' ]
+): ThemeUIStyleObject => {
+	const defaultStyles: ThemeUIStyleObject = {
+		position: 'fixed',
+		top: 0,
+		right: 0,
+		bottom: 0,
+		left: 0,
+		backgroundColor: 'backgrounds.overlay',
 
-	'&[data-state="open"]': {
-		animation: `${ fadeIn } 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
-	},
+		'&[data-state="open"]': {
+			animation: `${ fadeIn } 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
+		},
 
-	'&[data-state="closed"]': {
-		animation: `${ fadeOut } 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
-	},
+		'&[data-state="closed"]': {
+			animation: `${ fadeOut } 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
+		},
+	};
+
+	switch ( variant ) {
+		case 'left-header':
+		case 'right-header': {
+			return {
+				...defaultStyles,
+				top: [ 56, 0, 0, 64 ],
+			};
+		}
+		default: {
+			return defaultStyles;
+		}
+	}
 };
