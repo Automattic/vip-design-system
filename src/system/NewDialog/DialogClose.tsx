@@ -19,7 +19,7 @@ interface ThemeProps extends Theme {
 	outline?: Record< string, Record< string, string > >;
 }
 
-const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( {}, forwardedRef ) => (
+const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( _, forwardedRef ) => (
 	<DialogClose>
 		<button
 			ref={ forwardedRef }
