@@ -152,7 +152,6 @@ export const Menu: Story = {
 				</NavItem.Menu>
 				<NavItem.Menu
 					as={ CustomLink }
-					active
 					href="https://random-website.com/"
 					renderIcon={ size => <BiWindows size={ size } /> }
 				>
