@@ -5,7 +5,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-import { Drawer, DrawerContent, DrawerTrigger } from './Drawer';
+import * as Drawer from './Drawer';
 import { Button, theme } from '../';
 
 const renderWithTheme = children =>
@@ -13,14 +13,14 @@ const renderWithTheme = children =>
 
 const renderComponent = () =>
 	renderWithTheme(
-		<Drawer>
-			<DrawerTrigger asChild>
+		<Drawer.Root>
+			<Drawer.Trigger asChild>
 				<Button>Open Drawer</Button>
-			</DrawerTrigger>
-			<DrawerContent sx={ { width: 320 } }>
+			</Drawer.Trigger>
+			<Drawer.Content sx={ { width: 320 } }>
 				<p sx={ { ml: 3 } }>Hello from default</p>
-			</DrawerContent>
-		</Drawer>
+			</Drawer.Content>
+		</Drawer.Root>
 	);
 
 describe( '<Drawer />', () => {
