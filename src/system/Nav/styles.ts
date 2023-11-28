@@ -303,7 +303,7 @@ export const navItemLinkStyles = ( variant: NavVariant ): ThemeUIStyleObject => 
 
 export const navItemLinkVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	const defaultStyles = {
-		width: 'max-content',
+		width: '100%',
 		borderColor: 'transparent',
 	};
 
