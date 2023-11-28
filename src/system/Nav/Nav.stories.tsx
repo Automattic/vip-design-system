@@ -138,8 +138,8 @@ export const Menu: Story = {
 	render: () => (
 		<>
 			<p>
-				<strong>Variant: Menu</strong>. This menu takes full-width by default. You can customize by
-				passing a custom <code>sx</code> prop.
+				<strong>Variant: Menu</strong>. This menu takes full width by default. You can put it in a
+				container with constrained width..
 			</p>
 
 			<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
