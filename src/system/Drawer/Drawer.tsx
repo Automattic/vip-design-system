@@ -26,8 +26,8 @@ const Content = React.forwardRef<
 			} }
 			ref={ forwardedRef }
 		>
-			{ children }
 			<DialogCloseDefault />
+			{ children }
 		</DialogPrimitive.Content>
 	</DialogPrimitive.Portal>
 ) );
