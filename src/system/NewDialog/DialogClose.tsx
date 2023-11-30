@@ -5,21 +5,25 @@ import React, { forwardRef } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { Theme } from 'theme-ui';
 
-interface DialogCloseProps {
+export interface DialogCloseProps {
 	children: React.ReactNode;
 }
-
-const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >( ( props, forwardedRef ) => (
-	<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
-		{ props.children }
-	</DialogPrimitive.Close>
-) );
 
 interface ThemeProps extends Theme {
 	outline?: Record< string, Record< string, string > >;
 }
 
-const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( _, forwardedRef ) => (
+export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
+	( props, forwardedRef ) => (
+		<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
+			{ props.children }
+		</DialogPrimitive.Close>
+	)
+);
+
+DialogClose.displayName = 'DialogClose';
+
+export const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( _, forwardedRef ) => (
 	<DialogClose>
 		<button
 			ref={ forwardedRef }
@@ -51,4 +55,4 @@ const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( _, forwardedRef ) 
 	</DialogClose>
 ) );
 
-export { DialogClose, DialogCloseDefault };
+DialogCloseDefault.displayName = 'DialogCloseDefault';

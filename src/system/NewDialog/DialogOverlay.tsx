@@ -9,7 +9,8 @@ import React, { forwardRef } from 'react';
  * Internal dependencies
  */
 
-interface DialogOverlayProps extends React.ComponentPropsWithoutRef< typeof Dialog.Overlay > {}
+export interface DialogOverlayProps
+	extends React.ComponentPropsWithoutRef< typeof Dialog.Overlay > {}
 
 export const DialogOverlay = forwardRef< HTMLDivElement, DialogOverlayProps >(
 	( props, forwardedRef ) => (

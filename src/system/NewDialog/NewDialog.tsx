@@ -6,10 +6,10 @@ import React, { ReactNode } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { DialogCloseDefault as DialogClose } from './DialogClose';
-import { contentStyles } from './DialogContent';
 import { DialogDescription } from './DialogDescription';
 import { DialogOverlay } from './DialogOverlay';
 import { DialogTitle } from './DialogTitle';
+import { contentStyles } from './styles';
 
 export interface DialogContentProps extends DialogPrimitive.DialogContentProps {
 	sx?: ThemeUIStyleObject;

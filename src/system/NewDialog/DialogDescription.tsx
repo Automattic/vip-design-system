@@ -1,18 +1,11 @@
 /** @jsxImportSource theme-ui */
 
-/**
- * External dependencies
- */
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import React, { ReactNode, forwardRef } from 'react';
 
 import ScreenReaderText from '../ScreenReaderText';
 
-/**
- * Internal dependencies
- */
-
-interface DialogDescriptionProps {
+export interface DialogDescriptionProps {
 	description?: ReactNode;
 	hidden?: boolean;
 }

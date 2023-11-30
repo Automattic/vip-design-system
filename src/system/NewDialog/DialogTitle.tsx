@@ -12,7 +12,7 @@ import ScreenReaderText from '../ScreenReaderText';
  * Internal dependencies
  */
 
-interface DialogTitleProps {
+export interface DialogTitleProps {
 	title?: ReactNode;
 	hidden?: boolean;
 }
