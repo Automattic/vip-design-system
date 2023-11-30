@@ -1,13 +1,13 @@
 import { keyframes } from '@emotion/react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
-import { DrawerContentProps } from './Drawer';
+import { DrawerProps } from './Drawer';
 
 interface ThemeProps extends Theme {
 	drawer?: Record< string, Record< string, string > >;
 }
 
-const slideIn = ( theme: ThemeProps, variant: DrawerContentProps[ 'variant' ] ) => {
+const slideIn = ( theme: ThemeProps, variant: DrawerProps[ 'variant' ] ) => {
 	if ( variant && theme.drawer && theme.drawer[ variant ] ) {
 		return keyframes( {
 			from: { transform: theme.drawer[ variant ].transform },
@@ -16,7 +16,7 @@ const slideIn = ( theme: ThemeProps, variant: DrawerContentProps[ 'variant' ] ) 
 	}
 };
 
-const slideOut = ( theme: ThemeProps, variant: DrawerContentProps[ 'variant' ] ) => {
+const slideOut = ( theme: ThemeProps, variant: DrawerProps[ 'variant' ] ) => {
 	if ( variant && theme.drawer && theme.drawer[ variant ] ) {
 		return keyframes( {
 			from: { transform: 'translate3d(0,0,0)' },
@@ -25,9 +25,7 @@ const slideOut = ( theme: ThemeProps, variant: DrawerContentProps[ 'variant' ] )
 	}
 };
 
-export const drawerContentStyles = (
-	variant: DrawerContentProps[ 'variant' ]
-): ThemeUIStyleObject => {
+export const drawerContentStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeUIStyleObject => {
 	const defaultStyles: ThemeUIStyleObject = {
 		p: 0,
 		m: 0,
@@ -80,9 +78,7 @@ const fadeOut = keyframes( {
 	to: { opacity: '0' },
 } );
 
-export const drawerOverlayStyles = (
-	variant: DrawerContentProps[ 'variant' ]
-): ThemeUIStyleObject => {
+export const drawerOverlayStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeUIStyleObject => {
 	const defaultStyles: ThemeUIStyleObject = {
 		position: 'fixed',
 		top: 0,
