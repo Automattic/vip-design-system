@@ -1,12 +1,14 @@
 /** @jsxImportSource theme-ui */
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import React from 'react';
+import React, { Ref, forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { drawerContentStyles, drawerOverlayStyles } from './styles';
 import { DialogCloseDefault } from '../NewDialog/DialogClose';
 
-export interface DrawerContentProps extends DialogPrimitive.DialogContentProps {
+export interface DrawerContentProps
+	extends DialogPrimitive.DialogProps,
+		DialogPrimitive.DialogContentProps {
 	children?: React.ReactNode;
 	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
 	sx?: ThemeUIStyleObject;
@@ -32,7 +34,17 @@ const Content = React.forwardRef<
 	</DialogPrimitive.Portal>
 ) );
 
-const Root = DialogPrimitive.Root;
+interface DrawerRootProps extends DialogPrimitive.DialogProps {
+	title: string;
+}
+
+const DrawerRoot = forwardRef< HTMLDivElement, DrawerRootProps >(
+	( { title, ...rest }, forwardedRef: Ref< HTMLDivElement > ) => (
+		<DialogPrimitive.Root aria-label={ title } ref={ forwardedRef } { ...rest } />
+	)
+);
+
+const Root = DrawerRoot;
 const Trigger = DialogPrimitive.Trigger;
 
 export { Root, Trigger, Content };

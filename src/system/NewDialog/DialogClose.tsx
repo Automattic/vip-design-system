@@ -3,14 +3,11 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import React, { forwardRef } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { Theme } from 'theme-ui';
+
+import { Button } from '..';
 
 export interface DialogCloseProps {
 	children: React.ReactNode;
-}
-
-interface ThemeProps extends Theme {
-	outline?: Record< string, Record< string, string > >;
 }
 
 export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
@@ -25,33 +22,24 @@ DialogClose.displayName = 'DialogClose';
 
 export const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( _, forwardedRef ) => (
 	<DialogClose>
-		<button
+		<Button
 			ref={ forwardedRef }
 			aria-label="Close"
+			variant="tertiary"
 			sx={ {
-				all: 'unset',
-				fontFamily: 'inherit',
-				borderRadius: '100%',
-				height: 25,
-				width: 25,
-				display: 'inline-flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				color: 'icon.primary',
 				position: 'absolute',
 				top: 4,
 				right: 4,
-				'&:hover': {
-					backgroundColor: 'borders.2',
-					outlineStyle: 'solid',
-					outlineColor: 'border.accent',
-					outlineWidth: '2px',
+				color: 'icon.inverse',
+				svg: {
+					'&:hover': {
+						fill: 'inherit',
+					},
 				},
-				'&:focus, &:focus-visible': ( theme: ThemeProps ) => theme.outline,
 			} }
 		>
-			<IoClose aria-hidden="true" sx={ { fill: 'icon.primary' } } />
-		</button>
+			<IoClose aria-hidden="true" />
+		</Button>
 	</DialogClose>
 ) );
 

@@ -79,7 +79,7 @@ export const CustomStyling = () => (
 				h2: { fontSize: 4, color: theme => `${ theme.colors.text }` },
 				h3: { fontSize: 3, color: theme => `${ theme.colors.heading }` },
 				p: { color: 'white' },
-				'button[type="button"]:focus': { outlineColor: 'white', color: 'white' },
+				'button[type="button"]:focus-visible': { outlineColor: 'white', color: 'white' },
 			} }
 			content={
 				<div>
