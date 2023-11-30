@@ -4,8 +4,7 @@
  * External dependencies
  */
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 
 import ScreenReaderText from '../ScreenReaderText';
 
@@ -13,7 +12,12 @@ import ScreenReaderText from '../ScreenReaderText';
  * Internal dependencies
  */
 
-export const DialogDescription = React.forwardRef(
+interface DialogDescriptionProps {
+	description?: ReactNode;
+	hidden?: boolean;
+}
+
+export const DialogDescription = forwardRef< HTMLDivElement, DialogDescriptionProps >(
 	( { description, hidden, ...rest }, forwardedRef ) => {
 		let text = description;
 
@@ -34,8 +38,3 @@ export const DialogDescription = React.forwardRef(
 );
 
 DialogDescription.displayName = 'DialogDescription';
-
-DialogDescription.propTypes = {
-	description: PropTypes.node,
-	hidden: PropTypes.bool,
-};

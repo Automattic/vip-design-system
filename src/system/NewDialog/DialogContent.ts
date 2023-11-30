@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 
-export const contentStyles = {
+import { ThemeUIStyleObject } from 'theme-ui';
+
+export const contentStyles: ThemeUIStyleObject = {
 	background: 'dialog',
 	variant: 'dialog.modal',
 	borderRadius: 2,
