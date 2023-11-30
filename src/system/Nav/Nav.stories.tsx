@@ -229,7 +229,7 @@ export const Menu: Story = {
 	),
 };
 
-export const MenuToolbarVertical: Story = {
+export const MenuInverse: Story = {
 	render: () => (
 		<>
 			<p>
