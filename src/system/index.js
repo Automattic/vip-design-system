@@ -19,7 +19,7 @@ import {
 	DialogTrigger,
 	DialogContent,
 } from './Dialog';
-import * as Drawer from './Drawer/Drawer';
+import { Drawer } from './Drawer/Drawer';
 import * as Dropdown from './Dropdown';
 import { Flex } from './Flex';
 import {

@@ -5,7 +5,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-import * as Drawer from './Drawer';
+import { Drawer } from './Drawer';
 import { Button, theme } from '../';
 
 const renderWithTheme = children =>
@@ -17,6 +17,7 @@ const renderComponent = () =>
 			<p sx={ { ml: 3 } }>Hello from default</p>
 		</Drawer>
 	);
+``;
 
 describe( '<Drawer />', () => {
 	beforeAll( () => {
