@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import { keyframes } from '@emotion/react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
@@ -25,7 +27,11 @@ const slideOut = ( theme: ThemeProps, variant: DrawerProps[ 'variant' ] ) => {
 	}
 };
 
-export const drawerContentStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeUIStyleObject => {
+export const drawerContentStyles = (
+	variant: DrawerProps[ 'variant' ],
+	width = '100%',
+	height = undefined
+): ThemeUIStyleObject => {
 	const defaultStyles: ThemeUIStyleObject = {
 		p: 0,
 		m: 0,
@@ -34,7 +40,8 @@ export const drawerContentStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeU
 		position: 'fixed',
 		top: 0,
 		bottom: 0,
-		width: 250,
+		width,
+		height,
 
 		variant: `drawer.${ variant }.styles`,
 
@@ -64,8 +71,6 @@ export const drawerContentStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeU
 			return defaultStyles;
 		}
 	}
-
-	return defaultStyles;
 };
 
 const fadeIn = keyframes( {

@@ -53,8 +53,8 @@ The Drawer component is a navigation component that is hidden by default and can
 ## Using the component
 
 - Look at the examples below to see how the Drawer component is used.
-- You can use the \`variant\` prop to change the position of the Drawer. The default is \`left\`. Other options are: \`top\`, \`right\`, \`bottom\`.
-- You can pass some styles to the Drawer using the \`sx\` prop. It will be attached o the Content component. This is useful to change the width of the Drawer.
+- You can use the \`variant\` prop to change the position of the  The default is \`left\`. Other options are: \`top\`, \`right\`, \`bottom\`.
+- You can pass some styles to the Drawer using the \`sx\` prop. It will be attached o the Content component. This is useful to change the width of the
 
 ## Component Properties
 `,
@@ -68,21 +68,21 @@ type Story = StoryObj< typeof Drawer >;
 export const Default: Story = {
 	render: () => (
 		<>
-			<Drawer label="My XYZ Dialog" trigger={ <Button>Open Drawer.</Button> } sx={ { width: 320 } }>
+			<Drawer label="My XYZ Dialog" trigger={ <Button>Open </Button> } width={ 320 }>
 				<p sx={ { ml: 3 } }>Hello from default</p>
 			</Drawer>
 
 			<Drawer trigger={ <Button>Top</Button> } variant="top" label="Dialog Content">
 				<p sx={ { ml: 3 } }>Hello from top</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Right</Button> } variant="right" label="Dialog">
-				<p sx={ { ml: 3 } }>Hello from right</p>
+			<Drawer trigger={ <Button>Right</Button> } variant="right" label="Dialog" width={ 500 }>
+				<p sx={ { ml: 3 } }>Hello from right width 500px</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Bottom</Button> } variant="bottom" label="Dialog">
-				<p sx={ { ml: 3 } }>Hello from bottom</p>
+			<Drawer trigger={ <Button>Bottom</Button> } variant="bottom" label="Dialog" height={ 200 }>
+				<p sx={ { ml: 3 } }>Hello from bottom with 200px</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Left</Button> } variant="left" label="Dialog">
-				<p sx={ { ml: 3 } }>Hello from left</p>
+			<Drawer trigger={ <Button>Left</Button> } variant="left" label="Dialog" width={ 600 }>
+				<p sx={ { ml: 3 } }>Hello from left width 600px</p>
 			</Drawer>
 			<Drawer trigger={ <Button>Left Header</Button> } variant="left-header" label="Dialog">
 				<p sx={ { ml: 3 } }>Hello from left header (VIP Dashboard needs)</p>
@@ -98,10 +98,10 @@ export const ByParts: Story = {
 	render: () => (
 		<>
 			<Root>
-				<Trigger asChild>
-					<Button>Open Drawer.</Button>
+				<Trigger>
+					<Button>Open </Button>
 				</Trigger>
-				<Content sx={ { width: 320 } } label="My XYZ Dialog">
+				<Content width={ 320 } label="My XYZ Dialog">
 					<p sx={ { ml: 3 } }>Hello from default</p>
 				</Content>
 			</Root>
@@ -112,8 +112,8 @@ export const ByParts: Story = {
 export const VIPMobileMenu: Story = {
 	render: () => (
 		<>
-			<Drawer
-				trigger={
+			<Root>
+				<Trigger>
 					<Button
 						type="button"
 						variant="tertiary"
@@ -133,152 +133,153 @@ export const VIPMobileMenu: Story = {
 							} }
 						/>
 					</Button>
-				}
-				label="Dialog X"
-				variant="left"
-				sx={ {
-					width: 320,
-					backgroundColor: 'toolbar.background',
-					boxShadow: 'none',
-				} }
-			>
-				<div
-					sx={ {
-						height: 56,
-						width: '100%',
-						p: 4,
-						px: 5,
-					} }
-				>
-					<Logo />
-				</div>
-
-				<div
-					sx={ {
-						overflowX: 'hidden',
-						overflowY: 'auto',
-						height: 'calc(100vh - 56px)',
-						display: 'flex',
-						flex: 1,
-					} }
-				>
-					<Flex sx={ { width: '100%', flexDirection: 'column' } }>
-						<Nav.Primary label="Main Links" orientation="vertical" sx={ { p: 4 } }>
-							<NavItem.MenuInverse href="/apps" active as={ CustomLink }>
-								My Applications
-							</NavItem.MenuInverse>
-
-							<NavItem.MenuInverse href="/orgs" as={ CustomLink }>
-								My Organizations
-							</NavItem.MenuInverse>
-						</Nav.Primary>
-
-						<Box
+				</Trigger>
+				<Content label="Dialog X" variant="left" width={ 320 }>
+					<div
+						sx={ {
+							backgroundColor: 'toolbar.background',
+							boxShadow: 'none',
+						} }
+					>
+						<div
 							sx={ {
-								alignSelf: 'stretch',
-								backgroundColor: 'layer.1',
-								minHeight: `calc(100vh - 56px)`,
-								pt: 2,
-								px: 4,
+								height: 56,
 								width: '100%',
-								a: {
-									border: 'none',
-								},
+								p: 4,
+								px: 5,
 							} }
 						>
-							<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
-								<NavItem.Menu
-									href="https://wordpress.com"
-									renderIcon={ size => <BiGridAlt size={ size } /> }
-									as={ CustomLink }
-								>
-									Overview
-								</NavItem.Menu>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <BiWindows size={ size } /> }
-								>
-									Network Sites
-								</NavItem.Menu>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <AiOutlineLock size={ size } /> }
-								>
-									Domains & TLS
-								</NavItem.Menu>
+							<Logo />
+						</div>
 
-								<NavItem.MenuGroup
-									active
-									label="Logs"
-									renderIcon={ size => <BiHistory size={ size } /> }
-								>
-									<NavItem.Menu active as={ CustomLink } href="https://google.com/">
-										Audit
-									</NavItem.Menu>
-									<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
-										Runtime
-									</NavItem.Menu>
-									<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
-										Slow Query
-									</NavItem.Menu>
-								</NavItem.MenuGroup>
+						<div
+							sx={ {
+								overflowX: 'hidden',
+								overflowY: 'auto',
+								height: 'calc(100vh - 56px)',
+								display: 'flex',
+								flex: 1,
+							} }
+						>
+							<Flex sx={ { width: '100%', flexDirection: 'column' } }>
+								<Nav.Primary label="Main Links" orientation="vertical" sx={ { p: 4 } }>
+									<NavItem.MenuInverse href="/apps" active as={ CustomLink }>
+										My Applications
+									</NavItem.MenuInverse>
 
-								<NavItem.MenuGroup
-									label="Performance"
-									renderIcon={ size => <BiTachometer size={ size } /> }
+									<NavItem.MenuInverse href="/orgs" as={ CustomLink }>
+										My Organizations
+									</NavItem.MenuInverse>
+								</Nav.Primary>
+
+								<Box
+									sx={ {
+										alignSelf: 'stretch',
+										backgroundColor: 'layer.1',
+										minHeight: `calc(100vh - 56px)`,
+										pt: 2,
+										px: 4,
+										width: '100%',
+										a: {
+											border: 'none',
+										},
+									} }
 								>
-									<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-										Metrics
-									</NavItem.Menu>
-									<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-										Monitor
-									</NavItem.Menu>
-									<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-										Cache
-									</NavItem.Menu>
-								</NavItem.MenuGroup>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <BiCodeAlt size={ size } /> }
-								>
-									Code [v]
-								</NavItem.Menu>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <BiData size={ size } /> }
-								>
-									Database [v]
-								</NavItem.Menu>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
-								>
-									Media [v]
-								</NavItem.Menu>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <BiBell size={ size } /> }
-								>
-									Notifications
-								</NavItem.Menu>
-								<NavItem.Menu
-									as={ CustomLink }
-									href="https://random-website.com/"
-									renderIcon={ size => <BiBulb size={ size } /> }
-								>
-									Features
-								</NavItem.Menu>
-							</Nav.Menu>
-						</Box>
-					</Flex>
-				</div>
-			</Drawer>
+									<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
+										<NavItem.Menu
+											href="https://wordpress.com"
+											renderIcon={ size => <BiGridAlt size={ size } /> }
+											as={ CustomLink }
+										>
+											Overview
+										</NavItem.Menu>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <BiWindows size={ size } /> }
+										>
+											Network Sites
+										</NavItem.Menu>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <AiOutlineLock size={ size } /> }
+										>
+											Domains & TLS
+										</NavItem.Menu>
+
+										<NavItem.MenuGroup
+											active
+											label="Logs"
+											renderIcon={ size => <BiHistory size={ size } /> }
+										>
+											<NavItem.Menu active as={ CustomLink } href="https://google.com/">
+												Audit
+											</NavItem.Menu>
+											<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
+												Runtime
+											</NavItem.Menu>
+											<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
+												Slow Query
+											</NavItem.Menu>
+										</NavItem.MenuGroup>
+
+										<NavItem.MenuGroup
+											label="Performance"
+											renderIcon={ size => <BiTachometer size={ size } /> }
+										>
+											<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+												Metrics
+											</NavItem.Menu>
+											<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+												Monitor
+											</NavItem.Menu>
+											<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+												Cache
+											</NavItem.Menu>
+										</NavItem.MenuGroup>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <BiCodeAlt size={ size } /> }
+										>
+											Code [v]
+										</NavItem.Menu>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <BiData size={ size } /> }
+										>
+											Database [v]
+										</NavItem.Menu>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
+										>
+											Media [v]
+										</NavItem.Menu>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <BiBell size={ size } /> }
+										>
+											Notifications
+										</NavItem.Menu>
+										<NavItem.Menu
+											as={ CustomLink }
+											href="https://random-website.com/"
+											renderIcon={ size => <BiBulb size={ size } /> }
+										>
+											Features
+										</NavItem.Menu>
+									</Nav.Menu>
+								</Box>
+							</Flex>
+						</div>
+					</div>
+				</Content>
+			</Root>
 		</>
 	),
 };
