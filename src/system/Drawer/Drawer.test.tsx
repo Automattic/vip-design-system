@@ -17,7 +17,6 @@ const renderComponent = () =>
 			<p sx={ { ml: 3 } }>Hello from default</p>
 		</Drawer>
 	);
-``;
 
 describe( '<Drawer />', () => {
 	beforeAll( () => {
