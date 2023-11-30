@@ -1,4 +1,4 @@
-import { ThemeUIStyleObject } from 'theme-ui';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { defaultNavItemStyles } from './primary';
 import { NavProps } from '../../Nav';
@@ -13,8 +13,27 @@ export const menuItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeU
 	mb: 1,
 } );
 
+// Menu Inverse Item Style <li>
+export const menuInverseItemStyles = (
+	orientation: NavProps[ 'orientation' ]
+): ThemeUIStyleObject => ( {
+	...menuItemStyles( orientation ),
+	width: '100%',
+	mr: 0,
+	height: 45,
+	color: 'toolbar.text.default',
+} );
+
 // Menu Item Link <a>
-export const menuItemLinkStyles: ThemeUIStyleObject = {
+
+const visitedLink = '&:visited';
+const activeAfter = '&[data-active]::after';
+const active = '&[data-active]';
+const focusNotActiveHoverNotActive = '&:focus:not(&[data-active]), &:hover:not(&[data-active])';
+const notHover = ':not(&:hover)';
+const svgIcon = 'svg';
+
+export const menuItemLinkStyles = {
 	position: 'relative',
 	alignItems: 'center',
 	backgroundColor: 'layer.1',
@@ -33,10 +52,10 @@ export const menuItemLinkStyles: ThemeUIStyleObject = {
 	py: 2,
 	textDecoration: 'none',
 	width: '100%',
-	'&:visited': {
+	[ visitedLink ]: {
 		color: 'text',
 	},
-	'&[data-active]::after': {
+	[ activeAfter ]: {
 		position: 'absolute',
 		content: "''",
 		overflow: 'hidden',
@@ -47,7 +66,7 @@ export const menuItemLinkStyles: ThemeUIStyleObject = {
 		top: '6px',
 		left: 3,
 	},
-	'&[data-active]': {
+	[ active ]: {
 		color: 'heading',
 		backgroundColor: 'layer.2',
 		textDecoration: 'none',
@@ -57,17 +76,17 @@ export const menuItemLinkStyles: ThemeUIStyleObject = {
 			fill: 'icon.primary',
 		},
 	},
-	'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
+	[ focusNotActiveHoverNotActive ]: {
 		color: 'heading',
 		backgroundColor: 'layer.3',
 		svg: {
 			color: 'icon.primary',
 		},
 	},
-	':not(&:hover)': {
+	[ notHover ]: {
 		transition: 'background-color 200ms ease-out',
 	},
-	svg: {
+	[ svgIcon ]: {
 		color: 'icon.secondary',
 		fill: 'icon.secondary',
 		display: 'block',
@@ -75,30 +94,26 @@ export const menuItemLinkStyles: ThemeUIStyleObject = {
 };
 
 // Inverse Menu Item Link <a>
-export const menuInverseItemLinkStyles: ThemeUIStyleObject = {
+export const menuInverseItemLinkStyles = {
 	...menuItemLinkStyles,
 	backgroundColor: 'toolbar.background',
-	borderRadius: 1,
-	color: 'text',
-	'&:visited': {
-		color: 'text',
+	color: 'toolbar.text.default',
+	[ visitedLink ]: {
+		...menuItemLinkStyles[ visitedLink ],
+		color: 'toolbar.text.default',
 	},
-	'&[data-active]::after': {
-		backgroundColor: 'borders.accent',
-		borderRadius: '90px',
+	[ active ]: {
+		...menuItemLinkStyles[ active ],
+		color: 'toolbar.text.default',
+		backgroundColor: 'toolbar.background',
 	},
-	'&[data-active]': {
-		color: 'heading',
-		backgroundColor: 'layer.2',
-	},
-	'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
-		color: 'heading',
-		backgroundColor: 'layer.3',
+	[ focusNotActiveHoverNotActive ]: {
+		...menuItemLinkStyles[ focusNotActiveHoverNotActive ],
+		color: 'toolbar.text.hover',
+		backgroundColor: 'toolbar.background',
 		svg: {
+			...menuItemLinkStyles[ focusNotActiveHoverNotActive ].svg,
 			color: 'icon.primary',
 		},
 	},
-	':not(&:hover)': {
-		transition: 'background-color 200ms ease-out',
-	},
-};
+} as ThemeUIStyleObject;

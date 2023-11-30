@@ -5,6 +5,7 @@ import { NavItemTheme } from './NavItem';
 import { breadcrumbsItemStyles, breadcrumbsLinkStyles } from './styles/variants/breadcrumbs';
 import {
 	menuInverseItemLinkStyles,
+	menuInverseItemStyles,
 	menuItemLinkStyles,
 	menuItemStyles,
 } from './styles/variants/menu';
@@ -67,6 +68,9 @@ export const navItemStyles = (
 	switch ( variant ) {
 		case 'menu': {
 			return menuItemStyles( orientation );
+		}
+		case 'menu-inverse': {
+			return menuInverseItemStyles( orientation );
 		}
 
 		case 'breadcrumbs': {

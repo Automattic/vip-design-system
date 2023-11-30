@@ -237,15 +237,15 @@ export const MenuToolbarVertical: Story = {
 				container with constrained width..
 			</p>
 
-			<Nav.Menu label="Main Toolbar vertical" orientation="vertical">
-				<NavItem.MenuInverse href="https://googles.com" as={ CustomLink }>
+			<Nav.Toolbar label="Main" orientation="vertical">
+				<NavItem.MenuInverse active href="https://googles.com" as={ CustomLink }>
 					My Applications
 				</NavItem.MenuInverse>
 				{ /* Example below if you have Next.js <Link /> */ }
-				<NavItem.MenuInverse active href="https://google.com" as={ CustomLink }>
+				<NavItem.MenuInverse href="https://google.com" as={ CustomLink }>
 					Custom Link
 				</NavItem.MenuInverse>
-			</Nav.Menu>
+			</Nav.Toolbar>
 		</>
 	),
 };
