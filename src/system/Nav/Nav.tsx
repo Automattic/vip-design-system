@@ -6,7 +6,7 @@ import { Ref, forwardRef } from 'react';
 import { navMenuListStyles, navStyles } from './styles';
 
 export const VIP_NAV = 'vip-nav-component';
-export type NavVariant = 'primary' | 'tabs' | 'toolbar' | 'menu' | 'breadcrumbs';
+export type NavVariant = 'primary' | 'tabs' | 'toolbar' | 'menu' | 'menu-inverse' | 'breadcrumbs';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;

@@ -443,12 +443,19 @@ export default {
 		top: {
 			transform: 'translate3d(0,-100%,0)',
 			styles: {
+				left: 0,
 				width: '100%',
 				height: 300,
 				bottom: 'auto',
 			},
 		},
 		right: {
+			transform: 'translate3d(100%,0,0)',
+			styles: {
+				right: 0,
+			},
+		},
+		'right-header': {
 			transform: 'translate3d(100%,0,0)',
 			styles: {
 				right: 0,
@@ -461,11 +468,20 @@ export default {
 				height: 300,
 				bottom: 0,
 				top: 'auto',
+				left: 0,
 			},
 		},
 		left: {
 			transform: 'translate3d(-100%,0,0)',
-			left: 0,
+			styles: {
+				left: 0,
+			},
+		},
+		'left-header': {
+			transform: 'translate3d(-100%,0,0)',
+			styles: {
+				left: 0,
+			},
 		},
 	},
 

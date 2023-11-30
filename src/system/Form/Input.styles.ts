@@ -13,7 +13,6 @@ interface InputTheme extends Theme {
 export const inputBaseText = 'input.text.default';
 export const inputBaseBackground = 'input.background.default';
 export const baseControlFocusStyle = {
-	'&:focus': ( theme: InputTheme ) => theme.outline,
 	'&:focus-visible': ( theme: InputTheme ) => theme.outline,
 	'&:focus-within': ( theme: InputTheme ) => theme.outline,
 };

@@ -1,23 +1,34 @@
 /** @jsxImportSource theme-ui */
 
-/**
- * External dependencies
- */
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
-/**
- * Internal dependencies
- */
 import { DialogCloseDefault as DialogClose } from './DialogClose';
-import { contentStyles } from './DialogContent';
 import { DialogDescription } from './DialogDescription';
 import { DialogOverlay } from './DialogOverlay';
 import { DialogTitle } from './DialogTitle';
+import { contentStyles } from './styles';
 
-export const NewDialog = ( {
+export interface DialogContentProps extends DialogPrimitive.DialogContentProps {
+	sx?: ThemeUIStyleObject;
+	className?: string;
+}
+
+export interface NewDialogProps extends DialogPrimitive.DialogProps {
+	trigger?: ReactNode;
+	title: ReactNode;
+	description: ReactNode;
+	content?: ReactNode | ( ( { onClose }: { onClose: () => void } ) => ReactNode );
+	showHeading?: boolean;
+	disabled?: boolean;
+	style?: ThemeUIStyleObject;
+	className?: string;
+	contentProps?: DialogContentProps;
+}
+
+export const NewDialog: React.FC< NewDialogProps > = ( {
 	trigger = null,
 	description,
 	title,
@@ -26,14 +37,13 @@ export const NewDialog = ( {
 	disabled = false,
 	style: extraStyles,
 	contentProps = {},
-	portalProps = {},
 	className = null,
 	...props
 } ) => {
-	const closeRef = React.useRef( null );
+	const closeRef = React.useRef< HTMLButtonElement >( null );
 
 	if ( disabled ) {
-		return;
+		return null;
 	}
 
 	// if content is a function, pass in onClose
@@ -47,7 +57,7 @@ export const NewDialog = ( {
 		<DialogPrimitive.Root { ...props }>
 			{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
 
-			<DialogPrimitive.Portal { ...portalProps }>
+			<DialogPrimitive.Portal>
 				<DialogOverlay />
 
 				<DialogPrimitive.Content
@@ -64,21 +74,4 @@ export const NewDialog = ( {
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>
 	);
-};
-
-NewDialog.propTypes = {
-	trigger: PropTypes.node.isRequired,
-	title: PropTypes.node.isRequired,
-	description: PropTypes.node.isRequired,
-	content: PropTypes.oneOfType( [ PropTypes.node, PropTypes.func ] ),
-	showHeading: PropTypes.bool,
-	disabled: PropTypes.bool,
-	style: PropTypes.oneOfType( [ PropTypes.object, PropTypes.func ] ),
-	className: PropTypes.any,
-
-	// Content props in: https://www.radix-ui.com/docs/primitives/components/dialog#content
-	contentProps: PropTypes.any,
-
-	// Portal props in: https://www.radix-ui.com/docs/primitives/components/dialog#portal
-	portalProps: PropTypes.any,
 };

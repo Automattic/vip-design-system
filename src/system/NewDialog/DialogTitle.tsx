@@ -4,7 +4,7 @@
  * External dependencies
  */
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 
 import ScreenReaderText from '../ScreenReaderText';
 
@@ -12,7 +12,12 @@ import ScreenReaderText from '../ScreenReaderText';
  * Internal dependencies
  */
 
-export const DialogTitle = ( { title, hidden = false } ) => {
+export interface DialogTitleProps {
+	title?: ReactNode;
+	hidden?: boolean;
+}
+
+export const DialogTitle: React.FC< DialogTitleProps > = ( { title, hidden = false } ) => {
 	let titleNode = title;
 
 	if ( hidden ) {
@@ -26,9 +31,4 @@ export const DialogTitle = ( { title, hidden = false } ) => {
 			{ titleNode }
 		</DialogPrimitive.Title>
 	);
-};
-
-DialogTitle.propTypes = {
-	title: PropTypes.node,
-	hidden: PropTypes.bool,
 };

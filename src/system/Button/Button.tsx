@@ -56,6 +56,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 					'&:hover': {
 						textDecoration: 'none',
 					},
+					'&:focus': 'none',
 					'&:focus-visible': ( theme: ButtonTheme ) => theme.outline,
 					'&[aria-disabled="true"]': {
 						opacity: 0.7,

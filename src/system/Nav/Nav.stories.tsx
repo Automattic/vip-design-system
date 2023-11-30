@@ -13,11 +13,9 @@ import { MdOutlinePhotoLibrary } from 'react-icons/md';
 
 import { Nav } from './Nav';
 import { NavItem } from './NavItem';
+import { CustomLink } from '../utils/stories/CustomLink';
 
 import type { StoryObj } from '@storybook/react';
-
-// eslint-disable-next-line jsx-a11y/anchor-has-content
-const CustomLink = props => <a { ...props } />;
 
 export default {
 	title: 'Navigation/Nav',
@@ -227,6 +225,27 @@ export const Menu: Story = {
 					Features
 				</NavItem.Menu>
 			</Nav.Menu>
+		</>
+	),
+};
+
+export const MenuInverse: Story = {
+	render: () => (
+		<>
+			<p>
+				<strong>Variant: Menu</strong>. This menu takes full width by default. You can put it in a
+				container with constrained width..
+			</p>
+
+			<Nav.Toolbar label="Main" orientation="vertical">
+				<NavItem.MenuInverse active href="https://googles.com" as={ CustomLink }>
+					My Applications
+				</NavItem.MenuInverse>
+				{ /* Example below if you have Next.js <Link /> */ }
+				<NavItem.MenuInverse href="https://google.com" as={ CustomLink }>
+					Custom Link
+				</NavItem.MenuInverse>
+			</Nav.Toolbar>
 		</>
 	),
 };

@@ -1,8 +1,7 @@
-import { Link } from 'theme-ui';
-
 import { Toolbar } from '.';
 import { Text, Avatar, Nav, NavItem } from '../../system';
 import ScreenReaderText from '../ScreenReaderText';
+import { CustomLink } from '../utils/stories/CustomLink';
 
 import type { StoryObj } from '@storybook/react';
 
@@ -75,8 +74,6 @@ export const RawBar: Story = {
 		</>
 	),
 };
-
-const CustomLink = props => <Link { ...props } href="https://google.com" />;
 
 export const VIPDashboardLike: Story = {
 	render: () => (

@@ -2,7 +2,12 @@
  * External dependencies
  */
 import { forwardRef, Ref } from 'react';
-import { Link as ThemeLink, LinkProps as ThemeLinkProps, Theme } from 'theme-ui';
+import {
+	Link as ThemeLink,
+	LinkProps as ThemeLinkProps,
+	Theme,
+	ThemeUIStyleObject,
+} from 'theme-ui';
 
 // Temporary interface until we add types to the theme definition.
 interface LinkTheme extends Theme {
@@ -13,7 +18,7 @@ export interface LinkProps extends ThemeLinkProps {
 	active?: boolean;
 }
 
-export const defaultLinkVariantStyle = {
+export const defaultLinkComponentStyle: ThemeUIStyleObject = {
 	color: 'link',
 	textDecorationThickness: '0.1em',
 	textUnderlineOffset: '0.1em',
@@ -35,7 +40,7 @@ export const Link = forwardRef< HTMLAnchorElement, LinkProps >(
 	( { active = false, sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
 		<ThemeLink
 			sx={ {
-				...defaultLinkVariantStyle,
+				...defaultLinkComponentStyle,
 				color: active ? 'links.active' : 'link',
 				...sx,
 			} }

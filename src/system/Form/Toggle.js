@@ -30,7 +30,6 @@ export const Toggle = React.forwardRef(
 				'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.53846 3L3 4.53846L6.46156 8.00001L3.00003 11.4615L4.53848 13L8.00001 9.53847L11.4615 13L13 11.4615L9.53847 8.00001L13 4.53849L11.4615 3.00003L8.00001 6.46156L4.53846 3Z" fill="white"/></svg>')`,
 				WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 
-				'&:focus': theme => theme.outline,
 				'&:focus-visible': theme => theme.outline,
 				'&[disabled]': {
 					opacity: 0.7,

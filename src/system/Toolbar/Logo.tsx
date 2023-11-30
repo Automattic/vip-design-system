@@ -24,6 +24,7 @@ export const Logo = ( { className, as = 'a', href }: LogoProps ) => (
 			width: 54,
 			color: 'toolbar.brand',
 			mr: 5,
+			display: 'inline-block',
 		} }
 		href={ href }
 		as={ as }

@@ -30,7 +30,6 @@ const styles = {
 		color: 'muted',
 	},
 	':hover': { fontWeight: 'regular', color: 'heading' },
-	'&:focus': theme => theme.outline,
 	'&:focus-visible': theme => theme.outline,
 };
 
