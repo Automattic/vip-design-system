@@ -29,8 +29,8 @@ const slideOut = ( theme: ThemeProps, variant: DrawerProps[ 'variant' ] ) => {
 
 export const drawerContentStyles = (
 	variant: DrawerProps[ 'variant' ],
-	width = '100%',
-	height = undefined
+	width: string | number = '100%',
+	height: string | number | undefined = undefined
 ): ThemeUIStyleObject => {
 	const defaultStyles: ThemeUIStyleObject = {
 		p: 0,
