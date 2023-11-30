@@ -1,12 +1,6 @@
 /** @jsxImportSource theme-ui */
-import React from 'react';
 
-import * as Drawer from './Drawer';
-import { Box, Button, Flex, Nav, NavItem } from '..';
-
-import type { StoryObj } from '@storybook/react';
-import { MdMenu, MdOutlinePhotoLibrary } from 'react-icons/md';
-import { CustomLink } from '../utils/stories/CustomLink';
+import { AiOutlineLock } from 'react-icons/ai';
 import {
 	BiBell,
 	BiBulb,
@@ -17,8 +11,14 @@ import {
 	BiTachometer,
 	BiWindows,
 } from 'react-icons/bi';
-import { AiOutlineLock } from 'react-icons/ai';
+import { MdMenu, MdOutlinePhotoLibrary } from 'react-icons/md';
+
+import * as Drawer from './Drawer';
+import { Box, Button, Flex, Nav, NavItem } from '..';
 import { Logo } from '../Toolbar/Logo';
+import { CustomLink } from '../utils/stories/CustomLink';
+
+import type { StoryObj } from '@storybook/react';
 
 export default {
 	title: 'Drawer',
@@ -72,7 +72,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Open Drawer.</Button>
 				</Drawer.Trigger>
-				<Drawer.Content sx={ { width: 320 } }>
+				<Drawer.Content label="Dialog Default" sx={ { width: 320 } }>
 					<p sx={ { ml: 3 } }>Hello from default</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -81,7 +81,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Top</Button>
 				</Drawer.Trigger>
-				<Drawer.Content variant="top">
+				<Drawer.Content label="Dialog Content" variant="top">
 					<p sx={ { ml: 3 } }>Hello from top</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -89,7 +89,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Right</Button>
 				</Drawer.Trigger>
-				<Drawer.Content variant="right">
+				<Drawer.Content label="Dialog ={" variant="right">
 					<p sx={ { ml: 3 } }>Hello from right</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -97,7 +97,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Bottom</Button>
 				</Drawer.Trigger>
-				<Drawer.Content variant="bottom">
+				<Drawer.Content label="Dialog ={" variant="bottom">
 					<p sx={ { ml: 3 } }>Hello from bottom</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -105,7 +105,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Left</Button>
 				</Drawer.Trigger>
-				<Drawer.Content variant="left">
+				<Drawer.Content label="Dialog ={" variant="left">
 					<p sx={ { ml: 3 } }>Hello from left</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -113,7 +113,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Left Header</Button>
 				</Drawer.Trigger>
-				<Drawer.Content variant="left-header">
+				<Drawer.Content label="Dialog ={" variant="left-header">
 					<p sx={ { ml: 3 } }>Hello from left header (VIP Dashboard needs)</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -121,7 +121,7 @@ export const Default: Story = {
 				<Drawer.Trigger asChild>
 					<Button>Right Header</Button>
 				</Drawer.Trigger>
-				<Drawer.Content variant="left-header">
+				<Drawer.Content label="Dialog ={" variant="left-header">
 					<p sx={ { ml: 3 } }>Hello from right header (VIP Dashboard needs)</p>
 				</Drawer.Content>
 			</Drawer.Root>
@@ -132,7 +132,7 @@ export const Default: Story = {
 export const VIPMobileMenu: Story = {
 	render: () => (
 		<>
-			<Drawer.Root label="Dialog for Menu">
+			<Drawer.Root>
 				<Drawer.Trigger asChild>
 					<Button
 						type="button"
@@ -155,6 +155,7 @@ export const VIPMobileMenu: Story = {
 					</Button>
 				</Drawer.Trigger>
 				<Drawer.Content
+					label="Dialog X"
 					variant="left"
 					sx={ {
 						width: 320,
