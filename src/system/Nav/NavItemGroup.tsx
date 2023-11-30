@@ -7,13 +7,13 @@ import { BiChevronDown } from 'react-icons/bi';
 
 import { NavItemRenderIconProp, VIP_NAV } from './Nav';
 import { NAV_ITEM_ICON_SIZE, NavItemBaseProps } from './NavItem';
+import { navItemLinkVariantStyles } from './styles';
 import {
-	itemVariantStyle,
-	navItemGroupTriggerStyles,
 	navItemGroupStyles,
 	navItemGroupContentStyles,
 	navItemGroupContentUlStyles,
-} from './styles';
+	navItemGroupTriggerStyles,
+} from './styles/variants/menugroup';
 
 export interface NavItemGroupProps extends NavItemBaseProps {
 	renderIcon?: NavItemRenderIconProp;
@@ -55,8 +55,8 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							data-active={ active || undefined }
 							data-open={ isExpanded || undefined }
 							sx={ {
-								...itemVariantStyle( variant ),
-								...navItemGroupTriggerStyles(),
+								...navItemLinkVariantStyles( variant ),
+								...navItemGroupTriggerStyles,
 							} }
 						>
 							{ renderIcon( NAV_ITEM_ICON_SIZE ) }
@@ -70,8 +70,8 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							/>
 						</button>
 					</Collapsible.Trigger>
-					<Collapsible.Content sx={ navItemGroupContentStyles() }>
-						<ul sx={ navItemGroupContentUlStyles() }>{ children }</ul>
+					<Collapsible.Content sx={ navItemGroupContentStyles }>
+						<ul sx={ navItemGroupContentUlStyles }>{ children }</ul>
 					</Collapsible.Content>
 				</Collapsible.Root>
 			</NavigationMenu.Item>

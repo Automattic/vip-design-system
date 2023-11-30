@@ -43,6 +43,14 @@ const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
 	)
 );
 
+export type NavItemAsProp = React.ComponentType< {
+	href?: string;
+	'aria-disabled'?: boolean;
+	disabled?: boolean;
+	ref: Ref< HTMLAnchorElement >;
+	children?: React.ReactNode;
+} >;
+
 export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	className?: string;
 	disabled?: boolean;
@@ -50,12 +58,7 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	renderIcon?: NavItemRenderIconProp;
 	href?: string;
 	sx?: ThemeUIStyleObject;
-	as?: React.ComponentType< {
-		href?: string;
-		'aria-disabled'?: boolean;
-		disabled?: boolean;
-		children?: React.ReactNode;
-	} >;
+	as?: NavItemAsProp;
 	orientation?: NavProps[ 'orientation' ];
 }
 
@@ -77,8 +80,10 @@ const NavItemRoot = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
-// eslint-disable-next-line jsx-a11y/anchor-has-content
-export const NavRawLink = props => <a { ...props } />;
+export const NavRawLink = forwardRef< HTMLAnchorElement >(
+	// eslint-disable-next-line jsx-a11y/anchor-has-content
+	( props, ref: Ref< HTMLAnchorElement > ) => <a { ...props } ref={ ref } />
+);
 
 const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 	(
@@ -147,10 +152,17 @@ export const ItemMenu = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
+export const ItemMenuInverse = forwardRef< HTMLAnchorElement, NavItemProps >(
+	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
+		<NavItemRoot variant="menu-inverse" ref={ ref } { ...props } />
+	)
+);
+
 export const NavItem = {
 	Primary: ItemPrimary,
 	Tab: ItemTab,
 	Toolbar: ItemToolbar,
 	Menu: ItemMenu,
 	MenuGroup: ItemGroupMenu,
+	MenuInverse: ItemMenuInverse,
 };

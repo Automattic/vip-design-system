@@ -1,298 +1,57 @@
-import { keyframes } from '@emotion/react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { NavProps, NavVariant } from './Nav';
 import { NavItemTheme } from './NavItem';
-import { defaultLinkVariantStyle } from '../Link/Link';
+import { breadcrumbsItemStyles, breadcrumbsLinkStyles } from './styles/variants/breadcrumbs';
+import {
+	menuInverseItemLinkStyles,
+	menuItemLinkStyles,
+	menuItemStyles,
+} from './styles/variants/menu';
+import {
+	defaultNavItemStyles,
+	defaultNavRootStyles,
+	primaryItemLinkStyles,
+} from './styles/variants/primary';
+import { tabItemLinkStyles, tabRootStyles } from './styles/variants/tabs';
+import { toolbarItemLinkStyles, toolbarRootStyles } from './styles/variants/toolbar';
 
-export const defaultToolbarLinkStyle = {
-	color: 'toolbar.text.default',
-	textDecoration: 'none',
-	borderBottom: 'none',
-	display: 'inline-flex',
-	alignItems: 'center',
-	fontWeight: 500,
-	'&:hover': {
-		color: 'toolbar.text.hover',
-	},
-};
+// navItemStyles = <li>
+// navStyles = <nav>
+// MenuItem
 
-const baseVariantStyle = {
-	alignItems: 'center',
-	display: 'inline-flex',
-	fontSize: 2,
-	justifyContent: 'center',
-	lineHeight: 'inherit',
-	minHeight: '36px',
-	px: 3,
-	py: 0,
-	textDecoration: 'none',
-	verticalAlign: 'middle',
-};
-
-export const navItemGroupTriggerStyles = (): ThemeUIStyleObject => ( {
-	mb: 1,
-	'svg[data-arrow-indicator]': {
-		position: 'absolute',
-		right: 3,
-		top: 2,
-		transform: 'rotate(0deg)',
-	},
-	'&[data-open]': {
-		'svg[data-arrow-indicator]': {
-			transform: 'rotate(180deg)',
-			transition: 'transform 200ms',
-		},
-	},
-	'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
-		// This will make the trigger button look like a link
-		cursor: 'pointer',
-		textDecorationLine: 'underline',
-		textDecorationThickness: '2px',
-	},
-} );
-
-export const navItemGroupContentUlStyles = (): ThemeUIStyleObject => ( {
-	m: 0,
-	p: 0,
-	pl: 3,
-	listStyle: 'none',
-} );
-
-const slideDown = keyframes( {
-	from: { height: 0 },
-	to: { height: 'var(--radix-collapsible-content-height)' },
-} );
-
-const slideUp = keyframes( {
-	from: { height: 'var(--radix-collapsible-content-height)' },
-	to: { height: 0 },
-} );
-
-export const navItemGroupContentStyles = (): ThemeUIStyleObject => ( {
-	overflow: 'hidden',
-	'&[data-state="open"]': {
-		animation: `${ slideDown } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
-	},
-	'&[data-state="closed"]': {
-		animation: `${ slideUp } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
-	},
-} );
-
-export const itemVariantStyle = ( variant: NavVariant ): ThemeUIStyleObject => {
+export const navItemLinkVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 	switch ( variant ) {
 		case 'tabs': {
-			return {
-				...baseVariantStyle,
-				px: 0,
-				mr: 2,
-				color: 'heading',
-				'&[data-active]': {
-					color: 'link',
-					fontWeight: 'normal',
-					boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
-				},
-				'&[aria-disabled="true"]': {
-					color: 'muted',
-				},
-				':hover': { fontWeight: 'regular', color: 'heading' },
-			};
+			return tabItemLinkStyles;
 		}
 
 		case 'toolbar': {
-			return {
-				...baseVariantStyle,
-				position: 'relative',
-				ml: 3,
-				mr: 3,
-				height: '100%',
-				...defaultToolbarLinkStyle,
-
-				'&[data-active], &[aria-current="page"]': {
-					color: 'toolbar.text.default',
-				},
-				'&[data-active]:before, &[aria-current="page"]:before': {
-					display: 'block',
-					content: '""',
-					width: '100%',
-					height: 3,
-					overflow: 'hidden',
-					backgroundColor: 'borders.accent',
-					position: 'absolute',
-					top: 0,
-				},
-			};
+			return toolbarItemLinkStyles;
 		}
 
 		case 'menu': {
-			return {
-				position: 'relative',
-				alignItems: 'center',
-				backgroundColor: 'layer.1',
-				border: 'none',
-				borderRadius: 1,
-				color: 'text',
-				display: 'inline-flex',
-				fontSize: 'inherit',
-				fontWeight: 'body',
-				gap: 3,
-				height: 38,
-				mx: 0,
-				mb: 0,
-				pl: 5,
-				pr: 3,
-				py: 2,
-				textDecoration: 'none',
-				width: '100%',
-				'&:visited': {
-					color: 'text',
-				},
-				'&[data-active]::after': {
-					position: 'absolute',
-					content: "''",
-					overflow: 'hidden',
-					width: 3,
-					backgroundColor: 'borders.accent',
-					borderRadius: '90px',
-					height: 26,
-					top: '6px',
-					left: 3,
-				},
-				'&[data-active]': {
-					color: 'heading',
-					backgroundColor: 'layer.2',
-					textDecoration: 'none',
-					cursor: 'default',
-					svg: {
-						color: 'icon.primary',
-						fill: 'icon.primary',
-					},
-				},
-				'&:focus:not(&[data-active]), &:hover:not(&[data-active])': {
-					color: 'heading',
-					backgroundColor: 'layer.3',
-					svg: {
-						color: 'icon.primary',
-					},
-				},
-				':not(&:hover)': {
-					transition: 'background-color 200ms ease-out',
-				},
-				svg: {
-					color: 'icon.secondary',
-					fill: 'icon.secondary',
-					display: 'block',
-				},
-			};
+			return menuItemLinkStyles;
+		}
+
+		case 'menu-inverse': {
+			return menuInverseItemLinkStyles;
 		}
 
 		case 'breadcrumbs': {
-			return {
-				...defaultLinkVariantStyle,
-				m: 0,
-			};
+			return breadcrumbsLinkStyles;
 		}
 
 		// Primary and any Other
 		case 'primary':
 		default: {
-			return {
-				...baseVariantStyle,
-				variant: `buttons.tertiary`,
-				borderRadius: 1,
-				'&[data-active]': {
-					variant: `buttons.${ variant }`,
-				},
-				'&[aria-disabled="true"]': {
-					opacity: 0.7,
-					color: 'texts.secondary',
-					cursor: 'not-allowed',
-				},
-				':hover': {
-					backgroundColor: `button.${ variant }.background.hover`,
-					textDecoration: 'none',
-				},
-			};
-		}
-	}
-};
-
-export const navItemStyles = (
-	orientation: NavProps[ 'orientation' ],
-	variant?: NavVariant
-): ThemeUIStyleObject => {
-	const defaultStyle = {
-		mr: 2,
-		'&:last-of-type': {
-			mr: orientation === 'horizontal' ? 0 : undefined,
-		},
-	};
-
-	switch ( variant ) {
-		case 'menu': {
-			return {
-				...defaultStyle,
-				mr: 0,
-				border: 'none',
-				height: 38,
-				width: '100%',
-				mb: 1,
-			};
-		}
-
-		case 'breadcrumbs': {
-			return {
-				// This code will generate the breadcrumb separator: /. We create the separator via CSS to hide it from screen readers.
-				'&::before': {
-					display: 'inline-block',
-					margin: '0 0.45em',
-					transform: 'rotate(15deg)',
-					borderRightColor: 'text',
-					borderRightStyle: 'solid',
-					borderRightWidth: '0.1em',
-					height: '0.8em',
-					content: '""',
-				},
-
-				'&:not(&[data-active]):first-of-type::before': {
-					display: 'none',
-				},
-			};
-		}
-
-		default: {
-			return defaultStyle;
-		}
-	}
-};
-
-export const navItemGroupStyles = (
-	orientation: NavProps[ 'orientation' ],
-	variant?: NavVariant
-): ThemeUIStyleObject => {
-	const defaultStyle = {
-		'&:last-of-type': {
-			mr: orientation === 'horizontal' ? 0 : undefined,
-		},
-	};
-
-	switch ( variant ) {
-		case 'menu': {
-			return {
-				...defaultStyle,
-				mr: 0,
-				width: '100%',
-			};
-		}
-
-		default: {
-			return defaultStyle;
+			return primaryItemLinkStyles( variant );
 		}
 	}
 };
 
 export const navItemLinkStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	const itemLinkVariantStyles = itemVariantStyle( variant );
+	const itemLinkVariantStyles = navItemLinkVariantStyles( variant );
 
 	return {
 		'&:focus': ( theme: NavItemTheme ) => theme.outline,
@@ -301,37 +60,61 @@ export const navItemLinkStyles = ( variant: NavVariant ): ThemeUIStyleObject => 
 	};
 };
 
-export const navItemLinkVariantStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	const defaultStyles = {
-		width: '100%',
-		borderColor: 'transparent',
-	};
-
+export const navItemStyles = (
+	orientation: NavProps[ 'orientation' ],
+	variant?: NavVariant
+): ThemeUIStyleObject => {
 	switch ( variant ) {
-		case 'tabs': {
-			return {
-				width: '100%',
-				borderColor: 'borders.2',
-			};
+		case 'menu': {
+			return menuItemStyles( orientation );
 		}
 
-		case 'toolbar': {
-			return {
-				...defaultStyles,
-				display: [ 'none', 'none', 'flex' ],
-				height: '100%',
-				ml: 0,
-			};
+		case 'breadcrumbs': {
+			return breadcrumbsItemStyles;
 		}
 
 		default: {
-			return defaultStyles;
+			return defaultNavItemStyles( orientation );
+		}
+	}
+};
+
+export const navRootStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
+	switch ( variant ) {
+		case 'tabs': {
+			return tabRootStyles;
+		}
+
+		case 'toolbar': {
+			return toolbarRootStyles;
+		}
+
+		default: {
+			return defaultNavRootStyles;
 		}
 	}
 };
 
 export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	const defaultVariantStyles = navItemLinkVariantStyles( variant );
+	let navStyle: ThemeUIStyleObject = {};
+
+	switch ( variant ) {
+		case 'tabs':
+			{
+				navStyle = tabRootStyles;
+			}
+
+			break;
+		case 'toolbar':
+			{
+				navStyle = toolbarRootStyles;
+			}
+
+			break;
+		default: {
+			navStyle = defaultNavRootStyles;
+		}
+	}
 
 	return {
 		'> div:first-of-type': { width: '100%' },
@@ -339,7 +122,7 @@ export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
 		display: 'flex',
 		pb: 0,
 		borderBottom: '1px solid',
-		...defaultVariantStyles,
+		...navStyle,
 	};
 };
 
