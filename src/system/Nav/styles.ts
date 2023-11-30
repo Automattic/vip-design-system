@@ -55,7 +55,6 @@ export const navItemLinkStyles = ( variant: NavVariant ): ThemeUIStyleObject => 
 	const itemLinkVariantStyles = navItemLinkVariantStyles( variant );
 
 	return {
-		'&:focus': ( theme: NavItemTheme ) => theme.outline,
 		'&:focus-visible': ( theme: NavItemTheme ) => theme.outline,
 		...itemLinkVariantStyles,
 	};
