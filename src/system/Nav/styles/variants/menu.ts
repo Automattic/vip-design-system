@@ -1,7 +1,11 @@
-import { Theme, ThemeUIStyleObject } from 'theme-ui';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 import { defaultNavItemStyles } from './primary';
 import { NavProps } from '../../Nav';
+
+type MixedStyleProp = {
+	[ key: string ]: string | number | MixedStyleProp | ThemeUIStyleObject;
+};
 
 // Menu Item Style <li>
 export const menuItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeUIStyleObject => ( {
@@ -33,7 +37,7 @@ const focusNotActiveHoverNotActive = '&:focus:not(&[data-active]), &:hover:not(&
 const notHover = ':not(&:hover)';
 const svgIcon = 'svg';
 
-export const menuItemLinkStyles = {
+export const menuItemLinkStyles: MixedStyleProp = {
 	position: 'relative',
 	alignItems: 'center',
 	backgroundColor: 'layer.1',
@@ -98,22 +102,34 @@ export const menuInverseItemLinkStyles = {
 	...menuItemLinkStyles,
 	backgroundColor: 'toolbar.background',
 	color: 'toolbar.text.default',
-	[ visitedLink ]: {
-		...menuItemLinkStyles[ visitedLink ],
-		color: 'toolbar.text.default',
-	},
-	[ active ]: {
-		...menuItemLinkStyles[ active ],
-		color: 'toolbar.text.default',
-		backgroundColor: 'toolbar.background',
-	},
-	[ focusNotActiveHoverNotActive ]: {
-		...menuItemLinkStyles[ focusNotActiveHoverNotActive ],
-		color: 'toolbar.text.hover',
-		backgroundColor: 'toolbar.background',
-		svg: {
-			...menuItemLinkStyles[ focusNotActiveHoverNotActive ].svg,
-			color: 'icon.primary',
-		},
-	},
-} as ThemeUIStyleObject;
+	[ visitedLink ]:
+		typeof menuItemLinkStyles[ visitedLink ] === 'object'
+			? {
+					...menuItemLinkStyles[ visitedLink ],
+					color: 'toolbar.text.default',
+			  }
+			: {},
+	[ active ]:
+		typeof menuItemLinkStyles[ active ] === 'object'
+			? {
+					...menuItemLinkStyles[ active ],
+					color: 'toolbar.text.default',
+					backgroundColor: 'tool`bar.background',
+			  }
+			: {},
+	[ focusNotActiveHoverNotActive ]:
+		typeof menuItemLinkStyles[ focusNotActiveHoverNotActive ] === 'object'
+			? {
+					...menuItemLinkStyles[ focusNotActiveHoverNotActive ],
+					color: 'toolbar.text.hover',
+					backgroundColor: 'toolbar.background',
+					svg:
+						typeof menuItemLinkStyles[ focusNotActiveHoverNotActive ].svg === 'object'
+							? {
+									...menuItemLinkStyles[ focusNotActiveHoverNotActive ].svg,
+									color: 'icon.primary',
+							  }
+							: {},
+			  }
+			: {},
+};

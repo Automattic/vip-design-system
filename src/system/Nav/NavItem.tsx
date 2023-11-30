@@ -47,7 +47,7 @@ export type NavItemAsProp = React.ComponentType< {
 	href?: string;
 	'aria-disabled'?: boolean;
 	disabled?: boolean;
-	ref: Ref< HTMLAnchorElement >;
+	ref?: Ref< HTMLAnchorElement >;
 	children?: React.ReactNode;
 } >;
 
