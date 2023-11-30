@@ -13,7 +13,7 @@ import {
 } from 'react-icons/bi';
 import { MdMenu, MdOutlinePhotoLibrary } from 'react-icons/md';
 
-import { Drawer } from './Drawer';
+import { Drawer, Root, Trigger, Content } from './Drawer';
 import { Box, Button, Flex, Nav, NavItem } from '..';
 import { Logo } from '../Toolbar/Logo';
 import { CustomLink } from '../utils/stories/CustomLink';
@@ -90,6 +90,21 @@ export const Default: Story = {
 			<Drawer trigger={ <Button>Right Header</Button> } variant="left-header" label="Dialog">
 				<p sx={ { ml: 3 } }>Hello from right header (VIP Dashboard needs)</p>
 			</Drawer>
+		</>
+	),
+};
+
+export const ByParts: Story = {
+	render: () => (
+		<>
+			<Root>
+				<Trigger asChild>
+					<Button>Open Drawer.</Button>
+				</Trigger>
+				<Content sx={ { width: 320 } } label="My XYZ Dialog">
+					<p sx={ { ml: 3 } }>Hello from default</p>
+				</Content>
+			</Root>
 		</>
 	),
 };

@@ -7,6 +7,34 @@ import { drawerContentStyles, drawerOverlayStyles } from './styles';
 import { DialogCloseDefault } from '../NewDialog/DialogClose';
 import { DialogTitle } from '../NewDialog/DialogTitle';
 
+export interface DrawerContentProps
+	extends DialogPrimitive.DialogProps,
+		DialogPrimitive.DialogContentProps {
+	children?: React.ReactNode;
+	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
+	sx?: ThemeUIStyleObject;
+}
+
+const Content = React.forwardRef<
+	React.ElementRef< typeof DialogPrimitive.Content >,
+	DrawerContentProps
+>( ( { children, sx, variant = 'left', ...props }, forwardedRef ) => (
+	<DialogPrimitive.Portal>
+		<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
+		<DialogPrimitive.Content
+			{ ...props }
+			sx={ {
+				...drawerContentStyles( variant ),
+				...sx,
+			} }
+			ref={ forwardedRef }
+		>
+			<DialogCloseDefault />
+			{ children }
+		</DialogPrimitive.Content>
+	</DialogPrimitive.Portal>
+) );
+
 export interface DrawerProps
 	extends DialogPrimitive.DialogProps,
 		DialogPrimitive.DialogContentProps {
@@ -21,8 +49,7 @@ export const Drawer = React.forwardRef<
 	React.ElementRef< typeof DialogPrimitive.Content >,
 	DrawerProps
 >( ( { children, sx, variant = 'left', label, trigger, ...rest }, forwardedRef ) => (
-	<DialogPrimitive.Root>
-		{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
+	<Root trigger={ trigger }>
 		<DialogPrimitive.Portal>
 			<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
 			<DialogPrimitive.Content
@@ -38,5 +65,21 @@ export const Drawer = React.forwardRef<
 				{ children }
 			</DialogPrimitive.Content>
 		</DialogPrimitive.Portal>
-	</DialogPrimitive.Root>
+	</Root>
 ) );
+
+export interface DrawerRootProps {
+	children: ReactNode;
+	trigger?: ReactNode;
+}
+
+const Root = ( { children, trigger }: DrawerRootProps ) => (
+	<DialogPrimitive.Root>
+		{ trigger && <DialogPrimitive.Trigger asChild>{ trigger }</DialogPrimitive.Trigger> }
+		{ children }
+	</DialogPrimitive.Root>
+);
+
+const Trigger = DialogPrimitive.Trigger;
+
+export { Root, Trigger, Content };
