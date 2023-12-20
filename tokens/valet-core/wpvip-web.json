@@ -378,7 +378,7 @@
       "value": "Aktiv Grotesk EX",
       "type": "fontFamilies"
     },
-    "mono": {
+    "monospace": {
       "value": "AkkuratMonoLLWeb-Regular",
       "type": "fontFamilies"
     }
