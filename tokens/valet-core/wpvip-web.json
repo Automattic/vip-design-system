@@ -78,7 +78,7 @@
     "1": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.medium}",
+        "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.6}",
         "letterSpacing": "{letterSpacing.tight}"
