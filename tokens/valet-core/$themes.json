@@ -2534,13 +2534,12 @@
   },
   {
     "id": "97662160426568966100d2dccc5dfcdefeb5d921",
-    "name": "core",
+    "name": "wpvip-web-core",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "valet-core": "source",
       "wpvip-web": "enabled"
     },
-    "group": "wpvip web",
     "$figmaCollectionId": "VariableCollectionId:8366:28214",
     "$figmaModeId": "8366:4",
     "$figmaVariableReferences": {
@@ -2717,7 +2716,8 @@
       "tag.pink.icon": "47a4b11acf31daec42e9de9445d432b9f2075ce7",
       "tag.pink.hover": "5f7ac4702b82433fd7720e83e5a81f34e79d3e09",
       "tag.pink.active": "5eea6945c8500340a221572a002d9459c2cb5952"
-    }
+    },
+    "group": "wpvip web"
   },
   {
     "id": "30fdad110428809b3223a6c4fb7ac0d936b100cd",
