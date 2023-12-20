@@ -72,15 +72,6 @@
         "fontSize": "{fontSize.static.5}"
       },
       "type": "typography"
-    },
-    "5-short": {
-      "value": {
-        "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.regular}",
-        "fontSize": "{fontSize.static.3}",
-        "lineHeight": "{lineHeight.4}"
-      },
-      "type": "typography"
     }
   },
   "heading": {
