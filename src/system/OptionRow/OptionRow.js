@@ -94,7 +94,7 @@ const OptionRow = React.forwardRef(
 					) }
 				</Box>
 
-				<Box sx={ { flex: '1 1 auto' } }>
+				<Box sx={ { flex: '1 1 auto', overflowWrap: 'break-word' } }>
 					<Heading
 						variant={ titleVariant }
 						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
