@@ -140,7 +140,7 @@
         "fontFamily": "{fontFamily.sans}",
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.responsive}",
-        "fontSize": "{fontSize.responsive.13}",
+        "fontSize": "{fontSize.responsive.12}",
         "letterSpacing": "{letterSpacing.extra-tight}"
       },
       "type": "typography"

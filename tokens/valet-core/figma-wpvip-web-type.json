@@ -256,7 +256,7 @@
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.bold}",
-          "lineHeight": "{lineHeight.2}",
+          "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.10.L}",
           "letterSpacing": "{letterSpacing.extra-tight}"
         },
@@ -266,7 +266,7 @@
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.bold}",
-          "lineHeight": "{lineHeight.2}",
+          "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.10.XL}",
           "letterSpacing": "{letterSpacing.extra-tight}"
         },
@@ -276,7 +276,7 @@
         "value": {
           "fontFamily": "{fontFamily.sans}",
           "fontWeight": "{fontWeight.bold}",
-          "lineHeight": "{lineHeight.2}",
+          "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.10.MAX}",
           "letterSpacing": "{letterSpacing.extra-tight}"
         },
