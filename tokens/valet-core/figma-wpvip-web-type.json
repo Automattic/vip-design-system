@@ -382,7 +382,7 @@
           "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.12.MAX}",
-          "letterSpacing": "{letterSpacing.tight}"
+          "letterSpacing": "{letterSpacing.extra-tight}"
         },
         "type": "typography"
       }
@@ -434,7 +434,7 @@
           "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.1}",
           "fontSize": "{fontSize.figma.13.MAX}",
-          "letterSpacing": "{letterSpacing.tight}"
+          "letterSpacing": "{letterSpacing.extra-tight}"
         },
         "type": "typography"
       }
@@ -1203,6 +1203,10 @@
     },
     "tight": {
       "value": "-2%",
+      "type": "letterSpacing"
+    },
+    "extra-tight": {
+      "value": "-5%",
       "type": "letterSpacing"
     },
     "loose": {

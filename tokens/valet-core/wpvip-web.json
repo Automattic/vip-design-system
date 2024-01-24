@@ -141,7 +141,7 @@
         "fontWeight": "{fontWeight.bold}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.13}",
-        "letterSpacing": "{letterSpacing.tight}"
+        "letterSpacing": "{letterSpacing.extra-tight}"
       },
       "type": "typography"
     },
@@ -386,6 +386,10 @@
   "letterSpacing": {
     "tight": {
       "value": "-0.01em",
+      "type": "letterSpacing"
+    },
+    "extra-tight": {
+      "value": "-0.05em",
       "type": "letterSpacing"
     },
     "none": {
