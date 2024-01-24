@@ -79,7 +79,7 @@
       "S": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
-          "fontWeight": "{fontWeight.medium}",
+          "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.S}",
           "letterSpacing": "{letterSpacing.tight}"
@@ -89,7 +89,7 @@
       "M": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
-          "fontWeight": "{fontWeight.medium}",
+          "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.M}",
           "letterSpacing": "{letterSpacing.tight}"
@@ -99,7 +99,7 @@
       "L": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
-          "fontWeight": "{fontWeight.medium}",
+          "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.L}",
           "letterSpacing": "{letterSpacing.tight}"
@@ -109,7 +109,7 @@
       "XL": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
-          "fontWeight": "{fontWeight.medium}",
+          "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.XL}",
           "letterSpacing": "{letterSpacing.tight}"
@@ -119,7 +119,7 @@
       "MAX": {
         "value": {
           "fontFamily": "{fontFamily.sans}",
-          "fontWeight": "{fontWeight.medium}",
+          "fontWeight": "{fontWeight.bold}",
           "lineHeight": "{lineHeight.3}",
           "fontSize": "{fontSize.figma.6.MAX}",
           "letterSpacing": "{letterSpacing.tight}"
