@@ -148,7 +148,7 @@
     "1-light": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.light}",
+        "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.6}",
         "letterSpacing": "{letterSpacing.tight}"
