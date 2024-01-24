@@ -158,7 +158,7 @@
     "2-light": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.light}",
+        "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.8}",
         "letterSpacing": "{letterSpacing.tight}"
@@ -168,7 +168,7 @@
     "3-light": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.light}",
+        "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.9}",
         "letterSpacing": "{letterSpacing.tight}"
@@ -178,7 +178,7 @@
     "4-light": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.light}",
+        "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.10}",
         "letterSpacing": "{letterSpacing.tight}"
@@ -188,7 +188,7 @@
     "5-light": {
       "value": {
         "fontFamily": "{fontFamily.sans}",
-        "fontWeight": "{fontWeight.light}",
+        "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.11}",
         "letterSpacing": "{letterSpacing.tight}"
