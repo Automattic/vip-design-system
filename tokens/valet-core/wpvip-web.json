@@ -320,7 +320,7 @@
           "fontWeight": "{fontWeight.regular}",
           "lineHeight": "{lineHeight.4}",
           "fontSize": "{fontSize.static.1}",
-          "letterSpacing": "{letterSpacing.loose}"
+          "letterSpacing": "{letterSpacing.none}"
         },
         "type": "typography"
       },
