@@ -11,11 +11,11 @@ import { MdExpandMore } from 'react-icons/md';
  */
 import { baseControlBorderStyle as borderStyle } from '../Form/Input.styles';
 
-export const FormSelectArrow = React.forwardRef( ( props, forwardRef ) => (
+export const FormSelectArrow = React.forwardRef( ( { iconSize = 24, ...props }, forwardRef ) => (
 	<MdExpandMore
 		ref={ forwardRef }
 		aria-hidden="true"
-		size={ 24 }
+		size={ iconSize }
 		sx={ {
 			position: 'absolute',
 			paddingLeft: 2,
