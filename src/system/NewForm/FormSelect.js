@@ -16,6 +16,7 @@ import { baseControlStyle } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
 
 const MAX_SUGGESTED_OPTIONS = 15;
+const ICON_SIZE = 24;
 const isDev = process.env.NODE_ENV !== 'production';
 
 const defaultStyles = {
@@ -26,6 +27,8 @@ const defaultStyles = {
 	appearance: 'none',
 	minHeight: '36px',
 	lineHeight: '36px',
+	fontFamily: 'inherit',
+	fontSize: '1em',
 };
 
 const renderOption = ( label, value ) => {
@@ -102,7 +105,7 @@ const FormSelect = React.forwardRef(
 		);
 
 		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel }>
+			<Label sx={ { lineHeight: `${ ICON_SIZE }px` } } required={ required } htmlFor={ forLabel }>
 				{ label }
 			</Label>
 		);
@@ -131,7 +134,7 @@ const FormSelect = React.forwardRef(
 								: renderOption( optionLabel( option ), optionValue( option ) )
 						) }
 					</select>
-					<FormSelectArrow />
+					<FormSelectArrow iconSize={ ICON_SIZE } />
 				</FormSelectContent>
 
 				{ hasError && errorMessage && (
