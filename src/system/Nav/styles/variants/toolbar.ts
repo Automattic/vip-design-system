@@ -8,6 +8,7 @@ export const toolbarRootStyles: ThemeUIStyleObject = {
 	display: [ 'none', 'none', 'flex' ],
 	height: '100%',
 	ml: 0,
+	width: 'max-content',
 };
 
 // Toolbar Default Link Styles <a>
