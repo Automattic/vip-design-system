@@ -1,0 +1,43 @@
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true,
+        "git.autofetch": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[svg]": {
+          "editor.defaultFormatter": "jock.svg"
+        },
+        "prettier.prettierPath": "./node_modules/.bin/prettier",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "deque-systems.vscode-axe-linter",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "github.vscode-pull-request-github",
+        "ionutvmi.path-autocomplete",
+        "jock.svg",
+        "styled-components.vscode-styled-components",
+        "unifiedjs.vscode-mdx",
+        "usernamehw.errorlens"
+      ]
+    }
+  },
+  "features": {
+    "git": "latest",
+    "github-cli": "latest"
+  },
+  "forwardPorts": [ 6006 ],
+  "onCreateCommand": "npm install",
+  "portsAttributes": {
+    "6006": {
+      "label": "Storybook",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "postAttachCommand": "npm run dev"
+}
