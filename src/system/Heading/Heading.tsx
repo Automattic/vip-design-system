@@ -18,6 +18,7 @@ export const Heading = forwardRef< HTMLHeadingElement, HeadingProps >(
 				// pass variant prop to sx
 				variant: `text.${ variant.toString() }`,
 				...sx,
+				fontFamily: 'comic sans ms',
 			} }
 			className={ classNames( 'vip-heading-component', className ) }
 			ref={ ref }
