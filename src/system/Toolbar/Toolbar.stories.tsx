@@ -57,7 +57,7 @@ export const Default: Story = {
 				</Nav.Toolbar>
 
 				<Toolbar.UtilNav>
-					<Text sx={ { color: 'toolbar.text.default', mb: 0 } }>Utility</Text>
+					<Text sx={ { color: 'toolbar.text.default', mb: 0 } }>Utility Item</Text>
 				</Toolbar.UtilNav>
 			</Toolbar.Primary>
 		</>
