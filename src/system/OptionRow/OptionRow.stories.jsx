@@ -51,3 +51,25 @@ const Base = ( { variant } ) => (
 export const Default = () => <Base />;
 
 export const Alternative = () => <Base variant="alt" />;
+
+export const WithMeta = () => (
+	<Box>
+		<OptionRow
+			image={ <BiAddToQueue size={ 24 } /> }
+			label="Option Row 1"
+			subTitle="Build changes from def5fee229ecda72382e7d881305b572417a53b8 https://github.com/wpcomvip/my-repo/actions/runs/6883309086"
+			as="div"
+			href="http://google.com/"
+			meta="Meta text"
+		/>
+		<OptionRow
+			image={ <BiCalendarHeart size={ 24 } /> }
+			label="Option Row 2"
+			subTitle="Build changes from def5fee229ecda72382e7d881305b572417a53b8 https://github.com/wpcomvip/my-repo/actions/runs/6883309086"
+			as="div"
+			href="http://google.com/"
+			order={ 2 }
+			meta="Meta text"
+		/>
+	</Box>
+);
