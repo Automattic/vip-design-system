@@ -95,6 +95,85 @@ export const Default = () => {
 			<p id="describe-radio-all-domains-subdomains" sx={ { mt: 2 } }>
 				This is a explanation for custom option b
 			</p>
+
+			<Form.Fieldset>
+				<Form.Legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>
+					All Disabled options
+				</Form.Legend>
+
+				<Flex sx={ { alignItems: 'center' } }>
+					<Radio
+						disabled
+						name="the_option_disabled"
+						defaultValue={ 'a_disabled' }
+						options={ [
+							{
+								value: 'a_disabled',
+								label: 'All domains listed on this environment, and all subdomains',
+								id: 'option-a_disabled',
+							},
+							{
+								value: 'b',
+								label: 'All domains listed on this environment',
+								id: 'option-b_disabled',
+							},
+						] }
+						onChange={ e => setChecked( e.target.value ) }
+					/>
+				</Flex>
+			</Form.Fieldset>
+
+			<Form.Fieldset>
+				<Form.Legend sx={ { mb: 0, fontSize: 2, fontWeight: 'bold' } }>
+					Only one Disabled option
+				</Form.Legend>
+
+				<Flex sx={ { alignItems: 'center' } }>
+					<Radio
+						name="the_option_disabled_two"
+						defaultValue={ 'a_disabled_two' }
+						options={ [
+							{
+								value: 'a_disabled_two',
+								label: 'All domains listed on this environment, and all subdomains',
+								id: 'option-a_disabled_two',
+							},
+							{
+								disabled: true,
+								value: 'b',
+								label: 'All domains listed on this environment',
+								id: 'option-b_disabled_two',
+							},
+						] }
+						onChange={ e => setChecked( e.target.value ) }
+					/>
+				</Flex>
+			</Form.Fieldset>
 		</Form.Root>
 	);
 };
+
+export const Variants = () => (
+	<>
+		{ [ 'primary', 'secondary' ].map( variant => (
+			<Radio
+				key={ variant }
+				variant={ variant }
+				name={ `the_option_${ variant }` }
+				defaultValue={ 'a' }
+				options={ [
+					{
+						id: `${ variant }-option-a`,
+						value: 'a',
+						label: `I am the ${ variant } option A`,
+					},
+					{
+						id: `${ variant }-option-b`,
+						value: 'b',
+						label: `I am the ${ variant } option B`,
+					},
+				] }
+			/>
+		) ) }
+	</>
+);

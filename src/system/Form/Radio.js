@@ -7,6 +7,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
+import { Box } from 'theme-ui';
 
 import { baseControlBorderStyle, inputBaseText } from './Input.styles';
 import { Label } from './Label';
@@ -23,10 +24,13 @@ const itemStyle = {
 
 const radioPosition = mainTheme.space[ 5 ];
 
+// The output willl be 16px because of the 1px border.
+const RADIO_SIZE = '14px';
+
 const inputStyle = {
 	...screenReaderTextClass,
-	width: '16px',
-	height: '16px',
+	width: RADIO_SIZE,
+	height: RADIO_SIZE,
 	'&:focus ~ label:before': theme => ( {
 		...theme.outline,
 		content: '""',
@@ -36,7 +40,6 @@ const inputStyle = {
 	} ),
 	'&:checked ~ label::after': {
 		opacity: 1,
-		transform: 'scale(1)',
 	},
 };
 
@@ -54,8 +57,8 @@ const labelStyle = {
 		top: 1,
 		left: `${ -1 * radioPosition }px`,
 		transition: 'all .3s ease-out',
-		width: '16px',
-		height: '16px',
+		width: RADIO_SIZE,
+		height: RADIO_SIZE,
 	},
 	'&::before': {
 		content: '""',
@@ -64,17 +67,11 @@ const labelStyle = {
 	},
 	'&::after': {
 		content: '""',
-		backgroundColor: 'link',
-		backgroundPosition: 'left 2px top 2px',
-		backgroundSize: '70%',
+		backgroundSize: '100%',
 		backgroundRepeat: 'no-repeat',
-
-		backgroundImage: `url(
-					'data:image/svg+xml;utf8,<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4999 4.9995L5.7254 12.4008L2.5 9.33023L3.83307 7.92994L5.7254 9.73144L12.1668 3.59921L13.4999 4.9995Z" fill="white"/></svg>')`,
+		backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='3' cy='3' r='1.25' fill='%23fff'/%3E%3C/svg%3E")`,
 		border: '1px solid',
-		borderColor: baseControlBorderStyle.borderColor,
 		color: 'white',
-		transform: 'scale(0)',
 		opacity: 0,
 	},
 };
@@ -97,13 +94,19 @@ CustomLabel.propTypes = {
 };
 
 const RadioOption = ( {
-	option: { id, value, className, label, labelProps = {}, ...restOption },
+	option: { id, value, disabled: ignoreDisabled, className, label, labelProps = {}, ...restOption },
 	name,
+	variant,
+	disabled,
 	onChangeHandler,
 	checked,
 } ) => (
-	<div
-		sx={ itemStyle }
+	<Box
+		as="div"
+		sx={ {
+			variant: `radio.${ variant }`,
+			...itemStyle,
+		} }
 		className={ classNames(
 			`${ prefix }item`,
 			`${ prefix }item-${ id }`,
@@ -114,6 +117,7 @@ const RadioOption = ( {
 		<input
 			type="radio"
 			id={ id }
+			aria-disabled={ disabled }
 			name={ name }
 			value={ `${ value }` }
 			sx={ inputStyle }
@@ -135,7 +139,7 @@ const RadioOption = ( {
 		) : (
 			<CustomLabel { ...labelProps }>{ label }</CustomLabel>
 		) }
-	</div>
+	</Box>
 );
 
 RadioOption.propTypes = {
@@ -147,9 +151,23 @@ RadioOption.propTypes = {
 
 const Radio = React.forwardRef(
 	(
-		{ disabled, defaultValue, onChange, name = '', options = [], className, ...props },
+		{
+			variant = 'primary',
+			disabled = false,
+			defaultValue,
+			onChange,
+			name = '',
+			options = [],
+			className,
+			...props
+		},
 		forwardRef
 	) => {
+		// If disabled is pass globally, it will overwrite the variant
+		if ( disabled === true || disabled === undefined ) {
+			variant = 'disabled';
+		}
+
 		const onChangeHandler = useCallback( e => {
 			const optionTriggered = options.find(
 				option => `${ option.value }` === `${ e.target.value }`
@@ -159,9 +177,11 @@ const Radio = React.forwardRef(
 
 		const renderedOptions = options.map( option => (
 			<RadioOption
+				variant={ option?.disabled === true ? 'disabled' : variant }
 				key={ option?.id }
 				name={ name }
 				option={ option }
+				disabled={ disabled || option?.disabled }
 				onChangeHandler={ onChangeHandler }
 				checked={ `${ defaultValue }` === `${ option?.value }` }
 			/>
