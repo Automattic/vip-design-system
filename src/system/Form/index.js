@@ -5,7 +5,7 @@ import { Checkbox } from './Checkbox';
 import { Input } from './Input';
 import { InputWithCopyButton } from './InputWithCopyButton';
 import { Label } from './Label';
-import { Radio } from './Radio';
+import { Radio } from './Radio/Radio';
 import { RadioBoxGroup } from './RadioBoxGroup';
 import { Textarea } from './Textarea';
 import { Toggle } from './Toggle';

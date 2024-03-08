@@ -1,52 +1,51 @@
 /* eslint-disable max-len */
 /** @jsxImportSource theme-ui */
 
-/**
- * External dependencies
- */
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
-import { Box } from 'theme-ui';
+import { Box, ThemeUIStyleObject } from 'theme-ui';
 
-import { baseControlBorderStyle, inputBaseText } from './Input.styles';
-import { Label } from './Label';
-import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
-import mainTheme from '../theme';
+import { screenReaderTextClass } from '../../ScreenReaderText/ScreenReaderText';
+import { baseControlBorderStyle, inputBaseText } from '../Input.styles';
+import { Label } from '../Label';
 
 const prefix = 'vip-radio-component-';
 
-const itemStyle = {
+const itemStyle: ThemeUIStyleObject = {
 	display: 'flex',
 	alignItems: 'center',
 	my: 2,
 };
 
-const radioPosition = mainTheme.space[ 5 ];
-
 // The output willl be 16px because of the 1px border.
 const RADIO_SIZE = '14px';
 
-const inputStyle = {
+const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
 	...screenReaderTextClass,
-	width: RADIO_SIZE,
-	height: RADIO_SIZE,
-	'&:focus ~ label:before': theme => ( {
-		...theme.outline,
+	width: `${ RADIO_SIZE }`,
+	height: `${ RADIO_SIZE }`,
+	'&:focus ~ label:before': {
+		variant: 'outline',
 		content: '""',
 		border: '1px solid',
 		borderColor: baseControlBorderStyle.borderColor,
-		left: `${ -1 * radioPosition }px`,
-	} ),
+		left: -5,
+	},
 	'&:checked ~ label::after': {
+		borderColor: variant,
 		opacity: 1,
 	},
-};
+	'&[aria-disabled="true"] ~ label::before': {
+		backgroundColor: variant,
+		borderColor: variant,
+	},
+} );
 
-const labelStyle = {
+const labelStyle = ( variant: string ): ThemeUIStyleObject => ( {
 	cursor: 'pointer',
 	position: 'relative',
-	marginLeft: `${ radioPosition }px`,
+	marginLeft: 5,
 	marginBottom: 0,
 	userSelect: 'none',
 	color: inputBaseText,
@@ -55,10 +54,10 @@ const labelStyle = {
 		borderRadius: '100%',
 		position: 'absolute',
 		top: 1,
-		left: `${ -1 * radioPosition }px`,
+		left: -5,
 		transition: 'all .3s ease-out',
-		width: RADIO_SIZE,
-		height: RADIO_SIZE,
+		width: `${ RADIO_SIZE }`,
+		height: `${ RADIO_SIZE }`,
 	},
 	'&::before': {
 		content: '""',
@@ -67,6 +66,7 @@ const labelStyle = {
 	},
 	'&::after': {
 		content: '""',
+		backgroundColor: variant,
 		backgroundSize: '100%',
 		backgroundRepeat: 'no-repeat',
 		backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='3' cy='3' r='1.25' fill='%23fff'/%3E%3C/svg%3E")`,
@@ -74,24 +74,23 @@ const labelStyle = {
 		color: 'white',
 		opacity: 0,
 	},
-};
+} );
 
-const CustomLabel = ( { children, ...restLabel } ) => {
-	return (
-		<>
-			{ React.cloneElement( React.Children.only( children ), {
-				...children.props,
-				sx: { ...labelStyle, ...children.props.sx },
-				className: `${ children.props.className } ${ prefix }item-label`,
-				...restLabel,
-			} ) }
-		</>
-	);
-};
-
-CustomLabel.propTypes = {
-	children: PropTypes.any,
-};
+interface RadioOptionProps {
+	option: {
+		id: string;
+		value: string | number;
+		disabled?: boolean;
+		className?: string;
+		label?: string | React.ReactNode;
+		labelProps: object;
+	};
+	name: string;
+	variant: string;
+	disabled: boolean;
+	onChangeHandler: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
+	checked: boolean;
+}
 
 const RadioOption = ( {
 	option: { id, value, disabled: ignoreDisabled, className, label, labelProps = {}, ...restOption },
@@ -100,13 +99,10 @@ const RadioOption = ( {
 	disabled,
 	onChangeHandler,
 	checked,
-} ) => (
+}: RadioOptionProps ) => (
 	<Box
 		as="div"
-		sx={ {
-			variant: `radio.${ variant }`,
-			...itemStyle,
-		} }
+		sx={ itemStyle }
 		className={ classNames(
 			`${ prefix }item`,
 			`${ prefix }item-${ id }`,
@@ -120,33 +116,32 @@ const RadioOption = ( {
 			aria-disabled={ disabled }
 			name={ name }
 			value={ `${ value }` }
-			sx={ inputStyle }
+			sx={ inputStyle( variant ) }
 			onChange={ onChangeHandler }
 			className={ `${ prefix }item-input` }
 			checked={ checked }
 			{ ...restOption }
 		/>
 
-		{ typeof label === 'string' ? (
-			<Label
-				className={ `${ prefix }item-label` }
-				htmlFor={ id }
-				sx={ labelStyle }
-				{ ...labelProps }
-			>
-				{ label }
-			</Label>
-		) : (
-			<CustomLabel { ...labelProps }>{ label }</CustomLabel>
-		) }
+		<Label
+			className={ `${ prefix }item-label` }
+			htmlFor={ id }
+			sx={ labelStyle( variant ) }
+			{ ...labelProps }
+		>
+			{ label }
+		</Label>
 	</Box>
 );
 
-RadioOption.propTypes = {
-	option: PropTypes.object,
-	name: PropTypes.string,
-	onChangeHandler: PropTypes.func,
-	checked: PropTypes.bool,
+type RadioProps = {
+	variant?: string;
+	disabled?: boolean;
+	defaultValue?: string | number;
+	onChange: ( e: React.ChangeEvent< HTMLInputElement >, option: object ) => void;
+	name?: string;
+	options?: object[];
+	className?: string;
 };
 
 const Radio = React.forwardRef(
@@ -160,7 +155,7 @@ const Radio = React.forwardRef(
 			options = [],
 			className,
 			...props
-		},
+		}: RadioProps,
 		forwardRef
 	) => {
 		// If disabled is pass globally, it will overwrite the variant
@@ -189,8 +184,8 @@ const Radio = React.forwardRef(
 
 		return (
 			<div
-				className={ classNames( prefix, `${ prefix }${ name }`, className ) }
 				ref={ forwardRef }
+				className={ classNames( prefix, `${ prefix }${ name }`, className ) }
 				{ ...props }
 			>
 				{ renderedOptions }
