@@ -52,7 +52,6 @@ This documentation and its contents are inspired by https://designsystem.digital
 };
 
 export const Default = () => {
-	// Create a useState that holds multiple states from multiple radios
 	const [ checked, setChecked ] = useState< { [ key: string ]: string } >( {} );
 	const toggleChecked = ( radioName: string, value: string = '' ) => {
 		setChecked( {
