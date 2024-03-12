@@ -6,40 +6,47 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { MdDone } from 'react-icons/md';
 
-import { baseControlBorderStyle, baseControlFocusStyle, inputBaseBackground } from './Input.styles';
+import {
+	baseControlBorderStyle,
+	baseControlFocusStyle,
+	inputBaseBackground,
+} from '../Input.styles';
 
 export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
 	disabled?: boolean;
+	variant?: 'primary' | 'success' | 'error' | 'warning' | 'info' | 'disabled';
 }
-const StyledCheckbox = ( props: CheckboxProps ) => (
+const StyledCheckbox = ( { variant = 'primary', ...rest }: CheckboxProps ) => (
 	<CheckboxPrimitive.Root
 		sx={ {
 			all: 'unset',
 			backgroundColor: inputBaseBackground,
 			...baseControlBorderStyle,
 			...baseControlFocusStyle,
-			width: 16,
-			height: 16,
+			width: 14,
+			height: 14,
 			borderRadius: 1,
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
 			'&[data-state=checked]': {
-				backgroundColor: 'link',
-				color: 'link',
+				backgroundColor: variant,
+				color: variant,
+				borderColor: variant,
 			},
 			svg: {
 				display: 'block',
 			},
 		} }
-		{ ...props }
+		{ ...rest }
 	/>
 );
 
 const StyledIndicator = ( props: CheckboxPrimitive.CheckboxIndicatorProps ) => (
 	<CheckboxPrimitive.Indicator
 		sx={ {
-			color: 'white',
+			color: 'icon.inverse',
+			fontWeight: 'bold',
 		} }
 		{ ...props }
 	/>

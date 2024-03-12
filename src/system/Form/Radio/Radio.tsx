@@ -8,7 +8,7 @@ import { RadioOption, RadioOptionOptionProps } from './RadioOption';
 export const VIP_RADIO = 'vip-radio-component';
 
 export type RadioProps = {
-	variant?: string;
+	variant?: 'primary' | 'success' | 'error' | 'warning' | 'info' | 'disabled';
 	disabled?: boolean | undefined;
 	defaultValue?: string | number;
 	onChange?: ( e: React.ChangeEvent< HTMLInputElement >, option?: RadioOptionOptionProps ) => void;

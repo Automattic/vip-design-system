@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Checkbox } from './Checkbox';
+import { Checkbox } from './Checkbox/Checkbox';
 import { Input } from './Input';
 import { InputWithCopyButton } from './InputWithCopyButton';
 import { Label } from './Label';

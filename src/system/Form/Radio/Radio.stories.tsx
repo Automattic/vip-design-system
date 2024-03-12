@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Radio } from './Radio';
+import { Radio, RadioProps } from './Radio';
 import { Box, Form, Heading, Link } from '../..';
 import { Flex } from '../../Flex';
 import { Label } from '../Label';
@@ -62,32 +62,36 @@ export const Default = () => {
 
 	return (
 		<>
-			{ [ 'primary', 'success', 'error', 'warning', 'info' ].map( variant => (
-				<Box key={ variant }>
-					<Heading as="h2" sx={ { textTransform: 'capitalize' } }>
-						{ variant }
-					</Heading>
+			{ ( [ 'primary', 'success', 'error', 'warning', 'info' ] as RadioProps[ 'variant' ][] ).map(
+				variant => (
+					<Box key={ variant }>
+						<Heading as="h2" sx={ { textTransform: 'capitalize' } }>
+							{ variant }
+						</Heading>
 
-					<Radio
-						variant={ variant }
-						onChange={ ( _, option ) => toggleChecked( `the_option_${ variant }`, option?.value ) }
-						name={ `the_option_${ variant }` }
-						defaultValue={ checked?.[ `the_option_${ variant }` ] || `${ variant }-option-a` }
-						options={ [
-							{
-								id: `${ variant }-option-a`,
-								value: `${ variant }-option-a`,
-								label: `I am the ${ variant } option A`,
-							},
-							{
-								id: `${ variant }-option-b`,
-								value: `${ variant }-option-b`,
-								label: `I am the ${ variant } option B`,
-							},
-						] }
-					/>
-				</Box>
-			) ) }
+						<Radio
+							variant={ variant }
+							onChange={ ( _, option ) =>
+								toggleChecked( `the_option_${ variant }`, option?.value )
+							}
+							name={ `the_option_${ variant }` }
+							defaultValue={ checked?.[ `the_option_${ variant }` ] || `${ variant }-option-a` }
+							options={ [
+								{
+									id: `${ variant }-option-a`,
+									value: `${ variant }-option-a`,
+									label: `I am the ${ variant } option A`,
+								},
+								{
+									id: `${ variant }-option-b`,
+									value: `${ variant }-option-b`,
+									label: `I am the ${ variant } option B`,
+								},
+							] }
+						/>
+					</Box>
+				)
+			) }
 			<Box>
 				<Heading as="h2" sx={ { textTransform: 'capitalize' } }>
 					Disabled
