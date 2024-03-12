@@ -15,9 +15,9 @@ export default {
 			description: {
 				component: `
 
-Radio buttons are a common way to allow users to make a single selection from a list of options. Since only one radio button can be selected at a time (within the same group), each available choice must be its own item and label.
+Radio buttons are a common way for users to make a single selection from a list of options. Since only one radio button can be selected simultaneously (within the same group), each available choice must be its item and label.
 
-This component description and it's contents are heavily inspired by https://designsystem.digital.gov/components/radio-buttons/.
+This documentation and its contents are inspired by https://designsystem.digital.gov/components/radio-buttons/.
 
 ## Guidance
 
