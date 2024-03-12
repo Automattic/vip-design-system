@@ -163,7 +163,6 @@ export const AcessibleExamples = () => {
 								renderLabel: ( commonProps, labelStyle ) => (
 									<Label
 										{ ...commonProps }
-										htmlFor="another-option-custom-a"
 										className="custom-class"
 										sx={ { ...labelStyle, color: 'error' } }
 									>
