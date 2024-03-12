@@ -1,19 +1,11 @@
 /** @jsxImportSource theme-ui */
 
-/**
- * External dependencies
- */
 import { useState } from 'react';
 
-/**
- * Internal dependencies
- */
 import { Radio } from './Radio';
 import { Box, Form, Heading, Link } from '../..';
 import { Flex } from '../../Flex';
 import { Label } from '../Label';
-
-import type { StoryObj } from '@storybook/react';
 
 export default {
 	title: 'Radio',
@@ -60,7 +52,14 @@ This component description and it's contents are heavily inspired by https://des
 };
 
 export const Default = () => {
-	const [ checked, setChecked ] = useState( {} );
+	// Create a useState that holds multiple states from multiple radios
+	const [ checked, setChecked ] = useState< { [ key: string ]: string } >( {} );
+	const toggleChecked = ( radioName: string, value: string = '' ) => {
+		setChecked( {
+			...checked,
+			[ radioName ]: value,
+		} );
+	};
 
 	return (
 		<>
@@ -72,9 +71,9 @@ export const Default = () => {
 
 					<Radio
 						variant={ variant }
-						onChange={ e => setChecked( e.target.value ) }
+						onChange={ ( _, option ) => toggleChecked( `the_option_${ variant }`, option?.value ) }
 						name={ `the_option_${ variant }` }
-						defaultValue={ `${ variant }-option-a` }
+						defaultValue={ checked?.[ `the_option_${ variant }` ] || `${ variant }-option-a` }
 						options={ [
 							{
 								id: `${ variant }-option-a`,
@@ -94,19 +93,20 @@ export const Default = () => {
 				<Heading as="h2" sx={ { textTransform: 'capitalize' } }>
 					Disabled
 				</Heading>
+
 				<Radio
 					disabled
 					name={ `the_option_` }
-					defaultValue={ checked }
+					defaultValue={ `disabled-option-a` }
 					options={ [
 						{
-							id: `-option-a`,
-							value: `-option-a`,
+							id: `disabled-option-a`,
+							value: `disabled-option-a`,
 							label: `I am the  option A`,
 						},
 						{
-							id: `-option-b`,
-							value: `-option-b`,
+							id: `disabled-option-b`,
+							value: `disabled-option-b`,
 							label: `I am the  option B`,
 						},
 					] }
@@ -160,16 +160,17 @@ export const AcessibleExamples = () => {
 						options={ [
 							{
 								value: 'a',
-								label: (
+								renderLabel: ( commonProps, labelStyle ) => (
 									<Label
-										htmlFor="option-custom-a"
+										{ ...commonProps }
+										htmlFor="another-option-custom-a"
 										className="custom-class"
-										sx={ { color: 'error' } }
+										sx={ { ...labelStyle, color: 'error' } }
 									>
 										(Custom) All domains listed on this environment, and all subdomains
 									</Label>
 								),
-								id: 'option-custom-a',
+								id: 'another-option-custom-a',
 							},
 							{
 								value: 'b',
@@ -178,8 +179,10 @@ export const AcessibleExamples = () => {
 									id: 'label-option-custom-b-custom-props',
 								},
 								className: 'custom-class-for-this',
-								'aria-describedby': 'describe-radio-all-domains-subdomains',
 								id: 'option-custom-b',
+								inputProps: {
+									'aria-describedby': 'describe-radio-all-domains-subdomains',
+								},
 							},
 						] }
 					/>
@@ -212,7 +215,6 @@ export const AcessibleExamples = () => {
 								id: 'option-b_disabled',
 							},
 						] }
-						onChange={ e => setChecked( e.target.value ) }
 					/>
 				</Flex>
 			</Form.Fieldset>
@@ -239,7 +241,6 @@ export const AcessibleExamples = () => {
 								id: 'option-b_disabled_two',
 							},
 						] }
-						onChange={ e => setChecked( e.target.value ) }
 					/>
 				</Flex>
 			</Form.Fieldset>
