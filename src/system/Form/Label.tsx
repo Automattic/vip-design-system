@@ -18,7 +18,8 @@ export const baseLabelStyle = {
 	lineHeight: 1.5,
 	color: baseLabelColor,
 };
-interface LabelProps extends BoxProps {
+
+export interface LabelProps extends BoxProps {
 	children?: React.ReactNode;
 	required?: boolean;
 	htmlFor?: string;

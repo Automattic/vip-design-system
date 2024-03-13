@@ -171,7 +171,6 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	heading: gColor( 'text', 'primary' ),
 	background: gColor( 'layer', '2' ),
 	backgroundSecondary: gColor( 'layer', '1' ),
-	primary: gColor( 'link', 'default' ),
 	secondary: light.gray[ '70' ],
 	muted: gColor( 'text', 'helper' ),
 	border: gColor( 'border', '1' ),
@@ -184,10 +183,13 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	backgroundMuted: gColor( 'layer', '1' ),
 
 	// Variant colors
+	primary: gVariants( 'input.background' ).primary,
 	success: theme.support.link.success.default,
+	brand: gColor( 'link', 'default' ),
 	error: theme.support.link.error.default,
 	warning: theme.support.link.warning.default,
 	info: theme.support.link.info.default,
+	disabled: theme.input.background.disabled,
 
 	// Card
 	card: '#fff',
