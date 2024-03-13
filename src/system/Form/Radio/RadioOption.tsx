@@ -2,11 +2,31 @@
 
 import classNames from 'classnames';
 import React from 'react';
-import { Box } from 'theme-ui';
+import { Box, ThemeUIStyleObject } from 'theme-ui';
 
-import { VIP_RADIO, type RadioOptionProps } from './Radio';
+import { VIP_RADIO } from './Radio';
 import { inputStyle, itemStyle, labelStyle } from './styles';
 import { Label } from '../Label';
+
+export type RadioOptionOptionProps = {
+	id: string;
+	value: string;
+	disabled?: boolean;
+	className?: string;
+	label?: string;
+	renderLabel?: ( props, labelStyles: ThemeUIStyleObject ) => JSX.Element;
+	labelProps?: object;
+	inputProps?: object;
+};
+
+export interface RadioOptionProps {
+	option: RadioOptionOptionProps;
+	name: string;
+	variant: string;
+	disabled: boolean | undefined;
+	onChangeHandler: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
+	checked: boolean;
+}
 
 const RadioOption = ( {
 	option: { id, value, className, label, renderLabel, labelProps = {}, inputProps = {} },

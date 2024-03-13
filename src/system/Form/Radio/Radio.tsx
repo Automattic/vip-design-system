@@ -1,32 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 import classNames from 'classnames';
-import React, { Ref, forwardRef, useCallback } from 'react';
-import { ThemeUIStyleObject } from 'theme-ui';
+import React, { Ref, forwardRef } from 'react';
 
-import { RadioOption } from './RadioOption';
+import { RadioOption, RadioOptionOptionProps } from './RadioOption';
 
 export const VIP_RADIO = 'vip-radio-component';
-
-export type RadioOptionOptionProps = {
-	id: string;
-	value: string;
-	disabled?: boolean;
-	className?: string;
-	label?: string;
-	renderLabel?: ( props, labelStyles: ThemeUIStyleObject ) => JSX.Element | null;
-	labelProps?: object;
-	inputProps?: object;
-};
-
-export interface RadioOptionProps {
-	option: RadioOptionOptionProps;
-	name: string;
-	variant: string;
-	disabled: boolean | undefined;
-	onChangeHandler: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
-	checked: boolean;
-}
 
 export type RadioProps = {
 	variant?: string;
@@ -57,7 +36,7 @@ const Radio = forwardRef< HTMLDivElement, RadioProps >(
 			variant = 'disabled';
 		}
 
-		const onChangeHandler = useCallback( ( e: React.ChangeEvent< HTMLInputElement > ) => {
+		const onChangeHandler = ( e: React.ChangeEvent< HTMLInputElement > ) => {
 			const optionTriggered = options.find( option => {
 				const optionValue = `${ option.value }`;
 				const selectedOptionValue = `${ e.target.value }`;
@@ -68,7 +47,7 @@ const Radio = forwardRef< HTMLDivElement, RadioProps >(
 			if ( onChange ) {
 				onChange( e, optionTriggered );
 			}
-		}, [] );
+		};
 
 		const renderedOptions = options.map( option => (
 			<RadioOption
