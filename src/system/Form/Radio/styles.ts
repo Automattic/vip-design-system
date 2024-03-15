@@ -3,13 +3,13 @@ import { ThemeUIStyleObject } from 'theme-ui';
 import { screenReaderTextClass } from '../../ScreenReaderText/ScreenReaderText';
 import { baseControlBorderStyle, inputBaseText } from '../Input.styles';
 
-// The output willl be 16px because of the 1px border.
-const RADIO_SIZE = '14px';
+// The output willl be 18px because of the 1px border.
+const RADIO_SIZE = 16;
 
 export const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
 	...screenReaderTextClass,
-	width: `${ RADIO_SIZE }`,
-	height: `${ RADIO_SIZE }`,
+	width: RADIO_SIZE,
+	height: RADIO_SIZE,
 	'&:focus ~ label:before': {
 		variant: 'outline',
 		content: '""',
@@ -41,8 +41,8 @@ export const labelStyle = ( variant: string ): ThemeUIStyleObject => ( {
 		top: 1,
 		left: -5,
 		transition: 'all .3s ease-out',
-		width: `${ RADIO_SIZE }`,
-		height: `${ RADIO_SIZE }`,
+		width: RADIO_SIZE,
+		height: RADIO_SIZE,
 	},
 	'&::before': {
 		content: '""',

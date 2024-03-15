@@ -21,12 +21,13 @@ export const baseLabelStyle = {
 
 export interface LabelProps extends BoxProps {
 	children?: React.ReactNode;
+	clickable?: boolean;
 	required?: boolean;
 	htmlFor?: string;
 }
 
 export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
-	( { sx, children, required, as = 'label', ...rest }, forwardRef ) => (
+	( { sx, children, required, clickable, as = 'label', ...rest }, forwardRef ) => (
 		<Box
 			as={ as }
 			sx={ {
@@ -34,6 +35,7 @@ export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
 				...baseLabelStyle,
 				display: 'block',
 				mb: 2,
+				cursor: clickable ? 'pointer' : 'default',
 				...sx,
 			} }
 			ref={ forwardRef }
