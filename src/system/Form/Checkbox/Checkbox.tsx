@@ -3,6 +3,7 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 
 import { checkboxIndicatorStyle, checkboxStyle } from './styles';
+import { RadioOptionProps } from '../Radio/RadioOption';
 
 export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
 	disabled?: boolean;
@@ -13,18 +14,35 @@ const StyledCheckbox = ( { variant = 'primary', ...rest }: CheckboxProps ) => (
 	<CheckboxPrimitive.Root sx={ checkboxStyle( variant ) } { ...rest } />
 );
 
-const StyledIndicator = ( props: CheckboxPrimitive.CheckboxIndicatorProps ) => (
-	<CheckboxPrimitive.Indicator sx={ checkboxIndicatorStyle } { ...props } />
+interface StyledIndicatorProps extends CheckboxPrimitive.CheckboxIndicatorProps {
+	variant: RadioOptionProps[ 'variant' ];
+}
+
+const StyledIndicator = ( { variant, ...rest }: StyledIndicatorProps ) => (
+	<CheckboxPrimitive.Indicator sx={ checkboxIndicatorStyle( variant ) } { ...rest } />
 );
 
-export const Checkbox = ( { disabled, ...props }: CheckboxProps ) => (
-	<StyledCheckbox
-		sx={ {
-			opacity: disabled ? 0.4 : 1,
-		} }
-		disabled={ disabled }
-		{ ...props }
-	>
-		<StyledIndicator />
-	</StyledCheckbox>
-);
+export const Checkbox = ( {
+	disabled = false,
+	onCheckedChange,
+	variant = 'primary',
+	...props
+}: CheckboxProps ) => {
+	if ( disabled === true || disabled === undefined ) {
+		variant = 'disabled';
+	}
+
+	return (
+		<StyledCheckbox
+			sx={ {
+				opacity: disabled ? 0.4 : 1,
+			} }
+			onCheckedChange={ disabled ? undefined : onCheckedChange }
+			aria-disabled={ disabled }
+			variant={ variant }
+			{ ...props }
+		>
+			<StyledIndicator variant={ variant } />
+		</StyledCheckbox>
+	);
+};

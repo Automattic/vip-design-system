@@ -8,8 +8,8 @@ const RADIO_SIZE = 16;
 
 export const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
 	...screenReaderTextClass,
-	width: `${ RADIO_SIZE }`,
-	height: `${ RADIO_SIZE }`,
+	width: RADIO_SIZE,
+	height: RADIO_SIZE,
 	'&:focus ~ label:before': {
 		variant: 'outline',
 		content: '""',
@@ -41,8 +41,8 @@ export const labelStyle = ( variant: string ): ThemeUIStyleObject => ( {
 		top: 1,
 		left: -5,
 		transition: 'all .3s ease-out',
-		width: `${ RADIO_SIZE }`,
-		height: `${ RADIO_SIZE }`,
+		width: RADIO_SIZE,
+		height: RADIO_SIZE,
 	},
 	'&::before': {
 		content: '""',
