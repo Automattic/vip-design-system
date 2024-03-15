@@ -57,7 +57,7 @@ export const Default = () => {
 						<Label
 							sx={ { m: 0, ml: 2 } }
 							htmlFor={ `check2-${ variant }` }
-							id={ `label-check1-${ variant }` }
+							id={ `label-check2-${ variant }` }
 						>
 							This option too
 						</Label>
