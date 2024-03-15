@@ -22,7 +22,7 @@ const StyledIndicator = ( { variant, ...rest }: StyledIndicatorProps ) => (
 	<CheckboxPrimitive.Indicator sx={ checkboxIndicatorStyle( variant ) } { ...rest } />
 );
 
-export const Checkbox = ( {
+const Checkbox = ( {
 	disabled = false,
 	onCheckedChange,
 	variant = 'primary',
@@ -46,3 +46,5 @@ export const Checkbox = ( {
 		</StyledCheckbox>
 	);
 };
+
+export { Checkbox };
