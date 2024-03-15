@@ -8,7 +8,7 @@ import { Flex } from '../../Flex';
 import { Label } from '../Label';
 
 export default {
-	title: 'Radio',
+	title: 'Form/Radio',
 	component: Radio,
 	parameters: {
 		docs: {
