@@ -34,6 +34,8 @@ export const checkboxStyle = ( variant: string ): ThemeUIStyleObject => ( {
 	'& ~ label': {
 		fontWeight: 'regular',
 		color: inputBaseText,
+		m: 0,
+		ml: 2,
 	},
 	svg: {
 		position: 'absolute',
