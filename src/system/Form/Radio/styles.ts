@@ -1,13 +1,16 @@
 import { ThemeUIStyleObject } from 'theme-ui';
 
-import { screenReaderTextClass } from '../../ScreenReaderText/ScreenReaderText';
 import { baseControlBorderStyle, inputBaseText } from '../Input.styles';
 
 // The output willl be 18px because of the 1px border.
 const RADIO_SIZE = 16;
 
 export const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
-	...screenReaderTextClass,
+	position: 'absolute',
+	top: 0,
+	left: 0,
+	clip: 'rect(1px, 1px, 1px, 1px)',
+	clipPath: 'inset(50%)',
 	width: RADIO_SIZE,
 	height: RADIO_SIZE,
 	'&:focus ~ label:before': {
@@ -15,7 +18,7 @@ export const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
 		content: '""',
 		border: '1px solid',
 		borderColor: baseControlBorderStyle.borderColor,
-		left: -5,
+		left: 0,
 	},
 	'&:checked ~ label::after': {
 		borderColor: variant,
@@ -28,18 +31,16 @@ export const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
 } );
 
 export const labelStyle = ( variant: string ): ThemeUIStyleObject => ( {
+	display: 'flex',
 	cursor: 'pointer',
 	position: 'relative',
-	marginLeft: 5,
 	marginBottom: 0,
 	userSelect: 'none',
 	color: inputBaseText,
-	lineHeight: 'body',
+	fontWeight: 'regular',
+	lineHeight: 'normal',
 	'&:before, &:after': {
 		borderRadius: '100%',
-		position: 'absolute',
-		top: 1,
-		left: -5,
 		transition: 'all .3s ease-out',
 		width: RADIO_SIZE,
 		height: RADIO_SIZE,
@@ -48,8 +49,12 @@ export const labelStyle = ( variant: string ): ThemeUIStyleObject => ( {
 		content: '""',
 		border: '1px solid',
 		borderColor: baseControlBorderStyle.borderColor,
+		marginRight: 2,
 	},
 	'&::after': {
+		position: 'absolute',
+		top: 0,
+		left: 0,
 		content: '""',
 		backgroundColor: variant,
 		backgroundSize: '100%',
@@ -65,4 +70,5 @@ export const itemStyle: ThemeUIStyleObject = {
 	display: 'flex',
 	alignItems: 'center',
 	my: 2,
+	position: 'relative',
 };

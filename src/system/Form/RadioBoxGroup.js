@@ -38,6 +38,7 @@ const RadioOption = ( {
 				backgroundColor: 'input.radio-box.background.default',
 				cursor: 'pointer',
 				borderRadius: 2,
+				minWidth: 220,
 				textAlign: 'left',
 				border: '1px solid',
 				borderColor: 'input.radio-box.border.default',

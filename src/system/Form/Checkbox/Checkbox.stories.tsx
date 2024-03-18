@@ -61,9 +61,7 @@ export const Default = () => {
 
 	return (
 		<Form.Root>
-			{ (
-				[ 'primary', 'success', 'error', 'warning', 'info' ] as CheckboxProps[ 'variant' ][]
-			 ).map( variant => (
+			{ ( [ 'primary', 'success', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
 				<Form.Fieldset key={ variant }>
 					<Form.Legend>Tell me your { variant } prefereces</Form.Legend>
 
@@ -161,9 +159,7 @@ export const Indeterminate = () => {
 
 	return (
 		<Form.Root>
-			{ (
-				[ 'primary', 'success', 'error', 'warning', 'info' ] as CheckboxProps[ 'variant' ][]
-			 ).map( variant => (
+			{ ( [ 'primary', 'success', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
 				<Form.Fieldset key={ variant }>
 					<Form.Legend>Indeterminate state { variant }</Form.Legend>
 
@@ -174,8 +170,9 @@ export const Indeterminate = () => {
 							aria-labelledby={ `label-check1-${ variant }` }
 							checked={ 'indeterminate' }
 						/>
+
 						<Label
-							sx={ { m: 0, ml: 2 } }
+							sx={ { m: 0, ml: 2, color: 'text', fontWeight: 'regular' } }
 							htmlFor={ `check1-${ variant }` }
 							id={ `label-check1-${ variant }` }
 						>
