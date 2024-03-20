@@ -61,9 +61,7 @@ export const Default = () => {
 
 	return (
 		<Form.Root>
-			{ (
-				[ 'primary', 'success', 'error', 'warning', 'info' ] as CheckboxProps[ 'variant' ][]
-			 ).map( variant => (
+			{ ( [ 'primary', 'success', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
 				<Form.Fieldset key={ variant }>
 					<Form.Legend>Tell me your { variant } prefereces</Form.Legend>
 
@@ -75,12 +73,7 @@ export const Default = () => {
 							aria-labelledby={ `label-check1-${ variant }` }
 							onCheckedChange={ setChecked }
 						/>
-						<Label
-							clickable
-							sx={ { m: 0, ml: 2 } }
-							htmlFor={ `check1-${ variant }` }
-							id={ `label-check1-${ variant }` }
-						>
+						<Label clickable htmlFor={ `check1-${ variant }` } id={ `label-check1-${ variant }` }>
 							This option
 						</Label>
 					</Flex>
@@ -93,12 +86,7 @@ export const Default = () => {
 							aria-labelledby={ `label-check2-${ variant }` }
 							onCheckedChange={ setChecked2 }
 						/>
-						<Label
-							clickable
-							sx={ { m: 0, ml: 2 } }
-							htmlFor={ `check2-${ variant }` }
-							id={ `label-check2-${ variant }` }
-						>
+						<Label clickable htmlFor={ `check2-${ variant }` } id={ `label-check2-${ variant }` }>
 							This option too
 						</Label>
 					</Flex>
@@ -117,12 +105,7 @@ export const Default = () => {
 						aria-labelledby={ `label-check1-disabled` }
 						onCheckedChange={ setChecked }
 					/>
-					<Label
-						clickable
-						sx={ { m: 0, ml: 2 } }
-						htmlFor={ `check1-disabled` }
-						id={ `label-check1-disabled` }
-					>
+					<Label clickable htmlFor={ `check1-disabled` } id={ `label-check1-disabled` }>
 						This option
 					</Label>
 				</Flex>
@@ -135,12 +118,7 @@ export const Default = () => {
 						aria-labelledby={ `label-check2-disabled` }
 						onCheckedChange={ setChecked2 }
 					/>
-					<Label
-						clickable
-						sx={ { m: 0, ml: 2 } }
-						htmlFor={ `check2-disabled` }
-						id={ `label-check2-disabled` }
-					>
+					<Label clickable htmlFor={ `check2-disabled` } id={ `label-check2-disabled` }>
 						This option too
 					</Label>
 				</Flex>
@@ -161,9 +139,7 @@ export const Indeterminate = () => {
 
 	return (
 		<Form.Root>
-			{ (
-				[ 'primary', 'success', 'error', 'warning', 'info' ] as CheckboxProps[ 'variant' ][]
-			 ).map( variant => (
+			{ ( [ 'primary', 'success', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
 				<Form.Fieldset key={ variant }>
 					<Form.Legend>Indeterminate state { variant }</Form.Legend>
 
@@ -174,11 +150,8 @@ export const Indeterminate = () => {
 							aria-labelledby={ `label-check1-${ variant }` }
 							checked={ 'indeterminate' }
 						/>
-						<Label
-							sx={ { m: 0, ml: 2 } }
-							htmlFor={ `check1-${ variant }` }
-							id={ `label-check1-${ variant }` }
-						>
+
+						<Label htmlFor={ `check1-${ variant }` } id={ `label-check1-${ variant }` }>
 							This option
 						</Label>
 					</Flex>
@@ -195,11 +168,7 @@ export const Indeterminate = () => {
 						aria-labelledby={ `label-check1-disabled` }
 						checked={ 'indeterminate' }
 					/>
-					<Label
-						sx={ { m: 0, ml: 2 } }
-						htmlFor={ `check1-disabled` }
-						id={ `label-check1-disabled` }
-					>
+					<Label htmlFor={ `check1-disabled` } id={ `label-check1-disabled` }>
 						This option
 					</Label>
 				</Flex>

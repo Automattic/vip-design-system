@@ -7,7 +7,7 @@ import { RadioOptionProps } from '../Radio/RadioOption';
 
 export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
 	disabled?: boolean;
-	variant?: 'primary' | 'success' | 'error' | 'warning' | 'info' | 'disabled';
+	variant?: 'primary' | 'success' | 'brand' | 'disabled';
 }
 
 const StyledCheckbox = ( { variant = 'primary', ...rest }: CheckboxProps ) => (

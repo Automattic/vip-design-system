@@ -4,6 +4,7 @@ import {
 	baseControlBorderStyle,
 	baseControlFocusStyle,
 	inputBaseBackground,
+	inputBaseText,
 } from '../Input.styles';
 
 // The output willl be 16px because of the 1px border.
@@ -29,6 +30,12 @@ export const checkboxStyle = ( variant: string ): ThemeUIStyleObject => ( {
 		backgroundColor: variant,
 		color: variant,
 		borderColor: variant,
+	},
+	'& ~ label': {
+		fontWeight: 'regular',
+		color: inputBaseText,
+		m: 0,
+		ml: 2,
 	},
 	svg: {
 		position: 'absolute',
