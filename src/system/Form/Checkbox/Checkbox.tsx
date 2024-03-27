@@ -34,9 +34,6 @@ const Checkbox = ( {
 
 	return (
 		<StyledCheckbox
-			sx={ {
-				opacity: disabled ? 0.4 : 1,
-			} }
 			onCheckedChange={ disabled ? undefined : onCheckedChange }
 			aria-disabled={ disabled }
 			variant={ variant }
