@@ -94,7 +94,7 @@ export const VIPDashboardLike: Story = {
 					<Toolbar.Separator />
 
 					<a href="/">
-						<Avatar isVIP name="John Doe" src="https://i.pravatar.cc/80" />
+						<Avatar name="John Doe" src="https://i.pravatar.cc/80" />
 						<ScreenReaderText>John Doe</ScreenReaderText>
 					</a>
 				</Toolbar.UtilNav>

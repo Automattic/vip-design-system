@@ -11,7 +11,6 @@ import { Image, ImageProps, ThemeUIStyleObject } from 'theme-ui';
 import { Box, Text } from '..';
 
 export interface AvatarProps {
-	isVIP?: boolean;
 	size?: number;
 	src?: string;
 	name?: string;
@@ -23,24 +22,21 @@ type AvatarImageProps = AvatarProps & ImageProps;
 
 export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	(
-		{ isVIP = false, name, size = 32, src, className, sx = {}, ...props }: AvatarImageProps,
+		{ name, size = 32, src, className, sx = {}, ...props }: AvatarImageProps,
 		ref: Ref< HTMLElement >
 	) => (
 		<Box
 			sx={ {
 				borderRadius: '100%',
-				height: size + 2, // +2 to compensate padding on both sides
-				width: size + 2, // +2 to compensate padding on both sides
-				borderWidth: '2px',
-				borderStyle: 'solid',
-				borderColor: isVIP || isVIP === undefined ? 'primary' : 'transparent',
+				height: size,
+				width: size,
 				overflow: 'hidden',
-				backgroundColor: 'primary',
+				border: 'none',
+				backgroundColor: 'icon.primary',
 				display: 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				color: 'white',
-				padding: '1px', // this should probably be replaced with a token
+				color: 'inverse',
 				textAlign: 'center',
 				...sx,
 			} }
@@ -63,10 +59,10 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 				<Text
 					as="span"
 					sx={ {
-						color: 'white',
+						color: 'icon.inverse',
 						mb: 0,
 						fontWeight: 'bold',
-						fontSize: 0,
+						fontSize: 2,
 						textTransform: 'uppercase',
 					} }
 				>
