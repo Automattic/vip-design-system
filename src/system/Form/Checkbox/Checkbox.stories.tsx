@@ -61,7 +61,7 @@ export const Default = () => {
 
 	return (
 		<Form.Root>
-			{ ( [ 'primary', 'success', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
+			{ ( [ 'primary', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
 				<Form.Fieldset key={ variant }>
 					<Form.Legend>Tell me your { variant } prefereces</Form.Legend>
 
@@ -139,7 +139,7 @@ export const Indeterminate = () => {
 
 	return (
 		<Form.Root>
-			{ ( [ 'primary', 'success', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
+			{ ( [ 'primary', 'brand' ] as CheckboxProps[ 'variant' ][] ).map( variant => (
 				<Form.Fieldset key={ variant }>
 					<Form.Legend>Indeterminate state { variant }</Form.Legend>
 

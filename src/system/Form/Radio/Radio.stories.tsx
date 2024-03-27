@@ -62,7 +62,7 @@ export const Default = () => {
 
 	return (
 		<>
-			{ ( [ 'primary', 'success', 'brand' ] as RadioProps[ 'variant' ][] ).map( variant => (
+			{ ( [ 'primary', 'brand' ] as RadioProps[ 'variant' ][] ).map( variant => (
 				<Box key={ variant }>
 					<Heading as="h2" sx={ { textTransform: 'capitalize' } }>
 						{ variant }
