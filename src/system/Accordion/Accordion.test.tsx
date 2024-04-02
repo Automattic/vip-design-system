@@ -1,12 +1,11 @@
-// TODO: Fix this
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 /** @jsxImportSource theme-ui */
-
 /**
  * External dependencies
  */
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
@@ -48,9 +47,11 @@ describe( '<Accordion />', () => {
 	} );
 
 	it( 'should open the content when clicking on its trigger', async () => {
+		const user = userEvent.setup();
+
 		const { container } = renderComponent();
 
-		fireEvent.click( screen.getByRole( 'button', { name: 'trigger two' } ) );
+		await user.click( screen.getByRole( 'button', { name: 'trigger two' } ) );
 
 		// Should find the open content
 		expect( screen.queryByText( 'content one' ) ).toBeNull();

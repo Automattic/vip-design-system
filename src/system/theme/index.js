@@ -495,8 +495,7 @@ export default {
 			fontSize: 2,
 			color: 'text',
 			backgroundColor: 'backgrounds.primary',
-			'-webkit-font-smoothing': 'antialiased',
-			'-moz-osx-font-smoothing': 'grayscale',
+			fontSmoothing: 'antialiased',
 			a: {
 				'&:hover': {
 					textDecorationLine: 'underline',

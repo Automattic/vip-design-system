@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 /** @jsxImportSource theme-ui */
 
 import { AiOutlineLock } from 'react-icons/ai';

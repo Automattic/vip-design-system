@@ -11,6 +11,8 @@
     "isolatedModules": true,
     // Allow to import *.json files
     "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "module": "esnext",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "jsx": "react-jsx",
