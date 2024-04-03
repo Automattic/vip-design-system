@@ -51,13 +51,19 @@ describe( '<Accordion />', () => {
 
 		const { container } = renderComponent();
 
-		await user.click( screen.getByRole( 'button', { name: 'trigger two' } ) );
+		await user.click( screen.getByRole( 'button', { name: 'trigger two', expanded: false } ) );
+
+		expect(
+			screen.getByRole( 'button', { name: 'trigger one', expanded: false } )
+		).toHaveAttribute( 'data-state', 'closed' );
+		expect( screen.queryByText( 'content one' ) ).not.toBeInTheDocument();
 
 		// Should find the open content
-		expect( screen.queryByText( 'content one' ) ).toBeNull();
-
-		// Should not find the closed content
-		expect( screen.queryByText( 'content two' ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'trigger two', expanded: true } ) ).toHaveAttribute(
+			'data-state',
+			'open'
+		);
+		expect( screen.getByText( 'content two' ) ).toBeVisible();
 
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
