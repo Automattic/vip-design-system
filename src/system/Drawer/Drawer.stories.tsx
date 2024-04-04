@@ -2,24 +2,8 @@
 // @ts-nocheck
 /** @jsxImportSource theme-ui */
 
-import { AiOutlineLock } from 'react-icons/ai';
-import {
-	BiBell,
-	BiBulb,
-	BiCodeAlt,
-	BiData,
-	BiGridAlt,
-	BiHistory,
-	BiTachometer,
-	BiWindows,
-} from 'react-icons/bi';
-import { MdMenu, MdOutlinePhotoLibrary } from 'react-icons/md';
-
 import { Drawer, Root, Trigger, Content } from './Drawer';
-import { Box, Button, Flex, Nav, NavItem } from '..';
-import { DialogCloseDefault } from '../NewDialog/DialogClose';
-import { Logo } from '../Toolbar/Logo';
-import { CustomLink } from '../utils/stories/CustomLink';
+import { Button } from '..';
 
 import type { StoryObj } from '@storybook/react';
 
