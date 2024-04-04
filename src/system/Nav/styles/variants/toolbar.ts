@@ -8,6 +8,7 @@ export const toolbarRootStyles: ThemeUIStyleObject = {
 	display: [ 'none', 'none', 'flex' ],
 	height: '100%',
 	ml: 0,
+	gap: 6,
 	width: 'max-content',
 };
 
@@ -28,8 +29,6 @@ export const defaultToolbarLinkStyle: ThemeUIStyleObject = {
 export const toolbarItemLinkStyles: ThemeUIStyleObject = {
 	...defaultItemLinkStyles,
 	position: 'relative',
-	ml: 3,
-	mr: 3,
 	height: '100%',
 	...defaultToolbarLinkStyle,
 

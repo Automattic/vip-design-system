@@ -64,7 +64,7 @@ export const drawerContentStyles = (
 			return {
 				...defaultStyles,
 				backgroundColor: 'layer.1',
-				top: [ 56, 56, 56, 64 ],
+				top: 64,
 			};
 		}
 		default: {
@@ -106,7 +106,7 @@ export const drawerOverlayStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeU
 		case 'right-header': {
 			return {
 				...defaultStyles,
-				top: [ 56, 56, 56, 64 ],
+				top: 64,
 			};
 		}
 		default: {

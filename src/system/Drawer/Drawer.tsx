@@ -4,14 +4,24 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import React, { ReactNode } from 'react';
 
 import { drawerContentStyles, drawerOverlayStyles } from './styles';
-import { DialogCloseDefault } from '../NewDialog/DialogClose';
+import { DialogClose } from '../NewDialog/DialogClose';
 import { DialogTitle } from '../NewDialog/DialogTitle';
 
 export interface DrawerContentProps extends DialogPrimitive.DialogContentProps, DrawerProps {}
 
+export interface DrawerProps extends DialogPrimitive.DialogProps {
+	children?: ReactNode;
+	trigger?: ReactNode;
+	label?: string;
+	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
+	width?: number | string;
+	height?: number | string;
+	renderClose?: () => JSX.Element | null;
+}
+
 export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
 	(
-		{ children, variant = 'left', label, width, height, ...rest }: DrawerContentProps,
+		{ children, variant = 'left', label, width, height, renderClose, ...rest }: DrawerContentProps,
 		forwardedRef
 	) => (
 		<DialogPrimitive.Portal>
@@ -22,21 +32,12 @@ export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
 				ref={ forwardedRef }
 			>
 				<DialogTitle title={ label } hidden />
-				<DialogCloseDefault />
+				{ renderClose ? renderClose() : <DialogClose /> }
 				{ children }
 			</DialogPrimitive.Content>
 		</DialogPrimitive.Portal>
 	)
 );
-
-export interface DrawerProps extends DialogPrimitive.DialogProps {
-	children?: ReactNode;
-	trigger?: ReactNode;
-	label?: string;
-	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
-	width?: number | string;
-	height?: number | string;
-}
 
 export const Drawer = React.forwardRef< HTMLDivElement, DrawerProps >(
 	( { children, width, height, variant = 'left', trigger, label, ...rest }, forwardedRef ) => (

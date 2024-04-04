@@ -1,7 +1,20 @@
 /** @jsxImportSource theme-ui */
 
+import { AiOutlineLock } from 'react-icons/ai';
+import {
+	BiBell,
+	BiBulb,
+	BiCodeAlt,
+	BiData,
+	BiGridAlt,
+	BiHistory,
+	BiTachometer,
+	BiWindows,
+} from 'react-icons/bi';
+import { MdOutlinePhotoLibrary } from 'react-icons/md';
+
 import { MobileMenu, MobileMenuTrigger, MobileMenuWrapper } from './MobileMenu';
-import { Flex, NavItem } from '..';
+import { Box, Nav, NavItem } from '..';
 import { CustomLink } from '../utils/stories/CustomLink';
 
 import type { StoryObj } from '@storybook/react';
@@ -62,50 +75,109 @@ export const Default: Story = {
 						</>
 					}
 				>
-					<Flex
+					<Box
 						sx={ {
-							flex: 1,
+							alignSelf: 'stretch',
 							backgroundColor: 'layer.1',
-							height: 'max-content',
+							minHeight: `calc(100vh - 64px)`,
+							pt: 2,
 							px: 4,
+							width: '100%',
+							a: {
+								border: 'none',
+							},
 						} }
 					>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor tellus tortor,
-							sed tempus mauris bibendum sit amet. Aliquam et purus faucibus, pretium quam ut,
-							dictum dui. Sed laoreet hendrerit sapien. Ut sed augue at orci bibendum convallis.
-							Vestibulum non ultricies lectus. Nunc massa metus, ornare eu cursus vitae, cursus ac
-							velit. Praesent mattis dolor a turpis sagittis varius. Phasellus id libero a augue
-							lacinia fringilla. Cras euismod justo sit amet urna dignissim accumsan. Vestibulum
-							orci nisl, cursus ac suscipit quis, fermentum vitae tortor. Duis consectetur diam sit
-							amet rhoncus posuere. Duis sollicitudin commodo blandit. Praesent volutpat quam at
-							molestie gravida. Aliquam a lectus eget mauris mattis tincidunt a et nulla.
-							Pellentesque mollis turpis vitae ex luctus, non lacinia ex rutrum. Sed consectetur
-							tortor diam, vitae volutpat tortor ornare at. Donec laoreet aliquam sollicitudin. In
-							pulvinar odio nec nisl ornare cursus. Aenean at augue sodales, pulvinar nulla sed,
-							sagittis dui. Suspendisse eu justo ac ligula tincidunt venenatis id et massa. Ut
-							luctus, turpis in vestibulum interdum, sem nulla rhoncus leo, et dapibus ligula enim
-							at odio. Fusce lorem risus, imperdiet eget dui eget, viverra blandit nisl. Etiam
-							scelerisque massa eu urna auctor convallis vitae vitae orci. Sed at dui et leo maximus
-							varius. Nulla gravida nisl quis sodales interdum. Donec scelerisque leo id felis
-							vestibulum iaculis. Vivamus sit amet convallis eros. Proin maximus massa ac tortor
-							pellentesque, vel feugiat libero elementum. Proin mattis arcu facilisis est pulvinar,
-							sed suscipit enim dictum. Sed semper mollis rhoncus. Vivamus faucibus fermentum magna
-							in tincidunt. Quisque tincidunt, massa eu placerat efficitur, diam neque lobortis
-							magna, ut accumsan urna ligula id urna. Donec vitae consequat libero, luctus cursus
-							ipsum. Nam efficitur, felis eu commodo dictum, ex magna venenatis orci, nec feugiat
-							nisi urna vel urna. Fusce tristique ultricies accumsan. Maecenas quis ullamcorper
-							erat. Donec rhoncus risus magna, eu blandit enim commodo vel. Vestibulum volutpat,
-							nulla sit amet porttitor congue, urna elit iaculis mi, eu venenatis nibh diam a arcu.
-							Mauris pharetra tincidunt odio non mollis. Praesent suscipit et lectus id mattis.
-							Maecenas vitae posuere nunc, at blandit velit. Nulla placerat vehicula nisi sed
-							commodo. Proin tempus dui sed ante sollicitudin, at vehicula erat suscipit. Maecenas
-							rutrum venenatis quam non fermentum. Aliquam vitae dolor tellus. Nulla in metus nec
-							neque condimentum eleifend. Integer et purus sollicitudin, vestibulum ligula sit amet,
-							viverra urna. Vestibulum mattis posuere eros sed euismod. Aenean ultrices dolor nibh,
-							at posuere turpis lobortis vitae.
-						</p>
-					</Flex>
+						<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
+							<NavItem.Menu
+								href="https://wordpress.com"
+								renderIcon={ size => <BiGridAlt size={ size } /> }
+								as={ CustomLink }
+							>
+								Overview
+							</NavItem.Menu>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <BiWindows size={ size } /> }
+							>
+								Network Sites
+							</NavItem.Menu>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <AiOutlineLock size={ size } /> }
+							>
+								Domains & TLS
+							</NavItem.Menu>
+
+							<NavItem.MenuGroup
+								active
+								label="Logs"
+								renderIcon={ size => <BiHistory size={ size } /> }
+							>
+								<NavItem.Menu active as={ CustomLink } href="https://google.com/">
+									Audit
+								</NavItem.Menu>
+								<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
+									Runtime
+								</NavItem.Menu>
+								<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
+									Slow Query
+								</NavItem.Menu>
+							</NavItem.MenuGroup>
+
+							<NavItem.MenuGroup
+								label="Performance"
+								renderIcon={ size => <BiTachometer size={ size } /> }
+							>
+								<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+									Metrics
+								</NavItem.Menu>
+								<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+									Monitor
+								</NavItem.Menu>
+								<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+									Cache
+								</NavItem.Menu>
+							</NavItem.MenuGroup>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <BiCodeAlt size={ size } /> }
+							>
+								Code [v]
+							</NavItem.Menu>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <BiData size={ size } /> }
+							>
+								Database [v]
+							</NavItem.Menu>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
+							>
+								Media [v]
+							</NavItem.Menu>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <BiBell size={ size } /> }
+							>
+								Notifications
+							</NavItem.Menu>
+							<NavItem.Menu
+								as={ CustomLink }
+								href="https://random-website.com/"
+								renderIcon={ size => <BiBulb size={ size } /> }
+							>
+								Features
+							</NavItem.Menu>
+						</Nav.Menu>
+					</Box>
 				</MobileMenu>
 			</MobileMenuWrapper>
 		</>

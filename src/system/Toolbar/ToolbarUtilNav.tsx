@@ -17,6 +17,7 @@ export const ToolbarUtilNav = forwardRef< HTMLElement, ToolbarUtilNavProps >(
 				alignItems: 'center',
 				flexDirection: 'row',
 				display: 'flex',
+				gap: 4,
 			} }
 		>
 			{ children }
@@ -36,7 +37,6 @@ export const ToolbarUtilNavSeparator = () => (
 				overflow: 'hidden',
 				content: '""',
 			},
-			mx: 3,
 			position: 'relative',
 		} }
 	></span>

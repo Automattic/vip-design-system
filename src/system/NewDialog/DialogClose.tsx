@@ -3,11 +3,12 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import React, { forwardRef } from 'react';
 import { IoClose } from 'react-icons/io5';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 import { Button } from '..';
 
 export interface DialogCloseProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
@@ -20,27 +21,39 @@ export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
 
 DialogClose.displayName = 'DialogClose';
 
-export const DialogCloseDefault = forwardRef< HTMLButtonElement >( ( _, forwardedRef ) => (
-	<DialogClose>
-		<Button
-			ref={ forwardedRef }
-			aria-label="Close"
-			variant="tertiary"
-			sx={ {
-				position: 'absolute',
-				top: 4,
-				right: 4,
-				color: 'icon.inverse',
-				svg: {
-					'&:hover': {
-						fill: 'inherit',
-					},
-				},
-			} }
-		>
-			<IoClose aria-hidden="true" />
-		</Button>
-	</DialogClose>
-) );
+export interface DialogCloseDefaultProps {
+	variant?: 'primary' | 'inverse';
+}
+
+export const defaultCloseStyles = ( variant = 'primary' ): ThemeUIStyleObject => ( {
+	position: 'absolute',
+	top: 3,
+	right: 3,
+	minWidth: 38,
+	minHeight: 38,
+	color: variant === 'primary' ? 'icon.primary' : 'icon.inverse',
+	svg: {
+		'&:hover': {
+			fill: 'inherit',
+		},
+	},
+} );
+
+export const DialogCloseDefault = forwardRef< HTMLButtonElement, DialogCloseDefaultProps >(
+	( { variant = 'primary' }: DialogCloseDefaultProps, forwardedRef ) => {
+		return (
+			<DialogClose>
+				<Button
+					ref={ forwardedRef }
+					aria-label="Close"
+					variant="tertiary"
+					sx={ defaultCloseStyles( variant ) }
+				>
+					<IoClose aria-hidden="true" />
+				</Button>
+			</DialogClose>
+		);
+	}
+);
 
 DialogCloseDefault.displayName = 'DialogCloseDefault';
