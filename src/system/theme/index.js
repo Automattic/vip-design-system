@@ -542,6 +542,9 @@ export default {
 			p: {
 				color: 'text',
 			},
+			body: {
+				fontSize: 16,
+			},
 			...getHeadingStyles(),
 		},
 	},
