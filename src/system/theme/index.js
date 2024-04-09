@@ -543,7 +543,7 @@ export default {
 				color: 'text',
 			},
 			body: {
-				fontSize: 16,
+				fontSize: 2,
 			},
 			...getHeadingStyles(),
 		},
