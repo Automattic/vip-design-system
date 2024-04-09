@@ -8,7 +8,7 @@ import { DialogCloseDefault } from '../NewDialog/DialogClose';
 import { Logo } from '../Toolbar/Logo';
 import { Button, Flex, Nav, Box } from '../index';
 
-interface MobileMenuProps {
+export interface MobileMenuProps {
 	children: React.ReactNode;
 	toolbarItems?: React.ReactNode;
 }
