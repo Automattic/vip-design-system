@@ -75,109 +75,95 @@ export const Default: Story = {
 						</>
 					}
 				>
-					<Box
-						sx={ {
-							alignSelf: 'stretch',
-							backgroundColor: 'layer.1',
-							minHeight: `calc(100vh - 64px)`,
-							pt: 2,
-							px: 4,
-							width: '100%',
-							a: {
-								border: 'none',
-							},
-						} }
-					>
-						<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
-							<NavItem.Menu
-								href="https://wordpress.com"
-								renderIcon={ size => <BiGridAlt size={ size } /> }
-								as={ CustomLink }
-							>
-								Overview
-							</NavItem.Menu>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <BiWindows size={ size } /> }
-							>
-								Network Sites
-							</NavItem.Menu>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <AiOutlineLock size={ size } /> }
-							>
-								Domains & TLS
-							</NavItem.Menu>
+					<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
+						<NavItem.Menu
+							href="https://wordpress.com"
+							renderIcon={ size => <BiGridAlt size={ size } /> }
+							as={ CustomLink }
+						>
+							Overview
+						</NavItem.Menu>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <BiWindows size={ size } /> }
+						>
+							Network Sites
+						</NavItem.Menu>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <AiOutlineLock size={ size } /> }
+						>
+							Domains & TLS
+						</NavItem.Menu>
 
-							<NavItem.MenuGroup
-								active
-								label="Logs"
-								renderIcon={ size => <BiHistory size={ size } /> }
-							>
-								<NavItem.Menu active as={ CustomLink } href="https://google.com/">
-									Audit
-								</NavItem.Menu>
-								<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
-									Runtime
-								</NavItem.Menu>
-								<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
-									Slow Query
-								</NavItem.Menu>
-							</NavItem.MenuGroup>
+						<NavItem.MenuGroup
+							active
+							label="Logs"
+							renderIcon={ size => <BiHistory size={ size } /> }
+						>
+							<NavItem.Menu active as={ CustomLink } href="https://google.com/">
+								Audit
+							</NavItem.Menu>
+							<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
+								Runtime
+							</NavItem.Menu>
+							<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
+								Slow Query
+							</NavItem.Menu>
+						</NavItem.MenuGroup>
 
-							<NavItem.MenuGroup
-								label="Performance"
-								renderIcon={ size => <BiTachometer size={ size } /> }
-							>
-								<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-									Metrics
-								</NavItem.Menu>
-								<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-									Monitor
-								</NavItem.Menu>
-								<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-									Cache
-								</NavItem.Menu>
-							</NavItem.MenuGroup>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <BiCodeAlt size={ size } /> }
-							>
-								Code [v]
+						<NavItem.MenuGroup
+							label="Performance"
+							renderIcon={ size => <BiTachometer size={ size } /> }
+						>
+							<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+								Metrics
 							</NavItem.Menu>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <BiData size={ size } /> }
-							>
-								Database [v]
+							<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+								Monitor
 							</NavItem.Menu>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
-							>
-								Media [v]
+							<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
+								Cache
 							</NavItem.Menu>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <BiBell size={ size } /> }
-							>
-								Notifications
-							</NavItem.Menu>
-							<NavItem.Menu
-								as={ CustomLink }
-								href="https://random-website.com/"
-								renderIcon={ size => <BiBulb size={ size } /> }
-							>
-								Features
-							</NavItem.Menu>
-						</Nav.Menu>
-					</Box>
+						</NavItem.MenuGroup>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <BiCodeAlt size={ size } /> }
+						>
+							Code [v]
+						</NavItem.Menu>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <BiData size={ size } /> }
+						>
+							Database [v]
+						</NavItem.Menu>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
+						>
+							Media [v]
+						</NavItem.Menu>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <BiBell size={ size } /> }
+						>
+							Notifications
+						</NavItem.Menu>
+						<NavItem.Menu
+							as={ CustomLink }
+							href="https://random-website.com/"
+							renderIcon={ size => <BiBulb size={ size } /> }
+						>
+							Features
+						</NavItem.Menu>
+					</Nav.Menu>
 				</MobileMenu>
 			</MobileMenuWrapper>
 		</>

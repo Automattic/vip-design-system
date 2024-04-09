@@ -59,7 +59,21 @@ export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 							</Nav.Primary>
 						) }
 
-						{ children }
+						<Box
+							sx={ {
+								alignSelf: 'stretch',
+								backgroundColor: 'layer.1',
+								minHeight: `calc(100vh - 64px)`,
+								pt: 2,
+								px: 4,
+								width: '100%',
+								a: {
+									border: 'none',
+								},
+							} }
+						>
+							{ children }
+						</Box>
 					</Flex>
 				</div>
 			</Box>
