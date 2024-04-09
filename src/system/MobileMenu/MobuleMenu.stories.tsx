@@ -14,7 +14,7 @@ import {
 import { MdOutlinePhotoLibrary } from 'react-icons/md';
 
 import { MobileMenu, MobileMenuTrigger, MobileMenuWrapper } from './MobileMenu';
-import { Box, Nav, NavItem } from '..';
+import { Nav, NavItem } from '..';
 import { CustomLink } from '../utils/stories/CustomLink';
 
 import type { StoryObj } from '@storybook/react';
