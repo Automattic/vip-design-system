@@ -34,6 +34,7 @@ export const ToolbarIconHolder = ( { children } ) => (
 			alignItems: 'center',
 			justifyContent: 'center',
 			color: 'icon.inverse',
+			'&:hover': { color: 'icon.primary' },
 		} }
 	>
 		{ children }
