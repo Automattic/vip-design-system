@@ -22,7 +22,7 @@ const Toolbar = forwardRef< HTMLElement, ToolbarProps >(
 			role="banner"
 			sx={ {
 				display: 'flex',
-				height: [ 56, null, null, 64 ],
+				height: 64,
 				backgroundColor: 'toolbar.background',
 				flexDirection: 'row',
 				alignItems: 'center',
