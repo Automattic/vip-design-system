@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import React, { Ref, forwardRef } from 'react';
+import { Flex } from '..';
 
 export type ToolbarUtilNavProps = {
 	children: React.ReactNode;
@@ -25,10 +26,22 @@ export const ToolbarUtilNav = forwardRef< HTMLElement, ToolbarUtilNavProps >(
 	)
 );
 
+export const ToolbarIconHolder = ( { children } ) => (
+	<Flex
+		sx={ {
+			width: 38,
+			height: 38,
+		} }
+	>
+		{ children }
+	</Flex>
+);
+
 export const ToolbarUtilNavSeparator = () => (
 	<span
 		aria-hidden="true"
 		sx={ {
+			display: [ 'block', 'none', 'none', 'block', 'block' ],
 			'&:after': {
 				display: 'block',
 				backgroundColor: 'borders.inverse',
