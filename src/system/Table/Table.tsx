@@ -35,13 +35,13 @@ export const Table = forwardRef< HTMLTableElement, TableProps >(
 		return (
 			<Box
 				className={ classNames( 'vip-table-component', className ) }
-				sx={ { width: '100%', overflowX: 'auto' } }
+				sx={ { width: '100%', maxWidth: '100vw', overflowX: 'auto' } }
 				role="region"
 				aria-labelledby={ captionId }
 				tabIndex={ 0 }
 			>
 				<table
-					sx={ { width: '100%', borderSpacing: 0, ...sx } }
+					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }
 					className={ classNames( 'vip-table-component-element', className ) }
 					ref={ ref }
 					{ ...props }
