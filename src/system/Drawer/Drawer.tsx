@@ -9,26 +9,35 @@ import { DialogTitle } from '../NewDialog/DialogTitle';
 
 export interface DrawerContentProps extends DialogPrimitive.DialogContentProps, DrawerProps {}
 
+export type responsiveProp = number | string | number[] | string[];
+export type responsiveDimensionsProp = {
+	width?: responsiveProp;
+	height?: responsiveProp;
+	minWidth?: responsiveProp;
+	minHeight?: responsiveProp;
+	maxWidth?: responsiveProp;
+	maxHeight?: responsiveProp;
+};
+
 export interface DrawerProps extends DialogPrimitive.DialogProps {
 	children?: ReactNode;
 	trigger?: ReactNode;
 	label?: string;
 	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
-	width?: number | string;
-	height?: number | string;
+	dimensions?: responsiveDimensionsProp;
 	renderClose?: () => JSX.Element | null;
 }
 
 export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
 	(
-		{ children, variant = 'left', label, width, height, renderClose, ...rest }: DrawerContentProps,
+		{ children, variant = 'left', label, dimensions, renderClose, ...rest }: DrawerContentProps,
 		forwardedRef
 	) => (
 		<DialogPrimitive.Portal>
 			<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
 			<DialogPrimitive.Content
 				{ ...rest }
-				sx={ drawerContentStyles( variant, width, height ) }
+				sx={ drawerContentStyles( variant, dimensions ) }
 				ref={ forwardedRef }
 			>
 				<DialogTitle title={ label } hidden />
@@ -40,9 +49,15 @@ export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
 );
 
 export const Drawer = React.forwardRef< HTMLDivElement, DrawerProps >(
-	( { children, width, height, variant = 'left', trigger, label, ...rest }, forwardedRef ) => (
+	( { children, dimensions, variant = 'left', trigger, label, ...rest }, forwardedRef ) => (
 		<Root trigger={ trigger }>
-			<Content width={ width } variant={ variant } label={ label } ref={ forwardedRef } { ...rest }>
+			<Content
+				dimensions={ dimensions }
+				variant={ variant }
+				label={ label }
+				ref={ forwardedRef }
+				{ ...rest }
+			>
 				{ children }
 			</Content>
 		</Root>

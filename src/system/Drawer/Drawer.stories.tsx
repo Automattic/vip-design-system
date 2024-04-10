@@ -55,20 +55,39 @@ type Story = StoryObj< typeof Drawer >;
 export const Default: Story = {
 	render: () => (
 		<>
-			<Drawer label="My XYZ Dialog" trigger={ <Button>Open </Button> } width={ 320 }>
+			<Drawer
+				label="My XYZ Dialog"
+				trigger={ <Button>Open </Button> }
+				dimensions={ { width: 320 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from default</p>
 			</Drawer>
 
 			<Drawer trigger={ <Button>Top</Button> } variant="top" label="Dialog Content">
 				<p sx={ { ml: 3 } }>Hello from top</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Right</Button> } variant="right" label="Dialog" width={ 500 }>
+			<Drawer
+				trigger={ <Button>Right</Button> }
+				variant="right"
+				label="Dialog"
+				dimensions={ { width: 500 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from right width 500px</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Bottom</Button> } variant="bottom" label="Dialog" height={ 200 }>
+			<Drawer
+				trigger={ <Button>Bottom</Button> }
+				variant="bottom"
+				label="Dialog"
+				dimensions={ { height: 200 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from bottom with 200px</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Left</Button> } variant="left" label="Dialog" width={ 600 }>
+			<Drawer
+				trigger={ <Button>Left</Button> }
+				variant="left"
+				label="Dialog"
+				dimensions={ { width: 600 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from left width 600px</p>
 			</Drawer>
 			<Drawer trigger={ <Button>Left Header</Button> } variant="left-header" label="Dialog">
@@ -88,7 +107,7 @@ export const ByParts: Story = {
 				<Trigger>
 					<Button>Open </Button>
 				</Trigger>
-				<Content width={ 320 } label="My XYZ Dialog">
+				<Content dimensions={ { width: 320 } } label="My XYZ Dialog">
 					<p sx={ { ml: 3 } }>Hello from default</p>
 				</Content>
 			</Root>

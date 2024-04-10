@@ -17,7 +17,6 @@ export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 	( { children, toolbarItems }: MobileMenuProps, ref: Ref< HTMLDivElement > ) => (
 		<Drawer.Content
 			variant="left"
-			width={ 320 }
 			label="Main Navigation Items"
 			ref={ ref }
 			renderClose={ () => <DialogCloseDefault variant="inverse" /> }
