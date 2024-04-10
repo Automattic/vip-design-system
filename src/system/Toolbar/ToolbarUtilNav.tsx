@@ -31,6 +31,9 @@ export const ToolbarIconHolder = ( { children } ) => (
 		sx={ {
 			width: 38,
 			height: 38,
+			alignItems: 'center',
+			justifyItems: 'center',
+			color: 'icon.inverse',
 		} }
 	>
 		{ children }
