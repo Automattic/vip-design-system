@@ -51,6 +51,7 @@ import { Text } from './Text';
 import { Toolbar } from './Toolbar';
 import { Tooltip } from './Tooltip';
 import { Wizard, WizardStep } from './Wizard';
+import { MobileMenuWrapper, MobileMenuTrigger, MobileMenu } from './MobileMenu/MobileMenu';
 import theme from './theme';
 
 export {
@@ -77,6 +78,9 @@ export {
 	DialogContent,
 	DialogTrigger,
 	ConfirmationDialog,
+	MobileMenu,
+	MobileMenuTrigger,
+	MobileMenuWrapper,
 	NewConfirmationDialog,
 	Grid,
 	Flex,
