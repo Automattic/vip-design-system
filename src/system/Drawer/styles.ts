@@ -31,7 +31,7 @@ export const drawerContentStyles = (
 	variant: DrawerProps[ 'variant' ],
 	dimensions?: responsiveDimensionsProp
 ): ThemeUIStyleObject => {
-	const width: responsiveProp = dimensions?.width || [ '100%', '80vw' ];
+	const width: responsiveProp = dimensions?.width || [ '100%', '100%', '80vw' ];
 	const height: responsiveProp = dimensions?.height || '100vh';
 	const minWidth: responsiveProp = dimensions?.minWidth || '16rem';
 	const minHeight: responsiveProp = dimensions?.minHeight || '100vh';
