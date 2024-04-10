@@ -32,7 +32,7 @@ export const ToolbarIconHolder = ( { children } ) => (
 			width: 38,
 			height: 38,
 			alignItems: 'center',
-			justifyItems: 'center',
+			justifyContent: 'center',
 			color: 'icon.inverse',
 		} }
 	>
