@@ -92,8 +92,8 @@ export const menuItemLinkStyles: MixedStyleProp = {
 		transition: 'background-color 200ms ease-out',
 	},
 	[ svgIcon ]: {
-		color: 'icon.primary',
-		fill: 'icon.primary',
+		color: 'icon.secondary',
+		fill: 'icon.secondary',
 		width: 20,
 		height: 20,
 		display: 'block',
@@ -117,7 +117,7 @@ export const menuInverseItemLinkStyles = {
 			? {
 					...menuItemLinkStyles[ active ],
 					color: 'toolbar.text.default',
-					backgroundColor: 'tool`bar.background',
+					backgroundColor: 'toolbar.background',
 			  }
 			: {},
 	[ focusNotActiveHoverNotActive ]:
