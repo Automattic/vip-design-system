@@ -9,7 +9,7 @@ import { NavItemRenderIconProp, NavProps, NavVariant, VIP_NAV } from './Nav';
 import { ItemGroupMenu } from './NavItemGroup';
 import { navItemLinkStyles, navItemStyles } from './styles';
 
-export const NAV_ITEM_ICON_SIZE = 20;
+export const NAV_ITEM_ICON_SIZE = 24;
 
 export interface NavItemTheme extends Theme {
 	outline?: Record< string, string >;

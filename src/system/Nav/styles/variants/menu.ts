@@ -14,7 +14,7 @@ export const menuItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeU
 	border: 'none',
 	height: 38,
 	width: '100%',
-	mb: 1,
+	justifyContent: 'space-between',
 } );
 
 // Menu Inverse Item Style <li>
@@ -45,15 +45,16 @@ export const menuItemLinkStyles: MixedStyleProp = {
 	borderRadius: 1,
 	color: 'text',
 	display: 'inline-flex',
-	fontSize: 'inherit',
+	fontSize: '0.875rem',
 	fontWeight: 'body',
-	gap: 3,
 	height: 38,
 	mx: 0,
 	mb: 0,
+	pt: 3,
+	pr: 4,
+	pb: 3,
 	pl: 5,
-	pr: 3,
-	py: 2,
+	gap: 1,
 	textDecoration: 'none',
 	width: '100%',
 	[ visitedLink ]: {
@@ -72,7 +73,7 @@ export const menuItemLinkStyles: MixedStyleProp = {
 	},
 	[ active ]: {
 		color: 'heading',
-		backgroundColor: 'layer.2',
+		backgroundColor: 'backgrounds.primary',
 		textDecoration: 'none',
 		cursor: 'default',
 		svg: {
@@ -91,8 +92,10 @@ export const menuItemLinkStyles: MixedStyleProp = {
 		transition: 'background-color 200ms ease-out',
 	},
 	[ svgIcon ]: {
-		color: 'icon.secondary',
-		fill: 'icon.secondary',
+		color: 'icon.primary',
+		fill: 'icon.primary',
+		width: 20,
+		height: 20,
 		display: 'block',
 	},
 };
