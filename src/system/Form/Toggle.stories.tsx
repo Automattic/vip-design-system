@@ -22,27 +22,25 @@ export default {
 		docs: {
 			description: {
 				component: `
-The Toggle component is a navigation component that is hidden by default and can be toggled open and closed. It opens a panel that can contain any content. The base of this component is a Drawer.
+The Toggle component is two-state switch that can be toggled on or off. It is used to activate or deactivate a feature.
 
 ## Guidance
 
-### When to use the Drawer component
+### When to use the Toggle component
 
-- Use the Toggle component to displaying a drawer with mobile content.
+- Use the Toggle component to allow users to switch between two states, such as on/off, true/false, or yes/no.
 
 ### When to consider something else
 
-- If you need something that is not a menu on a mobile view, consider using another component.
+- If you need to select from more than two states, use a [Radio](/docs/radio--docs), or a [Select](/docs/form-select--docs) component instead.
 
 ## Accessibility Considerations guidance
 
-- The Toggle is based on the Drawer component and inherits all of its accessibility considerations.
+- The Toggle component is based on the Radix Toggle primitive, so it contains all the accessibility features from the primitive.
 
 ## Using the component
 
-- Look at the examples below to see how the Toggle component is used.
-- You can use the \`toolbarItems\` prop to pass the content that will be in the header
-- You can pass \`display\` prop to the ToggleTrigger to control the display of the trigger. The array must match the ThemeUI breakpoints.
+- Available variants: Primary, Success, Disabled.
 
 ## Component Properties
 `,
@@ -89,7 +87,12 @@ export const WithLabel: Story = {
 export const CustomStyling: Story = {
 	render: args => (
 		<form>
-			<Label htmlFor="custom-label-input">Custom Styling</Label>
+			<Label htmlFor="custom-label-input">
+				Custom Styling.{ ' ' }
+				<strong>
+					We currently only recommend that you use Primary, Disabled and Success variants.
+				</strong>
+			</Label>
 
 			<div>
 				<Toggle
@@ -99,6 +102,7 @@ export const CustomStyling: Story = {
 					aria-label="Feature flag"
 					variant="success"
 				/>{ ' ' }
+				<h2>Not recommended</h2>
 				<Toggle
 					id="custom-label-input-error"
 					defaultChecked
