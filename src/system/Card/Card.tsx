@@ -28,7 +28,6 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 			sx={ {
 				// pass variant prop to sx
 				variant: `cards.${ variant }`,
-				overflow: 'hidden',
 				...sx,
 			} }
 			className={ classNames( 'vip-card-component', className ) }
