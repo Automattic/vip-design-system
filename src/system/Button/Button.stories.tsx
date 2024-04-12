@@ -67,48 +67,50 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 };
 
 const Template = args => (
-	<Flex sx={ { gap: 2 } }>
-		<Button { ...args }>Primary</Button>
+	<div>
+		<Flex sx={ { gap: 2, flexDirection: 'row' } }>
+			<Button { ...args }>Primary</Button>
 
-		<Button variant="secondary" sx={ { ml: 2 } } { ...args }>
-			Secondary
-		</Button>
+			<Button variant="secondary" sx={ { ml: 2 } } { ...args }>
+				Secondary
+			</Button>
 
-		<Button variant="tertiary" sx={ { ml: 2 } } { ...args }>
-			Tertiary
-		</Button>
+			<Button variant="tertiary" sx={ { ml: 2 } } { ...args }>
+				Tertiary
+			</Button>
 
-		<Button variant="ghost" sx={ { ml: 2 } } { ...args }>
-			Ghost
-		</Button>
+			<Button variant="ghost" sx={ { ml: 2 } } { ...args }>
+				Ghost
+			</Button>
 
-		<Button variant="display" sx={ { ml: 2 } } { ...args }>
-			Display
-		</Button>
+			<Button variant="display" sx={ { ml: 2 } } { ...args }>
+				Display
+			</Button>
 
-		<Button variant="danger" sx={ { ml: 2 } } { ...args }>
-			Danger
-		</Button>
+			<Button variant="danger" sx={ { ml: 2 } } { ...args }>
+				Danger
+			</Button>
 
-		<Button variant="primary" disabled={ true } sx={ { ml: 2 } } { ...args }>
-			Disabled
-		</Button>
+			<Button variant="primary" disabled={ true } sx={ { ml: 2 } } { ...args }>
+				Disabled
+			</Button>
 
-		<Button variant="text" sx={ { ml: 2 } } as="a" href="https://google/com" { ...args }>
-			Button link
-		</Button>
+			<Button variant="text" sx={ { ml: 2 } } as="a" href="https://google/com" { ...args }>
+				Button link
+			</Button>
 
-		<Button variant="icon" sx={ { ml: 2 } } type="button" { ...args }>
-			<BiCalendarHeart size={ 24 } />
-			<ScreenReaderText>domain.com</ScreenReaderText>
-		</Button>
+			<Button variant="icon" sx={ { ml: 2 } } type="button" { ...args }>
+				<BiCalendarHeart size={ 24 } />
+				<ScreenReaderText>domain.com</ScreenReaderText>
+			</Button>
+		</Flex>
 
-		<div sx={ { maxWidth: '100px', mt: 3 } }>
-			<Button variant="secondary" href="https://google/com" { ...args }>
-				Button with constrained width
+		<div>
+			<Button variant="secondary" href="https://google/com" { ...args } fullWidth>
+				Button with fullWidth
 			</Button>
 		</div>
-	</Flex>
+	</div>
 );
 
 export const Default = Template.bind( {} );
