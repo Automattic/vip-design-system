@@ -63,7 +63,6 @@ export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 								alignSelf: 'stretch',
 								backgroundColor: 'layer.1',
 								minHeight: `calc(100vh - 64px)`,
-								pt: 2,
 								px: 4,
 								width: '100%',
 								a: {
