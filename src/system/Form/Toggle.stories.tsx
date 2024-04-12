@@ -89,9 +89,7 @@ export const CustomStyling: Story = {
 		<form>
 			<Label htmlFor="custom-label-input">
 				Custom Styling.{ ' ' }
-				<strong>
-					We currently only recommend that you use Primary, Disabled and Success variants.
-				</strong>
+				<strong>We currently only recommend using Primary, Disabled, and Success variants.</strong>
 			</Label>
 
 			<div>
