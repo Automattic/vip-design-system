@@ -108,7 +108,7 @@ function writeSVGFile() {
             const colorValue = colorRange[i].value;
             const colorDiffText = colorDiff[i].diff;
             svgContent += `<rect x="${x}" y="${y}" width="80" height="80" fill="${colorValue}"/>\n`;
-            svgContent += `<text x="${x + 40}" y="${y + 40}" width="80" height="80">${colorDiffText}</text>\n`;
+            // svgContent += `<text x="${x + 40}" y="${y + 40}" width="80" height="80">${colorDiffText}</text>\n`;
 
             x += 96;
         }

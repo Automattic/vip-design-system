@@ -134,6 +134,11 @@
           "type": "color",
           "description": "Color can be used for UI elements or large text. WCAG 2.x (relative luminance) contrast is 4.17:1 against background #ffffff"
         },
+        "59": {
+          "value": "#3858E9",
+          "type": "color",
+          "description": "WorPress Blueberry"
+        },
         "60": {
           "value": "#3756e8",
           "type": "color",
@@ -454,6 +459,11 @@
           "value": "#89b943",
           "type": "color",
           "description": "Do not use for UI elements or text. WCAG 2.x (relative luminance) contrast is 2.3:1 against background #ffffff"
+        },
+        "36": {
+          "value": "#70AC1C",
+          "type": "color",
+          "description": "Parse.ly Green"
         },
         "40": {
           "value": "#6aa21b",
