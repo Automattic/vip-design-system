@@ -271,11 +271,14 @@ export default {
 
 	buttons: {
 		primary: {
-			// you can reference other values defined in the theme
 			fontFamily: 'body',
 			color: 'button.primary.label.default',
 			bg: 'button.primary.background.default',
 			border: '1px solid transparent',
+			py: 0,
+			px: 5,
+			minHeight: '38px',
+			height: '100%',
 			cursor: 'pointer',
 			fontWeight: 'medium',
 			boxShadow: 'none',
@@ -283,6 +286,14 @@ export default {
 			'&:hover, &:focus': {
 				backgroundColor: 'button.primary.background.hover',
 				color: 'button.primary.label.hover',
+			},
+			verticalAlign: 'middle',
+			display: 'inline-flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			textDecoration: 'none',
+			'&:hover': {
+				textDecoration: 'none',
 			},
 		},
 
@@ -387,22 +398,42 @@ export default {
 	},
 
 	links: {
-		dark: {
-			color: 'modes.dark.muted',
-			'&:hover': { color: 'modes.dark.heading' },
-		},
-
-		hover: {
-			display: 'block',
-			color: 'inherit',
-			py: 1,
-			px: 2,
-			my: -1,
-			mx: -2,
-			borderRadius: 2,
-			'&:hover': {
-				backgroundColor: 'hover',
+		primary: {
+			color: 'link',
+			'&:visited': {
+				color: 'links.visited',
 			},
+			'&:hover': {
+				color: 'hover',
+			},
+			'&:active': {
+				color: 'links.active',
+			},
+			textDecorationThickness: '0.125rem',
+			textUnderlineOffset: '0.125rem',
+			'&:hover, &:focus': {
+				color: 'links.hover',
+				textDecorationLine: 'underline',
+				textDecorationThickness: '0.125rem',
+			},
+		},
+		'button-primary': {
+			variant: 'buttons.primary',
+		},
+		'button-danger': {
+			variant: 'buttons.danger',
+		},
+		'button-display': {
+			variant: 'buttons.display',
+		},
+		'button-ghost': {
+			variant: 'buttons.ghost',
+		},
+		'button-secondary': {
+			variant: 'buttons.secondary',
+		},
+		'button-tertiary': {
+			variant: 'buttons.tertiary',
 		},
 	},
 
@@ -492,7 +523,7 @@ export default {
 			fontFamily: 'body',
 			lineHeight: 'body',
 			fontWeight: 'body',
-			fontSize: 2,
+			fontSize: '16px',
 			color: 'text',
 			backgroundColor: 'backgrounds.primary',
 			fontSmoothing: 'antialiased',

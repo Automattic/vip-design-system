@@ -46,16 +46,6 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 		return (
 			<ThemeButton
 				sx={ {
-					verticalAlign: 'middle',
-					display: 'inline-flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					minHeight: '36px',
-					py: 0,
-					textDecoration: 'none',
-					'&:hover': {
-						textDecoration: 'none',
-					},
 					'&:focus': 'none',
 					'&:focus-visible': ( theme: ButtonTheme ) => theme.outline,
 					'&[aria-disabled="true"]': {

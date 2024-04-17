@@ -10,6 +10,7 @@ import { BiCalendarHeart } from 'react-icons/bi';
  * Internal dependencies
  */
 import { Button, ButtonVariant } from '..';
+import { Flex } from '../Flex/Flex';
 import ScreenReaderText from '../ScreenReaderText';
 
 export default {
@@ -66,7 +67,7 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 };
 
 const Template = args => (
-	<React.Fragment>
+	<Flex sx={ { gap: 2 } }>
 		<Button { ...args }>Primary</Button>
 
 		<Button variant="secondary" sx={ { ml: 2 } } { ...args }>
@@ -107,7 +108,7 @@ const Template = args => (
 				Button with constrained width
 			</Button>
 		</div>
-	</React.Fragment>
+	</Flex>
 );
 
 export const Default = Template.bind( {} );
