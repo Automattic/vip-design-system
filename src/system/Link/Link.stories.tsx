@@ -4,8 +4,8 @@
 import { Link } from '..';
 import { Flex } from '../Flex/Flex';
 
+import type { LinkProps } from './Link';
 import type { StoryObj } from '@storybook/react';
-import { LinkProps } from './Link';
 
 /**
  * Internal dependencies
