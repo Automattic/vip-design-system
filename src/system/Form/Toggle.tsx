@@ -1,9 +1,6 @@
 /* eslint-disable max-len */
 /** @jsxImportSource theme-ui */
 
-/**
- * External dependencies
- */
 import * as Switch from '@radix-ui/react-switch';
 import classNames, { Argument } from 'classnames';
 import { Theme } from 'theme-ui';
