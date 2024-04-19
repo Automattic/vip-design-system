@@ -1,8 +1,5 @@
-/**
- * External dependencies
- */
 import classNames from 'classnames';
-import React, { useCallback, forwardRef, Ref } from 'react';
+import React, { useCallback, forwardRef } from 'react';
 import { Theme, Button as ThemeButton, ButtonProps as ThemeButtonProps } from 'theme-ui';
 
 type ButtonClickType = React.MouseEvent< HTMLButtonElement, MouseEvent >;
@@ -30,10 +27,7 @@ export interface ButtonProps extends ThemeButtonProps {
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	(
-		{ className, disabled, onClick, sx, fullWidth = false, ...rest }: ButtonProps,
-		ref: Ref< HTMLButtonElement >
-	) => {
+	( { className, disabled, onClick, sx, fullWidth = false, ...rest }, ref ) => {
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
 				if ( disabled ) {
@@ -59,7 +53,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 						cursor: 'not-allowed',
 						pointerEvents: 'none',
 					},
-					width: fullWidth || fullWidth === undefined ? '100%' : 'auto',
+					width: Boolean( fullWidth ) === true ? '100%' : 'auto',
 					...sx,
 				} }
 				{ ...rest }

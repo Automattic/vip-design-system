@@ -1,17 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 /** @jsxImportSource theme-ui */
-/**
- * External dependencies
- */
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-/**
- * Internal dependencies
- */
 import { MobileMenuExample } from './MobileMenu.stories';
 import { theme } from '../';
 

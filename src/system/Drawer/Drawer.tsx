@@ -29,10 +29,7 @@ export interface DrawerProps extends DialogPrimitive.DialogProps {
 }
 
 export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
-	(
-		{ children, variant = 'left', label, dimensions, renderClose, ...rest }: DrawerContentProps,
-		forwardedRef
-	) => (
+	( { children, variant = 'left', label, dimensions, renderClose, ...rest }, forwardedRef ) => (
 		<DialogPrimitive.Portal>
 			<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
 			<DialogPrimitive.Content

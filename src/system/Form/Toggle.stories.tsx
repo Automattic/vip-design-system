@@ -1,12 +1,6 @@
 /** @jsxImportSource theme-ui */
-/**
- * External dependencies
- */
 import { StoryObj } from '@storybook/react';
 
-/**
- * Internal dependencies
- */
 import { Toggle, Label } from '..';
 export default {
 	title: 'Toggle',

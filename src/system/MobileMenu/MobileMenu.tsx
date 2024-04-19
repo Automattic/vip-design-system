@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { Ref, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { BiMenu } from 'react-icons/bi';
 
 import * as Drawer from '../Drawer/Drawer';
@@ -14,7 +14,7 @@ export interface MobileMenuProps {
 }
 
 export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
-	( { children, toolbarItems }: MobileMenuProps, ref: Ref< HTMLDivElement > ) => (
+	( { children, toolbarItems }, ref ) => (
 		<Drawer.Content
 			variant="left"
 			label="Main Navigation Items"
