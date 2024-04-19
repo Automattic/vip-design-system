@@ -40,7 +40,7 @@ export const defaultCloseStyles = ( variant = 'primary' ): ThemeUIStyleObject =>
 } );
 
 export const DialogCloseDefault = forwardRef< HTMLButtonElement, DialogCloseDefaultProps >(
-	( { variant = 'primary' }: DialogCloseDefaultProps, forwardedRef ) => {
+	( { variant = 'primary' }, forwardedRef ) => {
 		return (
 			<DialogClose>
 				<Button
