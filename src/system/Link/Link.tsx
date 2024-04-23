@@ -15,33 +15,26 @@ interface LinkTheme extends Theme {
 }
 
 export interface LinkProps extends ThemeLinkProps {
-	active?: boolean;
+	variant?:
+		| 'primary'
+		| 'button-primary'
+		| 'button-secondary'
+		| 'button-tertiary'
+		| 'button-ghost'
+		| 'button-display'
+		| 'button-danger';
 }
 
 export const defaultLinkComponentStyle: ThemeUIStyleObject = {
-	color: 'link',
-	textDecorationThickness: '0.1em',
-	textUnderlineOffset: '0.1em',
-	'&:visited': {
-		color: 'links.visited',
-	},
-	'&:active': {
-		color: 'links.active',
-	},
-	'&:hover, &:focus': {
-		color: 'links.hover',
-		textDecorationLine: 'underline',
-		textDecorationThickness: '2px',
-	},
 	'&:focus-visible': ( theme: LinkTheme ) => theme.outline,
 };
 
 export const Link = forwardRef< HTMLAnchorElement, LinkProps >(
-	( { active = false, sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
+	( { variant = 'primary', sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
 		<ThemeLink
+			variant={ variant }
 			sx={ {
 				...defaultLinkComponentStyle,
-				color: active ? 'links.active' : 'link',
 				...sx,
 			} }
 			ref={ ref }

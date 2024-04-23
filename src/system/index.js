@@ -36,6 +36,7 @@ import {
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
+import { MobileMenuWrapper, MobileMenuTrigger, MobileMenu } from './MobileMenu/MobileMenu';
 import { Nav } from './Nav/Nav';
 import { NavItem } from './Nav/NavItem';
 import { NewConfirmationDialog } from './NewConfirmationDialog';
@@ -77,6 +78,9 @@ export {
 	DialogContent,
 	DialogTrigger,
 	ConfirmationDialog,
+	MobileMenu,
+	MobileMenuTrigger,
+	MobileMenuWrapper,
 	NewConfirmationDialog,
 	Grid,
 	Flex,

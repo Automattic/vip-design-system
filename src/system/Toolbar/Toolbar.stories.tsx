@@ -1,5 +1,8 @@
+/** @jsxImportSource theme-ui */
+import { BiSolidHelpCircle, BiSolidBell } from 'react-icons/bi';
+
 import { Toolbar } from '.';
-import { Text, Avatar, Nav, NavItem } from '../../system';
+import { Text, Avatar, Nav, NavItem, Flex, Toggle, Label } from '../../system';
 import ScreenReaderText from '../ScreenReaderText';
 import { CustomLink } from '../utils/stories/CustomLink';
 
@@ -58,6 +61,10 @@ export const Default: Story = {
 
 				<Toolbar.UtilNav>
 					<Text sx={ { color: 'toolbar.text.default', mb: 0 } }>Utility Item</Text>
+
+					<Toolbar.IconHolder>
+						<BiSolidBell />
+					</Toolbar.IconHolder>
 				</Toolbar.UtilNav>
 			</Toolbar.Primary>
 		</>
@@ -86,11 +93,51 @@ export const VIPDashboardLike: Story = {
 					<NavItem.Toolbar href="https://googles.com">My Applications</NavItem.Toolbar>
 					{ /* Example below if you have Next.js <Link /> */ }
 					<NavItem.Toolbar active href="https://google.com" as={ CustomLink }>
-						Custom Link
+						My Organizations
 					</NavItem.Toolbar>
 				</Nav.Toolbar>
 
 				<Toolbar.UtilNav>
+					<Flex sx={ { gap: 2, minHeight: 64, alignItems: 'center' } }>
+						<Flex
+							sx={ {
+								alignItems: 'center',
+							} }
+						>
+							<Toggle
+								checked={ true }
+								onChange={ () => {} }
+								name="viptogglefeaure"
+								id="viptogglefeaure"
+								variant="warning"
+								aria-label="Vip features toggle"
+							/>
+
+							<Label
+								htmlFor="viptogglefeaure"
+								sx={ { color: 'toolbar.text.default', mb: 0, ml: 2 } }
+							>
+								VIP
+							</Label>
+						</Flex>
+
+						<a
+							href="/"
+							sx={ { color: 'icon.inverse', width: 38, justifyContent: 'center', display: 'flex' } }
+							aria-label="Help center"
+						>
+							<BiSolidHelpCircle width={ 16 } height={ 16 } />
+						</a>
+
+						<a
+							href="/"
+							sx={ { color: 'icon.inverse', width: 38, justifyContent: 'center', display: 'flex' } }
+							aria-label="Help center"
+						>
+							<BiSolidBell width={ 16 } height={ 16 } />
+						</a>
+					</Flex>
+
 					<Toolbar.Separator />
 
 					<a href="/">

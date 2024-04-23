@@ -8,8 +8,12 @@ export const navItemGroupStyles = (
 	variant?: NavVariant
 ): ThemeUIStyleObject => {
 	const defaultStyle = {
-		'&:last-of-type': {
+		li: {
+			mb: 1,
+		},
+		'li:last-of-type': {
 			mr: orientation === 'horizontal' ? 0 : undefined,
+			mb: orientation === 'vertical' ? 0 : undefined,
 		},
 	};
 
@@ -29,7 +33,6 @@ export const navItemGroupStyles = (
 };
 
 export const navItemGroupTriggerStyles: ThemeUIStyleObject = {
-	mb: 1,
 	'svg[data-arrow-indicator]': {
 		position: 'absolute',
 		right: 3,
@@ -53,8 +56,9 @@ export const navItemGroupTriggerStyles: ThemeUIStyleObject = {
 export const navItemGroupContentUlStyles: ThemeUIStyleObject = {
 	m: 0,
 	p: 0,
-	pl: 3,
+	pl: 5,
 	listStyle: 'none',
+	pt: 1,
 };
 
 const slideDown = keyframes( {
