@@ -54,8 +54,8 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 						cursor: 'not-allowed',
 						pointerEvents: 'none',
 					},
-					flexGrow: Boolean( grow ) === true ? '1' : 'initial',
-					width: Boolean( full ) === true ? '100%' : 'auto',
+					flexGrow: Boolean( grow ) === true ? '1' : undefined,
+					width: Boolean( full ) === true ? '100%' : undefined,
 					...sx,
 				} }
 				{ ...rest }

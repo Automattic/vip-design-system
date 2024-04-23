@@ -29,8 +29,9 @@ export const defaultCloseStyles = ( variant = 'primary' ): ThemeUIStyleObject =>
 	position: 'absolute',
 	top: 3,
 	right: 3,
-	minWidth: 38,
-	minHeight: 38,
+	width: 38,
+	height: 38,
+	p: 0,
 	color: variant === 'primary' ? 'icon.primary' : 'icon.inverse',
 	svg: {
 		'&:hover': {
@@ -49,7 +50,7 @@ export const DialogCloseDefault = forwardRef< HTMLButtonElement, DialogCloseDefa
 					variant="tertiary"
 					sx={ defaultCloseStyles( variant ) }
 				>
-					<IoClose aria-hidden="true" />
+					<IoClose aria-hidden="true" width={ 20 } height={ 20 } />
 				</Button>
 			</DialogClose>
 		);
