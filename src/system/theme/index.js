@@ -278,7 +278,7 @@ export default {
 			py: 0,
 			px: 5,
 			minHeight: '38px',
-			height: '100%',
+			display: 'inline-flex',
 			cursor: 'pointer',
 			fontWeight: 'medium',
 			boxShadow: 'none',
@@ -288,10 +288,15 @@ export default {
 				color: 'button.primary.label.hover',
 			},
 			verticalAlign: 'middle',
-			display: 'inline-flex',
 			alignItems: 'center',
 			justifyContent: 'center',
 			textDecoration: 'none',
+			svg: {
+				fill: 'currentColor',
+				'&:hover': {
+					fill: 'inherit',
+				},
+			},
 			'&:hover': {
 				textDecoration: 'none',
 			},
