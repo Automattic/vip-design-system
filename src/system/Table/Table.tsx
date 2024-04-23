@@ -35,7 +35,7 @@ export const Table = forwardRef< HTMLTableElement, TableProps >(
 		return (
 			<Box
 				className={ classNames( 'vip-table-component', className ) }
-				sx={ { width: '100%', overflowX: 'auto' } }
+				sx={ { width: '100%', maxWidth: '100vw', overflowX: 'auto' } }
 				role="region"
 				aria-labelledby={ captionId }
 				tabIndex={ 0 }

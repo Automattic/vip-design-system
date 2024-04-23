@@ -3,7 +3,7 @@
 import { keyframes } from '@emotion/react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
-import { DrawerProps } from './Drawer';
+import { DrawerProps, responsiveDimensionsProp, responsiveProp } from './Drawer';
 
 interface ThemeProps extends Theme {
 	drawer?: Record< string, Record< string, string > >;
@@ -29,9 +29,15 @@ const slideOut = ( theme: ThemeProps, variant: DrawerProps[ 'variant' ] ) => {
 
 export const drawerContentStyles = (
 	variant: DrawerProps[ 'variant' ],
-	width: string | number = '100%',
-	height: string | number | undefined = undefined
+	dimensions?: responsiveDimensionsProp
 ): ThemeUIStyleObject => {
+	const width: responsiveProp = dimensions?.width || [ '100%', '100%', '80vw' ];
+	const height: responsiveProp = dimensions?.height || '100vh';
+	const minWidth: responsiveProp = dimensions?.minWidth || '16rem';
+	const minHeight: responsiveProp = dimensions?.minHeight || '100vh';
+	const maxWidth: responsiveProp = dimensions?.maxWidth || '22rem';
+	const maxHeight: responsiveProp = dimensions?.maxHeight || '100vh';
+
 	const defaultStyles: ThemeUIStyleObject = {
 		p: 0,
 		m: 0,
@@ -42,6 +48,10 @@ export const drawerContentStyles = (
 		bottom: 0,
 		width,
 		height,
+		minWidth,
+		minHeight,
+		maxWidth,
+		maxHeight,
 
 		variant: `drawer.${ variant }.styles`,
 
@@ -64,7 +74,7 @@ export const drawerContentStyles = (
 			return {
 				...defaultStyles,
 				backgroundColor: 'layer.1',
-				top: [ 56, 56, 56, 64 ],
+				top: 64,
 			};
 		}
 		default: {
@@ -106,7 +116,7 @@ export const drawerOverlayStyles = ( variant: DrawerProps[ 'variant' ] ): ThemeU
 		case 'right-header': {
 			return {
 				...defaultStyles,
-				top: [ 56, 56, 56, 64 ],
+				top: 64,
 			};
 		}
 		default: {

@@ -14,7 +14,7 @@ export const menuItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeU
 	border: 'none',
 	height: 38,
 	width: '100%',
-	mb: 1,
+	justifyContent: 'space-between',
 } );
 
 // Menu Inverse Item Style <li>
@@ -31,7 +31,7 @@ export const menuInverseItemStyles = (
 // Menu Item Link <a>
 
 const visitedLink = '&:visited';
-const activeAfter = '&[data-active]::after';
+const activeAfter = '&[data-active]::before';
 const active = '&[data-active]';
 const focusNotActiveHoverNotActive = '&:focus:not(&[data-active]), &:hover:not(&[data-active])';
 const notHover = ':not(&:hover)';
@@ -45,15 +45,19 @@ export const menuItemLinkStyles: MixedStyleProp = {
 	borderRadius: 1,
 	color: 'text',
 	display: 'inline-flex',
-	fontSize: 'inherit',
+	fontSize: '0.875rem',
 	fontWeight: 'body',
-	gap: 3,
 	height: 38,
 	mx: 0,
 	mb: 0,
+	pt: 3,
+	pr: 4,
+	pb: 3,
 	pl: 5,
-	pr: 3,
-	py: 2,
+	':has(div > svg)': {
+		pl: 4,
+	},
+	gap: 1,
 	textDecoration: 'none',
 	width: '100%',
 	[ visitedLink ]: {
@@ -68,11 +72,11 @@ export const menuItemLinkStyles: MixedStyleProp = {
 		borderRadius: '90px',
 		height: 26,
 		top: '6px',
-		left: 3,
+		left: 2,
 	},
 	[ active ]: {
 		color: 'heading',
-		backgroundColor: 'layer.2',
+		backgroundColor: 'backgrounds.primary',
 		textDecoration: 'none',
 		cursor: 'default',
 		svg: {
@@ -93,6 +97,8 @@ export const menuItemLinkStyles: MixedStyleProp = {
 	[ svgIcon ]: {
 		color: 'icon.secondary',
 		fill: 'icon.secondary',
+		width: 20,
+		height: 20,
 		display: 'block',
 	},
 };
@@ -114,7 +120,7 @@ export const menuInverseItemLinkStyles = {
 			? {
 					...menuItemLinkStyles[ active ],
 					color: 'toolbar.text.default',
-					backgroundColor: 'tool`bar.background',
+					backgroundColor: 'toolbar.background',
 			  }
 			: {},
 	[ focusNotActiveHoverNotActive ]:

@@ -18,6 +18,6 @@ describe( '<Toggle />', () => {
 		expect( screen.getByRole( 'switch' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

@@ -1,8 +1,5 @@
-/**
- * External dependencies
- */
 import classNames from 'classnames';
-import React, { useCallback, forwardRef, Ref } from 'react';
+import React, { useCallback, forwardRef } from 'react';
 import { Theme, Button as ThemeButton, ButtonProps as ThemeButtonProps } from 'theme-ui';
 
 type ButtonClickType = React.MouseEvent< HTMLButtonElement, MouseEvent >;
@@ -25,11 +22,13 @@ export enum ButtonVariant {
 export interface ButtonProps extends ThemeButtonProps {
 	disabled?: boolean;
 	onClick?: ( event: ButtonClickType ) => void;
+	full?: boolean;
+	grow?: boolean;
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	( { className, disabled, onClick, sx, ...rest }: ButtonProps, ref: Ref< HTMLButtonElement > ) => {
+	( { className, disabled, onClick, sx, full, grow, ...rest }, ref ) => {
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
 				if ( disabled ) {
@@ -55,6 +54,8 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 						cursor: 'not-allowed',
 						pointerEvents: 'none',
 					},
+					flexGrow: Boolean( grow ) === true ? '1' : 'initial',
+					width: Boolean( full ) === true ? '100%' : 'auto',
 					...sx,
 				} }
 				{ ...rest }

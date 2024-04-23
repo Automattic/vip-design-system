@@ -2,28 +2,13 @@
 // @ts-nocheck
 /** @jsxImportSource theme-ui */
 
-import { AiOutlineLock } from 'react-icons/ai';
-import {
-	BiBell,
-	BiBulb,
-	BiCodeAlt,
-	BiData,
-	BiGridAlt,
-	BiHistory,
-	BiTachometer,
-	BiWindows,
-} from 'react-icons/bi';
-import { MdMenu, MdOutlinePhotoLibrary } from 'react-icons/md';
-
 import { Drawer, Root, Trigger, Content } from './Drawer';
-import { Box, Button, Flex, Nav, NavItem } from '..';
-import { Logo } from '../Toolbar/Logo';
-import { CustomLink } from '../utils/stories/CustomLink';
+import { Button } from '..';
 
 import type { StoryObj } from '@storybook/react';
 
 export default {
-	title: 'Drawer',
+	title: 'Navigation/Drawer',
 	component: Drawer,
 	parameters: {
 		docs: {
@@ -70,20 +55,39 @@ type Story = StoryObj< typeof Drawer >;
 export const Default: Story = {
 	render: () => (
 		<>
-			<Drawer label="My XYZ Dialog" trigger={ <Button>Open </Button> } width={ 320 }>
+			<Drawer
+				label="My XYZ Dialog"
+				trigger={ <Button>Open </Button> }
+				dimensions={ { width: 320 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from default</p>
 			</Drawer>
 
 			<Drawer trigger={ <Button>Top</Button> } variant="top" label="Dialog Content">
 				<p sx={ { ml: 3 } }>Hello from top</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Right</Button> } variant="right" label="Dialog" width={ 500 }>
+			<Drawer
+				trigger={ <Button>Right</Button> }
+				variant="right"
+				label="Dialog"
+				dimensions={ { width: 500 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from right width 500px</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Bottom</Button> } variant="bottom" label="Dialog" height={ 200 }>
+			<Drawer
+				trigger={ <Button>Bottom</Button> }
+				variant="bottom"
+				label="Dialog"
+				dimensions={ { height: 200 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from bottom with 200px</p>
 			</Drawer>
-			<Drawer trigger={ <Button>Left</Button> } variant="left" label="Dialog" width={ 600 }>
+			<Drawer
+				trigger={ <Button>Left</Button> }
+				variant="left"
+				label="Dialog"
+				dimensions={ { width: 600 } }
+			>
 				<p sx={ { ml: 3 } }>Hello from left width 600px</p>
 			</Drawer>
 			<Drawer trigger={ <Button>Left Header</Button> } variant="left-header" label="Dialog">
@@ -103,183 +107,8 @@ export const ByParts: Story = {
 				<Trigger>
 					<Button>Open </Button>
 				</Trigger>
-				<Content width={ 320 } label="My XYZ Dialog">
+				<Content dimensions={ { width: 320 } } label="My XYZ Dialog">
 					<p sx={ { ml: 3 } }>Hello from default</p>
-				</Content>
-			</Root>
-		</>
-	),
-};
-
-export const VIPMobileMenu: Story = {
-	render: () => (
-		<>
-			<Root>
-				<Trigger>
-					<Button
-						type="button"
-						variant="tertiary"
-						sx={ {
-							display: 'flex',
-							alignItems: 'center',
-							fontSize: 2,
-							gap: 1,
-							mx: 2,
-						} }
-					>
-						Menu
-						<MdMenu
-							size={ 24 }
-							sx={ {
-								mt: ( theme: { space: number[] } ) => `${ theme?.space?.[ 1 ] / 2 }px`,
-							} }
-						/>
-					</Button>
-				</Trigger>
-				<Content label="Dialog X" variant="left" width={ 320 }>
-					<div
-						sx={ {
-							backgroundColor: 'toolbar.background',
-							boxShadow: 'none',
-						} }
-					>
-						<div
-							sx={ {
-								height: 56,
-								width: '100%',
-								p: 4,
-								px: 5,
-							} }
-						>
-							<Logo />
-						</div>
-
-						<div
-							sx={ {
-								overflowX: 'hidden',
-								overflowY: 'auto',
-								height: 'calc(100vh - 56px)',
-								display: 'flex',
-								flex: 1,
-							} }
-						>
-							<Flex sx={ { width: '100%', flexDirection: 'column' } }>
-								<Nav.Primary label="Main Links" orientation="vertical" sx={ { p: 4 } }>
-									<NavItem.MenuInverse href="/apps" active as={ CustomLink }>
-										My Applications
-									</NavItem.MenuInverse>
-
-									<NavItem.MenuInverse href="/orgs" as={ CustomLink }>
-										My Organizations
-									</NavItem.MenuInverse>
-								</Nav.Primary>
-
-								<Box
-									sx={ {
-										alignSelf: 'stretch',
-										backgroundColor: 'layer.1',
-										minHeight: `calc(100vh - 56px)`,
-										pt: 2,
-										px: 4,
-										width: '100%',
-										a: {
-											border: 'none',
-										},
-									} }
-								>
-									<Nav.Menu sx={ { mb: 4 } } label="Nav Menu">
-										<NavItem.Menu
-											href="https://wordpress.com"
-											renderIcon={ size => <BiGridAlt size={ size } /> }
-											as={ CustomLink }
-										>
-											Overview
-										</NavItem.Menu>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <BiWindows size={ size } /> }
-										>
-											Network Sites
-										</NavItem.Menu>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <AiOutlineLock size={ size } /> }
-										>
-											Domains & TLS
-										</NavItem.Menu>
-
-										<NavItem.MenuGroup
-											active
-											label="Logs"
-											renderIcon={ size => <BiHistory size={ size } /> }
-										>
-											<NavItem.Menu active as={ CustomLink } href="https://google.com/">
-												Audit
-											</NavItem.Menu>
-											<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
-												Runtime
-											</NavItem.Menu>
-											<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">
-												Slow Query
-											</NavItem.Menu>
-										</NavItem.MenuGroup>
-
-										<NavItem.MenuGroup
-											label="Performance"
-											renderIcon={ size => <BiTachometer size={ size } /> }
-										>
-											<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-												Metrics
-											</NavItem.Menu>
-											<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-												Monitor
-											</NavItem.Menu>
-											<NavItem.Menu as={ CustomLink } href="https://random-website.com/">
-												Cache
-											</NavItem.Menu>
-										</NavItem.MenuGroup>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <BiCodeAlt size={ size } /> }
-										>
-											Code [v]
-										</NavItem.Menu>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <BiData size={ size } /> }
-										>
-											Database [v]
-										</NavItem.Menu>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <MdOutlinePhotoLibrary size={ size } /> }
-										>
-											Media [v]
-										</NavItem.Menu>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <BiBell size={ size } /> }
-										>
-											Notifications
-										</NavItem.Menu>
-										<NavItem.Menu
-											as={ CustomLink }
-											href="https://random-website.com/"
-											renderIcon={ size => <BiBulb size={ size } /> }
-										>
-											Features
-										</NavItem.Menu>
-									</Nav.Menu>
-								</Box>
-							</Flex>
-						</div>
-					</div>
 				</Content>
 			</Root>
 		</>
