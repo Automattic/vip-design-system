@@ -523,7 +523,6 @@ export default {
 			fontFamily: 'body',
 			lineHeight: 'body',
 			fontWeight: 'body',
-			fontSize: '16px',
 			color: 'text',
 			backgroundColor: 'backgrounds.primary',
 			fontSmoothing: 'antialiased',
