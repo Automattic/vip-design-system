@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
-import React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import React from 'react';
 
 import { checkboxIndicatorStyle, checkboxStyle } from './styles';
-import { RadioOptionProps } from '../Radio/RadioOption';
 import { Validation, Label } from '../';
 import { Flex } from '../../Flex';
+import { RadioOptionProps } from '../Radio/RadioOption';
 
 export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
 	disabled?: boolean;
