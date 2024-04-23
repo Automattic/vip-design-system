@@ -105,9 +105,15 @@ const Template = args => (
 			</Button>
 		</Flex>
 
-		<div>
-			<Button variant="secondary" href="https://google/com" { ...args } fullWidth>
-				Button with fullWidth
+		<div sx={ { mt: 3 } }>
+			<Button variant="secondary" href="https://google/com" { ...args } full>
+				Button with full width
+			</Button>
+		</div>
+
+		<div sx={ { mt: 3, display: 'flex' } }>
+			<Button variant="secondary" href="https://google/com" { ...args } grow>
+				Button with grow width
 			</Button>
 		</div>
 	</div>

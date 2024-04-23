@@ -23,11 +23,12 @@ export interface ButtonProps extends ThemeButtonProps {
 	disabled?: boolean;
 	onClick?: ( event: ButtonClickType ) => void;
 	full?: boolean;
+	grow?: boolean;
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	( { className, disabled, onClick, sx, full, ...rest }, ref ) => {
+	( { className, disabled, onClick, sx, full, grow, ...rest }, ref ) => {
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
 				if ( disabled ) {
@@ -53,6 +54,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 						cursor: 'not-allowed',
 						pointerEvents: 'none',
 					},
+					flexGrow: Boolean( grow ) === true ? '1' : 'initial',
 					width: Boolean( full ) === true ? '100%' : 'auto',
 					...sx,
 				} }
