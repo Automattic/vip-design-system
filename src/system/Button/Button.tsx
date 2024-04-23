@@ -27,7 +27,7 @@ export interface ButtonProps extends ThemeButtonProps {
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	( { className, disabled, onClick, sx, full = false, ...rest }, ref ) => {
+	( { className, disabled, onClick, sx, full, ...rest }, ref ) => {
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
 				if ( disabled ) {
