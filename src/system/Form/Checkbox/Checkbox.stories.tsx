@@ -58,6 +58,7 @@ This documentation and its contents are inspired by https://designsystem.digital
 export const Default = () => {
 	const [ checked, setChecked ] = useState< CheckedState >( true );
 	const [ checked2, setChecked2 ] = useState< CheckedState >( false );
+	const [ checked3, setChecked3 ] = useState< CheckedState >( false );
 
 	return (
 		<Form.Root>
@@ -122,6 +123,21 @@ export const Default = () => {
 						This option too
 					</Label>
 				</Flex>
+			</Form.Fieldset>
+
+			<Form.Fieldset>
+				<Form.Legend>Make sure to read the terms and conditions</Form.Legend>
+				<Checkbox
+					id={ `check3-primary` }
+					variant={ `primary` }
+					checked={ checked3 }
+					aria-labelledby={ `label-check3-primary` }
+					onCheckedChange={ setChecked3 }
+					hasError={ true }
+					errorMessage="Check if you agree"
+					label="I understand and agree to the terms and conditions"
+					forLabel="check3-primary"
+				/>
 			</Form.Fieldset>
 		</Form.Root>
 	);

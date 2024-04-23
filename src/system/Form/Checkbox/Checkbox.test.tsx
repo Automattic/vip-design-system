@@ -58,4 +58,26 @@ describe( '<Checkbox />', () => {
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'renders label and hint', async () => {
+		const { container } = render(
+			<Checkbox
+				id={ `check1` }
+				disabled
+				aria-labelledby={ `label-check1` }
+				onCheckedChange={ () => {} }
+				hasError={ true }
+				errorMessage="Check if you agree"
+				label="I understand and agree to the terms and conditions"
+				forLabel="check1"
+			/>
+		);
+
+		const button = screen.getByLabelText( /I understand/ );
+
+		expect( button ).toHaveAttribute( 'aria-disabled', 'true' );
+
+		// Check for accessibility issues
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
 } );
