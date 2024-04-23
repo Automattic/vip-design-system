@@ -56,7 +56,7 @@ export const navItemGroupTriggerStyles: ThemeUIStyleObject = {
 export const navItemGroupContentUlStyles: ThemeUIStyleObject = {
 	m: 0,
 	p: 0,
-	pl: 3,
+	pl: 5,
 	listStyle: 'none',
 	pt: 1,
 };

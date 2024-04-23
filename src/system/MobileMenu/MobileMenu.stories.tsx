@@ -97,10 +97,10 @@ export const MobileMenuExample = () => (
 				</NavItem.Menu>
 
 				<NavItem.MenuGroup active label="Logs" renderIcon={ size => <BiHistory size={ size } /> }>
-					<NavItem.Menu active as={ CustomLink } href="https://google.com/">
+					<NavItem.Menu as={ CustomLink } href="https://google.com/">
 						Audit
 					</NavItem.Menu>
-					<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
+					<NavItem.Menu active as={ CustomLink } href="https://wpvip.com/">
 						Runtime
 					</NavItem.Menu>
 					<NavItem.Menu as={ CustomLink } href="https://dashboard.wpvip.com/">

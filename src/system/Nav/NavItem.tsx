@@ -6,10 +6,10 @@ import { Ref, forwardRef } from 'react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { NavItemRenderIconProp, NavProps, NavVariant, VIP_NAV } from './Nav';
-import { ItemGroupMenu } from './NavItemGroup';
+import { IconContainer, ItemGroupMenu } from './NavItemGroup';
 import { navItemLinkStyles, navItemStyles } from './styles';
 
-export const NAV_ITEM_ICON_SIZE = 24;
+export const NAV_ITEM_ICON_SIZE = 20;
 
 export interface NavItemTheme extends Theme {
 	outline?: Record< string, string >;
@@ -90,7 +90,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 		{
 			children,
 			as: LinkComponent = NavRawLink,
-			renderIcon = () => null,
+			renderIcon,
 			href,
 			active,
 			disabled,
@@ -115,7 +115,7 @@ const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
 			{ ...rest }
 		>
 			<LinkComponent>
-				{ renderIcon( NAV_ITEM_ICON_SIZE ) }
+				{ renderIcon ? <IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer> : null }
 				{ children }
 			</LinkComponent>
 		</NavigationMenu.Link>

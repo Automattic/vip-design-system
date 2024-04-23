@@ -28,7 +28,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			orientation,
 			className,
 			active,
-			renderIcon = () => null,
+			renderIcon,
 			children,
 			sx,
 		}: NavItemGroupProps,
@@ -59,7 +59,9 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 								...navItemGroupTriggerStyles,
 							} }
 						>
-							{ renderIcon( NAV_ITEM_ICON_SIZE ) }
+							{ renderIcon ? (
+								<IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer>
+							) : null }
 							{ label }
 
 							<BiChevronDown
@@ -77,6 +79,20 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			</NavigationMenu.Item>
 		);
 	}
+);
+
+export const IconContainer = ( { children }: { children: React.ReactNode } ) => (
+	<div
+		sx={ {
+			width: 28,
+			height: 30,
+			alignItems: 'center',
+			justifyContent: 'center',
+			display: 'inline-flex',
+		} }
+	>
+		{ children }
+	</div>
 );
 
 export const ItemGroupMenu = forwardRef< HTMLLIElement, NavItemGroupProps >(
