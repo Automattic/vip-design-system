@@ -2,509 +2,509 @@
   "color": {
     "gray": {
       "0": {
-        "diff": -0.4,
-        "oldDdiff": -0.4,
-        "output": 96.55861375075129
+        "diff": 0.6,
+        "oldDdiff": 0.6,
+        "output": 97.58547229513
       },
       "1": {
-        "diff": -0.4,
-        "oldDdiff": -0.4,
-        "output": 95.66435221702392
+        "diff": 0.5,
+        "oldDdiff": 0.6,
+        "output": 96.6087735426677
       },
       "2": {
-        "diff": -0.4,
-        "oldDdiff": -0.3,
-        "output": 94.77062246041892
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 95.63233556440281
       },
       "3": {
-        "diff": -0.4,
-        "oldDdiff": -0.2,
-        "output": 93.8779562580586
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 94.65641913453267
       },
       "4": {
-        "diff": -0.4,
-        "oldDdiff": -0.2,
-        "output": 92.98688538706537
+        "diff": 0.3,
+        "oldDdiff": 0.5,
+        "output": 93.68128502725472
       },
       "5": {
-        "diff": -0.4,
-        "oldDdiff": -0.1,
-        "output": 92.09794162456153
+        "diff": 0.2,
+        "oldDdiff": 0.5,
+        "output": 92.70719401676632
       },
       "6": {
-        "diff": -0.4,
-        "oldDdiff": 0,
-        "output": 91.21165674766945
+        "diff": 0.1,
+        "oldDdiff": 0.5,
+        "output": 91.73440687726487
       },
       "7": {
-        "diff": -0.4,
-        "oldDdiff": 0,
-        "output": 90.32856253351152
+        "diff": 0.1,
+        "oldDdiff": 0.5,
+        "output": 90.76318438294777
       },
       "8": {
-        "diff": -0.4,
-        "oldDdiff": 0.1,
-        "output": 89.44919075921005
+        "diff": 0,
+        "oldDdiff": 0.5,
+        "output": 89.79378730801237
       },
       "9": {
-        "diff": -0.3,
-        "oldDdiff": 0.2,
-        "output": 88.57407320188743
+        "diff": -0.1,
+        "oldDdiff": 0.5,
+        "output": 88.8264764266561
       },
       "10": {
-        "diff": -0.3,
-        "oldDdiff": 0.3,
-        "output": 87.70374163866596
+        "diff": -0.1,
+        "oldDdiff": 0.5,
+        "output": 87.86151251307633
       },
       "11": {
-        "diff": -0.3,
-        "oldDdiff": 0.4,
-        "output": 86.8383658144346
-      },
-      "12": {
         "diff": -0.2,
         "oldDdiff": 0.5,
-        "output": 85.97666734514847
+        "output": 86.89905076076754
+      },
+      "12": {
+        "diff": -0.3,
+        "oldDdiff": 0.5,
+        "output": 85.93882404041251
       },
       "13": {
-        "diff": -0.2,
-        "oldDdiff": 0.6,
-        "output": 85.11700581452924
+        "diff": -0.3,
+        "oldDdiff": 0.5,
+        "output": 84.98045964199105
       },
       "14": {
-        "diff": -0.1,
-        "oldDdiff": 0.7,
-        "output": 84.25774080629864
+        "diff": -0.4,
+        "oldDdiff": 0.5,
+        "output": 84.02358485548308
       },
       "15": {
-        "diff": -0.1,
-        "oldDdiff": 0.8,
-        "output": 83.39723190417834
+        "diff": -0.4,
+        "oldDdiff": 0.5,
+        "output": 83.06782697086841
       },
       "16": {
-        "diff": -0.1,
-        "oldDdiff": 0.9,
-        "output": 82.53383869189004
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 82.1128132781269
       },
       "17": {
-        "diff": 0,
-        "oldDdiff": 1,
-        "output": 81.66592075315543
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 81.15817106723841
       },
       "18": {
-        "diff": 0,
-        "oldDdiff": 1.1,
-        "output": 80.79183767169619
+        "diff": -0.6,
+        "oldDdiff": 0.5,
+        "output": 80.20352762818278
       },
       "19": {
-        "diff": 0,
-        "oldDdiff": 1.1,
-        "output": 79.90994903123405
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 79.2485102509399
       },
       "20": {
-        "diff": 0,
-        "oldDdiff": 1.2,
-        "output": 79.01861441549066
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 78.29274622548958
       },
       "21": {
-        "diff": 0,
-        "oldDdiff": 1.3,
-        "output": 78.11675030537154
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 77.33597357862826
       },
       "22": {
-        "diff": 0,
-        "oldDdiff": 1.3,
-        "output": 77.20550077051732
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 76.37837328441856
       },
       "23": {
-        "diff": 0,
-        "oldDdiff": 1.4,
-        "output": 76.28656677775248
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 75.42023705373965
       },
       "24": {
-        "diff": 0,
-        "oldDdiff": 1.4,
-        "output": 75.3616492939015
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 74.46185659747076
       },
       "25": {
-        "diff": -0.1,
-        "oldDdiff": 1.4,
-        "output": 74.43244928578878
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 73.50352362649105
       },
       "26": {
-        "diff": -0.1,
-        "oldDdiff": 1.5,
-        "output": 73.50066772023884
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 72.5455298516797
       },
       "27": {
-        "diff": -0.1,
-        "oldDdiff": 1.5,
-        "output": 72.5680055640761
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 71.58816698391593
       },
       "28": {
-        "diff": -0.2,
-        "oldDdiff": 1.5,
-        "output": 71.63616378412503
+        "diff": -1.2,
+        "oldDdiff": 0.5,
+        "output": 70.63172673407891
       },
       "29": {
-        "diff": -0.2,
-        "oldDdiff": 1.5,
-        "output": 70.70684334721008
+        "diff": -1.2,
+        "oldDdiff": 0.5,
+        "output": 69.67650081304782
       },
       "30": {
-        "diff": -0.2,
-        "oldDdiff": 1.6,
-        "output": 69.78174522015573
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 68.72278093170186
       },
       "31": {
-        "diff": -0.2,
-        "oldDdiff": 1.6,
-        "output": 68.86218892274438
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 67.77076118869566
       },
       "32": {
-        "diff": -0.3,
-        "oldDdiff": 1.7,
-        "output": 67.94796818659024
+        "diff": -1.4,
+        "oldDdiff": 0.5,
+        "output": 66.82024523378558
       },
       "33": {
-        "diff": -0.3,
-        "oldDdiff": 1.7,
-        "output": 67.03849529626548
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 65.87093910450348
       },
       "34": {
-        "diff": -0.3,
-        "oldDdiff": 1.8,
-        "output": 66.13318253634229
+        "diff": -1.5,
+        "oldDdiff": 0.6,
+        "output": 64.92254883838116
       },
       "35": {
-        "diff": -0.3,
-        "oldDdiff": 1.8,
-        "output": 65.23144219139283
+        "diff": -1.5,
+        "oldDdiff": 0.6,
+        "output": 63.97478047295045
       },
       "36": {
-        "diff": -0.3,
-        "oldDdiff": 1.9,
-        "output": 64.33268654598926
+        "diff": -1.6,
+        "oldDdiff": 0.6,
+        "output": 63.02734004574316
       },
       "37": {
-        "diff": -0.3,
-        "oldDdiff": 2,
-        "output": 63.43632788470378
+        "diff": -1.6,
+        "oldDdiff": 0.6,
+        "output": 62.07993359429112
       },
       "38": {
-        "diff": -0.3,
-        "oldDdiff": 2,
-        "output": 62.54177849210854
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 61.13226715612614
       },
       "39": {
-        "diff": -0.3,
-        "oldDdiff": 2.1,
-        "output": 61.64845065277572
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 60.18404676878007
       },
       "40": {
-        "diff": -0.2,
-        "oldDdiff": 2.2,
-        "output": 60.75575665127748
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 59.23497846978471
       },
       "41": {
-        "diff": -0.2,
-        "oldDdiff": 2.2,
-        "output": 59.863225118383454
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 58.28478279272521
       },
       "42": {
-        "diff": -0.2,
-        "oldDdiff": 2.3,
-        "output": 58.97085006965303
+        "diff": -1.9,
+        "oldDdiff": 0.7,
+        "output": 57.33323825540004
       },
       "43": {
-        "diff": -0.2,
-        "oldDdiff": 2.4,
-        "output": 58.07874186684306
+        "diff": -1.9,
+        "oldDdiff": 0.7,
+        "output": 56.380137871660985
       },
       "44": {
-        "diff": -0.2,
-        "oldDdiff": 2.4,
-        "output": 57.187010871710406
+        "diff": -2,
+        "oldDdiff": 0.7,
+        "output": 55.42527465535983
       },
       "45": {
-        "diff": -0.2,
-        "oldDdiff": 2.5,
-        "output": 56.29576744601192
+        "diff": -2,
+        "oldDdiff": 0.7,
+        "output": 54.46844162034836
       },
       "46": {
-        "diff": -0.2,
-        "oldDdiff": 2.6,
-        "output": 55.405121951504434
+        "diff": -2.1,
+        "oldDdiff": 0.7,
+        "output": 53.509431780478366
       },
       "47": {
-        "diff": -0.2,
-        "oldDdiff": 2.6,
-        "output": 54.515184749944815
+        "diff": -2.2,
+        "oldDdiff": 0.7,
+        "output": 52.548038149601645
       },
       "48": {
-        "diff": -0.2,
-        "oldDdiff": 2.7,
-        "output": 53.626066203089906
+        "diff": -2.2,
+        "oldDdiff": 0.7,
+        "output": 51.58405374156996
       },
       "49": {
-        "diff": -0.2,
-        "oldDdiff": 2.8,
-        "output": 52.73787667269655
+        "diff": -2.3,
+        "oldDdiff": 0.7,
+        "output": 50.61727157023512
       },
       "50": {
-        "diff": -0.1,
-        "oldDdiff": 2.9,
-        "output": 51.85072652052162
+        "diff": -2.4,
+        "oldDdiff": 0.6,
+        "output": 49.6474846494489
       },
       "51": {
-        "diff": -0.1,
-        "oldDdiff": 2.9,
-        "output": 50.96460349763103
+        "diff": -2.4,
+        "oldDdiff": 0.6,
+        "output": 48.67466271273276
       },
       "52": {
-        "diff": -0.1,
-        "oldDdiff": 3,
-        "output": 50.0790049123271
+        "diff": -2.5,
+        "oldDdiff": 0.6,
+        "output": 47.69948237228685
       },
       "53": {
-        "diff": -0.1,
-        "oldDdiff": 3.1,
-        "output": 49.1933054622212
+        "diff": -2.6,
+        "oldDdiff": 0.6,
+        "output": 46.72279695998097
       },
       "54": {
-        "diff": -0.1,
-        "oldDdiff": 3.1,
-        "output": 48.306879844924744
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 45.745459807684924
       },
       "55": {
-        "diff": -0.1,
-        "oldDdiff": 3.2,
-        "output": 47.41910275804912
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 44.76832424726853
       },
       "56": {
-        "diff": -0.1,
-        "oldDdiff": 3.3,
-        "output": 46.52934889920571
+        "diff": -2.8,
+        "oldDdiff": 0.6,
+        "output": 43.79224361060159
       },
       "57": {
-        "diff": -0.1,
-        "oldDdiff": 3.4,
-        "output": 45.6369929660059
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 42.81807122955391
       },
       "58": {
-        "diff": -0.1,
-        "oldDdiff": 3.4,
-        "output": 44.74140965606109
+        "diff": -3,
+        "oldDdiff": 0.5,
+        "output": 41.8466604359953
       },
       "59": {
-        "diff": -0.1,
-        "oldDdiff": 3.5,
-        "output": 43.841973666982675
+        "diff": -3,
+        "oldDdiff": 0.5,
+        "output": 40.878864561795574
       },
       "60": {
-        "diff": -0.1,
-        "oldDdiff": 3.5,
-        "output": 42.938059696382034
+        "diff": -3.1,
+        "oldDdiff": 0.5,
+        "output": 39.91553693882454
       },
       "61": {
-        "diff": -0.1,
-        "oldDdiff": 3.6,
-        "output": 42.02923172406274
+        "diff": -3.1,
+        "oldDdiff": 0.5,
+        "output": 38.95720613127079
       },
       "62": {
-        "diff": -0.1,
-        "oldDdiff": 3.6,
-        "output": 41.115810858597
+        "diff": -3.2,
+        "oldDdiff": 0.5,
+        "output": 38.003101632598074
       },
       "63": {
-        "diff": -0.1,
-        "oldDdiff": 3.7,
-        "output": 40.198307490749244
+        "diff": -3.2,
+        "oldDdiff": 0.5,
+        "output": 37.052128168588936
       },
       "64": {
-        "diff": -0.1,
-        "oldDdiff": 3.7,
-        "output": 39.27723201128386
+        "diff": -3.3,
+        "oldDdiff": 0.5,
+        "output": 36.10319046502592
       },
       "65": {
-        "diff": -0.1,
-        "oldDdiff": 3.8,
-        "output": 38.35309481096522
+        "diff": -3.3,
+        "oldDdiff": 0.6,
+        "output": 35.15519324769155
       },
       "66": {
-        "diff": -0.2,
-        "oldDdiff": 3.8,
-        "output": 37.42640628055777
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 34.207041242368376
       },
       "67": {
-        "diff": -0.2,
-        "oldDdiff": 3.8,
-        "output": 36.49767681082587
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 33.257639174838936
       },
       "68": {
-        "diff": -0.2,
-        "oldDdiff": 3.8,
-        "output": 35.56741679253394
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 32.30589177088577
       },
       "69": {
-        "diff": -0.3,
-        "oldDdiff": 3.9,
-        "output": 34.63613661644637
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 31.350703756291413
       },
       "70": {
-        "diff": -0.3,
-        "oldDdiff": 3.9,
-        "output": 33.704346673327564
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 30.390979856838406
       },
       "71": {
-        "diff": -0.3,
-        "oldDdiff": 3.9,
-        "output": 32.772621426399986
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 29.42595885587822
       },
       "72": {
-        "diff": -0.4,
-        "oldDdiff": 4,
-        "output": 31.841791628718333
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 28.456215767038046
       },
       "73": {
-        "diff": -0.4,
-        "oldDdiff": 4,
-        "output": 30.91275210579539
+        "diff": -3.8,
+        "oldDdiff": 0.6,
+        "output": 27.48265966151399
       },
       "74": {
-        "diff": -0.4,
-        "oldDdiff": 4,
-        "output": 29.986397683143938
+        "diff": -3.9,
+        "oldDdiff": 0.5,
+        "output": 26.50619961050219
       },
       "75": {
-        "diff": -0.4,
-        "oldDdiff": 4.1,
-        "output": 29.06362318627674
+        "diff": -4,
+        "oldDdiff": 0.5,
+        "output": 25.527744685198755
       },
       "76": {
-        "diff": -0.5,
-        "oldDdiff": 4.1,
-        "output": 28.145323440706576
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 24.548203956799806
       },
       "77": {
-        "diff": -0.5,
-        "oldDdiff": 4.2,
-        "output": 27.232393271946222
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 23.56848649650146
       },
       "78": {
-        "diff": -0.5,
-        "oldDdiff": 4.2,
-        "output": 26.325727505508443
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 22.58950137549984
       },
       "79": {
-        "diff": -0.5,
-        "oldDdiff": 4.3,
-        "output": 25.426220966906026
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 21.61215766499106
       },
       "80": {
-        "diff": -0.5,
-        "oldDdiff": 4.3,
-        "output": 24.53476848165174
+        "diff": -4.4,
+        "oldDdiff": 0.4,
+        "output": 20.637364436171246
       },
       "81": {
-        "diff": -0.4,
-        "oldDdiff": 4.4,
-        "output": 23.65177389217083
+        "diff": -4.4,
+        "oldDdiff": 0.4,
+        "output": 19.665847417538366
       },
       "82": {
-        "diff": -0.4,
-        "oldDdiff": 4.5,
-        "output": 22.77567710853844
+        "diff": -4.5,
+        "oldDdiff": 0.4,
+        "output": 18.697598966797795
       },
       "83": {
-        "diff": -0.4,
-        "oldDdiff": 4.6,
-        "output": 21.904427057742176
+        "diff": -4.6,
+        "oldDdiff": 0.4,
+        "output": 17.732428098956756
       },
       "84": {
-        "diff": -0.4,
-        "oldDdiff": 4.7,
-        "output": 21.035972666769663
+        "diff": -4.6,
+        "oldDdiff": 0.4,
+        "output": 16.770143829022487
       },
       "85": {
-        "diff": -0.3,
-        "oldDdiff": 4.8,
-        "output": 20.168262862608504
+        "diff": -4.7,
+        "oldDdiff": 0.4,
+        "output": 15.810555172002207
       },
       "86": {
-        "diff": -0.3,
-        "oldDdiff": 4.9,
-        "output": 19.299246572246314
+        "diff": -4.7,
+        "oldDdiff": 0.4,
+        "output": 14.853471142903148
       },
       "87": {
-        "diff": -0.3,
-        "oldDdiff": 4.9,
-        "output": 18.426872722670716
+        "diff": -4.8,
+        "oldDdiff": 0.4,
+        "output": 13.898700756732538
       },
       "88": {
-        "diff": -0.3,
-        "oldDdiff": 5,
-        "output": 17.549090240869308
+        "diff": -4.9,
+        "oldDdiff": 0.4,
+        "output": 12.946053028497602
       },
       "89": {
-        "diff": -0.2,
-        "oldDdiff": 5.1,
-        "output": 16.663848053829714
+        "diff": -4.9,
+        "oldDdiff": 0.4,
+        "output": 11.995336973205566
       },
       "90": {
-        "diff": -0.2,
-        "oldDdiff": 5.2,
-        "output": 15.769095088539544
+        "diff": -5,
+        "oldDdiff": 0.4,
+        "output": 11.046361605863662
       },
       "91": {
-        "diff": -0.2,
-        "oldDdiff": 5.2,
-        "output": 14.863314815009524
+        "diff": -5,
+        "oldDdiff": 0.5,
+        "output": 10.098941943928622
       },
       "92": {
-        "diff": -0.3,
-        "oldDdiff": 5.3,
-        "output": 13.947128875342836
+        "diff": -5,
+        "oldDdiff": 0.5,
+        "output": 9.152917014655205
       },
       "93": {
-        "diff": -0.3,
-        "oldDdiff": 5.3,
-        "output": 13.021693454665774
+        "diff": -5.1,
+        "oldDdiff": 0.5,
+        "output": 8.208131847747671
       },
       "94": {
-        "diff": -0.3,
-        "oldDdiff": 5.3,
-        "output": 12.088164738104641
+        "diff": -5.1,
+        "oldDdiff": 0.5,
+        "output": 7.264431472910291
       },
       "95": {
-        "diff": -0.4,
-        "oldDdiff": 5.3,
-        "output": 11.147698910785731
+        "diff": -5.2,
+        "oldDdiff": 0.5,
+        "output": 6.321660919847323
       },
       "96": {
-        "diff": -0.4,
-        "oldDdiff": 5.4,
-        "output": 10.20145215783534
+        "diff": -5.2,
+        "oldDdiff": 0.5,
+        "output": 5.379665218263035
       },
       "97": {
-        "diff": -0.4,
-        "oldDdiff": 5.4,
-        "output": 9.25058066437976
+        "diff": -5.3,
+        "oldDdiff": 0.6,
+        "output": 4.4382893978616895
       },
       "98": {
-        "diff": -0.5,
-        "oldDdiff": 5.4,
-        "output": 8.296240615545292
+        "diff": -5.3,
+        "oldDdiff": 0.6,
+        "output": 3.4973784883475503
       },
       "99": {
-        "diff": -0.6,
-        "oldDdiff": 5.4,
-        "output": 7.339588196458232
+        "diff": -5.3,
+        "oldDdiff": 0.6,
+        "output": 2.556777519424884
       },
       "100": {
-        "diff": -0.6,
-        "oldDdiff": 5.4,
-        "output": 6.381779592244875
+        "diff": -5.4,
+        "oldDdiff": 0.6,
+        "output": 1.616331520797953
       }
     },
     "gold": {
@@ -514,49 +514,49 @@
         "output": 98.42670809010355
       },
       "1": {
-        "diff": 1.6,
-        "oldDdiff": 1.7,
-        "output": 97.7025978657676
+        "diff": 1.4,
+        "oldDdiff": 1.4,
+        "output": 97.47697424107743
       },
       "2": {
-        "diff": 1.8,
-        "oldDdiff": 1.9,
-        "output": 96.97498798784576
+        "diff": 1.4,
+        "oldDdiff": 1.5,
+        "output": 96.55949891883968
       },
       "3": {
-        "diff": 1.9,
-        "oldDdiff": 2.1,
-        "output": 96.24037880275206
+        "diff": 1.4,
+        "oldDdiff": 1.6,
+        "output": 95.70654065017872
       },
       "4": {
-        "diff": 2.1,
-        "oldDdiff": 2.3,
-        "output": 95.49527065690064
+        "diff": 1.5,
+        "oldDdiff": 1.8,
+        "output": 94.93977987458386
       },
       "5": {
-        "diff": 2.2,
-        "oldDdiff": 2.5,
-        "output": 94.73616389670555
+        "diff": 1.7,
+        "oldDdiff": 2,
+        "output": 94.23858468234815
       },
       "6": {
-        "diff": 2.4,
-        "oldDdiff": 2.7,
-        "output": 93.95955886858087
+        "diff": 2,
+        "oldDdiff": 2.3,
+        "output": 93.57174507646555
       },
       "7": {
-        "diff": 2.5,
-        "oldDdiff": 2.9,
-        "output": 93.16195591894069
+        "diff": 2.2,
+        "oldDdiff": 2.6,
+        "output": 92.90805105993
       },
       "8": {
-        "diff": 2.5,
-        "oldDdiff": 3,
-        "output": 92.33985539419909
+        "diff": 2.4,
+        "oldDdiff": 2.9,
+        "output": 92.21571561457709
       },
       "9": {
         "diff": 2.6,
         "oldDdiff": 3.1,
-        "output": 91.4897576407702
+        "output": 91.46064363760863
       },
       "10": {
         "diff": 2.6,
@@ -564,506 +564,506 @@
         "output": 90.60816300506802
       },
       "11": {
-        "diff": 2.6,
-        "oldDdiff": 3.3,
-        "output": 89.69280499806301
+        "diff": 2.5,
+        "oldDdiff": 3.2,
+        "output": 89.63286245843597
       },
       "12": {
-        "diff": 2.5,
-        "oldDdiff": 3.3,
-        "output": 88.74634978895075
+        "diff": 2.3,
+        "oldDdiff": 3.1,
+        "output": 88.54637420094221
       },
       "13": {
-        "diff": 2.5,
-        "oldDdiff": 3.3,
-        "output": 87.77269671148316
+        "diff": 2.1,
+        "oldDdiff": 2.8,
+        "output": 87.36959130125368
       },
       "14": {
-        "diff": 2.4,
-        "oldDdiff": 3.2,
-        "output": 86.77574509941219
+        "diff": 1.7,
+        "oldDdiff": 2.6,
+        "output": 86.12340682803739
       },
       "15": {
-        "diff": 2.3,
-        "oldDdiff": 3.2,
-        "output": 85.75939428648974
+        "diff": 1.3,
+        "oldDdiff": 2.2,
+        "output": 84.82871384996032
       },
       "16": {
-        "diff": 2.1,
-        "oldDdiff": 3.1,
-        "output": 84.72754360646772
+        "diff": 0.9,
+        "oldDdiff": 1.9,
+        "output": 83.50640543568946
       },
       "17": {
-        "diff": 2,
-        "oldDdiff": 3,
-        "output": 83.68409239309807
+        "diff": 0.5,
+        "oldDdiff": 1.5,
+        "output": 82.17737465389176
       },
       "18": {
-        "diff": 1.8,
-        "oldDdiff": 2.9,
-        "output": 82.63293998013272
+        "diff": 0.1,
+        "oldDdiff": 1.1,
+        "output": 80.86251457323422
       },
       "19": {
-        "diff": 1.7,
-        "oldDdiff": 2.8,
-        "output": 81.57798570132356
+        "diff": -0.3,
+        "oldDdiff": 0.8,
+        "output": 79.58271826238385
       },
       "20": {
-        "diff": 1.5,
-        "oldDdiff": 2.7,
-        "output": 80.52312889042253
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 78.35887879000758
       },
       "21": {
-        "diff": 1.4,
-        "oldDdiff": 2.6,
-        "output": 79.47270386190253
+        "diff": -0.9,
+        "oldDdiff": 0.4,
+        "output": 77.20676649298939
       },
       "22": {
-        "diff": 1.2,
-        "oldDdiff": 2.6,
-        "output": 78.43278485312045
+        "diff": -1.1,
+        "oldDdiff": 0.2,
+        "output": 76.12166078108093
       },
       "23": {
-        "diff": 1.1,
-        "oldDdiff": 2.5,
-        "output": 77.40988108215409
+        "diff": -1.2,
+        "oldDdiff": 0.2,
+        "output": 75.09371833225087
       },
       "24": {
-        "diff": 1,
-        "oldDdiff": 2.5,
-        "output": 76.41050176708133
+        "diff": -1.3,
+        "oldDdiff": 0.2,
+        "output": 74.11309582446789
       },
       "25": {
-        "diff": 0.9,
-        "oldDdiff": 2.4,
-        "output": 75.44115612598003
+        "diff": -1.3,
+        "oldDdiff": 0.2,
+        "output": 73.16994993570059
       },
       "26": {
-        "diff": 0.9,
-        "oldDdiff": 2.5,
-        "output": 74.50835337692801
+        "diff": -1.3,
+        "oldDdiff": 0.2,
+        "output": 72.25443734391764
       },
       "27": {
-        "diff": 0.9,
-        "oldDdiff": 2.5,
-        "output": 73.61860273800312
+        "diff": -1.3,
+        "oldDdiff": 0.3,
+        "output": 71.35671472708768
       },
       "28": {
-        "diff": 1,
-        "oldDdiff": 2.7,
-        "output": 72.77841342728324
+        "diff": -1.3,
+        "oldDdiff": 0.3,
+        "output": 70.46693876317936
       },
       "29": {
-        "diff": 1.1,
-        "oldDdiff": 2.8,
-        "output": 71.9942946628462
+        "diff": -1.3,
+        "oldDdiff": 0.4,
+        "output": 69.57526613016131
       },
       "30": {
-        "diff": 1.3,
-        "oldDdiff": 3.1,
-        "output": 71.27275566276984
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 68.67185350600222
       },
       "31": {
-        "diff": 1.5,
-        "oldDdiff": 3.4,
-        "output": 70.61702121924638
+        "diff": -1.4,
+        "oldDdiff": 0.5,
+        "output": 67.7490559483675
       },
       "32": {
-        "diff": 1.8,
-        "oldDdiff": 3.7,
-        "output": 70.01717842092536
+        "diff": -1.4,
+        "oldDdiff": 0.5,
+        "output": 66.80802203370979
       },
       "33": {
-        "diff": 2.2,
-        "oldDdiff": 4.1,
-        "output": 69.46002993057076
+        "diff": -1.4,
+        "oldDdiff": 0.5,
+        "output": 65.85209871817852
       },
       "34": {
-        "diff": 2.5,
-        "oldDdiff": 4.6,
-        "output": 68.93237841094651
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 64.88463295792313
       },
       "35": {
-        "diff": 2.9,
-        "oldDdiff": 5,
-        "output": 68.42102652481651
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 63.90897170909306
       },
       "36": {
-        "diff": 3.3,
-        "oldDdiff": 5.5,
-        "output": 67.91277693494472
+        "diff": -1.7,
+        "oldDdiff": 0.5,
+        "output": 62.92846192783773
       },
       "37": {
-        "diff": 3.7,
-        "oldDdiff": 5.9,
-        "output": 67.39443230409506
+        "diff": -1.8,
+        "oldDdiff": 0.5,
+        "output": 61.94645057030657
       },
       "38": {
-        "diff": 4.1,
-        "oldDdiff": 6.3,
-        "output": 66.85279529503148
+        "diff": -1.8,
+        "oldDdiff": 0.4,
+        "output": 60.96628459264902
       },
       "39": {
-        "diff": 4.4,
-        "oldDdiff": 6.7,
-        "output": 66.27466857051789
+        "diff": -1.9,
+        "oldDdiff": 0.4,
+        "output": 59.99131095101452
       },
       "40": {
-        "diff": 4.6,
-        "oldDdiff": 7,
-        "output": 65.64685479331824
+        "diff": -2,
+        "oldDdiff": 0.4,
+        "output": 59.02487660155248
       },
       "41": {
-        "diff": 4.9,
-        "oldDdiff": 7.3,
-        "output": 64.95922514162214
+        "diff": -2,
+        "oldDdiff": 0.4,
+        "output": 58.069420196688675
       },
       "42": {
-        "diff": 5,
-        "oldDdiff": 7.5,
-        "output": 64.21392485532198
+        "diff": -2.1,
+        "oldDdiff": 0.4,
+        "output": 57.123747173954165
       },
       "43": {
-        "diff": 5.1,
-        "oldDdiff": 7.7,
-        "output": 63.41616768973576
+        "diff": -2.1,
+        "oldDdiff": 0.5,
+        "output": 56.18575466715628
       },
       "44": {
-        "diff": 5.2,
-        "oldDdiff": 7.8,
-        "output": 62.57116740018157
+        "diff": -2.1,
+        "oldDdiff": 0.5,
+        "output": 55.25333981010246
       },
       "45": {
-        "diff": 5.2,
-        "oldDdiff": 7.9,
-        "output": 61.68413774197746
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 54.32439973660003
       },
       "46": {
-        "diff": 5.2,
-        "oldDdiff": 7.9,
-        "output": 60.76029247044146
+        "diff": -2.2,
+        "oldDdiff": 0.6,
+        "output": 53.39683158045638
       },
       "47": {
-        "diff": 5.1,
-        "oldDdiff": 7.9,
-        "output": 59.804845340891646
+        "diff": -2.2,
+        "oldDdiff": 0.6,
+        "output": 52.468532475478895
       },
       "48": {
-        "diff": 5,
-        "oldDdiff": 7.9,
-        "output": 58.82301010864603
+        "diff": -2.3,
+        "oldDdiff": 0.6,
+        "output": 51.53739955547495
       },
       "49": {
-        "diff": 4.9,
-        "oldDdiff": 7.9,
-        "output": 57.820000529022714
+        "diff": -2.3,
+        "oldDdiff": 0.6,
+        "output": 50.601329954251895
       },
       "50": {
-        "diff": 4.8,
-        "oldDdiff": 7.8,
-        "output": 56.80103035733971
+        "diff": -2.3,
+        "oldDdiff": 0.7,
+        "output": 49.658220805617134
       },
       "51": {
-        "diff": 4.7,
-        "oldDdiff": 7.7,
-        "output": 55.7709015653899
+        "diff": -2.4,
+        "oldDdiff": 0.7,
+        "output": 48.706554885622154
       },
       "52": {
-        "diff": 4.5,
-        "oldDdiff": 7.7,
-        "output": 54.73276899086537
+        "diff": -2.5,
+        "oldDdiff": 0.7,
+        "output": 47.747157539294975
       },
       "53": {
-        "diff": 4.4,
-        "oldDdiff": 7.6,
-        "output": 53.689375687933044
+        "diff": -2.5,
+        "oldDdiff": 0.7,
+        "output": 46.781439753907726
       },
       "54": {
-        "diff": 4.2,
-        "oldDdiff": 7.5,
-        "output": 52.64346471075982
+        "diff": -2.6,
+        "oldDdiff": 0.7,
+        "output": 45.81081251673256
       },
       "55": {
-        "diff": 4.1,
-        "oldDdiff": 7.4,
-        "output": 51.59777911351262
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 44.83668681504161
       },
       "56": {
-        "diff": 4,
-        "oldDdiff": 7.3,
-        "output": 50.55506195035835
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 43.86047363610701
       },
       "57": {
-        "diff": 3.8,
-        "oldDdiff": 7.2,
-        "output": 49.518056275463934
+        "diff": -2.8,
+        "oldDdiff": 0.6,
+        "output": 42.8835839672009
       },
       "58": {
-        "diff": 3.7,
-        "oldDdiff": 7.2,
-        "output": 48.48950514299628
+        "diff": -2.9,
+        "oldDdiff": 0.6,
+        "output": 41.90742879559543
       },
       "59": {
-        "diff": 3.6,
-        "oldDdiff": 7.1,
-        "output": 47.47215160712228
+        "diff": -3,
+        "oldDdiff": 0.6,
+        "output": 40.93341910856273
       },
       "60": {
-        "diff": 3.5,
-        "oldDdiff": 7.1,
-        "output": 46.468738722008865
+        "diff": -3,
+        "oldDdiff": 0.6,
+        "output": 39.96296589337495
       },
       "61": {
-        "diff": 3.4,
-        "oldDdiff": 7,
-        "output": 45.480424768374526
+        "diff": -3.1,
+        "oldDdiff": 0.6,
+        "output": 38.997131538491494
       },
       "62": {
-        "diff": 3.3,
-        "oldDdiff": 7,
-        "output": 44.50202893314407
+        "diff": -3.2,
+        "oldDdiff": 0.6,
+        "output": 38.03558403712092
       },
       "63": {
-        "diff": 3.2,
-        "oldDdiff": 7,
-        "output": 43.526785629793864
+        "diff": -3.2,
+        "oldDdiff": 0.6,
+        "output": 37.077642783659
       },
       "64": {
-        "diff": 3.1,
-        "oldDdiff": 7,
-        "output": 42.547929271800335
+        "diff": -3.3,
+        "oldDdiff": 0.6,
+        "output": 36.12262717250161
       },
       "65": {
-        "diff": 3.1,
-        "oldDdiff": 7,
-        "output": 41.55869427263984
+        "diff": -3.3,
+        "oldDdiff": 0.6,
+        "output": 35.16985659804453
       },
       "66": {
-        "diff": 3,
-        "oldDdiff": 6.9,
-        "output": 40.552315045788795
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 34.21865045468359
       },
       "67": {
-        "diff": 2.8,
-        "oldDdiff": 6.8,
-        "output": 39.52202600472358
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 33.268328136814596
       },
       "68": {
-        "diff": 2.7,
-        "oldDdiff": 6.7,
-        "output": 38.46106156292056
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 32.31820903883337
       },
       "69": {
-        "diff": 2.5,
-        "oldDdiff": 6.6,
-        "output": 37.36265613385615
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 31.367612555135743
       },
       "70": {
-        "diff": 2.2,
-        "oldDdiff": 6.4,
-        "output": 36.22004413100674
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 30.41585808011751
       },
       "71": {
-        "diff": 1.9,
-        "oldDdiff": 6.2,
-        "output": 35.028725975956306
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 29.462398676364778
       },
       "72": {
-        "diff": 1.6,
-        "oldDdiff": 5.9,
-        "output": 33.79326612271923
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 28.507222079224746
       },
       "73": {
-        "diff": 1.2,
-        "oldDdiff": 5.6,
-        "output": 32.52049503341749
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 27.550449692234885
       },
       "74": {
-        "diff": 0.8,
-        "oldDdiff": 5.3,
-        "output": 31.217243170173088
+        "diff": -3.8,
+        "oldDdiff": 0.6,
+        "output": 26.592202918932706
       },
       "75": {
-        "diff": 0.4,
-        "oldDdiff": 4.9,
-        "output": 29.890340995107984
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 25.632603162855663
       },
       "76": {
-        "diff": -0.1,
-        "oldDdiff": 4.5,
-        "output": 28.546618970344166
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 24.67177182754125
       },
       "77": {
-        "diff": -0.5,
-        "oldDdiff": 4.1,
-        "output": 27.192907558003608
+        "diff": -4,
+        "oldDdiff": 0.6,
+        "output": 23.709830316526947
       },
       "78": {
-        "diff": -1,
-        "oldDdiff": 3.7,
-        "output": 25.8360372202083
+        "diff": -4.1,
+        "oldDdiff": 0.6,
+        "output": 22.746900033350236
       },
       "79": {
-        "diff": -1.4,
-        "oldDdiff": 3.3,
-        "output": 24.48283841908022
+        "diff": -4.1,
+        "oldDdiff": 0.6,
+        "output": 21.78310238154859
       },
       "80": {
-        "diff": -1.9,
-        "oldDdiff": 2.9,
-        "output": 23.140141616741346
+        "diff": -4.2,
+        "oldDdiff": 0.6,
+        "output": 20.818558764659507
       },
       "81": {
-        "diff": -2.3,
-        "oldDdiff": 2.6,
-        "output": 21.813863144842117
+        "diff": -4.2,
+        "oldDdiff": 0.6,
+        "output": 19.85328302677697
       },
       "82": {
-        "diff": -2.7,
-        "oldDdiff": 2.2,
-        "output": 20.50626281314679
+        "diff": -4.3,
+        "oldDdiff": 0.6,
+        "output": 18.886858774221057
       },
       "83": {
-        "diff": -3.1,
-        "oldDdiff": 1.9,
-        "output": 19.218686300948086
+        "diff": -4.4,
+        "oldDdiff": 0.6,
+        "output": 17.918762053868335
       },
       "84": {
-        "diff": -3.4,
-        "oldDdiff": 1.6,
-        "output": 17.952479287538722
+        "diff": -4.5,
+        "oldDdiff": 0.6,
+        "output": 16.948468912595388
       },
       "85": {
-        "diff": -3.8,
-        "oldDdiff": 1.3,
-        "output": 16.70898745221141
+        "diff": -4.5,
+        "oldDdiff": 0.6,
+        "output": 15.975455397278807
       },
       "86": {
-        "diff": -4.1,
-        "oldDdiff": 1,
-        "output": 15.48955647425887
+        "diff": -4.6,
+        "oldDdiff": 0.6,
+        "output": 14.999197554795165
       },
       "87": {
-        "diff": -4.4,
-        "oldDdiff": 0.8,
-        "output": 14.295532032973819
+        "diff": -4.7,
+        "oldDdiff": 0.5,
+        "output": 14.019171432021045
       },
       "88": {
-        "diff": -4.7,
-        "oldDdiff": 0.6,
-        "output": 13.12825980764897
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 13.034853075833025
       },
       "89": {
         "diff": -4.9,
-        "oldDdiff": 0.4,
-        "output": 11.989085477577042
+        "oldDdiff": 0.5,
+        "output": 12.045718533107692
       },
       "90": {
-        "diff": -5.1,
-        "oldDdiff": 0.3,
-        "output": 10.879354722050753
+        "diff": -4.9,
+        "oldDdiff": 0.5,
+        "output": 11.051243850721626
       },
       "91": {
-        "diff": -5.3,
-        "oldDdiff": 0.2,
-        "output": 9.79967578625006
+        "diff": -5,
+        "oldDdiff": 0.4,
+        "output": 10.051090135951709
       },
       "92": {
-        "diff": -5.5,
-        "oldDdiff": 0.1,
-        "output": 8.747707178903884
+        "diff": -5.2,
+        "oldDdiff": 0.4,
+        "output": 9.045658737676055
       },
       "93": {
-        "diff": -5.6,
-        "oldDdiff": 0,
-        "output": 7.720369974628389
+        "diff": -5.3,
+        "oldDdiff": 0.3,
+        "output": 8.035536065173076
       },
       "94": {
-        "diff": -5.7,
-        "oldDdiff": 0,
-        "output": 6.714585248039745
+        "diff": -5.4,
+        "oldDdiff": 0.3,
+        "output": 7.021308527721192
       },
       "95": {
-        "diff": -5.8,
-        "oldDdiff": -0.1,
-        "output": 5.7272740737541135
+        "diff": -5.5,
+        "oldDdiff": 0.2,
+        "output": 6.003562534598815
       },
       "96": {
-        "diff": -5.8,
-        "oldDdiff": -0.1,
-        "output": 4.755357526387659
+        "diff": -5.6,
+        "oldDdiff": 0.1,
+        "output": 4.98288449508436
       },
       "97": {
-        "diff": -5.9,
-        "oldDdiff": -0.1,
-        "output": 3.795756680556545
+        "diff": -5.7,
+        "oldDdiff": 0.1,
+        "output": 3.9598608184562436
       },
       "98": {
-        "diff": -6,
-        "oldDdiff": -0.1,
-        "output": 2.8453926108769374
+        "diff": -5.9,
+        "oldDdiff": 0,
+        "output": 2.935077913992881
       },
       "99": {
         "diff": -6,
         "oldDdiff": -0.1,
-        "output": 1.9011863919650012
+        "output": 1.909122190972688
       },
       "100": {
-        "diff": -6,
-        "oldDdiff": 0,
-        "output": 0.9600590984369006
+        "diff": -6.1,
+        "oldDdiff": -0.1,
+        "output": 0.8825800586740797
       }
     },
     "blue": {
       "0": {
-        "diff": -0.3,
-        "oldDdiff": -0.3,
-        "output": 96.65450698035438
+        "diff": 0.5,
+        "oldDdiff": 0.5,
+        "output": 97.48089932593285
       },
       "1": {
-        "diff": -0.3,
-        "oldDdiff": -0.2,
-        "output": 95.79594931348865
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 96.53804006991872
       },
       "2": {
-        "diff": -0.3,
-        "oldDdiff": -0.1,
-        "output": 94.93696910011596
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 95.5948590161607
       },
       "3": {
-        "diff": -0.2,
-        "oldDdiff": 0,
-        "output": 94.07714379372929
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 94.6510343669148
       },
       "4": {
-        "diff": -0.2,
-        "oldDdiff": 0.1,
-        "output": 93.21605084782169
+        "diff": 0.3,
+        "oldDdiff": 0.5,
+        "output": 93.70624432443721
       },
       "5": {
-        "diff": -0.1,
-        "oldDdiff": 0.2,
-        "output": 92.35326771588619
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 92.76016709098394
       },
       "6": {
-        "diff": -0.1,
-        "oldDdiff": 0.2,
-        "output": 91.4883718514158
+        "diff": 0.2,
+        "oldDdiff": 0.6,
+        "output": 91.81248086881111
       },
       "7": {
-        "diff": -0.1,
-        "oldDdiff": 0.3,
-        "output": 90.62094070790354
+        "diff": 0.2,
+        "oldDdiff": 0.6,
+        "output": 90.86286386017478
       },
       "8": {
-        "diff": 0,
-        "oldDdiff": 0.4,
-        "output": 89.75055173884243
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 89.91099426733106
       },
       "9": {
-        "diff": 0,
-        "oldDdiff": 0.5,
-        "output": 88.8767823977255
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 88.95655029253605
       },
       "10": {
         "diff": 0,
@@ -1071,3171 +1071,3171 @@
         "output": 87.9992101380458
       },
       "11": {
-        "diff": 0,
-        "oldDdiff": 0.7,
-        "output": 87.11744505624934
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 87.03883580894774
       },
       "12": {
-        "diff": 0,
-        "oldDdiff": 0.8,
-        "output": 86.23122782059441
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 86.07602452165462
       },
       "13": {
-        "diff": 0,
-        "oldDdiff": 0.8,
-        "output": 85.34033174229225
+        "diff": -0.2,
+        "oldDdiff": 0.6,
+        "output": 85.1115572954105
       },
       "14": {
-        "diff": 0,
-        "oldDdiff": 0.9,
-        "output": 84.44453013255419
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 84.1462151494595
       },
       "15": {
-        "diff": 0,
-        "oldDdiff": 0.9,
-        "output": 83.54359630259147
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 83.18077910304564
       },
       "16": {
-        "diff": 0,
-        "oldDdiff": 1,
-        "output": 82.63730356361542
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 82.21603017541304
       },
       "17": {
-        "diff": 0,
-        "oldDdiff": 1,
-        "output": 81.72542522683727
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 81.25274938580574
       },
       "18": {
-        "diff": 0,
-        "oldDdiff": 1.1,
-        "output": 80.80773460346838
+        "diff": -0.5,
+        "oldDdiff": 0.6,
+        "output": 80.29171775346785
       },
       "19": {
-        "diff": 0,
-        "oldDdiff": 1.1,
-        "output": 79.88400500471998
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 79.33371629764342
       },
       "20": {
-        "diff": 0,
-        "oldDdiff": 1.2,
-        "output": 78.95400974180336
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 78.37952603757655
       },
       "21": {
-        "diff": -0.1,
-        "oldDdiff": 1.2,
-        "output": 78.01767617178022
+        "diff": -0.7,
+        "oldDdiff": 0.6,
+        "output": 77.42956251606574
       },
       "22": {
-        "diff": -0.1,
-        "oldDdiff": 1.2,
-        "output": 77.07554783511381
+        "diff": -0.7,
+        "oldDdiff": 0.6,
+        "output": 76.48277937012735
       },
       "23": {
-        "diff": -0.2,
-        "oldDdiff": 1.2,
-        "output": 76.12832231811774
+        "diff": -0.8,
+        "oldDdiff": 0.6,
+        "output": 75.53776476033208
       },
       "24": {
-        "diff": -0.2,
-        "oldDdiff": 1.2,
-        "output": 75.17669720710572
+        "diff": -0.8,
+        "oldDdiff": 0.6,
+        "output": 74.59310684725077
       },
       "25": {
-        "diff": -0.3,
-        "oldDdiff": 1.2,
-        "output": 74.22137008839138
+        "diff": -0.9,
+        "oldDdiff": 0.6,
+        "output": 73.64739379145414
       },
       "26": {
-        "diff": -0.3,
-        "oldDdiff": 1.2,
-        "output": 73.26303854828836
+        "diff": -0.9,
+        "oldDdiff": 0.7,
+        "output": 72.69921375351295
       },
       "27": {
-        "diff": -0.4,
-        "oldDdiff": 1.2,
-        "output": 72.30240017311033
+        "diff": -1,
+        "oldDdiff": 0.7,
+        "output": 71.74715489399797
       },
       "28": {
-        "diff": -0.5,
-        "oldDdiff": 1.2,
-        "output": 71.34015254917092
+        "diff": -1,
+        "oldDdiff": 0.7,
+        "output": 70.78980537348001
       },
       "29": {
-        "diff": -0.5,
-        "oldDdiff": 1.2,
-        "output": 70.37699326278381
+        "diff": -1.1,
+        "oldDdiff": 0.7,
+        "output": 69.82575335252979
       },
       "30": {
-        "diff": -0.6,
-        "oldDdiff": 1.2,
-        "output": 69.41361990026262
+        "diff": -1.1,
+        "oldDdiff": 0.7,
+        "output": 68.85358699171809
       },
       "31": {
-        "diff": -0.6,
-        "oldDdiff": 1.2,
-        "output": 68.4508658294257
+        "diff": -1.2,
+        "oldDdiff": 0.6,
+        "output": 67.87256252047275
       },
       "32": {
-        "diff": -0.7,
-        "oldDdiff": 1.2,
-        "output": 67.49010754411007
+        "diff": -1.3,
+        "oldDdiff": 0.6,
+        "output": 66.88460844365001
       },
       "33": {
-        "diff": -0.8,
-        "oldDdiff": 1.2,
-        "output": 66.53285731965744
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 65.8923213349631
       },
       "34": {
-        "diff": -0.8,
-        "oldDdiff": 1.2,
-        "output": 65.58062743140957
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 64.89829776812533
       },
       "35": {
-        "diff": -0.9,
-        "oldDdiff": 1.2,
-        "output": 64.63493015470813
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 63.90513431685
       },
       "36": {
-        "diff": -0.9,
-        "oldDdiff": 1.3,
-        "output": 63.69727776489485
+        "diff": -1.7,
+        "oldDdiff": 0.5,
+        "output": 62.91542755485038
       },
       "37": {
-        "diff": -0.9,
-        "oldDdiff": 1.3,
-        "output": 62.769182537311444
+        "diff": -1.8,
+        "oldDdiff": 0.5,
+        "output": 61.931774055839746
       },
       "38": {
-        "diff": -0.9,
-        "oldDdiff": 1.3,
-        "output": 61.85215674729964
+        "diff": -1.8,
+        "oldDdiff": 0.4,
+        "output": 60.95677039353137
       },
       "39": {
-        "diff": -1,
-        "oldDdiff": 1.4,
-        "output": 60.947712670201135
+        "diff": -1.9,
+        "oldDdiff": 0.4,
+        "output": 59.993013141638585
       },
       "40": {
-        "diff": -0.9,
-        "oldDdiff": 1.5,
-        "output": 60.05736258135765
+        "diff": -2,
+        "oldDdiff": 0.4,
+        "output": 59.04309887387463
       },
       "41": {
-        "diff": -0.9,
-        "oldDdiff": 1.5,
-        "output": 59.18141337322239
+        "diff": -2,
+        "oldDdiff": 0.5,
+        "output": 58.1083560792297
       },
       "42": {
-        "diff": -0.9,
-        "oldDdiff": 1.6,
-        "output": 58.31535040669448
+        "diff": -2,
+        "oldDdiff": 0.5,
+        "output": 57.1850409078016
       },
       "43": {
-        "diff": -0.8,
-        "oldDdiff": 1.7,
-        "output": 57.4534536597845
+        "diff": -2,
+        "oldDdiff": 0.5,
+        "output": 56.268141424965
       },
       "44": {
-        "diff": -0.8,
-        "oldDdiff": 1.8,
-        "output": 56.59000311050309
+        "diff": -2,
+        "oldDdiff": 0.6,
+        "output": 55.352645696094605
       },
       "45": {
-        "diff": -0.8,
-        "oldDdiff": 1.9,
-        "output": 55.71927873686084
+        "diff": -2.1,
+        "oldDdiff": 0.6,
+        "output": 54.43354178656509
       },
       "46": {
-        "diff": -0.8,
-        "oldDdiff": 2,
-        "output": 54.83556051686837
+        "diff": -2.1,
+        "oldDdiff": 0.7,
+        "output": 53.505817761751146
       },
       "47": {
-        "diff": -0.8,
-        "oldDdiff": 2.1,
-        "output": 53.933128428536264
+        "diff": -2.1,
+        "oldDdiff": 0.7,
+        "output": 52.56446168702747
       },
       "48": {
-        "diff": -0.8,
-        "oldDdiff": 2.1,
-        "output": 53.00626244987514
+        "diff": -2.2,
+        "oldDdiff": 0.7,
+        "output": 51.604461627768735
       },
       "49": {
-        "diff": -0.9,
-        "oldDdiff": 2.1,
-        "output": 52.04924255889561
+        "diff": -2.3,
+        "oldDdiff": 0.7,
+        "output": 50.62080564934965
       },
       "50": {
-        "diff": -0.9,
-        "oldDdiff": 2.1,
-        "output": 51.056348733608274
+        "diff": -2.4,
+        "oldDdiff": 0.6,
+        "output": 49.60848181714489
       },
       "51": {
-        "diff": -1.1,
-        "oldDdiff": 2,
-        "output": 50.025868569922565
+        "diff": -2.5,
+        "oldDdiff": 0.5,
+        "output": 48.56593363240372
       },
       "52": {
-        "diff": -1.2,
-        "oldDdiff": 1.9,
-        "output": 48.972120135343204
+        "diff": -2.7,
+        "oldDdiff": 0.4,
+        "output": 47.50542633987369
       },
       "53": {
-        "diff": -1.4,
-        "oldDdiff": 1.8,
-        "output": 47.913429115273765
+        "diff": -2.9,
+        "oldDdiff": 0.3,
+        "output": 46.44268062017688
       },
       "54": {
-        "diff": -1.5,
-        "oldDdiff": 1.7,
-        "output": 46.86812119511779
+        "diff": -3,
+        "oldDdiff": 0.2,
+        "output": 45.39341715393543
       },
       "55": {
-        "diff": -1.6,
-        "oldDdiff": 1.7,
-        "output": 45.85452206027883
+        "diff": -3.1,
+        "oldDdiff": 0.2,
+        "output": 44.37335662177145
       },
       "56": {
-        "diff": -1.7,
-        "oldDdiff": 1.7,
-        "output": 44.89095739616045
+        "diff": -3.2,
+        "oldDdiff": 0.2,
+        "output": 43.39821970430705
       },
       "57": {
-        "diff": -1.7,
-        "oldDdiff": 1.7,
-        "output": 43.995752888166216
-      },
-      "58": {
-        "diff": -1.6,
-        "oldDdiff": 1.9,
-        "output": 43.187234221699654
-      },
-      "59": {
-        "diff": -1.4,
-        "oldDdiff": 2.1,
+        "diff": -3.2,
+        "oldDdiff": 0.2,
         "output": 42.48372708216434
       },
+      "58": {
+        "diff": -3.2,
+        "oldDdiff": 0.3,
+        "output": 41.63617840681863
+      },
+      "59": {
+        "diff": -3.1,
+        "oldDdiff": 0.5,
+        "output": 40.82418921315794
+      },
       "60": {
-        "diff": -1.1,
-        "oldDdiff": 2.5,
-        "output": 41.86516624998237
+        "diff": -3,
+        "oldDdiff": 0.6,
+        "output": 40.006954006923536
       },
       "61": {
-        "diff": -0.9,
-        "oldDdiff": 2.8,
-        "output": 41.19506054968172
+        "diff": -2.9,
+        "oldDdiff": 0.7,
+        "output": 39.1514382316816
       },
       "62": {
-        "diff": -0.8,
-        "oldDdiff": 3,
-        "output": 40.44707855693572
+        "diff": -2.9,
+        "oldDdiff": 0.8,
+        "output": 38.25569108229812
       },
       "63": {
-        "diff": -0.7,
-        "oldDdiff": 3.1,
-        "output": 39.632026511449425
+        "diff": -3,
+        "oldDdiff": 0.8,
+        "output": 37.32553269146408
       },
       "64": {
-        "diff": -0.6,
-        "oldDdiff": 3.2,
-        "output": 38.76071065292789
+        "diff": -3,
+        "oldDdiff": 0.8,
+        "output": 36.36678319187042
       },
       "65": {
-        "diff": -0.7,
-        "oldDdiff": 3.2,
-        "output": 37.843937221076146
+        "diff": -3.1,
+        "oldDdiff": 0.8,
+        "output": 35.385262716208075
       },
       "66": {
-        "diff": -0.7,
-        "oldDdiff": 3.3,
-        "output": 36.89251245559924
+        "diff": -3.2,
+        "oldDdiff": 0.7,
+        "output": 34.38679139716803
       },
       "67": {
-        "diff": -0.8,
-        "oldDdiff": 3.2,
-        "output": 35.91724259620222
+        "diff": -3.3,
+        "oldDdiff": 0.7,
+        "output": 33.377189367441225
       },
       "68": {
-        "diff": -0.9,
-        "oldDdiff": 3.2,
-        "output": 34.92893388259015
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 32.36227675971862
       },
       "69": {
-        "diff": -1,
-        "oldDdiff": 3.2,
-        "output": 33.938392554468045
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 31.347873706691175
       },
       "70": {
-        "diff": -1,
-        "oldDdiff": 3.2,
-        "output": 32.95642485154098
+        "diff": -3.7,
+        "oldDdiff": 0.5,
+        "output": 30.33980034104983
       },
       "71": {
-        "diff": -1.1,
-        "oldDdiff": 3.2,
-        "output": 31.991774598645645
+        "diff": -3.8,
+        "oldDdiff": 0.5,
+        "output": 29.34267308036249
       },
       "72": {
-        "diff": -1.2,
-        "oldDdiff": 3.2,
-        "output": 31.04493596114538
+        "diff": -3.8,
+        "oldDdiff": 0.5,
+        "output": 28.356293481704792
       },
       "73": {
-        "diff": -1.2,
-        "oldDdiff": 3.2,
-        "output": 30.114340689535176
+        "diff": -3.9,
+        "oldDdiff": 0.5,
+        "output": 27.37925938702931
       },
       "74": {
-        "diff": -1.2,
-        "oldDdiff": 3.2,
-        "output": 29.198420534310035
+        "diff": -4,
+        "oldDdiff": 0.5,
+        "output": 26.41016863828863
       },
       "75": {
-        "diff": -1.2,
-        "oldDdiff": 3.3,
-        "output": 28.29560724596496
+        "diff": -4.1,
+        "oldDdiff": 0.4,
+        "output": 25.447619077435327
       },
       "76": {
-        "diff": -1.2,
-        "oldDdiff": 3.4,
-        "output": 27.404332574994935
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 24.49020854642198
       },
       "77": {
-        "diff": -1.2,
-        "oldDdiff": 3.4,
-        "output": 26.52302827189496
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 23.536534887201164
       },
       "78": {
-        "diff": -1.1,
-        "oldDdiff": 3.5,
-        "output": 25.65012608716003
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 22.585195941725456
       },
       "79": {
-        "diff": -1.1,
-        "oldDdiff": 3.6,
-        "output": 24.784057771285145
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 21.634789551947442
       },
       "80": {
-        "diff": -1.1,
-        "oldDdiff": 3.7,
-        "output": 23.923255074765294
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 20.683913559819693
       },
       "81": {
-        "diff": -1,
-        "oldDdiff": 3.8,
-        "output": 23.066240320196677
+        "diff": -4.4,
+        "oldDdiff": 0.5,
+        "output": 19.7314421447244
       },
       "82": {
-        "diff": -1,
-        "oldDdiff": 3.9,
-        "output": 22.211898118580258
+        "diff": -4.4,
+        "oldDdiff": 0.5,
+        "output": 18.7773548357622
       },
       "83": {
-        "diff": -0.9,
-        "oldDdiff": 4,
-        "output": 21.359203653018213
+        "diff": -4.5,
+        "oldDdiff": 0.5,
+        "output": 17.821907499463332
       },
       "84": {
-        "diff": -0.9,
-        "oldDdiff": 4.1,
-        "output": 20.50713210661271
+        "diff": -4.5,
+        "oldDdiff": 0.5,
+        "output": 16.86535600235805
       },
       "85": {
-        "diff": -0.8,
-        "oldDdiff": 4.3,
-        "output": 19.65465866246591
+        "diff": -4.6,
+        "oldDdiff": 0.5,
+        "output": 15.907956210976593
       },
       "86": {
-        "diff": -0.8,
-        "oldDdiff": 4.4,
-        "output": 18.80075850367999
+        "diff": -4.7,
+        "oldDdiff": 0.5,
+        "output": 14.949963991849208
       },
       "87": {
-        "diff": -0.8,
-        "oldDdiff": 4.5,
-        "output": 17.944406813357116
+        "diff": -4.7,
+        "oldDdiff": 0.5,
+        "output": 13.991635211506138
       },
       "88": {
-        "diff": -0.7,
-        "oldDdiff": 4.6,
-        "output": 17.084578774599454
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 13.03322573647763
       },
       "89": {
-        "diff": -0.7,
-        "oldDdiff": 4.7,
-        "output": 16.22024957050917
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 12.07499143329393
       },
       "90": {
-        "diff": -0.6,
-        "oldDdiff": 4.8,
-        "output": 15.35039438418844
+        "diff": -4.9,
+        "oldDdiff": 0.5,
+        "output": 11.117188168485281
       },
       "91": {
-        "diff": -0.6,
-        "oldDdiff": 4.8,
-        "output": 14.474268381541206
+        "diff": -4.9,
+        "oldDdiff": 0.5,
+        "output": 10.160017715745134
       },
       "92": {
-        "diff": -0.6,
-        "oldDdiff": 4.9,
-        "output": 13.592246659678517
+        "diff": -5,
+        "oldDdiff": 0.5,
+        "output": 9.203465477419755
       },
       "93": {
-        "diff": -0.6,
-        "oldDdiff": 5,
-        "output": 12.704984298513203
+        "diff": -5.1,
+        "oldDdiff": 0.5,
+        "output": 8.247462763018614
       },
       "94": {
-        "diff": -0.6,
-        "oldDdiff": 5.1,
-        "output": 11.813136377958095
+        "diff": -5.1,
+        "oldDdiff": 0.5,
+        "output": 7.291940882051181
       },
       "95": {
-        "diff": -0.6,
-        "oldDdiff": 5.1,
-        "output": 10.917357977926015
+        "diff": -5.2,
+        "oldDdiff": 0.5,
+        "output": 6.3368311440269265
       },
       "96": {
-        "diff": -0.6,
-        "oldDdiff": 5.2,
-        "output": 10.018304178329794
+        "diff": -5.2,
+        "oldDdiff": 0.5,
+        "output": 5.382064858455321
       },
       "97": {
-        "diff": -0.6,
-        "oldDdiff": 5.2,
-        "output": 9.116630059082263
+        "diff": -5.3,
+        "oldDdiff": 0.5,
+        "output": 4.4275733348458335
       },
       "98": {
-        "diff": -0.6,
-        "oldDdiff": 5.3,
-        "output": 8.212990700096245
+        "diff": -5.3,
+        "oldDdiff": 0.6,
+        "output": 3.4732878827079348
       },
       "99": {
-        "diff": -0.6,
-        "oldDdiff": 5.3,
-        "output": 7.3080411812845725
+        "diff": -5.4,
+        "oldDdiff": 0.6,
+        "output": 2.519139811551097
       },
       "100": {
-        "diff": -0.6,
-        "oldDdiff": 5.4,
-        "output": 6.402436582560071
+        "diff": -5.4,
+        "oldDdiff": 0.6,
+        "output": 1.5650604308847882
       }
     },
     "red": {
       "0": {
-        "diff": -0.2,
-        "oldDdiff": -0.2,
-        "output": 96.81447689608302
+        "diff": 0.3,
+        "oldDdiff": 0.3,
+        "output": 97.3262803013065
       },
       "1": {
-        "diff": -0.2,
-        "oldDdiff": -0.1,
-        "output": 95.94756542926025
+        "diff": 0.3,
+        "oldDdiff": 0.3,
+        "output": 96.38401643912825
       },
       "2": {
-        "diff": -0.1,
-        "oldDdiff": 0,
-        "output": 95.0807474552628
+        "diff": 0.2,
+        "oldDdiff": 0.4,
+        "output": 95.44162918223908
       },
       "3": {
-        "diff": -0.1,
-        "oldDdiff": 0.1,
-        "output": 94.21411646691588
+        "diff": 0.2,
+        "oldDdiff": 0.4,
+        "output": 94.49899513592813
       },
       "4": {
-        "diff": -0.1,
-        "oldDdiff": 0.2,
-        "output": 93.34776595704487
+        "diff": 0.2,
+        "oldDdiff": 0.4,
+        "output": 93.55599090548448
       },
       "5": {
-        "diff": 0,
-        "oldDdiff": 0.3,
-        "output": 92.48178941847503
+        "diff": 0.1,
+        "oldDdiff": 0.4,
+        "output": 92.61249309619724
       },
       "6": {
-        "diff": 0,
+        "diff": 0.1,
         "oldDdiff": 0.4,
-        "output": 91.61628034403165
+        "output": 91.6683783133555
       },
       "7": {
-        "diff": 0.1,
-        "oldDdiff": 0.5,
-        "output": 90.75133222653999
+        "diff": 0,
+        "oldDdiff": 0.4,
+        "output": 90.72352316224837
       },
       "8": {
-        "diff": 0.1,
-        "oldDdiff": 0.6,
-        "output": 89.88703855882538
+        "diff": 0,
+        "oldDdiff": 0.5,
+        "output": 89.77780424816495
       },
       "9": {
-        "diff": 0.1,
-        "oldDdiff": 0.7,
-        "output": 89.02349283371312
+        "diff": -0.1,
+        "oldDdiff": 0.5,
+        "output": 88.83109817639438
       },
       "10": {
-        "diff": 0.2,
-        "oldDdiff": 0.8,
-        "output": 88.16078854402846
+        "diff": -0.1,
+        "oldDdiff": 0.5,
+        "output": 87.88328155222567
       },
       "11": {
-        "diff": 0.2,
-        "oldDdiff": 0.9,
-        "output": 87.29883095545523
+        "diff": -0.2,
+        "oldDdiff": 0.5,
+        "output": 86.9342584663279
       },
       "12": {
-        "diff": 0.2,
-        "oldDdiff": 1,
-        "output": 86.43677242511122
+        "diff": -0.2,
+        "oldDdiff": 0.5,
+        "output": 85.98404295088967
       },
       "13": {
-        "diff": 0.3,
-        "oldDdiff": 1.1,
-        "output": 85.57357708297272
+        "diff": -0.3,
+        "oldDdiff": 0.5,
+        "output": 85.0326765234795
       },
       "14": {
-        "diff": 0.3,
-        "oldDdiff": 1.1,
-        "output": 84.70820905901606
+        "diff": -0.3,
+        "oldDdiff": 0.5,
+        "output": 84.08020070166593
       },
       "15": {
-        "diff": 0.3,
-        "oldDdiff": 1.2,
-        "output": 83.83963248321754
+        "diff": -0.4,
+        "oldDdiff": 0.5,
+        "output": 83.12665700301748
       },
       "16": {
-        "diff": 0.4,
-        "oldDdiff": 1.3,
-        "output": 82.96681148555346
+        "diff": -0.4,
+        "oldDdiff": 0.5,
+        "output": 82.17208694510268
       },
       "17": {
-        "diff": 0.4,
-        "oldDdiff": 1.4,
-        "output": 82.08871019600011
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 81.21653204549003
       },
       "18": {
-        "diff": 0.4,
-        "oldDdiff": 1.5,
-        "output": 81.20429274453383
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 80.26003382174807
       },
       "19": {
-        "diff": 0.4,
-        "oldDdiff": 1.6,
-        "output": 80.3125232611309
+        "diff": -0.6,
+        "oldDdiff": 0.5,
+        "output": 79.30263379144536
       },
       "20": {
-        "diff": 0.4,
-        "oldDdiff": 1.6,
-        "output": 79.41236587576762
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 78.34437347215035
       },
       "21": {
-        "diff": 0.4,
-        "oldDdiff": 1.7,
-        "output": 78.50335019235484
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 77.38529487636015
       },
       "22": {
-        "diff": 0.4,
-        "oldDdiff": 1.7,
-        "output": 77.58726771054148
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 76.4254419962858
       },
       "23": {
-        "diff": 0.4,
-        "oldDdiff": 1.7,
-        "output": 76.66647540391098
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 75.46485931906692
       },
       "24": {
-        "diff": 0.3,
-        "oldDdiff": 1.8,
-        "output": 75.74333024604681
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 74.50359133184308
       },
       "25": {
-        "diff": 0.3,
-        "oldDdiff": 1.8,
-        "output": 74.8201892105324
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 73.54168252175393
       },
       "26": {
-        "diff": 0.3,
-        "oldDdiff": 1.9,
-        "output": 73.89940927095124
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 72.57917737593901
       },
       "27": {
-        "diff": 0.3,
-        "oldDdiff": 1.9,
-        "output": 72.98334740088676
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 71.61612038153794
       },
       "28": {
-        "diff": 0.3,
-        "oldDdiff": 2,
-        "output": 72.0743605739224
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 70.65255602569029
       },
       "29": {
-        "diff": 0.3,
-        "oldDdiff": 2,
-        "output": 71.17480576364164
+        "diff": -1.2,
+        "oldDdiff": 0.5,
+        "output": 69.6885287955357
       },
       "30": {
-        "diff": 0.3,
-        "oldDdiff": 2.1,
-        "output": 70.2870399436279
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 68.72408317821375
       },
       "31": {
-        "diff": 0.3,
-        "oldDdiff": 2.2,
-        "output": 69.41257511244525
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 67.7592790873813
       },
       "32": {
-        "diff": 0.3,
-        "oldDdiff": 2.3,
-        "output": 68.54954336858015
+        "diff": -1.4,
+        "oldDdiff": 0.5,
+        "output": 66.79423814276433
       },
       "33": {
-        "diff": 0.4,
-        "oldDdiff": 2.4,
-        "output": 67.69523183549957
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 65.82909739060611
       },
       "34": {
-        "diff": 0.4,
-        "oldDdiff": 2.5,
-        "output": 66.8469276366706
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 64.86399387714988
       },
       "35": {
-        "diff": 0.5,
-        "oldDdiff": 2.6,
-        "output": 66.00191789556027
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 63.89906464863888
       },
       "36": {
-        "diff": 0.6,
-        "oldDdiff": 2.7,
-        "output": 65.15748973563561
+        "diff": -1.7,
+        "oldDdiff": 0.5,
+        "output": 62.934446751316386
       },
       "37": {
-        "diff": 0.6,
-        "oldDdiff": 2.8,
-        "output": 64.31093028036364
+        "diff": -1.7,
+        "oldDdiff": 0.5,
+        "output": 61.97027723142565
       },
       "38": {
-        "diff": 0.7,
-        "oldDdiff": 2.9,
-        "output": 63.45952665321141
+        "diff": -1.8,
+        "oldDdiff": 0.5,
+        "output": 61.00669313520992
       },
       "39": {
-        "diff": 0.7,
-        "oldDdiff": 3,
-        "output": 62.60056597764594
+        "diff": -1.9,
+        "oldDdiff": 0.5,
+        "output": 60.04383150891245
       },
       "40": {
-        "diff": 0.7,
-        "oldDdiff": 3.1,
-        "output": 61.731335377134286
+        "diff": -1.9,
+        "oldDdiff": 0.5,
+        "output": 59.08182939877649
       },
       "41": {
-        "diff": 0.7,
-        "oldDdiff": 3.2,
-        "output": 60.84994024063838
+        "diff": -2,
+        "oldDdiff": 0.5,
+        "output": 58.1208072679524
       },
       "42": {
-        "diff": 0.8,
-        "oldDdiff": 3.3,
-        "output": 59.95775901909981
+        "diff": -2,
+        "oldDdiff": 0.5,
+        "output": 57.16081924721887
       },
       "43": {
-        "diff": 0.8,
-        "oldDdiff": 3.3,
-        "output": 59.05698842895507
+        "diff": -2.1,
+        "oldDdiff": 0.5,
+        "output": 56.20190288426171
       },
       "44": {
-        "diff": 0.7,
-        "oldDdiff": 3.4,
-        "output": 58.14982518664067
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 55.24409572676674
       },
       "45": {
-        "diff": 0.7,
-        "oldDdiff": 3.4,
-        "output": 57.23846600859309
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 54.287435322419725
       },
       "46": {
-        "diff": 0.7,
-        "oldDdiff": 3.5,
-        "output": 56.32510761124884
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 53.331959218906505
       },
       "47": {
-        "diff": 0.7,
-        "oldDdiff": 3.5,
-        "output": 55.411946711044415
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 52.37770496391286
       },
       "48": {
-        "diff": 0.7,
-        "oldDdiff": 3.6,
-        "output": 54.50118002441629
+        "diff": -2.4,
+        "oldDdiff": 0.5,
+        "output": 51.4247101051246
       },
       "49": {
-        "diff": 0.7,
-        "oldDdiff": 3.6,
-        "output": 53.595004267801
+        "diff": -2.4,
+        "oldDdiff": 0.5,
+        "output": 50.473012190227536
       },
       "50": {
-        "diff": 0.7,
-        "oldDdiff": 3.7,
-        "output": 52.695616157635015
+        "diff": -2.5,
+        "oldDdiff": 0.5,
+        "output": 49.52264876690745
       },
       "51": {
-        "diff": 0.7,
-        "oldDdiff": 3.8,
-        "output": 51.80452892713105
+        "diff": -2.5,
+        "oldDdiff": 0.5,
+        "output": 48.57356064392898
       },
       "52": {
-        "diff": 0.7,
-        "oldDdiff": 3.8,
-        "output": 50.92052187660668
+        "diff": -2.6,
+        "oldDdiff": 0.5,
+        "output": 47.625301674371954
       },
       "53": {
-        "diff": 0.7,
-        "oldDdiff": 3.9,
-        "output": 50.04169082315564
+        "diff": -2.6,
+        "oldDdiff": 0.6,
+        "output": 46.67732897239507
       },
       "54": {
-        "diff": 0.8,
-        "oldDdiff": 4,
-        "output": 49.16613158387173
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 45.72909965215698
       },
       "55": {
-        "diff": 0.8,
-        "oldDdiff": 4.1,
-        "output": 48.29193997584873
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 44.78007082781638
       },
       "56": {
-        "diff": 0.8,
-        "oldDdiff": 4.2,
-        "output": 47.4172118161804
+        "diff": -2.8,
+        "oldDdiff": 0.6,
+        "output": 43.8296996135319
       },
       "57": {
-        "diff": 0.8,
-        "oldDdiff": 4.3,
-        "output": 46.540042921960485
+        "diff": -2.8,
+        "oldDdiff": 0.6,
+        "output": 42.87744312346226
       },
       "58": {
-        "diff": 0.9,
-        "oldDdiff": 4.3,
-        "output": 45.6585291102828
+        "diff": -2.9,
+        "oldDdiff": 0.6,
+        "output": 41.92275847176608
       },
       "59": {
-        "diff": 0.9,
-        "oldDdiff": 4.4,
-        "output": 44.7707661982411
+        "diff": -2.9,
+        "oldDdiff": 0.6,
+        "output": 40.965102772602066
       },
       "60": {
-        "diff": 0.9,
-        "oldDdiff": 4.5,
-        "output": 43.87485000292915
+        "diff": -3,
+        "oldDdiff": 0.6,
+        "output": 40.00393314012887
       },
       "61": {
-        "diff": 0.9,
-        "oldDdiff": 4.5,
-        "output": 42.96935798042406
+        "diff": -3.1,
+        "oldDdiff": 0.6,
+        "output": 39.038898900374356
       },
       "62": {
-        "diff": 0.9,
-        "oldDdiff": 4.6,
-        "output": 42.054794142736235
+        "diff": -3.1,
+        "oldDdiff": 0.6,
+        "output": 38.070418226843096
       },
       "63": {
-        "diff": 0.8,
-        "oldDdiff": 4.6,
-        "output": 41.13214414085942
+        "diff": -3.2,
+        "oldDdiff": 0.6,
+        "output": 37.09910150490882
       },
       "64": {
-        "diff": 0.8,
-        "oldDdiff": 4.6,
-        "output": 40.202393625787366
+        "diff": -3.3,
+        "oldDdiff": 0.6,
+        "output": 36.12555911994532
       },
       "65": {
-        "diff": 0.8,
-        "oldDdiff": 4.7,
-        "output": 39.266528248513794
+        "diff": -3.3,
+        "oldDdiff": 0.6,
+        "output": 35.150401457326346
       },
       "66": {
-        "diff": 0.7,
-        "oldDdiff": 4.7,
-        "output": 38.325533660032455
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 34.17423890242564
       },
       "67": {
-        "diff": 0.7,
-        "oldDdiff": 4.7,
-        "output": 37.38039551133711
+        "diff": -3.5,
+        "oldDdiff": 0.5,
+        "output": 33.19768184061696
       },
       "68": {
-        "diff": 0.6,
-        "oldDdiff": 4.7,
-        "output": 36.43209945342147
+        "diff": -3.6,
+        "oldDdiff": 0.5,
+        "output": 32.22134065727406
       },
       "69": {
-        "diff": 0.6,
-        "oldDdiff": 4.7,
-        "output": 35.481631137279294
+        "diff": -3.7,
+        "oldDdiff": 0.5,
+        "output": 31.24582573777071
       },
       "70": {
-        "diff": 0.5,
-        "oldDdiff": 4.7,
-        "output": 34.52997621390432
+        "diff": -3.7,
+        "oldDdiff": 0.5,
+        "output": 30.27174746748065
       },
       "71": {
-        "diff": 0.5,
-        "oldDdiff": 4.7,
-        "output": 33.57811873102396
+        "diff": -3.8,
+        "oldDdiff": 0.5,
+        "output": 29.29957827746094
       },
       "72": {
-        "diff": 0.4,
-        "oldDdiff": 4.7,
-        "output": 32.62703632330037
+        "diff": -3.9,
+        "oldDdiff": 0.4,
+        "output": 28.329238781501804
       },
       "73": {
-        "diff": 0.4,
-        "oldDdiff": 4.8,
-        "output": 31.67770502212933
+        "diff": -3.9,
+        "oldDdiff": 0.4,
+        "output": 27.36051163907675
       },
       "74": {
-        "diff": 0.3,
-        "oldDdiff": 4.8,
-        "output": 30.73110085890668
+        "diff": -4,
+        "oldDdiff": 0.4,
+        "output": 26.39317950965932
       },
       "75": {
-        "diff": 0.3,
-        "oldDdiff": 4.8,
-        "output": 29.78819986502821
+        "diff": -4.1,
+        "oldDdiff": 0.4,
+        "output": 25.42702505272302
       },
       "76": {
-        "diff": 0.2,
-        "oldDdiff": 4.8,
-        "output": 28.849978071889748
+        "diff": -4.1,
+        "oldDdiff": 0.4,
+        "output": 24.461830927741374
       },
       "77": {
-        "diff": 0.2,
-        "oldDdiff": 4.8,
-        "output": 27.917411510887092
+        "diff": -4.2,
+        "oldDdiff": 0.4,
+        "output": 23.4973797941879
       },
       "78": {
-        "diff": 0.2,
-        "oldDdiff": 4.9,
-        "output": 26.991476213416068
+        "diff": -4.3,
+        "oldDdiff": 0.4,
+        "output": 22.533454311536126
       },
       "79": {
-        "diff": 0.2,
-        "oldDdiff": 4.9,
-        "output": 26.073148210872475
+        "diff": -4.3,
+        "oldDdiff": 0.4,
+        "output": 21.56983713925956
       },
       "80": {
-        "diff": 0.2,
-        "oldDdiff": 5,
-        "output": 25.163403534652133
+        "diff": -4.4,
+        "oldDdiff": 0.4,
+        "output": 20.606310936831733
       },
       "81": {
-        "diff": 0.2,
-        "oldDdiff": 5,
-        "output": 24.262730925605144
+        "diff": -4.5,
+        "oldDdiff": 0.4,
+        "output": 19.642934875086393
       },
       "82": {
-        "diff": 0.2,
-        "oldDdiff": 5.1,
-        "output": 23.369669962398806
+        "diff": -4.5,
+        "oldDdiff": 0.4,
+        "output": 18.68087417029823
       },
       "83": {
-        "diff": 0.2,
-        "oldDdiff": 5.2,
-        "output": 22.482272933154693
+        "diff": -4.6,
+        "oldDdiff": 0.4,
+        "output": 17.721570550102165
       },
       "84": {
-        "diff": 0.2,
-        "oldDdiff": 5.2,
-        "output": 21.59859212599441
+        "diff": -4.6,
+        "oldDdiff": 0.4,
+        "output": 16.76646574213312
       },
       "85": {
-        "diff": 0.2,
-        "oldDdiff": 5.3,
-        "output": 20.71667982903954
+        "diff": -4.7,
+        "oldDdiff": 0.4,
+        "output": 15.817001474026023
       },
       "86": {
-        "diff": 0.2,
-        "oldDdiff": 5.4,
-        "output": 19.834588330411663
+        "diff": -4.7,
+        "oldDdiff": 0.4,
+        "output": 14.874619473415787
       },
       "87": {
-        "diff": 0.3,
-        "oldDdiff": 5.5,
-        "output": 18.950369918232376
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 13.940761467937337
       },
       "88": {
-        "diff": 0.3,
-        "oldDdiff": 5.5,
-        "output": 18.06207688062326
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 13.01686918522559
       },
       "89": {
-        "diff": 0.3,
-        "oldDdiff": 5.6,
-        "output": 17.167761505705908
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 12.104384352915476
       },
       "90": {
-        "diff": 0.3,
-        "oldDdiff": 5.7,
-        "output": 16.265476081601904
+        "diff": -4.8,
+        "oldDdiff": 0.6,
+        "output": 11.204748698641914
       },
       "91": {
-        "diff": 0.3,
-        "oldDdiff": 5.7,
-        "output": 15.353762811096992
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 10.31892548033948
       },
       "92": {
-        "diff": 0.2,
-        "oldDdiff": 5.8,
-        "output": 14.433123555633522
+        "diff": -4.8,
+        "oldDdiff": 0.8,
+        "output": 9.44596407714137
       },
       "93": {
-        "diff": 0.2,
-        "oldDdiff": 5.8,
-        "output": 13.504550091318002
+        "diff": -4.7,
+        "oldDdiff": 0.9,
+        "output": 8.584435398480437
       },
       "94": {
-        "diff": 0.2,
-        "oldDdiff": 5.8,
-        "output": 12.569034194256938
+        "diff": -4.7,
+        "oldDdiff": 1,
+        "output": 7.732910353789538
       },
       "95": {
-        "diff": 0.1,
-        "oldDdiff": 5.8,
-        "output": 11.627567640556837
+        "diff": -4.6,
+        "oldDdiff": 1.1,
+        "output": 6.889959852501521
       },
       "96": {
-        "diff": 0.1,
-        "oldDdiff": 5.8,
-        "output": 10.681142206324203
+        "diff": -4.5,
+        "oldDdiff": 1.2,
+        "output": 6.054154804049241
       },
       "97": {
-        "diff": 0,
-        "oldDdiff": 5.9,
-        "output": 9.730749667665545
+        "diff": -4.5,
+        "oldDdiff": 1.3,
+        "output": 5.224066117865551
       },
       "98": {
-        "diff": 0,
-        "oldDdiff": 5.9,
-        "output": 8.777381800687369
+        "diff": -4.4,
+        "oldDdiff": 1.5,
+        "output": 4.398264703383299
       },
       "99": {
-        "diff": -0.1,
-        "oldDdiff": 5.9,
-        "output": 7.82203038149618
+        "diff": -4.3,
+        "oldDdiff": 1.6,
+        "output": 3.5753214700353455
       },
       "100": {
-        "diff": -0.1,
-        "oldDdiff": 5.9,
-        "output": 6.865687186198485
+        "diff": -4.2,
+        "oldDdiff": 1.8,
+        "output": 2.7538073272545383
       }
     },
     "teal": {
       "0": {
-        "diff": -0.1,
-        "oldDdiff": -0.1,
-        "output": 96.86576457388543
+        "diff": 0.5,
+        "oldDdiff": 0.5,
+        "output": 97.53831615202068
       },
       "1": {
-        "diff": -0.2,
-        "oldDdiff": -0.1,
-        "output": 95.93364467181702
+        "diff": 0.5,
+        "oldDdiff": 0.6,
+        "output": 96.59242712068495
       },
       "2": {
-        "diff": -0.2,
-        "oldDdiff": -0.1,
-        "output": 95.00233840981272
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 95.64621319080544
       },
       "3": {
-        "diff": -0.2,
-        "oldDdiff": 0,
-        "output": 94.07265942793657
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 94.69934946383852
       },
       "4": {
-        "diff": -0.3,
-        "oldDdiff": 0,
-        "output": 93.14542136625272
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 93.75151104124039
       },
       "5": {
-        "diff": -0.3,
-        "oldDdiff": 0,
-        "output": 92.22143786482525
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 92.80237302446739
       },
       "6": {
-        "diff": -0.3,
-        "oldDdiff": 0.1,
-        "output": 91.30152256371824
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 91.85161051497572
       },
       "7": {
-        "diff": -0.3,
-        "oldDdiff": 0.1,
-        "output": 90.3864891029958
+        "diff": 0.2,
+        "oldDdiff": 0.6,
+        "output": 90.89889861422172
       },
       "8": {
-        "diff": -0.3,
-        "oldDdiff": 0.2,
-        "output": 89.477151122722
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 89.94391242366162
       },
       "9": {
-        "diff": -0.3,
-        "oldDdiff": 0.2,
-        "output": 88.57432226296095
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 88.98632704475169
       },
       "10": {
-        "diff": -0.3,
-        "oldDdiff": 0.3,
-        "output": 87.67881616377674
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 88.02581757894824
       },
       "11": {
-        "diff": -0.3,
-        "oldDdiff": 0.4,
-        "output": 86.79100148622986
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 87.06216514231275
       },
       "12": {
-        "diff": -0.3,
-        "oldDdiff": 0.4,
-        "output": 85.90946697536639
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 86.09557490932777
       },
       "13": {
-        "diff": -0.3,
-        "oldDdiff": 0.5,
-        "output": 85.03235639722877
+        "diff": -0.2,
+        "oldDdiff": 0.6,
+        "output": 85.12635806908094
       },
       "14": {
         "diff": -0.2,
         "oldDdiff": 0.6,
-        "output": 84.15781351785947
+        "output": 84.1548258106601
       },
       "15": {
-        "diff": -0.2,
-        "oldDdiff": 0.7,
-        "output": 83.28398210330096
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 83.18128932315295
       },
       "16": {
-        "diff": -0.2,
-        "oldDdiff": 0.8,
-        "output": 82.4090059195957
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 82.20605979564722
       },
       "17": {
-        "diff": -0.2,
-        "oldDdiff": 0.9,
-        "output": 81.53102873278615
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 81.22944841723069
       },
       "18": {
-        "diff": -0.2,
-        "oldDdiff": 0.9,
-        "output": 80.64819430891478
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 80.25176637699103
       },
       "19": {
-        "diff": -0.1,
-        "oldDdiff": 1,
-        "output": 79.75864641402406
+        "diff": -0.6,
+        "oldDdiff": 0.5,
+        "output": 79.27332486401602
       },
       "20": {
-        "diff": -0.1,
-        "oldDdiff": 1.1,
-        "output": 78.86052881415642
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 78.29443506739342
       },
       "21": {
-        "diff": -0.1,
-        "oldDdiff": 1.1,
-        "output": 77.9525862324737
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 77.31547507068558
       },
       "22": {
-        "diff": -0.2,
-        "oldDdiff": 1.2,
-        "output": 77.03596722061499
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 76.33709053535338
       },
       "23": {
-        "diff": -0.2,
-        "oldDdiff": 1.2,
-        "output": 76.11242128733873
+        "diff": -0.9,
+        "oldDdiff": 0.4,
+        "output": 75.3599940173324
       },
       "24": {
-        "diff": -0.2,
-        "oldDdiff": 1.2,
-        "output": 75.18369794140342
+        "diff": -1,
+        "oldDdiff": 0.4,
+        "output": 74.38489807255814
       },
       "25": {
-        "diff": -0.2,
-        "oldDdiff": 1.3,
-        "output": 74.25154669156743
+        "diff": -1.1,
+        "oldDdiff": 0.4,
+        "output": 73.41251525696615
       },
       "26": {
-        "diff": -0.3,
-        "oldDdiff": 1.3,
-        "output": 73.31771704658927
+        "diff": -1.2,
+        "oldDdiff": 0.4,
+        "output": 72.44355812649196
       },
       "27": {
-        "diff": -0.3,
-        "oldDdiff": 1.3,
-        "output": 72.38395851522736
+        "diff": -1.2,
+        "oldDdiff": 0.4,
+        "output": 71.4787392370711
       },
       "28": {
-        "diff": -0.3,
-        "oldDdiff": 1.3,
-        "output": 71.45202060624014
+        "diff": -1.3,
+        "oldDdiff": 0.4,
+        "output": 70.51877114463912
       },
       "29": {
-        "diff": -0.4,
-        "oldDdiff": 1.4,
-        "output": 70.52365282838609
+        "diff": -1.3,
+        "oldDdiff": 0.4,
+        "output": 69.56436640513154
       },
       "30": {
-        "diff": -0.4,
-        "oldDdiff": 1.4,
-        "output": 69.60060469042364
+        "diff": -1.4,
+        "oldDdiff": 0.4,
+        "output": 68.61623757448389
       },
       "31": {
-        "diff": -0.4,
-        "oldDdiff": 1.4,
-        "output": 68.68418806438244
+        "diff": -1.4,
+        "oldDdiff": 0.4,
+        "output": 67.67468962738027
       },
       "32": {
-        "diff": -0.4,
-        "oldDdiff": 1.5,
-        "output": 67.77396427537691
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 66.73839721349903
       },
       "33": {
-        "diff": -0.4,
-        "oldDdiff": 1.5,
-        "output": 66.86905701179265
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 65.80562740126705
       },
       "34": {
-        "diff": -0.4,
-        "oldDdiff": 1.6,
-        "output": 65.96858996201534
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 64.87464725911121
       },
       "35": {
-        "diff": -0.4,
-        "oldDdiff": 1.7,
-        "output": 65.0716868144306
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 63.94372385545844
       },
       "36": {
-        "diff": -0.4,
-        "oldDdiff": 1.7,
-        "output": 64.17747125742403
+        "diff": -1.6,
+        "oldDdiff": 0.6,
+        "output": 63.01112425873559
       },
       "37": {
-        "diff": -0.4,
-        "oldDdiff": 1.8,
-        "output": 63.28506697938125
+        "diff": -1.6,
+        "oldDdiff": 0.6,
+        "output": 62.075115537369584
       },
       "38": {
-        "diff": -0.4,
-        "oldDdiff": 1.9,
-        "output": 62.3935976686879
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 61.133964759787304
       },
       "39": {
-        "diff": -0.4,
-        "oldDdiff": 1.9,
-        "output": 61.502187013729625
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 60.185938994415636
       },
       "40": {
-        "diff": -0.4,
-        "oldDdiff": 2,
-        "output": 60.609958702892015
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 59.22930530968149
       },
       "41": {
-        "diff": -0.4,
-        "oldDdiff": 2.1,
-        "output": 59.716282457802265
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 58.26288013466872
       },
       "42": {
-        "diff": -0.4,
-        "oldDdiff": 2.1,
-        "output": 58.82151213305365
+        "diff": -1.9,
+        "oldDdiff": 0.6,
+        "output": 57.287677341089015
       },
       "43": {
-        "diff": -0.4,
-        "oldDdiff": 2.2,
-        "output": 57.92624761648104
+        "diff": -2,
+        "oldDdiff": 0.6,
+        "output": 56.30526016131103
       },
       "44": {
-        "diff": -0.4,
-        "oldDdiff": 2.3,
-        "output": 57.03108879591929
+        "diff": -2.1,
+        "oldDdiff": 0.6,
+        "output": 55.31719182770346
       },
       "45": {
-        "diff": -0.4,
-        "oldDdiff": 2.3,
-        "output": 56.13663555920323
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 54.32503557263496
       },
       "46": {
-        "diff": -0.4,
-        "oldDdiff": 2.4,
-        "output": 55.243487794167706
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 53.33035462847417
       },
       "47": {
-        "diff": -0.3,
-        "oldDdiff": 2.5,
-        "output": 54.35224538864758
+        "diff": -2.4,
+        "oldDdiff": 0.5,
+        "output": 52.334712227589776
       },
       "48": {
-        "diff": -0.3,
-        "oldDdiff": 2.5,
-        "output": 53.46350823047771
+        "diff": -2.5,
+        "oldDdiff": 0.4,
+        "output": 51.339671602350435
       },
       "49": {
-        "diff": -0.3,
-        "oldDdiff": 2.6,
-        "output": 52.5778762074929
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 50.34679598512481
       },
       "50": {
-        "diff": -0.3,
-        "oldDdiff": 2.7,
-        "output": 51.69594920752803
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 49.357648608281565
       },
       "51": {
-        "diff": -0.3,
-        "oldDdiff": 2.8,
-        "output": 50.81801660014036
+        "diff": -2.7,
+        "oldDdiff": 0.3,
+        "output": 48.37352280226061
       },
       "52": {
-        "diff": -0.3,
-        "oldDdiff": 2.9,
-        "output": 49.943125681776785
+        "diff": -2.8,
+        "oldDdiff": 0.3,
+        "output": 47.394632289786855
       },
       "53": {
-        "diff": -0.2,
-        "oldDdiff": 3,
-        "output": 49.07001323060662
+        "diff": -2.9,
+        "oldDdiff": 0.3,
+        "output": 46.42092089165643
       },
       "54": {
-        "diff": -0.2,
-        "oldDdiff": 3,
-        "output": 48.1974160247992
+        "diff": -2.9,
+        "oldDdiff": 0.3,
+        "output": 45.45233242866551
       },
       "55": {
-        "diff": -0.2,
-        "oldDdiff": 3.1,
-        "output": 47.32407084252385
+        "diff": -3,
+        "oldDdiff": 0.3,
+        "output": 44.48881072161023
       },
       "56": {
-        "diff": -0.2,
-        "oldDdiff": 3.2,
-        "output": 46.44871446194989
+        "diff": -3.1,
+        "oldDdiff": 0.3,
+        "output": 43.53029959128675
       },
       "57": {
-        "diff": -0.1,
-        "oldDdiff": 3.3,
-        "output": 45.57008366124662
+        "diff": -3.1,
+        "oldDdiff": 0.3,
+        "output": 42.5767428584912
       },
       "58": {
-        "diff": -0.1,
-        "oldDdiff": 3.4,
-        "output": 44.68691521858338
+        "diff": -3.2,
+        "oldDdiff": 0.3,
+        "output": 41.62808434401974
       },
       "59": {
-        "diff": -0.1,
-        "oldDdiff": 3.4,
-        "output": 43.797945912129485
+        "diff": -3.2,
+        "oldDdiff": 0.3,
+        "output": 40.68426786866854
       },
       "60": {
-        "diff": -0.1,
-        "oldDdiff": 3.5,
-        "output": 42.90191252005425
+        "diff": -3.3,
+        "oldDdiff": 0.3,
+        "output": 39.745237253233725
       },
       "61": {
-        "diff": -0.1,
-        "oldDdiff": 3.6,
-        "output": 41.998012761848415
+        "diff": -3.3,
+        "oldDdiff": 0.4,
+        "output": 38.810761288709315
       },
       "62": {
-        "diff": -0.1,
-        "oldDdiff": 3.6,
-        "output": 41.0872881222883
+        "diff": -3.3,
+        "oldDdiff": 0.4,
+        "output": 37.879908646880786
       },
       "63": {
-        "diff": -0.1,
-        "oldDdiff": 3.7,
-        "output": 40.17124102747164
+        "diff": -3.3,
+        "oldDdiff": 0.4,
+        "output": 36.95157296973146
       },
       "64": {
-        "diff": -0.1,
-        "oldDdiff": 3.7,
-        "output": 39.25137390349619
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 36.02464789924466
       },
       "65": {
-        "diff": -0.2,
-        "oldDdiff": 3.7,
-        "output": 38.32918917645967
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 35.09802707740375
       },
       "66": {
-        "diff": -0.2,
-        "oldDdiff": 3.8,
-        "output": 37.40618927245982
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 34.170604146192034
       },
       "67": {
-        "diff": -0.2,
-        "oldDdiff": 3.8,
-        "output": 36.4838766175944
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 33.241272747592845
       },
       "68": {
-        "diff": -0.2,
-        "oldDdiff": 3.8,
-        "output": 35.56375363796111
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 32.30892652358953
       },
       "69": {
-        "diff": -0.3,
-        "oldDdiff": 3.9,
-        "output": 34.64732275965772
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 31.37245911616541
       },
       "70": {
-        "diff": -0.3,
-        "oldDdiff": 3.9,
-        "output": 33.73608640878196
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 30.430764167303813
       },
       "71": {
-        "diff": -0.3,
-        "oldDdiff": 4,
-        "output": 32.831187846690035
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 29.483074303511685
       },
       "72": {
-        "diff": -0.3,
-        "oldDdiff": 4.1,
-        "output": 31.932333675772092
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 28.52997808939035
       },
       "73": {
-        "diff": -0.3,
-        "oldDdiff": 4.1,
-        "output": 31.038871333676745
+        "diff": -3.7,
+        "oldDdiff": 0.7,
+        "output": 27.572403074064745
       },
       "74": {
-        "diff": -0.2,
-        "oldDdiff": 4.2,
-        "output": 30.150148258052617
+        "diff": -3.8,
+        "oldDdiff": 0.7,
+        "output": 26.61127680665981
       },
       "75": {
-        "diff": -0.2,
-        "oldDdiff": 4.3,
-        "output": 29.26551188654831
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 25.647526836300486
       },
       "76": {
-        "diff": -0.2,
-        "oldDdiff": 4.3,
-        "output": 28.38430965681245
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 24.6820807121117
       },
       "77": {
-        "diff": -0.2,
-        "oldDdiff": 4.4,
-        "output": 27.505889006493657
+        "diff": -4,
+        "oldDdiff": 0.6,
+        "output": 23.715865983218393
       },
       "78": {
-        "diff": -0.2,
-        "oldDdiff": 4.5,
-        "output": 26.629597373240546
+        "diff": -4.1,
+        "oldDdiff": 0.6,
+        "output": 22.749810198745497
       },
       "79": {
-        "diff": -0.1,
-        "oldDdiff": 4.6,
-        "output": 25.754782194701722
+        "diff": -4.1,
+        "oldDdiff": 0.6,
+        "output": 21.784840907817948
       },
       "80": {
-        "diff": -0.1,
-        "oldDdiff": 4.7,
-        "output": 24.88079090852581
+        "diff": -4.2,
+        "oldDdiff": 0.6,
+        "output": 20.821885659560692
       },
       "81": {
-        "diff": -0.1,
-        "oldDdiff": 4.8,
-        "output": 24.00694528816707
+        "diff": -4.2,
+        "oldDdiff": 0.6,
+        "output": 19.861694238018714
       },
       "82": {
-        "diff": -0.1,
-        "oldDdiff": 4.9,
-        "output": 23.132464450302308
+        "diff": -4.3,
+        "oldDdiff": 0.6,
+        "output": 18.904305366917256
       },
       "83": {
-        "diff": 0,
-        "oldDdiff": 4.9,
-        "output": 22.256541847413967
+        "diff": -4.4,
+        "oldDdiff": 0.6,
+        "output": 17.949580004901605
       },
       "84": {
-        "diff": 0,
-        "oldDdiff": 5,
-        "output": 21.378370931984517
+        "diff": -4.4,
+        "oldDdiff": 0.6,
+        "output": 16.997379110617064
       },
       "85": {
-        "diff": 0,
-        "oldDdiff": 5.1,
-        "output": 20.4971451564964
+        "diff": -4.5,
+        "oldDdiff": 0.6,
+        "output": 16.047563642708926
       },
       "86": {
-        "diff": 0,
-        "oldDdiff": 5.2,
-        "output": 19.61205797343207
+        "diff": -4.5,
+        "oldDdiff": 0.7,
+        "output": 15.099994559822486
       },
       "87": {
-        "diff": 0,
-        "oldDdiff": 5.2,
-        "output": 18.722302835273975
+        "diff": -4.5,
+        "oldDdiff": 0.7,
+        "output": 14.154532820603036
       },
       "88": {
-        "diff": 0,
-        "oldDdiff": 5.3,
-        "output": 17.827073194504564
+        "diff": -4.6,
+        "oldDdiff": 0.7,
+        "output": 13.211039383695875
       },
       "89": {
-        "diff": 0,
-        "oldDdiff": 5.4,
-        "output": 16.925562503606294
+        "diff": -4.6,
+        "oldDdiff": 0.7,
+        "output": 12.269375207746297
       },
       "90": {
-        "diff": 0,
-        "oldDdiff": 5.4,
-        "output": 16.016964215061613
+        "diff": -4.7,
+        "oldDdiff": 0.7,
+        "output": 11.329401251399595
       },
       "91": {
-        "diff": 0,
-        "oldDdiff": 5.5,
-        "output": 15.1007377750253
+        "diff": -4.7,
+        "oldDdiff": 0.8,
+        "output": 10.390975793889382
       },
       "92": {
-        "diff": 0,
-        "oldDdiff": 5.5,
-        "output": 14.177406604341419
+        "diff": -4.7,
+        "oldDdiff": 0.8,
+        "output": 9.453946396802523
       },
       "93": {
-        "diff": -0.1,
-        "oldDdiff": 5.5,
-        "output": 13.247760117526376
+        "diff": -4.8,
+        "oldDdiff": 0.8,
+        "output": 8.518157942314202
       },
       "94": {
-        "diff": -0.1,
-        "oldDdiff": 5.6,
-        "output": 12.31258772909656
+        "diff": -4.8,
+        "oldDdiff": 0.8,
+        "output": 7.583455312599602
       },
       "95": {
-        "diff": -0.1,
-        "oldDdiff": 5.6,
-        "output": 11.372678853568368
+        "diff": -4.9,
+        "oldDdiff": 0.8,
+        "output": 6.649683389833906
       },
       "96": {
-        "diff": -0.2,
-        "oldDdiff": 5.6,
-        "output": 10.428822905458198
+        "diff": -4.9,
+        "oldDdiff": 0.9,
+        "output": 5.7166870561922964
       },
       "97": {
-        "diff": -0.2,
-        "oldDdiff": 5.6,
-        "output": 9.481809299282444
+        "diff": -4.9,
+        "oldDdiff": 0.9,
+        "output": 4.784311193849956
       },
       "98": {
-        "diff": -0.3,
-        "oldDdiff": 5.6,
-        "output": 8.532427449557504
+        "diff": -4.9,
+        "oldDdiff": 0.9,
+        "output": 3.8524006849820656
       },
       "99": {
-        "diff": -0.3,
-        "oldDdiff": 5.6,
-        "output": 7.581466770799771
+        "diff": -5,
+        "oldDdiff": 1,
+        "output": 2.920800411763811
       },
       "100": {
-        "diff": -0.4,
-        "oldDdiff": 5.6,
-        "output": 6.629716677525643
+        "diff": -5,
+        "oldDdiff": 1,
+        "output": 1.9893552563703736
       }
     },
     "orange": {
       "0": {
-        "diff": 0.1,
-        "oldDdiff": 0.1,
-        "output": 97.14351524053232
+        "diff": 0.4,
+        "oldDdiff": 0.4,
+        "output": 97.37045218859491
       },
       "1": {
-        "diff": 0.1,
-        "oldDdiff": 0.2,
-        "output": 96.2096968746008
+        "diff": 0.3,
+        "oldDdiff": 0.4,
+        "output": 96.43958515995465
       },
       "2": {
-        "diff": 0.1,
-        "oldDdiff": 0.2,
-        "output": 95.27751010965777
+        "diff": 0.3,
+        "oldDdiff": 0.4,
+        "output": 95.50850611412689
       },
       "3": {
-        "diff": 0,
-        "oldDdiff": 0.2,
-        "output": 94.34858654669169
+        "diff": 0.3,
+        "oldDdiff": 0.5,
+        "output": 94.57700303392407
       },
       "4": {
-        "diff": 0,
-        "oldDdiff": 0.3,
-        "output": 93.42455778669111
+        "diff": 0.2,
+        "oldDdiff": 0.5,
+        "output": 93.64486390215878
       },
       "5": {
-        "diff": 0,
-        "oldDdiff": 0.3,
-        "output": 92.5070554306445
+        "diff": 0.2,
+        "oldDdiff": 0.5,
+        "output": 92.71187670164343
       },
       "6": {
-        "diff": 0,
-        "oldDdiff": 0.4,
-        "output": 91.59771107954036
+        "diff": 0.2,
+        "oldDdiff": 0.5,
+        "output": 91.77782941519058
       },
       "7": {
-        "diff": 0,
-        "oldDdiff": 0.4,
-        "output": 90.69815633436718
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 90.84251002561268
       },
       "8": {
-        "diff": 0,
-        "oldDdiff": 0.5,
-        "output": 89.81002279611343
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 89.90570651572223
       },
       "9": {
-        "diff": 0,
+        "diff": 0.1,
         "oldDdiff": 0.6,
-        "output": 88.93494206576763
+        "output": 88.96720686833174
       },
       "10": {
-        "diff": 0.1,
-        "oldDdiff": 0.7,
-        "output": 88.07454574431827
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 88.02679906625369
       },
       "11": {
-        "diff": 0.1,
-        "oldDdiff": 0.8,
-        "output": 87.22960770216581
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 87.08425811080699
       },
       "12": {
-        "diff": 0.2,
-        "oldDdiff": 0.9,
-        "output": 86.3974708873587
+        "diff": -0.1,
+        "oldDdiff": 0.7,
+        "output": 86.13930707733627
       },
       "13": {
-        "diff": 0.3,
-        "oldDdiff": 1.1,
-        "output": 85.5746205173573
+        "diff": -0.1,
+        "oldDdiff": 0.7,
+        "output": 85.19165605969253
       },
       "14": {
-        "diff": 0.4,
-        "oldDdiff": 1.2,
-        "output": 84.75754180962205
+        "diff": -0.2,
+        "oldDdiff": 0.7,
+        "output": 84.24101515172683
       },
       "15": {
-        "diff": 0.4,
-        "oldDdiff": 1.3,
-        "output": 83.94271998161335
+        "diff": -0.2,
+        "oldDdiff": 0.7,
+        "output": 83.28709444729019
       },
       "16": {
-        "diff": 0.5,
-        "oldDdiff": 1.5,
-        "output": 83.12664025079157
+        "diff": -0.3,
+        "oldDdiff": 0.7,
+        "output": 82.32960404023363
       },
       "17": {
-        "diff": 0.6,
-        "oldDdiff": 1.6,
-        "output": 82.30578783461715
+        "diff": -0.3,
+        "oldDdiff": 0.7,
+        "output": 81.36825402440819
       },
       "18": {
-        "diff": 0.7,
-        "oldDdiff": 1.8,
-        "output": 81.47664795055047
+        "diff": -0.4,
+        "oldDdiff": 0.7,
+        "output": 80.4027544936649
       },
       "19": {
-        "diff": 0.7,
-        "oldDdiff": 1.9,
-        "output": 80.63570581605197
+        "diff": -0.5,
+        "oldDdiff": 0.7,
+        "output": 79.4328155418548
       },
       "20": {
-        "diff": 0.8,
-        "oldDdiff": 2,
-        "output": 79.77944664858201
+        "diff": -0.5,
+        "oldDdiff": 0.7,
+        "output": 78.45814726282887
       },
       "21": {
-        "diff": 0.8,
-        "oldDdiff": 2.1,
-        "output": 78.90536922188691
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 77.4787210543992
       },
       "22": {
-        "diff": 0.8,
-        "oldDdiff": 2.1,
-        "output": 78.01502653485662
+        "diff": -0.7,
+        "oldDdiff": 0.6,
+        "output": 76.49555353022181
       },
       "23": {
-        "diff": 0.8,
-        "oldDdiff": 2.2,
-        "output": 77.11098514266692
+        "diff": -0.8,
+        "oldDdiff": 0.6,
+        "output": 75.50992260791372
       },
       "24": {
-        "diff": 0.8,
-        "oldDdiff": 2.2,
-        "output": 76.19581160049364
+        "diff": -0.9,
+        "oldDdiff": 0.6,
+        "output": 74.52310620509196
       },
       "25": {
-        "diff": 0.8,
-        "oldDdiff": 2.3,
-        "output": 75.27207246351261
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 73.5363822393736
       },
       "26": {
-        "diff": 0.7,
-        "oldDdiff": 2.3,
-        "output": 74.34233428689967
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 72.55102862837562
       },
       "27": {
-        "diff": 0.7,
-        "oldDdiff": 2.3,
-        "output": 73.40916362583062
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 71.56832328971508
       },
       "28": {
-        "diff": 0.7,
-        "oldDdiff": 2.4,
-        "output": 72.4751270354813
+        "diff": -1.2,
+        "oldDdiff": 0.5,
+        "output": 70.589544141009
       },
       "29": {
-        "diff": 0.6,
-        "oldDdiff": 2.4,
-        "output": 71.5427910710275
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 69.61596909987445
       },
       "30": {
-        "diff": 0.6,
-        "oldDdiff": 2.4,
-        "output": 70.61472228764507
+        "diff": -1.4,
+        "oldDdiff": 0.4,
+        "output": 68.64887608392841
       },
       "31": {
-        "diff": 0.6,
-        "oldDdiff": 2.5,
-        "output": 69.69294081802988
+        "diff": -1.4,
+        "oldDdiff": 0.4,
+        "output": 67.6891028175178
       },
       "32": {
-        "diff": 0.6,
-        "oldDdiff": 2.5,
-        "output": 68.77728110495813
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 66.73572625190896
       },
       "33": {
-        "diff": 0.6,
-        "oldDdiff": 2.5,
-        "output": 67.86703116872603
+        "diff": -1.5,
+        "oldDdiff": 0.5,
+        "output": 65.78738314509802
       },
       "34": {
-        "diff": 0.6,
-        "oldDdiff": 2.6,
-        "output": 66.96147902962981
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 64.8427102550812
       },
       "35": {
-        "diff": 0.6,
-        "oldDdiff": 2.7,
-        "output": 66.05991270796572
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 63.90034433985467
       },
       "36": {
-        "diff": 0.6,
-        "oldDdiff": 2.7,
-        "output": 65.16162022402997
+        "diff": -1.6,
+        "oldDdiff": 0.5,
+        "output": 62.9589221574146
       },
       "37": {
-        "diff": 0.6,
-        "oldDdiff": 2.8,
-        "output": 64.26588959811883
+        "diff": -1.7,
+        "oldDdiff": 0.5,
+        "output": 62.01708046575718
       },
       "38": {
-        "diff": 0.6,
-        "oldDdiff": 2.9,
-        "output": 63.372008850528516
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 61.073456022878574
       },
       "39": {
-        "diff": 0.6,
-        "oldDdiff": 2.9,
-        "output": 62.47926600155526
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 60.12668558677498
       },
       "40": {
-        "diff": 0.6,
-        "oldDdiff": 3,
-        "output": 61.5869490714953
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 59.17540591544257
       },
       "41": {
-        "diff": 0.6,
-        "oldDdiff": 3.1,
-        "output": 60.69446981011675
+        "diff": -1.9,
+        "oldDdiff": 0.6,
+        "output": 58.218597434286806
       },
       "42": {
-        "diff": 0.6,
-        "oldDdiff": 3.1,
-        "output": 59.80173488507524
+        "diff": -1.9,
+        "oldDdiff": 0.6,
+        "output": 57.256615238350335
       },
       "43": {
-        "diff": 0.6,
-        "oldDdiff": 3.2,
-        "output": 58.9087746934983
+        "diff": -2,
+        "oldDdiff": 0.6,
+        "output": 56.29015809008506
       },
       "44": {
-        "diff": 0.6,
-        "oldDdiff": 3.3,
-        "output": 58.01561963251345
+        "diff": -2.1,
+        "oldDdiff": 0.6,
+        "output": 55.319924751942914
       },
       "45": {
-        "diff": 0.6,
-        "oldDdiff": 3.3,
-        "output": 57.122300099248186
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 54.34661398637582
       },
       "46": {
-        "diff": 0.6,
-        "oldDdiff": 3.4,
-        "output": 56.228846490830044
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 53.37092455583571
       },
       "47": {
-        "diff": 0.6,
-        "oldDdiff": 3.5,
-        "output": 55.335289204386534
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 52.393555222774474
       },
       "48": {
-        "diff": 0.6,
-        "oldDdiff": 3.5,
-        "output": 54.44165863704517
+        "diff": -2.4,
+        "oldDdiff": 0.5,
+        "output": 51.41520474964407
       },
       "49": {
-        "diff": 0.6,
-        "oldDdiff": 3.6,
-        "output": 53.54798518593349
+        "diff": -2.5,
+        "oldDdiff": 0.5,
+        "output": 50.43657189889639
       },
       "50": {
-        "diff": 0.7,
-        "oldDdiff": 3.7,
-        "output": 52.65429924817899
+        "diff": -2.5,
+        "oldDdiff": 0.5,
+        "output": 49.45835543298338
       },
       "51": {
-        "diff": 0.7,
-        "oldDdiff": 3.7,
-        "output": 51.76057686476472
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 48.48119991419661
       },
       "52": {
-        "diff": 0.7,
-        "oldDdiff": 3.8,
-        "output": 50.86657665209583
+        "diff": -2.7,
+        "oldDdiff": 0.4,
+        "output": 47.505533104186284
       },
       "53": {
-        "diff": 0.7,
-        "oldDdiff": 3.9,
-        "output": 49.972002870433016
+        "diff": -2.8,
+        "oldDdiff": 0.4,
+        "output": 46.53172856444225
       },
       "54": {
-        "diff": 0.7,
-        "oldDdiff": 3.9,
-        "output": 49.07655978003696
+        "diff": -2.8,
+        "oldDdiff": 0.4,
+        "output": 45.56015985645438
       },
       "55": {
-        "diff": 0.7,
-        "oldDdiff": 4,
-        "output": 48.17995164116833
+        "diff": -2.9,
+        "oldDdiff": 0.4,
+        "output": 44.59120054171254
       },
       "56": {
-        "diff": 0.7,
-        "oldDdiff": 4,
-        "output": 47.28188271408783
+        "diff": -3,
+        "oldDdiff": 0.4,
+        "output": 43.62522418170658
       },
       "57": {
-        "diff": 0.7,
-        "oldDdiff": 4.1,
-        "output": 46.382057259056126
+        "diff": -3,
+        "oldDdiff": 0.4,
+        "output": 42.66260433792635
       },
       "58": {
-        "diff": 0.7,
-        "oldDdiff": 4.2,
-        "output": 45.480179536333914
+        "diff": -3.1,
+        "oldDdiff": 0.4,
+        "output": 41.70371457186173
       },
       "59": {
-        "diff": 0.7,
-        "oldDdiff": 4.2,
-        "output": 44.57595380618187
+        "diff": -3.2,
+        "oldDdiff": 0.4,
+        "output": 40.74892844500258
       },
       "60": {
-        "diff": 0.7,
-        "oldDdiff": 4.3,
-        "output": 43.66908432886068
+        "diff": -3.2,
+        "oldDdiff": 0.4,
+        "output": 39.79861951883875
       },
       "61": {
-        "diff": 0.7,
-        "oldDdiff": 4.3,
-        "output": 42.759342134599486
+        "diff": -3.2,
+        "oldDdiff": 0.4,
+        "output": 38.85291570341127
       },
       "62": {
-        "diff": 0.6,
-        "oldDdiff": 4.4,
-        "output": 41.84676533350128
+        "diff": -3.3,
+        "oldDdiff": 0.4,
+        "output": 37.91096230296588
       },
       "63": {
-        "diff": 0.6,
-        "oldDdiff": 4.4,
-        "output": 40.93145880563751
+        "diff": -3.3,
+        "oldDdiff": 0.5,
+        "output": 36.97165897029947
       },
       "64": {
-        "diff": 0.6,
-        "oldDdiff": 4.5,
-        "output": 40.013527431079645
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 36.03390535820897
       },
       "65": {
-        "diff": 0.6,
-        "oldDdiff": 4.5,
-        "output": 39.093076089899114
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 35.09660111949127
       },
       "66": {
-        "diff": 0.6,
-        "oldDdiff": 4.5,
-        "output": 38.17020966216739
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 34.15864590694326
       },
       "67": {
-        "diff": 0.5,
-        "oldDdiff": 4.6,
-        "output": 37.245033027955905
+        "diff": -3.5,
+        "oldDdiff": 0.5,
+        "output": 33.21893937336188
       },
       "68": {
-        "diff": 0.5,
-        "oldDdiff": 4.6,
-        "output": 36.31765106733612
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 32.276381171543996
       },
       "69": {
-        "diff": 0.5,
-        "oldDdiff": 4.6,
-        "output": 35.3881686603795
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 31.329870954286534
       },
       "70": {
-        "diff": 0.5,
-        "oldDdiff": 4.7,
-        "output": 34.45669068715748
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 30.3783083743864
       },
       "71": {
-        "diff": 0.4,
-        "oldDdiff": 4.7,
-        "output": 33.52347693571062
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 29.420954582522086
       },
       "72": {
-        "diff": 0.4,
-        "oldDdiff": 4.7,
-        "output": 32.589406825955834
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 28.458516720898498
       },
       "73": {
-        "diff": 0.4,
-        "oldDdiff": 4.7,
-        "output": 31.655514685779142
+        "diff": -3.8,
+        "oldDdiff": 0.6,
+        "output": 27.492063429602098
       },
       "74": {
-        "diff": 0.3,
-        "oldDdiff": 4.8,
-        "output": 30.722834843066575
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 26.522663348719394
       },
       "75": {
-        "diff": 0.3,
-        "oldDdiff": 4.8,
-        "output": 29.792401625704137
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 25.551385118336867
       },
       "76": {
-        "diff": 0.3,
-        "oldDdiff": 4.8,
-        "output": 28.86524936157786
+        "diff": -4,
+        "oldDdiff": 0.5,
+        "output": 24.579297378541007
       },
       "77": {
-        "diff": 0.2,
-        "oldDdiff": 4.9,
-        "output": 27.942412378573767
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 23.6074687694183
       },
       "78": {
-        "diff": 0.2,
-        "oldDdiff": 4.9,
-        "output": 27.02492500457786
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 22.636967931055235
       },
       "79": {
-        "diff": 0.2,
-        "oldDdiff": 5,
-        "output": 26.113821567476176
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 21.668863503538297
       },
       "80": {
-        "diff": 0.2,
-        "oldDdiff": 5,
-        "output": 25.210136395154727
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 20.704224126953974
       },
       "81": {
-        "diff": 0.2,
-        "oldDdiff": 5.1,
-        "output": 24.31439244381996
+        "diff": -4.4,
+        "oldDdiff": 0.5,
+        "output": 19.74386555973746
       },
       "82": {
-        "diff": 0.2,
-        "oldDdiff": 5.1,
-        "output": 23.42506718296001
+        "diff": -4.4,
+        "oldDdiff": 0.5,
+        "output": 18.787592033718763
       },
       "83": {
-        "diff": 0.2,
-        "oldDdiff": 5.2,
-        "output": 22.540126710383433
+        "diff": -4.5,
+        "oldDdiff": 0.5,
+        "output": 17.834954899076596
       },
       "84": {
-        "diff": 0.3,
-        "oldDdiff": 5.3,
-        "output": 21.657537123898802
+        "diff": -4.5,
+        "oldDdiff": 0.5,
+        "output": 16.885505505989673
       },
       "85": {
-        "diff": 0.3,
-        "oldDdiff": 5.4,
-        "output": 20.77526452131468
+        "diff": -4.6,
+        "oldDdiff": 0.5,
+        "output": 15.938795204636708
       },
       "86": {
-        "diff": 0.3,
-        "oldDdiff": 5.5,
-        "output": 19.891275000439617
+        "diff": -4.6,
+        "oldDdiff": 0.6,
+        "output": 14.994375345196415
       },
       "87": {
-        "diff": 0.3,
-        "oldDdiff": 5.5,
-        "output": 19.00353465908218
+        "diff": -4.6,
+        "oldDdiff": 0.6,
+        "output": 14.051797277847504
       },
       "88": {
-        "diff": 0.3,
-        "oldDdiff": 5.6,
-        "output": 18.110009595050933
+        "diff": -4.7,
+        "oldDdiff": 0.6,
+        "output": 13.11061235276869
       },
       "89": {
-        "diff": 0.3,
-        "oldDdiff": 5.6,
-        "output": 17.208665906154437
+        "diff": -4.7,
+        "oldDdiff": 0.6,
+        "output": 12.17037192013869
       },
       "90": {
-        "diff": 0.3,
-        "oldDdiff": 5.7,
-        "output": 16.297469690201254
+        "diff": -4.8,
+        "oldDdiff": 0.6,
+        "output": 11.230627330136212
       },
       "91": {
-        "diff": 0.3,
-        "oldDdiff": 5.7,
-        "output": 15.374924135852652
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 10.291003921363416
       },
       "92": {
-        "diff": 0.2,
-        "oldDdiff": 5.8,
-        "output": 14.441680795180737
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 9.351422986116233
       },
       "93": {
-        "diff": 0.2,
-        "oldDdiff": 5.8,
-        "output": 13.49892831111032
+        "diff": -4.9,
+        "oldDdiff": 0.7,
+        "output": 8.411879805114044
       },
       "94": {
-        "diff": 0.1,
-        "oldDdiff": 5.8,
-        "output": 12.547855326566218
+        "diff": -4.9,
+        "oldDdiff": 0.7,
+        "output": 7.47236965907622
       },
       "95": {
-        "diff": 0.1,
-        "oldDdiff": 5.8,
-        "output": 11.589650484473237
+        "diff": -5,
+        "oldDdiff": 0.7,
+        "output": 6.532887828722138
       },
       "96": {
-        "diff": 0,
-        "oldDdiff": 5.8,
-        "output": 10.625502427756194
+        "diff": -5,
+        "oldDdiff": 0.8,
+        "output": 5.593429594771175
       },
       "97": {
-        "diff": 0,
-        "oldDdiff": 5.8,
-        "output": 9.656599799339903
+        "diff": -5,
+        "oldDdiff": 0.8,
+        "output": 4.6539902379427085
       },
       "98": {
-        "diff": -0.1,
-        "oldDdiff": 5.8,
-        "output": 8.68413124214917
+        "diff": -5.1,
+        "oldDdiff": 0.8,
+        "output": 3.714565038956111
       },
       "99": {
-        "diff": -0.2,
-        "oldDdiff": 5.7,
-        "output": 7.709285399108815
+        "diff": -5.1,
+        "oldDdiff": 0.8,
+        "output": 2.775149278530763
       },
       "100": {
-        "diff": -0.3,
-        "oldDdiff": 5.7,
-        "output": 6.733250913143646
+        "diff": -5.2,
+        "oldDdiff": 0.8,
+        "output": 1.835738237386039
       }
     },
     "purple": {
       "0": {
-        "diff": -0.3,
-        "oldDdiff": -0.3,
-        "output": 96.6948721958588
+        "diff": 0.6,
+        "oldDdiff": 0.6,
+        "output": 97.62529732326033
       },
       "1": {
-        "diff": -0.3,
-        "oldDdiff": -0.3,
-        "output": 95.78650643972472
+        "diff": 0.6,
+        "oldDdiff": 0.6,
+        "output": 96.66541802386325
       },
       "2": {
-        "diff": -0.3,
-        "oldDdiff": -0.2,
-        "output": 94.87885256318879
+        "diff": 0.5,
+        "oldDdiff": 0.6,
+        "output": 95.70541784990719
       },
       "3": {
-        "diff": -0.3,
-        "oldDdiff": -0.1,
-        "output": 93.9726224458491
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 94.74517592683311
       },
       "4": {
-        "diff": -0.3,
-        "oldDdiff": -0.1,
-        "output": 93.06852796730392
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 93.78457138008206
       },
       "5": {
-        "diff": -0.3,
-        "oldDdiff": 0,
-        "output": 92.1672810071513
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 92.82348333509502
       },
       "6": {
-        "diff": -0.3,
-        "oldDdiff": 0,
-        "output": 91.26959344498943
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 91.86179091731297
       },
       "7": {
-        "diff": -0.3,
-        "oldDdiff": 0.1,
-        "output": 90.37617716041645
+        "diff": 0.2,
+        "oldDdiff": 0.6,
+        "output": 90.89937325217696
       },
       "8": {
-        "diff": -0.3,
-        "oldDdiff": 0.2,
-        "output": 89.48774403303051
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 89.93610946512794
       },
       "9": {
-        "diff": -0.3,
-        "oldDdiff": 0.2,
-        "output": 88.60500594242973
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 88.97187868160695
       },
       "10": {
-        "diff": -0.3,
-        "oldDdiff": 0.3,
-        "output": 87.7286747682123
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 88.00656002705499
       },
       "11": {
-        "diff": -0.2,
-        "oldDdiff": 0.4,
-        "output": 86.85901014825014
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 87.04009803575306
       },
       "12": {
-        "diff": -0.2,
-        "oldDdiff": 0.5,
-        "output": 85.9944627535103
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 86.07269887734222
       },
       "13": {
         "diff": -0.2,
         "oldDdiff": 0.6,
-        "output": 85.13303101323366
+        "output": 85.10463413030354
       },
       "14": {
-        "diff": -0.1,
-        "oldDdiff": 0.7,
-        "output": 84.27271335666106
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 84.13617537311809
       },
       "15": {
-        "diff": -0.1,
-        "oldDdiff": 0.8,
-        "output": 83.41150821303337
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 83.16759418426696
       },
       "16": {
-        "diff": -0.1,
-        "oldDdiff": 0.9,
-        "output": 82.54741401159143
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 82.19916214223122
       },
       "17": {
-        "diff": 0,
-        "oldDdiff": 1,
-        "output": 81.67842918157609
+        "diff": -0.5,
+        "oldDdiff": 0.6,
+        "output": 81.2311508254919
       },
       "18": {
-        "diff": 0,
-        "oldDdiff": 1.1,
-        "output": 80.8025521522282
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 80.2638318125301
       },
       "19": {
-        "diff": 0,
-        "oldDdiff": 1.2,
-        "output": 79.91778135278865
+        "diff": -0.6,
+        "oldDdiff": 0.5,
+        "output": 79.2974766818269
       },
       "20": {
-        "diff": 0,
-        "oldDdiff": 1.2,
-        "output": 79.02211521249826
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 78.33235701186335
       },
       "21": {
-        "diff": 0,
-        "oldDdiff": 1.3,
-        "output": 78.11417603783421
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 77.36871041234511
       },
       "22": {
-        "diff": 0,
-        "oldDdiff": 1.3,
-        "output": 77.19508164421886
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 76.40663861787613
       },
       "23": {
-        "diff": 0,
-        "oldDdiff": 1.3,
-        "output": 76.26657372431087
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 75.44620939428486
       },
       "24": {
-        "diff": -0.1,
-        "oldDdiff": 1.4,
-        "output": 75.33039397076897
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 74.48749050739988
       },
       "25": {
-        "diff": -0.1,
-        "oldDdiff": 1.4,
-        "output": 74.38828407625181
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 73.53054972304969
       },
       "26": {
-        "diff": -0.2,
-        "oldDdiff": 1.4,
-        "output": 73.44198573341806
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 72.5754548070628
       },
       "27": {
-        "diff": -0.2,
-        "oldDdiff": 1.4,
-        "output": 72.4932406349264
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 71.62227352526769
       },
       "28": {
-        "diff": -0.3,
-        "oldDdiff": 1.4,
-        "output": 71.54379047343555
+        "diff": -1.1,
+        "oldDdiff": 0.6,
+        "output": 70.6710736434929
       },
       "29": {
-        "diff": -0.3,
-        "oldDdiff": 1.4,
-        "output": 70.59537694160412
+        "diff": -1.2,
+        "oldDdiff": 0.6,
+        "output": 69.72192292756694
       },
       "30": {
-        "diff": -0.4,
-        "oldDdiff": 1.4,
-        "output": 69.64974173209085
+        "diff": -1.2,
+        "oldDdiff": 0.6,
+        "output": 68.77488914331832
       },
       "31": {
-        "diff": -0.4,
-        "oldDdiff": 1.5,
-        "output": 68.70830770315011
+        "diff": -1.3,
+        "oldDdiff": 0.6,
+        "output": 67.8298550949186
       },
       "32": {
-        "diff": -0.4,
-        "oldDdiff": 1.5,
-        "output": 67.77122237541926
+        "diff": -1.3,
+        "oldDdiff": 0.6,
+        "output": 66.88596373991153
       },
       "33": {
-        "diff": -0.5,
-        "oldDdiff": 1.5,
-        "output": 66.83831443513135
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 65.94217307418391
       },
       "34": {
-        "diff": -0.5,
-        "oldDdiff": 1.5,
-        "output": 65.90941256851946
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 64.99744109362256
       },
       "35": {
-        "diff": -0.5,
-        "oldDdiff": 1.6,
-        "output": 64.98434546181662
+        "diff": -1.4,
+        "oldDdiff": 0.7,
+        "output": 64.05072579411426
       },
       "36": {
-        "diff": -0.5,
-        "oldDdiff": 1.6,
-        "output": 64.06294180125592
+        "diff": -1.5,
+        "oldDdiff": 0.7,
+        "output": 63.10098517154581
       },
       "37": {
-        "diff": -0.6,
-        "oldDdiff": 1.7,
-        "output": 63.145030273070425
+        "diff": -1.6,
+        "oldDdiff": 0.7,
+        "output": 62.147177221804
       },
       "38": {
-        "diff": -0.6,
-        "oldDdiff": 1.7,
-        "output": 62.230439563493185
+        "diff": -1.6,
+        "oldDdiff": 0.7,
+        "output": 61.188259940775666
       },
       "39": {
-        "diff": -0.6,
-        "oldDdiff": 1.8,
-        "output": 61.318998358757284
+        "diff": -1.7,
+        "oldDdiff": 0.7,
+        "output": 60.22319132434757
       },
       "40": {
-        "diff": -0.6,
-        "oldDdiff": 1.8,
-        "output": 60.41053534509577
+        "diff": -1.7,
+        "oldDdiff": 0.7,
+        "output": 59.250929368406545
       },
       "41": {
-        "diff": -0.6,
-        "oldDdiff": 1.9,
-        "output": 59.50484746031777
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 58.27091830470739
       },
       "42": {
-        "diff": -0.6,
-        "oldDdiff": 1.9,
-        "output": 58.60160464853668
+        "diff": -1.9,
+        "oldDdiff": 0.6,
+        "output": 57.28454730847699
       },
       "43": {
-        "diff": -0.6,
-        "oldDdiff": 2,
-        "output": 57.70044510544192
+        "diff": -2,
+        "oldDdiff": 0.6,
+        "output": 56.29369179081022
       },
       "44": {
-        "diff": -0.6,
-        "oldDdiff": 2,
-        "output": 56.801007026722964
+        "diff": -2.1,
+        "oldDdiff": 0.5,
+        "output": 55.30022716280202
       },
       "45": {
-        "diff": -0.6,
-        "oldDdiff": 2.1,
-        "output": 55.90292860806923
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 54.30602883554724
       },
       "46": {
-        "diff": -0.6,
-        "oldDdiff": 2.2,
-        "output": 55.005848045170175
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 53.3129722201408
       },
       "47": {
-        "diff": -0.6,
-        "oldDdiff": 2.2,
-        "output": 54.10940353371525
+        "diff": -2.4,
+        "oldDdiff": 0.4,
+        "output": 52.32293272767759
       },
       "48": {
-        "diff": -0.6,
-        "oldDdiff": 2.3,
-        "output": 53.213233269393896
+        "diff": -2.5,
+        "oldDdiff": 0.4,
+        "output": 51.3377857692525
       },
       "49": {
-        "diff": -0.6,
-        "oldDdiff": 2.4,
-        "output": 52.316975447895544
+        "diff": -2.5,
+        "oldDdiff": 0.4,
+        "output": 50.35940675596044
       },
       "50": {
-        "diff": -0.6,
-        "oldDdiff": 2.4,
-        "output": 51.42026826490965
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 49.38967109889629
       },
       "51": {
-        "diff": -0.6,
-        "oldDdiff": 2.5,
-        "output": 50.52284121691298
+        "diff": -2.7,
+        "oldDdiff": 0.4,
+        "output": 48.42986360567146
       },
       "52": {
-        "diff": -0.6,
-        "oldDdiff": 2.5,
-        "output": 49.62478900353157
+        "diff": -2.7,
+        "oldDdiff": 0.4,
+        "output": 47.47890666996335
       },
       "53": {
-        "diff": -0.6,
-        "oldDdiff": 2.6,
-        "output": 48.72629762517876
+        "diff": -2.8,
+        "oldDdiff": 0.4,
+        "output": 46.535132081965884
       },
       "54": {
-        "diff": -0.6,
-        "oldDdiff": 2.7,
-        "output": 47.82755308226793
+        "diff": -2.8,
+        "oldDdiff": 0.4,
+        "output": 45.59687163187299
       },
       "55": {
-        "diff": -0.6,
-        "oldDdiff": 2.7,
-        "output": 46.92874137521245
+        "diff": -2.8,
+        "oldDdiff": 0.5,
+        "output": 44.662457109878574
       },
       "56": {
-        "diff": -0.6,
-        "oldDdiff": 2.8,
-        "output": 46.03004850442565
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 43.730220306176555
       },
       "57": {
-        "diff": -0.6,
-        "oldDdiff": 2.9,
-        "output": 45.131660470320895
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 42.79849301096085
       },
       "58": {
-        "diff": -0.6,
-        "oldDdiff": 2.9,
-        "output": 44.23376327331155
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 41.865607014425365
       },
       "59": {
-        "diff": -0.6,
-        "oldDdiff": 3,
-        "output": 43.33654291381097
+        "diff": -3,
+        "oldDdiff": 0.6,
+        "output": 40.92989410676403
       },
       "60": {
-        "diff": -0.6,
-        "oldDdiff": 3,
-        "output": 42.44018539223252
+        "diff": -3,
+        "oldDdiff": 0.6,
+        "output": 39.98968607817077
       },
       "61": {
-        "diff": -0.6,
-        "oldDdiff": 3.1,
-        "output": 41.54475471963667
+        "diff": -3.1,
+        "oldDdiff": 0.6,
+        "output": 39.043699756652885
       },
       "62": {
-        "diff": -0.6,
-        "oldDdiff": 3.2,
-        "output": 40.649826949672345
+        "diff": -3.1,
+        "oldDdiff": 0.6,
+        "output": 38.09219212147134
       },
       "63": {
-        "diff": -0.5,
-        "oldDdiff": 3.2,
-        "output": 39.7548561466356
+        "diff": -3.2,
+        "oldDdiff": 0.6,
+        "output": 37.13580518970047
       },
       "64": {
-        "diff": -0.5,
-        "oldDdiff": 3.3,
-        "output": 38.8592963748225
+        "diff": -3.2,
+        "oldDdiff": 0.6,
+        "output": 36.17518097841463
       },
       "65": {
-        "diff": -0.5,
-        "oldDdiff": 3.4,
-        "output": 37.96260169852908
+        "diff": -3.3,
+        "oldDdiff": 0.6,
+        "output": 35.21096150468817
       },
       "66": {
-        "diff": -0.5,
-        "oldDdiff": 3.4,
-        "output": 37.0642261820514
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 34.24378878559545
       },
       "67": {
-        "diff": -0.5,
-        "oldDdiff": 3.5,
-        "output": 36.1636238896855
+        "diff": -3.4,
+        "oldDdiff": 0.6,
+        "output": 33.2743048382108
       },
       "68": {
-        "diff": -0.5,
-        "oldDdiff": 3.5,
-        "output": 35.26024888572745
+        "diff": -3.5,
+        "oldDdiff": 0.6,
+        "output": 32.30315167960859
       },
       "69": {
-        "diff": -0.5,
-        "oldDdiff": 3.6,
-        "output": 34.35355523447328
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 31.33097132686315
       },
       "70": {
-        "diff": -0.6,
-        "oldDdiff": 3.6,
-        "output": 33.44299700021906
+        "diff": -3.6,
+        "oldDdiff": 0.6,
+        "output": 30.358405797048846
       },
       "71": {
-        "diff": -0.6,
-        "oldDdiff": 3.7,
-        "output": 32.528401842104266
+        "diff": -3.7,
+        "oldDdiff": 0.5,
+        "output": 29.38595512548735
       },
       "72": {
-        "diff": -0.6,
-        "oldDdiff": 3.7,
-        "output": 31.611091798642175
+        "diff": -3.8,
+        "oldDdiff": 0.5,
+        "output": 28.41355142048967
       },
       "73": {
-        "diff": -0.6,
-        "oldDdiff": 3.8,
-        "output": 30.692762503189485
+        "diff": -3.9,
+        "oldDdiff": 0.5,
+        "output": 27.44098480861412
       },
       "74": {
-        "diff": -0.6,
-        "oldDdiff": 3.8,
-        "output": 29.775109589102914
+        "diff": -3.9,
+        "oldDdiff": 0.5,
+        "output": 26.46804541641906
       },
       "75": {
-        "diff": -0.6,
-        "oldDdiff": 3.9,
-        "output": 28.85982868973916
+        "diff": -4,
+        "oldDdiff": 0.5,
+        "output": 25.494523370462794
       },
       "76": {
-        "diff": -0.7,
-        "oldDdiff": 3.9,
-        "output": 27.948615438454937
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 24.520208797303663
       },
       "77": {
-        "diff": -0.7,
-        "oldDdiff": 4,
-        "output": 27.043165468606947
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 23.544891823500006
       },
       "78": {
-        "diff": -0.7,
-        "oldDdiff": 4,
-        "output": 26.1451744135519
+        "diff": -4.2,
+        "oldDdiff": 0.4,
+        "output": 22.56836257561014
       },
       "79": {
-        "diff": -0.6,
-        "oldDdiff": 4.1,
-        "output": 25.25633790664651
+        "diff": -4.3,
+        "oldDdiff": 0.4,
+        "output": 21.590411180192408
       },
       "80": {
-        "diff": -0.6,
-        "oldDdiff": 4.2,
-        "output": 24.378351581247472
+        "diff": -4.4,
+        "oldDdiff": 0.4,
+        "output": 20.610827763805133
       },
       "81": {
-        "diff": -0.6,
-        "oldDdiff": 4.3,
-        "output": 23.512195608560035
+        "diff": -4.5,
+        "oldDdiff": 0.4,
+        "output": 19.629696481199584
       },
       "82": {
-        "diff": -0.5,
-        "oldDdiff": 4.4,
-        "output": 22.655988311183545
+        "diff": -4.6,
+        "oldDdiff": 0.4,
+        "output": 18.648277599898748
       },
       "83": {
-        "diff": -0.5,
-        "oldDdiff": 4.5,
-        "output": 21.807132549565893
+        "diff": -4.6,
+        "oldDdiff": 0.3,
+        "output": 17.668125415618558
       },
       "84": {
-        "diff": -0.4,
-        "oldDdiff": 4.6,
-        "output": 20.963031184154968
+        "diff": -4.7,
+        "oldDdiff": 0.3,
+        "output": 16.690794224074935
       },
       "85": {
-        "diff": -0.4,
-        "oldDdiff": 4.7,
-        "output": 20.121087075398652
+        "diff": -4.8,
+        "oldDdiff": 0.3,
+        "output": 15.717838320983804
       },
       "86": {
-        "diff": -0.3,
-        "oldDdiff": 4.8,
-        "output": 19.27870308374483
+        "diff": -4.8,
+        "oldDdiff": 0.3,
+        "output": 14.750812002061092
       },
       "87": {
-        "diff": -0.3,
-        "oldDdiff": 5,
-        "output": 18.433282069641393
+        "diff": -4.9,
+        "oldDdiff": 0.3,
+        "output": 13.791269563022725
       },
       "88": {
-        "diff": -0.2,
-        "oldDdiff": 5.1,
-        "output": 17.582226893536223
+        "diff": -5,
+        "oldDdiff": 0.3,
+        "output": 12.840765299584627
       },
       "89": {
-        "diff": -0.2,
-        "oldDdiff": 5.2,
-        "output": 16.722940415877204
+        "diff": -5,
+        "oldDdiff": 0.3,
+        "output": 11.900853507462726
       },
       "90": {
-        "diff": -0.1,
-        "oldDdiff": 5.3,
-        "output": 15.852825497112228
+        "diff": -5,
+        "oldDdiff": 0.4,
+        "output": 10.973088482372944
       },
       "91": {
-        "diff": -0.1,
-        "oldDdiff": 5.3,
-        "output": 14.96994161395883
+        "diff": -5,
+        "oldDdiff": 0.4,
+        "output": 10.058537119699421
       },
       "92": {
-        "diff": -0.1,
-        "oldDdiff": 5.4,
-        "output": 14.074974708213167
+        "diff": -5,
+        "oldDdiff": 0.5,
+        "output": 9.15631671349914
       },
       "93": {
-        "diff": -0.1,
-        "oldDdiff": 5.4,
-        "output": 13.169267337941044
+        "diff": -5,
+        "oldDdiff": 0.5,
+        "output": 8.265057157497294
       },
       "94": {
-        "diff": -0.1,
-        "oldDdiff": 5.5,
-        "output": 12.254162061208266
+        "diff": -5,
+        "oldDdiff": 0.6,
+        "output": 7.383388345419082
       },
       "95": {
-        "diff": -0.2,
-        "oldDdiff": 5.5,
-        "output": 11.331001436080648
+        "diff": -5,
+        "oldDdiff": 0.7,
+        "output": 6.509940170989696
       },
       "96": {
-        "diff": -0.2,
-        "oldDdiff": 5.6,
-        "output": 10.401128020623991
+        "diff": -5,
+        "oldDdiff": 0.8,
+        "output": 5.643342527934333
       },
       "97": {
-        "diff": -0.2,
-        "oldDdiff": 5.6,
-        "output": 9.465884372904103
+        "diff": -4.9,
+        "oldDdiff": 0.9,
+        "output": 4.78222530997819
       },
       "98": {
-        "diff": -0.3,
-        "oldDdiff": 5.6,
-        "output": 8.526613050986795
+        "diff": -4.9,
+        "oldDdiff": 1,
+        "output": 3.92521841084646
       },
       "99": {
-        "diff": -0.3,
-        "oldDdiff": 5.6,
-        "output": 7.584656612937871
+        "diff": -4.8,
+        "oldDdiff": 1.1,
+        "output": 3.0709517242643396
       },
       "100": {
-        "diff": -0.4,
-        "oldDdiff": 5.6,
-        "output": 6.641357616823139
+        "diff": -4.8,
+        "oldDdiff": 1.2,
+        "output": 2.2180551439570237
       }
     },
     "yellow": {
       "0": {
-        "diff": 0,
-        "oldDdiff": 0,
-        "output": 96.98137966384867
-      },
-      "1": {
-        "diff": 0.7,
-        "oldDdiff": 0.7,
-        "output": 96.75678814294784
-      },
-      "2": {
-        "diff": 1.3,
-        "oldDdiff": 1.4,
-        "output": 96.52914713998729
-      },
-      "3": {
-        "diff": 2,
-        "oldDdiff": 2.2,
-        "output": 96.29540717290719
-      },
-      "4": {
-        "diff": 2.7,
-        "oldDdiff": 2.9,
-        "output": 96.05251875964788
-      },
-      "5": {
-        "diff": 3.3,
-        "oldDdiff": 3.6,
-        "output": 95.79743241814958
-      },
-      "6": {
-        "diff": 3.9,
-        "oldDdiff": 4.3,
-        "output": 95.52709866635256
-      },
-      "7": {
-        "diff": 4.5,
-        "oldDdiff": 5,
-        "output": 95.23846802219705
-      },
-      "8": {
-        "diff": 5.1,
-        "oldDdiff": 5.6,
-        "output": 94.92849100362332
-      },
-      "9": {
-        "diff": 5.7,
-        "oldDdiff": 6.2,
-        "output": 94.59411812857162
-      },
-      "10": {
-        "diff": 6.2,
-        "oldDdiff": 6.8,
-        "output": 94.2322999149822
-      },
-      "11": {
-        "diff": 6.7,
-        "oldDdiff": 7.4,
-        "output": 93.83999431935445
-      },
-      "12": {
-        "diff": 7.2,
-        "oldDdiff": 7.9,
-        "output": 93.41418905242426
-      },
-      "13": {
-        "diff": 7.7,
-        "oldDdiff": 8.4,
-        "output": 92.95187926348665
-      },
-      "14": {
-        "diff": 8.1,
-        "oldDdiff": 8.9,
-        "output": 92.45006010183666
-      },
-      "15": {
-        "diff": 8.4,
-        "oldDdiff": 9.3,
-        "output": 91.9057267167693
-      },
-      "16": {
-        "diff": 8.7,
-        "oldDdiff": 9.7,
-        "output": 91.3158742575796
-      },
-      "17": {
-        "diff": 9,
-        "oldDdiff": 10,
-        "output": 90.67749787356259
-      },
-      "18": {
-        "diff": 9.2,
-        "oldDdiff": 10.3,
-        "output": 89.9875927140133
-      },
-      "19": {
-        "diff": 9.3,
-        "oldDdiff": 10.5,
-        "output": 89.24315392822675
-      },
-      "20": {
-        "diff": 9.4,
-        "oldDdiff": 10.6,
-        "output": 88.44117666549795
-      },
-      "21": {
-        "diff": 9.5,
-        "oldDdiff": 10.7,
-        "output": 87.58045457802007
-      },
-      "22": {
-        "diff": 9.5,
-        "oldDdiff": 10.8,
-        "output": 86.6669753295787
-      },
-      "23": {
-        "diff": 9.4,
-        "oldDdiff": 10.8,
-        "output": 85.70852508685756
-      },
-      "24": {
-        "diff": 9.3,
-        "oldDdiff": 10.8,
-        "output": 84.71289001654038
-      },
-      "25": {
-        "diff": 9.2,
-        "oldDdiff": 10.7,
-        "output": 83.68785628531093
-      },
-      "26": {
-        "diff": 9,
-        "oldDdiff": 10.6,
-        "output": 82.64121005985285
-      },
-      "27": {
-        "diff": 8.9,
-        "oldDdiff": 10.5,
-        "output": 81.58073750684994
-      },
-      "28": {
-        "diff": 8.7,
-        "oldDdiff": 10.4,
-        "output": 80.51422479298587
-      },
-      "29": {
-        "diff": 8.5,
-        "oldDdiff": 10.3,
-        "output": 79.44945808494441
-      },
-      "30": {
-        "diff": 8.4,
-        "oldDdiff": 10.2,
-        "output": 78.39422354940926
-      },
-      "31": {
-        "diff": 8.3,
-        "oldDdiff": 10.1,
-        "output": 77.35466332610395
-      },
-      "32": {
-        "diff": 8.1,
-        "oldDdiff": 10.1,
-        "output": 76.33034344691117
-      },
-      "33": {
-        "diff": 8,
-        "oldDdiff": 10,
-        "output": 75.3191859167534
-      },
-      "34": {
-        "diff": 7.9,
-        "oldDdiff": 10,
-        "output": 74.31911274055318
-      },
-      "35": {
-        "diff": 7.8,
-        "oldDdiff": 9.9,
-        "output": 73.32804592323298
-      },
-      "36": {
-        "diff": 7.7,
-        "oldDdiff": 9.9,
-        "output": 72.34390746971529
-      },
-      "37": {
-        "diff": 7.7,
-        "oldDdiff": 9.9,
-        "output": 71.36461938492262
-      },
-      "38": {
-        "diff": 7.6,
-        "oldDdiff": 9.9,
-        "output": 70.38810367377745
-      },
-      "39": {
-        "diff": 7.5,
-        "oldDdiff": 9.9,
-        "output": 69.41228234120227
-      },
-      "40": {
-        "diff": 7.4,
-        "oldDdiff": 9.8,
-        "output": 68.43507739211961
-      },
-      "41": {
-        "diff": 7.4,
-        "oldDdiff": 9.8,
-        "output": 67.45472815986524
-      },
-      "42": {
-        "diff": 7.3,
-        "oldDdiff": 9.8,
-        "output": 66.47074329142812
-      },
-      "43": {
-        "diff": 7.2,
-        "oldDdiff": 9.8,
-        "output": 65.48294876221055
-      },
-      "44": {
-        "diff": 7.1,
-        "oldDdiff": 9.7,
-        "output": 64.49117054761481
-      },
-      "45": {
-        "diff": 7,
-        "oldDdiff": 9.7,
-        "output": 63.495234623043174
-      },
-      "46": {
-        "diff": 6.9,
-        "oldDdiff": 9.7,
-        "output": 62.49496696389791
-      },
-      "47": {
-        "diff": 6.8,
-        "oldDdiff": 9.6,
-        "output": 61.4901935455813
-      },
-      "48": {
-        "diff": 6.7,
-        "oldDdiff": 9.6,
-        "output": 60.48074034349561
-      },
-      "49": {
-        "diff": 6.6,
-        "oldDdiff": 9.5,
-        "output": 59.46643333304314
-      },
-      "50": {
-        "diff": 6.4,
-        "oldDdiff": 9.4,
-        "output": 58.44709848962616
-      },
-      "51": {
-        "diff": 6.3,
-        "oldDdiff": 9.4,
-        "output": 57.42283735177725
-      },
-      "52": {
-        "diff": 6.2,
-        "oldDdiff": 9.3,
-        "output": 56.394853710550294
-      },
-      "53": {
-        "diff": 6.1,
-        "oldDdiff": 9.2,
-        "output": 55.36462692012947
-      },
-      "54": {
-        "diff": 5.9,
-        "oldDdiff": 9.2,
-        "output": 54.33363633469898
-      },
-      "55": {
-        "diff": 5.8,
-        "oldDdiff": 9.1,
-        "output": 53.303361308443
-      },
-      "56": {
-        "diff": 5.7,
-        "oldDdiff": 9,
-        "output": 52.27528119554572
-      },
-      "57": {
-        "diff": 5.6,
-        "oldDdiff": 9,
-        "output": 51.25087535019135
-      },
-      "58": {
-        "diff": 5.4,
-        "oldDdiff": 8.9,
-        "output": 50.23162312656406
-      },
-      "59": {
-        "diff": 5.3,
-        "oldDdiff": 8.9,
-        "output": 49.21900387884803
-      },
-      "60": {
-        "diff": 5.2,
-        "oldDdiff": 8.8,
-        "output": 48.21449696122747
-      },
-      "61": {
-        "diff": 5.1,
-        "oldDdiff": 8.8,
-        "output": 47.21901067359064
-      },
-      "62": {
-        "diff": 5,
-        "oldDdiff": 8.8,
-        "output": 46.231169098642184
-      },
-      "63": {
-        "diff": 4.9,
-        "oldDdiff": 8.7,
-        "output": 45.24902526479081
-      },
-      "64": {
-        "diff": 4.9,
-        "oldDdiff": 8.7,
-        "output": 44.27063220044525
-      },
-      "65": {
-        "diff": 4.8,
-        "oldDdiff": 8.7,
-        "output": 43.29404293401423
-      },
-      "66": {
-        "diff": 4.7,
-        "oldDdiff": 8.7,
-        "output": 42.317310493906454
-      },
-      "67": {
-        "diff": 4.6,
-        "oldDdiff": 8.7,
-        "output": 41.338487908530645
-      },
-      "68": {
-        "diff": 4.6,
-        "oldDdiff": 8.6,
-        "output": 40.35562820629552
-      },
-      "69": {
-        "diff": 4.5,
-        "oldDdiff": 8.6,
-        "output": 39.36678441560983
-      },
-      "70": {
-        "diff": 4.4,
-        "oldDdiff": 8.6,
-        "output": 38.37000956488225
-      },
-      "71": {
-        "diff": 4.3,
-        "oldDdiff": 8.5,
-        "output": 37.36398432503154
-      },
-      "72": {
-        "diff": 4.1,
-        "oldDdiff": 8.5,
-        "output": 36.349899937016424
-      },
-      "73": {
-        "diff": 4,
-        "oldDdiff": 8.4,
-        "output": 35.32957528430565
-      },
-      "74": {
-        "diff": 3.9,
-        "oldDdiff": 8.3,
-        "output": 34.304829250367966
-      },
-      "75": {
-        "diff": 3.8,
-        "oldDdiff": 8.3,
-        "output": 33.27748071867212
-      },
-      "76": {
-        "diff": 3.6,
-        "oldDdiff": 8.2,
-        "output": 32.249348572686856
-      },
-      "77": {
-        "diff": 3.5,
-        "oldDdiff": 8.1,
-        "output": 31.222251695880917
-      },
-      "78": {
-        "diff": 3.4,
-        "oldDdiff": 8.1,
-        "output": 30.19800897172305
-      },
-      "79": {
-        "diff": 3.3,
-        "oldDdiff": 8,
-        "output": 29.178439283682
-      },
-      "80": {
-        "diff": 3.2,
-        "oldDdiff": 8,
-        "output": 28.165361515226515
-      },
-      "81": {
-        "diff": 3.1,
-        "oldDdiff": 7.9,
-        "output": 27.15991924782781
-      },
-      "82": {
-        "diff": 3,
-        "oldDdiff": 7.9,
-        "output": 26.160554854966964
-      },
-      "83": {
-        "diff": 2.9,
-        "oldDdiff": 7.8,
-        "output": 25.16503540812754
-      },
-      "84": {
-        "diff": 2.8,
-        "oldDdiff": 7.8,
-        "output": 24.171127978793088
-      },
-      "85": {
-        "diff": 2.7,
-        "oldDdiff": 7.8,
-        "output": 23.17659963844716
-      },
-      "86": {
-        "diff": 2.6,
-        "oldDdiff": 7.7,
-        "output": 22.179217458573316
-      },
-      "87": {
-        "diff": 2.5,
-        "oldDdiff": 7.7,
-        "output": 21.176748510655106
-      },
-      "88": {
-        "diff": 2.4,
-        "oldDdiff": 7.6,
-        "output": 20.166959866176082
-      },
-      "89": {
-        "diff": 2.2,
-        "oldDdiff": 7.6,
-        "output": 19.147618596619807
-      },
-      "90": {
-        "diff": 2.1,
-        "oldDdiff": 7.5,
-        "output": 18.116491773469825
-      },
-      "91": {
-        "diff": 2,
-        "oldDdiff": 7.4,
-        "output": 17.07195226433094
-      },
-      "92": {
-        "diff": 1.8,
-        "oldDdiff": 7.3,
-        "output": 16.01479612129292
-      },
-      "93": {
-        "diff": 1.6,
-        "oldDdiff": 7.2,
-        "output": 14.946425192566782
-      },
-      "94": {
-        "diff": 1.5,
-        "oldDdiff": 7.1,
-        "output": 13.86824132636354
-      },
-      "95": {
-        "diff": 1.3,
-        "oldDdiff": 7,
-        "output": 12.78164637089421
-      },
-      "96": {
-        "diff": 1.1,
-        "oldDdiff": 6.8,
-        "output": 11.688042174369803
-      },
-      "97": {
-        "diff": 0.9,
-        "oldDdiff": 6.7,
-        "output": 10.58883058500134
-      },
-      "98": {
-        "diff": 0.7,
-        "oldDdiff": 6.6,
-        "output": 9.48541345099983
-      },
-      "99": {
         "diff": 0.5,
-        "oldDdiff": 6.4,
-        "output": 8.37919262057629
-      },
-      "100": {
-        "diff": 0.3,
-        "oldDdiff": 6.3,
-        "output": 7.271569941941738
-      }
-    },
-    "green": {
-      "0": {
-        "diff": -0.5,
-        "oldDdiff": -0.5,
-        "output": 96.46814265233772
+        "oldDdiff": 0.5,
+        "output": 97.52403488742934
       },
       "1": {
-        "diff": -0.5,
-        "oldDdiff": -0.4,
-        "output": 95.59418834572945
+        "diff": 0.5,
+        "oldDdiff": 0.5,
+        "output": 96.57842984927171
       },
       "2": {
-        "diff": -0.5,
-        "oldDdiff": -0.4,
-        "output": 94.72076273743048
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 95.63255370289421
       },
       "3": {
-        "diff": -0.5,
-        "oldDdiff": -0.3,
-        "output": 93.8483945257501
+        "diff": 0.4,
+        "oldDdiff": 0.6,
+        "output": 94.68613534007694
       },
       "4": {
-        "diff": -0.4,
-        "oldDdiff": -0.2,
-        "output": 92.97761240899762
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 93.73890365260007
       },
       "5": {
-        "diff": -0.4,
-        "oldDdiff": -0.1,
-        "output": 92.1089450854823
+        "diff": 0.3,
+        "oldDdiff": 0.6,
+        "output": 92.79058753224372
       },
       "6": {
-        "diff": -0.4,
-        "oldDdiff": 0,
-        "output": 91.24292125351347
+        "diff": 0.2,
+        "oldDdiff": 0.6,
+        "output": 91.840915870788
       },
       "7": {
-        "diff": -0.3,
-        "oldDdiff": 0.1,
-        "output": 90.38006961140044
+        "diff": 0.2,
+        "oldDdiff": 0.6,
+        "output": 90.88961756001301
       },
       "8": {
-        "diff": -0.3,
-        "oldDdiff": 0.2,
-        "output": 89.52091885745249
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 89.93642149169892
       },
       "9": {
-        "diff": -0.2,
-        "oldDdiff": 0.3,
-        "output": 88.66599768997888
+        "diff": 0.1,
+        "oldDdiff": 0.6,
+        "output": 88.98105655762585
       },
       "10": {
-        "diff": -0.2,
-        "oldDdiff": 0.4,
-        "output": 87.81583480728895
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 88.02325164957394
       },
       "11": {
-        "diff": -0.1,
-        "oldDdiff": 0.5,
-        "output": 86.97055778016095
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 87.06284617903873
       },
       "12": {
         "diff": -0.1,
         "oldDdiff": 0.6,
-        "output": 86.12868966924891
+        "output": 86.10012163637764
       },
       "13": {
-        "diff": 0,
-        "oldDdiff": 0.8,
-        "output": 85.28835240767584
+        "diff": -0.2,
+        "oldDdiff": 0.6,
+        "output": 85.1354700316635
       },
       "14": {
-        "diff": 0,
-        "oldDdiff": 0.9,
-        "output": 84.44766792856477
+        "diff": -0.2,
+        "oldDdiff": 0.6,
+        "output": 84.16928337496918
       },
       "15": {
-        "diff": 0.1,
-        "oldDdiff": 1,
-        "output": 83.6047581650387
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 83.2019536763675
       },
       "16": {
-        "diff": 0.2,
-        "oldDdiff": 1.1,
-        "output": 82.75774505022062
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 82.23387294593132
       },
       "17": {
-        "diff": 0.2,
-        "oldDdiff": 1.2,
-        "output": 81.90475051723357
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 81.26543319373349
       },
       "18": {
-        "diff": 0.2,
-        "oldDdiff": 1.3,
-        "output": 81.04389649920051
+        "diff": -0.5,
+        "oldDdiff": 0.6,
+        "output": 80.29702642984684
       },
       "19": {
-        "diff": 0.3,
-        "oldDdiff": 1.4,
-        "output": 80.1733049292445
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 79.32904466434424
       },
       "20": {
-        "diff": 0.3,
-        "oldDdiff": 1.5,
-        "output": 79.29109774048851
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 78.36187990729849
       },
       "21": {
-        "diff": 0.3,
-        "oldDdiff": 1.6,
-        "output": 78.39593514880136
+        "diff": -0.7,
+        "oldDdiff": 0.6,
+        "output": 77.39587204905574
       },
       "22": {
-        "diff": 0.3,
-        "oldDdiff": 1.6,
-        "output": 77.48863050103499
+        "diff": -0.8,
+        "oldDdiff": 0.6,
+        "output": 76.43115250105508
       },
       "23": {
-        "diff": 0.3,
-        "oldDdiff": 1.7,
-        "output": 76.57053542678717
+        "diff": -0.8,
+        "oldDdiff": 0.5,
+        "output": 75.46780055500894
       },
       "24": {
-        "diff": 0.2,
-        "oldDdiff": 1.7,
-        "output": 75.64300155565564
+        "diff": -0.9,
+        "oldDdiff": 0.5,
+        "output": 74.50589550262966
       },
       "25": {
-        "diff": 0.2,
-        "oldDdiff": 1.7,
-        "output": 74.70738051723816
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 73.54551663562964
       },
       "26": {
-        "diff": 0.2,
-        "oldDdiff": 1.7,
-        "output": 73.76502394113247
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 72.58674324572127
       },
       "27": {
-        "diff": 0.1,
-        "oldDdiff": 1.7,
-        "output": 72.81728345693632
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 71.62965462461693
       },
       "28": {
-        "diff": 0.1,
-        "oldDdiff": 1.7,
-        "output": 71.86551069424748
+        "diff": -1.1,
+        "oldDdiff": 0.6,
+        "output": 70.67433006402901
       },
       "29": {
-        "diff": 0,
-        "oldDdiff": 1.8,
-        "output": 70.91105728266368
+        "diff": -1.2,
+        "oldDdiff": 0.6,
+        "output": 69.72084885566989
       },
       "30": {
-        "diff": 0,
-        "oldDdiff": 1.8,
-        "output": 69.95527485178268
+        "diff": -1.2,
+        "oldDdiff": 0.6,
+        "output": 68.76929029125193
       },
       "31": {
-        "diff": -0.1,
-        "oldDdiff": 1.8,
-        "output": 68.99995267565288
+        "diff": -1.3,
+        "oldDdiff": 0.6,
+        "output": 67.8196273189352
       },
       "32": {
-        "diff": -0.2,
-        "oldDdiff": 1.8,
-        "output": 68.04863060612527
+        "diff": -1.3,
+        "oldDdiff": 0.6,
+        "output": 66.87140751267022
       },
       "33": {
-        "diff": -0.2,
-        "oldDdiff": 1.8,
-        "output": 67.10528613950156
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 65.92407210285519
       },
       "34": {
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 64.97706231988835
+      },
+      "35": {
+        "diff": -1.5,
+        "oldDdiff": 0.6,
+        "output": 64.02981939416786
+      },
+      "36": {
+        "diff": -1.5,
+        "oldDdiff": 0.6,
+        "output": 63.08178455609192
+      },
+      "37": {
+        "diff": -1.6,
+        "oldDdiff": 0.7,
+        "output": 62.13239903605875
+      },
+      "38": {
+        "diff": -1.6,
+        "oldDdiff": 0.7,
+        "output": 61.18110406446653
+      },
+      "39": {
+        "diff": -1.7,
+        "oldDdiff": 0.7,
+        "output": 60.227340871713466
+      },
+      "40": {
+        "diff": -1.7,
+        "oldDdiff": 0.7,
+        "output": 59.27055068819776
+      },
+      "41": {
+        "diff": -1.8,
+        "oldDdiff": 0.7,
+        "output": 58.310430820482516
+      },
+      "42": {
+        "diff": -1.9,
+        "oldDdiff": 0.7,
+        "output": 57.34770287979051
+      },
+      "43": {
+        "diff": -1.9,
+        "oldDdiff": 0.7,
+        "output": 56.38334455350942
+      },
+      "44": {
+        "diff": -2,
+        "oldDdiff": 0.7,
+        "output": 55.41833352902694
+      },
+      "45": {
+        "diff": -2,
+        "oldDdiff": 0.7,
+        "output": 54.45364749373072
+      },
+      "46": {
+        "diff": -2.1,
+        "oldDdiff": 0.7,
+        "output": 53.490264135008466
+      },
+      "47": {
+        "diff": -2.2,
+        "oldDdiff": 0.6,
+        "output": 52.529161140247865
+      },
+      "48": {
+        "diff": -2.2,
+        "oldDdiff": 0.7,
+        "output": 51.571316196836605
+      },
+      "49": {
+        "diff": -2.3,
+        "oldDdiff": 0.7,
+        "output": 50.61770699216233
+      },
+      "50": {
+        "diff": -2.3,
+        "oldDdiff": 0.7,
+        "output": 49.66931121361276
+      },
+      "51": {
+        "diff": -2.4,
+        "oldDdiff": 0.7,
+        "output": 48.72670956443554
+      },
+      "52": {
+        "diff": -2.4,
+        "oldDdiff": 0.7,
+        "output": 47.78889481131825
+      },
+      "53": {
+        "diff": -2.4,
+        "oldDdiff": 0.7,
+        "output": 46.85446273680844
+      },
+      "54": {
+        "diff": -2.5,
+        "oldDdiff": 0.8,
+        "output": 45.92200912345369
+      },
+      "55": {
+        "diff": -2.5,
+        "oldDdiff": 0.8,
+        "output": 44.990129753801554
+      },
+      "56": {
+        "diff": -2.5,
+        "oldDdiff": 0.8,
+        "output": 44.05742041039957
+      },
+      "57": {
+        "diff": -2.6,
+        "oldDdiff": 0.8,
+        "output": 43.122476875795314
+      },
+      "58": {
+        "diff": -2.6,
+        "oldDdiff": 0.9,
+        "output": 42.18389493253633
+      },
+      "59": {
+        "diff": -2.7,
+        "oldDdiff": 0.9,
+        "output": 41.240270363170204
+      },
+      "60": {
+        "diff": -2.7,
+        "oldDdiff": 0.9,
+        "output": 40.290198950244466
+      },
+      "61": {
+        "diff": -2.8,
+        "oldDdiff": 0.9,
+        "output": 39.33265101168603
+      },
+      "62": {
+        "diff": -2.8,
+        "oldDdiff": 0.9,
+        "output": 38.3680950069392
+      },
+      "63": {
+        "diff": -2.9,
+        "oldDdiff": 0.9,
+        "output": 37.39737393082763
+      },
+      "64": {
+        "diff": -3,
+        "oldDdiff": 0.9,
+        "output": 36.421330778174955
+      },
+      "65": {
+        "diff": -3.1,
+        "oldDdiff": 0.8,
+        "output": 35.44080854380482
+      },
+      "66": {
+        "diff": -3.1,
+        "oldDdiff": 0.8,
+        "output": 34.45665022254088
+      },
+      "67": {
+        "diff": -3.2,
+        "oldDdiff": 0.8,
+        "output": 33.46969880920678
+      },
+      "68": {
+        "diff": -3.3,
+        "oldDdiff": 0.8,
+        "output": 32.48079729862617
+      },
+      "69": {
+        "diff": -3.4,
+        "oldDdiff": 0.7,
+        "output": 31.4907886856227
+      },
+      "70": {
+        "diff": -3.5,
+        "oldDdiff": 0.7,
+        "output": 30.500515965020014
+      },
+      "71": {
+        "diff": -3.6,
+        "oldDdiff": 0.7,
+        "output": 29.510784501596465
+      },
+      "72": {
+        "diff": -3.7,
+        "oldDdiff": 0.6,
+        "output": 28.52224913994924
+      },
+      "73": {
+        "diff": -3.8,
+        "oldDdiff": 0.6,
+        "output": 27.53552709463023
+      },
+      "74": {
+        "diff": -3.8,
+        "oldDdiff": 0.6,
+        "output": 26.55123558019132
+      },
+      "75": {
+        "diff": -3.9,
+        "oldDdiff": 0.6,
+        "output": 25.569991811184405
+      },
+      "76": {
+        "diff": -4,
+        "oldDdiff": 0.6,
+        "output": 24.592413002161376
+      },
+      "77": {
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 23.619116367674124
+      },
+      "78": {
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 22.65071912227454
+      },
+      "79": {
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 21.687838480514515
+      },
+      "80": {
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 20.731091656945935
+      },
+      "81": {
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 19.78076733517516
+      },
+      "82": {
+        "diff": -4.4,
+        "oldDdiff": 0.6,
+        "output": 18.83584007502638
+      },
+      "83": {
+        "diff": -4.4,
+        "oldDdiff": 0.6,
+        "output": 17.894955905378254
+      },
+      "84": {
+        "diff": -4.4,
+        "oldDdiff": 0.6,
+        "output": 16.956760855109444
+      },
+      "85": {
+        "diff": -4.5,
+        "oldDdiff": 0.6,
+        "output": 16.019900953098606
+      },
+      "86": {
+        "diff": -4.5,
+        "oldDdiff": 0.6,
+        "output": 15.083022228224399
+      },
+      "87": {
+        "diff": -4.6,
+        "oldDdiff": 0.7,
+        "output": 14.144770709365483
+      },
+      "88": {
+        "diff": -4.6,
+        "oldDdiff": 0.7,
+        "output": 13.203792425400515
+      },
+      "89": {
+        "diff": -4.6,
+        "oldDdiff": 0.7,
+        "output": 12.25873340520815
+      },
+      "90": {
+        "diff": -4.7,
+        "oldDdiff": 0.7,
+        "output": 11.30823967766705
+      },
+      "91": {
+        "diff": -4.7,
+        "oldDdiff": 0.7,
+        "output": 10.351296078150597
+      },
+      "92": {
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 9.388242668011076
+      },
+      "93": {
+        "diff": -4.9,
+        "oldDdiff": 0.7,
+        "output": 8.41975831509549
+      },
+      "94": {
+        "diff": -5,
+        "oldDdiff": 0.7,
+        "output": 7.446521887250851
+      },
+      "95": {
+        "diff": -5,
+        "oldDdiff": 0.7,
+        "output": 6.469212252324166
+      },
+      "96": {
+        "diff": -5.1,
+        "oldDdiff": 0.6,
+        "output": 5.488508278162442
+      },
+      "97": {
+        "diff": -5.2,
+        "oldDdiff": 0.6,
+        "output": 4.505088832612687
+      },
+      "98": {
+        "diff": -5.3,
+        "oldDdiff": 0.6,
+        "output": 3.519632783521908
+      },
+      "99": {
+        "diff": -5.4,
+        "oldDdiff": 0.6,
+        "output": 2.532818998737114
+      },
+      "100": {
+        "diff": -5.5,
+        "oldDdiff": 0.5,
+        "output": 1.5453263461053126
+      }
+    },
+    "green": {
+      "0": {
+        "diff": 0.5,
+        "oldDdiff": 0.5,
+        "output": 97.47064807292313
+      },
+      "1": {
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 96.49836751733058
+      },
+      "2": {
+        "diff": 0.3,
+        "oldDdiff": 0.4,
+        "output": 95.52668592016207
+      },
+      "3": {
+        "diff": 0.3,
+        "oldDdiff": 0.4,
+        "output": 94.5562022398417
+      },
+      "4": {
+        "diff": 0.2,
+        "oldDdiff": 0.4,
+        "output": 93.58751543479353
+      },
+      "5": {
+        "diff": 0.1,
+        "oldDdiff": 0.4,
+        "output": 92.6212244634416
+      },
+      "6": {
+        "diff": 0.1,
+        "oldDdiff": 0.4,
+        "output": 91.65792828421002
+      },
+      "7": {
+        "diff": 0,
+        "oldDdiff": 0.4,
+        "output": 90.69822585552282
+      },
+      "8": {
+        "diff": -0.1,
+        "oldDdiff": 0.4,
+        "output": 89.74271613580406
+      },
+      "9": {
+        "diff": -0.1,
+        "oldDdiff": 0.4,
+        "output": 88.79199808347784
+      },
+      "10": {
         "diff": -0.2,
+        "oldDdiff": 0.4,
+        "output": 87.84667065696817
+      },
+      "11": {
+        "diff": -0.2,
+        "oldDdiff": 0.5,
+        "output": 86.90670924809672
+      },
+      "12": {
+        "diff": -0.2,
+        "oldDdiff": 0.5,
+        "output": 85.96959498227517
+      },
+      "13": {
+        "diff": -0.3,
+        "oldDdiff": 0.5,
+        "output": 85.03218541831282
+      },
+      "14": {
+        "diff": -0.3,
+        "oldDdiff": 0.5,
+        "output": 84.091338115019
+      },
+      "15": {
+        "diff": -0.4,
+        "oldDdiff": 0.5,
+        "output": 83.14391063120294
+      },
+      "16": {
+        "diff": -0.4,
+        "oldDdiff": 0.5,
+        "output": 82.18676052567396
+      },
+      "17": {
+        "diff": -0.5,
+        "oldDdiff": 0.5,
+        "output": 81.21674535724134
+      },
+      "18": {
+        "diff": -0.6,
+        "oldDdiff": 0.5,
+        "output": 80.23072268471434
+      },
+      "19": {
+        "diff": -0.7,
+        "oldDdiff": 0.5,
+        "output": 79.22555006690224
+      },
+      "20": {
+        "diff": -0.8,
+        "oldDdiff": 0.4,
+        "output": 78.19808506261435
+      },
+      "21": {
+        "diff": -1,
+        "oldDdiff": 0.3,
+        "output": 77.14778475721864
+      },
+      "22": {
+        "diff": -1.1,
+        "oldDdiff": 0.2,
+        "output": 76.08450434231789
+      },
+      "23": {
+        "diff": -1.3,
+        "oldDdiff": 0.1,
+        "output": 75.02069853607352
+      },
+      "24": {
+        "diff": -1.4,
+        "oldDdiff": 0,
+        "output": 73.96882205664701
+      },
+      "25": {
+        "diff": -1.6,
+        "oldDdiff": -0.1,
+        "output": 72.94132962219983
+      },
+      "26": {
+        "diff": -1.6,
+        "oldDdiff": -0.1,
+        "output": 71.95067595089343
+      },
+      "27": {
+        "diff": -1.7,
+        "oldDdiff": -0.1,
+        "output": 71.00931576088924
+      },
+      "28": {
+        "diff": -1.7,
+        "oldDdiff": 0,
+        "output": 70.12970377034874
+      },
+      "29": {
+        "diff": -1.6,
+        "oldDdiff": 0.2,
+        "output": 69.3242946974334
+      },
+      "30": {
+        "diff": -1.4,
+        "oldDdiff": 0.4,
+        "output": 68.60554326030466
+      },
+      "31": {
+        "diff": -1.1,
+        "oldDdiff": 0.7,
+        "output": 67.97457354802202
+      },
+      "32": {
+        "diff": -0.8,
+        "oldDdiff": 1.1,
+        "output": 67.38718713323718
+      },
+      "33": {
+        "diff": -0.5,
+        "oldDdiff": 1.5,
+        "output": 66.78785495949987
+      },
+      "34": {
+        "diff": -0.3,
         "oldDdiff": 1.8,
-        "output": 66.17389677208338
+        "output": 66.12104797035978
       },
       "35": {
         "diff": -0.2,
         "oldDdiff": 1.9,
-        "output": 65.2584400001724
+        "output": 65.33123710936668
       },
       "36": {
         "diff": -0.2,
@@ -4243,831 +4243,831 @@
         "output": 64.36289332007028
       },
       "37": {
-        "diff": -0.2,
-        "oldDdiff": 2,
-        "output": 63.48930056479832
+        "diff": -0.5,
+        "oldDdiff": 1.7,
+        "output": 63.18434861210924
       },
       "38": {
-        "diff": -0.2,
-        "oldDdiff": 2.1,
-        "output": 62.63197091425624
+        "diff": -0.9,
+        "oldDdiff": 1.3,
+        "output": 61.85937925947785
       },
       "39": {
-        "diff": -0.1,
-        "oldDdiff": 2.2,
-        "output": 61.78327988506342
+        "diff": -1.4,
+        "oldDdiff": 0.9,
+        "output": 60.47562260225937
       },
       "40": {
-        "diff": -0.1,
-        "oldDdiff": 2.3,
-        "output": 60.935602993839254
+        "diff": -1.9,
+        "oldDdiff": 0.5,
+        "output": 59.12071598053704
       },
       "41": {
-        "diff": 0,
-        "oldDdiff": 2.4,
-        "output": 60.082605042192526
+        "diff": -2.2,
+        "oldDdiff": 0.2,
+        "output": 57.865286305243416
       },
       "42": {
-        "diff": 0,
-        "oldDdiff": 2.5,
-        "output": 59.223107971689814
+        "diff": -2.5,
+        "oldDdiff": 0,
+        "output": 56.71191877070828
       },
       "43": {
-        "diff": 0.1,
-        "oldDdiff": 2.6,
-        "output": 58.35722300888712
+        "diff": -2.7,
+        "oldDdiff": -0.1,
+        "output": 55.64618814211079
       },
       "44": {
-        "diff": 0.1,
-        "oldDdiff": 2.7,
-        "output": 57.48506138034049
+        "diff": -2.7,
+        "oldDdiff": -0.1,
+        "output": 54.653669184630054
       },
       "45": {
-        "diff": 0.1,
-        "oldDdiff": 2.8,
-        "output": 56.60673431260593
+        "diff": -2.8,
+        "oldDdiff": -0.1,
+        "output": 53.71993666344521
       },
       "46": {
-        "diff": 0.1,
-        "oldDdiff": 2.9,
-        "output": 55.722353032239454
+        "diff": -2.8,
+        "oldDdiff": 0,
+        "output": 52.83056534373537
       },
       "47": {
-        "diff": 0.1,
-        "oldDdiff": 3,
-        "output": 54.83202876579707
+        "diff": -2.7,
+        "oldDdiff": 0.1,
+        "output": 51.97112999067968
       },
       "48": {
-        "diff": 0.1,
-        "oldDdiff": 3,
-        "output": 53.93587273983481
+        "diff": -2.7,
+        "oldDdiff": 0.2,
+        "output": 51.12720536945724
       },
       "49": {
-        "diff": 0.1,
-        "oldDdiff": 3.1,
-        "output": 53.03399618090867
+        "diff": -2.6,
+        "oldDdiff": 0.3,
+        "output": 50.284366245247206
       },
       "50": {
-        "diff": 0.1,
-        "oldDdiff": 3.1,
-        "output": 52.12651031557469
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 49.428187383228675
       },
       "51": {
-        "diff": 0.1,
-        "oldDdiff": 3.2,
-        "output": 51.21378591183125
+        "diff": -2.6,
+        "oldDdiff": 0.5,
+        "output": 48.54716665783697
       },
       "52": {
-        "diff": 0.1,
-        "oldDdiff": 3.2,
-        "output": 50.297231903446225
+        "diff": -2.6,
+        "oldDdiff": 0.6,
+        "output": 47.641494380532066
       },
       "53": {
-        "diff": 0.1,
-        "oldDdiff": 3.3,
-        "output": 49.37851676562986
+        "diff": -2.6,
+        "oldDdiff": 0.6,
+        "output": 46.714283972030124
       },
       "54": {
-        "diff": 0.1,
-        "oldDdiff": 3.3,
-        "output": 48.45930897359244
+        "diff": -2.6,
+        "oldDdiff": 0.6,
+        "output": 45.76864885304735
       },
       "55": {
-        "diff": 0,
-        "oldDdiff": 3.3,
-        "output": 47.54127700254421
+        "diff": -2.7,
+        "oldDdiff": 0.6,
+        "output": 44.807702444299885
       },
       "56": {
-        "diff": 0,
-        "oldDdiff": 3.4,
-        "output": 46.62608932769542
+        "diff": -2.8,
+        "oldDdiff": 0.6,
+        "output": 43.83455816650391
       },
       "57": {
-        "diff": 0,
-        "oldDdiff": 3.4,
-        "output": 45.71541442425632
+        "diff": -2.8,
+        "oldDdiff": 0.6,
+        "output": 42.85232944037558
       },
       "58": {
-        "diff": 0,
-        "oldDdiff": 3.5,
-        "output": 44.81092076743717
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 41.86412968663107
       },
       "59": {
-        "diff": 0,
-        "oldDdiff": 3.6,
-        "output": 43.91427683244823
+        "diff": -3,
+        "oldDdiff": 0.5,
+        "output": 40.87307232598654
       },
       "60": {
-        "diff": 0,
-        "oldDdiff": 3.6,
-        "output": 43.027151094499736
+        "diff": -3.1,
+        "oldDdiff": 0.5,
+        "output": 39.882270779158176
       },
       "61": {
-        "diff": 0.1,
-        "oldDdiff": 3.7,
-        "output": 42.1504169822779
+        "diff": -3.2,
+        "oldDdiff": 0.5,
+        "output": 38.89436290373004
       },
       "62": {
-        "diff": 0.1,
-        "oldDdiff": 3.8,
-        "output": 41.281767738372615
+        "diff": -3.3,
+        "oldDdiff": 0.4,
+        "output": 37.91008430475781
       },
       "63": {
-        "diff": 0.1,
-        "oldDdiff": 3.9,
-        "output": 40.41810155884973
+        "diff": -3.4,
+        "oldDdiff": 0.4,
+        "output": 36.92969502416507
       },
       "64": {
-        "diff": 0.2,
-        "oldDdiff": 4,
-        "output": 39.556316639775105
+        "diff": -3.4,
+        "oldDdiff": 0.4,
+        "output": 35.95345510387542
       },
       "65": {
-        "diff": 0.2,
-        "oldDdiff": 4.1,
-        "output": 38.69331117721457
+        "diff": -3.5,
+        "oldDdiff": 0.4,
+        "output": 34.98162458581243
       },
       "66": {
-        "diff": 0.2,
-        "oldDdiff": 4.2,
-        "output": 37.82598336723396
+        "diff": -3.6,
+        "oldDdiff": 0.4,
+        "output": 34.0144635118997
       },
       "67": {
-        "diff": 0.3,
-        "oldDdiff": 4.3,
-        "output": 36.951231405899144
+        "diff": -3.6,
+        "oldDdiff": 0.4,
+        "output": 33.052231924060806
       },
       "68": {
-        "diff": 0.3,
-        "oldDdiff": 4.3,
-        "output": 36.06595348927594
+        "diff": -3.7,
+        "oldDdiff": 0.4,
+        "output": 32.09518986421932
       },
       "69": {
-        "diff": 0.3,
-        "oldDdiff": 4.4,
-        "output": 35.16704781343022
+        "diff": -3.8,
+        "oldDdiff": 0.4,
+        "output": 31.14359737429885
       },
       "70": {
-        "diff": 0.3,
-        "oldDdiff": 4.5,
-        "output": 34.2514125744278
+        "diff": -3.8,
+        "oldDdiff": 0.4,
+        "output": 30.19771449622297
       },
       "71": {
-        "diff": 0.2,
-        "oldDdiff": 4.5,
-        "output": 33.317241281773164
+        "diff": -3.8,
+        "oldDdiff": 0.4,
+        "output": 29.257553235639744
       },
       "72": {
-        "diff": 0.2,
-        "oldDdiff": 4.5,
-        "output": 32.36790869872518
+        "diff": -3.9,
+        "oldDdiff": 0.4,
+        "output": 28.322133453095137
       },
       "73": {
-        "diff": 0.1,
-        "oldDdiff": 4.5,
-        "output": 31.408084901981375
+        "diff": -3.9,
+        "oldDdiff": 0.5,
+        "output": 27.390226972859598
       },
       "74": {
-        "diff": 0,
-        "oldDdiff": 4.5,
-        "output": 30.442439968239253
+        "diff": -3.9,
+        "oldDdiff": 0.5,
+        "output": 26.460605619203562
       },
       "75": {
-        "diff": 0,
-        "oldDdiff": 4.5,
-        "output": 29.475643974196323
+        "diff": -4,
+        "oldDdiff": 0.5,
+        "output": 25.532041216397477
       },
       "76": {
-        "diff": -0.1,
-        "oldDdiff": 4.5,
-        "output": 28.512366996550096
+        "diff": -4,
+        "oldDdiff": 0.6,
+        "output": 24.60330558871178
       },
       "77": {
-        "diff": -0.1,
-        "oldDdiff": 4.5,
-        "output": 27.557279111998074
+        "diff": -4,
+        "oldDdiff": 0.6,
+        "output": 23.673170560416924
       },
       "78": {
-        "diff": -0.2,
-        "oldDdiff": 4.5,
-        "output": 26.615050397237773
+        "diff": -4.1,
+        "oldDdiff": 0.6,
+        "output": 22.740407955783347
       },
       "79": {
-        "diff": -0.2,
-        "oldDdiff": 4.5,
-        "output": 25.690350928966694
+        "diff": -4.1,
+        "oldDdiff": 0.6,
+        "output": 21.803789599081487
       },
       "80": {
-        "diff": -0.2,
-        "oldDdiff": 4.6,
-        "output": 24.787850783882355
+        "diff": -4.1,
+        "oldDdiff": 0.7,
+        "output": 20.862087314581792
       },
       "81": {
-        "diff": -0.2,
-        "oldDdiff": 4.7,
-        "output": 23.91055134202718
+        "diff": -4.2,
+        "oldDdiff": 0.7,
+        "output": 19.914469910529323
       },
       "82": {
-        "diff": -0.1,
-        "oldDdiff": 4.8,
-        "output": 23.054779196823286
+        "diff": -4.2,
+        "oldDdiff": 0.7,
+        "output": 18.96169413106759
       },
       "83": {
-        "diff": -0.1,
-        "oldDdiff": 4.9,
-        "output": 22.21519224503772
+        "diff": -4.3,
+        "oldDdiff": 0.7,
+        "output": 18.00491370431471
       },
       "84": {
-        "diff": 0,
-        "oldDdiff": 5,
-        "output": 21.38644838343752
+        "diff": -4.4,
+        "oldDdiff": 0.7,
+        "output": 17.045282358388828
       },
       "85": {
-        "diff": 0.1,
-        "oldDdiff": 5.2,
-        "output": 20.56320550878973
+        "diff": -4.4,
+        "oldDdiff": 0.7,
+        "output": 16.083953821408066
       },
       "86": {
-        "diff": 0.1,
-        "oldDdiff": 5.3,
-        "output": 19.74012151786139
+        "diff": -4.5,
+        "oldDdiff": 0.7,
+        "output": 15.122081821490543
       },
       "87": {
-        "diff": 0.2,
-        "oldDdiff": 5.4,
-        "output": 18.911854307419542
+        "diff": -4.5,
+        "oldDdiff": 0.7,
+        "output": 14.160820086754399
       },
       "88": {
-        "diff": 0.3,
-        "oldDdiff": 5.6,
-        "output": 18.073061774231228
+        "diff": -4.6,
+        "oldDdiff": 0.7,
+        "output": 13.201322345317754
       },
       "89": {
-        "diff": 0.3,
-        "oldDdiff": 5.7,
-        "output": 17.218401815063487
+        "diff": -4.7,
+        "oldDdiff": 0.7,
+        "output": 12.244742325298734
       },
       "90": {
-        "diff": 0.3,
-        "oldDdiff": 5.7,
-        "output": 16.34253232668336
+        "diff": -4.7,
+        "oldDdiff": 0.7,
+        "output": 11.292233754815474
       },
       "91": {
-        "diff": 0.3,
-        "oldDdiff": 5.8,
-        "output": 15.441444083604145
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 10.344670987672176
       },
       "92": {
-        "diff": 0.3,
-        "oldDdiff": 5.8,
-        "output": 14.51645937132412
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 9.401810880417374
       },
       "93": {
-        "diff": 0.3,
-        "oldDdiff": 5.9,
-        "output": 13.570233353087815
+        "diff": -4.8,
+        "oldDdiff": 0.7,
+        "output": 8.463130915285678
       },
       "94": {
-        "diff": 0.2,
-        "oldDdiff": 5.8,
-        "output": 12.605421192139778
+        "diff": -4.9,
+        "oldDdiff": 0.8,
+        "output": 7.5281085745117
       },
       "95": {
-        "diff": 0.1,
-        "oldDdiff": 5.8,
-        "output": 11.624678051724533
+        "diff": -4.9,
+        "oldDdiff": 0.8,
+        "output": 6.596221340330052
       },
       "96": {
-        "diff": 0,
-        "oldDdiff": 5.8,
-        "output": 10.630659095086619
+        "diff": -4.9,
+        "oldDdiff": 0.8,
+        "output": 5.666946694975346
       },
       "97": {
-        "diff": -0.1,
-        "oldDdiff": 5.7,
-        "output": 9.626019485470565
+        "diff": -5,
+        "oldDdiff": 0.9,
+        "output": 4.739762120682194
       },
       "98": {
-        "diff": -0.2,
-        "oldDdiff": 5.7,
-        "output": 8.613414386120908
+        "diff": -5,
+        "oldDdiff": 0.9,
+        "output": 3.8141450996852053
       },
       "99": {
-        "diff": -0.3,
-        "oldDdiff": 5.6,
-        "output": 7.5954989602821845
+        "diff": -5,
+        "oldDdiff": 0.9,
+        "output": 2.889573114218994
       },
       "100": {
-        "diff": -0.4,
-        "oldDdiff": 5.6,
-        "output": 6.574928371198926
+        "diff": -5,
+        "oldDdiff": 1,
+        "output": 1.9655236465181716
       }
     },
     "pink": {
       "0": {
-        "diff": -0.5,
-        "oldDdiff": -0.5,
-        "output": 96.53489726862743
+        "diff": 0.5,
+        "oldDdiff": 0.5,
+        "output": 97.45283150533729
       },
       "1": {
-        "diff": -0.4,
-        "oldDdiff": -0.3,
-        "output": 95.71819423905153
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 96.50402668667071
       },
       "2": {
-        "diff": -0.3,
-        "oldDdiff": -0.2,
-        "output": 94.90060348585259
+        "diff": 0.4,
+        "oldDdiff": 0.5,
+        "output": 95.55518959397706
       },
       "3": {
-        "diff": -0.2,
-        "oldDdiff": 0,
-        "output": 94.08123728540747
+        "diff": 0.3,
+        "oldDdiff": 0.5,
+        "output": 94.60628795322921
       },
       "4": {
-        "diff": -0.1,
-        "oldDdiff": 0.1,
-        "output": 93.25920791409318
+        "diff": 0.3,
+        "oldDdiff": 0.5,
+        "output": 93.65728949040013
       },
       "5": {
-        "diff": -0.1,
-        "oldDdiff": 0.2,
-        "output": 92.43362764828669
+        "diff": 0.2,
+        "oldDdiff": 0.5,
+        "output": 92.70816193146271
       },
       "6": {
-        "diff": 0,
-        "oldDdiff": 0.4,
-        "output": 91.60360876436484
+        "diff": 0.2,
+        "oldDdiff": 0.5,
+        "output": 91.75887300238986
       },
       "7": {
         "diff": 0.1,
         "oldDdiff": 0.5,
-        "output": 90.76826353870463
+        "output": 90.80939042915449
       },
       "8": {
         "diff": 0.1,
-        "oldDdiff": 0.6,
-        "output": 89.92670424768298
+        "oldDdiff": 0.5,
+        "output": 89.85968193772953
       },
       "9": {
-        "diff": 0.2,
-        "oldDdiff": 0.7,
-        "output": 89.07804316767685
+        "diff": 0,
+        "oldDdiff": 0.5,
+        "output": 88.9097152540879
       },
       "10": {
-        "diff": 0.2,
-        "oldDdiff": 0.8,
-        "output": 88.22139257506313
+        "diff": 0,
+        "oldDdiff": 0.6,
+        "output": 87.9594581042025
       },
       "11": {
-        "diff": 0.3,
-        "oldDdiff": 0.9,
-        "output": 87.3561036430816
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 87.00884001980106
       },
       "12": {
-        "diff": 0.3,
-        "oldDdiff": 1,
-        "output": 86.48248313242296
+        "diff": -0.1,
+        "oldDdiff": 0.6,
+        "output": 86.0576377556306
       },
       "13": {
-        "diff": 0.3,
-        "oldDdiff": 1.1,
-        "output": 85.60107670064083
+        "diff": -0.2,
+        "oldDdiff": 0.6,
+        "output": 85.10558987219295
       },
       "14": {
-        "diff": 0.3,
-        "oldDdiff": 1.2,
-        "output": 84.71243000528877
+        "diff": -0.2,
+        "oldDdiff": 0.6,
+        "output": 84.15243492998994
       },
       "15": {
-        "diff": 0.3,
-        "oldDdiff": 1.2,
-        "output": 83.81708870392035
+        "diff": -0.3,
+        "oldDdiff": 0.6,
+        "output": 83.19791148952342
       },
       "16": {
-        "diff": 0.3,
-        "oldDdiff": 1.3,
-        "output": 82.91559845408906
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 82.24175811129517
       },
       "17": {
-        "diff": 0.3,
-        "oldDdiff": 1.3,
-        "output": 82.00850491334856
+        "diff": -0.4,
+        "oldDdiff": 0.6,
+        "output": 81.28371335580708
       },
       "18": {
-        "diff": 0.3,
-        "oldDdiff": 1.4,
-        "output": 81.09635373925234
+        "diff": -0.5,
+        "oldDdiff": 0.6,
+        "output": 80.32351578356095
       },
       "19": {
-        "diff": 0.3,
-        "oldDdiff": 1.4,
-        "output": 80.179690589354
+        "diff": -0.5,
+        "oldDdiff": 0.6,
+        "output": 79.3609039550586
       },
       "20": {
-        "diff": 0.3,
-        "oldDdiff": 1.5,
-        "output": 79.25906112120707
+        "diff": -0.6,
+        "oldDdiff": 0.6,
+        "output": 78.3956164308019
       },
       "21": {
-        "diff": 0.2,
-        "oldDdiff": 1.5,
-        "output": 78.33505943273109
+        "diff": -0.7,
+        "oldDdiff": 0.6,
+        "output": 77.42757345818761
       },
       "22": {
-        "diff": 0.2,
-        "oldDdiff": 1.5,
-        "output": 77.4084733833094
+        "diff": -0.7,
+        "oldDdiff": 0.6,
+        "output": 76.45742203219245
       },
       "23": {
-        "diff": 0.2,
-        "oldDdiff": 1.6,
-        "output": 76.48013927269128
+        "diff": -0.8,
+        "oldDdiff": 0.6,
+        "output": 75.48599083468807
       },
       "24": {
-        "diff": 0.2,
-        "oldDdiff": 1.6,
-        "output": 75.55089340062607
+        "diff": -0.9,
+        "oldDdiff": 0.6,
+        "output": 74.51410854754616
       },
       "25": {
-        "diff": 0.1,
-        "oldDdiff": 1.6,
-        "output": 74.62157206686305
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 73.54260385263836
       },
       "26": {
-        "diff": 0.1,
-        "oldDdiff": 1.7,
-        "output": 73.69301157115154
+        "diff": -1,
+        "oldDdiff": 0.5,
+        "output": 72.57230543183634
       },
       "27": {
-        "diff": 0.1,
-        "oldDdiff": 1.7,
-        "output": 72.76604821324082
+        "diff": -1.1,
+        "oldDdiff": 0.5,
+        "output": 71.60404196701178
       },
       "28": {
-        "diff": 0,
-        "oldDdiff": 1.7,
-        "output": 71.84151829288018
+        "diff": -1.2,
+        "oldDdiff": 0.5,
+        "output": 70.63864214003632
       },
       "29": {
-        "diff": 0,
-        "oldDdiff": 1.8,
-        "output": 70.92025810981896
+        "diff": -1.2,
+        "oldDdiff": 0.5,
+        "output": 69.67693463278165
       },
       "30": {
-        "diff": 0,
-        "oldDdiff": 1.8,
-        "output": 70.00310396380645
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 68.71974812711943
       },
       "31": {
-        "diff": 0,
-        "oldDdiff": 1.9,
-        "output": 69.09067620682819
+        "diff": -1.3,
+        "oldDdiff": 0.5,
+        "output": 67.76755381597395
       },
       "32": {
-        "diff": 0,
-        "oldDdiff": 1.9,
-        "output": 68.18273139981464
+        "diff": -1.4,
+        "oldDdiff": 0.5,
+        "output": 66.81939293648011
       },
       "33": {
-        "diff": 0,
-        "oldDdiff": 2,
-        "output": 67.27881015593255
+        "diff": -1.4,
+        "oldDdiff": 0.6,
+        "output": 65.87394923682537
       },
       "34": {
-        "diff": 0,
-        "oldDdiff": 2,
-        "output": 66.3784530883486
+        "diff": -1.5,
+        "oldDdiff": 0.6,
+        "output": 64.92990646519726
       },
       "35": {
-        "diff": 0,
-        "oldDdiff": 2.1,
-        "output": 65.48120081022958
+        "diff": -1.5,
+        "oldDdiff": 0.6,
+        "output": 63.985948369783294
       },
       "36": {
-        "diff": 0,
-        "oldDdiff": 2.1,
-        "output": 64.58659393474214
+        "diff": -1.6,
+        "oldDdiff": 0.6,
+        "output": 63.04075869877095
       },
       "37": {
-        "diff": 0,
-        "oldDdiff": 2.2,
-        "output": 63.69417307505306
+        "diff": -1.6,
+        "oldDdiff": 0.6,
+        "output": 62.093021200347756
       },
       "38": {
-        "diff": 0,
-        "oldDdiff": 2.3,
-        "output": 62.803478844329014
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 61.14141962270119
       },
       "39": {
-        "diff": 0,
-        "oldDdiff": 2.4,
-        "output": 61.91405185573674
+        "diff": -1.7,
+        "oldDdiff": 0.6,
+        "output": 60.18463771401879
       },
       "40": {
-        "diff": 0,
-        "oldDdiff": 2.4,
-        "output": 61.02543272244297
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 59.22135922248803
       },
       "41": {
-        "diff": 0,
-        "oldDdiff": 2.5,
-        "output": 60.13724784570231
+        "diff": -1.8,
+        "oldDdiff": 0.6,
+        "output": 58.250753971824366
       },
       "42": {
-        "diff": 0,
-        "oldDdiff": 2.6,
-        "output": 59.249466779120965
+        "diff": -1.9,
+        "oldDdiff": 0.6,
+        "output": 57.27393608785495
       },
       "43": {
-        "diff": 0.1,
-        "oldDdiff": 2.6,
-        "output": 58.36214486439302
+        "diff": -2,
+        "oldDdiff": 0.6,
+        "output": 56.29250577193486
       },
       "44": {
-        "diff": 0.1,
-        "oldDdiff": 2.7,
-        "output": 57.475337443212595
+        "diff": -2.1,
+        "oldDdiff": 0.5,
+        "output": 55.308063225419204
       },
       "45": {
-        "diff": 0.1,
-        "oldDdiff": 2.8,
-        "output": 56.589099857273766
+        "diff": -2.2,
+        "oldDdiff": 0.5,
+        "output": 54.32220864966307
       },
       "46": {
-        "diff": 0.1,
-        "oldDdiff": 2.9,
-        "output": 55.70348744827063
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 53.33654224602153
       },
       "47": {
-        "diff": 0.1,
-        "oldDdiff": 2.9,
-        "output": 54.81855555789731
+        "diff": -2.3,
+        "oldDdiff": 0.5,
+        "output": 52.3526642158497
       },
       "48": {
-        "diff": 0.1,
-        "oldDdiff": 3,
-        "output": 53.934359527847874
+        "diff": -2.4,
+        "oldDdiff": 0.5,
+        "output": 51.37217476050265
       },
       "49": {
-        "diff": 0.2,
-        "oldDdiff": 3.1,
-        "output": 53.050954699816444
+        "diff": -2.5,
+        "oldDdiff": 0.4,
+        "output": 50.39667408133548
       },
       "50": {
-        "diff": 0.2,
-        "oldDdiff": 3.2,
-        "output": 52.1683964154971
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 49.42776237970328
       },
       "51": {
-        "diff": 0.2,
-        "oldDdiff": 3.2,
-        "output": 51.286605862114726
+        "diff": -2.6,
+        "oldDdiff": 0.4,
+        "output": 48.46651842178901
       },
       "52": {
-        "diff": 0.2,
-        "oldDdiff": 3.3,
-        "output": 50.404967609017355
+        "diff": -2.7,
+        "oldDdiff": 0.4,
+        "output": 47.51193523308716
       },
       "53": {
-        "diff": 0.2,
-        "oldDdiff": 3.4,
-        "output": 49.52273207108377
+        "diff": -2.7,
+        "oldDdiff": 0.4,
+        "output": 46.56248440392006
       },
       "54": {
-        "diff": 0.2,
-        "oldDdiff": 3.5,
-        "output": 48.63914966319281
+        "diff": -2.8,
+        "oldDdiff": 0.5,
+        "output": 45.616637524610084
       },
       "55": {
-        "diff": 0.3,
-        "oldDdiff": 3.6,
-        "output": 47.75347080022326
+        "diff": -2.8,
+        "oldDdiff": 0.5,
+        "output": 44.672866185479585
       },
       "56": {
-        "diff": 0.3,
-        "oldDdiff": 3.6,
-        "output": 46.86494589705394
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 43.72964197685091
       },
       "57": {
-        "diff": 0.3,
-        "oldDdiff": 3.7,
-        "output": 45.97282536856364
+        "diff": -2.9,
+        "oldDdiff": 0.5,
+        "output": 42.78543648904642
       },
       "58": {
-        "diff": 0.3,
-        "oldDdiff": 3.8,
-        "output": 45.07635962963118
+        "diff": -3,
+        "oldDdiff": 0.5,
+        "output": 41.83872131238845
       },
       "59": {
-        "diff": 0.3,
-        "oldDdiff": 3.8,
-        "output": 44.17479909513537
+        "diff": -3,
+        "oldDdiff": 0.5,
+        "output": 40.88796803719937
       },
       "60": {
-        "diff": 0.3,
-        "oldDdiff": 3.9,
-        "output": 43.267394179955005
+        "diff": -3.1,
+        "oldDdiff": 0.5,
+        "output": 39.93164825380154
       },
       "61": {
-        "diff": 0.3,
-        "oldDdiff": 3.9,
-        "output": 42.35367548774114
+        "diff": -3.1,
+        "oldDdiff": 0.5,
+        "output": 38.96871040120772
       },
       "62": {
-        "diff": 0.2,
-        "oldDdiff": 4,
-        "output": 41.43429437723376
+        "diff": -3.2,
+        "oldDdiff": 0.5,
+        "output": 38.000010313192426
       },
       "63": {
-        "diff": 0.2,
-        "oldDdiff": 4,
-        "output": 40.51018239594511
+        "diff": -3.3,
+        "oldDdiff": 0.5,
+        "output": 37.02688067222055
       },
       "64": {
-        "diff": 0.2,
-        "oldDdiff": 4,
-        "output": 39.58227109138742
+        "diff": -3.3,
+        "oldDdiff": 0.5,
+        "output": 36.050654160757
       },
       "65": {
-        "diff": 0.2,
-        "oldDdiff": 4.1,
-        "output": 38.651492011072925
+        "diff": -3.4,
+        "oldDdiff": 0.5,
+        "output": 35.07266346126671
       },
       "66": {
-        "diff": 0.1,
-        "oldDdiff": 4.1,
-        "output": 37.718776702513864
+        "diff": -3.5,
+        "oldDdiff": 0.5,
+        "output": 34.09424125621459
       },
       "67": {
-        "diff": 0.1,
-        "oldDdiff": 4.1,
-        "output": 36.78505671322246
+        "diff": -3.6,
+        "oldDdiff": 0.4,
+        "output": 33.11672022806553
       },
       "68": {
-        "diff": 0.1,
-        "oldDdiff": 4.1,
-        "output": 35.851263590710936
+        "diff": -3.7,
+        "oldDdiff": 0.4,
+        "output": 32.14143305928448
       },
       "69": {
-        "diff": 0,
-        "oldDdiff": 4.2,
-        "output": 34.91832888249155
+        "diff": -3.7,
+        "oldDdiff": 0.4,
+        "output": 31.169712432336325
       },
       "70": {
-        "diff": 0,
-        "oldDdiff": 4.2,
-        "output": 33.987184136076536
+        "diff": -3.8,
+        "oldDdiff": 0.4,
+        "output": 30.202891029686
       },
       "71": {
-        "diff": 0,
-        "oldDdiff": 4.2,
-        "output": 33.05866886109963
+        "diff": -3.9,
+        "oldDdiff": 0.4,
+        "output": 29.24189110125593
       },
       "72": {
-        "diff": -0.1,
-        "oldDdiff": 4.3,
-        "output": 32.13325441568071
+        "diff": -3.9,
+        "oldDdiff": 0.4,
+        "output": 28.28599316679864
       },
       "73": {
-        "diff": -0.1,
-        "oldDdiff": 4.3,
-        "output": 31.211320120061124
+        "diff": -4,
+        "oldDdiff": 0.4,
+        "output": 27.334067313524173
       },
       "74": {
-        "diff": -0.1,
-        "oldDdiff": 4.3,
-        "output": 30.29324529448226
+        "diff": -4,
+        "oldDdiff": 0.4,
+        "output": 26.384983628642587
       },
       "75": {
-        "diff": -0.1,
-        "oldDdiff": 4.4,
-        "output": 29.379409259185493
+        "diff": -4.1,
+        "oldDdiff": 0.4,
+        "output": 25.43761219936391
       },
       "76": {
-        "diff": -0.1,
-        "oldDdiff": 4.4,
-        "output": 28.4701913344122
+        "diff": -4.1,
+        "oldDdiff": 0.5,
+        "output": 24.490823112898205
       },
       "77": {
-        "diff": -0.1,
-        "oldDdiff": 4.5,
-        "output": 27.565970840403747
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 23.543486456455508
       },
       "78": {
-        "diff": -0.1,
-        "oldDdiff": 4.5,
-        "output": 26.66712709740151
+        "diff": -4.2,
+        "oldDdiff": 0.5,
+        "output": 22.594472317245867
       },
       "79": {
-        "diff": -0.1,
-        "oldDdiff": 4.6,
-        "output": 25.774039425646873
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 21.642650782479333
       },
       "80": {
-        "diff": -0.1,
-        "oldDdiff": 4.7,
-        "output": 24.8870871453812
+        "diff": -4.3,
+        "oldDdiff": 0.5,
+        "output": 20.686891939365943
       },
       "81": {
-        "diff": -0.1,
-        "oldDdiff": 4.8,
-        "output": 24.006316274732537
+        "diff": -4.4,
+        "oldDdiff": 0.5,
+        "output": 19.726527802691294
       },
       "82": {
-        "diff": -0.1,
-        "oldDdiff": 4.9,
-        "output": 23.13043962337556
+        "diff": -4.4,
+        "oldDdiff": 0.5,
+        "output": 18.762738097543153
       },
       "83": {
-        "diff": 0,
-        "oldDdiff": 4.9,
-        "output": 22.257836698871607
+        "diff": -4.5,
+        "oldDdiff": 0.5,
+        "output": 17.797164476584822
       },
       "84": {
-        "diff": 0,
-        "oldDdiff": 5,
-        "output": 21.386887008782033
+        "diff": -4.6,
+        "oldDdiff": 0.5,
+        "output": 16.831448592479617
       },
       "85": {
-        "diff": 0,
-        "oldDdiff": 5.1,
-        "output": 20.515970060668177
+        "diff": -4.6,
+        "oldDdiff": 0.5,
+        "output": 15.86723209789085
       },
       "86": {
-        "diff": 0,
-        "oldDdiff": 5.2,
-        "output": 19.64346536209138
+        "diff": -4.7,
+        "oldDdiff": 0.5,
+        "output": 14.906156645481826
       },
       "87": {
-        "diff": 0.1,
-        "oldDdiff": 5.3,
-        "output": 18.767752420612997
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 13.949863887915857
       },
       "88": {
-        "diff": 0.1,
-        "oldDdiff": 5.4,
-        "output": 17.887210743794355
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 12.99999547785625
       },
       "89": {
-        "diff": 0.1,
-        "oldDdiff": 5.4,
-        "output": 17.000219839196813
+        "diff": -4.8,
+        "oldDdiff": 0.5,
+        "output": 12.058193067966318
       },
       "90": {
-        "diff": 0.1,
-        "oldDdiff": 5.5,
-        "output": 16.105159214381707
+        "diff": -4.9,
+        "oldDdiff": 0.5,
+        "output": 11.12609831090937
       },
       "91": {
-        "diff": 0.1,
-        "oldDdiff": 5.6,
-        "output": 15.200839962527763
+        "diff": -4.9,
+        "oldDdiff": 0.6,
+        "output": 10.204890095479893
       },
       "92": {
-        "diff": 0.1,
-        "oldDdiff": 5.6,
-        "output": 14.28779951928322
+        "diff": -4.9,
+        "oldDdiff": 0.6,
+        "output": 9.293896254997081
       },
       "93": {
-        "diff": 0.1,
-        "oldDdiff": 5.6,
-        "output": 13.3670069059137
+        "diff": -4.9,
+        "oldDdiff": 0.7,
+        "output": 8.3919818589113
       },
       "94": {
-        "diff": 0,
-        "oldDdiff": 5.7,
-        "output": 12.439431143684828
+        "diff": -4.9,
+        "oldDdiff": 0.7,
+        "output": 7.498011976672929
       },
       "95": {
-        "diff": 0,
-        "oldDdiff": 5.7,
-        "output": 11.506041253862227
+        "diff": -4.9,
+        "oldDdiff": 0.8,
+        "output": 6.610851677732334
       },
       "96": {
-        "diff": 0,
-        "oldDdiff": 5.7,
-        "output": 10.567806257711515
+        "diff": -4.9,
+        "oldDdiff": 0.9,
+        "output": 5.729366031539885
       },
       "97": {
-        "diff": -0.1,
-        "oldDdiff": 5.7,
-        "output": 9.625695176498315
+        "diff": -4.8,
+        "oldDdiff": 1,
+        "output": 4.852420107545954
       },
       "98": {
-        "diff": -0.1,
-        "oldDdiff": 5.8,
-        "output": 8.680677031488251
+        "diff": -4.8,
+        "oldDdiff": 1.1,
+        "output": 3.9788789752009084
       },
       "99": {
-        "diff": -0.2,
-        "oldDdiff": 5.8,
-        "output": 7.7337208439469425
+        "diff": -4.8,
+        "oldDdiff": 1.1,
+        "output": 3.107607703955124
       },
       "100": {
-        "diff": -0.2,
-        "oldDdiff": 5.8,
-        "output": 6.785795635140012
+        "diff": -4.8,
+        "oldDdiff": 1.2,
+        "output": 2.237471363258969
       }
     }
   }

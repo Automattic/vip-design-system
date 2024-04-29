@@ -2,508 +2,508 @@
   "color": {
     "gray": {
       "0": {
-        "input": "#f5f5f6",
-        "value": "#f5f5f6",
+        "input": "#fbf7f9",
+        "value": "#fbf7f9",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#f2f2f3",
+        "value": "#f8f4f6",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#f0f0f1",
+        "value": "#f5f2f3",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#ededee",
+        "value": "#f2eff0",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#eaebec",
+        "value": "#efecee",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#e8e8e9",
+        "value": "#ece9eb",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#e5e6e7",
+        "value": "#e9e7e8",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#e3e3e4",
+        "value": "#e6e4e5",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#e0e1e2",
+        "value": "#e3e1e2",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#dededf",
+        "value": "#e0dfe0",
         "type": "color"
       },
       "10": {
-        "input": "#dbdcdd",
-        "value": "#dbdcdd",
+        "input": "#dddcdd",
+        "value": "#dddcdd",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#d8dadb",
+        "value": "#dad9da",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#d6d7d8",
+        "value": "#d7d7d8",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#d4d5d6",
+        "value": "#d4d4d5",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#d1d2d3",
+        "value": "#d1d2d2",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#cfd0d1",
+        "value": "#cecfd0",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#cccecf",
+        "value": "#cbcccd",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#cacbcc",
+        "value": "#c8cacb",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#c7c9ca",
+        "value": "#c6c7c8",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#c5c6c7",
+        "value": "#c3c5c6",
         "type": "color"
       },
       "20": {
-        "input": "#c2c4c5",
-        "value": "#c2c4c5",
+        "input": "#c0c2c3",
+        "value": "#c0c2c3",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#bfc2c3",
+        "value": "#bdbfc0",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#bdbfc0",
+        "value": "#bbbdbe",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#babdbe",
+        "value": "#b8babb",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#b8babb",
+        "value": "#b5b8b9",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#b5b8b9",
+        "value": "#b3b5b6",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#b2b5b7",
+        "value": "#b0b2b4",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#b0b2b4",
+        "value": "#aeb0b1",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#adb0b2",
+        "value": "#abadae",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#abadaf",
+        "value": "#a9abac",
         "type": "color"
       },
       "30": {
-        "input": "#a8abad",
-        "value": "#a8abad",
+        "input": "#a6a8a9",
+        "value": "#a6a8a9",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#a5a9ab",
+        "value": "#a3a5a6",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#a3a6a8",
+        "value": "#a1a3a4",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#a1a4a6",
+        "value": "#9ea0a1",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#9ea1a4",
+        "value": "#9c9e9e",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#9c9fa1",
+        "value": "#999b9c",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#999c9f",
+        "value": "#979999",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#979a9d",
+        "value": "#949696",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#95989a",
+        "value": "#929494",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#929598",
+        "value": "#8f9191",
         "type": "color"
       },
       "40": {
-        "input": "#909396",
-        "value": "#909396",
+        "input": "#8d8f8f",
+        "value": "#8d8f8f",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#8e9194",
+        "value": "#8b8d8d",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#8b8e92",
+        "value": "#888a8b",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#898c8f",
+        "value": "#868888",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#878a8d",
+        "value": "#838586",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#84878b",
+        "value": "#818284",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#828589",
+        "value": "#7f8082",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#808387",
+        "value": "#7c7d80",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#7e8184",
+        "value": "#7a7b7e",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#7b7e82",
+        "value": "#77787c",
         "type": "color"
       },
       "50": {
-        "input": "#797c80",
-        "value": "#797c80",
+        "input": "#75767a",
+        "value": "#75767a",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#777a7e",
+        "value": "#737478",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#74787c",
+        "value": "#707175",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#727579",
+        "value": "#6e6f73",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#707377",
+        "value": "#6b6c71",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#6e7175",
+        "value": "#696a6e",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#6b6f73",
+        "value": "#67676c",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#696d71",
+        "value": "#646569",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#676a6e",
+        "value": "#626367",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#64686c",
+        "value": "#5f6064",
         "type": "color"
       },
       "60": {
-        "input": "#62666a",
-        "value": "#62666a",
+        "input": "#5d5e62",
+        "value": "#5d5e62",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#606468",
+        "value": "#5b5c60",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#5d6266",
+        "value": "#585a5d",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#5b5f64",
+        "value": "#56575b",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#595d62",
+        "value": "#535558",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#565b5f",
+        "value": "#515356",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#54595d",
+        "value": "#4e5154",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#52575b",
+        "value": "#4c4f52",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#505459",
+        "value": "#4a4c4f",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#4d5257",
+        "value": "#474a4d",
         "type": "color"
       },
       "70": {
-        "input": "#4b5055",
-        "value": "#4b5055",
+        "input": "#45484b",
+        "value": "#45484b",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#494e53",
+        "value": "#434649",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#474c51",
+        "value": "#404447",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#444a4f",
+        "value": "#3e4145",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#42474c",
+        "value": "#3c3f43",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#40454a",
+        "value": "#3a3d41",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#3e4348",
+        "value": "#383b3f",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#3c4146",
+        "value": "#35383d",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#3a3f44",
+        "value": "#33363b",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#383d42",
+        "value": "#313439",
         "type": "color"
       },
       "80": {
-        "input": "#363b40",
-        "value": "#363b40",
+        "input": "#2f3237",
+        "value": "#2f3237",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#34393e",
+        "value": "#2d3035",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#32373c",
+        "value": "#2b2e33",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#30353a",
+        "value": "#292c31",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#2e3338",
+        "value": "#262a2f",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#2c3136",
+        "value": "#24282e",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#2b3034",
+        "value": "#22262c",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#292e33",
+        "value": "#20242a",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#272c31",
+        "value": "#1e2228",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#252a2f",
+        "value": "#1c2026",
         "type": "color"
       },
       "90": {
-        "input": "#23282d",
-        "value": "#23282d",
+        "input": "#1a1e24",
+        "value": "#1a1e24",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#21262b",
+        "value": "#181c22",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#1f2429",
+        "value": "#161a20",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#1d2227",
+        "value": "#14181e",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#1b2025",
+        "value": "#12171c",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#191f23",
+        "value": "#10151a",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#171d22",
+        "value": "#0d1218",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#161b20",
+        "value": "#0a1016",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#14191e",
+        "value": "#070d13",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#11171c",
+        "value": "#030a11",
         "type": "color"
       },
       "100": {
-        "input": "#0f151a",
-        "value": "#0f151a",
+        "input": "#00070e",
+        "value": "#00070e",
         "type": "color"
       }
     },
@@ -515,37 +515,37 @@
       },
       "1": {
         "input": null,
-        "value": "#faf8f7",
+        "value": "#faf7f7",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#f8f6f5",
+        "value": "#f7f4f4",
         "type": "color"
       },
       "3": {
-        "input": null,
-        "value": "#f6f4f2",
+        "input": "#f5f2f1",
+        "value": "#f5f2f1",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#f4f2f0",
+        "value": "#f3f0ee",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#f2efed",
+        "value": "#f1eeeb",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#f0ede9",
+        "value": "#f0ece8",
         "type": "color"
       },
       "7": {
-        "input": null,
-        "value": "#efebe6",
+        "input": "#eeeae5",
+        "value": "#eeeae5",
         "type": "color"
       },
       "8": {
@@ -570,437 +570,437 @@
       },
       "12": {
         "input": null,
-        "value": "#e7ddd0",
+        "value": "#e7ddcf",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#e6dacb",
+        "value": "#e6d9c9",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#e5d7c5",
+        "value": "#e4d5c3",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#e4d4bf",
+        "value": "#e3d1bb",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#e3d1b8",
+        "value": "#e1cdb4",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#e2cdb2",
+        "value": "#e0c8ad",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#e1caab",
+        "value": "#dec4a5",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#e0c6a5",
+        "value": "#ddc09d",
         "type": "color"
       },
       "20": {
-        "input": "#dfc39e",
-        "value": "#dfc39e",
+        "input": "#dcbc96",
+        "value": "#dcbc96",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#dec097",
+        "value": "#dbb88f",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#ddbc90",
+        "value": "#dab588",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#ddb98a",
+        "value": "#d9b181",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#dcb583",
+        "value": "#d8ae7a",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#dbb27d",
+        "value": "#d8ab74",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#daaf76",
+        "value": "#d7a86e",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#daac70",
+        "value": "#d6a567",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#d9a96a",
+        "value": "#d5a262",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#d8a664",
+        "value": "#d49f5c",
         "type": "color"
       },
       "30": {
-        "input": "#d8a45f",
-        "value": "#d8a45f",
+        "input": "#d39c56",
+        "value": "#d39c56",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#d8a25a",
+        "value": "#d29950",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#d7a055",
+        "value": "#d0964b",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#d79e51",
+        "value": "#ce9346",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#d79c4c",
+        "value": "#cd9041",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#d69a48",
+        "value": "#cb8d3c",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#d69844",
+        "value": "#c98a37",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#d59741",
+        "value": "#c78732",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#d4953d",
+        "value": "#c4852d",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#d3933a",
+        "value": "#c28229",
         "type": "color"
       },
       "40": {
-        "input": "#d29137",
-        "value": "#d29137",
+        "input": "#c07f25",
+        "value": "#c07f25",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#d08f34",
+        "value": "#be7c21",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#cf8d31",
+        "value": "#bb7a1d",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#cd8b2f",
+        "value": "#b9771a",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#cb882c",
+        "value": "#b77416",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#c8862a",
+        "value": "#b47213",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#c68327",
+        "value": "#b26f10",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#c38125",
+        "value": "#af6d0d",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#c07e23",
+        "value": "#ad6b0a",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#bd7c22",
+        "value": "#aa6808",
         "type": "color"
       },
       "50": {
-        "input": "#ba7920",
-        "value": "#ba7920",
+        "input": "#a76606",
+        "value": "#a76606",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#b7761e",
+        "value": "#a46404",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#b4741d",
+        "value": "#a16103",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#b1711c",
+        "value": "#9e5f02",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#ad6f1a",
+        "value": "#9b5d02",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#aa6c19",
+        "value": "#985b01",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#a76a18",
+        "value": "#945901",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#a46717",
+        "value": "#915600",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#a06516",
+        "value": "#8e5400",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#9d6215",
+        "value": "#8b5200",
         "type": "color"
       },
       "60": {
-        "input": "#9a6014",
-        "value": "#9a6014",
+        "input": "#885000",
+        "value": "#885000",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#975e13",
+        "value": "#854e00",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#945b12",
+        "value": "#824c00",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#915911",
+        "value": "#7f4a00",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#8e5710",
+        "value": "#7c4700",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#8b550f",
+        "value": "#794500",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#87530e",
+        "value": "#774300",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#84500c",
+        "value": "#744100",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#814e0b",
+        "value": "#713f00",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#7e4b0a",
+        "value": "#6e3d00",
         "type": "color"
       },
       "70": {
-        "input": "#7a4909",
-        "value": "#7a4909",
+        "input": "#6b3b00",
+        "value": "#6b3b00",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#764608",
+        "value": "#683900",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#734407",
+        "value": "#653700",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#6f4106",
+        "value": "#623500",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#6b3e06",
+        "value": "#5f3400",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#673c05",
+        "value": "#5c3200",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#623905",
+        "value": "#583000",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#5e3604",
+        "value": "#552e00",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#5a3304",
+        "value": "#522c00",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#563103",
+        "value": "#4f2b00",
         "type": "color"
       },
       "80": {
-        "input": "#522e03",
-        "value": "#522e03",
+        "input": "#4c2900",
+        "value": "#4c2900",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#4e2b03",
+        "value": "#492700",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#4a2903",
+        "value": "#462601",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#462703",
+        "value": "#432401",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#422403",
+        "value": "#402201",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#3e2203",
+        "value": "#3d2002",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#3b2003",
+        "value": "#3a1f02",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#371e03",
+        "value": "#371d02",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#341c03",
+        "value": "#341b03",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#301a03",
+        "value": "#311a03",
         "type": "color"
       },
       "90": {
-        "input": "#2d1803",
-        "value": "#2d1803",
+        "input": "#2e1803",
+        "value": "#2e1803",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#2a1603",
+        "value": "#2b1603",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#271403",
+        "value": "#281503",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#241302",
+        "value": "#251303",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#211102",
+        "value": "#221102",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#1f0f02",
+        "value": "#200f02",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#1c0c01",
+        "value": "#1d0d02",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#190901",
+        "value": "#1a0a01",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#160601",
+        "value": "#170601",
         "type": "color"
       },
       "99": {
@@ -1009,55 +1009,55 @@
         "type": "color"
       },
       "100": {
-        "input": "#0f0000",
-        "value": "#0f0000",
+        "input": "#0e0000",
+        "value": "#0e0000",
         "type": "color"
       }
     },
     "blue": {
       "0": {
-        "input": "#f4f5fe",
-        "value": "#f4f5fe",
+        "input": "#f8f7ff",
+        "value": "#f8f7ff",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#f1f3fe",
+        "value": "#f5f4fe",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#eef0fd",
+        "value": "#f1f2fe",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#ebeefd",
+        "value": "#eeeffd",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#e8ebfc",
+        "value": "#eaecfd",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#e5e9fc",
+        "value": "#e7eafc",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#e2e6fb",
+        "value": "#e3e7fc",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#dfe4fb",
+        "value": "#e0e4fb",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#dce1fb",
+        "value": "#dde1fb",
         "type": "color"
       },
       "9": {
@@ -1077,3159 +1077,3159 @@
       },
       "12": {
         "input": null,
-        "value": "#d0d7f9",
+        "value": "#d0d6f9",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#cdd4f9",
+        "value": "#ccd4f9",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#cad2f9",
+        "value": "#c9d1f8",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#c7cff9",
+        "value": "#c6cef8",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#c4cdf8",
+        "value": "#c3cbf7",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#c1caf8",
+        "value": "#c0c8f7",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#bdc7f8",
+        "value": "#bdc6f6",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#bac5f7",
+        "value": "#bac3f6",
         "type": "color"
       },
       "20": {
-        "input": "#b7c2f7",
-        "value": "#b7c2f7",
+        "input": "#b7c0f5",
+        "value": "#b7c0f5",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#b4bff7",
+        "value": "#b4bdf4",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#b0bdf6",
+        "value": "#b1bbf4",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#adbaf6",
+        "value": "#aeb8f3",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#aab7f5",
+        "value": "#aab5f3",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#a6b5f5",
+        "value": "#a7b3f2",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#a3b2f5",
+        "value": "#a4b0f1",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#a0aff4",
+        "value": "#a1adf1",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#9dacf4",
+        "value": "#9eaaf1",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#99aaf3",
+        "value": "#9aa8f0",
         "type": "color"
       },
       "30": {
-        "input": "#96a7f3",
-        "value": "#96a7f3",
+        "input": "#97a5f0",
+        "value": "#97a5f0",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#93a4f3",
+        "value": "#94a2f0",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#90a1f2",
+        "value": "#909ff0",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#8c9ff2",
+        "value": "#8d9df0",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#899cf2",
+        "value": "#899af0",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#8699f1",
+        "value": "#8697f0",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#8397f1",
+        "value": "#8294f0",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#8094f1",
+        "value": "#7f91ef",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#7d91f1",
+        "value": "#7c8eef",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#7a8ff0",
+        "value": "#788cef",
         "type": "color"
       },
       "40": {
-        "input": "#778cf0",
-        "value": "#778cf0",
+        "input": "#7589ee",
+        "value": "#7589ee",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#7489f0",
+        "value": "#7286ed",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#7187ef",
+        "value": "#6f84ec",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#6e85ef",
+        "value": "#6c81eb",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#6b82ef",
+        "value": "#697fea",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#6880ef",
+        "value": "#667ce9",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#657dee",
+        "value": "#6379e8",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#617aee",
+        "value": "#6077e7",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#5e78ee",
+        "value": "#5d74e7",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#5b75ed",
+        "value": "#5a71e7",
         "type": "color"
       },
       "50": {
-        "input": "#5772ed",
-        "value": "#5772ed",
+        "input": "#566ee7",
+        "value": "#566ee7",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#536fed",
+        "value": "#526be8",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#4f6cec",
+        "value": "#4d68e8",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#4b69ec",
+        "value": "#4964e9",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#4766ec",
+        "value": "#4461ea",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#4362eb",
+        "value": "#3f5eea",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#4060eb",
+        "value": "#3b5bea",
         "type": "color"
       },
       "57": {
-        "input": null,
-        "value": "#3c5dea",
-        "type": "color"
-      },
-      "58": {
-        "input": null,
-        "value": "#3a5aea",
-        "type": "color"
-      },
-      "59": {
         "input": "#3858E9",
         "value": "#3858e9",
         "type": "color"
       },
+      "58": {
+        "input": null,
+        "value": "#3655e7",
+        "type": "color"
+      },
+      "59": {
+        "input": null,
+        "value": "#3653e4",
+        "type": "color"
+      },
       "60": {
-        "input": "#3756e8",
-        "value": "#3756e8",
+        "input": "#3551e1",
+        "value": "#3551e1",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#3654e6",
+        "value": "#344fdd",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#3552e3",
+        "value": "#334dd9",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#3450df",
+        "value": "#314bd4",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#334fda",
+        "value": "#2f49cf",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#314dd4",
+        "value": "#2d47c9",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#304bcf",
+        "value": "#2a45c4",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#2f49c8",
+        "value": "#2844be",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#2e48c2",
+        "value": "#2642b9",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#2c46bc",
+        "value": "#2440b3",
         "type": "color"
       },
       "70": {
-        "input": "#2b44b6",
-        "value": "#2b44b6",
+        "input": "#223eae",
+        "value": "#223eae",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#2a42b0",
+        "value": "#203ca9",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#2940ab",
+        "value": "#1f3aa4",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#273fa6",
+        "value": "#1e389f",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#263da1",
+        "value": "#1d369a",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#253b9d",
+        "value": "#1d3496",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#243998",
+        "value": "#1c3291",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#233794",
+        "value": "#1b308d",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#22358f",
+        "value": "#1b2e88",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#21348b",
+        "value": "#1a2c84",
         "type": "color"
       },
       "80": {
-        "input": "#203287",
-        "value": "#203287",
+        "input": "#192a7f",
+        "value": "#192a7f",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#1f3083",
+        "value": "#18287a",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#1e2f7f",
+        "value": "#172676",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#1d2d7a",
+        "value": "#162571",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#1c2b76",
+        "value": "#14236d",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#1b2a72",
+        "value": "#132168",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#1a286d",
+        "value": "#121f63",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#192769",
+        "value": "#101e5f",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#182565",
+        "value": "#0f1c5a",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#172460",
+        "value": "#0d1b56",
         "type": "color"
       },
       "90": {
-        "input": "#16225c",
-        "value": "#16225c",
+        "input": "#0c1951",
+        "value": "#0c1951",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#152058",
+        "value": "#0b174d",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#141f53",
+        "value": "#091648",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#131d4f",
+        "value": "#081444",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#121c4b",
+        "value": "#07133f",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#111a47",
+        "value": "#06113b",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#101942",
+        "value": "#060e37",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#0f173e",
+        "value": "#060b33",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#0e163a",
+        "value": "#05082f",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#0d1436",
+        "value": "#03052b",
         "type": "color"
       },
       "100": {
-        "input": "#0c1232",
-        "value": "#0c1232",
+        "input": "#010227",
+        "value": "#010227",
         "type": "color"
       }
     },
     "red": {
       "0": {
-        "input": "#fff3f4",
-        "value": "#fff3f4",
+        "input": "#fff5f5",
+        "value": "#fff5f5",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#fff0f1",
+        "value": "#fff1f1",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#ffeced",
+        "value": "#fee",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#ffe9ea",
+        "value": "#ffeaea",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#ffe6e7",
+        "value": "#ffe7e6",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#ffe3e4",
+        "value": "#ffe3e3",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#ffdfe0",
+        "value": "#ffdfdf",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#ffdcdd",
+        "value": "#ffdcdc",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#ffd9da",
+        "value": "#ffd8d8",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#ffd5d6",
+        "value": "#ffd5d5",
         "type": "color"
       },
       "10": {
-        "input": "#ffd2d3",
-        "value": "#ffd2d3",
+        "input": "#ffd1d1",
+        "value": "#ffd1d1",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#ffcfd0",
+        "value": "#ffcdce",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#ffcbcc",
+        "value": "#ffcaca",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#ffc8c9",
+        "value": "#fec6c7",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#ffc4c6",
+        "value": "#fec2c3",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#ffc1c2",
+        "value": "#febfc0",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#ffbdbf",
+        "value": "#febbbc",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#ffbabb",
+        "value": "#fdb7b9",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#ffb6b8",
+        "value": "#fdb3b5",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#ffb3b4",
+        "value": "#fcb0b2",
         "type": "color"
       },
       "20": {
-        "input": "#ffafb1",
-        "value": "#ffafb1",
+        "input": "#fcacae",
+        "value": "#fcacae",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#ffabad",
+        "value": "#fca8aa",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#ffa8aa",
+        "value": "#fba4a7",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#fea4a6",
+        "value": "#fba1a3",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#fea0a3",
+        "value": "#fa9d9f",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#fe9c9f",
+        "value": "#fa999b",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#fe989b",
+        "value": "#fa9597",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#fe9497",
+        "value": "#f99193",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#fe9093",
+        "value": "#f98c8e",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#ff8b8e",
+        "value": "#fa888a",
         "type": "color"
       },
       "30": {
-        "input": "#ff878a",
-        "value": "#ff878a",
+        "input": "#fa8385",
+        "value": "#fa8385",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#ff8285",
+        "value": "#fb7e80",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#ff7e81",
+        "value": "#fb797b",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#ff797c",
+        "value": "#fc7376",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#ff7477",
+        "value": "#fc6e71",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#ff6f72",
+        "value": "#fd686c",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#ff6b6e",
+        "value": "#fd6367",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#ff666a",
+        "value": "#fc5d63",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#ff6165",
+        "value": "#fc585e",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#ff5d62",
+        "value": "#fb535b",
         "type": "color"
       },
       "40": {
-        "input": "#ff595e",
-        "value": "#ff595e",
+        "input": "#f94e57",
+        "value": "#f94e57",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#fd555b",
+        "value": "#f74a54",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#fb5258",
+        "value": "#f44751",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#f85056",
+        "value": "#f1444f",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#f44e53",
+        "value": "#ed414d",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#f14c52",
+        "value": "#e9404b",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#ed4a50",
+        "value": "#e53e49",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#e9494e",
+        "value": "#e13d48",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#e5474d",
+        "value": "#dd3c46",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#e1464b",
+        "value": "#d83b45",
         "type": "color"
       },
       "50": {
-        "input": "#dd454a",
-        "value": "#dd454a",
+        "input": "#d43a43",
+        "value": "#d43a43",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#d94449",
+        "value": "#d03941",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#d54347",
+        "value": "#cc3840",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#d14246",
+        "value": "#c8373e",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#ce4045",
+        "value": "#c4353c",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#ca3f43",
+        "value": "#c0343a",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#c63e42",
+        "value": "#bc3338",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#c23d41",
+        "value": "#b83137",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#bf3b40",
+        "value": "#b43035",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#bb3a3e",
+        "value": "#b02e33",
         "type": "color"
       },
       "60": {
-        "input": "#b7393d",
-        "value": "#b7393d",
+        "input": "#ac2d32",
+        "value": "#ac2d32",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#b3383c",
+        "value": "#a82c31",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#af373a",
+        "value": "#a42a2f",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#ab3539",
+        "value": "#a0292e",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#a73438",
+        "value": "#9c282d",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#a43336",
+        "value": "#98272c",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#a03235",
+        "value": "#94262b",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#9c3134",
+        "value": "#90242a",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#982f33",
+        "value": "#8c2329",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#942e31",
+        "value": "#882228",
         "type": "color"
       },
       "70": {
-        "input": "#902d30",
-        "value": "#902d30",
+        "input": "#842127",
+        "value": "#842127",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#8c2c2f",
+        "value": "#802026",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#882b2e",
+        "value": "#7c1f24",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#85292c",
+        "value": "#781e23",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#81282b",
+        "value": "#751c22",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#7d272a",
+        "value": "#711b20",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#792629",
+        "value": "#6d1a1f",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#762428",
+        "value": "#6a191d",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#722326",
+        "value": "#66181c",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#6f2225",
+        "value": "#62161a",
         "type": "color"
       },
       "80": {
-        "input": "#6b2124",
-        "value": "#6b2124",
+        "input": "#5f1519",
+        "value": "#5f1519",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#682023",
+        "value": "#5c1418",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#641f22",
+        "value": "#581216",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#611e20",
+        "value": "#551115",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#5d1d1f",
+        "value": "#520f14",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#5a1c1e",
+        "value": "#4e0e13",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#561b1d",
+        "value": "#4b0d11",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#531a1b",
+        "value": "#480c10",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#50191a",
+        "value": "#450b0f",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#4c1819",
+        "value": "#410a0d",
         "type": "color"
       },
       "90": {
-        "input": "#491718",
-        "value": "#491718",
+        "input": "#3e090c",
+        "value": "#3e090c",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#461617",
+        "value": "#3b080b",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#421516",
+        "value": "#370809",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#3f1415",
+        "value": "#340808",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#3c1314",
+        "value": "#310806",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#381213",
+        "value": "#2e0705",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#351112",
+        "value": "#2a0604",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#321011",
+        "value": "#280503",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#2e0f10",
+        "value": "#250302",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#2b0d0e",
+        "value": "#220201",
         "type": "color"
       },
       "100": {
-        "input": "#280c0d",
-        "value": "#280c0d",
+        "input": "#1f0000",
+        "value": "#1f0000",
         "type": "color"
       }
     },
     "teal": {
       "0": {
-        "input": "#eef8fa",
-        "value": "#eef8fa",
+        "input": "#f0fafb",
+        "value": "#f0fafb",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#e9f6f8",
+        "value": "#ebf8f9",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#e3f4f7",
+        "value": "#e5f6f7",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#def2f5",
+        "value": "#e0f4f5",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#d9f0f4",
+        "value": "#dbf2f3",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#d3eef2",
+        "value": "#d5f0f1",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#ceecf0",
+        "value": "#d0eeef",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#c9eaef",
+        "value": "#cbeced",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#c3e8ed",
+        "value": "#c5e9ec",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#bee6ec",
+        "value": "#c0e7ea",
         "type": "color"
       },
       "10": {
-        "input": "#b9e4ea",
-        "value": "#b9e4ea",
+        "input": "#bbe5e8",
+        "value": "#bbe5e8",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#b4e2e8",
+        "value": "#b6e3e6",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#afe0e7",
+        "value": "#b1e0e5",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#aadee5",
+        "value": "#acdee3",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#a5dce4",
+        "value": "#a7dce1",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#a0dae2",
+        "value": "#a1dae0",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#9bd8e0",
+        "value": "#9cd7de",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#96d6df",
+        "value": "#97d5dd",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#90d4dd",
+        "value": "#91d3db",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#8bd2dc",
+        "value": "#8cd0da",
         "type": "color"
       },
       "20": {
-        "input": "#85d0da",
-        "value": "#85d0da",
+        "input": "#86ced8",
+        "value": "#86ced8",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#7fced8",
+        "value": "#80ccd6",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#79ccd7",
+        "value": "#7acad5",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#72cad5",
+        "value": "#73c7d3",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#6cc8d4",
+        "value": "#6dc5d1",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#66c6d2",
+        "value": "#66c3cf",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#5fc3d0",
+        "value": "#5fc1ce",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#59c1ce",
+        "value": "#59becc",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#53bfcc",
+        "value": "#53bcc9",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#4ebcca",
+        "value": "#4eb9c7",
         "type": "color"
       },
       "30": {
-        "input": "#49bac8",
-        "value": "#49bac8",
+        "input": "#49b7c5",
+        "value": "#49b7c5",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#45b8c6",
+        "value": "#45b4c3",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#42b5c3",
+        "value": "#42b2c0",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#40b2c1",
+        "value": "#40afbd",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#3fb0be",
+        "value": "#3fadbb",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#3eadbb",
+        "value": "#3eaab8",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#3eabb8",
+        "value": "#3ea7b5",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#3ea8b6",
+        "value": "#3ea4b2",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#3ea5b3",
+        "value": "#3ea2af",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#3ea3b0",
+        "value": "#3d9fac",
         "type": "color"
       },
       "40": {
-        "input": "#3ea0ad",
-        "value": "#3ea0ad",
+        "input": "#3d9ca9",
+        "value": "#3d9ca9",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#3e9daa",
+        "value": "#3c99a6",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#3d9ba7",
+        "value": "#3b97a3",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#3c98a5",
+        "value": "#3a94a0",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#3b96a2",
+        "value": "#38919c",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#3a939f",
+        "value": "#378e99",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#39919c",
+        "value": "#358c96",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#388e9a",
+        "value": "#338993",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#368c97",
+        "value": "#318690",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#358995",
+        "value": "#30848d",
         "type": "color"
       },
       "50": {
-        "input": "#348792",
-        "value": "#348792",
+        "input": "#2e818a",
+        "value": "#2e818a",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#33858f",
+        "value": "#2d7e87",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#32828d",
+        "value": "#2b7c84",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#31808a",
+        "value": "#2a7982",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#307d88",
+        "value": "#29767f",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#2f7b85",
+        "value": "#28747c",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#2e7983",
+        "value": "#27717a",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#2d7681",
+        "value": "#266f77",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#2d747e",
+        "value": "#266c75",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#2c717c",
+        "value": "#256a72",
         "type": "color"
       },
       "60": {
-        "input": "#2b6f79",
-        "value": "#2b6f79",
+        "input": "#246770",
+        "value": "#246770",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#2a6d76",
+        "value": "#23656e",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#296a74",
+        "value": "#22626b",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#286871",
+        "value": "#216069",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#28656f",
+        "value": "#215d66",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#27636c",
+        "value": "#205b64",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#266069",
+        "value": "#1f5861",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#255e67",
+        "value": "#1d565f",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#245c64",
+        "value": "#1c545c",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#235962",
+        "value": "#1b515a",
         "type": "color"
       },
       "70": {
-        "input": "#22575f",
-        "value": "#22575f",
+        "input": "#1a4f57",
+        "value": "#1a4f57",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#21555c",
+        "value": "#194d54",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#20525a",
+        "value": "#174a52",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#1f5057",
+        "value": "#16484f",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#1e4e55",
+        "value": "#15464c",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#1d4c52",
+        "value": "#134349",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#1d4a50",
+        "value": "#124147",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#1c474d",
+        "value": "#113f44",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#1b454b",
+        "value": "#0f3d41",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#1a4348",
+        "value": "#0e3a3f",
         "type": "color"
       },
       "80": {
-        "input": "#194146",
-        "value": "#194146",
+        "input": "#0d383c",
+        "value": "#0d383c",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#183f44",
+        "value": "#0c3639",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#173d41",
+        "value": "#0b3437",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#163b3f",
+        "value": "#0a3134",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#16393d",
+        "value": "#092f32",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#15373a",
+        "value": "#092d30",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#143438",
+        "value": "#092b2d",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#133236",
+        "value": "#08292b",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#123034",
+        "value": "#082629",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#122e31",
+        "value": "#082426",
         "type": "color"
       },
       "90": {
-        "input": "#112c2f",
-        "value": "#112c2f",
+        "input": "#082224",
+        "value": "#082224",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#102a2d",
+        "value": "#082022",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#10282b",
+        "value": "#081e20",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#0f2628",
+        "value": "#081c1d",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#0f2326",
+        "value": "#071a1b",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#0e2124",
+        "value": "#061819",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#0e1f22",
+        "value": "#041517",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#0d1d1f",
+        "value": "#031315",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#0c1b1d",
+        "value": "#021013",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#0b191b",
+        "value": "#010d10",
         "type": "color"
       },
       "100": {
-        "input": "#091719",
-        "value": "#091719",
+        "input": "#00090d",
+        "value": "#00090d",
         "type": "color"
       }
     },
     "orange": {
       "0": {
-        "input": "#fff5ec",
-        "value": "#fff5ec",
+        "input": "#fff6eb",
+        "value": "#fff6eb",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#fff2e6",
+        "value": "#fff3e5",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#ffeee0",
+        "value": "#ffefdf",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#ffebda",
+        "value": "#ffecd8",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#ffe8d4",
+        "value": "#ffe9d2",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#fee5ce",
+        "value": "#ffe6cc",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#fee1c8",
+        "value": "#fee2c6",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#fedec2",
+        "value": "#fedfc0",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#fedbbc",
+        "value": "#fedcba",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#fdd8b7",
+        "value": "#fdd8b4",
         "type": "color"
       },
       "10": {
-        "input": "#fdd5b1",
-        "value": "#fdd5b1",
+        "input": "#fdd5ae",
+        "value": "#fdd5ae",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#fdd2ab",
+        "value": "#fdd2a8",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#fccfa6",
+        "value": "#fccea2",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#fccca0",
+        "value": "#fccb9d",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#fcc99b",
+        "value": "#fbc897",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#fcc695",
+        "value": "#fbc491",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#fcc38f",
+        "value": "#fac18b",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#fcc089",
+        "value": "#fabd85",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#fcbd83",
+        "value": "#f9b97e",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#fcb97d",
+        "value": "#f9b678",
         "type": "color"
       },
       "20": {
-        "input": "#fcb676",
-        "value": "#fcb676",
+        "input": "#f9b271",
+        "value": "#f9b271",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#fcb26f",
+        "value": "#f9ae6a",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#fcaf68",
+        "value": "#f9aa63",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#fdab61",
+        "value": "#f9a65b",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#fda75a",
+        "value": "#f9a254",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#fda352",
+        "value": "#f99e4d",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#fda04b",
+        "value": "#f89a45",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#fc9c44",
+        "value": "#f8963e",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#fc983d",
+        "value": "#f79237",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#fc9436",
+        "value": "#f78e30",
         "type": "color"
       },
       "30": {
-        "input": "#fb902f",
-        "value": "#fb902f",
+        "input": "#f68a29",
+        "value": "#f68a29",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#fa8c29",
+        "value": "#f58623",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#f98923",
+        "value": "#f4821d",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#f8851d",
+        "value": "#f27f18",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#f78218",
+        "value": "#f17b12",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#f57e13",
+        "value": "#ef780e",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#f37b0e",
+        "value": "#ed7509",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#f17809",
+        "value": "#eb7205",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#ef7505",
+        "value": "#e86f03",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#ed7302",
+        "value": "#e66c01",
         "type": "color"
       },
       "40": {
-        "input": "#ea7000",
-        "value": "#ea7000",
+        "input": "#e36900",
+        "value": "#e36900",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#e76e00",
+        "value": "#e06600",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#e46c00",
+        "value": "#dd6400",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#e16900",
+        "value": "#d96200",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#dd6800",
+        "value": "#d66000",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#da6600",
+        "value": "#d25e00",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#d66400",
+        "value": "#ce5c00",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#d26300",
+        "value": "#ca5a00",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#cf6100",
+        "value": "#c65800",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#cb6000",
+        "value": "#c25700",
         "type": "color"
       },
       "50": {
-        "input": "#c75e00",
-        "value": "#c75e00",
+        "input": "#be5500",
+        "value": "#be5500",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#c35c00",
+        "value": "#ba5300",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#c05b00",
+        "value": "#b65200",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#bc5901",
+        "value": "#b25000",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#b85801",
+        "value": "#ae4e00",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#b55601",
+        "value": "#aa4d00",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#b15500",
+        "value": "#a74b00",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#ae5300",
+        "value": "#a34900",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#aa5100",
+        "value": "#9f4700",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#a65000",
+        "value": "#9c4600",
         "type": "color"
       },
       "60": {
-        "input": "#a34e00",
-        "value": "#a34e00",
+        "input": "#984400",
+        "value": "#984400",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#a04c00",
+        "value": "#954200",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#9c4b00",
+        "value": "#914000",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#994900",
+        "value": "#8e3f00",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#954700",
+        "value": "#8b3d00",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#924600",
+        "value": "#873b00",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#8e4400",
+        "value": "#843900",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#8b4200",
+        "value": "#813700",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#884000",
+        "value": "#7e3600",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#843f00",
+        "value": "#7a3400",
         "type": "color"
       },
       "70": {
-        "input": "#813d00",
-        "value": "#813d00",
+        "input": "#773200",
+        "value": "#773200",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#7e3b00",
+        "value": "#743000",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#7a3a00",
+        "value": "#702f00",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#773800",
+        "value": "#6d2d00",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#743600",
+        "value": "#692b00",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#703500",
+        "value": "#662a00",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#6d3300",
+        "value": "#632800",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#6a3200",
+        "value": "#5f2700",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#663000",
+        "value": "#5c2500",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#632e00",
+        "value": "#582300",
         "type": "color"
       },
       "80": {
-        "input": "#602d00",
-        "value": "#602d00",
+        "input": "#552200",
+        "value": "#520",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#5d2c00",
+        "value": "#522100",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#5a2a00",
+        "value": "#4e1f00",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#572900",
+        "value": "#4b1e00",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#532700",
+        "value": "#481c00",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#502600",
+        "value": "#451b00",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#4d2500",
+        "value": "#411900",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#4a2300",
+        "value": "#3e1800",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#472200",
+        "value": "#3b1700",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#442000",
+        "value": "#381500",
         "type": "color"
       },
       "90": {
-        "input": "#411f00",
-        "value": "#411f00",
+        "input": "#351400",
+        "value": "#351400",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#3e1e00",
+        "value": "#321300",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#3b1c00",
+        "value": "#2f1100",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#381b00",
+        "value": "#2c1000",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#351900",
+        "value": "#290f00",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#321800",
+        "value": "#260d00",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#2f1600",
+        "value": "#230b00",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#2c1500",
+        "value": "#210800",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#291300",
+        "value": "#1e0500",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#261200",
+        "value": "#1b0300",
         "type": "color"
       },
       "100": {
-        "input": "#231000",
-        "value": "#231000",
+        "input": "#180000",
+        "value": "#180000",
         "type": "color"
       }
     },
     "purple": {
       "0": {
-        "input": "#f8f4fd",
-        "value": "#f8f4fd",
+        "input": "#fdf6ff",
+        "value": "#fdf6ff",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#f6f1fd",
+        "value": "#fbf3fe",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#f4eefc",
+        "value": "#f9f0fe",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#f3ebfc",
+        "value": "#f7ecfd",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#f1e8fb",
+        "value": "#f5e9fd",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#efe5fb",
+        "value": "#f3e6fc",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#ede2fa",
+        "value": "#f1e3fc",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#ebdffa",
+        "value": "#efe0fb",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#e9dcf9",
+        "value": "#eddcfa",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#e8d9f9",
+        "value": "#ebd9fa",
         "type": "color"
       },
       "10": {
-        "input": "#e6d6f8",
-        "value": "#e6d6f8",
+        "input": "#e9d6f9",
+        "value": "#e9d6f9",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#e4d3f7",
+        "value": "#e7d3f8",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#e3d0f7",
+        "value": "#e5d0f7",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#e1cdf6",
+        "value": "#e3ccf7",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#dfcaf6",
+        "value": "#e1c9f6",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#dec8f5",
+        "value": "#dfc6f5",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#dcc5f4",
+        "value": "#dec3f4",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#dac2f4",
+        "value": "#dcc0f3",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#d8bff3",
+        "value": "#dabcf2",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#d7bcf3",
+        "value": "#d8b9f1",
         "type": "color"
       },
       "20": {
-        "input": "#d5b9f2",
-        "value": "#d5b9f2",
+        "input": "#d6b6f0",
+        "value": "#d6b6f0",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#d3b6f1",
+        "value": "#d4b3ef",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#d1b3f1",
+        "value": "#d2b0ee",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#d0b0f0",
+        "value": "#d0aded",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#ceadf0",
+        "value": "#cea9ec",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#ccaaef",
+        "value": "#cca6eb",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#caa7ee",
+        "value": "#caa3ea",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#c8a3ee",
+        "value": "#c8a0e9",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#c6a0ed",
+        "value": "#c69de8",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#c49ded",
+        "value": "#c49ae8",
         "type": "color"
       },
       "30": {
-        "input": "#c29aec",
-        "value": "#c29aec",
+        "input": "#c297e7",
+        "value": "#c297e7",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#c097eb",
+        "value": "#c094e6",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#be94eb",
+        "value": "#be91e6",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#bc91ea",
+        "value": "#bb8ee5",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#ba8eea",
+        "value": "#b98be5",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#b88be9",
+        "value": "#b788e5",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#b687e9",
+        "value": "#b585e4",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#b584e8",
+        "value": "#b382e4",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#b381e8",
+        "value": "#b07ee4",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#b17ee7",
+        "value": "#ae7be3",
         "type": "color"
       },
       "40": {
-        "input": "#af7be7",
-        "value": "#af7be7",
+        "input": "#ac78e3",
+        "value": "#ac78e3",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#ad78e7",
+        "value": "#aa75e3",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#ab75e7",
+        "value": "#a871e2",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#aa71e6",
+        "value": "#a66ee2",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#a86ee6",
+        "value": "#a36ae2",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#a66be6",
+        "value": "#a167e1",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#a468e5",
+        "value": "#9f64e0",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#a265e5",
+        "value": "#9d60df",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#a062e4",
+        "value": "#9b5dde",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#9e5fe2",
+        "value": "#985add",
         "type": "color"
       },
       "50": {
-        "input": "#9c5ce1",
-        "value": "#9c5ce1",
+        "input": "#9657db",
+        "value": "#9657db",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#9a59df",
+        "value": "#9454d9",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#9757dd",
+        "value": "#9151d7",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#9554db",
+        "value": "#8f4fd4",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#9352d8",
+        "value": "#8c4cd2",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#9050d5",
+        "value": "#894acf",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#8e4ed2",
+        "value": "#8748cb",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#8b4ccf",
+        "value": "#8446c8",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#884acb",
+        "value": "#8144c5",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#8648c8",
+        "value": "#7f42c1",
         "type": "color"
       },
       "60": {
-        "input": "#8346c4",
-        "value": "#8346c4",
+        "input": "#7c40bd",
+        "value": "#7c40bd",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#8044c0",
+        "value": "#793eb9",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#7e43bc",
+        "value": "#763cb5",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#7b41b8",
+        "value": "#743bb1",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#7840b4",
+        "value": "#7139ad",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#753eb0",
+        "value": "#6e37a8",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#723dac",
+        "value": "#6b35a4",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#6f3ba8",
+        "value": "#68349f",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#6d3aa4",
+        "value": "#66329b",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#6a389f",
+        "value": "#633197",
         "type": "color"
       },
       "70": {
-        "input": "#67379b",
-        "value": "#67379b",
+        "input": "#602f92",
+        "value": "#602f92",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#643697",
+        "value": "#5d2d8d",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#613492",
+        "value": "#5a2c89",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#5f338e",
+        "value": "#582a85",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#5c318a",
+        "value": "#552980",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#593086",
+        "value": "#52287c",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#562f82",
+        "value": "#4f2677",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#542d7e",
+        "value": "#4c2573",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#512c7a",
+        "value": "#4a236f",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#4f2a76",
+        "value": "#47226b",
         "type": "color"
       },
       "80": {
-        "input": "#4c2972",
-        "value": "#4c2972",
+        "input": "#442067",
+        "value": "#442067",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#4a286e",
+        "value": "#411e63",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#47266b",
+        "value": "#3f1d5f",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#452567",
+        "value": "#3c1b5c",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#422464",
+        "value": "#391a58",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#402260",
+        "value": "#371855",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#3d215d",
+        "value": "#341751",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#3b205a",
+        "value": "#31154e",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#391f56",
+        "value": "#2f144a",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#361d53",
+        "value": "#2c1247",
         "type": "color"
       },
       "90": {
-        "input": "#341c4f",
-        "value": "#341c4f",
+        "input": "#2a1143",
+        "value": "#2a1143",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#321b4b",
+        "value": "#28103f",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#2f1948",
+        "value": "#250f3c",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#2d1844",
+        "value": "#230e38",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#2a1740",
+        "value": "#210d34",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#28163c",
+        "value": "#1e0b30",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#251438",
+        "value": "#1d092d",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#231334",
+        "value": "#1b0729",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#211231",
+        "value": "#190525",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#1e112d",
+        "value": "#170222",
         "type": "color"
       },
       "100": {
-        "input": "#1c0f29",
-        "value": "#1c0f29",
+        "input": "#15001e",
+        "value": "#15001e",
         "type": "color"
       }
     },
     "yellow": {
       "0": {
-        "input": "#FDF6DF",
-        "value": "#fdf6df",
+        "input": "#fcf9d8",
+        "value": "#fcf9d8",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#fdf5dd",
+        "value": "#fef6c5",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#fcf5db",
+        "value": "#fff3b2",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#fcf4d9",
+        "value": "#fff09f",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#fcf3d6",
+        "value": "#ffed8d",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#fbf3d2",
+        "value": "#ffea7b",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#fbf2ce",
+        "value": "#fee76a",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#fcf1c8",
+        "value": "#fde458",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#fcf0c2",
+        "value": "#fbe247",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#fcefba",
+        "value": "#f9df36",
         "type": "color"
       },
       "10": {
-        "input": "#FDEEB1",
-        "value": "#fdeeb1",
+        "input": "#f7dc25",
+        "value": "#f7dc25",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#feeda6",
+        "value": "#f5d911",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#feeb9a",
+        "value": "#f2d700",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#ffea8c",
+        "value": "#efd400",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#ffe97e",
+        "value": "#ecd100",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#ffe76f",
+        "value": "#e9ce00",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#ffe560",
+        "value": "#e6cc00",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#fee350",
+        "value": "#e3c900",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#fde140",
+        "value": "#e0c600",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#fbdf2f",
+        "value": "#ddc400",
         "type": "color"
       },
       "20": {
-        "input": "#F9DD1D",
-        "value": "#f9dd1d",
+        "input": "#dac100",
+        "value": "#dac100",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#f7db05",
+        "value": "#d7be05",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#f4d800",
+        "value": "#d4bc08",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#f1d500",
+        "value": "#d1b90a",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#eed300",
+        "value": "#ceb60a",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#ebd000",
+        "value": "#cbb409",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#e8cd00",
+        "value": "#c8b108",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#e4ca00",
+        "value": "#c6af06",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#e1c708",
+        "value": "#c3ac04",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#ddc412",
+        "value": "#c0aa02",
         "type": "color"
       },
       "30": {
-        "input": "#DAC118",
-        "value": "#dac118",
+        "input": "#bda700",
+        "value": "#bda700",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#d7be1b",
+        "value": "#baa400",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#d4bb1d",
+        "value": "#b7a200",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#d1b91e",
+        "value": "#b49f00",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#ceb61d",
+        "value": "#b29d00",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#cbb31c",
+        "value": "#af9a00",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#c8b01b",
+        "value": "#ac9800",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#c5ae19",
+        "value": "#a99600",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#c2ab17",
+        "value": "#a69300",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#bfa915",
+        "value": "#a49100",
         "type": "color"
       },
       "40": {
-        "input": "#BCA613",
-        "value": "#bca613",
+        "input": "#a18e00",
+        "value": "#a18e00",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#b9a311",
+        "value": "#9e8b00",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#b6a110",
+        "value": "#9c8900",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#b39e0f",
+        "value": "#998600",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#b09c0f",
+        "value": "#968400",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#ad990e",
+        "value": "#948100",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#aa960e",
+        "value": "#917f00",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#a7940e",
+        "value": "#8f7c00",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#a4910e",
+        "value": "#8c7a00",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#a18f0e",
+        "value": "#8a7700",
         "type": "color"
       },
       "50": {
-        "input": "#9E8C0E",
-        "value": "#9e8c0e",
+        "input": "#877500",
+        "value": "#877500",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#9b890e",
+        "value": "#847300",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#98870d",
+        "value": "#827000",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#95840d",
+        "value": "#7f6e00",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#92810c",
+        "value": "#7d6c00",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#8f7f0c",
+        "value": "#7a6900",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#8c7c0b",
+        "value": "#776700",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#897a0b",
+        "value": "#756500",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#87770a",
+        "value": "#726300",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#847509",
+        "value": "#706000",
         "type": "color"
       },
       "60": {
-        "input": "#817209",
-        "value": "#817209",
+        "input": "#6d5e00",
+        "value": "#6d5e00",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#7e7009",
+        "value": "#6a5c00",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#7b6d08",
+        "value": "#685900",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#796b08",
+        "value": "#655700",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#766808",
+        "value": "#625500",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#736607",
+        "value": "#605300",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#716407",
+        "value": "#5d5000",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#6e6107",
+        "value": "#5b4e00",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#6b5f07",
+        "value": "#584c00",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#695c06",
+        "value": "#564900",
         "type": "color"
       },
       "70": {
-        "input": "#665A06",
-        "value": "#665a06",
+        "input": "#534700",
+        "value": "#534700",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#635806",
+        "value": "#514500",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#615505",
+        "value": "#4e4200",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#5e5305",
+        "value": "#4c4000",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#5b5005",
+        "value": "#493e00",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#594e04",
+        "value": "#473c00",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#564b04",
+        "value": "#453900",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#544904",
+        "value": "#423700",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#514703",
+        "value": "#403500",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#4f4403",
+        "value": "#3d3300",
         "type": "color"
       },
       "80": {
-        "input": "#4C4203",
-        "value": "#4c4203",
+        "input": "#3b3100",
+        "value": "#3b3100",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#494003",
+        "value": "#392f00",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#473d03",
+        "value": "#362d00",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#443b02",
+        "value": "#342b00",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#423902",
+        "value": "#312900",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#3f3702",
+        "value": "#2f2700",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#3d3502",
+        "value": "#2c2500",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#3a3301",
+        "value": "#2a2400",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#383001",
+        "value": "#282200",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#362e01",
+        "value": "#252000",
         "type": "color"
       },
       "90": {
-        "input": "#332C01",
-        "value": "#332c01",
+        "input": "#231e00",
+        "value": "#231e00",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#302a01",
+        "value": "#211c00",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#2e2801",
+        "value": "#1f1a00",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#2b2501",
+        "value": "#1c1800",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#292301",
+        "value": "#1a1600",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#262101",
+        "value": "#181400",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#241f01",
+        "value": "#151200",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#211d01",
+        "value": "#121000",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#1f1a00",
+        "value": "#0f0d00",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#1d1800",
+        "value": "#0b0a00",
         "type": "color"
       },
       "100": {
-        "input": "#1A1600",
-        "value": "#1a1600",
+        "input": "#060600",
+        "value": "#060600",
         "type": "color"
       }
     },
     "green": {
       "0": {
-        "input": "#f1f7e8",
-        "value": "#f1f7e8",
+        "input": "#f4fae9",
+        "value": "#f4fae9",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#eef5e3",
+        "value": "#f1f7e4",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#eaf3dd",
+        "value": "#eef5de",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#e7f1d8",
+        "value": "#ebf2d9",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#e3efd3",
+        "value": "#e8f0d3",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#e0edcd",
+        "value": "#e4eece",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#ddebc8",
+        "value": "#e1ebc9",
         "type": "color"
       },
       "7": {
         "input": null,
-        "value": "#d9e9c3",
+        "value": "#dee9c3",
         "type": "color"
       },
       "8": {
         "input": null,
-        "value": "#d6e7bd",
+        "value": "#dae6be",
         "type": "color"
       },
       "9": {
         "input": null,
-        "value": "#d2e5b8",
+        "value": "#d7e4b8",
         "type": "color"
       },
       "10": {
-        "input": "#cfe3b3",
-        "value": "#cfe3b3",
+        "input": "#d3e2b3",
+        "value": "#d3e2b3",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#cce1ae",
+        "value": "#cfe0ae",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#c8dfa9",
+        "value": "#cbdea8",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#c5dda4",
+        "value": "#c7dca3",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#c2db9e",
+        "value": "#c3da9d",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#bed999",
+        "value": "#bfd798",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#bbd794",
+        "value": "#bbd592",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#b8d58f",
+        "value": "#b7d38d",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#b5d38a",
+        "value": "#b3d187",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#b1d184",
+        "value": "#afce81",
         "type": "color"
       },
       "20": {
-        "input": "#aecf7f",
-        "value": "#aecf7f",
+        "input": "#abcc7b",
+        "value": "#abcc7b",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#abcd7a",
+        "value": "#a7c975",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#a7cb74",
+        "value": "#a4c76f",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#a4c86e",
+        "value": "#a0c468",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#a1c669",
+        "value": "#9dc262",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#9dc463",
+        "value": "#99bf5c",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#99c25d",
+        "value": "#96bd56",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#96c057",
+        "value": "#92ba4f",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#92bd50",
+        "value": "#8eb849",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#8dbb4a",
+        "value": "#8bb643",
         "type": "color"
       },
       "30": {
-        "input": "#89b943",
-        "value": "#89b943",
+        "input": "#87b53d",
+        "value": "#87b53d",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#84b73c",
+        "value": "#83b437",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#80b535",
+        "value": "#7fb331",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#7bb32d",
+        "value": "#7bb22c",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#77b127",
+        "value": "#77b026",
         "type": "color"
       },
       "35": {
@@ -4244,359 +4244,359 @@
       },
       "37": {
         "input": null,
-        "value": "#6eaa1a",
+        "value": "#6da918",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#6ca719",
+        "value": "#6aa515",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#6ba51a",
+        "value": "#68a112",
         "type": "color"
       },
       "40": {
-        "input": "#6aa21b",
-        "value": "#6aa21b",
+        "input": "#669d10",
+        "value": "#669d10",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#699f1c",
+        "value": "#64990e",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#679d1c",
+        "value": "#62960d",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#669a1c",
+        "value": "#60930c",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#64981b",
+        "value": "#5e900b",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#63951a",
+        "value": "#5c8e0b",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#61931a",
+        "value": "#5a8b0a",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#5f9119",
+        "value": "#58890a",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#5e8e18",
+        "value": "#56870a",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#5c8c17",
+        "value": "#558409",
         "type": "color"
       },
       "50": {
-        "input": "#5a8916",
-        "value": "#5a8916",
+        "input": "#538209",
+        "value": "#538209",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#588615",
+        "value": "#518009",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#578415",
+        "value": "#507d08",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#558114",
+        "value": "#4e7b08",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#537f14",
+        "value": "#4d7807",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#527c13",
+        "value": "#4b7507",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#507a13",
+        "value": "#497306",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#4f7713",
+        "value": "#487006",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#4d7513",
+        "value": "#466d05",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#4c7212",
+        "value": "#456b04",
         "type": "color"
       },
       "60": {
-        "input": "#4a7012",
-        "value": "#4a7012",
+        "input": "#436804",
+        "value": "#436804",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#486e12",
+        "value": "#416504",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#476b11",
+        "value": "#406303",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#456911",
+        "value": "#3e6003",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#446710",
+        "value": "#3c5e02",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#426510",
+        "value": "#3a5b02",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#406210",
+        "value": "#395902",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#3f600f",
+        "value": "#375601",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#3d5e0f",
+        "value": "#355401",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#3c5b0e",
+        "value": "#345101",
         "type": "color"
       },
       "70": {
-        "input": "#3a590e",
-        "value": "#3a590e",
+        "input": "#324f01",
+        "value": "#324f01",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#38570e",
+        "value": "#304d01",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#37540d",
+        "value": "#2f4a01",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#35520d",
+        "value": "#2d4801",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#344f0d",
+        "value": "#2c4601",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#324d0c",
+        "value": "#2a4301",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#314a0c",
+        "value": "#294100",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#2f480c",
+        "value": "#283f00",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#2e460c",
+        "value": "#263d00",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#2c430b",
+        "value": "#253a00",
         "type": "color"
       },
       "80": {
-        "input": "#2b410b",
-        "value": "#2b410b",
+        "input": "#233800",
+        "value": "#233800",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#2a3f0b",
+        "value": "#213600",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#283d0a",
+        "value": "#203400",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#273b0a",
+        "value": "#1e3100",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#253909",
+        "value": "#1d2f00",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#243709",
+        "value": "#1b2d00",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#223509",
+        "value": "#192b00",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#213308",
+        "value": "#182800",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#203108",
+        "value": "#172600",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#1e2f07",
+        "value": "#152400",
         "type": "color"
       },
       "90": {
-        "input": "#1d2d07",
-        "value": "#1d2d07",
+        "input": "#142200",
+        "value": "#142200",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#1c2b07",
+        "value": "#132000",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#1a2906",
+        "value": "#121e00",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#192706",
+        "value": "#101c00",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#182406",
+        "value": "#0e1a00",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#172206",
+        "value": "#0c1800",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#162005",
+        "value": "#091600",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#151e05",
+        "value": "#071300",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#131b05",
+        "value": "#051100",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#111904",
+        "value": "#020e00",
         "type": "color"
       },
       "100": {
-        "input": "#0f1704",
-        "value": "#0f1704",
+        "input": "#000a00",
+        "value": "#000a00",
         "type": "color"
       }
     },
     "pink": {
       "0": {
-        "input": "#fdf2fa",
-        "value": "#fdf2fa",
+        "input": "#fff5fb",
+        "value": "#fff5fb",
         "type": "color"
       },
       "1": {
         "input": null,
-        "value": "#fceff9",
+        "value": "#fef2fa",
         "type": "color"
       },
       "2": {
         "input": null,
-        "value": "#fcecf7",
+        "value": "#fdeef8",
         "type": "color"
       },
       "3": {
         "input": null,
-        "value": "#fbe9f6",
+        "value": "#fdebf7",
         "type": "color"
       },
       "4": {
         "input": null,
-        "value": "#fbe6f5",
+        "value": "#fce7f5",
         "type": "color"
       },
       "5": {
         "input": null,
-        "value": "#fae3f4",
+        "value": "#fbe4f4",
         "type": "color"
       },
       "6": {
         "input": null,
-        "value": "#f9e0f2",
+        "value": "#fae0f2",
         "type": "color"
       },
       "7": {
@@ -4606,7 +4606,7 @@
       },
       "8": {
         "input": null,
-        "value": "#f8d9f0",
+        "value": "#f9d9ef",
         "type": "color"
       },
       "9": {
@@ -4615,458 +4615,458 @@
         "type": "color"
       },
       "10": {
-        "input": "#f7d3ed",
-        "value": "#f7d3ed",
+        "input": "#f7d2ec",
+        "value": "#f7d2ec",
         "type": "color"
       },
       "11": {
         "input": null,
-        "value": "#f6d0ec",
+        "value": "#f6ceea",
         "type": "color"
       },
       "12": {
         "input": null,
-        "value": "#f6ccea",
+        "value": "#f6cbe9",
         "type": "color"
       },
       "13": {
         "input": null,
-        "value": "#f5c9e9",
+        "value": "#f5c7e7",
         "type": "color"
       },
       "14": {
         "input": null,
-        "value": "#f4c6e8",
+        "value": "#f4c4e6",
         "type": "color"
       },
       "15": {
         "input": null,
-        "value": "#f4c2e6",
+        "value": "#f3c0e4",
         "type": "color"
       },
       "16": {
         "input": null,
-        "value": "#f3bfe5",
+        "value": "#f2bde2",
         "type": "color"
       },
       "17": {
         "input": null,
-        "value": "#f2bbe3",
+        "value": "#f2b9e1",
         "type": "color"
       },
       "18": {
         "input": null,
-        "value": "#f2b8e2",
+        "value": "#f1b5df",
         "type": "color"
       },
       "19": {
         "input": null,
-        "value": "#f1b5e0",
+        "value": "#f0b2de",
         "type": "color"
       },
       "20": {
-        "input": "#f0b1df",
-        "value": "#f0b1df",
+        "input": "#efaedc",
+        "value": "#efaedc",
         "type": "color"
       },
       "21": {
         "input": null,
-        "value": "#efaddd",
+        "value": "#eeaada",
         "type": "color"
       },
       "22": {
         "input": null,
-        "value": "#eeaadc",
+        "value": "#eda7d9",
         "type": "color"
       },
       "23": {
         "input": null,
-        "value": "#eea6da",
+        "value": "#eca3d7",
         "type": "color"
       },
       "24": {
         "input": null,
-        "value": "#eda3d9",
+        "value": "#eb9fd6",
         "type": "color"
       },
       "25": {
         "input": null,
-        "value": "#ec9fd7",
+        "value": "#ea9cd4",
         "type": "color"
       },
       "26": {
         "input": null,
-        "value": "#eb9bd6",
+        "value": "#e998d3",
         "type": "color"
       },
       "27": {
         "input": null,
-        "value": "#eb98d4",
+        "value": "#e894d1",
         "type": "color"
       },
       "28": {
         "input": null,
-        "value": "#ea94d3",
+        "value": "#e790d0",
         "type": "color"
       },
       "29": {
         "input": null,
-        "value": "#e990d1",
+        "value": "#e78cce",
         "type": "color"
       },
       "30": {
-        "input": "#e98cd0",
-        "value": "#e98cd0",
+        "input": "#e688cd",
+        "value": "#e688cd",
         "type": "color"
       },
       "31": {
         "input": null,
-        "value": "#e988cf",
+        "value": "#e684cc",
         "type": "color"
       },
       "32": {
         "input": null,
-        "value": "#e884cd",
+        "value": "#e580ca",
         "type": "color"
       },
       "33": {
         "input": null,
-        "value": "#e880cc",
+        "value": "#e57bc8",
         "type": "color"
       },
       "34": {
         "input": null,
-        "value": "#e87bcb",
+        "value": "#e477c7",
         "type": "color"
       },
       "35": {
         "input": null,
-        "value": "#e777c9",
+        "value": "#e472c5",
         "type": "color"
       },
       "36": {
         "input": null,
-        "value": "#e773c8",
+        "value": "#e36ec3",
         "type": "color"
       },
       "37": {
         "input": null,
-        "value": "#e66fc6",
+        "value": "#e26ac1",
         "type": "color"
       },
       "38": {
         "input": null,
-        "value": "#e46cc4",
+        "value": "#e166bf",
         "type": "color"
       },
       "39": {
         "input": null,
-        "value": "#e368c2",
+        "value": "#df62bd",
         "type": "color"
       },
       "40": {
-        "input": "#e165c0",
-        "value": "#e165c0",
+        "input": "#dd5fba",
+        "value": "#dd5fba",
         "type": "color"
       },
       "41": {
         "input": null,
-        "value": "#df62be",
+        "value": "#da5cb7",
         "type": "color"
       },
       "42": {
         "input": null,
-        "value": "#dc60bb",
+        "value": "#d759b4",
         "type": "color"
       },
       "43": {
         "input": null,
-        "value": "#d95eb8",
+        "value": "#d457b1",
         "type": "color"
       },
       "44": {
         "input": null,
-        "value": "#d55cb5",
+        "value": "#d155ae",
         "type": "color"
       },
       "45": {
         "input": null,
-        "value": "#d25bb2",
+        "value": "#cd54aa",
         "type": "color"
       },
       "46": {
         "input": null,
-        "value": "#ce5aaf",
+        "value": "#c952a7",
         "type": "color"
       },
       "47": {
         "input": null,
-        "value": "#ca58ab",
+        "value": "#c551a4",
         "type": "color"
       },
       "48": {
         "input": null,
-        "value": "#c757a8",
+        "value": "#c04fa0",
         "type": "color"
       },
       "49": {
         "input": null,
-        "value": "#c356a5",
+        "value": "#bc4e9d",
         "type": "color"
       },
       "50": {
-        "input": "#bf55a2",
-        "value": "#bf55a2",
+        "input": "#b84d9a",
+        "value": "#b84d9a",
         "type": "color"
       },
       "51": {
         "input": null,
-        "value": "#bb549f",
+        "value": "#b44c97",
         "type": "color"
       },
       "52": {
         "input": null,
-        "value": "#b8529c",
+        "value": "#b04a94",
         "type": "color"
       },
       "53": {
         "input": null,
-        "value": "#b45199",
+        "value": "#ac4991",
         "type": "color"
       },
       "54": {
         "input": null,
-        "value": "#b14f96",
+        "value": "#a8488f",
         "type": "color"
       },
       "55": {
         "input": null,
-        "value": "#ae4e94",
+        "value": "#a5468c",
         "type": "color"
       },
       "56": {
         "input": null,
-        "value": "#aa4c91",
+        "value": "#a14589",
         "type": "color"
       },
       "57": {
         "input": null,
-        "value": "#a74b8e",
+        "value": "#9d4386",
         "type": "color"
       },
       "58": {
         "input": null,
-        "value": "#a4498c",
+        "value": "#9a4184",
         "type": "color"
       },
       "59": {
         "input": null,
-        "value": "#a04889",
+        "value": "#964081",
         "type": "color"
       },
       "60": {
-        "input": "#9d4686",
-        "value": "#9d4686",
+        "input": "#933e7e",
+        "value": "#933e7e",
         "type": "color"
       },
       "61": {
         "input": null,
-        "value": "#9a4483",
+        "value": "#903c7b",
         "type": "color"
       },
       "62": {
         "input": null,
-        "value": "#964380",
+        "value": "#8c3b78",
         "type": "color"
       },
       "63": {
         "input": null,
-        "value": "#93417d",
+        "value": "#893975",
         "type": "color"
       },
       "64": {
         "input": null,
-        "value": "#8f407b",
+        "value": "#863772",
         "type": "color"
       },
       "65": {
         "input": null,
-        "value": "#8c3e78",
+        "value": "#82356f",
         "type": "color"
       },
       "66": {
         "input": null,
-        "value": "#893d75",
+        "value": "#7f346b",
         "type": "color"
       },
       "67": {
         "input": null,
-        "value": "#853b72",
+        "value": "#7c3268",
         "type": "color"
       },
       "68": {
         "input": null,
-        "value": "#823a6f",
+        "value": "#793065",
         "type": "color"
       },
       "69": {
         "input": null,
-        "value": "#7e386c",
+        "value": "#752f62",
         "type": "color"
       },
       "70": {
-        "input": "#7b3769",
-        "value": "#7b3769",
+        "input": "#722d5f",
+        "value": "#722d5f",
         "type": "color"
       },
       "71": {
         "input": null,
-        "value": "#783666",
+        "value": "#6f2b5c",
         "type": "color"
       },
       "72": {
         "input": null,
-        "value": "#743463",
+        "value": "#6b2a59",
         "type": "color"
       },
       "73": {
         "input": null,
-        "value": "#713361",
+        "value": "#682956",
         "type": "color"
       },
       "74": {
         "input": null,
-        "value": "#6e315e",
+        "value": "#652754",
         "type": "color"
       },
       "75": {
         "input": null,
-        "value": "#6b305b",
+        "value": "#612651",
         "type": "color"
       },
       "76": {
         "input": null,
-        "value": "#672e58",
+        "value": "#5e254e",
         "type": "color"
       },
       "77": {
         "input": null,
-        "value": "#642d56",
+        "value": "#5b234c",
         "type": "color"
       },
       "78": {
         "input": null,
-        "value": "#612c53",
+        "value": "#572249",
         "type": "color"
       },
       "79": {
         "input": null,
-        "value": "#5e2a51",
+        "value": "#542047",
         "type": "color"
       },
       "80": {
-        "input": "#5b294e",
-        "value": "#5b294e",
+        "input": "#511f44",
+        "value": "#511f44",
         "type": "color"
       },
       "81": {
         "input": null,
-        "value": "#58284b",
+        "value": "#4e1e41",
         "type": "color"
       },
       "82": {
         "input": null,
-        "value": "#552649",
+        "value": "#4b1c3f",
         "type": "color"
       },
       "83": {
         "input": null,
-        "value": "#522546",
+        "value": "#481b3c",
         "type": "color"
       },
       "84": {
         "input": null,
-        "value": "#4f2444",
+        "value": "#45193a",
         "type": "color"
       },
       "85": {
         "input": null,
-        "value": "#4c2241",
+        "value": "#421837",
         "type": "color"
       },
       "86": {
         "input": null,
-        "value": "#4a213f",
+        "value": "#3f1634",
         "type": "color"
       },
       "87": {
         "input": null,
-        "value": "#47203c",
+        "value": "#3c1532",
         "type": "color"
       },
       "88": {
         "input": null,
-        "value": "#441f3a",
+        "value": "#39142f",
         "type": "color"
       },
       "89": {
         "input": null,
-        "value": "#411d38",
+        "value": "#36122d",
         "type": "color"
       },
       "90": {
-        "input": "#3e1c35",
-        "value": "#3e1c35",
+        "input": "#33112a",
+        "value": "#33112a",
         "type": "color"
       },
       "91": {
         "input": null,
-        "value": "#3b1b32",
+        "value": "#301027",
         "type": "color"
       },
       "92": {
         "input": null,
-        "value": "#381930",
+        "value": "#2d0f25",
         "type": "color"
       },
       "93": {
         "input": null,
-        "value": "#35182d",
+        "value": "#2a0e22",
         "type": "color"
       },
       "94": {
         "input": null,
-        "value": "#32172b",
+        "value": "#280d20",
         "type": "color"
       },
       "95": {
         "input": null,
-        "value": "#2f1628",
+        "value": "#250b1d",
         "type": "color"
       },
       "96": {
         "input": null,
-        "value": "#2c1426",
+        "value": "#22091b",
         "type": "color"
       },
       "97": {
         "input": null,
-        "value": "#291323",
+        "value": "#200718",
         "type": "color"
       },
       "98": {
         "input": null,
-        "value": "#271221",
+        "value": "#1e0516",
         "type": "color"
       },
       "99": {
         "input": null,
-        "value": "#24111e",
+        "value": "#1c0213",
         "type": "color"
       },
       "100": {
-        "input": "#210f1c",
-        "value": "#210f1c",
+        "input": "#190010",
+        "value": "#190010",
         "type": "color"
       }
     }
