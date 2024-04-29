@@ -35,12 +35,12 @@ describe( '<NavItemGroup />', () => {
 	it( 'renders the NavItemGroup component a data-active-children', async () => {
 		const { container } = renderComponent();
 
-		// Should find the nav label
+		// Should find the button label
 		const button = screen.getByRole( 'button', { label: /Logs/ } );
 
 		expect( button ).toBeInTheDocument();
 
-		// Should find all links
+		// Expect to have another attribute
 		expect( button ).toHaveAttribute( 'data-active', 'true' );
 		expect( button ).toHaveAttribute( 'data-active-children', 'true' );
 
