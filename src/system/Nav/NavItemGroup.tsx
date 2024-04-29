@@ -17,6 +17,7 @@ import {
 
 export interface NavItemGroupProps extends NavItemBaseProps {
 	renderIcon?: NavItemRenderIconProp;
+	activeChildren?: boolean;
 	label: string;
 }
 
@@ -28,6 +29,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			orientation,
 			className,
 			active,
+			activeChildren,
 			renderIcon,
 			children,
 			sx,
@@ -54,6 +56,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							aria-haspopup={ true }
 							data-active={ active || undefined }
 							data-open={ isExpanded || undefined }
+							data-active-children={ activeChildren || undefined }
 							sx={ {
 								...navItemLinkVariantStyles( variant ),
 								...navItemGroupTriggerStyles,

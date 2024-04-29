@@ -163,7 +163,12 @@ export const Menu: Story = {
 					Domains & TLS
 				</NavItem.Menu>
 
-				<NavItem.MenuGroup active label="Logs" renderIcon={ size => <BiHistory size={ size } /> }>
+				<NavItem.MenuGroup
+					active
+					activeChildren
+					label="Logs"
+					renderIcon={ size => <BiHistory size={ size } /> }
+				>
 					<NavItem.Menu active as={ CustomLink } href="https://google.com/">
 						Audit
 					</NavItem.Menu>
