@@ -414,8 +414,10 @@ export default {
 			'&:active': {
 				color: 'links.active',
 			},
+
 			textDecorationThickness: '0.125rem',
-			textUnderlineOffset: '0.125rem',
+			textUnderlineOffset: '0.250rem',
+
 			'&:hover, &:focus': {
 				color: 'links.hover',
 				textDecorationLine: 'underline',

@@ -31,9 +31,9 @@ export const menuInverseItemStyles = (
 // Menu Item Link <a>
 
 const visitedLink = '&:visited';
-const activeAfter = '&[data-active]::before';
-const active = '&[data-active]';
-const focusNotActiveHoverNotActive = '&:focus:not(&[data-active]), &:hover:not(&[data-active])';
+const active = '&[data-active]:not(&[data-active-children="true"][data-state="open"])';
+const activeBefore = `${ active }::before`;
+const focusNotActiveHoverNotActive = `&:focus:not(${ active }), &:hover:not(${ active })`;
 const notHover = ':not(&:hover)';
 const svgIcon = 'svg';
 
@@ -63,7 +63,7 @@ export const menuItemLinkStyles: MixedStyleProp = {
 	[ visitedLink ]: {
 		color: 'text',
 	},
-	[ activeAfter ]: {
+	[ activeBefore ]: {
 		position: 'absolute',
 		content: "''",
 		overflow: 'hidden',
