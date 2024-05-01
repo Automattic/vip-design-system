@@ -86,22 +86,6 @@ export const navItemStyles = (
 	}
 };
 
-export const navRootStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	switch ( variant ) {
-		case 'tabs': {
-			return tabRootStyles;
-		}
-
-		case 'toolbar': {
-			return toolbarRootStyles;
-		}
-
-		default: {
-			return defaultNavRootStyles;
-		}
-	}
-};
-
 export const navStyles = (
 	variant: NavVariant,
 	orientation: NavProps[ 'orientation' ]
