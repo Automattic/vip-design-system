@@ -536,7 +536,8 @@ export default {
 			a: {
 				'&:hover': {
 					textDecorationLine: 'underline',
-					textDecorationThickness: '2px',
+					textDecorationThickness: '0.125rem',
+					textUnderlineOffset: '0.250rem',
 				},
 			},
 			svg: {

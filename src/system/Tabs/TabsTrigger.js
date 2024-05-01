@@ -24,7 +24,16 @@ const styles = {
 	'&[data-state="active"]': {
 		color: 'link',
 		fontWeight: 'regular',
-		boxShadow: 'inset 0 -1px 0 0, 0 1px 0 0',
+		position: 'relative',
+		'&::after': {
+			position: 'absolute',
+			bottom: 0,
+			display: 'block',
+			width: '100%',
+			content: '""',
+			height: '0.125rem',
+			backgroundColor: 'link',
+		},
 	},
 	'&:disabled': {
 		color: 'muted',

@@ -38,6 +38,7 @@ export const Default = () => (
 		</TabsContent>
 	</Tabs>
 );
+
 export const SetActiveTab = () => {
 	const [ activeTab, setActiveTab ] = React.useState( 'all' );
 
