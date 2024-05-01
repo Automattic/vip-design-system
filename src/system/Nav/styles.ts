@@ -8,6 +8,7 @@ import {
 	menuInverseItemStyles,
 	menuItemLinkStyles,
 	menuItemStyles,
+	tabItemStyles,
 } from './styles/variants/menu';
 import {
 	defaultNavItemStyles,
@@ -68,6 +69,9 @@ export const navItemStyles = (
 		case 'menu': {
 			return menuItemStyles( orientation );
 		}
+		case 'tabs': {
+			return tabItemStyles( orientation );
+		}
 		case 'menu-inverse': {
 			return menuInverseItemStyles( orientation );
 		}
@@ -82,29 +86,16 @@ export const navItemStyles = (
 	}
 };
 
-export const navRootStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
-	switch ( variant ) {
-		case 'tabs': {
-			return tabRootStyles;
-		}
-
-		case 'toolbar': {
-			return toolbarRootStyles;
-		}
-
-		default: {
-			return defaultNavRootStyles;
-		}
-	}
-};
-
-export const navStyles = ( variant: NavVariant ): ThemeUIStyleObject => {
+export const navStyles = (
+	variant: NavVariant,
+	orientation: NavProps[ 'orientation' ]
+): ThemeUIStyleObject => {
 	let navStyle: ThemeUIStyleObject = {};
 
 	switch ( variant ) {
 		case 'tabs':
 			{
-				navStyle = tabRootStyles;
+				navStyle = tabRootStyles( orientation );
 			}
 
 			break;

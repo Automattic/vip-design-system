@@ -24,7 +24,7 @@ const NavBase = forwardRef< HTMLElement, NavProps >(
 			aria-label={ label }
 			ref={ ref }
 			className={ classNames( VIP_NAV, className ) }
-			sx={ navStyles( variant ) }
+			sx={ navStyles( variant, orientation ) }
 			orientation={ orientation }
 		>
 			<NavigationMenu.List

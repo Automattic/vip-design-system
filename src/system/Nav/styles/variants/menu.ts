@@ -17,6 +17,12 @@ export const menuItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeU
 	justifyContent: 'space-between',
 } );
 
+// Tab Item Style <li>
+export const tabItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeUIStyleObject => ( {
+	...defaultNavItemStyles( orientation ),
+	mr: 0,
+} );
+
 // Menu Inverse Item Style <li>
 export const menuInverseItemStyles = (
 	orientation: NavProps[ 'orientation' ]

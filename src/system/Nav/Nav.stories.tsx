@@ -115,16 +115,25 @@ export const Tab: Story = {
 				<strong>Variant: Tab</strong>
 			</p>
 			<Nav.Tab sx={ { mb: 4 } } label="Nav Tab">
-				<NavItem.Tab active as={ CustomLink } href="https://random-website.com/">
+				<NavItem.Tab as={ CustomLink } href="#!">
 					PHP
 				</NavItem.Tab>
-				<NavItem.Tab as={ CustomLink } href="https://wordpress.com">
+				<NavItem.Tab as={ CustomLink } href="#2!">
 					WordPress
 				</NavItem.Tab>
-				<NavItem.Tab as={ CustomLink } href="https://newrelic.com/">
+				<NavItem.Tab active as={ CustomLink } href="#3!">
 					New Relic
 				</NavItem.Tab>
-				<NavItem.Tab disabled as={ CustomLink } href="https://google.com/">
+				<NavItem.Tab as={ CustomLink } href="#4!">
+					Datadog
+				</NavItem.Tab>
+				<NavItem.Tab as={ CustomLink } href="#4!">
+					OnePlus
+				</NavItem.Tab>
+				<NavItem.Tab as={ CustomLink } href="#5!">
+					Rollbar
+				</NavItem.Tab>
+				<NavItem.Tab disabled as={ CustomLink } href="#6!">
 					Not accessible
 				</NavItem.Tab>
 			</Nav.Tab>
