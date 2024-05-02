@@ -15,7 +15,7 @@
     "format:check": "npm run cmd:format -- --check",
     "jest": "NODE_ENV=test jest --env=jsdom",
     "jest:coverage": "npm run jest && open-cli ./coverage/index.html",
-    "jest:watch": "npm run jest --watch",
+    "jest:watch": "npm run jest -- --watch",
     "theme-builder-copy": "npm run theme-builder-copy-light && npm run theme-builder-copy-dark",
     "theme-builder-copy-light": "mkdir -p build/system/theme/generated/ && cp src/system/theme/generated/valet-theme-light.json build/system/theme/generated/valet-theme-light.json",
     "theme-builder-copy-dark": "mkdir -p build/system/theme/generated/ && cp src/system/theme/generated/valet-theme-dark.json build/system/theme/generated/valet-theme-dark.json",
