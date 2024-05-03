@@ -1,13 +1,7 @@
 /**
- * External dependencies
- */
-
-import React from 'react';
-
-import { Link } from '../Link';
-/**
  * Internal dependencies
  */
+import { Link } from '../Link';
 import ScreenReaderText from '../ScreenReaderText';
 
 // Screen reader announcements
@@ -16,12 +10,11 @@ const NEW_TAB_TEXT = ', opens in a new tab'; // reads as: link, <link text>, ext
 
 type Props = {
 	children?: React.ReactNode;
-	screenReaderText?: string | number | ReactChild;
+	screenReaderText?: string | number;
 	href: string;
 	showExternalIcon?: boolean;
 	defaultScreenReaderText?: boolean;
 	newTab?: boolean;
-	[ rest: string ]: any;
 };
 
 export const LinkExternal: React.FC< Props > = ( {
