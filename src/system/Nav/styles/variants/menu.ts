@@ -30,7 +30,7 @@ export const menuInverseItemStyles = (
 	...menuItemStyles( orientation ),
 	width: '100%',
 	mr: 0,
-	height: 45,
+	height: 38,
 	color: 'toolbar.text.default',
 } );
 
