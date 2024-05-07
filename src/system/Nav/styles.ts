@@ -105,6 +105,17 @@ export const navStyles = (
 			}
 
 			break;
+		case 'primary-inverse':
+			{
+				navStyle = {
+					...defaultNavRootStyles,
+					px: 5,
+					pt: 2,
+					pb: 4,
+				};
+			}
+
+			break;
 		default: {
 			navStyle = defaultNavRootStyles;
 		}

@@ -6,7 +6,14 @@ import { Ref, forwardRef } from 'react';
 import { navMenuListStyles, navStyles } from './styles';
 
 export const VIP_NAV = 'vip-nav-component';
-export type NavVariant = 'primary' | 'tabs' | 'toolbar' | 'menu' | 'menu-inverse' | 'breadcrumbs';
+export type NavVariant =
+	| 'primary'
+	| 'tabs'
+	| 'toolbar'
+	| 'menu'
+	| 'menu-inverse'
+	| 'breadcrumbs'
+	| 'primary-inverse';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
@@ -43,6 +50,12 @@ const NavPrimary = forwardRef< HTMLElement, NavProps >(
 	)
 );
 
+const NavPrimaryInverse = forwardRef< HTMLElement, NavProps >(
+	( props: NavProps, ref: Ref< HTMLElement > ) => (
+		<NavBase { ...props } variant="primary-inverse" ref={ ref } />
+	)
+);
+
 const NavTab = forwardRef< HTMLElement, NavProps >(
 	( props: NavProps, ref: Ref< HTMLElement > ) => (
 		<NavBase { ...props } variant="tabs" ref={ ref } />
@@ -65,6 +78,7 @@ export type NavItemRenderIconProp = ( size: number ) => JSX.Element | null;
 
 export const Nav = {
 	Primary: NavPrimary,
+	PrimaryInverse: NavPrimaryInverse,
 	Tab: NavTab,
 	Toolbar: NavToolbar,
 	Menu: NavMenu,

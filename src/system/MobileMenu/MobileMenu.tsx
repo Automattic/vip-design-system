@@ -53,9 +53,9 @@ export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 				>
 					<Flex sx={ { width: '100%', flexDirection: 'column' } }>
 						{ toolbarItems && (
-							<Nav.Primary label="Main Links" orientation="vertical">
+							<Nav.PrimaryInverse label="Main Links" orientation="vertical">
 								{ toolbarItems }
-							</Nav.Primary>
+							</Nav.PrimaryInverse>
 						) }
 
 						<Box
