@@ -46,13 +46,12 @@ export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 					sx={ {
 						overflowX: 'hidden',
 						overflowY: 'auto',
-						height: '100%',
-						maxHeight: 'calc(100vh - 169px)', // 64px (toolbar) + 105px (Header black menu)
+						height: '100vh',
 						display: 'flex',
 						flex: 1,
 					} }
 				>
-					<Flex sx={ { width: '100%', flexDirection: 'column' } }>
+					<Flex sx={ { width: '100%', flexDirection: 'column', height: 'calc(100vh - 64px)' } }>
 						{ toolbarItems && (
 							<Nav.PrimaryInverse label="Main Links" orientation="vertical">
 								{ toolbarItems }
@@ -63,7 +62,7 @@ export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 							sx={ {
 								alignSelf: 'stretch',
 								backgroundColor: 'layer.1',
-								minHeight: `calc(100vh - 64px)`,
+								height: '100%',
 								gap: 4,
 								width: '100%',
 								a: {
