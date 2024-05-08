@@ -25,6 +25,7 @@ export const styles = {
 	py: 1,
 	'&:hover, &:focus': {
 		backgroundColor: 'hover',
+		textDecoration: 'none',
 	},
 
 	'&[data-disabled]': {
@@ -34,7 +35,7 @@ export const styles = {
 
 	'&[data-highlighted]': {
 		backgroundColor: 'hover',
-		color: 'primary',
+		color: 'link',
 	},
 };
 
