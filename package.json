@@ -43,6 +43,7 @@
     "accessible-autocomplete": "^2.0.4",
     "classnames": "^2.3.1",
     "framer-motion": "^3.9.1",
+    "i18n-calypso": "^7.0.0",
     "react-icons": "^4.7.0"
   },
   "peerDependencies": {

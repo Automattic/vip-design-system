@@ -1,12 +1,16 @@
 /**
+ * External dependencies
+ */
+import { translate } from 'i18n-calypso';
+/**
  * Internal dependencies
  */
 import { Link } from '../Link';
 import ScreenReaderText from '../ScreenReaderText';
 
 // Screen reader announcements
-const DEFAULT_EXTERNAL_LINK_TEXT = ', external link'; // reads as: link, <link text>, external link
-const NEW_TAB_TEXT = ', opens in a new tab'; // reads as: link, <link text>, external link, opens in a new tab
+const DEFAULT_EXTERNAL_LINK_TEXT = translate( ', external link' ); // reads as: link, <link text>, external link
+const NEW_TAB_TEXT = translate( ', opens in a new tab' ); // reads as: link, <link text>, external link, opens in a new tab
 
 type Props = {
 	children?: React.ReactNode;
