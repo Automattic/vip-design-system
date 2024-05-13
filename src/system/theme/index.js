@@ -407,7 +407,9 @@ export default {
 				color: 'links.visited',
 			},
 			'&:hover': {
-				color: 'hover',
+				color: 'links.hover',
+				textDecorationLine: 'underline',
+				textDecorationThickness: '0.125rem',
 			},
 			'&:active': {
 				color: 'links.active',
@@ -415,12 +417,6 @@ export default {
 
 			textDecorationThickness: '0.125rem',
 			textUnderlineOffset: '0.250rem',
-
-			'&:hover, &:focus': {
-				color: 'links.hover',
-				textDecorationLine: 'underline',
-				textDecorationThickness: '0.125rem',
-			},
 		},
 		'button-primary': {
 			variant: 'buttons.primary',
