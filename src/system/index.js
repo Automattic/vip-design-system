@@ -36,6 +36,7 @@ import {
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Link } from './Link';
+import LinkExternal from './LinkExternal/LinkExternal';
 import { MobileMenuWrapper, MobileMenuTrigger, MobileMenu } from './MobileMenu/MobileMenu';
 import { Nav } from './Nav/Nav';
 import { NavItem } from './Nav/NavItem';
@@ -95,6 +96,7 @@ export {
 	TableCell,
 	Tooltip,
 	Link,
+	LinkExternal,
 	Radio,
 	RadioBoxGroup,
 	Textarea,
