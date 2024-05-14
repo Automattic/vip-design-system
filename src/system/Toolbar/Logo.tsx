@@ -23,7 +23,7 @@ export const Logo = ( { className, as = 'a', href }: LogoProps ) => (
 		sx={ {
 			width: 54,
 			color: 'toolbar.brand',
-			mr: 5,
+			flexShrink: 0,
 			display: 'inline-block',
 		} }
 		href={ href }
