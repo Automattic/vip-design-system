@@ -283,9 +283,10 @@ export default {
 			fontWeight: 'medium',
 			boxShadow: 'none',
 			borderRadius: 1,
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'button.primary.background.hover',
 				color: 'button.primary.label.hover',
+				textDecoration: 'none',
 			},
 			verticalAlign: 'middle',
 			alignItems: 'center',
@@ -297,9 +298,6 @@ export default {
 					fill: 'inherit',
 				},
 			},
-			'&:hover': {
-				textDecoration: 'none',
-			},
 		},
 
 		secondary: {
@@ -307,7 +305,7 @@ export default {
 			color: 'button.secondary.label.default',
 			bg: 'button.secondary.background.default',
 
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'button.secondary.background.hover',
 				color: 'button.secondary.label.hover',
 			},
@@ -320,7 +318,7 @@ export default {
 			border: '1px solid',
 			borderColor: 'button.tertiary.border.default',
 
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'button.tertiary.background.hover',
 				color: 'button.tertiary.label.hover',
 				border: '1px solid',
@@ -335,7 +333,7 @@ export default {
 			border: '1px solid',
 			borderColor: 'transparent',
 
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'button.display.background.hover',
 				color: 'button.display.label.hover',
 				border: '1px solid',
@@ -350,7 +348,7 @@ export default {
 			border: '1px solid',
 			borderColor: 'transparent',
 
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'button.ghost.background.hover',
 				color: 'button.ghost.label.hover',
 				border: '1px solid',
@@ -365,7 +363,7 @@ export default {
 			border: '1px solid',
 			borderColor: 'transparent',
 
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'button.danger.primary.background.hover',
 				color: 'button.danger.primary.label.hover',
 				border: '1px solid',
@@ -396,7 +394,7 @@ export default {
 			color: 'text',
 			padding: 1,
 
-			'&:hover, &:focus': {
+			'&:hover': {
 				backgroundColor: 'borders.2',
 			},
 		},
@@ -409,7 +407,9 @@ export default {
 				color: 'links.visited',
 			},
 			'&:hover': {
-				color: 'hover',
+				color: 'links.hover',
+				textDecorationLine: 'underline',
+				textDecorationThickness: '0.125rem',
 			},
 			'&:active': {
 				color: 'links.active',
@@ -417,12 +417,6 @@ export default {
 
 			textDecorationThickness: '0.125rem',
 			textUnderlineOffset: '0.250rem',
-
-			'&:hover, &:focus': {
-				color: 'links.hover',
-				textDecorationLine: 'underline',
-				textDecorationThickness: '0.125rem',
-			},
 		},
 		'button-primary': {
 			variant: 'buttons.primary',
