@@ -108,6 +108,7 @@ export const MobileMenuTrigger = ( {
 			sx={ {
 				display,
 				alignItems: 'center',
+				flexShrink: 0,
 				color:
 					variant === 'inverse' ? 'button.primary.label.default' : 'button.tertiary.label.default',
 				width: 38,
