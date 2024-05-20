@@ -67,7 +67,7 @@ const breadcrumbLinks = (
 				  ]
 				: otherLinksRaw;
 		} else if ( wrapMode === 'collapsible' ) {
-			separatorLink = isSmallestScreen && ! showAllItems;
+			separatorLink = isSmallestScreen && ! showAllItems && totalLinks > 2;
 			otherLinks = isSmallestScreen && ! showAllItems ? [ links?.[ 0 ] ] : otherLinksRaw;
 		}
 	}
