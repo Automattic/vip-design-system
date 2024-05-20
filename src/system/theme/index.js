@@ -1,12 +1,12 @@
 /**
  * Internal dependencies
  */
-import { linkUnderlineProperties } from '../Link/Link';
 import { generateBreakpoints } from './breakpoints';
 import ColorBuilder from './colors';
 import ValetDark from './generated/valet-theme-dark.json';
 import Valet from './generated/valet-theme-light.json';
 import ThemeBuilder from './getPropValue';
+import { linkUnderlineProperties } from '../Link/Link';
 
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
