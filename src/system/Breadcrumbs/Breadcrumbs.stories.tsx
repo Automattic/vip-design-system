@@ -1,11 +1,12 @@
+/** @jsxImportSource theme-ui */
+
 import React from 'react';
 
 import { Breadcrumbs as Breadcrumbs } from './Breadcrumbs';
+import { Box } from '../Box';
+import { CustomLink, CustomLinkComponentized } from '../utils/stories/CustomLink';
 
 import type { StoryObj } from '@storybook/react';
-
-// eslint-disable-next-line jsx-a11y/anchor-has-content
-const CustomLink = props => <a { ...props } />;
 
 export default {
 	title: 'Navigation/Breadcrumbs',
@@ -76,5 +77,33 @@ export const Default: Story = {
 				{ href: 'https://google.com/', label: 'Not accessible' },
 			] }
 		/>
+	),
+};
+
+export const Collapsible: Story = {
+	render: () => (
+		<Box sx={ { display: 'flex', flexDirection: 'column', gap: 4 } }>
+			<p>
+				When entering Mobile views, the first and the last link will appear. A button with a … will
+				also be visible. Once pressed, the rest of the links become available, and the focus is
+				moved to the next link.
+			</p>
+
+			<hr sx={ { width: '100%', my: 4 } } />
+
+			<Breadcrumbs
+				wrapMode="collapsible"
+				LinkComponent={ CustomLinkComponentized }
+				label="Nav Breadcrumbs"
+				links={ [
+					{ href: '/', label: 'Home' },
+					{ href: 'https://datadog.com/', label: 'Data dog' },
+					{ href: 'https://newrelic.com/', label: 'New Relic' },
+					{ href: 'https://rollbar.com/', label: 'Rollbar' },
+					{ href: 'https://areallylong.com/', label: 'A really long name' },
+					{ href: 'https://google.com/', label: 'I am the last item' },
+				] }
+			/>
+		</Box>
 	),
 };

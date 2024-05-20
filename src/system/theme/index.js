@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import { linkUnderlineProperties } from '../Link/Link';
 import { generateBreakpoints } from './breakpoints';
 import ColorBuilder from './colors';
 import ValetDark from './generated/valet-theme-dark.json';
@@ -409,14 +410,13 @@ export default {
 			'&:hover': {
 				color: 'links.hover',
 				textDecorationLine: 'underline',
-				textDecorationThickness: '0.125rem',
+				...linkUnderlineProperties,
 			},
 			'&:active': {
 				color: 'links.active',
 			},
 
-			textDecorationThickness: '0.125rem',
-			textUnderlineOffset: '0.250rem',
+			...linkUnderlineProperties,
 		},
 		'button-primary': {
 			variant: 'buttons.primary',
@@ -531,7 +531,7 @@ export default {
 			a: {
 				'&:hover': {
 					textDecorationLine: 'underline',
-					textDecorationThickness: '0.125rem',
+					textDecorationThickness: '0.1rem',
 					textUnderlineOffset: '0.250rem',
 				},
 			},

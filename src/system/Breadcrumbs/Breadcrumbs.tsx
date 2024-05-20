@@ -3,12 +3,13 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useBreakpointIndex } from '@theme-ui/match-media';
 import classNames from 'classnames';
-import React, { Ref, forwardRef } from 'react';
+import { useTranslate } from 'i18n-calypso';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
 
-import { smallestScreenItemStyles } from './styles';
+import { collapsibleSeparatorStyles, smallestScreenItemStyles } from './styles';
 import { ItemBreadcrumb, NavItemProps, NavRawLink } from '../Nav/NavItem';
 import { navItemStyles, navMenuListStyles } from '../Nav/styles';
 
@@ -22,37 +23,39 @@ export type BreadcrumbsLinkProps = {
 export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
 	className?: string;
 	label?: string;
+	wrapMode?: 'collapsible' | 'lastItem';
 	LinkComponent: NavItemProps[ 'as' ];
 	links?: BreadcrumbsLinkProps[];
 }
 
-export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
-	(
-		{ className, links = [], label = 'Breadcrumbs', LinkComponent = NavRawLink }: BreacrumbsProps,
-		ref: Ref< HTMLElement >
-	) => {
-		// The breadcrumb shrinks on smaller screens (mobile) and we need to hide some links
-		const bpIndex = useBreakpointIndex( { defaultIndex: 1 } );
+const breadcrumbLinks = (
+	links: BreadcrumbsLinkProps[],
+	isSmallestScreen: boolean = false,
+	wrapMode: BreacrumbsProps[ 'wrapMode' ],
+	showAllItems: boolean = false
+): {
+	separatorLink: boolean;
+	lastLink: BreadcrumbsLinkProps | null;
+	otherLinks: BreadcrumbsLinkProps[];
+} => {
+	let separatorLink: boolean = false;
+	let lastLink: BreadcrumbsLinkProps | null = null;
+	let otherLinks: BreadcrumbsLinkProps[] = [];
 
-		const isSmallestScreen = bpIndex < 3;
+	const totalLinks = links?.length;
 
-		let penultimateLink: BreadcrumbsLinkProps | null = null;
-		let lastLink: BreadcrumbsLinkProps | null = null;
-		let otherLinks: BreadcrumbsLinkProps[] = [];
+	if ( totalLinks === 1 ) {
+		lastLink = links?.[ 0 ];
+		otherLinks = [];
+	}
 
-		const totalLinks = links?.length || 0;
+	if ( totalLinks > 1 ) {
+		const otherLinksRaw = links?.slice( 0, totalLinks - 1 );
+		lastLink = links?.[ totalLinks - 1 ];
 
-		if ( totalLinks === 0 ) {
-			return null;
-		}
-
-		if ( totalLinks === 1 ) {
-			lastLink = links?.[ 0 ];
-			otherLinks = [];
-		}
-
-		if ( totalLinks > 1 ) {
-			penultimateLink = links?.[ totalLinks - 2 ];
+		if ( wrapMode === 'lastItem' ) {
+			const penultimateLink = links?.[ totalLinks - 2 ];
+			lastLink = isSmallestScreen ? null : links?.[ totalLinks - 1 ];
 
 			otherLinks = isSmallestScreen
 				? [
@@ -62,10 +65,61 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 							sx: smallestScreenItemStyles,
 						},
 				  ]
-				: links?.slice( 0, totalLinks - 1 );
-
-			lastLink = isSmallestScreen ? null : links?.[ totalLinks - 1 ];
+				: otherLinksRaw;
+		} else if ( wrapMode === 'collapsible' ) {
+			separatorLink = isSmallestScreen && ! showAllItems;
+			otherLinks = isSmallestScreen && ! showAllItems ? [ links?.[ 0 ] ] : otherLinksRaw;
 		}
+	}
+
+	return { separatorLink, lastLink, otherLinks };
+};
+
+export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
+	(
+		{
+			className,
+			links = [],
+			label = 'Breadcrumbs',
+			LinkComponent = NavRawLink,
+			wrapMode = 'lastItem',
+		}: BreacrumbsProps,
+		ref
+	) => {
+		const breadcrumbsListRef = useRef< HTMLOListElement >( null );
+		const [ showAllItems, setShowAllItems ] = useState( false );
+		const translate = useTranslate();
+
+		// Focus on the next link when the collapsible separator is true
+		useEffect( () => {
+			if ( wrapMode !== 'collapsible' ) {
+				return;
+			}
+
+			const breadcrumbList = breadcrumbsListRef?.current;
+
+			if ( showAllItems && breadcrumbList ) {
+				const nextActiveLink: HTMLAnchorElement | null =
+					breadcrumbList.querySelector( 'li:nth-child(2) a' );
+
+				nextActiveLink?.focus();
+			}
+		}, [ showAllItems, wrapMode ] );
+
+		// The breadcrumb shrinks on smaller screens (mobile) and we need to hide some links
+		const bpIndex = useBreakpointIndex( { defaultIndex: 1 } );
+		const isSmallestScreen = bpIndex < 3;
+
+		if ( links?.length === 0 ) {
+			return null;
+		}
+
+		const { separatorLink, lastLink, otherLinks } = breadcrumbLinks(
+			links,
+			isSmallestScreen,
+			wrapMode,
+			showAllItems
+		);
 
 		return (
 			<NavigationMenu.Root
@@ -77,6 +131,7 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 				<NavigationMenu.List
 					className={ classNames( `${ VIP_BREACRUMBS }-list` ) }
 					sx={ navMenuListStyles( 'horizontal' ) }
+					ref={ breadcrumbsListRef }
 					asChild
 				>
 					<ol>
@@ -91,6 +146,22 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 								{ link.label }
 							</ItemBreadcrumb>
 						) ) }
+
+						{ separatorLink && (
+							<li
+								sx={ {
+									...navItemStyles( 'horizontal', 'breadcrumbs' ),
+								} }
+							>
+								<button
+									sx={ collapsibleSeparatorStyles }
+									aria-label={ translate( 'Press to show more breadcrumbs' ) }
+									onClick={ () => setShowAllItems( true ) }
+								>
+									…
+								</button>
+							</li>
+						) }
 
 						{ lastLink && (
 							<li

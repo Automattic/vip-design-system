@@ -25,6 +25,12 @@ export interface LinkProps extends ThemeLinkProps {
 		| 'button-danger';
 }
 
+export const linkUnderlineProperties: ThemeUIStyleObject = {
+	textDecorationLine: 'underline',
+	textDecorationThickness: '0.1rem',
+	textUnderlineOffset: '0.250rem',
+};
+
 export const defaultLinkComponentStyle: ThemeUIStyleObject = {
 	'&:focus-visible': ( theme: LinkTheme ) => theme.outline,
 };
