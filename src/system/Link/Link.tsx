@@ -14,20 +14,23 @@ interface LinkTheme extends Theme {
 	outline?: Record< string, string >;
 }
 
+export enum LinkVariant {
+	'primary',
+	'button-primary',
+	'button-secondary',
+	'button-tertiary',
+	'button-ghost',
+	'button-display',
+	'button-danger',
+}
+
 export interface LinkProps extends ThemeLinkProps {
-	variant?:
-		| 'primary'
-		| 'button-primary'
-		| 'button-secondary'
-		| 'button-tertiary'
-		| 'button-ghost'
-		| 'button-display'
-		| 'button-danger';
+	variant?: keyof typeof LinkVariant;
 }
 
 export const linkUnderlineProperties: ThemeUIStyleObject = {
 	textDecorationLine: 'underline',
-	textDecorationThickness: '0.1rem',
+	textDecorationThickness: '0.07rem',
 	textUnderlineOffset: '0.250rem',
 };
 

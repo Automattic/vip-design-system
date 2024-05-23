@@ -403,20 +403,19 @@ export default {
 
 	links: {
 		primary: {
+			...linkUnderlineProperties,
+
 			color: 'link',
 			'&:visited': {
 				color: 'links.visited',
 			},
 			'&:hover': {
 				color: 'links.hover',
-				textDecorationLine: 'underline',
-				...linkUnderlineProperties,
+				textDecorationThickness: '0.15rem',
 			},
 			'&:active': {
 				color: 'links.active',
 			},
-
-			...linkUnderlineProperties,
 		},
 		'button-primary': {
 			variant: 'buttons.primary',
