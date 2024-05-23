@@ -6,6 +6,7 @@ import ColorBuilder from './colors';
 import ValetDark from './generated/valet-theme-dark.json';
 import Valet from './generated/valet-theme-light.json';
 import ThemeBuilder from './getPropValue';
+import { linkUnderlineProperties } from '../Link/Link';
 
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
@@ -402,21 +403,19 @@ export default {
 
 	links: {
 		primary: {
+			...linkUnderlineProperties,
+
 			color: 'link',
 			'&:visited': {
 				color: 'links.visited',
 			},
 			'&:hover': {
 				color: 'links.hover',
-				textDecorationLine: 'underline',
-				textDecorationThickness: '0.125rem',
+				textDecorationThickness: '0.15rem',
 			},
 			'&:active': {
 				color: 'links.active',
 			},
-
-			textDecorationThickness: '0.125rem',
-			textUnderlineOffset: '0.250rem',
 		},
 		'button-primary': {
 			variant: 'buttons.primary',
@@ -531,7 +530,7 @@ export default {
 			a: {
 				'&:hover': {
 					textDecorationLine: 'underline',
-					textDecorationThickness: '0.125rem',
+					textDecorationThickness: '0.1rem',
 					textUnderlineOffset: '0.250rem',
 				},
 			},

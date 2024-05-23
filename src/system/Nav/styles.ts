@@ -141,5 +141,6 @@ export const navMenuListStyles = ( orientation: NavProps[ 'orientation' ] ): The
 		gap: 1,
 		px: 0,
 		flexDirection: orientation === 'horizontal' ? 'row' : 'column',
+		flexWrap: orientation === 'horizontal' ? 'wrap' : undefined,
 	};
 };

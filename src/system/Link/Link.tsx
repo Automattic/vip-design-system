@@ -14,16 +14,25 @@ interface LinkTheme extends Theme {
 	outline?: Record< string, string >;
 }
 
-export interface LinkProps extends ThemeLinkProps {
-	variant?:
-		| 'primary'
-		| 'button-primary'
-		| 'button-secondary'
-		| 'button-tertiary'
-		| 'button-ghost'
-		| 'button-display'
-		| 'button-danger';
+export enum LinkVariant {
+	'primary',
+	'button-primary',
+	'button-secondary',
+	'button-tertiary',
+	'button-ghost',
+	'button-display',
+	'button-danger',
 }
+
+export interface LinkProps extends ThemeLinkProps {
+	variant?: keyof typeof LinkVariant;
+}
+
+export const linkUnderlineProperties: ThemeUIStyleObject = {
+	textDecorationLine: 'underline',
+	textDecorationThickness: '0.07rem',
+	textUnderlineOffset: '0.250rem',
+};
 
 export const defaultLinkComponentStyle: ThemeUIStyleObject = {
 	'&:focus-visible': ( theme: LinkTheme ) => theme.outline,
