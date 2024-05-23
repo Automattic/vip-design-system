@@ -92,7 +92,6 @@ export const Collapsible: Story = {
 			<hr sx={ { width: '100%', my: 4 } } />
 
 			<Breadcrumbs
-				wrapMode="collapsible"
 				LinkComponent={ CustomLinkComponentized }
 				label="Nav Breadcrumbs"
 				links={ [
@@ -101,7 +100,17 @@ export const Collapsible: Story = {
 					{ href: 'https://newrelic.com/', label: 'New Relic' },
 					{ href: 'https://rollbar.com/', label: 'Rollbar' },
 					{ href: 'https://areallylong.com/', label: 'A really long name' },
-					{ href: 'https://google.com/', label: 'I am the last item' },
+					{ href: 'https://goog12313le.com/', label: 'I am the last item' },
+					// { href: 'https://datad56og.com/', label: 'Data dog' },
+					// { href: 'https://newre5lic.com/', label: 'New Relic' },
+					// { href: 'https://roll5bar.com/', label: 'Rollbar' },
+					// { href: 'https://areal4lylong.com/', label: 'A really long name' },
+					// { href: 'https://google.com/', label: 'I am the last item' },
+					// { href: 'https://data4do3g.com/', label: 'Data dog' },
+					// { href: 'https://newr2elic2.com/', label: 'New Relic' },
+					// { href: 'https://roll221bar.com/', label: 'Rollbar' },
+					// { href: 'https://area33llylong.com/', label: 'A really long name' },
+					// { href: 'https://goo66gle.com/', label: 'I am the last item' },
 				] }
 			/>
 		</Box>
