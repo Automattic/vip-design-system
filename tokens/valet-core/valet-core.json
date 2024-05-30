@@ -7,28 +7,28 @@
   "fontSize": {
     "static": {
       "0": {
-        "value": "{rem}*.625",
+        "value": "{rem}*.6875",
         "type": "fontSizes"
       },
       "1": {
-        "value": ".75 * {rem}",
+        "value": ".8125 * {rem}",
         "type": "fontSizes",
         "description": "these are non-responsive font sizes used for body copy, helper text and other elements that don't need to respond to viewport width."
       },
       "2": {
-        "value": ".875 * {rem}",
+        "value": ".9375 * {rem}",
         "type": "fontSizes"
       },
       "3": {
-        "value": "1 * {rem}",
+        "value": "1.1875 * {rem}",
         "type": "fontSizes"
       },
       "4": {
-        "value": "1.125 * {rem}",
+        "value": "2 * {rem}",
         "type": "fontSizes"
       },
       "5": {
-        "value": "1.25 * {rem}",
+        "value": "2.5 * {rem}",
         "type": "fontSizes"
       }
     },
@@ -765,13 +765,17 @@
     }
   },
   "lineHeight": {
+    "0": {
+      "value": "100%",
+      "type": "lineHeights"
+    },
     "1": {
-      "value": "110%",
+      "value": "115%",
       "type": "lineHeights",
       "description": "Use only for display."
     },
     "2": {
-      "value": "120%",
+      "value": "125%",
       "type": "lineHeights",
       "description": "Use for larger headings."
     },
@@ -824,12 +828,24 @@
       "type": "letterSpacing",
       "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
-    "tight": {
-      "value": "-.02em",
+    "tight-1": {
+      "value": "-1.5%",
       "type": "letterSpacing"
     },
-    "loose": {
-      "value": ".03em",
+    "loose-1": {
+      "value": ".5%",
+      "type": "letterSpacing"
+    },
+    "tight-2": {
+      "value": "-2%",
+      "type": "letterSpacing"
+    },
+    "loose-2": {
+      "value": "1%",
+      "type": "letterSpacing"
+    },
+    "loose-3": {
+      "value": "5%",
       "type": "letterSpacing"
     }
   },
@@ -2075,5 +2091,9 @@
       "type": "sizing",
       "description": "max-width: 1536px"
     }
+  },
+  "semibold": {
+    "value": "600",
+    "type": "fontWeights"
   }
 }
