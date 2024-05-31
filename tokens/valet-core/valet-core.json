@@ -11,12 +11,12 @@
         "type": "fontSizes"
       },
       "1": {
-        "value": ".8125 * {rem}",
+        "value": ".75 * {rem}",
         "type": "fontSizes",
         "description": "these are non-responsive font sizes used for body copy, helper text and other elements that don't need to respond to viewport width."
       },
       "2": {
-        "value": ".9375 * {rem}",
+        "value": ".875 * {rem}",
         "type": "fontSizes"
       },
       "3": {
