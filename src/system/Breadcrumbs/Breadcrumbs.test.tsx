@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
