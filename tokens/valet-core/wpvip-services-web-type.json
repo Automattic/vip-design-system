@@ -81,7 +81,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.6}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -91,7 +91,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.7}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -101,7 +101,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.9}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -111,7 +111,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.10}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -121,7 +121,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.11}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -131,7 +131,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.12}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -141,7 +141,7 @@
         "fontWeight": "{fontWeight.medium}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.13}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -151,7 +151,7 @@
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.6}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -161,7 +161,7 @@
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.8}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -171,7 +171,7 @@
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.9}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -181,7 +181,7 @@
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.10}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -191,7 +191,7 @@
         "fontWeight": "{fontWeight.light}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.11}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -201,7 +201,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.11}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -211,7 +211,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.12}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -221,7 +221,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.13}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     }
@@ -233,7 +233,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.7}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     }
@@ -245,7 +245,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.responsive.8}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -255,7 +255,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.4}",
         "fontSize": "{fontSize.responsive.10}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     },
@@ -265,7 +265,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.3}",
         "fontSize": "{fontSize.responsive.11}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     }
@@ -404,7 +404,7 @@
         "fontWeight": "{fontWeight.regular}",
         "lineHeight": "{lineHeight.responsive}",
         "fontSize": "{fontSize.responsive.12b}",
-        "letterSpacing": "{letterSpacing.tight-1}"
+        "letterSpacing": "{letterSpacing.tight-2}"
       },
       "type": "typography"
     }
