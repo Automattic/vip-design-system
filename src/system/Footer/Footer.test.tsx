@@ -1,0 +1,48 @@
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+
+/**
+ * Internal dependencies
+ */
+import { Footer } from './Footer';
+
+const links = [
+	{
+		children: 'Link1',
+		href: 'https://wpvip.com/',
+	},
+	{
+		children: 'Link2',
+		href: 'https://docs.wpvip.com/',
+	},
+];
+
+describe( '<LinkExternal />', () => {
+	it( 'should render LinkExternal props', () => {
+		const moreLinks = [
+			{
+				children: 'Link3',
+				href: 'https://wpvipstatus.com',
+				newTab: true,
+			},
+		];
+
+		const combinedLinks = [ ...links, ...moreLinks ];
+
+		render( <Footer links={ combinedLinks } /> );
+
+		const link1 = screen.getByRole( 'link', { name: /link1/i } );
+		const link3 = screen.getByRole( 'link', { name: /link3/i } );
+
+		expect( link1 ).toHaveAttribute( 'target', '_self' );
+		expect( link3 ).toHaveAttribute( 'target', '_blank' );
+	} );
+
+	it( 'should hide last separator when hasTrailingSeparator is true', () => {
+		render( <Footer links={ links } hasTrailingSeparator /> );
+
+		const separators = screen.getAllByText( /\//i );
+
+		expect( separators.length ).toEqual( links.length );
+	} );
+} );

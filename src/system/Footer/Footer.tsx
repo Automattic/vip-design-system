@@ -78,14 +78,14 @@ export const Footer = ( {
 						const hideLastSeparator = ! hasTrailingSeparator && arr.length === index + 1;
 
 						return (
-							<>
+							<Box key={ `footer-link_${ index }` }>
 								<LinkExternal { ...linkProps } />
 								{ ! hideLastSeparator && (
 									<span sx={ { color: 'muted' } } aria-hidden="true">
 										/
 									</span>
 								) }
-							</>
+							</Box>
 						);
 					} ) }
 				</Flex>
