@@ -845,11 +845,15 @@
       "type": "letterSpacing"
     },
     "loose-3": {
-      "value": "0.05em",
+      "value": "0.02em",
       "type": "letterSpacing"
     },
     "tight-1": {
       "value": "-0.01em",
+      "type": "letterSpacing"
+    },
+    "loose-4": {
+      "value": "0.05em",
       "type": "letterSpacing"
     }
   },
