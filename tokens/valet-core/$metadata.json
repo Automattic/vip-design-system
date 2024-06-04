@@ -1,23 +1,7 @@
 {
   "tokenSetOrder": [
     "valet-core",
-    "valet-web-core",
-    "valet-web-color",
     "wpvip-product-core",
-    "wpvip-product-dark",
-    "wpvip-web",
-    "wpvip-web-color-dark",
-    "wpvip-web-color",
-    "wpvip-web-type",
-    "parsely-web-core",
-    "parsely-web-color",
-    "parsely-web-type",
-    "wpvip-services-web-core",
-    "wpvip-services-web-color",
-    "wpvip-services-web-type",
-    "figma-valet-web-type",
-    "figma-wpvip-web-type",
-    "figma-wpvip-services-web-type",
-    "figma-parsely-web-type"
+    "wpvip-product-dark"
   ]
 }
