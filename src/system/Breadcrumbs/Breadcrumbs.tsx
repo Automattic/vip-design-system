@@ -3,20 +3,24 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { useTranslate } from 'i18n-calypso';
-import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
-import { useWindowSize } from 'usehooks-ts';
+import { useWindowSize, useIsMounted } from 'usehooks-ts';
 
 export const VIP_BREACRUMBS = 'vip-breadcrumbs-component';
 
 import { collapsibleSeparatorStyles } from './styles';
+import { breadcrumbLinks, getListItemsFromBreadcrumb, grabItemsVisibility } from './utils';
 import { ItemBreadcrumb, NavItemProps, NavRawLink } from '../Nav/NavItem';
 import { navItemStyles, navMenuListStyles } from '../Nav/styles';
 
 export type BreadcrumbsLinkProps = {
 	href?: string;
-	label: string;
+	label?: string;
 	active?: boolean;
+	width?: number;
+	linkIndex?: number;
+	visible?: boolean;
 	sx?: ThemeUIStyleObject;
 };
 
@@ -27,25 +31,9 @@ export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
 	links?: BreadcrumbsLinkProps[];
 }
 
-const breadcrumbLinks = (
-	links: BreadcrumbsLinkProps[]
-): {
-	lastLink: BreadcrumbsLinkProps | null;
-	firstLink: BreadcrumbsLinkProps | null;
-	otherLinks: BreadcrumbsLinkProps[];
-} => {
-	const totalLinks = links?.length;
-
-	let otherLinks = totalLinks > 1 ? links?.slice( 1, totalLinks - 1 ) : [];
-	const firstLink: BreadcrumbsLinkProps | null = links?.[ 0 ];
-	const lastLink: BreadcrumbsLinkProps | null =
-		totalLinks > 1 ? links?.[ totalLinks - 1 ] : firstLink;
-
-	if ( totalLinks === 1 ) {
-		otherLinks = [];
-	}
-
-	return { firstLink, lastLink, otherLinks };
+export type ItemsProp = {
+	items: BreadcrumbsLinkProps[];
+	allItemsWidth?: number;
 };
 
 export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
@@ -53,55 +41,64 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 		{ className, links = [], label = 'Breadcrumbs', LinkComponent = NavRawLink }: BreacrumbsProps,
 		ref
 	) => {
+		const isMounted = useIsMounted();
 		const [ expanded, setExpanded ] = useState( false );
+		const [ itemsInfo, setItemsInfo ] = useState< ItemsProp >( {
+			items: [],
+			allItemsWidth: 0,
+		} );
 
 		const breadcrumbsListRef = useRef< HTMLOListElement >( null );
+		const expanderRef = useRef< HTMLLIElement >( null );
 		const translate = useTranslate();
+
 		const { width: windowSize } = useWindowSize( {
 			debounceDelay: 50,
 		} );
 
-		const calculateWrappedValue = () => {
-			if ( expanded ) {
-				return false;
-			}
-
+		useEffect( () => {
 			const breadcrumbList = breadcrumbsListRef?.current;
 
-			if ( ! breadcrumbList ) {
+			if ( ! breadcrumbList || ! isMounted || links?.length === 0 ) {
 				return;
 			}
 
-			const navWidth = breadcrumbList?.parentElement?.clientWidth ?? 0;
-			const listWidth = Array.from( breadcrumbsListRef?.current?.querySelectorAll( 'li' ) )?.reduce(
-				( acc, item ) => acc + item.clientWidth,
-				0
-			);
+			let allItemsWidth = 0;
 
-			return listWidth >= navWidth;
-		};
+			const items = getListItemsFromBreadcrumb( breadcrumbsListRef )?.map( ( item, index ) => {
+				const width = item?.clientWidth || 0;
 
-		const isWrapped = useMemo( calculateWrappedValue, [ windowSize, expanded ] );
+				allItemsWidth += width;
+
+				return { linkIndex: index, visible: true, width };
+			} );
+
+			setItemsInfo( { items, allItemsWidth } );
+		}, [ links, isMounted ] );
 
 		useEffect( () => {
-			if ( ! expanded ) {
-				return;
-			}
-
 			const breadcrumbList = breadcrumbsListRef?.current;
+			const expander = expanderRef?.current;
 
-			if ( ! breadcrumbList ) {
-				return;
-			}
-			const nextActiveLink: HTMLAnchorElement | null =
-				breadcrumbList.querySelector( 'li:nth-child(3) a' );
-
-			if ( ! nextActiveLink || document.activeElement === nextActiveLink ) {
+			if ( ! breadcrumbList || ! expander || itemsInfo?.items?.length === 0 ) {
 				return;
 			}
 
-			nextActiveLink?.focus();
-		}, [ expanded ] );
+			const refLinks = getListItemsFromBreadcrumb( breadcrumbsListRef );
+			const itemsVisibility = grabItemsVisibility( refLinks, itemsInfo, expanded );
+			const allItemsCanFit = itemsVisibility.every( item => item );
+
+			refLinks.map( ( item, index ) => {
+				const visible = itemsVisibility[ index ];
+
+				item.style.visibility = visible ? 'visible' : 'hidden';
+				item.style.order = visible ? '1' : '5';
+
+				return item;
+			} );
+
+			expander.style.display = ! allItemsCanFit && ! expanded ? 'block' : 'none';
+		}, [ windowSize, itemsInfo, expanded ] );
 
 		if ( links?.length === 0 ) {
 			return null;
@@ -138,11 +135,27 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 							</ItemBreadcrumb>
 						) }
 
+						{ otherLinks.map( link => (
+							<ItemBreadcrumb
+								active={ link.active }
+								sx={ {
+									...link.sx,
+									order: 1,
+								} }
+								key={ link.href }
+								as={ LinkComponent }
+								href={ link.href }
+							>
+								{ link.label }
+							</ItemBreadcrumb>
+						) ) }
+
 						<li
+							ref={ expanderRef }
 							sx={ {
 								...navItemStyles( 'horizontal', 'breadcrumbs' ),
-								visibility: isWrapped ? 'visible' : 'hidden',
-								order: isWrapped ? 1 : 5,
+								order: 1,
+								display: 'none',
 							} }
 						>
 							<button
@@ -153,22 +166,6 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 								…
 							</button>
 						</li>
-
-						{ otherLinks.map( link => (
-							<ItemBreadcrumb
-								active={ link.active }
-								sx={ {
-									...link.sx,
-									visibility: isWrapped ? 'hidden' : 'visible',
-									order: isWrapped ? 5 : 1,
-								} }
-								key={ link.href }
-								as={ LinkComponent }
-								href={ link.href }
-							>
-								{ link.label }
-							</ItemBreadcrumb>
-						) ) }
 
 						{ lastLink && (
 							<li

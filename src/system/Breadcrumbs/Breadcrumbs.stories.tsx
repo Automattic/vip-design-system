@@ -68,20 +68,6 @@ type Story = StoryObj< typeof Breadcrumbs >;
 
 export const Default: Story = {
 	render: () => (
-		<Breadcrumbs
-			LinkComponent={ CustomLink }
-			label="Nav Breadcrumbs"
-			links={ [
-				{ href: 'https://wordpress.com', label: 'WordPress' },
-				{ href: 'https://newrelic.com/', label: 'New Relic' },
-				{ href: 'https://google.com/', label: 'Not accessible' },
-			] }
-		/>
-	),
-};
-
-export const Collapsible: Story = {
-	render: () => (
 		<Box sx={ { display: 'flex', flexDirection: 'column', gap: 4 } }>
 			<p>
 				When entering Mobile views, the first and the last link will appear. A button with a … will
@@ -97,20 +83,20 @@ export const Collapsible: Story = {
 				links={ [
 					{ href: '/', label: 'Home' },
 					{ href: 'https://datadog.com/', label: 'Data dog' },
-					{ href: 'https://newrelic.com/', label: 'New Relic' },
-					{ href: 'https://rollbar.com/', label: 'Rollbar' },
-					{ href: 'https://areallylong.com/', label: 'A really long name' },
-					{ href: 'https://goog12313le.com/', label: 'I am the last item' },
-					// { href: 'https://datad56og.com/', label: 'Data dog' },
-					// { href: 'https://newre5lic.com/', label: 'New Relic' },
-					// { href: 'https://roll5bar.com/', label: 'Rollbar' },
-					// { href: 'https://areal4lylong.com/', label: 'A really long name' },
-					// { href: 'https://google.com/', label: 'I am the last item' },
-					// { href: 'https://data4do3g.com/', label: 'Data dog' },
-					// { href: 'https://newr2elic2.com/', label: 'New Relic' },
-					// { href: 'https://roll221bar.com/', label: 'Rollbar' },
-					// { href: 'https://area33llylong.com/', label: 'A really long name' },
-					// { href: 'https://goo66gle.com/', label: 'I am the last item' },
+					{ href: 'https://newrelic.com/', label: 'Old Relic' },
+					{ href: 'https://rollbar.com/', label: 'Roll' },
+					{ href: 'https://areallylong.com/', label: 'Not so long ago' },
+					{ href: 'https://goog12313le.com/', label: 'Ioleleirrul' },
+					{ href: 'https://datad56og.com/', label: 'Data cat' },
+					{ href: 'https://newre5lic.com/', label: 'New Relic' },
+					{ href: 'https://roll5bar.com/', label: 'bar' },
+					{ href: 'https://areal4lylong.com/', label: 'Another asda' },
+					{ href: 'https://google.com/', label: 'I am the last item' },
+					{ href: 'https://data4do3g.com/', label: 'Dog monkey' },
+					{ href: 'https://newr2elic2.com/', label: 'New rock' },
+					{ href: 'https://roll221bar.com/', label: 'MC Donalds' },
+					{ href: 'https://area33llylong.com/', label: 'A really long name' },
+					{ href: 'https://goo66gle.com/', label: 'OMG this works' },
 				] }
 			/>
 		</Box>
