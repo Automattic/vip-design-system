@@ -20,11 +20,11 @@
         "type": "fontSizes"
       },
       "3": {
-        "value": "1.1875 * {rem}",
+        "value": "1.125 * {rem}",
         "type": "fontSizes"
       },
       "4": {
-        "value": "2 * {rem}",
+        "value": "1.5 * {rem}",
         "type": "fontSizes"
       },
       "5": {
