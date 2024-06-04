@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import { Box } from '../Box/Box';
 import { Flex } from '../Flex';
 import { LinkExternal, LinkExternalProps } from '../LinkExternal/LinkExternal';
 import { Text } from '../Text';
@@ -53,16 +54,17 @@ export const Footer = ( {
 	return (
 		<Flex
 			sx={ {
+				flexDirection: [ 'column', 'column', 'row' ],
 				justifyContent: 'space-between',
-				flexWrap: 'wrap',
+				gap: 4,
 				fontSize: 1,
-				marginTop: '40px',
+				mt: 2,
 				maxWidth,
 				textAlign: 'left',
 			} }
 		>
 			{ links && links?.length >= 0 && (
-				<Flex sx={ { flexWrap: 'wrap', gap: 2 } }>
+				<Flex sx={ { alignSelf: 'center', gap: 2 } }>
 					{ links.map( ( linkProps, index, arr ) => {
 						const hideLastSeparator = ! hasTrailingSeparator && arr.length === index + 1;
 
@@ -79,7 +81,15 @@ export const Footer = ( {
 					} ) }
 				</Flex>
 			) }
-			{ customLogo ? customLogo : a8cLogo }
+			<Box
+				sx={ {
+					backgroundColor: [ '#F4F3F2', '#F4F3F2', 'transparent' ],
+					py: 2,
+					textAlign: [ 'center', 'center', 'right' ],
+				} }
+			>
+				{ customLogo ? customLogo : a8cLogo }
+			</Box>
 		</Flex>
 	);
 };
