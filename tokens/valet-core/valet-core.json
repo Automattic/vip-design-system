@@ -28,7 +28,7 @@
         "type": "fontSizes"
       },
       "5": {
-        "value": "1.5 * {rem}",
+        "value": "1.75 * {rem}",
         "type": "fontSizes"
       },
       "6": {
