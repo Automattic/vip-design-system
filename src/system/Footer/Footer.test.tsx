@@ -17,8 +17,8 @@ const links = [
 	},
 ];
 
-describe( '<LinkExternal />', () => {
-	it( 'should render LinkExternal props', () => {
+describe( '<Footer />', () => {
+	it( 'should accept LinkExternal props for Footer links', () => {
 		const moreLinks = [
 			{
 				children: 'Link3',
