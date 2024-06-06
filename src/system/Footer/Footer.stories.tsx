@@ -6,7 +6,7 @@ import { StoryObj } from '@storybook/react';
 import { Footer } from '../Footer/Footer';
 
 export default {
-	title: 'Footer',
+	title: 'Navigation/Footer',
 	component: Footer,
 	argTypes: {
 		hasTrailingSeparator: { control: { type: 'boolean' } },
