@@ -10,7 +10,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
 import { Box } from '../Box';
 import { Button } from '../Button';
 
-interface IProps {
+export interface ToggleGroupProps {
 	value?: string;
 	onChange?: ( value: string ) => void;
 	options?: {
@@ -20,7 +20,7 @@ interface IProps {
 	sx?: ThemeUIStyleObject;
 }
 
-const ToggleGroup = ( props: IProps ) => {
+const ToggleGroup = ( props: ToggleGroupProps ) => {
 	const { options, value, onChange } = props;
 
 	const handleClick = ( e: React.MouseEvent< HTMLButtonElement >, val: string ) => {
