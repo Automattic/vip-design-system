@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import classNames from 'classnames';
 import { useTranslate } from 'i18n-calypso';
 import React, { useState } from 'react';
@@ -43,7 +45,7 @@ export type FilterDropdownProps = {
 	defaultValue?: string | null;
 };
 
-const FilterDropdown = ( {
+export const FilterDropdown = ( {
 	className,
 	filters,
 	label,
@@ -88,5 +90,3 @@ const FilterDropdown = ( {
 		</Dropdown.Root>
 	);
 };
-
-export default FilterDropdown;
