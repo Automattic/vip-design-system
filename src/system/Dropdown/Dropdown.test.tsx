@@ -29,6 +29,6 @@ describe( '<Dropdown />', () => {
 		fireEvent.click( getButton() );
 
 		// Check for accessibility issues
-		await expect( axe( container ) ).resolves.toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
