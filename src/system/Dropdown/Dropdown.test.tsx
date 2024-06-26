@@ -3,6 +3,7 @@
  */
 import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import React from 'react';
 
 /**
  * Internal dependencies
@@ -28,6 +29,6 @@ describe( '<Dropdown />', () => {
 		fireEvent.click( getButton() );
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		await expect( axe( container ) ).resolves.toHaveNoViolations();
 	} );
 } );

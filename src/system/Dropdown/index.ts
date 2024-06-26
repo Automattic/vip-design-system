@@ -1,7 +1,5 @@
 /** @jsxImportSource theme-ui */
-/**
- * Internal dependencies
- */
+
 import {
 	Dropdown,
 	DropdownTrigger,
