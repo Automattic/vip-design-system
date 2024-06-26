@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import FilterDropdown from './FilterDropdown';
+import { FilterDropdown } from './FilterDropdown';
 
 function getMenu() {
 	return screen.getByRole( 'button', { name: 'Filter: Auth Method All checked' } );
