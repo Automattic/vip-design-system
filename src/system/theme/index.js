@@ -250,23 +250,50 @@ export default {
 
 	cards: {
 		primary: {
-			padding: 3,
 			borderRadius: 2,
 			backgroundColor: 'layer.2',
 			boxShadow: 'low',
+			header: {
+				backgroundColor: 'layer.1',
+				borderTopLeftRadius: 2,
+				borderTopRightRadius: 2,
+				p: 3,
+				fontWeight: 'bold',
+				display: 'flex',
+			},
+			children: {
+				p: 3,
+			},
 		},
 		secondary: {
 			borderRadius: 2,
-			p: 3,
 			boxShadow: 'none',
 			border: '1px solid',
 			borderColor: 'borders.2',
+			header: {
+				backgroundColor: 'layer.1',
+				borderTopLeftRadius: 2,
+				borderTopRightRadius: 2,
+				p: 3,
+				fontWeight: 'bold',
+				display: 'flex',
+			},
+			children: {
+				p: 3,
+			},
 		},
 		indent: {
 			borderRadius: 2,
-			p: 3,
 			boxShadow: 'none',
 			backgroundColor: 'backgroundMuted',
+			header: {
+				display: 'flex',
+				fontWeight: 'bold',
+				p: 3,
+			},
+			children: {
+				p: 3,
+			},
 		},
 	},
 

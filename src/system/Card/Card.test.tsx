@@ -29,4 +29,15 @@ describe( '<Card />', () => {
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'renders the Card component with a header', async () => {
+		const { container } = render( <Card header="Card Header">Card text</Card> );
+
+		expect( screen.getByText( 'Card Header' ) ).toBeInTheDocument();
+
+		expect( screen.getByText( 'Card text' ) ).toBeInTheDocument();
+
+		// Check for accessibility issues
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
 } );
