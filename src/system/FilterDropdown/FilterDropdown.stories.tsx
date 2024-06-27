@@ -12,17 +12,17 @@ export default {
 			description: {
 				component: `
 
-Horizontal Line.
+A Dropdown component that acts as a filter for a list of items.
 
 ## Guidance
 
-### When to use the link component
+### When to use the FilterDropdown component
 
-- When you want to separate sections with a horizontal line.
+- When you want a Dropdown option that sticks with the selected value on the trigger button;
 
 ### When to consider something else
 
-- When you want to display a vertical line;
+- When you want to display a list of options that does not require to stick with the selected value on the trigger button;
 
 ## Component Properties
 `,
