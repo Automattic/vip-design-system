@@ -21,6 +21,7 @@ import {
 } from './Dialog';
 import * as Drawer from './Drawer/Drawer';
 import * as Dropdown from './Dropdown';
+import { FilterDropdown } from './FilterDropdown/FilterDropdown';
 import { Flex } from './Flex';
 import {
 	Input,
@@ -84,6 +85,7 @@ export {
 	MobileMenuWrapper,
 	NewConfirmationDialog,
 	Grid,
+	FilterDropdown,
 	Flex,
 	Notice,
 	OptionRow,
