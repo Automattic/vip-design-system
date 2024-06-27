@@ -8,4 +8,22 @@ export default {
 	component: Card,
 };
 
-export const Default = () => <Card> Hello </Card>;
+export const Default = () => <Card>Hello</Card>;
+
+export const WithHeader = () => <Card header="Header">This is a card with a header.</Card>;
+
+export const DefaultSecondary = () => <Card variant="secondary">Hello</Card>;
+
+export const WithHeaderSecondary = () => (
+	<Card header="Header" variant="secondary">
+		This is a card with a header.
+	</Card>
+);
+
+export const DefaultIndent = () => <Card variant="indent">Hello</Card>;
+
+export const WithHeaderIndent = () => (
+	<Card header="Header" variant="indent">
+		This is a card with a header.
+	</Card>
+);
