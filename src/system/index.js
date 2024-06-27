@@ -21,7 +21,6 @@ import {
 } from './Dialog';
 import * as Drawer from './Drawer/Drawer';
 import * as Dropdown from './Dropdown';
-
 import { FilterDropdown } from './FilterDropdown/FilterDropdown';
 import { Flex } from './Flex';
 import {
@@ -37,7 +36,7 @@ import {
 } from './Form';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
-import * as Hr from './Hr/Hr';
+import { Hr } from './Hr/Hr';
 import { Link } from './Link';
 import LinkExternal from './LinkExternal/LinkExternal';
 import { MobileMenuWrapper, MobileMenuTrigger, MobileMenu } from './MobileMenu/MobileMenu';

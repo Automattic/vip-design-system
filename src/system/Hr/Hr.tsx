@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import { ThemeUIStyleObject } from 'theme-ui';
 
 export type HrProps = {
