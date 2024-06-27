@@ -8,6 +8,7 @@ import React, { useCallback } from 'react';
 
 import { RequiredLabel } from './RequiredLabel';
 import { Validation } from './Validation';
+import { Button } from '../Button';
 import ScreenReaderText from '../ScreenReaderText';
 
 /**
@@ -94,14 +95,63 @@ const RadioOption = ( {
 	);
 };
 
-RadioOption.propTypes = {
+const ChipOption = ( {
+	defaultValue,
+	option: { value, label },
+	name,
+	disabled,
+	onChangeHandler,
+} ) => {
+	const checked = `${ defaultValue }` === `${ value }`;
+
+	return (
+		<Button
+			variant="text"
+			role="radio"
+			disabled={ disabled }
+			name={ name }
+			sx={ {
+				background: checked ? 'layer.4' : undefined,
+				color: 'text',
+				minHeight: '32px',
+				px: 3,
+				boxShadow: checked ? 'low' : undefined,
+				fontWeight: 400,
+				fontSize: 2,
+				'&:hover': {
+					background: checked ? 'layer.4' : 'gray.3',
+				},
+			} }
+			value={ value }
+			onClick={ onChangeHandler }
+		>
+			{ label }
+		</Button>
+	);
+};
+
+ChipOption.PropTypes = RadioOption.propTypes = {
 	defaultValue: PropTypes.string,
 	option: PropTypes.object,
 	name: PropTypes.string,
 	onChangeHandler: PropTypes.func,
-	checked: PropTypes.bool,
 	disabled: PropTypes.bool,
 	width: PropTypes.string,
+};
+
+const groupStyleOverrides = {
+	chip: {
+		background: 'layer.3',
+		p: 1,
+		display: 'inline-flex',
+		gap: 1,
+		borderRadius: 1,
+	},
+	default: {
+		display: 'inline-block',
+		mb: 2,
+		p: 0,
+	},
 };
 
 const RadioBoxGroup = React.forwardRef(
@@ -117,6 +167,7 @@ const RadioBoxGroup = React.forwardRef(
 			errorMessage,
 			hasError,
 			required,
+			variant = 'default',
 			...props
 		},
 		forwardRef
@@ -131,8 +182,13 @@ const RadioBoxGroup = React.forwardRef(
 			[ onChange ]
 		);
 
+		let Option = RadioOption;
+		if ( variant === 'chip' ) {
+			Option = ChipOption;
+		}
+
 		const renderedOptions = options.map( option => (
-			<RadioOption
+			<Option
 				defaultValue={ defaultValue }
 				disabled={ disabled }
 				key={ option?.id || option?.value }
@@ -148,11 +204,9 @@ const RadioBoxGroup = React.forwardRef(
 				<fieldset
 					sx={ {
 						border: 0,
-						p: hasError ? 2 : 0,
-						display: 'inline-block',
-						mb: 2,
+						...groupStyleOverrides[ variant ],
 						...( hasError
-							? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2 }
+							? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
 							: {} ),
 					} }
 					ref={ forwardRef }
@@ -202,6 +256,7 @@ RadioBoxGroup.propTypes = {
 	errorMessage: PropTypes.string,
 	hasError: PropTypes.bool,
 	required: PropTypes.bool,
+	variant: PropTypes.oneOf( [ 'default', 'chip' ] ),
 };
 
 export { RadioBoxGroup };
