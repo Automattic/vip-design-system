@@ -225,7 +225,7 @@ const RadioBoxGroup = React.forwardRef(
 					<div
 						sx={ {
 							display: 'flex',
-							gap: 2,
+							gap: variant === 'chip' ? 1 : 2,
 						} }
 					>
 						{ renderedOptions }
