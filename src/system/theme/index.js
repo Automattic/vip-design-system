@@ -250,7 +250,6 @@ export default {
 
 	cards: {
 		primary: {
-			p: 3,
 			borderRadius: 2,
 			backgroundColor: 'layer.2',
 			boxShadow: 'low',
@@ -262,10 +261,12 @@ export default {
 				fontWeight: 'bold',
 				display: 'flex',
 			},
+			children: {
+				p: 3,
+			},
 		},
 		secondary: {
 			borderRadius: 2,
-			p: 3,
 			boxShadow: 'none',
 			border: '1px solid',
 			borderColor: 'borders.2',
@@ -277,15 +278,20 @@ export default {
 				fontWeight: 'bold',
 				display: 'flex',
 			},
+			children: {
+				p: 3,
+			},
 		},
 		indent: {
 			borderRadius: 2,
-			p: 3,
 			boxShadow: 'none',
 			backgroundColor: 'backgroundMuted',
 			header: {
 				display: 'flex',
 				fontWeight: 'bold',
+				p: 3,
+			},
+			children: {
 				p: 3,
 			},
 		},

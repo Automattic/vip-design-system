@@ -5,7 +5,7 @@
  */
 import classNames, { Argument } from 'classnames';
 import { forwardRef, Ref } from 'react';
-import { BoxProps, useThemeUI, get } from 'theme-ui';
+import { BoxProps } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -22,7 +22,7 @@ export interface CardProps {
 	variant?: keyof typeof CardVariant;
 	sx?: BoxProps[ 'sx' ];
 	className?: Argument;
-	header?: string;
+	header?: React.ReactNode;
 	children?: React.ReactNode;
 }
 
@@ -33,25 +33,29 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 		{ variant = 'primary', header, sx = {}, className, children, ...props }: CardProps,
 		ref: Ref< HTMLElement >
 	) => {
-		const { theme } = useThemeUI();
-		const cardVariant = get( theme, `cards.${ variant }`, {} );
-		const basePadding = cardVariant?.p || cardVariant?.padding || 3;
 		return (
 			<Box
 				ref={ ref }
 				sx={ {
 					// pass variant prop to sx
 					variant: `cards.${ variant }`,
-					p: header ? 0 : basePadding, // Remove padding if there is a header so it sits flush
 					...sx,
 				} }
 				className={ classNames( 'vip-card-component', className ) }
 				{ ...props }
 			>
-				{ header && <header aria-label="Card header">{ header }</header> }
+				{ header && (
+					<div
+						sx={ {
+							variant: `cards.${ variant }.header`,
+						} }
+					>
+						{ header }
+					</div>
+				) }
 				<div
 					sx={ {
-						p: header ? basePadding : 0,
+						variant: `cards.${ variant }.children`,
 					} }
 				>
 					{ children }
