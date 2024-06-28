@@ -110,6 +110,7 @@ const ChipOption = ( {
 			role="radio"
 			disabled={ disabled }
 			name={ name }
+			aria-checked={ checked }
 			sx={ {
 				background: checked ? 'layer.4' : undefined,
 				color: 'text',
