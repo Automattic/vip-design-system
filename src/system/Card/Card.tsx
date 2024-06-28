@@ -16,6 +16,7 @@ export enum CardVariant {
 	'primary',
 	'secondary',
 	'notice',
+	'indent',
 }
 
 export interface CardProps {

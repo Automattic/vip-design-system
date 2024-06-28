@@ -295,6 +295,19 @@ export default {
 				gap: 4,
 			},
 		},
+		indent: {
+			borderRadius: 2,
+			boxShadow: 'none',
+			backgroundColor: 'backgroundMuted',
+			header: {
+				display: 'flex',
+				fontWeight: 'bold',
+				p: 3,
+			},
+			children: {
+				p: 3,
+			},
+		},
 	},
 
 	buttons: {
