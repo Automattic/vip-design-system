@@ -30,8 +30,8 @@ describe( '<Card />', () => {
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
-	it( 'renders the Card component with a header', async () => {
-		const { container } = render( <Card header="Card Header">Card text</Card> );
+	it( 'renders the Card component with a title', async () => {
+		const { container } = render( <Card title="Card Header">Card text</Card> );
 
 		expect( screen.getByText( 'Card Header' ) ).toBeInTheDocument();
 

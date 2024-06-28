@@ -15,6 +15,7 @@ import { Box } from '..';
 export enum CardVariant {
 	'primary',
 	'secondary',
+	'notice',
 	'indent',
 }
 
@@ -22,44 +23,48 @@ export interface CardProps {
 	variant?: keyof typeof CardVariant;
 	sx?: BoxProps[ 'sx' ];
 	className?: Argument;
-	header?: React.ReactNode;
+	title?: string;
 	children?: React.ReactNode;
+	renderHeader?: ( title?: string ) => React.ReactNode;
 }
 
 type CardBoxProps = CardProps & BoxProps;
 
 export const Card = forwardRef< HTMLElement, CardBoxProps >(
 	(
-		{ variant = 'primary', header, sx = {}, className, children, ...props }: CardProps,
+		{ variant = 'primary', title, renderHeader, sx = {}, className, children, ...props }: CardProps,
 		ref: Ref< HTMLElement >
 	) => {
 		return (
 			<Box
 				ref={ ref }
 				sx={ {
-					// pass variant prop to sx
 					variant: `cards.${ variant }`,
-					...sx,
 				} }
 				className={ classNames( 'vip-card-component', className ) }
 				{ ...props }
 			>
-				{ header && (
-					<div
+				{ renderHeader ? renderHeader( title ) : '' }
+				{ title && ! renderHeader && (
+					<Box
+						className={ classNames( 'vip-card-header-component', className ) }
 						sx={ {
 							variant: `cards.${ variant }.header`,
 						} }
 					>
-						{ header }
-					</div>
+						{ title }
+					</Box>
 				) }
-				<div
+
+				<Box
+					className={ classNames( 'vip-card-body-component', className ) }
 					sx={ {
 						variant: `cards.${ variant }.children`,
+						...sx,
 					} }
 				>
 					{ children }
-				</div>
+				</Box>
 			</Box>
 		);
 	}

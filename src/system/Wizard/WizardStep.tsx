@@ -88,7 +88,6 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 				sx={ {
 					boxShadow: active ? 'low' : 'none',
 					borderLeft: '2px solid',
-					p: 4,
 					backgroundColor: active ? 'background' : 'transparent',
 					borderRadius: 0,
 					borderBottom: active ? 'none' : '1px solid',
