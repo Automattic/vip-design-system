@@ -18,11 +18,6 @@ export default {
 A radio-box-group is a group of radio buttons that are styled as boxes. This component is used
 to allow users to select one option from a list of options.
 
-## Known issues
-
-- The <code>chip</code> variant of the current implementation of this component does not show the
-description of the selected option.
-
 ## Guidance
 
 ### When to use the component
