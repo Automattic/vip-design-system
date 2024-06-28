@@ -22,15 +22,16 @@ export interface CardProps {
 	variant?: keyof typeof CardVariant;
 	sx?: BoxProps[ 'sx' ];
 	className?: Argument;
-	header?: React.ReactNode;
+	title?: string;
 	children?: React.ReactNode;
+	renderHeader?: ( title?: string ) => React.ReactNode;
 }
 
 type CardBoxProps = CardProps & BoxProps;
 
 export const Card = forwardRef< HTMLElement, CardBoxProps >(
 	(
-		{ variant = 'primary', header, sx = {}, className, children, ...props }: CardProps,
+		{ variant = 'primary', title, renderHeader, sx = {}, className, children, ...props }: CardProps,
 		ref: Ref< HTMLElement >
 	) => {
 		return (
@@ -43,15 +44,17 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 				className={ classNames( 'vip-card-component', className ) }
 				{ ...props }
 			>
-				{ header && (
-					<div
+				{ renderHeader ? renderHeader( title ) : '' }
+				{ title && ! renderHeader && (
+					<Box
 						sx={ {
 							variant: `cards.${ variant }.header`,
 						} }
 					>
-						{ header }
-					</div>
+						{ title }
+					</Box>
 				) }
+
 				<Box
 					sx={ {
 						variant: `cards.${ variant }.children`,
