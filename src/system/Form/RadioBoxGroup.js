@@ -119,7 +119,7 @@ const ChipOption = ( {
 				fontWeight: 400,
 				fontSize: 2,
 				'&:hover': {
-					background: checked ? 'layer.4' : 'gray.3',
+					background: checked ? 'layer.4' : 'layer.1',
 				},
 			} }
 			value={ value }
