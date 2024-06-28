@@ -147,7 +147,7 @@ const groupStyleOverrides = {
 		gap: 1,
 		borderRadius: 1,
 	},
-	default: {
+	primary: {
 		display: 'inline-block',
 		mb: 2,
 		p: 0,
@@ -167,7 +167,7 @@ const RadioBoxGroup = React.forwardRef(
 			errorMessage,
 			hasError,
 			required,
-			variant = 'default',
+			variant = 'primary',
 			...props
 		},
 		forwardRef
@@ -256,7 +256,7 @@ RadioBoxGroup.propTypes = {
 	errorMessage: PropTypes.string,
 	hasError: PropTypes.bool,
 	required: PropTypes.bool,
-	variant: PropTypes.oneOf( [ 'default', 'chip' ] ),
+	variant: PropTypes.oneOf( [ 'primary', 'chip' ] ),
 };
 
 export { RadioBoxGroup };
