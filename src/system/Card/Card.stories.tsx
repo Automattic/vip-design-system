@@ -14,6 +14,7 @@ export const WithHeader = () => <Card title="Header">This is a card with a heade
 export const WithCustomHeader = () => (
 	<Box sx={ { maxWidth: 500 } }>
 		<Card
+			title="Screenshot of a website"
 			renderHeader={ title => (
 				<img
 					src={ `https://s0.wp.com/mshots/v1/https://google.com/` }
