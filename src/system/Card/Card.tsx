@@ -38,7 +38,6 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 			<Box
 				ref={ ref }
 				sx={ {
-					// pass variant prop to sx
 					variant: `cards.${ variant }`,
 				} }
 				className={ classNames( 'vip-card-component', className ) }
@@ -47,6 +46,7 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 				{ renderHeader ? renderHeader( title ) : '' }
 				{ title && ! renderHeader && (
 					<Box
+						className={ classNames( 'vip-card-header-component', className ) }
 						sx={ {
 							variant: `cards.${ variant }.header`,
 						} }
@@ -56,6 +56,7 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 				) }
 
 				<Box
+					className={ classNames( 'vip-card-body-component', className ) }
 					sx={ {
 						variant: `cards.${ variant }.children`,
 						...sx,
