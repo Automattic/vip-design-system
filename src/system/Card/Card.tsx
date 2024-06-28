@@ -16,7 +16,6 @@ export enum CardVariant {
 	'primary',
 	'secondary',
 	'notice',
-	'notice-inline',
 }
 
 export interface CardProps {
@@ -54,7 +53,6 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 					</div>
 				) }
 				<Box
-					className="lalala"
 					sx={ {
 						variant: `cards.${ variant }.children`,
 						...sx,
