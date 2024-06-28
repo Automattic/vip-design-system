@@ -19,11 +19,3 @@ export const WithHeaderSecondary = () => (
 		This is a card with a header.
 	</Card>
 );
-
-export const DefaultIndent = () => <Card variant="indent">Hello</Card>;
-
-export const WithHeaderIndent = () => (
-	<Card header="Header" variant="indent">
-		This is a card with a header.
-	</Card>
-);

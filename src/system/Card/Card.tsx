@@ -15,7 +15,8 @@ import { Box } from '..';
 export enum CardVariant {
 	'primary',
 	'secondary',
-	'indent',
+	'notice',
+	'notice-inline',
 }
 
 export interface CardProps {
@@ -39,7 +40,6 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 				sx={ {
 					// pass variant prop to sx
 					variant: `cards.${ variant }`,
-					...sx,
 				} }
 				className={ classNames( 'vip-card-component', className ) }
 				{ ...props }
@@ -53,13 +53,15 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 						{ header }
 					</div>
 				) }
-				<div
+				<Box
+					className="lalala"
 					sx={ {
 						variant: `cards.${ variant }.children`,
+						...sx,
 					} }
 				>
 					{ children }
-				</div>
+				</Box>
 			</Box>
 		);
 	}
