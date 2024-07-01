@@ -258,7 +258,7 @@ export default {
 				borderTopLeftRadius: 2,
 				borderTopRightRadius: 2,
 				py: 3,
-				px: 5,
+				px: 4,
 				gap: 2,
 				fontWeight: 'bold',
 				display: 'flex',
