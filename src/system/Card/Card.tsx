@@ -4,7 +4,7 @@
  * External dependencies
  */
 import { forwardRef, Ref } from 'react';
-import { BoxProps, Theme, ThemeUIStyleObject } from 'theme-ui';
+import { BoxProps, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
