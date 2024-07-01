@@ -37,3 +37,8 @@ export const WithHeaderSecondary = () => (
 );
 
 export const DefaultIndent = () => <Card variant="indent">Hello</Card>;
+export const StyledBody = () => (
+	<Card variant="indent" title="Hello world" bodyStyles={ { p: 6, backgroundColor: 'layer.2' } }>
+		Hello styled body.
+	</Card>
+);

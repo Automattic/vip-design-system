@@ -258,15 +258,15 @@ export default {
 				borderTopLeftRadius: 2,
 				borderTopRightRadius: 2,
 				py: 3,
-				px: 5,
+				px: 4,
 				gap: 2,
 				fontWeight: 'bold',
 				display: 'flex',
 				minHeight: 46,
 			},
 			children: {
-				padding: 5,
-				gap: 6,
+				padding: 4,
+				gap: 3,
 			},
 		},
 		secondary: {
