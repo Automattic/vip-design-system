@@ -265,8 +265,8 @@ export default {
 				minHeight: 46,
 			},
 			children: {
-				padding: 5,
-				gap: 6,
+				padding: 4,
+				gap: 3,
 			},
 		},
 		secondary: {
