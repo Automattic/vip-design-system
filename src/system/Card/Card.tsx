@@ -4,7 +4,7 @@
  * External dependencies
  */
 import { forwardRef, Ref } from 'react';
-import { BoxProps } from 'theme-ui';
+import { BoxProps, Theme, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -23,13 +23,23 @@ export interface CardProps {
 	title?: string;
 	children?: React.ReactNode;
 	renderHeader?: ( title?: string ) => React.ReactNode;
+	bodyStyles?: ThemeUIStyleObject;
+	headerStyles?: ThemeUIStyleObject;
 }
 
 type CardBoxProps = CardProps & BoxProps;
 
 export const Card = forwardRef< HTMLElement, CardBoxProps >(
 	(
-		{ variant = 'primary', title, renderHeader, children, ...rest }: CardProps,
+		{
+			variant = 'primary',
+			title,
+			renderHeader,
+			bodyStyles,
+			headerStyles,
+			children,
+			...rest
+		}: CardProps,
 		ref: Ref< HTMLElement >
 	) => {
 		return (
@@ -47,6 +57,7 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 						className="vip-card-header-component"
 						sx={ {
 							variant: `cards.${ variant }.header`,
+							...headerStyles,
 						} }
 					>
 						{ title }
@@ -57,6 +68,7 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 					className="vip-card-body-component"
 					sx={ {
 						variant: `cards.${ variant }.children`,
+						...bodyStyles,
 					} }
 				>
 					{ children }
