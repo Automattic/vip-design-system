@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import classNames, { Argument } from 'classnames';
 import { forwardRef, Ref } from 'react';
 import { BoxProps } from 'theme-ui';
 
