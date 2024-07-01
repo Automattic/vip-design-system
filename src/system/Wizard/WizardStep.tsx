@@ -101,6 +101,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 				} }
 				data-step={ order }
 				data-active={ active || undefined }
+				className={ `wizard-step-${ status }` }
 				ref={ forwardRef }
 			>
 				<Flex sx={ { alignItems: 'flex-end', mb: 2 } }>
