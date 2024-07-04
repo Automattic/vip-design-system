@@ -133,7 +133,7 @@ const ChipOption = ( {
 				checked={ checked }
 				aria-checked={ checked }
 				value={ value }
-				onClick={ onChangeHandler }
+				onChange={ onChangeHandler }
 				aria-labelledby={ describedById }
 				sx={ {
 					opacity: 0,
@@ -166,7 +166,7 @@ const ChipOption = ( {
 	);
 };
 
-ChipOption.PropTypes = RadioOption.propTypes = {
+ChipOption.propTypes = RadioOption.propTypes = {
 	defaultValue: PropTypes.string,
 	option: PropTypes.object,
 	name: PropTypes.string,
