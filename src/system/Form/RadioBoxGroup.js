@@ -128,6 +128,7 @@ const ChipOption = ( {
 			<input
 				ref={ ref }
 				type="radio"
+				id={ forLabel }
 				disabled={ disabled }
 				name={ name }
 				checked={ checked }
