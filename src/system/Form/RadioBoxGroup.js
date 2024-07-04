@@ -133,7 +133,7 @@ const ChipOption = ( {
 				aria-checked={ checked }
 				value={ value }
 				onClick={ onChangeHandler }
-				aria-describedby={ describedById }
+				aria-labelledby={ describedById }
 				sx={ {
 					opacity: 0,
 					height: 0,
