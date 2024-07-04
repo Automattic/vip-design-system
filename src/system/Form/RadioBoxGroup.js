@@ -8,7 +8,6 @@ import React, { useCallback } from 'react';
 
 import { RequiredLabel } from './RequiredLabel';
 import { Validation } from './Validation';
-import { Button } from '../Button';
 import ScreenReaderText from '../ScreenReaderText';
 
 /**
@@ -97,37 +96,72 @@ const RadioOption = ( {
 
 const ChipOption = ( {
 	defaultValue,
-	option: { value, label },
+	option: { id, value, label },
 	name,
 	disabled,
 	onChangeHandler,
 } ) => {
 	const checked = `${ defaultValue }` === `${ value }`;
+	const forLabel = id || value;
+	const ref = React.useRef( null );
+	const describedById = `input-radio-box-${ forLabel }-description`;
 
 	return (
-		<Button
-			variant="text"
-			role="radio"
-			disabled={ disabled }
-			name={ name }
-			aria-checked={ checked }
+		<div
+			id={ `o${ forLabel }` }
+			onClick={ () => {
+				ref.current?.click();
+			} }
 			sx={ {
+				display: 'inline-flex',
+				position: 'relative',
 				background: checked ? 'layer.4' : undefined,
 				color: 'text',
 				minHeight: '32px',
-				px: 3,
 				boxShadow: checked ? 'low' : undefined,
-				fontWeight: 400,
-				fontSize: 2,
 				'&:hover': {
 					background: checked ? 'layer.4' : 'layer.1',
 				},
+				borderRadius: 1,
 			} }
-			value={ value }
-			onClick={ onChangeHandler }
 		>
-			{ label }
-		</Button>
+			<input
+				ref={ ref }
+				type="radio"
+				disabled={ disabled }
+				name={ name }
+				aria-checked={ checked }
+				value={ value }
+				onClick={ onChangeHandler }
+				aria-describedby={ describedById }
+				sx={ {
+					opacity: 0,
+					height: 0,
+					width: 0,
+					position: 'absolute',
+					'&:focus-visible + label': theme => theme.outline,
+				} }
+			/>
+
+			<label
+				id={ describedById }
+				htmlFor={ forLabel }
+				sx={ {
+					height: '100%',
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					width: '100%',
+					px: 3,
+					fontWeight: 400,
+					fontSize: 2,
+					cursor: 'pointer',
+					borderRadius: 1,
+				} }
+			>
+				{ label }
+			</label>
+		</div>
 	);
 };
 
