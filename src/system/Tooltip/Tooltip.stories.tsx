@@ -14,7 +14,7 @@ A tooltip is a short descriptive message that appears when a user hovers or focu
 element. Our tooltip aims to be 100% CSS-only. It uses a global css approach to inject the
 tooltip styles.
 
-## Kwown issues
+## Known issues
 
 - Storybook uses iframes to render the components. This means that the tooltip box will overlap in the demos, but you can click on each demo page to see the correct render.
 - The current implementation of this component is <strong>NOT</strong> protected from viewport
