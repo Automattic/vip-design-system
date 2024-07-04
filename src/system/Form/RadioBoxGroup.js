@@ -130,6 +130,7 @@ const ChipOption = ( {
 				type="radio"
 				disabled={ disabled }
 				name={ name }
+				checked={ checked }
 				aria-checked={ checked }
 				value={ value }
 				onClick={ onChangeHandler }
