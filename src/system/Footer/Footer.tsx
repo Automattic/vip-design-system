@@ -98,7 +98,7 @@ export const Footer = ( {
 			) }
 			<Box
 				sx={ {
-					backgroundColor: [ '#F4F3F2', '#F4F3F2', 'transparent' ],
+					backgroundColor: [ 'layer.1', 'layer.1', 'transparent' ],
 					py: 2,
 					textAlign: [ 'center', 'center', 'right' ],
 				} }
