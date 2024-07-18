@@ -67,7 +67,7 @@ export const Footer = ( {
 				textAlign: 'left',
 			} }
 		>
-			{ links && links?.length >= 0 && (
+			{ links?.length && (
 				<ul
 					sx={ {
 						display: 'flex',
