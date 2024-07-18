@@ -9,7 +9,6 @@ import { ThemeUIStyleObject } from 'theme-ui';
  * Internal dependencies
  */
 import { Box } from '../Box/Box';
-import { Flex } from '../Flex';
 import { LinkExternal, LinkExternalProps } from '../LinkExternal/LinkExternal';
 import { navItemStyles } from '../Nav/styles';
 import { Text } from '../Text';
@@ -81,8 +80,9 @@ export const Footer = ( {
 	};
 
 	return (
-		<Flex
+		<footer
 			sx={ {
+				display: 'flex',
 				flexDirection: [ 'column', 'column', 'row' ],
 				justifyContent: 'space-between',
 				gap: 4,
@@ -130,6 +130,6 @@ export const Footer = ( {
 			>
 				{ customLogo ? customLogo : a8cLogo }
 			</Box>
-		</Flex>
+		</footer>
 	);
 };
