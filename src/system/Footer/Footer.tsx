@@ -1,7 +1,9 @@
+/** @jsxImportSource theme-ui */
 /**
  * External dependencies
  */
 import { translate } from 'i18n-calypso';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -9,6 +11,7 @@ import { translate } from 'i18n-calypso';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex';
 import { LinkExternal, LinkExternalProps } from '../LinkExternal/LinkExternal';
+import { navItemStyles } from '../Nav/styles';
 import { Text } from '../Text';
 
 type FooterProps = {
@@ -60,6 +63,23 @@ export const Footer = ( {
 	customLogo,
 	maxWidth = '100%',
 }: FooterProps ) => {
+	const FooterLinks = ( { children, ...props } ) => {
+		return <li { ...props }>{ children }</li>;
+	};
+
+	const trailingSeparator = {
+		'&:last-of-type::after': {
+			display: 'inline-block',
+			margin: '0 0.45em 0 1em ',
+			transform: 'rotate(15deg)',
+			borderRightColor: 'text',
+			borderRightStyle: 'solid',
+			borderRightWidth: '0.1em',
+			height: '0.8em',
+			content: '""',
+		},
+	};
+
 	return (
 		<Flex
 			sx={ {
@@ -73,22 +93,33 @@ export const Footer = ( {
 			} }
 		>
 			{ links && links?.length >= 0 && (
-				<Flex sx={ { alignSelf: 'center', gap: 2 } }>
-					{ links.map( ( linkProps, index, arr ) => {
-						const hideLastSeparator = ! hasTrailingSeparator && arr.length === index + 1;
-
+				<ul
+					sx={ {
+						display: 'flex',
+						alignSelf: 'center',
+						gap: 2,
+						listStyle: 'none',
+						paddingInlineStart: 0,
+					} }
+				>
+					{ links.map( ( linkProps, index ) => {
 						return (
-							<Box key={ `footer-link_${ index }` }>
-								<LinkExternal { ...linkProps } />
-								{ ! hideLastSeparator && (
-									<span sx={ { color: 'muted' } } aria-hidden="true">
-										/
-									</span>
-								) }
-							</Box>
+							<FooterLinks
+								key={ `footer-link_${ index }` }
+								sx={
+									hasTrailingSeparator
+										? {
+												...navItemStyles( 'horizontal', 'breadcrumbs' ),
+												...trailingSeparator,
+										  }
+										: { ...navItemStyles( 'horizontal', 'breadcrumbs' ) }
+								}
+							>
+								<LinkExternal { ...linkProps } sx={ { ml: 1 } } />
+							</FooterLinks>
 						);
 					} ) }
-				</Flex>
+				</ul>
 			) }
 			<Box
 				sx={ {

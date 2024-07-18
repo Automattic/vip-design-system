@@ -37,12 +37,4 @@ describe( '<Footer />', () => {
 		expect( link1 ).toHaveAttribute( 'target', '_self' );
 		expect( link3 ).toHaveAttribute( 'target', '_blank' );
 	} );
-
-	it( 'should hide last separator when hasTrailingSeparator is true', () => {
-		render( <Footer links={ links } hasTrailingSeparator /> );
-
-		const separators = screen.getAllByText( /\//i );
-
-		expect( separators.length ).toEqual( links.length );
-	} );
 } );
