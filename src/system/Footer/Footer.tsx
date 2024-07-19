@@ -16,6 +16,12 @@ type FooterProps = {
 	 **/
 	hasTrailingSeparator?: boolean;
 	/**
+	 * Option to show underlines for links.
+	 *
+	 * @default false
+	 **/
+	hasUnderlinedLinks?: boolean;
+	/**
 	 * An array of LinkExternal components as objects.
 	 **/
 	links: LinkExternalProps[];
@@ -33,6 +39,7 @@ type FooterProps = {
 
 export const Footer = ( {
 	hasTrailingSeparator = false,
+	hasUnderlinedLinks = false,
 	links,
 	customLogo,
 	maxWidth = '100%',
@@ -90,7 +97,10 @@ export const Footer = ( {
 										: { ...navItemStyles( 'horizontal', 'breadcrumbs' ) }
 								}
 							>
-								<LinkExternal { ...linkProps } sx={ { ml: 1 } } />
+								<LinkExternal
+									{ ...linkProps }
+									sx={ { ml: 1, textDecoration: hasUnderlinedLinks ? undefined : 'none' } }
+								/>
 							</FooterLinks>
 						);
 					} ) }
