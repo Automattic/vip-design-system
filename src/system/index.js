@@ -48,6 +48,7 @@ import * as Form from './NewForm';
 import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { Progress } from './Progress';
+import { ScreenReaderText } from './ScreenReaderText';
 import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
@@ -94,6 +95,7 @@ export {
 	Hr,
 	Input,
 	Label,
+	ScreenReaderText,
 	Spinner,
 	Table,
 	TableRow,
