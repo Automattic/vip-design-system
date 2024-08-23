@@ -63,7 +63,7 @@ export const Default = () => {
 			defaultValue={ value }
 			onChange={ e => setValue( e.target.value ) }
 			options={ options }
-			optionWidth="350px"
+			optionWidth="300px"
 		/>
 	);
 };
