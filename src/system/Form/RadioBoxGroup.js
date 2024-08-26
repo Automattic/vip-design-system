@@ -39,6 +39,7 @@ const RadioOption = ( {
 				cursor: 'pointer',
 				borderRadius: 2,
 				minWidth: 220,
+				flexGrow: 1,
 				textAlign: 'left',
 				border: '1px solid',
 				borderColor: 'input.radio-box.border.default',
@@ -262,6 +263,7 @@ const RadioBoxGroup = React.forwardRef(
 					<div
 						sx={ {
 							display: 'flex',
+							flexWrap: 'wrap',
 							gap: variant === 'chip' ? 1 : 2,
 						} }
 					>
