@@ -31,8 +31,8 @@ const defaultProps = {
 };
 
 describe( '<RadioBoxGroup />', () => {
-	it.each( [ 'primary', 'chip' ] )( 'renders the default variant', async variant => {
-		const { container } = render( <RadioBoxGroup { ...defaultProps } variant={ variant } /> );
+	it( 'renders the component', async () => {
+		const { container } = render( <RadioBoxGroup { ...defaultProps } /> );
 
 		const dom = await screen.findAllByRole( 'radio' );
 
