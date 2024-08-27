@@ -31,6 +31,7 @@ import {
 	Validation,
 	Radio,
 	RadioBoxGroup,
+	RadioGroupChip,
 	Textarea,
 	Checkbox,
 } from './Form';
@@ -105,6 +106,7 @@ export {
 	LinkExternal,
 	Radio,
 	RadioBoxGroup,
+	RadioGroupChip,
 	Textarea,
 	Progress,
 	Text,
