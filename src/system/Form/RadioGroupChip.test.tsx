@@ -7,32 +7,29 @@ import { axe } from 'jest-axe';
 /**
  * Internal dependencies
  */
-import { RadioBoxGroup } from './RadioBoxGroup';
+import { RadioGroupChip } from './RadioGroupChip';
 
 const defaultProps = {
 	options: [
 		{
 			label: 'One',
 			value: 'one',
-			description: 'This is desc 1',
 		},
 		{
 			label: 'Two',
 			value: 'two',
-			description: 'This is desc 2',
 		},
 		{
 			label: 'Three',
 			value: 'three',
-			description: 'This is desc 3',
 		},
 	],
 	onChange: jest.fn(),
 };
 
-describe( '<RadioBoxGroup />', () => {
-	it( 'renders the component', async () => {
-		const { container } = render( <RadioBoxGroup { ...defaultProps } /> );
+describe( '<RadioGroupChip />', () => {
+	it( 'renders the default variant', async () => {
+		const { container } = render( <RadioGroupChip { ...defaultProps } /> );
 
 		const dom = await screen.findAllByRole( 'radio' );
 

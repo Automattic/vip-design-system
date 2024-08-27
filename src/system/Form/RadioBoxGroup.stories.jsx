@@ -83,29 +83,3 @@ export const Errors = () => {
 		/>
 	);
 };
-
-export const ChipVariant = () => {
-	const [ value, setValue ] = useState( 'table' );
-
-	return (
-		<RadioBoxGroup
-			defaultValue={ value }
-			onChange={ e => setValue( e.target.value ) }
-			options={ [
-				{
-					label: 'Table',
-					value: 'table',
-				},
-				{
-					label: 'Grid',
-					value: 'grid',
-				},
-				{
-					label: 'Card',
-					value: 'card',
-				},
-			] }
-			variant="chip"
-		/>
-	);
-};
