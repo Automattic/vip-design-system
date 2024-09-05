@@ -7,6 +7,7 @@ import { InputWithCopyButton } from './InputWithCopyButton';
 import { Label } from './Label';
 import { Radio } from './Radio/Radio';
 import { RadioBoxGroup } from './RadioBoxGroup';
+import { RadioGroupChip } from './RadioGroupChip';
 import { Textarea } from './Textarea';
 import { Toggle } from './Toggle';
 import { ToggleRow } from './ToggleRow';
@@ -18,6 +19,7 @@ export {
 	Label,
 	Radio,
 	RadioBoxGroup,
+	RadioGroupChip,
 	Textarea,
 	Toggle,
 	ToggleRow,

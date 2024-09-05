@@ -39,6 +39,7 @@ const RadioOption = ( {
 				cursor: 'pointer',
 				borderRadius: 2,
 				minWidth: 220,
+				flexGrow: 1,
 				textAlign: 'left',
 				border: '1px solid',
 				borderColor: 'input.radio-box.border.default',
@@ -94,103 +95,6 @@ const RadioOption = ( {
 	);
 };
 
-const ChipOption = ( {
-	defaultValue,
-	option: { id, value, label },
-	name,
-	disabled,
-	onChangeHandler,
-} ) => {
-	const checked = `${ defaultValue }` === `${ value }`;
-	const forLabel = id || value;
-	const ref = React.useRef( null );
-	const describedById = `input-radio-box-${ forLabel }-description`;
-
-	return (
-		<div
-			id={ `o${ forLabel }` }
-			onClick={ () => {
-				ref.current?.click();
-			} }
-			sx={ {
-				display: 'inline-flex',
-				position: 'relative',
-				background: checked ? 'layer.4' : undefined,
-				color: 'text',
-				minHeight: '32px',
-				boxShadow: checked ? 'low' : undefined,
-				'&:hover': {
-					background: checked ? 'layer.4' : 'layer.1',
-				},
-				borderRadius: 1,
-			} }
-		>
-			<input
-				ref={ ref }
-				type="radio"
-				id={ forLabel }
-				disabled={ disabled }
-				name={ name }
-				checked={ checked }
-				aria-checked={ checked }
-				value={ value }
-				onChange={ onChangeHandler }
-				aria-labelledby={ describedById }
-				sx={ {
-					opacity: 0,
-					height: 0,
-					width: 0,
-					position: 'absolute',
-					'&:focus-visible + label': theme => theme.outline,
-				} }
-			/>
-
-			<label
-				id={ describedById }
-				htmlFor={ forLabel }
-				sx={ {
-					height: '100%',
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'center',
-					width: '100%',
-					px: 3,
-					fontWeight: 400,
-					fontSize: 2,
-					cursor: 'pointer',
-					borderRadius: 1,
-				} }
-			>
-				{ label }
-			</label>
-		</div>
-	);
-};
-
-ChipOption.propTypes = RadioOption.propTypes = {
-	defaultValue: PropTypes.string,
-	option: PropTypes.object,
-	name: PropTypes.string,
-	onChangeHandler: PropTypes.func,
-	disabled: PropTypes.bool,
-	width: PropTypes.string,
-};
-
-const groupStyleOverrides = {
-	chip: {
-		background: 'layer.3',
-		p: 1,
-		display: 'inline-flex',
-		gap: 1,
-		borderRadius: 1,
-	},
-	primary: {
-		display: 'inline-block',
-		mb: 2,
-		p: 0,
-	},
-};
-
 const RadioBoxGroup = React.forwardRef(
 	(
 		{
@@ -204,7 +108,6 @@ const RadioBoxGroup = React.forwardRef(
 			errorMessage,
 			hasError,
 			required,
-			variant = 'primary',
 			...props
 		},
 		forwardRef
@@ -219,13 +122,8 @@ const RadioBoxGroup = React.forwardRef(
 			[ onChange ]
 		);
 
-		let Option = RadioOption;
-		if ( variant === 'chip' ) {
-			Option = ChipOption;
-		}
-
 		const renderedOptions = options.map( option => (
-			<Option
+			<RadioOption
 				defaultValue={ defaultValue }
 				disabled={ disabled }
 				key={ option?.id || option?.value }
@@ -241,7 +139,9 @@ const RadioBoxGroup = React.forwardRef(
 				<fieldset
 					sx={ {
 						border: 0,
-						...groupStyleOverrides[ variant ],
+						display: 'inline-block',
+						mb: 2,
+						p: 0,
 						...( hasError
 							? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
 							: {} ),
@@ -262,7 +162,8 @@ const RadioBoxGroup = React.forwardRef(
 					<div
 						sx={ {
 							display: 'flex',
-							gap: variant === 'chip' ? 1 : 2,
+							flexWrap: 'wrap',
+							gap: 2,
 						} }
 					>
 						{ renderedOptions }
@@ -293,7 +194,6 @@ RadioBoxGroup.propTypes = {
 	errorMessage: PropTypes.string,
 	hasError: PropTypes.bool,
 	required: PropTypes.bool,
-	variant: PropTypes.oneOf( [ 'primary', 'chip' ] ),
 };
 
 export { RadioBoxGroup };
