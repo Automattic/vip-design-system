@@ -6,7 +6,7 @@
 import { Box } from '../Box/Box';
 import { LinkExternal, LinkExternalProps } from '../LinkExternal/LinkExternal';
 import { navItemStyles } from '../Nav/styles';
-import { a8cLogo } from '../assets/logos';
+import { a8cLogo } from '../assets/a8cLogo';
 
 type FooterProps = {
 	/**
