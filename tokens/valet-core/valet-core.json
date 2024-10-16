@@ -7,7 +7,7 @@
   "fontSize": {
     "static": {
       "0": {
-        "value": "{rem}*.625",
+        "value": "{rem}*.6875",
         "type": "fontSizes"
       },
       "1": {
@@ -28,7 +28,11 @@
         "type": "fontSizes"
       },
       "5": {
-        "value": "1.25 * {rem}",
+        "value": "1.75 * {rem}",
+        "type": "fontSizes"
+      },
+      "6": {
+        "value": "2.5 * {rem}",
         "type": "fontSizes"
       }
     },
@@ -765,13 +769,17 @@
     }
   },
   "lineHeight": {
+    "0": {
+      "value": "100%",
+      "type": "lineHeights"
+    },
     "1": {
-      "value": "110%",
+      "value": "115%",
       "type": "lineHeights",
       "description": "Use only for display."
     },
     "2": {
-      "value": "120%",
+      "value": "125%",
       "type": "lineHeights",
       "description": "Use for larger headings."
     },
@@ -801,6 +809,10 @@
     }
   },
   "fontWeight": {
+    "light": {
+      "value": "200",
+      "type": "fontWeights"
+    },
     "regular": {
       "value": "400",
       "type": "fontWeights"
@@ -809,27 +821,47 @@
       "value": "500",
       "type": "fontWeights"
     },
-    "bold": {
-      "value": "700",
+    "semibold": {
+      "value": "600",
       "type": "fontWeights"
     },
-    "light": {
-      "value": "200",
+    "bold": {
+      "value": "700",
       "type": "fontWeights"
     }
   },
   "letterSpacing": {
+    "tight-3": {
+      "value": "-0.02em",
+      "type": "letterSpacing"
+    },
+    "tight-2": {
+      "value": "-0.015em",
+      "type": "letterSpacing"
+    },
+    "tight-1": {
+      "value": "-0.01em",
+      "type": "letterSpacing"
+    },
     "none": {
       "value": "0em",
       "type": "letterSpacing",
       "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
-    "tight": {
-      "value": "-.02em",
+    "loose-1": {
+      "value": "0.005em",
       "type": "letterSpacing"
     },
-    "loose": {
-      "value": ".03em",
+    "loose-2": {
+      "value": "0.01em",
+      "type": "letterSpacing"
+    },
+    "loose-3": {
+      "value": "0.02em",
+      "type": "letterSpacing"
+    },
+    "loose-4": {
+      "value": "0.05em",
       "type": "letterSpacing"
     }
   },
