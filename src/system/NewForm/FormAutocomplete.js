@@ -91,7 +91,7 @@ const searchIconStyles = {
 	},
 };
 
-const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
+const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
 
 const FormAutocomplete = React.forwardRef(
 	(
@@ -368,7 +368,7 @@ FormAutocomplete.propTypes = {
 	getOptionValue: PropTypes.func,
 	hasError: PropTypes.bool,
 	isInline: PropTypes.bool,
-	label: PropTypes.string,
+	label: PropTypes.node,
 	loading: PropTypes.bool,
 	minLength: PropTypes.number,
 	noOptionsMessage: PropTypes.func,
