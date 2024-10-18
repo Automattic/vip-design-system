@@ -54,6 +54,8 @@ interface RootProps {
 	className?: Argument;
 	sx?: ThemeUIStyleObject;
 	defaultValue?: string;
+	value?: string;
+	onValueChange?: ( value: string ) => void;
 }
 export const Item = ( { children, ...props }: AccordionItemProps ) => (
 	<AccordionPrimitive.Item
