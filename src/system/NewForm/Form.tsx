@@ -3,10 +3,10 @@
  */
 import classNames from 'classnames';
 import React from 'react';
-export interface FormProps {
+export type FormProps = React.ComponentPropsWithoutRef< 'form' > & {
 	children?: React.ReactNode;
 	className?: string;
-}
+};
 export const Form = React.forwardRef< HTMLFormElement, FormProps >(
 	( { children, className, ...props }, forwardRef ) => (
 		<form

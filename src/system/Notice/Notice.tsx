@@ -18,7 +18,7 @@ interface NoticeIconProps {
 	variant: ColorVariants;
 }
 
-export interface NoticeProps {
+export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
 	children: React.ReactNode;
 	inline?: boolean;
 	sx?: ThemeUIStyleObject;
@@ -26,7 +26,7 @@ export interface NoticeProps {
 	variant?: ColorVariants;
 	headingVariant?: React.ElementType;
 	className?: string;
-}
+};
 type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
 
 const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
