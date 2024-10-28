@@ -7,13 +7,13 @@ import classNames, { Argument } from 'classnames';
 import React, { ReactNode, createRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';
 
-export interface CodeProps {
+export type CodeProps = React.ComponentPropsWithoutRef< 'code' > & {
 	prompt?: boolean;
 	showCopy?: boolean;
 	onCopy?: () => void;
 	className?: Argument;
 	children?: ReactNode;
-}
+};
 
 const Code = React.forwardRef< HTMLDivElement, CodeProps >(
 	( { prompt = false, showCopy = false, onCopy, className, ...props }: CodeProps, forwardRef ) => {
