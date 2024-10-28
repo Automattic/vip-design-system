@@ -7,18 +7,19 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import { useState } from 'react';
 import { ThemeUIProvider } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import * as Accordion from './Accordion';
-import { theme } from '../';
+import { Button, theme } from '../';
 
 const renderWithTheme = children =>
 	render( <ThemeUIProvider theme={ theme }>{ children }</ThemeUIProvider> );
 
-const renderComponent = () =>
+const renderUncontrolledComponent = () =>
 	renderWithTheme(
 		<Accordion.Root defaultValue="one" sx={ { width: '400px' } }>
 			<Accordion.Item value="one">
@@ -32,7 +33,58 @@ const renderComponent = () =>
 		</Accordion.Root>
 	);
 
-describe( '<Accordion />', () => {
+const renderControlledComponent = () => {
+	const ControlledComponent = () => {
+		const [ value, setValue ] = useState( 'one' );
+
+		return (
+			<Accordion.Root value={ value } onValueChange={ setValue }>
+				<Accordion.Item value="one">
+					<Button
+						aria-controls="manage-content-one"
+						aria-expanded={ value === 'one' ? 'true' : 'false' }
+						data-state={ value === 'one' ? 'open' : 'closed' }
+						onClick={ () => {
+							if ( value === 'one' ) {
+								setValue( '' );
+							} else {
+								setValue( 'one' );
+							}
+						} }
+					>
+						trigger one
+					</Button>
+					<Accordion.Content id="manage-content-one">content one</Accordion.Content>
+				</Accordion.Item>
+				<Accordion.Item value="two">
+					<Button
+						aria-controls="manage-content-two"
+						aria-expanded={ value === 'two' ? 'true' : 'false' }
+						data-state={ value === 'two' ? 'open' : 'closed' }
+						onClick={ () => {
+							if ( value === 'two' ) {
+								setValue( '' );
+							} else {
+								setValue( 'two' );
+							}
+						} }
+					>
+						trigger two
+					</Button>
+					<Accordion.Content id="manage-content-two">content two</Accordion.Content>
+				</Accordion.Item>
+			</Accordion.Root>
+		);
+	};
+
+	return renderWithTheme( <ControlledComponent /> );
+};
+
+describe.each( [
+	[ 'Uncontrolled', renderUncontrolledComponent ],
+	[ 'Controlled', renderControlledComponent ],
+] )( '<Accordion />, %s', ( ...modeAndComponent ) => {
+	const [ , renderComponent ] = modeAndComponent;
 	it( 'renders the Accordion component with default value visible', async () => {
 		const { container } = renderComponent();
 
