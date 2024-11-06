@@ -15,5 +15,6 @@ export const contentStyles: ThemeUIStyleObject = {
 	maxWidth: '640px',
 	maxHeight: '85vh',
 	padding: 6,
+	overflowY: 'auto',
 	'> h1, > h2': { marginTop: '0 !important' },
 };
