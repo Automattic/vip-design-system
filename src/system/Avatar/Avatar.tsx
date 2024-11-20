@@ -52,7 +52,6 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 						borderRadius: '100%',
 						width: '100%',
 						display: 'block',
-						border: 'none',
 					} }
 				/>
 			) : (
