@@ -32,7 +32,6 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 				width: size,
 				overflow: 'hidden',
 				border: 'none',
-				backgroundColor: 'icon.primary',
 				display: 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
@@ -53,6 +52,7 @@ export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 						borderRadius: '100%',
 						width: '100%',
 						display: 'block',
+						border: 'none',
 					} }
 				/>
 			) : (
