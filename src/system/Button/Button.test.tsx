@@ -33,6 +33,28 @@ describe( '<Button />', () => {
 				{ BUTTON_TEXT }
 			</Button>
 		);
+
+		const component = screen.getByText( BUTTON_TEXT );
+
+		expect( component ).toBeInTheDocument();
+		expect( component ).toHaveAttribute( 'disabled', '' );
+		expect( component ).not.toHaveAttribute( 'aria-disabled' );
+
+		fireEvent.click( component );
+		expect( onClick ).toHaveBeenCalledTimes( 0 );
+
+		// Check for accessibility issues
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	it( 'renders the Button with aria-disabled prop', async () => {
+		const onClick = jest.fn( () => {} );
+		const { container } = render(
+			<Button disabled preferAriaDisabled onClick={ onClick }>
+				{ BUTTON_TEXT }
+			</Button>
+		);
+
 		const component = screen.getByText( BUTTON_TEXT );
 
 		expect( component ).toBeInTheDocument();
