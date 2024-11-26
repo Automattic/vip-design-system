@@ -30,7 +30,8 @@ export interface ButtonProps extends ThemeButtonProps {
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 	( { className, disabled, preferAriaDisabled, onClick, sx, full, grow, ...rest }, ref ) => {
-		const useAriaDisabled = preferAriaDisabled === true;
+		const disabledAttributes =
+			preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
 				if ( preferAriaDisabled && disabled ) {
@@ -64,8 +65,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 					...sx,
 				} }
 				{ ...rest }
-				aria-disabled={ useAriaDisabled ? disabled : undefined }
-				disabled={ ! useAriaDisabled && disabled }
+				{ ...disabledAttributes }
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
 				ref={ ref }
