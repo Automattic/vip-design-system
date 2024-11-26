@@ -119,4 +119,13 @@ const Template = args => (
 	</div>
 );
 
+const PreferAriaDisabledTemplate = args => (
+	<div>
+		<Button { ...args } preferAriaDisabled>
+			Primary
+		</Button>
+	</div>
+);
+
 export const Default = Template.bind( {} );
+export const PreferAriaDisabled = PreferAriaDisabledTemplate.bind( {} );

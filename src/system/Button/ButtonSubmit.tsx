@@ -49,6 +49,7 @@ export const ButtonSubmit = React.forwardRef< HTMLButtonElement, ButtonSubmitPro
 				ref={ ref }
 				className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
 				disabled={ disabled || loading }
+				preferAriaDisabled={ true }
 				variant={ variant }
 				aria-busy={ loading }
 				{ ...rest }

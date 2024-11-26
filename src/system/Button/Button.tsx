@@ -21,6 +21,7 @@ export enum ButtonVariant {
 
 export interface ButtonProps extends ThemeButtonProps {
 	disabled?: boolean;
+	preferAriaDisabled?: boolean;
 	onClick?: ( event: ButtonClickType ) => void;
 	full?: boolean;
 	grow?: boolean;
@@ -28,10 +29,12 @@ export interface ButtonProps extends ThemeButtonProps {
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	( { className, disabled, onClick, sx, full, grow, ...rest }, ref ) => {
+	( { className, disabled, preferAriaDisabled, onClick, sx, full, grow, ...rest }, ref ) => {
+		const disabledAttributes =
+			preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
-				if ( disabled ) {
+				if ( preferAriaDisabled && disabled ) {
 					return event.preventDefault();
 				}
 
@@ -47,7 +50,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 				sx={ {
 					'&:focus': 'none',
 					'&:focus-visible': ( theme: ButtonTheme ) => theme.outline,
-					'&[aria-disabled="true"]': {
+					'&[disabled], &[aria-disabled="true"]': {
 						opacity: 0.7,
 						backgroundColor: 'input.border.disabled',
 						color: 'texts.secondary',
@@ -62,7 +65,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 					...sx,
 				} }
 				{ ...rest }
-				aria-disabled={ disabled }
+				{ ...disabledAttributes }
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
 				ref={ ref }
