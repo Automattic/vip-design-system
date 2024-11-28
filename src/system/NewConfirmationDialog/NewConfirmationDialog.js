@@ -28,7 +28,7 @@ const NewConfirmationDialogContent = ( {
 			<NewDialog.Close>
 				<Button
 					variant={ buttonVariant }
-					id= { buttonId }
+					id={ buttonId }
 					onClick={ () => {
 						onConfirm();
 						onClose();
