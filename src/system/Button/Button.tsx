@@ -31,7 +31,8 @@ export interface ButtonProps extends ThemeButtonProps {
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 	( { className, disabled, preferAriaDisabled, onClick, sx, full, grow, ...rest }, ref ) => {
 		const disabledAttributes =
-			preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
+			disabled && preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
+
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
 				if ( preferAriaDisabled && disabled ) {

@@ -121,7 +121,7 @@ const Template = args => (
 
 const PreferAriaDisabledTemplate = args => (
 	<div>
-		<Button { ...args } preferAriaDisabled>
+		<Button { ...args } disabled preferAriaDisabled>
 			Primary
 		</Button>
 	</div>
