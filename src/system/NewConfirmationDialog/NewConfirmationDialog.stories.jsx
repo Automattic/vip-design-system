@@ -26,6 +26,7 @@ export const Default = () => {
 				body="A modal is used to perform more detailed actions that don&lsquo;t necessarily need the context
 					behind."
 				onConfirm={ () => setAnswer( '👍' ) }
+				buttonId="ConfirmIsJohnDoe"
 				needsConfirm={ true }
 			/>
 

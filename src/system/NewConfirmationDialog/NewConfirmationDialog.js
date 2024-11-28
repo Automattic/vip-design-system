@@ -18,6 +18,7 @@ const NewConfirmationDialogContent = ( {
 	onConfirm,
 	onClose,
 	className = null,
+	buttonId,
 } ) => (
 	<Box className={ classNames( 'vip-confirmation-dialog-component', className ) }>
 		<Flex sx={ { justifyContent: 'flex-end', mt: 4 } }>
@@ -27,6 +28,7 @@ const NewConfirmationDialogContent = ( {
 			<NewDialog.Close>
 				<Button
 					variant={ buttonVariant }
+					id= { buttonId }
 					onClick={ () => {
 						onConfirm();
 						onClose();
@@ -56,6 +58,7 @@ const NewConfirmationDialog = ( {
 	buttonVariant,
 	title,
 	body = '',
+	buttonId,
 	...props
 } ) => {
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
@@ -76,6 +79,7 @@ const NewConfirmationDialog = ( {
 					body={ body }
 					label={ label }
 					buttonVariant={ buttonVariant }
+					buttonId={ buttonId }
 				/>
 			) }
 			trigger={ trigger }
@@ -92,6 +96,7 @@ NewConfirmationDialog.propTypes = {
 	body: PropTypes.node,
 	label: PropTypes.node,
 	buttonVariant: PropTypes.string,
+	buttonId: PropTypes.string,
 };
 
 export { NewConfirmationDialog };
