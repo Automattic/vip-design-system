@@ -50,6 +50,7 @@ import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { Progress } from './Progress';
 import { ScreenReaderText } from './ScreenReaderText';
+import { Snackbar } from './Snackbar';
 import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
@@ -119,6 +120,7 @@ export {
 	Toggle,
 	ToggleRow,
 	Toolbar,
+	Snackbar,
 	Validation,
 	Wizard,
 	WizardStep,

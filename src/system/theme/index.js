@@ -78,6 +78,13 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		},
 	},
 
+	// Snackbar
+	snackbar: {
+		icon: {
+			...theme.support.icon,
+		},
+	},
+
 	// layer
 	layer: {
 		...theme.layer,
