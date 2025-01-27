@@ -78,18 +78,6 @@ export const Default = () => {
 				Check back again in a few seconds.
 			</Snackbar>
 
-			<Snackbar
-				variant="sync"
-				sx={ { mb: 4 } }
-				title="Operation in progress..."
-				ctaText="Pause"
-				ctaOnClick={ () => {
-					setVisible( false );
-				} }
-			>
-				Check back again in a few seconds.
-			</Snackbar>
-
 			<Snackbar variant="system" sx={ { mb: 4 } }>
 				System message.
 			</Snackbar>

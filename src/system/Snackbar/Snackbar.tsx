@@ -5,7 +5,7 @@
  */
 import classNames from 'classnames';
 import React from 'react';
-import { MdError, MdWarning, MdInfo, MdCheckCircle, MdLock, MdSync } from 'react-icons/md';
+import { MdError, MdWarning, MdInfo, MdCheckCircle, MdLock } from 'react-icons/md';
 import { Grid, ThemeUIStyleObject } from 'theme-ui';
 
 /**
@@ -15,7 +15,7 @@ import { Box, Flex, Heading, Spinner } from '..';
 
 interface SnackbarIconProps {
 	color: string;
-	variant: ColorVariants;
+	variant: ColorVariants | 'loading';
 	loading?: boolean;
 }
 
@@ -32,14 +32,14 @@ export type SnackbarProps = React.HTMLAttributes< HTMLDivElement > & {
 	ctaHref?: string;
 };
 
-type ColorVariants = 'error' | 'info' | 'success' | 'sync' | 'system' | 'warning';
+type ColorVariants = 'error' | 'info' | 'success' | 'system' | 'warning';
 
 const SnackbarIcon = ( { color, variant, loading }: SnackbarIconProps ) => {
 	const sx = { color, flex: '0 0 auto' };
 	const size = 24;
 
 	if ( loading ) {
-		return <Spinner sx={ sx } size={ size } />;
+		return <Spinner strokeWidth={ 3 } sx={ sx } size={ size } variant="loading" />;
 	}
 
 	const elements = {
@@ -47,7 +47,6 @@ const SnackbarIcon = ( { color, variant, loading }: SnackbarIconProps ) => {
 		error: MdError,
 		info: MdInfo,
 		success: MdCheckCircle,
-		sync: MdSync,
 		system: MdLock,
 		warning: MdWarning,
 	};
@@ -124,7 +123,7 @@ export const Snackbar = React.forwardRef< HTMLDivElement, SnackbarProps >(
 						></Box>
 						<SnackbarIcon
 							loading={ loading }
-							color={ `snackbar.icon.${ variant }` }
+							color={ `snackbar.icon.${ loading ? 'loading' : variant }` }
 							variant={ variant }
 						/>
 					</Flex>
