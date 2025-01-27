@@ -78,6 +78,17 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		},
 	},
 
+	// Snackbar
+	snackbar: {
+		icon: {
+			loading: theme.text.inverse,
+			...theme.support.icon,
+		},
+		link: theme.text.inverse,
+		text: theme.text.inverse,
+		background: theme.layer.inverse,
+	},
+
 	// layer
 	layer: {
 		...theme.layer,
