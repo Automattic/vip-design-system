@@ -89,20 +89,20 @@ export const Snackbar = React.forwardRef< HTMLDivElement, SnackbarProps >(
 				sx={ {
 					p: 4,
 					boxShadow: 'none',
-					bg: 'layer.inverse',
+					bg: 'snackbar.background',
 					border: '1px solid',
 					borderRadius: 1,
-					color: 'texts.inverse',
+					color: 'snackbar.text',
 					fontSize: 2,
 					a: {
-						color: 'texts.inverse',
+						color: 'snackbar.link',
 					},
 					ul: {
 						pl: 5,
 					},
 					...sx,
 				} }
-				className={ classNames( 'vip-notice-component', className ) }
+				className={ classNames( 'vip-snackbar-component', className ) }
 				ref={ forwardRef }
 				{ ...props }
 			>
