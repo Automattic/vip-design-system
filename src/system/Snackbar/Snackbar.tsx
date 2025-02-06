@@ -90,7 +90,6 @@ export const Snackbar = React.forwardRef< HTMLDivElement, SnackbarProps >(
 					p: 4,
 					boxShadow: 'none',
 					bg: 'snackbar.background',
-					border: '1px solid',
 					borderRadius: 1,
 					color: 'snackbar.text',
 					fontSize: 2,
