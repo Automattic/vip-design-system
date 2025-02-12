@@ -88,7 +88,7 @@ export const Snackbar = React.forwardRef< HTMLDivElement, SnackbarProps >(
 				variant="notice"
 				sx={ {
 					p: 4,
-					boxShadow: 'none',
+					boxShadow: 'low',
 					bg: 'snackbar.background',
 					borderRadius: 1,
 					color: 'snackbar.text',
