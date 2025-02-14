@@ -26,7 +26,7 @@ export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContent
 			sx={ styles }
 			align={ align }
 			{ ...props }
-		></DropdownMenuPrimitive.DropdownMenuContent>
+		/>
 	)
 );
 
