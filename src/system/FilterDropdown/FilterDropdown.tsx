@@ -7,6 +7,7 @@ import { MdCheck, MdKeyboardArrowDown } from 'react-icons/md';
 
 import { Button } from '../Button';
 import * as Dropdown from '../Dropdown';
+import { DropdownContentProps } from '../Dropdown/DropdownContent';
 import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';
 import ScreenReaderText from '../ScreenReaderText';
 
@@ -43,6 +44,7 @@ export type FilterDropdownProps = {
 	label?: React.ReactNode | string;
 	onSelect: ( filter: FilterDropDownFilterProp, key: string ) => void;
 	defaultValue?: string | null;
+	contentProps?: DropdownContentProps;
 };
 
 export const FilterDropdown = ( {
@@ -51,6 +53,7 @@ export const FilterDropdown = ( {
 	label,
 	onSelect,
 	defaultValue = null,
+	contentProps = {},
 }: FilterDropdownProps ) => {
 	const translate = useTranslate();
 	const filterKeys = Object.keys( filters );
@@ -59,6 +62,7 @@ export const FilterDropdown = ( {
 
 	return (
 		<Dropdown.Root
+			contentProps={ contentProps }
 			trigger={
 				<Button
 					className={ classNames( 'vip-filter-dropdown-trigger', className ) }
