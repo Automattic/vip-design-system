@@ -6,6 +6,7 @@ import React from 'react';
 
 export interface DropdownContentProps {
 	className?: string;
+	align?: 'start' | 'center' | 'end';
 }
 
 export const styles = {
@@ -18,13 +19,14 @@ export const styles = {
 };
 
 export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
-	( { className, ...props }, forwardRef ) => (
+	( { className, align = 'center', ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuContent
 			className={ classNames( 'vip-dropdown-menu-content', className ) }
 			ref={ forwardRef }
 			sx={ styles }
+			align={ align }
 			{ ...props }
-		/>
+		></DropdownMenuPrimitive.DropdownMenuContent>
 	)
 );
 
