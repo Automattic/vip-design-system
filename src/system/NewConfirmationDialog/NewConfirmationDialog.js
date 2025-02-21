@@ -18,7 +18,7 @@ const NewConfirmationDialogContent = ( {
 	onConfirm,
 	onClose,
 	className = null,
-	disabled = false,
+	buttonDisabled = false,
 } ) => (
 	<Box className={ classNames( 'vip-confirmation-dialog-component', className ) }>
 		<Flex sx={ { justifyContent: 'flex-end', mt: 4 } }>
@@ -29,12 +29,12 @@ const NewConfirmationDialogContent = ( {
 				<Button
 					variant={ buttonVariant }
 					onClick={ () => {
-						if ( ! disabled ) {
+						if ( ! buttonDisabled ) {
 							onConfirm();
 							onClose();
 						}
 					} }
-					disabled={ disabled }
+					disabled={ buttonDisabled }
 				>
 					{ label }
 				</Button>
@@ -50,7 +50,7 @@ NewConfirmationDialogContent.propTypes = {
 	onClose: PropTypes.func,
 	onConfirm: PropTypes.func,
 	className: PropTypes.any,
-	disabled: PropTypes.bool,
+	buttonDisabled: PropTypes.bool,
 };
 
 const NewConfirmationDialog = ( {
