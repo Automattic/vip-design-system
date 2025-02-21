@@ -59,6 +59,7 @@ const NewConfirmationDialog = ( {
 	buttonVariant,
 	title,
 	body = '',
+	buttonDisabled = false,
 	...props
 } ) => {
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
@@ -79,6 +80,7 @@ const NewConfirmationDialog = ( {
 					body={ body }
 					label={ label }
 					buttonVariant={ buttonVariant }
+					buttonDisabled={ buttonDisabled }
 				/>
 			) }
 			trigger={ trigger }
@@ -95,6 +97,7 @@ NewConfirmationDialog.propTypes = {
 	body: PropTypes.node,
 	label: PropTypes.node,
 	buttonVariant: PropTypes.string,
+	buttonDisabled: PropTypes.bool,
 };
 
 export { NewConfirmationDialog };
