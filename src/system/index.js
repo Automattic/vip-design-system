@@ -50,6 +50,7 @@ import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { Progress } from './Progress';
 import { ScreenReaderText } from './ScreenReaderText';
+import { Skeleton } from './Skeleton';
 import { Snackbar } from './Snackbar';
 import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
@@ -114,6 +115,7 @@ export {
 	Tabs,
 	Nav,
 	NavItem,
+	Skeleton,
 	TabsTrigger,
 	TabsContent,
 	TabsList,

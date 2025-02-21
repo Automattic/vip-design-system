@@ -78,6 +78,10 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		},
 	},
 
+	skeleton: {
+		background: theme.layer.inverse,
+	},
+
 	// Snackbar
 	snackbar: {
 		icon: {
@@ -257,6 +261,10 @@ export default {
 
 	tag: {
 		gold: getVariants( 'tag.gold' ),
+	},
+
+	skeleton: {
+		background: 'layer.2',
 	},
 
 	cards: {
