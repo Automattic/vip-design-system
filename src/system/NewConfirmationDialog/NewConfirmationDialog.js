@@ -29,10 +29,8 @@ const NewConfirmationDialogContent = ( {
 				<Button
 					variant={ buttonVariant }
 					onClick={ () => {
-						if ( ! buttonDisabled ) {
-							onConfirm();
-							onClose();
-						}
+						onConfirm();
+						onClose();
 					} }
 					disabled={ buttonDisabled }
 				>
