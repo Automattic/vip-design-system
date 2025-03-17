@@ -31,16 +31,17 @@ export const Skeleton = ( {
 					width,
 					height,
 					backgroundColor: 'skeleton.background',
-					animation: 'pulse 1.5s ease-in-out infinite',
+					animation: 'pulse 1.5s ease-in-out 3',
+					opacity: 0.125,
 					'@keyframes pulse': {
 						'0%': {
-							opacity: 0.1,
+							opacity: 0.125,
 						},
 						'50%': {
 							opacity: 0.2,
 						},
 						'100%': {
-							opacity: 0.1,
+							opacity: 0.125,
 						},
 					},
 					mb: index === times - 1 ? 0 : 4,
