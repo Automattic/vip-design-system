@@ -58,7 +58,7 @@ const NewConfirmationDialog = ( {
 	label,
 	buttonVariant,
 	title,
-	body = '',
+	body,
 	buttonDisabled = false,
 	...props
 } ) => {
