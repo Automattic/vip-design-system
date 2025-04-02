@@ -192,7 +192,9 @@ export const Menu: Story = {
 				<NavItem.MenuGroup
 					label="Clickable Parent Navigation Item"
 					renderIcon={ size => <BiHistory size={ size } /> }
-					parentHref="https://random-website.com/"
+					parentOnClick={ () => {
+						window.location.href = 'https://random-website.com/';
+					} }
 				>
 					<NavItem.Menu as={ CustomLink } href="https://google.com/">
 						Test

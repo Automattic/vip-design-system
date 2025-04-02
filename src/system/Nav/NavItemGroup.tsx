@@ -19,7 +19,7 @@ export interface NavItemGroupProps extends NavItemBaseProps {
 	renderIcon?: NavItemRenderIconProp;
 	activeChildren?: boolean;
 	label: string;
-	parentHref?: string;
+	parentOnClick?: () => void;
 }
 
 const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
@@ -34,7 +34,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			renderIcon,
 			children,
 			sx,
-			parentHref,
+			parentOnClick,
 		}: NavItemGroupProps,
 		ref: Ref< HTMLLIElement >
 	) => {
@@ -63,28 +63,12 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							sx={ {
 								...navItemLinkVariantStyles( variant ),
 								...navItemGroupTriggerStyles,
+								cursor: parentOnClick ? 'pointer' : 'default',
 							} }
+							onClick={ parentOnClick }
 						>
-							{ renderIcon ? (
-								<IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer>
-							) : null }
-
-							{ parentHref ? (
-								<a
-									href={ parentHref }
-									sx={ {
-										textDecoration: 'none',
-										color: 'inherit',
-										'&:hover': { textDecoration: 'none' },
-									} }
-									onClick={ e => e.stopPropagation() }
-								>
-									{ label }
-								</a>
-							) : (
-								label
-							) }
-
+							{ renderIcon && <IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer> }
+							{ label }
 							<BiChevronDown
 								data-arrow-indicator
 								aria-hidden="true"
