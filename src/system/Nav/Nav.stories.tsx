@@ -190,6 +190,19 @@ export const Menu: Story = {
 				</NavItem.MenuGroup>
 
 				<NavItem.MenuGroup
+					label="Clickable Parent Navigation Item"
+					renderIcon={ size => <BiHistory size={ size } /> }
+					parentHref="https://random-website.com/"
+				>
+					<NavItem.Menu as={ CustomLink } href="https://google.com/">
+						Test
+					</NavItem.Menu>
+					<NavItem.Menu as={ CustomLink } href="https://wpvip.com/">
+						Item
+					</NavItem.Menu>
+				</NavItem.MenuGroup>
+
+				<NavItem.MenuGroup
 					label="Performance"
 					renderIcon={ size => <BiTachometer size={ size } /> }
 				>
