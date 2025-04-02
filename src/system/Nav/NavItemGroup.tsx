@@ -14,12 +14,13 @@ import {
 	navItemGroupContentUlStyles,
 	navItemGroupTriggerStyles,
 } from './styles/variants/menugroup';
+import { Link } from '../Link';
 
 export interface NavItemGroupProps extends NavItemBaseProps {
 	renderIcon?: NavItemRenderIconProp;
 	activeChildren?: boolean;
 	label: string;
-	parentOnClick?: () => void;
+	parentHref?: string;
 }
 
 const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
@@ -34,7 +35,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			renderIcon,
 			children,
 			sx,
-			parentOnClick,
+			parentHref,
 		}: NavItemGroupProps,
 		ref: Ref< HTMLLIElement >
 	) => {
@@ -63,12 +64,28 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							sx={ {
 								...navItemLinkVariantStyles( variant ),
 								...navItemGroupTriggerStyles,
-								cursor: parentOnClick ? 'pointer' : 'default',
 							} }
-							onClick={ parentOnClick }
 						>
-							{ renderIcon && <IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer> }
-							{ label }
+							{ renderIcon ? (
+								<IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer>
+							) : null }
+
+							{ parentHref ? (
+								<Link
+									href={ parentHref }
+									variant="unstyled"
+									sx={ {
+										textDecoration: 'none',
+										color: 'inherit',
+										'&:hover': { textDecoration: 'none' },
+									} }
+								>
+									{ label }
+								</Link>
+							) : (
+								label
+							) }
+
 							<BiChevronDown
 								data-arrow-indicator
 								aria-hidden="true"

@@ -22,6 +22,7 @@ export enum LinkVariant {
 	'button-ghost',
 	'button-display',
 	'button-danger',
+	'unstyled',
 }
 
 export interface LinkProps extends ThemeLinkProps {
