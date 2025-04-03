@@ -26,6 +26,8 @@ export interface ButtonProps extends ThemeButtonProps {
 	full?: boolean;
 	grow?: boolean;
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
+	as?: React.ElementType;
+	href?: string;
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
