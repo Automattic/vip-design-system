@@ -19,7 +19,6 @@ export interface NavItemGroupProps extends NavItemBaseProps {
 	renderIcon?: NavItemRenderIconProp;
 	activeChildren?: boolean;
 	label: string;
-	parentHref?: string;
 }
 
 const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
@@ -34,7 +33,6 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			renderIcon,
 			children,
 			sx,
-			parentHref,
 		}: NavItemGroupProps,
 		ref: Ref< HTMLLIElement >
 	) => {
@@ -53,10 +51,9 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 			>
 				<Collapsible.Root defaultOpen={ active } open={ isExpanded } onOpenChange={ handleExpand }>
 					<Collapsible.Trigger asChild>
-						<div
-							role="button"
-							tabIndex={ 0 }
-							aria-haspopup="true"
+						<button
+							type="button"
+							aria-haspopup={ true }
 							data-active={ active || undefined }
 							data-open={ isExpanded || undefined }
 							data-active-children={ activeChildren || undefined }
@@ -68,22 +65,7 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 							{ renderIcon ? (
 								<IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer>
 							) : null }
-
-							{ parentHref ? (
-								<a
-									href={ parentHref }
-									sx={ {
-										textDecoration: 'none',
-										color: 'inherit',
-										'&:hover': { textDecoration: 'none' },
-									} }
-									onClick={ e => e.stopPropagation() }
-								>
-									{ label }
-								</a>
-							) : (
-								label
-							) }
+							{ label }
 
 							<BiChevronDown
 								data-arrow-indicator
@@ -91,9 +73,8 @@ const NavItemGroupBase = forwardRef< HTMLLIElement, NavItemGroupProps >(
 								size={ NAV_ITEM_ICON_SIZE }
 								sx={ { color: 'icon.secondary' } }
 							/>
-						</div>
+						</button>
 					</Collapsible.Trigger>
-
 					<Collapsible.Content sx={ navItemGroupContentStyles }>
 						<ul sx={ navItemGroupContentUlStyles }>{ children }</ul>
 					</Collapsible.Content>
