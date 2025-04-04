@@ -3,8 +3,10 @@
 /**
  * External dependencies
  */
+import * as Collapsible from '@radix-ui/react-collapsible';
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState, useId } from 'react';
+import { BiChevronDown } from 'react-icons/bi';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 import { ThemeUIStyleObject } from 'theme-ui';
 
@@ -13,10 +15,13 @@ import { ThemeUIStyleObject } from 'theme-ui';
  */
 import { Box, Flex, Heading, Card } from '../';
 
-interface NoticeIconProps {
-	color: string;
-	variant: ColorVariants;
-}
+type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
+
+type CollapsibleProps = {
+	collapsible?: boolean;
+	defaultOpen?: boolean;
+	ariaContentId?: string;
+};
 
 export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
 	children: React.ReactNode;
@@ -26,10 +31,9 @@ export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
 	variant?: ColorVariants;
 	headingVariant?: React.ElementType;
 	className?: string;
-};
-type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
+} & CollapsibleProps;
 
-const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
+const NoticeIcon = ( { color, variant }: { color: string; variant: ColorVariants } ) => {
 	const sx = { color, flex: '0 0 auto' };
 	const size = 24;
 
@@ -56,40 +60,139 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 			sx = {},
 			title,
 			variant = 'warning',
+			collapsible = false,
+			defaultOpen = false,
 			...props
 		},
 		forwardRef
 	) => {
+		const [ isExpanded, setIsExpanded ] = useState( defaultOpen );
+		const handleExpand = ( openValue: boolean ) => setIsExpanded( openValue );
+		const contentId = useId();
+
+		const iconColor = `notice.icon.${ variant }`;
+		const textColor = `notice.text.${ variant }`;
+
+		const baseCardSx: ThemeUIStyleObject = {
+			boxShadow: 'none',
+			borderRadius: 2,
+			bg: inline || collapsible ? 'transparent' : `notice.background.${ variant }`,
+			color: textColor,
+			fontSize: 2,
+			p: {
+				color: textColor,
+				fontSize: 2,
+			},
+			a: {
+				color: `notice.link.${ variant }.default`,
+				'&:visited': {
+					color: `notice.link.${ variant }.visited`,
+				},
+				'&:active': {
+					color: `notice.link.${ variant }.active`,
+				},
+				'&:hover, &:focus': {
+					color: `notice.link.${ variant }.hover`,
+				},
+			},
+			ul: {
+				pl: 5,
+			},
+			...sx,
+		};
+
+		if ( collapsible ) {
+			const renderHeader = () => (
+				<Collapsible.Trigger asChild aria-expanded={ isExpanded } aria-controls={ contentId }>
+					<button
+						type="button"
+						sx={ {
+							border: 'none',
+							width: '100%',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-between',
+							cursor: 'pointer',
+							bg: `notice.background.${ variant }`,
+							px: 3,
+							py: 2,
+						} }
+					>
+						<Flex sx={ { alignItems: 'center', gap: 2 } }>
+							<NoticeIcon color={ iconColor } variant={ variant } />
+							<Heading
+								as={ headingVariant }
+								id={ `${ contentId }-heading` }
+								sx={ {
+									color: textColor,
+									fontSize: 2,
+									fontWeight: 'bold',
+									my: 2,
+									mx: 3,
+								} }
+							>
+								{ title }
+							</Heading>
+						</Flex>
+						<BiChevronDown
+							size={ 20 }
+							sx={ {
+								color: 'icon.primary',
+								transition: 'transform 300ms ease',
+								transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+							} }
+						/>
+					</button>
+				</Collapsible.Trigger>
+			);
+
+			return (
+				<Collapsible.Root
+					defaultOpen={ defaultOpen }
+					onOpenChange={ handleExpand }
+					data-active={ defaultOpen || undefined }
+				>
+					<Card
+						variant="notice"
+						hideBody={ ! isExpanded }
+						renderHeader={ renderHeader }
+						bodyStyles={ {
+							border: '1px solid',
+							borderColor: `notice.background.${ variant }`,
+							borderTop: 'none',
+							borderBottomLeftRadius: 2,
+							borderBottomRightRadius: 2,
+							px: 3,
+							py: 3,
+						} }
+						sx={ {
+							...baseCardSx,
+							border: 'none',
+							overflow: 'hidden',
+						} }
+						className={ classNames( 'vip-notice-component', className ) }
+						{ ...props }
+						ref={ forwardRef }
+					>
+						<Collapsible.Content
+							id={ contentId }
+							aria-labelledby={ `${ contentId }-heading` }
+							sx={ {
+								mx: 2,
+								my: 2,
+							} }
+						>
+							{ children }
+						</Collapsible.Content>
+					</Card>
+				</Collapsible.Root>
+			);
+		}
+
 		return (
 			<Card
 				variant="notice"
-				sx={ {
-					boxShadow: 'none',
-					borderRadius: 2,
-					bg: inline ? 'transparent' : `notice.background.${ variant }`,
-					color: `notice.text.${ variant }`,
-					fontSize: 2,
-					p: {
-						color: `notice.text.${ variant }`,
-						fontSize: 2,
-					},
-					a: {
-						color: `notice.link.${ variant }.default`,
-						'&:visited': {
-							color: `notice.link.${ variant }.visited`,
-						},
-						'&:active': {
-							color: `notice.link.${ variant }.active`,
-						},
-						'&:hover, &:focus': {
-							color: `notice.link.${ variant }.hover`,
-						},
-					},
-					ul: {
-						pl: 5,
-					},
-					...sx,
-				} }
+				sx={ baseCardSx }
 				className={ classNames( 'vip-notice-component', className ) }
 				ref={ forwardRef }
 				{ ...props }
@@ -108,8 +211,8 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							sx={ {
 								flex: '1 100%', // we need this empty div to make the icon align to the bottom
 							} }
-						></Box>
-						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
+						/>
+						<NoticeIcon color={ iconColor } variant={ variant } />
 					</Flex>
 				</Box>
 				<Box>
@@ -117,7 +220,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 						<Heading
 							as={ headingVariant }
 							sx={ {
-								color: `notice.text.${ variant }`,
+								color: textColor,
 								mb: 0,
 								fontSize: 2,
 								fontWeight: 'bold',

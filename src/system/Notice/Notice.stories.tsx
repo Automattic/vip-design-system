@@ -95,7 +95,18 @@ export const Default = () => (
 			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
 		</Notice>
 
-		<Notice variant="info" sx={ { mb: 4 } }>
+		<Notice variant="success" sx={ { mb: 4 } } title="Collapsible Notice" collapsible>
+			Bucket names in Amazon S3 are globally unique.{ ' ' }
+			<Link href="/?path=/story/avatar--default">A link to Avatar</Link>
+		</Notice>
+
+		<Notice
+			variant="info"
+			sx={ { mb: 4 } }
+			title="Collapsible Notice Auto-Expanded"
+			collapsible
+			defaultOpen
+		>
 			Bucket names in Amazon S3 are globally unique.
 		</Notice>
 	</React.Fragment>
