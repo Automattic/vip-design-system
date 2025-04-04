@@ -6,14 +6,14 @@
 import * as Collapsible from '@radix-ui/react-collapsible';
 import classNames from 'classnames';
 import React, { useState, useId } from 'react';
-import { BiChevronDown } from 'react-icons/bi';
+import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Box, Flex, Heading, Card } from '../';
+import { Box, Flex, Heading, Card, Button } from '../';
 
 type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
 
@@ -68,6 +68,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 	) => {
 		const [ isExpanded, setIsExpanded ] = useState( defaultOpen );
 		const handleExpand = ( openValue: boolean ) => setIsExpanded( openValue );
+		const ChevronIcon = isExpanded ? BiChevronUp : BiChevronDown;
 		const contentId = useId();
 
 		const iconColor = `notice.icon.${ variant }`;
@@ -104,8 +105,8 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 		if ( collapsible ) {
 			const renderHeader = () => (
 				<Collapsible.Trigger asChild aria-expanded={ isExpanded } aria-controls={ contentId }>
-					<button
-						type="button"
+					<Button
+						variant="text"
 						sx={ {
 							border: 'none',
 							width: '100%',
@@ -114,6 +115,12 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							justifyContent: 'space-between',
 							cursor: 'pointer',
 							bg: `notice.background.${ variant }`,
+							'&:hover, &:focus': {
+								bg: `notice.background.${ variant }`,
+								boxShadow: 'none',
+								transform: 'none',
+								border: 'none',
+							},
 							px: 3,
 							py: 2,
 						} }
@@ -134,15 +141,15 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 								{ title }
 							</Heading>
 						</Flex>
-						<BiChevronDown
+						<ChevronIcon
 							size={ 20 }
 							sx={ {
 								color: 'icon.primary',
-								transition: 'transform 300ms ease',
-								transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
 							} }
+							data-arrow-indicator
+							aria-hidden="true"
 						/>
-					</button>
+					</Button>
 				</Collapsible.Trigger>
 			);
 
