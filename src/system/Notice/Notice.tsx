@@ -121,6 +121,8 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 								transform: 'none',
 								border: 'none',
 							},
+							borderBottomLeftRadius: 0,
+							borderBottomRightRadius: 0,
 							px: 3,
 							py: 2,
 						} }
