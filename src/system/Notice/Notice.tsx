@@ -3,20 +3,25 @@
 /**
  * External dependencies
  */
+import * as Collapsible from '@radix-ui/react-collapsible';
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState, useId } from 'react';
+import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
-import { Box, Flex, Heading, Card } from '../';
+import { Box, Flex, Heading, Card, Button } from '../';
 
-interface NoticeIconProps {
-	color: string;
-	variant: ColorVariants;
-}
+type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
+
+type CollapsibleProps = {
+	collapsible?: boolean;
+	defaultOpen?: boolean;
+	ariaContentId?: string;
+};
 
 export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
 	children: React.ReactNode;
@@ -26,10 +31,9 @@ export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
 	variant?: ColorVariants;
 	headingVariant?: React.ElementType;
 	className?: string;
-};
-type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
+} & CollapsibleProps;
 
-const NoticeIcon = ( { color, variant }: NoticeIconProps ) => {
+const NoticeIcon = ( { color, variant }: { color: string; variant: ColorVariants } ) => {
 	const sx = { color, flex: '0 0 auto' };
 	const size = 24;
 
@@ -56,40 +60,147 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 			sx = {},
 			title,
 			variant = 'warning',
+			collapsible = false,
+			defaultOpen = false,
 			...props
 		},
 		forwardRef
 	) => {
+		const [ isExpanded, setIsExpanded ] = useState( defaultOpen );
+		const handleExpand = ( openValue: boolean ) => setIsExpanded( openValue );
+		const ChevronIcon = isExpanded ? BiChevronUp : BiChevronDown;
+		const contentId = useId();
+
+		const iconColor = `notice.icon.${ variant }`;
+		const textColor = `notice.text.${ variant }`;
+
+		const baseCardSx: ThemeUIStyleObject = {
+			boxShadow: 'none',
+			borderRadius: 2,
+			bg: inline || collapsible ? 'transparent' : `notice.background.${ variant }`,
+			color: textColor,
+			fontSize: 2,
+			p: {
+				color: textColor,
+				fontSize: 2,
+			},
+			a: {
+				color: `notice.link.${ variant }.default`,
+				'&:visited': {
+					color: `notice.link.${ variant }.visited`,
+				},
+				'&:active': {
+					color: `notice.link.${ variant }.active`,
+				},
+				'&:hover, &:focus': {
+					color: `notice.link.${ variant }.hover`,
+				},
+			},
+			ul: {
+				pl: 5,
+			},
+			...sx,
+		};
+
+		if ( collapsible ) {
+			const renderHeader = () => (
+				<Collapsible.Trigger asChild aria-expanded={ isExpanded } aria-controls={ contentId }>
+					<Button
+						variant="text"
+						sx={ {
+							border: 'none',
+							width: '100%',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-between',
+							cursor: 'pointer',
+							bg: `notice.background.${ variant }`,
+							'&:hover, &:focus': {
+								bg: `notice.background.${ variant }`,
+								boxShadow: 'none',
+								transform: 'none',
+								border: 'none',
+							},
+							px: 3,
+							py: 2,
+							borderBottomLeftRadius: '0 !important',
+							borderBottomRightRadius: '0 !important',
+						} }
+					>
+						<Flex sx={ { alignItems: 'center', gap: 2 } }>
+							<NoticeIcon color={ iconColor } variant={ variant } />
+							<Heading
+								as={ headingVariant }
+								id={ `${ contentId }-heading` }
+								sx={ {
+									color: textColor,
+									fontSize: 2,
+									fontWeight: 'bold',
+									my: 2,
+									mx: 3,
+								} }
+							>
+								{ title }
+							</Heading>
+						</Flex>
+						<ChevronIcon
+							size={ 32 }
+							sx={ {
+								color: 'icon.primary',
+							} }
+							data-arrow-indicator
+							aria-hidden="true"
+						/>
+					</Button>
+				</Collapsible.Trigger>
+			);
+
+			return (
+				<Collapsible.Root
+					defaultOpen={ defaultOpen }
+					onOpenChange={ handleExpand }
+					data-active={ defaultOpen || undefined }
+				>
+					<Card
+						variant="notice"
+						hideBody={ ! isExpanded }
+						renderHeader={ renderHeader }
+						bodyStyles={ {
+							border: '2px solid',
+							borderColor: `notice.background.${ variant }`,
+							borderTop: 'none',
+							borderBottomLeftRadius: 2,
+							borderBottomRightRadius: 2,
+							px: 4,
+							py: 3,
+						} }
+						sx={ {
+							...baseCardSx,
+							border: 'none',
+							overflow: 'hidden',
+						} }
+						className={ classNames( 'vip-notice-component', className ) }
+						{ ...props }
+						ref={ forwardRef }
+					>
+						<Collapsible.Content
+							id={ contentId }
+							sx={ {
+								mx: 2,
+								my: 2,
+							} }
+						>
+							{ children }
+						</Collapsible.Content>
+					</Card>
+				</Collapsible.Root>
+			);
+		}
+
 		return (
 			<Card
 				variant="notice"
-				sx={ {
-					boxShadow: 'none',
-					borderRadius: 2,
-					bg: inline ? 'transparent' : `notice.background.${ variant }`,
-					color: `notice.text.${ variant }`,
-					fontSize: 2,
-					p: {
-						color: `notice.text.${ variant }`,
-						fontSize: 2,
-					},
-					a: {
-						color: `notice.link.${ variant }.default`,
-						'&:visited': {
-							color: `notice.link.${ variant }.visited`,
-						},
-						'&:active': {
-							color: `notice.link.${ variant }.active`,
-						},
-						'&:hover, &:focus': {
-							color: `notice.link.${ variant }.hover`,
-						},
-					},
-					ul: {
-						pl: 5,
-					},
-					...sx,
-				} }
+				sx={ baseCardSx }
 				className={ classNames( 'vip-notice-component', className ) }
 				ref={ forwardRef }
 				{ ...props }
@@ -108,8 +219,8 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							sx={ {
 								flex: '1 100%', // we need this empty div to make the icon align to the bottom
 							} }
-						></Box>
-						<NoticeIcon color={ `notice.icon.${ variant }` } variant={ variant } />
+						/>
+						<NoticeIcon color={ iconColor } variant={ variant } />
 					</Flex>
 				</Box>
 				<Box>
@@ -117,7 +228,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 						<Heading
 							as={ headingVariant }
 							sx={ {
-								color: `notice.text.${ variant }`,
+								color: textColor,
 								mb: 0,
 								fontSize: 2,
 								fontWeight: 'bold',

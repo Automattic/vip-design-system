@@ -25,6 +25,7 @@ export interface CardProps {
 	renderHeader?: ( title?: string ) => React.ReactNode;
 	bodyStyles?: ThemeUIStyleObject;
 	headerStyles?: ThemeUIStyleObject;
+	hideBody?: boolean;
 }
 
 type CardBoxProps = CardProps & BoxProps;
@@ -38,6 +39,7 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 			bodyStyles,
 			headerStyles,
 			children,
+			hideBody = false,
 			...rest
 		}: CardProps,
 		ref: Ref< HTMLElement >
@@ -64,15 +66,17 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 					</Box>
 				) }
 
-				<Box
-					className="vip-card-body-component"
-					sx={ {
-						variant: `cards.${ variant }.children`,
-						...bodyStyles,
-					} }
-				>
-					{ children }
-				</Box>
+				{ ! hideBody && (
+					<Box
+						className="vip-card-body-component"
+						sx={ {
+							variant: `cards.${ variant }.children`,
+							...bodyStyles,
+						} }
+					>
+						{ children }
+					</Box>
+				) }
 			</Box>
 		);
 	}
