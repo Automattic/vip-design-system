@@ -121,10 +121,10 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 								transform: 'none',
 								border: 'none',
 							},
-							borderBottomLeftRadius: 0,
-							borderBottomRightRadius: 0,
 							px: 3,
 							py: 2,
+							borderBottomLeftRadius: '0 !important',
+							borderBottomRightRadius: '0 !important',
 						} }
 					>
 						<Flex sx={ { alignItems: 'center', gap: 2 } }>
@@ -144,7 +144,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							</Heading>
 						</Flex>
 						<ChevronIcon
-							size={ 20 }
+							size={ 32 }
 							sx={ {
 								color: 'icon.primary',
 							} }
@@ -166,12 +166,12 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 						hideBody={ ! isExpanded }
 						renderHeader={ renderHeader }
 						bodyStyles={ {
-							border: '1px solid',
+							border: '2px solid',
 							borderColor: `notice.background.${ variant }`,
 							borderTop: 'none',
 							borderBottomLeftRadius: 2,
 							borderBottomRightRadius: 2,
-							px: 3,
+							px: 4,
 							py: 3,
 						} }
 						sx={ {
