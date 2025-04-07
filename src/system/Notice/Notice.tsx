@@ -183,7 +183,6 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 					>
 						<Collapsible.Content
 							id={ contentId }
-							aria-labelledby={ `${ contentId }-heading` }
 							sx={ {
 								mx: 2,
 								my: 2,
