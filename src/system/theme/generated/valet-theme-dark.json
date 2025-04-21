@@ -41,7 +41,7 @@
   "input": {
     "background": {
       "default": {
-        "value": "#1b191800",
+        "value": "#13191e00",
         "type": "color",
         "description": "Use for input backgrounds"
       },
@@ -403,7 +403,7 @@
           "value": "#4c4948"
         },
         "disabled": {
-          "value": "#00000000",
+          "value": "#13191e00",
           "type": "color"
         }
       },
@@ -439,7 +439,7 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "#00000000",
+          "value": "#13191e00",
           "type": "color"
         },
         "hover": {
@@ -620,6 +620,14 @@
       "success": {
         "type": "color",
         "value": "#00611e"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "feature": {
+        "type": "color",
+        "value": "#ffffff"
       }
     },
     "text": {
@@ -638,6 +646,14 @@
       "success": {
         "type": "color",
         "value": "#d7efdf"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "#e3e0df"
+      },
+      "feature": {
+        "type": "color",
+        "value": "#ffffff"
       }
     },
     "icon": {
@@ -656,6 +672,14 @@
       "success": {
         "type": "color",
         "value": "#40ba6f"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "#827f7e"
+      },
+      "feature": {
+        "type": "color",
+        "value": "#8c00ffff"
       }
     },
     "accent": {
@@ -674,6 +698,14 @@
       "success": {
         "type": "color",
         "value": "#40ba6f"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "#827f7e"
+      },
+      "feature": {
+        "type": "color",
+        "value": "#8c00ffff"
       }
     },
     "link": {
@@ -751,6 +783,25 @@
         "visited": {
           "type": "color",
           "value": "#89daa0"
+        }
+      },
+      "neutral": {
+        "default": {
+          "type": "color",
+          "value": "#e3e0df",
+          "description": "Use for text links"
+        },
+        "hover": {
+          "type": "color",
+          "value": "#9b9796"
+        },
+        "active": {
+          "type": "color",
+          "value": "#9b9796"
+        },
+        "visited": {
+          "type": "color",
+          "value": "#d7d4d3"
         }
       }
     },
@@ -3647,6 +3698,116 @@
       },
       "100": {
         "value": "#000800",
+        "type": "color"
+      }
+    },
+    "purple": {
+      "0": {
+        "value": "#faf5ffff",
+        "type": "color"
+      },
+      "3": {
+        "value": "#f1e0ffff",
+        "type": "color"
+      },
+      "7": {
+        "value": "#e8ccffff",
+        "type": "color"
+      },
+      "10": {
+        "value": "#dfb8ffff",
+        "type": "color"
+      },
+      "15": {
+        "value": "#d5a3ffff",
+        "type": "color"
+      },
+      "20": {
+        "value": "#cc8fffff",
+        "type": "color"
+      },
+      "25": {
+        "value": "#c37affff",
+        "type": "color"
+      },
+      "30": {
+        "value": "#ba66ffff",
+        "type": "color"
+      },
+      "35": {
+        "value": "#b052ffff",
+        "type": "color"
+      },
+      "40": {
+        "value": "#a73dffff",
+        "type": "color"
+      },
+      "45": {
+        "value": "#9e29ffff",
+        "type": "color"
+      },
+      "50": {
+        "value": "#9514ffff",
+        "type": "color"
+      },
+      "55": {
+        "value": "#8c00ffff",
+        "type": "color"
+      },
+      "60": {
+        "value": "#8000ebff",
+        "type": "color"
+      },
+      "65": {
+        "value": "#7500d6ff",
+        "type": "color"
+      },
+      "70": {
+        "value": "#6a00c2ff",
+        "type": "color"
+      },
+      "73": {
+        "value": "#5f00adff",
+        "type": "color"
+      },
+      "75": {
+        "value": "#540099ff",
+        "type": "color"
+      },
+      "78": {
+        "value": "#490085ff",
+        "type": "color"
+      },
+      "80": {
+        "value": "#3d0070ff",
+        "type": "color"
+      },
+      "83": {
+        "value": "#32005cff",
+        "type": "color"
+      },
+      "85": {
+        "value": "#270047ff",
+        "type": "color"
+      },
+      "88": {
+        "value": "#1c0033ff",
+        "type": "color"
+      },
+      "90": {
+        "value": "#11001fff",
+        "type": "color"
+      },
+      "93": {
+        "value": "#06000aff",
+        "type": "color"
+      },
+      "95": {
+        "value": "#050008ff",
+        "type": "color"
+      },
+      "100": {
+        "value": "#050008ff",
         "type": "color"
       }
     }
