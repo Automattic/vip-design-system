@@ -29,7 +29,7 @@
       "type": "color"
     },
     "inverse": {
-      "value": "#d7d4d3",
+      "value": "#d7d4d0",
       "type": "color",
       "description": "Use as component background in high-contrast situations. "
     },
