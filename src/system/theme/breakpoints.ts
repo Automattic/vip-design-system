@@ -1,8 +1,8 @@
-type Breakpoints = {
+export type Breakpoints = {
 	[ key: string ]: number;
 };
 
-export const generateBreakpoints = ( breakpoints: Breakpoints ) => {
+export const generateBreakpoints = ( breakpoints: Breakpoints ): string[] => {
 	const values = Object.values( breakpoints );
 
 	return values.map( ( bp, index ) => {
