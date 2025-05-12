@@ -29,5 +29,18 @@ export const WithName: Story = {
 	args: {
 		name: 'Kitty',
 		size: 30,
+		sx: {
+			backgroundColor: '#D8A45F',
+		},
+	},
+};
+export const WithAbbreviation: Story = {
+	args: {
+		name: 'Taylor Swift',
+		abbr: 'TS',
+		size: 64,
+		sx: {
+			backgroundColor: '#D8A45F',
+		},
 	},
 };
