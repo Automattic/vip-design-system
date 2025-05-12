@@ -41,7 +41,7 @@
   "input": {
     "background": {
       "default": {
-        "value": "rgba( {color.gray.93},0)",
+        "value": "rgba( {color.black},0)",
         "type": "color",
         "description": "Use for input backgrounds"
       },
@@ -403,7 +403,7 @@
           "value": "{color.gray.73}"
         },
         "disabled": {
-          "value": "rgba(0,0,0,0)",
+          "value": "rgba({color.black},0)",
           "type": "color"
         }
       },
@@ -439,7 +439,7 @@
     "ghost": {
       "background": {
         "default": {
-          "value": "rgba(0,0,0,0)",
+          "value": "rgba({color.black},0)",
           "type": "color"
         },
         "hover": {
@@ -620,6 +620,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.70}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.pure-white}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.pure-white}"
       }
     },
     "text": {
@@ -638,6 +646,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.7}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.gray.10}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.pure-white}"
       }
     },
     "icon": {
@@ -656,6 +672,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.35}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.gray.50}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.purple.55}"
       }
     },
     "accent": {
@@ -674,6 +698,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.35}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.gray.50}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.purple.55}"
       }
     },
     "link": {
@@ -751,6 +783,25 @@
         "visited": {
           "type": "color",
           "value": "{color.green.20}"
+        }
+      },
+      "neutral": {
+        "default": {
+          "type": "color",
+          "value": "{color.gray.10}",
+          "description": "Use for text links"
+        },
+        "hover": {
+          "type": "color",
+          "value": "{color.gray.40}"
+        },
+        "active": {
+          "type": "color",
+          "value": "{color.gray.40}"
+        },
+        "visited": {
+          "type": "color",
+          "value": "{color.gray.15}"
         }
       }
     }

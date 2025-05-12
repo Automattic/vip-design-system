@@ -726,6 +726,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.7}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.gray.7}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.purple.7}"
       }
     },
     "text": {
@@ -744,6 +752,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.85}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.black}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.purple.85}"
       }
     },
     "icon": {
@@ -762,6 +778,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.60}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.gray.40}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.purple.40}"
       }
     },
     "accent": {
@@ -780,6 +804,14 @@
       "success": {
         "type": "color",
         "value": "{color.green.35}"
+      },
+      "neutral": {
+        "type": "color",
+        "value": "{color.gray.50}"
+      },
+      "feature": {
+        "type": "color",
+        "value": "{color.purple.60}"
       }
     },
     "link": {
@@ -857,6 +889,25 @@
         "visited": {
           "type": "color",
           "value": "{color.green.70}"
+        }
+      },
+      "neutral": {
+        "default": {
+          "type": "color",
+          "description": "Use for text links",
+          "value": "{color.black}"
+        },
+        "hover": {
+          "type": "color",
+          "value": "{color.gray.70}"
+        },
+        "active": {
+          "type": "color",
+          "value": "{color.gray.70}"
+        },
+        "visited": {
+          "type": "color",
+          "value": "{color.gray.80}"
         }
       }
     },
