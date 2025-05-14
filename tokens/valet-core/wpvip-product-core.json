@@ -777,7 +777,7 @@
       },
       "success": {
         "type": "color",
-        "value": "{color.green.60}"
+        "value": "{color.green.40}"
       },
       "neutral": {
         "type": "color",
