@@ -53,6 +53,10 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		...theme.tag,
 	},
 
+	support: {
+		...theme.support,
+	},
+
 	// Notice
 	notice: {
 		// extending the notice theme to support the alert variant
