@@ -4,7 +4,6 @@ import {
 	baseControlBorderStyle,
 	baseControlFocusStyle,
 	inputBaseBackground,
-	inputBaseText,
 } from '../Input.styles';
 
 // The output willl be 16px because of the 1px border.
