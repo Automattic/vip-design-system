@@ -31,7 +31,10 @@ export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
 		<Box
 			as={ as }
 			sx={ {
-				all: 'unset',
+				margin: 0,
+				padding: 0,
+				border: 0,
+				outline: 0,
 				...baseLabelStyle,
 				display: 'block',
 				mb: 2,
