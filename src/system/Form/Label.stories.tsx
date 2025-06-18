@@ -1,8 +1,9 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Form, Label } from '..';
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default {
+const meta: Meta< typeof Label > = {
 	title: 'Form/Label',
 	component: Label,
 	parameters: { docs: { source: { type: 'auto' } } },
@@ -15,7 +16,7 @@ export default {
 		required: {
 			control: 'boolean',
 			defaultValue: false,
-			description: 'Whether to show the required asterisk',
+			description: 'Whether to show the required label',
 		},
 		clickable: {
 			control: 'boolean',
@@ -35,19 +36,19 @@ export default {
 	},
 };
 
-const Template = args => (
-	<Form.Root>
-		<Label { ...args }>{ args.children }</Label>
-	</Form.Root>
-);
+export default meta;
 
-export const Default = Template.bind( {} );
-Default.args = {
-	children: 'Label text',
+type Story = StoryObj< typeof Label >;
+
+export const Default: Story = {
+	args: {
+		children: 'Label text',
+	},
 };
 
-export const Required = Template.bind( {} );
-Required.args = {
-	children: 'Label text',
-	required: true,
+export const Required: Story = {
+	args: {
+		children: 'Label text',
+		required: true,
+	},
 };
