@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
-import React from 'react';
-import { Form, Label } from '..';
+
+import { Label } from '..';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta< typeof Label > = {
