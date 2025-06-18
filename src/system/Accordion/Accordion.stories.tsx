@@ -27,7 +27,9 @@ const ExampleContent = () => (
 const ExampleAccordion = () => (
 	<Accordion.Root defaultValue="teamPermissions" sx={ { width: '250px' } }>
 		<Accordion.Item value="teamPermissions">
-			<Accordion.TriggerWithIcon icon={ <RiUserAddLine /> }>
+			<Accordion.TriggerWithIcon
+				icon={ <RiUserAddLine sx={ { color: 'support.accent.success' } } /> }
+			>
 				Team & Permissions
 			</Accordion.TriggerWithIcon>
 			<Accordion.Content>
@@ -35,7 +37,9 @@ const ExampleAccordion = () => (
 			</Accordion.Content>
 		</Accordion.Item>
 		<Accordion.Item value="addContentMedia">
-			<Accordion.TriggerWithIcon icon={ <BiBookContent /> }>
+			<Accordion.TriggerWithIcon
+				icon={ <BiBookContent sx={ { color: 'support.accent.success' } } /> }
+			>
 				Add Content & Media
 			</Accordion.TriggerWithIcon>
 			<Accordion.Content>
@@ -43,7 +47,11 @@ const ExampleAccordion = () => (
 			</Accordion.Content>
 		</Accordion.Item>
 		<Accordion.Item value="addCode">
-			<Accordion.TriggerWithIcon icon={ <RiCodeSSlashFill /> }>Add Code</Accordion.TriggerWithIcon>
+			<Accordion.TriggerWithIcon
+				icon={ <RiCodeSSlashFill sx={ { color: 'support.accent.success' } } /> }
+			>
+				Add Code
+			</Accordion.TriggerWithIcon>
 			<Accordion.Content>
 				<ExampleContent />
 			</Accordion.Content>

@@ -17,6 +17,7 @@ export type ToggleProps = Switch.SwitchProps & {
 	className?: Argument;
 	onChange?: () => void;
 	variant?: string;
+	disabled?: boolean;
 };
 
 export const Toggle = ( {
@@ -24,13 +25,14 @@ export const Toggle = ( {
 	onChange,
 	className,
 	variant = 'primary',
+	disabled,
 	...rest
 }: ToggleProps ) => (
 	<Switch.Root
 		className={ classNames( 'vip-toggle-component', className ) }
 		sx={ {
 			all: 'unset',
-			cursor: 'pointer',
+			cursor: disabled ? 'not-allowed' : 'pointer',
 			position: 'relative',
 			width: 40,
 			height: 20,
@@ -44,8 +46,9 @@ export const Toggle = ( {
 
 			'&:focus-visible': ( theme: ThemeProps ) => theme.outline,
 			'&[disabled]': {
-				opacity: 0.7,
+				opacity: 0.5,
 			},
+			opacity: disabled ? 0.5 : 1,
 			'&[data-state="checked"]': {
 				backgroundColor: variant,
 				backgroundPosition: 'left 2px top 2px',
