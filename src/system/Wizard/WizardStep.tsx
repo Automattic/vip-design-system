@@ -30,6 +30,7 @@ export interface WizardStepProps {
 	onChange?: () => void;
 	summary?: WizardStepSummary[];
 	shouldFocusTitle?: boolean;
+	actionLabel?: string;
 }
 
 export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
@@ -47,6 +48,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			titleVariant = 'h3',
 			summary,
 			onChange,
+			actionLabel = 'Change',
 		},
 		forwardRef
 	) => {
@@ -146,7 +148,8 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 							onClick={ onChange }
 							sx={ { height: 'auto', alignSelf: 'flex-end' } }
 						>
-							Change <ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
+							{ actionLabel }{ ' ' }
+							<ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
 						</Button>
 					) }
 				</Flex>

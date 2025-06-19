@@ -80,6 +80,7 @@ export const WithTitleAutoFocus = () => {
 			title: 'Configure DNS',
 			titleVariant: 'h2',
 			onChange: () => setActiveStep( 1 ),
+			actionLabel: 'Edit',
 			children: (
 				<Box>
 					<Label>DNS</Label>
