@@ -36,24 +36,30 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 		}, [ initialStep, activeStep, didMount, setDidMount ] );
 		return (
 			<Box className={ classNames( 'vip-wizard-component', className ) } ref={ forwardRef }>
-				{ steps.map( ( { title, subTitle, children, titleVariant, summary, onChange }, index ) => (
-					<WizardStep
-						active={ index === activeStep }
-						complete={ completed.includes( index ) }
-						skipped={ skipped.includes( index ) }
-						key={ index }
-						order={ index + 1 }
-						totalSteps={ steps.length }
-						subTitle={ subTitle }
-						title={ title }
-						titleVariant={ titleVariant }
-						summary={ summary }
-						onChange={ onChange }
-						shouldFocusTitle={ titleAutofocus && didMount }
-					>
-						{ children }
-					</WizardStep>
-				) ) }
+				{ steps.map(
+					(
+						{ title, subTitle, children, titleVariant, summary, onChange, actionLabel },
+						index
+					) => (
+						<WizardStep
+							active={ index === activeStep }
+							complete={ completed.includes( index ) }
+							skipped={ skipped.includes( index ) }
+							key={ index }
+							order={ index + 1 }
+							totalSteps={ steps.length }
+							subTitle={ subTitle }
+							title={ title }
+							titleVariant={ titleVariant }
+							summary={ summary }
+							onChange={ onChange }
+							shouldFocusTitle={ titleAutofocus && didMount }
+							actionLabel={ actionLabel }
+						>
+							{ children }
+						</WizardStep>
+					)
+				) }
 			</Box>
 		);
 	}
