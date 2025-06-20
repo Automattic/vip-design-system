@@ -358,6 +358,28 @@
         "type": "color"
       }
     },
+    "slider": {
+      "background": {
+        "default": {
+          "value": "#d7d4d3",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#d7d4d3",
+          "type": "color"
+        }
+      },
+      "handle": {
+        "default": {
+          "value": "#13191e",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#9b9796",
+          "type": "color"
+        }
+      }
+    },
     "switcher": {
       "background": {
         "primary": {
@@ -912,6 +934,10 @@
       "warning": {
         "type": "color",
         "value": "#b86e01"
+      },
+      "strong-warning": {
+        "type": "color",
+        "value": "#e76205"
       },
       "info": {
         "type": "color",
