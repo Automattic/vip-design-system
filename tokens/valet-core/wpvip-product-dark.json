@@ -687,6 +687,10 @@
         "type": "color",
         "value": "{color.yellow.35}"
       },
+      "strong-warning": {
+        "type": "color",
+        "value": "{color.orange.35}"
+      },
       "info": {
         "type": "color",
         "value": "{color.blue.35}"
