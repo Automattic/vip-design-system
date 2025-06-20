@@ -1,36 +1,55 @@
 /** @jsxImportSource theme-ui */
 
-/**
- * Internal dependencies
- */
-import { Form, Label } from '..';
+import { Label } from '..';
 
-export default {
+import type { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta< typeof Label > = {
 	title: 'Form/Label',
+	component: Label,
+	parameters: { docs: { source: { type: 'auto' } } },
+	argTypes: {
+		children: {
+			control: 'text',
+			defaultValue: 'Label text',
+			description: 'The label content',
+		},
+		required: {
+			control: 'boolean',
+			defaultValue: false,
+			description: 'Whether to show the required label',
+		},
+		clickable: {
+			control: 'boolean',
+			defaultValue: false,
+			description: 'Whether the label should have pointer cursor',
+		},
+		sx: {
+			control: 'object',
+			description: 'Theme UI sx-style overrides',
+		},
+		as: {
+			control: 'select',
+			options: [ 'label', 'span', 'div' ],
+			defaultValue: 'label',
+			description: 'The HTML element to render as',
+		},
+	},
 };
 
-const DefaultComponent = props => (
-	<Form.Root>
-		<Label { ...props }>Label</Label>
-	</Form.Root>
-);
+export default meta;
 
-export const Default = () => {
-	return (
-		<>
-			<DefaultComponent />
-		</>
-	);
+type Story = StoryObj< typeof Label >;
+
+export const Default: Story = {
+	args: {
+		children: 'Label text',
+	},
 };
 
-export const Required = () => {
-	const args = {
+export const Required: Story = {
+	args: {
+		children: 'Label text',
 		required: true,
-	};
-
-	return (
-		<>
-			<DefaultComponent { ...args } />
-		</>
-	);
+	},
 };
