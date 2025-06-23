@@ -606,21 +606,21 @@
   "slider": {
     "background": {
       "default": {
-        "value": "{color.gray.15}",
+        "value": "{color.gray.70}",
         "type": "color"
       },
       "disabled": {
-        "value": "{color.gray.15}",
+        "value": "{color.gray.70}",
         "type": "color"
       }
     },
     "handle": {
       "default": {
-        "value": "{color.black}",
+        "value": "{color.gray.15}",
         "type": "color"
       },
       "disabled": {
-        "value": "{color.gray.40}",
+        "value": "{color.gray.50}",
         "type": "color"
       }
     }
