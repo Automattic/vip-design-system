@@ -603,6 +603,28 @@
       }
     }
   },
+  "slider": {
+    "background": {
+      "default": {
+        "value": "#d7d4d3",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#d7d4d3",
+        "type": "color"
+      }
+    },
+    "handle": {
+      "default": {
+        "value": "#13191e",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#9b9796",
+        "type": "color"
+      }
+    }
+  },
   "support": {
     "background": {
       "error": {
@@ -664,6 +686,10 @@
       "warning": {
         "type": "color",
         "value": "#e29101"
+      },
+      "strong-warning": {
+        "type": "color",
+        "value": "#ff7b28"
       },
       "info": {
         "type": "color",

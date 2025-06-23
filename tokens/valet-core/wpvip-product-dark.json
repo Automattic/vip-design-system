@@ -603,6 +603,28 @@
       }
     }
   },
+  "slider": {
+    "background": {
+      "default": {
+        "value": "{color.gray.15}",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "{color.gray.15}",
+        "type": "color"
+      }
+    },
+    "handle": {
+      "default": {
+        "value": "{color.black}",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "{color.gray.40}",
+        "type": "color"
+      }
+    }
+  },
   "support": {
     "background": {
       "error": {
@@ -664,6 +686,10 @@
       "warning": {
         "type": "color",
         "value": "{color.yellow.35}"
+      },
+      "strong-warning": {
+        "type": "color",
+        "value": "{color.orange.35}"
       },
       "info": {
         "type": "color",
