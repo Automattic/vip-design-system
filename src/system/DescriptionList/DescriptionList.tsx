@@ -9,7 +9,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
  */
 import { Grid } from '../Grid';
 
-interface Props {
+export interface DescriptionListProps {
 	list: {
 		label: string;
 		value: string;
@@ -19,8 +19,8 @@ interface Props {
 	labelWidth?: string;
 }
 
-export const DescriptionList = forwardRef< HTMLDivElement, Props >(
-	( { sx, className, list, labelWidth = '100px' }: Props ) => (
+export const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
+	( { sx, className, list, labelWidth = '100px' }: DescriptionListProps ) => (
 		<>
 			{ list.map( item => (
 				<Grid
