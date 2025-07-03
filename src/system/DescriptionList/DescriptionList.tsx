@@ -44,3 +44,5 @@ export const DescriptionList = forwardRef< HTMLDivElement, Props >(
 );
 
 DescriptionList.displayName = 'DescriptionList';
+
+export default DescriptionList;
