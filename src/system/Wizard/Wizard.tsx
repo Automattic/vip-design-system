@@ -19,10 +19,19 @@ export interface WizardProps {
 	skipped?: number[];
 	className?: string;
 	titleAutofocus?: boolean;
+	showStepText?: boolean;
 }
 export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 	(
-		{ steps, activeStep, completed = [], skipped = [], className = null, titleAutofocus = false },
+		{
+			steps,
+			activeStep,
+			completed = [],
+			skipped = [],
+			className = null,
+			titleAutofocus = false,
+			showStepText = true,
+		},
 		forwardRef
 	) => {
 		const [ didMount, setDidMount ] = useState( false );
@@ -55,6 +64,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							onChange={ onChange }
 							shouldFocusTitle={ titleAutofocus && didMount }
 							actionLabel={ actionLabel }
+							showStepText={ showStepText }
 						>
 							{ children }
 						</WizardStep>

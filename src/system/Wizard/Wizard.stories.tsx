@@ -9,7 +9,7 @@ import React from 'react';
  * Internal dependencies
  */
 import { WizardStepProps } from './WizardStep';
-import { Wizard, Box, Label, Input, Button, Checkbox, Flex } from '..';
+import { Wizard, Box, Label, Input, Button, Checkbox, Flex, Text } from '..';
 
 export default {
 	title: 'Navigation/Wizard',
@@ -135,6 +135,31 @@ export const WithTitleAutoFocus = () => {
 						Autofocus enabled?
 					</Label>
 				</Flex>
+			</Box>
+		</React.Fragment>
+	);
+};
+
+export const HideStepText = () => {
+	const steps: WizardStepProps[] = [
+		{
+			title: 'Included Logs',
+			titleVariant: 'h2',
+			subTitle: '',
+			children: <Text>Error Logs</Text>,
+		},
+	];
+
+	return (
+		<React.Fragment>
+			<Box mt={ 4 }>
+				<Wizard
+					showStepText={ false }
+					activeStep={ 0 }
+					steps={ steps }
+					completed={ [ 0 ] }
+					className="vip-wizard-xyz"
+				/>
 			</Box>
 		</React.Fragment>
 	);
