@@ -31,6 +31,7 @@ export interface WizardStepProps {
 	summary?: WizardStepSummary[];
 	shouldFocusTitle?: boolean;
 	actionLabel?: string;
+	showStepText?: boolean;
 }
 
 export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
@@ -49,13 +50,15 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			summary,
 			onChange,
 			actionLabel = 'Change',
+			showStepText = true,
 		},
 		forwardRef
 	) => {
 		const titleRef = React.useRef< HTMLHeadingElement >( null );
 		let status = 'inactive';
 		let statusText = 'Step not completed';
-		if ( active ) {
+		if ( active && ! ( complete && totalSteps === 1 ) ) {
+			// if the step is active but is an unique step, we don't want to show as active status
 			status = 'active';
 			statusText = ''; // not adding the status text for active step since it's announced by aria-current
 		} else if ( complete ) {
@@ -120,9 +123,11 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						tabIndex={ shouldFocusTitle ? -1 : undefined }
 						aria-current={ active ? 'step' : undefined }
 					>
-						<Text sx={ { color: 'wizard.step.number.color' } } aria-hidden="true">
-							{ stepText }
-						</Text>
+						{ showStepText && (
+							<Text sx={ { color: 'wizard.step.number.color' } } aria-hidden="true">
+								{ stepText }
+							</Text>
+						) }
 
 						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
 							{ complete ? (
