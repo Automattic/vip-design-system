@@ -10,6 +10,7 @@ import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
 import { ConfirmationDialog } from './ConfirmationDialog';
+import * as DescriptionList from './DescriptionList';
 import {
 	Dialog,
 	DialogButton,
@@ -84,6 +85,7 @@ export {
 	DialogDivider,
 	DialogContent,
 	DialogTrigger,
+	DescriptionList,
 	ConfirmationDialog,
 	MobileMenu,
 	MobileMenuTrigger,
