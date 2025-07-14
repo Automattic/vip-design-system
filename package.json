@@ -27,7 +27,8 @@
     "storybook": "storybook dev -p 6006",
     "dev": "npm run storybook",
     "test": "npm run jest",
-    "watch": "npm run build -- --watch"
+    "watch": "npm run build -- --watch",
+    "style-dictionary": "node style-dictionary/build-theme.js"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
@@ -110,6 +111,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "^7.6.17",
+    "style-dictionary": "^5.0.1",
     "theme-ui": "0.16.0",
     "token-transformer": "0.0.33",
     "typescript": "5.2.2"

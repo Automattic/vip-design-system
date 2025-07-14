@@ -1,4 +1,14 @@
 /**
+ * @file This file aggregates and exports the complete theme configuration for the design system.
+ * It builds upon base theme tokens to create light and dark modes, defines theme scales (spacing, fonts, colors),
+ * and provides style variants for various components.
+ *
+ * The theme structure is compatible with Theme UI.
+ *
+ * @see https://theme-ui.com/theme-spec
+ */
+
+/**
  * Internal dependencies
  */
 import { generateBreakpoints } from './breakpoints';
@@ -8,19 +18,31 @@ import Valet from './generated/valet-theme-light.json';
 import ThemeBuilder from './getPropValue';
 import { linkUnderlineProperties } from '../Link/Link';
 
-// Light
+// --- Theme Builders ---
+// These builders take raw theme JSON and provide utility functions to access theme values.
+
+// Light Theme
+// Initializes the theme builder for the light theme (Valet).
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
+// Creates the color palette for the light theme.
 const light = ColorBuilder( ValetTheme );
 
-// Dark
+// Dark Theme
+// Initializes the theme builder for the dark theme (ValetDark).
 const {
 	getPropValue: getPropValueDark,
 	getVariants: getVariantsDark,
 	ValetTheme: ValetThemeDark,
 } = ThemeBuilder( ValetDark );
-
+// Creates the color palette for the dark theme.
 const dark = ColorBuilder( ValetThemeDark );
 
+// --- Base Theme Styles ---
+
+/**
+ * Default focus outline style for interactive elements.
+ * This ensures accessibility and a consistent look and feel for focus states.
+ */
 const outline = {
 	outlineStyle: 'solid',
 	outlineColor: getPropValue( 'focus', 'inset' ),
@@ -30,6 +52,9 @@ const outline = {
 	) }`,
 };
 
+/**
+ * Base font stacks for the design system.
+ */
 const fonts = {
 	body: '-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
 	heading: 'inherit',
@@ -37,8 +62,21 @@ const fonts = {
 	serif: 'recoletaregular, Georgia, serif',
 };
 
+/**
+ * Generates a component-specific color configuration from a base theme.
+ *
+ * This function maps the verbose, token-based theme structure to a flatter,
+ * component-oriented structure that is easier to consume in components.
+ * For example, it defines colors for `button`, `notice`, `snackbar`, etc.
+ *
+ * @param {object} theme The raw theme object (e.g., ValetTheme).
+ * @param {Function} gColor The `getPropValue` utility for the corresponding theme.
+ * @param {Function} gVariants The `getVariants` utility for the corresponding theme.
+ * @returns {object} An object containing component-specific color definitions.
+ */
 const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	// Valet Theme Colors
+	// Maps the raw color tokens from the theme to component-specific keys.
 
 	// This has to be in the plural because we already have a flag: text
 	texts: {
@@ -59,6 +97,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	// Notice
 	notice: {
+		// The 'alert' variant is an alias for 'error' but was needed for semantic clarity.
 		// extending the notice theme to support the alert variant
 		background: {
 			alert: theme.support.background.error,
@@ -219,12 +258,39 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	links: gVariants( 'link' ),
 } );
 
+/**
+ * The complete theme object.
+ *
+ * This object is passed to the ThemeProvider and is accessible in all components
+ * via the `useThemeUI` hook.
+ */
 export default {
+	/**
+	 * Default focus outline style.
+	 * @see outline
+	 */
 	outline,
+	/**
+	 * Spacing scale, used for margins, paddings, etc.
+	 * e.g., `sx={{ p: 2 }}`
+	 */
 	space: getVariants( 'space' ),
+	/**
+	 * Font family definitions.
+	 * @see fonts
+	 */
 	fonts,
+	/**
+	 * Font size scale.
+	 */
 	fontSizes: getVariants( 'fontSize.static' ),
+	/**
+	 * Responsive breakpoints for media queries.
+	 */
 	breakpoints: generateBreakpoints( getVariants( 'breakpoint' ) ),
+	/**
+	 * Font weight definitions.
+	 */
 	fontWeights: {
 		body: getPropValue( 'fontWeight', 'body' ),
 		heading: getPropValue( 'fontWeight', 'heading' ),
@@ -233,26 +299,52 @@ export default {
 		medium: getPropValue( 'fontWeight', 'medium' ),
 		light: getPropValue( 'fontWeight', 'light' ),
 	},
+	/**
+	 * Line height definitions.
+	 */
 	lineHeights: getVariants( 'lineHeight' ),
+	/**
+	 * Sizing definitions, e.g., for sidebars.
+	 */
 	sizes: {
 		sidebar: 260,
 	},
+	/**
+	 * Border radii definitions.
+	 */
 	radii: getVariants( 'borderRadius.static' ),
+	/**
+	 * Theme-UI configuration.
+	 * `useColorSchemeMediaQuery: false` disables the default behavior of Theme UI to automatically
+	 * switch themes based on the user's OS-level color scheme preference. We manage this manually.
+	 */
 	config: {
 		useColorSchemeMediaQuery: false,
 	},
+	/**
+	 * The name of the initial color mode.
+	 */
 	initialColorModeName: 'light',
+	/**
+	 * The color palette for the theme, including light and dark modes.
+	 */
 	colors: {
+		// Base colors for the light mode
 		...getComponentColors( ValetTheme, getPropValue, getVariants ),
 		...light,
+		// Dark mode color definitions
 		modes: {
 			dark: {
+				// Base colors for the dark mode
 				...getComponentColors( ValetThemeDark, getPropValueDark, getVariantsDark ),
 				...dark,
 			},
 		},
 	},
 
+	/**
+	 * Box shadow definitions.
+	 */
 	shadows: {
 		low: '0px 1px 5px rgba(0, 0, 0, 0.05), 0px 1px 1px rgba(0, 0, 0, 0.15)',
 		medium:
@@ -263,14 +355,28 @@ export default {
 			'0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 100px 80px rgba(0, 0, 0, 0.07)',
 	},
 
+	/**
+	 * Style variants for the Tag component.
+	 */
 	tag: {
 		gold: getVariants( 'tag.gold' ),
 	},
 
+	/**
+	 * Style variants for the Skeleton component.
+	 */
 	skeleton: {
 		background: 'layer.2',
 	},
 
+	/**
+	 * Style variants for the Card component.
+	 *
+	 * - `primary`: The default card style.
+	 * - `secondary`: A card with a border.
+	 * - `notice`: A card styled for displaying notices.
+	 * - `indent`: A card with an indented background color, useful for nesting.
+	 */
 	cards: {
 		primary: {
 			backgroundColor: 'layer.2',
@@ -333,6 +439,19 @@ export default {
 		},
 	},
 
+	/**
+	 * Style variants for the Button component.
+	 *
+	 * - `primary`: The default, high-emphasis button.
+	 * - `secondary`: A secondary button with less emphasis.
+	 * - `tertiary`: A button with a border and transparent background.
+	 * - `display`: A button that looks like plain text but has a button's behavior.
+	 * - `ghost`: A button with a transparent background that gets a background on hover.
+	 * - `danger`: A button for destructive actions.
+	 * - `border`: A generic button with a border.
+	 * - `text`: A button that looks like a link.
+	 * - `icon`: A button that only contains an icon.
+	 */
 	buttons: {
 		primary: {
 			fontFamily: 'body',
@@ -464,6 +583,10 @@ export default {
 		},
 	},
 
+	/**
+	 * Style variants for the Link component.
+	 * The `button-*` variants are designed to make a Link component look and feel like a Button.
+	 */
 	links: {
 		primary: {
 			...linkUnderlineProperties,
@@ -500,8 +623,18 @@ export default {
 		},
 	},
 
+	/**
+	 * Base text and heading styles.
+	 */
 	text: getHeadingStyles(),
 
+	/**
+	 * Style variants for the Dialog component.
+	 *
+	 * - `modal`: A centered dialog with an overlay.
+	 * - `sidebar`: A dialog that appears as a sidebar.
+	 * - `cover`: A full-screen dialog.
+	 */
 	dialog: {
 		modal: {
 			position: 'fixed',
@@ -535,6 +668,9 @@ export default {
 		},
 	},
 
+	/**
+	 * Style variants for the Drawer component, controlling its position and animation.
+	 */
 	drawer: {
 		top: {
 			transform: 'translate3d(0,-100%,0)',
@@ -581,6 +717,9 @@ export default {
 		},
 	},
 
+	/**
+	 * Global styles applied to the root of the application.
+	 */
 	styles: {
 		root: {
 			fontFamily: 'body',
