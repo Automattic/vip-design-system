@@ -268,8 +268,8 @@ function convertColorValue(colorValue) {
  * @since 1.0.0
  * @type {Object}
  */
-export const resolveColor = {
-	name: 'color/resolve',
+export const resolveColors = {
+	name: 'resolve-colors',
 	type: 'value',
 	transitive: true, // This ensures the transform runs after references are resolved
 	filter: (token) => {
@@ -300,4 +300,4 @@ export const resolveColor = {
 	}
 };
 
-export default resolveColor; 
+export default resolveColors; 

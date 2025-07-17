@@ -8,65 +8,107 @@
 
 import { fileHeader } from 'style-dictionary/utils';
 
+const set = (obj, path, value) => {
+	let current = obj;
+	for (let i = 0; i < path.length - 1; i++) {
+		const key = path[i];
+		if (current[key] === undefined || typeof current[key] !== 'object') {
+			current[key] = {};
+		}
+		current = current[key];
+	}
+	current[path[path.length - 1]] = value;
+};
+
 export async function themeUiFormat(dictionary, file, options) {
 	const theme = {
+		borders: {},
+		borderStyles: {},
+		borderWidths: {},
 		colors: {},
-		space: {},
 		fonts: {},
 		fontSizes: {},
 		fontWeights: {},
-		lineHeights: {},
 		letterSpacings: {},
-		sizes: {},
-		borders: {},
-		borderWidths: {},
-		borderStyles: {},
+		lineHeights: {},
+		opacities: {},
 		radii: {},
 		shadows: {},
-		zIndices: {},
+		sizes: {},
+		space: {},
 		styles: {},
+		transitions: {},
+		zIndices: {},
 	};
 
-    const header = await fileHeader({ file });
+	const header = await fileHeader({ file });
 
 	dictionary.allTokens.forEach(token => {
-		const value = token.value;
+		const value = token.$value;
 		const path = token.path;
-        const type = token.$type;
+		const type = token.$type;
 
-		// Example logic to map tokens to theme scales.
-		// You will likely need to adjust this based on your token structure.
-		const category = path[0];
-		const key = path.slice(1).join('-');
+		const category = path[1];
+		const key = token.key;
 
-        switch (type) {
-            case 'color':
-                theme.colors[key] = value;
-                break;
-        }
-
-		switch (category) {
-			case 'colors':
-				theme.colors[key] = value;
+		switch (type) {
+			case 'color':
+				if (token.filePath.endsWith('core.json')) {
+					set(theme.colors, path.slice(2), value);
+				} else {
+					set(theme.colors, path.slice(2), value);
+				}
 				break;
-			case 'space':
-				theme.space[key] = value;
+			case 'fontWeight':
+				set(theme.fontWeights, path.slice(1), value);
 				break;
-			case 'fonts':
-				theme.fonts[key] = value;
+			case 'fontFamily':
+				set(theme.fonts, path.slice(1), value);
 				break;
-			case 'fontSizes':
-				theme.fontSizes[key] = value;
+			case 'duration':
+				set(theme.colors, path.slice(1), value);
 				break;
-			case 'fontWeights':
-				theme.fontWeights[key] = value;
+			case 'shadow':
+				set(theme.shadows, path.slice(1), value);
 				break;
-			case 'lineHeights':
-				theme.lineHeights[key] = value;
+			case 'dimension':
+				switch (category) {
+					case 'fontSize':
+						set(theme.fontSizes, path.slice(1), value);
+						break;
+					case 'borderRadius':
+						set(theme.radii, path.slice(1), value);
+						break;
+					case 'space':
+						set(theme.space, path.slice(1), value);
+						break;
+					case 'letterSpacing':
+						set(theme.letterSpacings, path.slice(1), value);
+						break;
+					case 'borderWidth':
+						set(theme.borderWidths, path.slice(1), value);
+						break;
+					case 'borderStyle':
+						set(theme.borderStyles, path.slice(1), value);
+						break;
+					case 'borderColor':
+					default:
+						set(theme.sizes, path.slice(1), value);
+						break;
+				}
 				break;
-			// Add other cases for your token categories.
-			default:
-				// You might want to handle uncategorized tokens here.
+			case 'number':
+				switch (category) {
+					case 'lineHeight':
+						set(theme.lineHeights, path.slice(1), value);
+						break;
+					default:
+						set(theme.sizes, path.slice(1), value);
+						break;
+				}
+				break;
+			case 'strokeStyle':
+				set(theme.borderStyles, path.slice(1), value);
 				break;
 		}
 	});

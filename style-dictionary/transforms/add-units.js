@@ -114,7 +114,7 @@ function transformNestedValueUnit(obj) {
  * @type {Object}
  */
 export const valueUnitConcat = {
-	name: 'value/unit-concat',
+	name: 'add-units',
 	type: 'value',
 	transitive: true, // This ensures the transform runs after references are resolved
 	filter: (token) => {
