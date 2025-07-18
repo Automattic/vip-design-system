@@ -8,6 +8,11 @@
   "borderStyles": {
     "borderStyle": {
       "solid": "solid"
+    },
+    "border": {
+      "outline": {
+        "style": "solid"
+      }
     }
   },
   "borderWidths": {
@@ -778,6 +783,10 @@
       "hover": "#d29137",
       "active": "#d29137",
       "visited": "#c5832a"
+    },
+    "outline": {
+      "color": "#ffffff",
+      "insetColor": "#ffffff"
     }
   },
   "fonts": {
@@ -993,6 +1002,11 @@
       "center": 744,
       "wide": 1008,
       "full": 1536
+    },
+    "border": {
+      "outline": {
+        "width": 0
+      }
     }
   },
   "space": {

@@ -4669,6 +4669,66 @@
         }
       }
     },
+    "border": {
+      "outline": {
+        "color": {
+          "$type": "alias",
+          "$value": "{dark.color.focus.outline}",
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:3828",
+            "figma.key": "2ab19d616b590fe5c111f509cf8cc5abd3bf4272",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        },
+        "style": {
+          "$type": "strokeStyle",
+          "$value": "{base.borderStyle.solid}",
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:3829",
+            "figma.key": "ef43434188e16fe410d2bdf58a1ff1178767816a",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        },
+        "width": {
+          "$type": "dimension",
+          "$value": "{base.borderWidth.1}",
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:4651",
+            "figma.key": "4e7c2c77afbf7367f7b6a8974cbd8ef22d625b33",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        },
+        "insetColor": {
+          "$type": "alias",
+          "$value": "{dark.color.focus.inset}",
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:4652",
+            "figma.key": "b6abfd3d2c2178be779a297033242f45669d7e50",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        }
+      }
+    },
     "typography": {
       "support": {
         "helper-text": {
@@ -10212,6 +10272,84 @@
             "GAP"
           ],
           "figma.codeSyntax": {}
+        }
+      }
+    },
+    "border": {
+      "outline": {
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#ffffff"
+          },
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:3828",
+            "figma.key": "2ab19d616b590fe5c111f509cf8cc5abd3bf4272",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        },
+        "style": {
+          "$type": "string",
+          "$value": "String value",
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:3829",
+            "figma.key": "ef43434188e16fe410d2bdf58a1ff1178767816a",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        },
+        "width": {
+          "$type": "number",
+          "$value": 0,
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:4651",
+            "figma.key": "4e7c2c77afbf7367f7b6a8974cbd8ef22d625b33",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
+        },
+        "insetColor": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#ffffff"
+          },
+          "$description": "",
+          "$extensions": {
+            "figma.ID": "VariableID:11165:4652",
+            "figma.key": "b6abfd3d2c2178be779a297033242f45669d7e50",
+            "figma.collectionID": "VariableCollectionId:7973:13160",
+            "figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "figma.codeSyntax": {}
+          }
         }
       }
     },
