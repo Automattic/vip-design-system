@@ -4,13 +4,13 @@
  * External dependencies
  */
 import React from 'react';
+import { BsPencil } from 'react-icons/bs';
 
 /**
  * Internal dependencies
  */
 import { WizardStepProps } from './WizardStep';
 import { Wizard, Box, Label, Input, Button, Checkbox, Flex, Text } from '..';
-import { BsPencil } from 'react-icons/bs';
 
 export default {
 	title: 'Navigation/Wizard',
