@@ -10,6 +10,7 @@ import React from 'react';
  */
 import { WizardStepProps } from './WizardStep';
 import { Wizard, Box, Label, Input, Button, Checkbox, Flex, Text } from '..';
+import { BsPencil } from 'react-icons/bs';
 
 export default {
 	title: 'Navigation/Wizard',
@@ -81,6 +82,7 @@ export const WithTitleAutoFocus = () => {
 			titleVariant: 'h2',
 			onChange: () => setActiveStep( 1 ),
 			actionLabel: 'Edit',
+			actionIcon: <BsPencil />,
 			children: (
 				<Box>
 					<Label>DNS</Label>

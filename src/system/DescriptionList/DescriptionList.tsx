@@ -19,7 +19,7 @@ export interface DescriptionListProps {
 	labelWidth?: string;
 }
 
-export const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
+const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
 	( { sx, className, list, labelWidth = '100px' }: DescriptionListProps ) => (
 		<>
 			{ list.map( item => (
@@ -45,4 +45,4 @@ export const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps 
 
 DescriptionList.displayName = 'DescriptionList';
 
-export default DescriptionList;
+export { DescriptionList };
