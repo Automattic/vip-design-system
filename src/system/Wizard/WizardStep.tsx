@@ -28,7 +28,7 @@ export interface WizardStepProps {
 	children?: React.ReactNode;
 	skipped?: boolean;
 	onChange?: () => void;
-	summary?: WizardStepSummary[] | React.ReactNode;
+	summary?: WizardStepSummary[];
 	shouldFocusTitle?: boolean;
 	actionLabel?: string;
 	showStepText?: boolean;
@@ -161,46 +161,41 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						</Button>
 					) }
 				</Flex>
-				{ ! active &&
-					( complete || skipped ) &&
-					summary &&
-					( Array.isArray( summary ) && summary.length > 0 ? (
-						<Table
-							caption={ `Summary of ${ title?.toString() }` }
-							sx={ {
-								width: 'auto',
-								minWidth: 'auto',
-								'> tbody > tr': {
-									'> td, > th': {
-										fontWeight: 'heading',
-										border: 'none',
-										pl: 0,
-										'&:first-of-type': { pl: 0 },
-									},
+				{ ! active && ( complete || skipped ) && summary && summary.length > 0 && (
+					<Table
+						caption={ `Summary of ${ title?.toString() }` }
+						sx={ {
+							width: 'auto',
+							minWidth: 'auto',
+							'> tbody > tr': {
+								'> td, > th': {
+									fontWeight: 'heading',
+									border: 'none',
+									pl: 0,
+									'&:first-of-type': { pl: 0 },
 								},
-							} }
-						>
-							<tbody>
-								{ summary.map( ( item, index ) => (
-									<TableRow key={ `summary_tb_${ index }` }>
-										<TableCell
-											as="th"
-											scope="row"
-											sx={ { color: 'gray', whiteSpace: 'nowrap', pr: 1 } }
-										>
-											{ item.label }
-											{ item.value ? ':' : '' }
-										</TableCell>
-										<TableCell sx={ { color: 'text' } }>
-											<strong>{ item.value }</strong>
-										</TableCell>
-									</TableRow>
-								) ) }
-							</tbody>
-						</Table>
-					) : (
-						summary
-					) ) }
+							},
+						} }
+					>
+						<tbody>
+							{ summary.map( ( item, index ) => (
+								<TableRow key={ `summary_tb_${ index }` }>
+									<TableCell
+										as="th"
+										scope="row"
+										sx={ { color: 'gray', whiteSpace: 'nowrap', pr: 1 } }
+									>
+										{ item.label }
+										{ item.value ? ':' : '' }
+									</TableCell>
+									<TableCell sx={ { color: 'text' } }>
+										<strong>{ item.value }</strong>
+									</TableCell>
+								</TableRow>
+							) ) }
+						</tbody>
+					</Table>
+				) }
 
 				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
 
