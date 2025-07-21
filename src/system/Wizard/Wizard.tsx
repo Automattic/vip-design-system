@@ -47,7 +47,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 			<Box className={ classNames( 'vip-wizard-component', className ) } ref={ forwardRef }>
 				{ steps.map(
 					(
-						{ title, subTitle, children, titleVariant, summary, onChange, actionLabel },
+						{ title, subTitle, children, titleVariant, summary, onChange, actionLabel, actionIcon },
 						index
 					) => (
 						<WizardStep
@@ -64,6 +64,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							onChange={ onChange }
 							shouldFocusTitle={ titleAutofocus && didMount }
 							actionLabel={ actionLabel }
+							actionIcon={ actionIcon }
 							showStepText={ showStepText }
 						>
 							{ children }

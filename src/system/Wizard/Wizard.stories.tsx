@@ -4,6 +4,7 @@
  * External dependencies
  */
 import React from 'react';
+import { BsPencil } from 'react-icons/bs';
 
 /**
  * Internal dependencies
@@ -81,6 +82,7 @@ export const WithTitleAutoFocus = () => {
 			titleVariant: 'h2',
 			onChange: () => setActiveStep( 1 ),
 			actionLabel: 'Edit',
+			actionIcon: <BsPencil />,
 			children: (
 				<Box>
 					<Label>DNS</Label>

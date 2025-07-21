@@ -10,7 +10,7 @@ import { Button, ButtonSubmit, ButtonVariant } from './Button';
 import { Card } from './Card';
 import { Code } from './Code';
 import { ConfirmationDialog } from './ConfirmationDialog';
-import * as DescriptionList from './DescriptionList';
+import { DescriptionList } from './DescriptionList';
 import {
 	Dialog,
 	DialogButton,

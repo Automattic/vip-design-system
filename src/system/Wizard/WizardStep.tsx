@@ -9,7 +9,7 @@ import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
 /**
  * Internal dependencies
  */
-import { Card, Heading, Text, Flex, Table, TableRow, TableCell, Button } from '..';
+import { Card, Heading, Text, Flex, Table, TableRow, TableCell, Button, Box } from '..';
 import { HeadingProps } from '../Heading/Heading';
 import { ScreenReaderText } from '../ScreenReaderText';
 
@@ -32,6 +32,7 @@ export interface WizardStepProps {
 	shouldFocusTitle?: boolean;
 	actionLabel?: string;
 	showStepText?: boolean;
+	actionIcon?: React.ReactNode;
 }
 
 export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
@@ -51,6 +52,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			onChange,
 			actionLabel = 'Change',
 			showStepText = true,
+			actionIcon,
 		},
 		forwardRef
 	) => {
@@ -155,6 +157,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						>
 							{ actionLabel }{ ' ' }
 							<ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
+							{ Boolean( actionIcon ) && <Box sx={ { ml: 4 } }>{ actionIcon }</Box> }
 						</Button>
 					) }
 				</Flex>
