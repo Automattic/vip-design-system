@@ -115,6 +115,7 @@ export const WithTitleAutoFocus = () => {
 		<React.Fragment>
 			<Box mt={ 4 }>
 				<Wizard
+					summaryAs="dl"
 					completed={ [ 0, 1 ] }
 					skipped={ [ 2 ] }
 					activeStep={ activeStep }

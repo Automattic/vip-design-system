@@ -29,11 +29,12 @@ export interface WizardStepProps {
 	skipped?: boolean;
 	onChange?: () => void;
 	summary?: WizardStepSummary[];
+	summaryTitle?: string;
+	summaryAs?: 'table' | 'dl';
 	shouldFocusTitle?: boolean;
 	actionLabel?: string;
 	showStepText?: boolean;
 	actionIcon?: React.ReactNode;
-	summaryTitle?: string;
 }
 
 export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
@@ -51,6 +52,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			titleVariant = 'h3',
 			summary,
 			summaryTitle,
+			summaryAs = 'table',
 			onChange,
 			actionLabel = 'Change',
 			showStepText = true,
@@ -164,11 +166,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					) }
 				</Flex>
 				{ ! active && ( complete || skipped ) && summary && summary.length > 0 && (
-					<DescriptionList
-						as="table"
-						list={ summary }
-						title={ summaryTitle || `Summary of ${ title?.toString() }` }
-					/>
+					<DescriptionList as={ summaryAs } list={ summary } title={ summaryTitle } />
 				) }
 
 				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
