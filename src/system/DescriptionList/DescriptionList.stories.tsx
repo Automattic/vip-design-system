@@ -14,6 +14,7 @@ export default {
 
 export const Default = () => (
 	<DescriptionList
+		title="Summary of the list"
 		list={ [
 			{
 				label: 'Short Label',
@@ -22,6 +23,21 @@ export const Default = () => (
 			},
 			{
 				label: 'Long label to test label width',
+				value: 'Value',
+			},
+		] }
+	/>
+);
+
+export const WithEmptySummary = () => <DescriptionList title="Summary of the list" list={ [] } />;
+
+export const Table = () => (
+	<DescriptionList
+		as="table"
+		title="Summary of the list"
+		list={ [
+			{
+				label: 'Short Label',
 				value: 'Value',
 			},
 		] }
