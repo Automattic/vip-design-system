@@ -20,6 +20,7 @@ export interface WizardProps {
 	className?: string;
 	titleAutofocus?: boolean;
 	showStepText?: boolean;
+	summaryAs?: 'table' | 'dl';
 }
 export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 	(
@@ -31,6 +32,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 			className = null,
 			titleAutofocus = false,
 			showStepText = true,
+			summaryAs = 'table',
 		},
 		forwardRef
 	) => {
@@ -47,7 +49,17 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 			<Box className={ classNames( 'vip-wizard-component', className ) } ref={ forwardRef }>
 				{ steps.map(
 					(
-						{ title, subTitle, children, titleVariant, summary, onChange, actionLabel, actionIcon },
+						{
+							title,
+							subTitle,
+							children,
+							titleVariant,
+							summary,
+							onChange,
+							actionLabel,
+							actionIcon,
+							summaryTitle,
+						},
 						index
 					) => (
 						<WizardStep
@@ -66,6 +78,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							actionLabel={ actionLabel }
 							actionIcon={ actionIcon }
 							showStepText={ showStepText }
+							summaryAs={ summaryAs }
+							summaryTitle={ summaryTitle }
 						>
 							{ children }
 						</WizardStep>
