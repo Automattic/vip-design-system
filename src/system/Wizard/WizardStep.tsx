@@ -157,8 +157,8 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 
 					{ ! active && ( complete || skipped ) && onChange && (
 						<Button
-							disabled={ actionDisabled }
 							variant="text"
+							disabled={ actionDisabled }
 							onClick={ onChange }
 							sx={ { height: 'auto', alignSelf: 'flex-end' } }
 						>

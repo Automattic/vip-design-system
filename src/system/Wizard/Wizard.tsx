@@ -58,6 +58,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							onChange,
 							actionLabel,
 							actionIcon,
+							actionDisabled,
 							summaryTitle,
 						},
 						index
@@ -80,6 +81,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							showStepText={ showStepText }
 							summaryAs={ summaryAs }
 							summaryTitle={ summaryTitle }
+							actionDisabled={ actionDisabled }
 						>
 							{ children }
 						</WizardStep>

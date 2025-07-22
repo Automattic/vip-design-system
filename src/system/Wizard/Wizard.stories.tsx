@@ -82,6 +82,7 @@ export const WithTitleAutoFocus = () => {
 			titleVariant: 'h2',
 			onChange: () => setActiveStep( 1 ),
 			actionLabel: 'Edit',
+			actionDisabled: true,
 			actionIcon: <BsPencil />,
 			children: (
 				<Box>
