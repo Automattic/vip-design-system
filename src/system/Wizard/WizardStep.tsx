@@ -33,8 +33,9 @@ export interface WizardStepProps {
 	summaryAs?: 'table' | 'dl';
 	shouldFocusTitle?: boolean;
 	actionLabel?: string;
-	showStepText?: boolean;
 	actionIcon?: React.ReactNode;
+	actionDisabled?: boolean;
+	showStepText?: boolean;
 }
 
 export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
@@ -55,8 +56,9 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			summaryAs = 'table',
 			onChange,
 			actionLabel = 'Change',
-			showStepText = true,
 			actionIcon,
+			actionDisabled = false,
+			showStepText = true,
 		},
 		forwardRef
 	) => {
@@ -155,6 +157,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 
 					{ ! active && ( complete || skipped ) && onChange && (
 						<Button
+							disabled={ actionDisabled }
 							variant="text"
 							onClick={ onChange }
 							sx={ { height: 'auto', alignSelf: 'flex-end' } }
@@ -165,7 +168,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						</Button>
 					) }
 				</Flex>
-				{ ! active && ( complete || skipped ) && summary && summary.length > 0 && (
+				{ ! active && ( complete || skipped ) && summary && (
 					<DescriptionList as={ summaryAs } list={ summary } title={ summaryTitle } />
 				) }
 
