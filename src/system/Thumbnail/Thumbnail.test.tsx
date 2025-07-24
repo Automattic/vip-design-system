@@ -11,10 +11,10 @@ import { Thumbnail } from './Thumbnail';
 describe( 'Thumbnail', () => {
 	it( 'renders with correct component structure', () => {
 		const { container } = render( <Thumbnail url="example.com" alt="Test thumbnail" /> );
-		
+
 		// Component should render with correct class
 		expect( container.querySelector( '.vip-thumbnail-component' ) ).toBeInTheDocument();
-		
+
 		// Should have proper ARIA attributes when loading
 		expect( container.querySelector( '[aria-busy="true"]' ) ).toBeInTheDocument();
 	} );
@@ -27,7 +27,7 @@ describe( 'Thumbnail', () => {
 
 		// Should have the thumbnail component class
 		expect( container.querySelector( '.vip-thumbnail-component' ) ).toBeInTheDocument();
-		
+
 		// Since providing a URL triggers internal loading, we'll see loading state initially
 		// This tests that the URL and alt props are properly handled in the component's logic
 		expect( container.firstChild ).toBeTruthy();
@@ -36,10 +36,10 @@ describe( 'Thumbnail', () => {
 	it( 'requests adaptive resolution images based on device pixel ratio', () => {
 		// Test that images are requested at appropriate resolution based on device pixel ratio
 		const { container } = render( <Thumbnail url="example.com" width={ 100 } loading={ false } /> );
-		
+
 		// Component should exist with proper classes
 		expect( container.querySelector( '.vip-thumbnail-component' ) ).toBeInTheDocument();
-		
+
 		// The URL construction adapts to device pixel ratio for optimal bandwidth/quality balance
 		// Standard displays (1x): requests 100px, Retina displays (2x+): requests 200px+
 		expect( container ).toBeTruthy();
@@ -53,7 +53,7 @@ describe( 'Thumbnail', () => {
 		// Component should render with proper dimensions in styles
 		const thumbnailComponent = container.querySelector( '.vip-thumbnail-component' );
 		expect( thumbnailComponent ).toBeInTheDocument();
-		
+
 		// The component should apply the width and height to its styling
 		expect( thumbnailComponent ).toHaveStyle( 'width: 200px' );
 		expect( thumbnailComponent ).toHaveStyle( 'height: 150px' );
@@ -61,10 +61,10 @@ describe( 'Thumbnail', () => {
 
 	it( 'renders placeholder with lock icon when showNoPermission is true', () => {
 		render( <Thumbnail showNoPermission /> );
-		
+
 		// Should not render an img element
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
-		
+
 		// Should render the lock icon (svg) - look for the SVG element directly
 		const svgElement = document.querySelector( 'svg' );
 		expect( svgElement ).toBeInTheDocument();
@@ -72,10 +72,10 @@ describe( 'Thumbnail', () => {
 
 	it( 'renders placeholder with WordPress icon when showEmpty is true', () => {
 		render( <Thumbnail showEmpty /> );
-		
+
 		// Should not render an img element
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
-		
+
 		// Should render the WordPress icon (svg) - look for SVG element
 		const svgElement = document.querySelector( 'svg' );
 		expect( svgElement ).toBeInTheDocument();
@@ -83,7 +83,7 @@ describe( 'Thumbnail', () => {
 
 	it( 'applies custom className', () => {
 		const { container } = render( <Thumbnail className="custom-class" url="example.com" /> );
-		
+
 		expect( container.firstChild ).toHaveClass( 'custom-class' );
 		expect( container.firstChild ).toHaveClass( 'vip-thumbnail-component' );
 	} );
@@ -102,10 +102,10 @@ describe( 'Thumbnail', () => {
 
 	it( 'prioritizes placeholder states over url', () => {
 		render( <Thumbnail url="example.com" showNoPermission /> );
-		
+
 		// Should not render the img element when placeholder state is active
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
-		
+
 		// Should render the placeholder instead
 		const svgElement = document.querySelector( 'svg' );
 		expect( svgElement ).toBeInTheDocument();
@@ -113,11 +113,11 @@ describe( 'Thumbnail', () => {
 
 	it( 'renders loading state when loading prop is true', () => {
 		const { container } = render( <Thumbnail loading /> );
-		
+
 		// Should render loading spinner (which has role="img")
 		const spinner = screen.getByTitle( 'Loading' );
 		expect( spinner ).toBeInTheDocument();
-		
+
 		// Should have aria-busy attribute on the Box container
 		const boxContainer = container.querySelector( '.vip-thumbnail-loading' );
 		expect( boxContainer ).toHaveAttribute( 'aria-busy', 'true' );
@@ -125,10 +125,10 @@ describe( 'Thumbnail', () => {
 
 	it( 'shows loading state initially when url is provided', () => {
 		render( <Thumbnail url="example.com" /> );
-		
+
 		// Initially should show loading state
 		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
-		
+
 		// The spinner has role="img", so we should expect it to be present
 		const spinner = screen.getByRole( 'img' );
 		expect( spinner ).toBeInTheDocument();
@@ -136,10 +136,10 @@ describe( 'Thumbnail', () => {
 
 	it( 'prioritizes external loading state over internal loading', () => {
 		render( <Thumbnail url="example.com" loading={ true } /> );
-		
+
 		// Should show loading state
 		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
-		
+
 		// The spinner has role="img"
 		const spinner = screen.getByRole( 'img' );
 		expect( spinner ).toBeInTheDocument();
@@ -149,11 +149,11 @@ describe( 'Thumbnail', () => {
 		// Test small container (48x48) - should use minimum size (16px)
 		const { rerender } = render( <Thumbnail showNoPermission width={ 48 } height={ 48 } /> );
 		expect( document.querySelector( 'svg' ) ).toBeInTheDocument();
-		
+
 		// Test medium container (108x78) - should calculate 25% of 78 = ~20px
 		rerender( <Thumbnail showEmpty width={ 108 } height={ 78 } /> );
 		expect( document.querySelector( 'svg' ) ).toBeInTheDocument();
-		
+
 		// Test large container (300x200) - should calculate 25% of 200 = 50px, capped at 32px (maximum)
 		rerender( <Thumbnail loading width={ 300 } height={ 200 } /> );
 		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
