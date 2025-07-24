@@ -10,8 +10,8 @@ import { useState } from 'react';
  * Internal dependencies
  */
 import { Thumbnail } from './Thumbnail';
-import { Button } from '../Button';
 import { Flex } from '../Flex';
+import { Button } from '../Button';
 
 const meta: ComponentMeta< typeof Thumbnail > = {
 	title: 'Thumbnail',
@@ -66,6 +66,7 @@ The Thumbnail component displays a website thumbnail using WordPress.com's mshot
 - **Use appropriate dimensions**. Choose width and height that work with your layout.
 - **Handle placeholder states**. Use \`showEmpty\` for general empty states and \`showNoPermission\` when access is restricted.
 - **Responsive icons**. Icons automatically scale based on container size (25% of the smaller dimension, min 16px, max 32px).
+- **Adaptive resolution**. Images are automatically requested at the appropriate resolution based on device pixel ratio for optimal quality and bandwidth usage.
 
 ## Component Properties
 `,
@@ -76,7 +77,7 @@ The Thumbnail component displays a website thumbnail using WordPress.com's mshot
 
 export default meta;
 
-const Template: ComponentStory< typeof Thumbnail > = args => <Thumbnail { ...args } />;
+const Template: ComponentStory< typeof Thumbnail > = ( args ) => <Thumbnail { ...args } />;
 
 export const Large: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 Large.args = {
@@ -150,15 +151,11 @@ export const ResponsiveIcons = () => (
 			<Thumbnail showEmpty width={ 48 } height={ 48 } />
 		</div>
 		<div>
-			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>
-				Medium (108×78)
-			</p>
+			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>Medium (108×78)</p>
 			<Thumbnail showEmpty width={ 108 } height={ 78 } />
 		</div>
 		<div>
-			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>
-				Large (200×150)
-			</p>
+			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>Large (200×150)</p>
 			<Thumbnail showEmpty width={ 200 } height={ 150 } />
 		</div>
 		<div>
@@ -167,11 +164,50 @@ export const ResponsiveIcons = () => (
 		</div>
 	</Flex>
 );
+
+export const AdaptiveResolution = () => {
+	const getDisplayInfo = () => {
+		if ( typeof window !== 'undefined' ) {
+			const ratio = window.devicePixelRatio || 1;
+			const roundedRatio = Math.ceil( ratio * 2 ) / 2;
+			return {
+				detected: ratio,
+				used: roundedRatio,
+				description: ratio === 1 ? 'Standard Display' : `High-DPI Display (${ ratio }x)`
+			};
+		}
+		return { detected: 2, used: 2, description: 'Server-side (fallback to 2x)' };
+	};
+
+	const displayInfo = getDisplayInfo();
+
+	return (
+		<Flex sx={ { flexWrap: 'wrap', gap: 3, alignItems: 'flex-start' } }>
+			<div>
+				<p style={ { margin: '0 0 8px 0', fontSize: '14px', fontWeight: 'bold' } }>
+					{ displayInfo.description }
+				</p>
+				<p style={ { margin: '0 0 8px 0', fontSize: '12px', color: '#666' } }>
+					Detected: { displayInfo.detected }x → Requesting: { displayInfo.used }x
+				</p>
+				<div style={ { border: '1px solid #ccc', padding: '8px', borderRadius: '4px' } }>
+					<p style={ { margin: '0 0 4px 0', fontSize: '10px', color: '#999' } }>
+						✨ Automatically adapts to your display's pixel density
+					</p>
+					<Thumbnail url="wordpress.com" width={ 200 } height={ 150 } alt="Adaptive resolution" />
+					<p style={ { margin: '4px 0 0 0', fontSize: '10px', color: '#666' } }>
+						Requesting { Math.round( 200 * displayInfo.used ) }px image for 200px display
+					</p>
+				</div>
+			</div>
+		</Flex>
+	);
+};
+
 Gallery.parameters = {
 	docs: {
 		description: {
-			story:
-				'Multiple thumbnails displayed in a gallery layout, showing different states including loading, empty, and no permission states.',
+			story: 'Multiple thumbnails displayed in a gallery layout, showing different states including loading, empty, and no permission states.',
 		},
 	},
 };
@@ -179,8 +215,7 @@ Gallery.parameters = {
 Loading.parameters = {
 	docs: {
 		description: {
-			story:
-				'Manual loading state with spinner. This shows how to control the loading state externally.',
+			story: 'Manual loading state with spinner. This shows how to control the loading state externally.',
 		},
 	},
 };
@@ -192,7 +227,7 @@ export const LoadingDemo = () => {
 	const simulateLoading = () => {
 		setIsLoading( true );
 		setUrl( 'automattic.com' );
-
+		
 		// Simulate external loading process
 		setTimeout( () => {
 			setIsLoading( false );
@@ -204,10 +239,10 @@ export const LoadingDemo = () => {
 			<Button onClick={ simulateLoading } disabled={ isLoading }>
 				{ isLoading ? 'Generating Thumbnail...' : 'Generate Thumbnail' }
 			</Button>
-			<Thumbnail
+			<Thumbnail 
 				url={ url }
 				loading={ isLoading }
-				width={ 200 }
+				width={ 200 } 
 				height={ 150 }
 				alt="Demo thumbnail"
 			/>
@@ -218,8 +253,7 @@ export const LoadingDemo = () => {
 LoadingDemo.parameters = {
 	docs: {
 		description: {
-			story:
-				'Interactive demo showing how loading state works. Click the button to simulate thumbnail generation with external loading control.',
+			story: 'Interactive demo showing how loading state works. Click the button to simulate thumbnail generation with external loading control.',
 		},
 	},
 };
@@ -227,8 +261,15 @@ LoadingDemo.parameters = {
 ResponsiveIcons.parameters = {
 	docs: {
 		description: {
-			story:
-				'Demonstrates how icons scale responsively based on container size. Icons are sized at 25% of the smaller dimension (width or height) with minimum 16px and maximum 32px.',
+			story: 'Demonstrates how icons scale responsively based on container size. Icons are sized at 25% of the smaller dimension (width or height) with minimum 16px and maximum 32px.',
+		},
+	},
+};
+
+AdaptiveResolution.parameters = {
+	docs: {
+		description: {
+			story: 'Demonstrates adaptive resolution support. The component automatically detects your device pixel ratio and requests appropriately sized images - 1x for standard displays, 2x+ for retina/high-DPI displays. This optimizes both image quality and bandwidth usage.',
 		},
 	},
 };

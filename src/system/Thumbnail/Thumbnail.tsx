@@ -102,6 +102,18 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 
 		const iconSize = calculateIconSize();
 
+		// Get device pixel ratio for retina support, fallback to 2x for SSR/safety
+		const getPixelRatio = () => {
+			if ( typeof window !== 'undefined' && window.devicePixelRatio ) {
+				// Round to nearest 0.5 to avoid requesting fractional sizes
+				return Math.ceil( window.devicePixelRatio * 2 ) / 2;
+			}
+			// Default to 2x for server-side rendering or when devicePixelRatio is unavailable
+			return 2;
+		};
+
+		const pixelRatio = getPixelRatio();
+
 		const imageStyles: ThemeUIStyleObject = {
 			borderRadius: 1,
 			border: '1px solid',
@@ -199,7 +211,7 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 				{ ...rest }
 			>
 				<img
-					src={ `//s0.wp.com/mshots/v1/${ url }?w=${ width }` }
+					src={ `//s0.wp.com/mshots/v1/${ url }?w=${ Math.round( width * pixelRatio ) }` }
 					alt={ alt || `Thumbnail of ${ url }` }
 					onLoad={ handleImageLoad }
 					onError={ handleImageLoad }
