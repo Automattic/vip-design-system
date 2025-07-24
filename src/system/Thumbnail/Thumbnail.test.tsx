@@ -6,34 +6,34 @@ import { render, screen } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import { Screenshot } from './Screenshot';
+import { Thumbnail } from './Thumbnail';
 
-describe( 'Screenshot', () => {
-	it( 'renders screenshot image when url is provided', () => {
-		render( <Screenshot url="example.com" alt="Test screenshot" /> );
+describe( 'Thumbnail', () => {
+	it( 'renders thumbnail image when url is provided', () => {
+		render( <Thumbnail url="example.com" alt="Test thumbnail" /> );
 		
 		const img = screen.getByRole( 'img' );
 		expect( img ).toBeInTheDocument();
 		expect( img ).toHaveAttribute( 'src', '//s0.wp.com/mshots/v1/example.com?w=108' );
-		expect( img ).toHaveAttribute( 'alt', 'Test screenshot' );
+		expect( img ).toHaveAttribute( 'alt', 'Test thumbnail' );
 	} );
 
 	it( 'generates alt text from url when alt prop is not provided', () => {
-		render( <Screenshot url="example.com" /> );
+		render( <Thumbnail url="example.com" /> );
 		
 		const img = screen.getByRole( 'img' );
-		expect( img ).toHaveAttribute( 'alt', 'Screenshot of example.com' );
+		expect( img ).toHaveAttribute( 'alt', 'Thumbnail of example.com' );
 	} );
 
-	it( 'includes width parameter in screenshot URL', () => {
-		render( <Screenshot url="example.com" width={ 200 } /> );
+	it( 'includes width parameter in thumbnail URL', () => {
+		render( <Thumbnail url="example.com" width={ 200 } /> );
 		
 		const img = screen.getByRole( 'img' );
 		expect( img ).toHaveAttribute( 'src', '//s0.wp.com/mshots/v1/example.com?w=200' );
 	} );
 
 	it( 'renders placeholder with lock icon when showNoPermission is true', () => {
-		render( <Screenshot showNoPermission /> );
+		render( <Thumbnail showNoPermission /> );
 		
 		// Should not render an img element
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
@@ -43,40 +43,40 @@ describe( 'Screenshot', () => {
 		expect( lockIcon ).toBeInTheDocument();
 	} );
 
-	it( 'renders placeholder with lock icon when showEmpty is true', () => {
-		render( <Screenshot showEmpty /> );
+	it( 'renders placeholder with WordPress icon when showEmpty is true', () => {
+		render( <Thumbnail showEmpty /> );
 		
 		// Should not render an img element
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
 		
-		// Should render the lock icon (svg)
-		const lockIcon = screen.getByRole( 'img', { hidden: true } );
-		expect( lockIcon ).toBeInTheDocument();
+		// Should render the WordPress icon (svg)
+		const wpIcon = screen.getByRole( 'img', { hidden: true } );
+		expect( wpIcon ).toBeInTheDocument();
 	} );
 
 	it( 'applies custom className', () => {
-		const { container } = render( <Screenshot className="custom-class" url="example.com" /> );
+		const { container } = render( <Thumbnail className="custom-class" url="example.com" /> );
 		
 		expect( container.firstChild ).toHaveClass( 'custom-class' );
-		expect( container.firstChild ).toHaveClass( 'vip-screenshot-component' );
+		expect( container.firstChild ).toHaveClass( 'vip-thumbnail-component' );
 	} );
 
 	it( 'applies custom dimensions', () => {
-		render( <Screenshot url="example.com" width={ 300 } height={ 200 } /> );
+		render( <Thumbnail url="example.com" width={ 300 } height={ 200 } /> );
 		
 		const img = screen.getByRole( 'img' );
 		expect( img ).toHaveAttribute( 'src', '//s0.wp.com/mshots/v1/example.com?w=300' );
 	} );
 
 	it( 'prioritizes placeholder states over url', () => {
-		render( <Screenshot url="example.com" showNoPermission /> );
+		render( <Thumbnail url="example.com" showNoPermission /> );
 		
 		// Should not render the img element when placeholder state is active
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
 	} );
 
 	it( 'renders loading state when loading prop is true', () => {
-		const { container } = render( <Screenshot loading /> );
+		const { container } = render( <Thumbnail loading /> );
 		
 		// Should not render an img element
 		expect( screen.queryByRole( 'img' ) ).not.toBeInTheDocument();
@@ -86,7 +86,7 @@ describe( 'Screenshot', () => {
 		expect( spinner ).toBeInTheDocument();
 		
 		// Should have aria-busy attribute on the Box container
-		const boxContainer = container.querySelector( '.vip-screenshot-loading' );
+		const boxContainer = container.querySelector( '.vip-thumbnail-loading' );
 		expect( boxContainer ).toHaveAttribute( 'aria-busy', 'true' );
 	} );
 
@@ -96,7 +96,7 @@ describe( 'Screenshot', () => {
 			writable: true,
 		} );
 		
-		const { rerender } = render( <Screenshot url="example.com" /> );
+		const { rerender } = render( <Thumbnail url="example.com" /> );
 		
 		// Initially should show loading state
 		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
@@ -108,7 +108,7 @@ describe( 'Screenshot', () => {
 	} );
 
 	it( 'prioritizes external loading state over internal loading', () => {
-		render( <Screenshot url="example.com" loading={ true } /> );
+		render( <Thumbnail url="example.com" loading={ true } /> );
 		
 		// Should show loading state and not the image
 		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
@@ -116,21 +116,21 @@ describe( 'Screenshot', () => {
 	} );
 
 	it( 'calculates responsive icon size correctly', () => {
-		// Test small container (48x48) - should use minimum size (12px)
-		const { rerender } = render( <Screenshot showNoPermission width={ 48 } height={ 48 } /> );
-		// Small containers should get 12px icons (minimum)
+		// Test small container (48x48) - should use minimum size (16px)
+		const { rerender } = render( <Thumbnail showNoPermission width={ 48 } height={ 48 } /> );
+		// Small containers should get 16px icons (minimum)
 		
-		// Test medium container (108x78) - should calculate 20% of 78 = ~16px
-		rerender( <Screenshot showEmpty width={ 108 } height={ 78 } /> );
+		// Test medium container (108x78) - should calculate 25% of 78 = ~20px
+		rerender( <Thumbnail showEmpty width={ 108 } height={ 78 } /> );
 		
-		// Test large container (300x200) - should calculate 20% of 200 = 40px, capped at 32px (maximum)
-		rerender( <Screenshot loading width={ 300 } height={ 200 } /> );
+		// Test large container (300x200) - should calculate 25% of 200 = 50px, capped at 32px (maximum)
+		rerender( <Thumbnail loading width={ 300 } height={ 200 } /> );
 		
 		// The actual icon size calculation is tested through visual rendering
 		// This test ensures the component renders without errors with different sizes
 	} );
 
 	it( 'has correct display name', () => {
-		expect( Screenshot.displayName ).toBe( 'Screenshot' );
+		expect( Thumbnail.displayName ).toBe( 'Thumbnail' );
 	} );
 } ); 

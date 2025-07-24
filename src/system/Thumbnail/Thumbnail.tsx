@@ -13,28 +13,28 @@ import { BiLockAlt, BiLogoWordpress } from 'react-icons/bi';
  */
 import { Box, Spinner } from '..';
 
-export interface ScreenshotProps {
-	/** Height of the screenshot in pixels */
+export interface ThumbnailProps {
+	/** Height of the thumbnail in pixels */
 	height?: number;
-	/** Width of the screenshot in pixels */
+	/** Width of the thumbnail in pixels */
 	width?: number;
-	/** URL to take a screenshot of */
+	/** URL to take a thumbnail of */
 	url?: string;
 	/** Show empty state placeholder */
 	showEmpty?: boolean;
 	/** Show no permission state with lock icon */
 	showNoPermission?: boolean;
-	/** Show loading state while screenshot is being generated */
+	/** Show loading state while thumbnail is being generated */
 	loading?: boolean;
 	/** Additional CSS classes */
 	className?: Argument;
 	/** Custom styles */
 	sx?: ThemeUIStyleObject;
-	/** Alt text for the screenshot image */
+	/** Alt text for the thumbnail image */
 	alt?: string;
 }
 
-export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
+export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 	(
 		{
 			height = 78,
@@ -47,7 +47,7 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 			sx = {},
 			alt = '',
 			...rest
-		}: ScreenshotProps,
+		}: ThumbnailProps,
 		ref: Ref< HTMLElement >
 	) => {
 		const [ internalLoading, setInternalLoading ] = useState( Boolean( url ) );
@@ -96,7 +96,7 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 		// Calculate responsive icon size based on container dimensions
 		const calculateIconSize = () => {
 			const minDimension = Math.min( width, height );
-			// Use 20% of the smaller dimension, with min 12px and max 32px
+			// Use 25% of the smaller dimension, with min 16px and max 32px
 			const calculatedSize = Math.max( 16, Math.min( 32, Math.round( minDimension * 0.25 ) ) );
 			return calculatedSize;
 		};
@@ -127,7 +127,7 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 						textAlign: 'center',
 						...sx,
 					} }
-					className={ classNames( 'vip-screenshot-component', 'vip-screenshot-placeholder', className ) }
+					className={ classNames( 'vip-thumbnail-component', 'vip-thumbnail-placeholder', className ) }
 					{ ...rest }
 				>
 					<BiLockAlt size={ iconSize }/>
@@ -148,7 +148,7 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 						textAlign: 'center',
 						...sx,
 					} }
-					className={ classNames( 'vip-screenshot-component', 'vip-screenshot-placeholder', className ) }
+					className={ classNames( 'vip-thumbnail-component', 'vip-thumbnail-placeholder', className ) }
 					{ ...rest }
 				>
 					<BiLogoWordpress size={ iconSize }/>
@@ -169,7 +169,7 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 						textAlign: 'center',
 						...sx,
 					} }
-					className={ classNames( 'vip-screenshot-component', 'vip-screenshot-loading', className ) }
+					className={ classNames( 'vip-thumbnail-component', 'vip-thumbnail-loading', className ) }
 					aria-busy="true"
 					{ ...rest }
 				>
@@ -178,7 +178,7 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 			);
 		}
 
-		// Show screenshot
+		// Show thumbnail
 		return (
 			<Box
 				ref={ ref }
@@ -188,12 +188,12 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 					overflow: 'hidden',
 					...sx,
 				} }
-				className={ classNames( 'vip-screenshot-component', 'vip-screenshot-image', className ) }
+				className={ classNames( 'vip-thumbnail-component', 'vip-thumbnail-image', className ) }
 				{ ...rest }
 			>
 				<img
 					src={ `//s0.wp.com/mshots/v1/${ url }?w=${ width }` }
-					alt={ alt || `Screenshot of ${ url }` }
+					alt={ alt || `Thumbnail of ${ url }` }
 					onLoad={ handleImageLoad }
 					onError={ handleImageLoad }
 					style={ {
@@ -208,4 +208,4 @@ export const Screenshot = forwardRef< HTMLElement, ScreenshotProps >(
 	}
 );
 
-Screenshot.displayName = 'Screenshot'; 
+Thumbnail.displayName = 'Thumbnail'; 
