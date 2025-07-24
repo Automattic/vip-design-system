@@ -13,7 +13,7 @@ import { Thumbnail } from './Thumbnail';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
 
-export default {
+const meta: ComponentMeta< typeof Thumbnail > = {
 	title: 'Thumbnail',
 	component: Thumbnail,
 	argTypes: {
@@ -72,11 +72,13 @@ The Thumbnail component displays a website thumbnail using WordPress.com's mshot
 			},
 		},
 	},
-} as ComponentMeta< typeof Thumbnail >;
+};
+
+export default meta;
 
 const Template: ComponentStory< typeof Thumbnail > = args => <Thumbnail { ...args } />;
 
-export const Large = Template.bind( {} );
+export const Large: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 Large.args = {
 	url: 'wordpress.com',
 	width: 108,
@@ -84,7 +86,7 @@ Large.args = {
 	alt: 'WordPress.com homepage thumbnail',
 };
 
-export const Small = Template.bind( {} );
+export const Small: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 Small.args = {
 	url: 'github.com',
 	width: 48,
@@ -92,7 +94,7 @@ Small.args = {
 	alt: 'GitHub homepage thumbnail',
 };
 
-export const Medium = Template.bind( {} );
+export const Medium: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 Medium.args = {
 	url: 'automattic.com',
 	width: 64,
@@ -100,7 +102,7 @@ Medium.args = {
 	alt: 'Automattic homepage thumbnail',
 };
 
-export const XLarge = Template.bind( {} );
+export const XLarge: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 XLarge.args = {
 	url: 'jetpack.com',
 	width: 480,
@@ -108,21 +110,21 @@ XLarge.args = {
 	alt: 'Jetpack homepage thumbnail',
 };
 
-export const NoPermission = Template.bind( {} );
+export const NoPermission: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 NoPermission.args = {
 	showNoPermission: true,
 	width: 108,
 	height: 78,
 };
 
-export const Empty = Template.bind( {} );
+export const Empty: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 Empty.args = {
 	showEmpty: true,
 	width: 108,
 	height: 78,
 };
 
-export const Loading = Template.bind( {} );
+export const Loading: ComponentStory< typeof Thumbnail > = Template.bind( {} );
 Loading.args = {
 	url: 'wordpress.com',
 	loading: true,
