@@ -51,13 +51,13 @@ import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { Progress } from './Progress';
 import { ScreenReaderText } from './ScreenReaderText';
-import { Thumbnail } from './Thumbnail';
 import { Skeleton } from './Skeleton';
 import { Snackbar } from './Snackbar';
 import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 import { Text } from './Text';
+import { Thumbnail } from './Thumbnail';
 import { Toolbar } from './Toolbar';
 import { Tooltip } from './Tooltip';
 import { Wizard, WizardStep } from './Wizard';
@@ -102,12 +102,12 @@ export {
 	Input,
 	Label,
 	ScreenReaderText,
-	Thumbnail,
 	Spinner,
 	Table,
 	TableRow,
 	TableCell,
 	Tooltip,
+	Thumbnail,
 	Link,
 	LinkExternal,
 	Radio,

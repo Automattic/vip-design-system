@@ -10,8 +10,8 @@ import { useState } from 'react';
  * Internal dependencies
  */
 import { Thumbnail } from './Thumbnail';
-import { Flex } from '../Flex';
 import { Button } from '../Button';
+import { Flex } from '../Flex';
 
 export default {
 	title: 'Thumbnail',
@@ -74,7 +74,7 @@ The Thumbnail component displays a website thumbnail using WordPress.com's mshot
 	},
 } as ComponentMeta< typeof Thumbnail >;
 
-const Template: ComponentStory< typeof Thumbnail > = ( args ) => <Thumbnail { ...args } />;
+const Template: ComponentStory< typeof Thumbnail > = args => <Thumbnail { ...args } />;
 
 export const Large = Template.bind( {} );
 Large.args = {
@@ -148,11 +148,15 @@ export const ResponsiveIcons = () => (
 			<Thumbnail showEmpty width={ 48 } height={ 48 } />
 		</div>
 		<div>
-			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>Medium (108×78)</p>
+			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>
+				Medium (108×78)
+			</p>
 			<Thumbnail showEmpty width={ 108 } height={ 78 } />
 		</div>
 		<div>
-			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>Large (200×150)</p>
+			<p style={ { margin: '0 0 8px 0', fontSize: '12px', textAlign: 'center' } }>
+				Large (200×150)
+			</p>
 			<Thumbnail showEmpty width={ 200 } height={ 150 } />
 		</div>
 		<div>
@@ -164,7 +168,8 @@ export const ResponsiveIcons = () => (
 Gallery.parameters = {
 	docs: {
 		description: {
-			story: 'Multiple thumbnails displayed in a gallery layout, showing different states including loading, empty, and no permission states.',
+			story:
+				'Multiple thumbnails displayed in a gallery layout, showing different states including loading, empty, and no permission states.',
 		},
 	},
 };
@@ -172,7 +177,8 @@ Gallery.parameters = {
 Loading.parameters = {
 	docs: {
 		description: {
-			story: 'Manual loading state with spinner. This shows how to control the loading state externally.',
+			story:
+				'Manual loading state with spinner. This shows how to control the loading state externally.',
 		},
 	},
 };
@@ -184,7 +190,7 @@ export const LoadingDemo = () => {
 	const simulateLoading = () => {
 		setIsLoading( true );
 		setUrl( 'automattic.com' );
-		
+
 		// Simulate external loading process
 		setTimeout( () => {
 			setIsLoading( false );
@@ -196,10 +202,10 @@ export const LoadingDemo = () => {
 			<Button onClick={ simulateLoading } disabled={ isLoading }>
 				{ isLoading ? 'Generating Thumbnail...' : 'Generate Thumbnail' }
 			</Button>
-			<Thumbnail 
+			<Thumbnail
 				url={ url }
 				loading={ isLoading }
-				width={ 200 } 
+				width={ 200 }
 				height={ 150 }
 				alt="Demo thumbnail"
 			/>
@@ -210,7 +216,8 @@ export const LoadingDemo = () => {
 LoadingDemo.parameters = {
 	docs: {
 		description: {
-			story: 'Interactive demo showing how loading state works. Click the button to simulate thumbnail generation with external loading control.',
+			story:
+				'Interactive demo showing how loading state works. Click the button to simulate thumbnail generation with external loading control.',
 		},
 	},
 };
@@ -218,7 +225,8 @@ LoadingDemo.parameters = {
 ResponsiveIcons.parameters = {
 	docs: {
 		description: {
-			story: 'Demonstrates how icons scale responsively based on container size. Icons are sized at 25% of the smaller dimension (width or height) with minimum 16px and maximum 32px.',
+			story:
+				'Demonstrates how icons scale responsively based on container size. Icons are sized at 25% of the smaller dimension (width or height) with minimum 16px and maximum 32px.',
 		},
 	},
-}; 
+};

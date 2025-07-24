@@ -5,8 +5,8 @@
  */
 import classNames, { Argument } from 'classnames';
 import { forwardRef, Ref, useState, useEffect, useRef } from 'react';
-import { ThemeUIStyleObject } from 'theme-ui';
 import { BiLockAlt, BiLogoWordpress } from 'react-icons/bi';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -58,30 +58,29 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 		useEffect( () => {
 			if ( url ) {
 				setInternalLoading( true );
-				
+
 				// Clear any existing timeout
 				if ( timeoutRef.current ) {
 					clearTimeout( timeoutRef.current );
 				}
-				
+
 				// Fallback timeout in case image never loads (useful for Storybook/development)
 				timeoutRef.current = setTimeout( () => {
 					setInternalLoading( false );
 					timeoutRef.current = null;
 				}, 10000 ); // 10 second timeout
-				
+
 				return () => {
 					if ( timeoutRef.current ) {
 						clearTimeout( timeoutRef.current );
 						timeoutRef.current = null;
 					}
 				};
-			} else {
-				setInternalLoading( false );
-				if ( timeoutRef.current ) {
-					clearTimeout( timeoutRef.current );
-					timeoutRef.current = null;
-				}
+			}
+			setInternalLoading( false );
+			if ( timeoutRef.current ) {
+				clearTimeout( timeoutRef.current );
+				timeoutRef.current = null;
 			}
 		}, [ url ] );
 
@@ -127,10 +126,14 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 						textAlign: 'center',
 						...sx,
 					} }
-					className={ classNames( 'vip-thumbnail-component', 'vip-thumbnail-placeholder', className ) }
+					className={ classNames(
+						'vip-thumbnail-component',
+						'vip-thumbnail-placeholder',
+						className
+					) }
 					{ ...rest }
 				>
-					<BiLockAlt size={ iconSize }/>
+					<BiLockAlt size={ iconSize } />
 				</Box>
 			);
 		}
@@ -148,10 +151,14 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 						textAlign: 'center',
 						...sx,
 					} }
-					className={ classNames( 'vip-thumbnail-component', 'vip-thumbnail-placeholder', className ) }
+					className={ classNames(
+						'vip-thumbnail-component',
+						'vip-thumbnail-placeholder',
+						className
+					) }
 					{ ...rest }
 				>
-					<BiLogoWordpress size={ iconSize }/>
+					<BiLogoWordpress size={ iconSize } />
 				</Box>
 			);
 		}
@@ -173,7 +180,7 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 					aria-busy="true"
 					{ ...rest }
 				>
-					<Spinner size={ iconSize } color="currentColor"/>
+					<Spinner size={ iconSize } color="currentColor" />
 				</Box>
 			);
 		}
@@ -208,4 +215,4 @@ export const Thumbnail = forwardRef< HTMLElement, ThumbnailProps >(
 	}
 );
 
-Thumbnail.displayName = 'Thumbnail'; 
+Thumbnail.displayName = 'Thumbnail';
