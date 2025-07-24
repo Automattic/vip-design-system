@@ -51,6 +51,7 @@ import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { Progress } from './Progress';
 import { ScreenReaderText } from './ScreenReaderText';
+import { Screenshot } from './Screenshot';
 import { Skeleton } from './Skeleton';
 import { Snackbar } from './Snackbar';
 import { Spinner } from './Spinner';
@@ -101,6 +102,7 @@ export {
 	Input,
 	Label,
 	ScreenReaderText,
+	Screenshot,
 	Spinner,
 	Table,
 	TableRow,
