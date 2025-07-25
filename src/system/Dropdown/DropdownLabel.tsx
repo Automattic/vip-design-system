@@ -18,11 +18,11 @@ export interface DropdownLabelProps {
  * Based on Figma design specifications for group titles
  */
 export const styles: ThemeUIStyleObject = {
-	paddingLeft: 'space.5', // 24px (pl-6 equivalent)
-	paddingRight: 'space.4', // 16px (pr-4 equivalent)
-	paddingTop: 'space.1', // 4px (py-1 equivalent)
-	paddingBottom: 'space.1', // 4px (py-1 equivalent)
-	fontSize: 'fontSize.1', // 12px
+	paddingLeft: 5, // 24px (pl-6 equivalent) - space[5]
+	paddingRight: 4, // 16px (pr-4 equivalent) - space[4]
+	paddingTop: 1, // 4px (py-1 equivalent) - space[1]
+	paddingBottom: 1, // 4px (py-1 equivalent) - space[1]
+	fontSize: 1, // 12px - fontSizes[1]
 	fontFamily: 'heading', // Aktiv Grotesk VF
 	fontWeight: 'semiBold', // 600 weight
 	lineHeight: 1.5,

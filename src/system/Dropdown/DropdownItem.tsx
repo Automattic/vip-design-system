@@ -81,12 +81,12 @@ export const styles: ThemeUIStyleObject = {
 	textDecoration: 'none',
 	position: 'relative',
 	m: 0,
-	color: 'text.secondary', // #514e4d
+	color: 'texts.secondary', // #514e4d
 	paddingLeft: '28px', // 24px + 4px = 28px total left padding (no design token available)
-	paddingRight: 'space.4', // 16px right padding
-	paddingTop: 'space.1', // 4px vertical padding
-	paddingBottom: 'space.1', // 4px vertical padding
-	fontSize: 'fontSize.2', // 14px main text
+	paddingRight: 4, // 16px right padding - space[4]
+	paddingTop: 1, // 4px vertical padding - space[1]
+	paddingBottom: 1, // 4px vertical padding - space[1]
+	fontSize: 2, // 14px main text - fontSizes[2]
 	fontFamily: 'body',
 	fontWeight: 'regular',
 	lineHeight: 1.5,
@@ -123,7 +123,7 @@ const CheckIcon = () => (
 		size={ 20 }
 		sx={ {
 			position: 'absolute',
-			left: 'space.1', // 4px from left
+			left: 1, // 4px from left - space[1]
 			top: '6px', // 6px from top (no design token available)
 			color: 'icon.primary',
 		} }
@@ -235,7 +235,7 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 					{ shouldShowSecondaryLabel && secondaryLabel && (
 						<div
 							sx={ {
-								fontSize: 'fontSize.1', // 12px
+								fontSize: 1, // 12px - fontSizes[1]
 								fontFamily: 'body',
 								fontWeight: 'regular',
 								lineHeight: 1.5,

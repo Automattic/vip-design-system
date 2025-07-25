@@ -18,9 +18,9 @@ export interface DropdownSeparatorProps {
  */
 export const styles = {
 	height: '1px',
-	backgroundColor: 'border.2', // Design token for #e3e0df
-	paddingLeft: 'space.5', // 24px horizontal padding (px-6)
-	paddingRight: 'space.5', // 24px horizontal padding (px-6)
+	backgroundColor: 'borders.2', // Design token for #e3e0df
+	marginLeft: 5, // 24px horizontal padding (px-6) - space[5]
+	marginRight: 5, // 24px horizontal padding (px-6) - space[5]
 	my: 0, // Remove vertical margin since we're using horizontal padding
 };
 
