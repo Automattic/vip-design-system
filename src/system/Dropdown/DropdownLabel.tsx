@@ -3,12 +3,21 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
+/**
+ * Props for the DropdownLabel component
+ */
 export interface DropdownLabelProps {
+	/** Additional CSS class name */
 	className?: string;
 }
 
-export const styles = {
+/**
+ * Styles for dropdown group labels
+ * Based on Figma design specifications for group titles
+ */
+export const styles: ThemeUIStyleObject = {
 	paddingLeft: 'space.5', // 24px (pl-6 equivalent)
 	paddingRight: 'space.4', // 16px (pr-4 equivalent)
 	paddingTop: 'space.1', // 4px (py-1 equivalent)
@@ -19,9 +28,20 @@ export const styles = {
 	lineHeight: 1.5,
 	color: 'text.secondary', // #514e4d
 	textTransform: 'uppercase' as const,
-	letterSpacing: '0.6px', // TODO: map to design system
+	letterSpacing: '0.6px', // TODO: map to design system when token available
 };
 
+/**
+ * Dropdown label component for grouping dropdown items
+ * Displays uppercase text with semibold weight
+ *
+ * @example
+ * ```tsx
+ * <DropdownLabel>Account Settings</DropdownLabel>
+ * <DropdownItem label="Profile" />
+ * <DropdownItem label="Preferences" />
+ * ```
+ */
 export const DropdownLabel = React.forwardRef< HTMLDivElement, DropdownLabelProps >(
 	( { className, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuLabel

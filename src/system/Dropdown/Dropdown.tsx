@@ -9,11 +9,7 @@ const DropdownMenu = DropdownMenuPrimitive.Root;
 const DropdownTrigger = DropdownMenuPrimitive.Trigger;
 const DropdownRadioGroup = DropdownMenuPrimitive.RadioGroup;
 const DropdownItemIndicator = DropdownMenuPrimitive.DropdownMenuItemIndicator;
-const DropdownLabel = DropdownMenuPrimitive.DropdownMenuLabel;
-const DropdownSeparator = DropdownMenuPrimitive.DropdownMenuSeparator;
 const DropdownSub = DropdownMenuPrimitive.DropdownMenuSub;
-const DropdownSubTrigger = DropdownMenuPrimitive.DropdownMenuSubTrigger;
-const DropdownSubContent = DropdownMenuPrimitive.DropdownMenuSubContent;
 
 export interface DropdownProps {
 	trigger: ReactNode;
@@ -28,6 +24,10 @@ export interface DropdownProps {
 	className?: string;
 }
 
+/**
+ * Root Dropdown component that wraps Radix DropdownMenu
+ * with VIP Design System styling and behavior
+ */
 export const Dropdown: React.FC< DropdownProps > = ( {
 	trigger,
 	children,
@@ -59,14 +59,5 @@ export const Dropdown: React.FC< DropdownProps > = ( {
 	</DropdownMenu>
 );
 
-// Exports
-export {
-	DropdownTrigger,
-	DropdownRadioGroup,
-	DropdownItemIndicator,
-	DropdownLabel,
-	DropdownSeparator,
-	DropdownSub,
-	DropdownSubTrigger,
-	DropdownSubContent,
-};
+// Export only the Radix primitives that we don't have custom implementations for
+export { DropdownTrigger, DropdownRadioGroup, DropdownItemIndicator, DropdownSub };
