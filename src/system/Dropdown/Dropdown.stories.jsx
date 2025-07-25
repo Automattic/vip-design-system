@@ -1,15 +1,8 @@
 /**
  * External dependencies
  */
-import {
-	DotFilledIcon,
-	CheckIcon,
-	ChevronRightIcon,
-	GearIcon,
-	PersonIcon,
-	FileIcon,
-} from '@radix-ui/react-icons';
 import React from 'react';
+import { BiDotsHorizontal, BiCheck, BiChevronRight, BiCog, BiUser, BiFile } from 'react-icons/bi';
 
 /**
  * Internal dependencies
@@ -38,12 +31,15 @@ export default {
 export const Default = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Open Menu</Button> }>
-			<Dropdown.Item label="All Items" />
-			<Dropdown.Item label="Completed" />
-			<Dropdown.Item label="Running" />
-			<Dropdown.Item label="Cancelled" />
-			<Dropdown.Separator />
-			<Dropdown.Item label="Errored" />
+			<Dropdown.Group>
+				<Dropdown.Item label="All Items" />
+				<Dropdown.Item label="Completed" />
+				<Dropdown.Item label="Running" />
+				<Dropdown.Item label="Cancelled" />
+			</Dropdown.Group>
+			<Dropdown.Group separator>
+				<Dropdown.Item label="Errored" />
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
@@ -59,13 +55,15 @@ export const Default = () => (
 export const ItemStates = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Item States</Button> }>
-			<Dropdown.Label>Item States</Dropdown.Label>
-			<Dropdown.Item label="Default State" />
-			<Dropdown.Item label="Selected Item" isSelected />
-			<Dropdown.Item label="Disabled Item" state="disabled" />
-			<Dropdown.Separator />
-			<Dropdown.Item state="loading" />
-			<Dropdown.Item state="empty" />
+			<Dropdown.Group label="Item States">
+				<Dropdown.Item label="Default State" />
+				<Dropdown.Item label="Selected Item" isSelected />
+				<Dropdown.Item label="Disabled Item" state="disabled" />
+			</Dropdown.Group>
+			<Dropdown.Group separator>
+				<Dropdown.Item state="loading" />
+				<Dropdown.Item state="empty" />
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
@@ -81,16 +79,17 @@ export const ItemStates = () => (
 export const WithBadges = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Badge Examples</Button> }>
-			<Dropdown.Label>Features</Dropdown.Label>
-			<Dropdown.Item label="Beta Feature" showBadge badgeVariant="blue" badgeText="Beta" />
-			<Dropdown.Item label="New Dashboard" showBadge badgeVariant="green" badgeText="New" />
-			<Dropdown.Item label="Premium Option" showBadge badgeVariant="gold" badgeText="Pro" />
-			<Dropdown.Item label="Legacy Tool" showBadge badgeVariant="orange" badgeText="Deprecated" />
-			<Dropdown.Separator />
-			<Dropdown.Label>Status</Dropdown.Label>
-			<Dropdown.Item label="Critical Alert" showBadge badgeVariant="red" badgeText="Critical" />
-			<Dropdown.Item label="Default Primary" showBadge />{ ' ' }
-			{ /* Uses default yellow "Primary" badge */ }
+			<Dropdown.Group label="Features">
+				<Dropdown.Item label="Beta Feature" showBadge badgeVariant="blue" badgeText="Beta" />
+				<Dropdown.Item label="New Dashboard" showBadge badgeVariant="green" badgeText="New" />
+				<Dropdown.Item label="Premium Option" showBadge badgeVariant="gold" badgeText="Pro" />
+				<Dropdown.Item label="Legacy Tool" showBadge badgeVariant="orange" badgeText="Deprecated" />
+			</Dropdown.Group>
+			<Dropdown.Group label="Status" separator>
+				<Dropdown.Item label="Critical Alert" showBadge badgeVariant="red" badgeText="Critical" />
+				<Dropdown.Item label="Default Primary" showBadge />{ ' ' }
+				{ /* Uses default yellow "Primary" badge */ }
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
@@ -106,13 +105,14 @@ export const WithBadges = () => (
 export const WithIcons = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Icon Examples</Button> }>
-			<Dropdown.Label>Account</Dropdown.Label>
-			<Dropdown.Item label="Profile Settings" icon={ <PersonIcon /> } showIcon />
-			<Dropdown.Item label="Preferences" icon={ <GearIcon /> } showIcon />
-			<Dropdown.Separator />
-			<Dropdown.Label>Actions</Dropdown.Label>
-			<Dropdown.Item label="Export Data" icon={ <FileIcon /> } showIcon />
-			<Dropdown.Item label="Selected Option" icon={ <CheckIcon /> } showIcon isSelected />
+			<Dropdown.Group label="Account">
+				<Dropdown.Item label="Profile Settings" icon={ <BiUser /> } showIcon />
+				<Dropdown.Item label="Preferences" icon={ <BiCog /> } showIcon />
+			</Dropdown.Group>
+			<Dropdown.Group label="Actions" separator>
+				<Dropdown.Item label="Export Data" icon={ <BiFile /> } showIcon />
+				<Dropdown.Item label="Selected Option" icon={ <BiCheck /> } showIcon isSelected />
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
@@ -128,26 +128,27 @@ export const WithIcons = () => (
 export const WithSecondaryLabels = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Secondary Labels</Button> }>
-			<Dropdown.Label>Team Members</Dropdown.Label>
-			<Dropdown.Item label="John Doe" secondaryLabel="Administrator" />
-			<Dropdown.Item label="Jane Smith" secondaryLabel="Editor" isSelected />
-			<Dropdown.Item label="Bob Johnson" secondaryLabel="Viewer" />
-			<Dropdown.Separator />
-			<Dropdown.Label>Server Status</Dropdown.Label>
-			<Dropdown.Item
-				label="Production"
-				secondaryLabel="Online"
-				showBadge
-				badgeVariant="green"
-				badgeText="Live"
-			/>
-			<Dropdown.Item
-				label="Staging"
-				secondaryLabel="Maintenance"
-				showBadge
-				badgeVariant="yellow"
-				badgeText="Warning"
-			/>
+			<Dropdown.Group label="Team Members">
+				<Dropdown.Item label="John Doe" secondaryLabel="Administrator" />
+				<Dropdown.Item label="Jane Smith" secondaryLabel="Editor" isSelected />
+				<Dropdown.Item label="Bob Johnson" secondaryLabel="Viewer" />
+			</Dropdown.Group>
+			<Dropdown.Group label="Server Status" separator>
+				<Dropdown.Item
+					label="Production"
+					secondaryLabel="Online"
+					showBadge
+					badgeVariant="green"
+					badgeText="Live"
+				/>
+				<Dropdown.Item
+					label="Staging"
+					secondaryLabel="Maintenance"
+					showBadge
+					badgeVariant="yellow"
+					badgeText="Warning"
+				/>
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
@@ -158,7 +159,7 @@ export const WithSecondaryLabels = () => (
 );
 
 /**
- * Complex example combining all features
+ * Complex example combining all features with proper group structure
  */
 export const ComplexExample = () => {
 	const [ bookmarksChecked, setBookmarksChecked ] = React.useState( true );
@@ -168,16 +169,17 @@ export const ComplexExample = () => {
 	return (
 		<>
 			<Dropdown.Root trigger={ <Button>Full Feature Demo</Button> }>
-				<Dropdown.Label>Quick Actions</Dropdown.Label>
-				<Dropdown.Item label="New Tab" icon={ <FileIcon /> } showIcon />
-				<Dropdown.Item label="New Window" icon={ <GearIcon /> } showIcon />
-				<Dropdown.Item label="Private Window" icon={ <PersonIcon /> } showIcon state="disabled" />
+				<Dropdown.Group label="Quick Actions">
+					<Dropdown.Item label="New Tab" icon={ <BiFile /> } showIcon />
+					<Dropdown.Item label="New Window" icon={ <BiCog /> } showIcon />
+					<Dropdown.Item label="Private Window" icon={ <BiUser /> } showIcon state="disabled" />
+				</Dropdown.Group>
 
 				<Dropdown.Sub>
 					<Dropdown.SubTrigger>
 						<span style={ { display: 'flex', alignItems: 'center', gap: '6px' } }>
 							More Tools
-							<ChevronRightIcon />
+							<BiChevronRight />
 						</span>
 					</Dropdown.SubTrigger>
 					<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
@@ -187,57 +189,52 @@ export const ComplexExample = () => {
 					</Dropdown.SubContent>
 				</Dropdown.Sub>
 
-				<Dropdown.Separator />
+				<Dropdown.Group label="View Options" separator>
+					<Dropdown.CheckboxItem
+						label="Show Bookmarks"
+						isSelected={ bookmarksChecked }
+						onCheckedChange={ setBookmarksChecked }
+					/>
+					<Dropdown.CheckboxItem
+						label="Show Full URLs"
+						isSelected={ urlsChecked }
+						onCheckedChange={ setUrlsChecked }
+					/>
+				</Dropdown.Group>
 
-				<Dropdown.Label>View Options</Dropdown.Label>
-				<Dropdown.CheckboxItem checked={ bookmarksChecked } onCheckedChange={ setBookmarksChecked }>
-					<Dropdown.ItemIndicator>
-						<CheckIcon />
-					</Dropdown.ItemIndicator>
-					Show Bookmarks
-				</Dropdown.CheckboxItem>
-				<Dropdown.CheckboxItem checked={ urlsChecked } onCheckedChange={ setUrlsChecked }>
-					<Dropdown.ItemIndicator>
-						<CheckIcon />
-					</Dropdown.ItemIndicator>
-					Show Full URLs
-				</Dropdown.CheckboxItem>
+				<Dropdown.Group label="Active User" separator>
+					<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
+						<Dropdown.RadioItem value="pedro">
+							<Dropdown.ItemIndicator>
+								<BiDotsHorizontal />
+							</Dropdown.ItemIndicator>
+							Pedro Duarte
+						</Dropdown.RadioItem>
+						<Dropdown.RadioItem value="colm">
+							<Dropdown.ItemIndicator>
+								<BiDotsHorizontal />
+							</Dropdown.ItemIndicator>
+							Colm Tuite
+						</Dropdown.RadioItem>
+					</Dropdown.RadioGroup>
+				</Dropdown.Group>
 
-				<Dropdown.Separator />
-
-				<Dropdown.Label>Active User</Dropdown.Label>
-				<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
-					<Dropdown.RadioItem value="pedro">
-						<Dropdown.ItemIndicator>
-							<DotFilledIcon />
-						</Dropdown.ItemIndicator>
-						Pedro Duarte
-					</Dropdown.RadioItem>
-					<Dropdown.RadioItem value="colm">
-						<Dropdown.ItemIndicator>
-							<DotFilledIcon />
-						</Dropdown.ItemIndicator>
-						Colm Tuite
-					</Dropdown.RadioItem>
-				</Dropdown.RadioGroup>
-
-				<Dropdown.Separator />
-
-				<Dropdown.Label>System Status</Dropdown.Label>
-				<Dropdown.Item
-					label="API Health"
-					secondaryLabel="All Systems Operational"
-					showBadge
-					badgeVariant="green"
-					badgeText="Online"
-					isSelected
-				/>
-				<Dropdown.Item state="loading" />
+				<Dropdown.Group label="System Status" separator>
+					<Dropdown.Item
+						label="API Health"
+						secondaryLabel="All Systems Operational"
+						showBadge
+						badgeVariant="green"
+						badgeText="Online"
+						isSelected
+					/>
+					<Dropdown.Item state="loading" />
+				</Dropdown.Group>
 			</Dropdown.Root>
 
 			<Text sx={ { mt: 3 } }>
-				A comprehensive example showcasing all dropdown features: labels, icons, badges, secondary
-				labels, states, sub-menus, and traditional Radix checkbox/radio items.
+				A comprehensive example showcasing all dropdown features with proper DropdownGroup separator
+				usage that matches the Figma structure exactly.
 			</Text>
 		</>
 	);
@@ -249,21 +246,24 @@ export const ComplexExample = () => {
 export const BackwardCompatibility = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Legacy Usage</Button> }>
-			<Dropdown.Item>Text as children (legacy)</Dropdown.Item>
-			<Dropdown.Item label="New label prop" />
-			<Dropdown.Item>
-				<span style={ { display: 'flex', alignItems: 'center', gap: '8px' } }>
-					<GearIcon />
-					Custom JSX children
-				</span>
-			</Dropdown.Item>
-			<Dropdown.Separator />
-			<Dropdown.Item
-				label="Mixed usage works fine"
-				showBadge
-				badgeVariant="blue"
-				badgeText="New API"
-			/>
+			<Dropdown.Group>
+				<Dropdown.Item>Text as children (legacy)</Dropdown.Item>
+				<Dropdown.Item label="New label prop" />
+				<Dropdown.Item>
+					<span style={ { display: 'flex', alignItems: 'center', gap: '8px' } }>
+						<BiCog />
+						Custom JSX children
+					</span>
+				</Dropdown.Item>
+			</Dropdown.Group>
+			<Dropdown.Group separator>
+				<Dropdown.Item
+					label="Mixed usage works fine"
+					showBadge
+					badgeVariant="blue"
+					badgeText="New API"
+				/>
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
@@ -273,31 +273,67 @@ export const BackwardCompatibility = () => (
 );
 
 /**
- * Design system showcase
+ * Demonstrates the DropdownGroup component's spacing control
+ */
+export const GroupSpacingDemo = () => (
+	<>
+		<Dropdown.Root trigger={ <Button>Group Spacing Demo</Button> }>
+			<Dropdown.Group label="First Group">
+				<Dropdown.Item label="Item 1 in group" />
+				<Dropdown.Item label="Item 2 in group" />
+				<Dropdown.Item label="Item 3 in group" />
+			</Dropdown.Group>
+
+			<Dropdown.Group label="Second Group" separator>
+				<Dropdown.Item label="Another item" />
+				<Dropdown.Item label="With tighter spacing" />
+			</Dropdown.Group>
+
+			<Dropdown.Group label="Third Group" separator>
+				<Dropdown.Item label="Notice the spacing" />
+				<Dropdown.Item label="Within groups: gap-1 (4px)" />
+				<Dropdown.Item label="Separator is part of group" />
+			</Dropdown.Group>
+		</Dropdown.Root>
+
+		<Text sx={ { mt: 3 } }>
+			Notice how the separator is now part of the group structure, exactly matching the Figma
+			design. The spacing within each group is consistent (4px).
+		</Text>
+	</>
+);
+
+/**
+ * Design system showcase using the new DropdownGroup component
  */
 export const DesignSystemShowcase = () => (
 	<>
 		<Dropdown.Root trigger={ <Button>Design System Demo</Button> }>
-			<Dropdown.Label>Design Tokens in Action</Dropdown.Label>
-			<Dropdown.Item label="32px height items" />
-			<Dropdown.Item label="Proper spacing (28px left, 16px right)" />
-			<Dropdown.Item label="Typography using fontSize.2 (14px)" />
-			<Dropdown.Separator />
-			<Dropdown.Label>Hover me for input.hover background</Dropdown.Label>
-			<Dropdown.Item label="text.secondary color (#514e4d)" />
-			<Dropdown.Item label="Disabled state" state="disabled" />
-			<Dropdown.Separator />
-			<Dropdown.Item
-				label="Badge using tag.* tokens"
-				showBadge
-				badgeVariant="yellow"
-				badgeText="Tokens!"
-			/>
+			<Dropdown.Group label="Design Tokens in Action">
+				<Dropdown.Item label="32px height items" />
+				<Dropdown.Item label="Proper spacing with groups" />
+				<Dropdown.Item label="Typography using fontSize tokens" />
+			</Dropdown.Group>
+
+			<Dropdown.Group label="Hover & States" separator>
+				<Dropdown.Item label="Hover me for input.hover background" />
+				<Dropdown.Item label="Disabled state" state="disabled" />
+			</Dropdown.Group>
+
+			<Dropdown.Group label="Advanced Features" separator>
+				<Dropdown.Item
+					label="Badge using tag.* tokens"
+					showBadge
+					badgeVariant="yellow"
+					badgeText="Tokens!"
+				/>
+				<Dropdown.Item label="With secondary label" secondaryLabel="Extra info" />
+			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Demonstrates proper design token usage throughout the component. All spacing, colors, and
-			typography use the design system.
+			Demonstrates the new DropdownGroup component with proper separator integration. Notice how
+			separators are part of the group structure, not between groups.
 		</Text>
 	</>
 );
@@ -362,5 +398,66 @@ export const WithDialog = () => {
 				/>
 			</Dropdown.Root>
 		</div>
+	);
+};
+
+/**
+ * Demonstrates the enhanced DropdownCheckboxItem with full feature parity
+ */
+export const CheckboxItems = () => {
+	const [ option1, setOption1 ] = React.useState( true );
+	const [ option2, setOption2 ] = React.useState( false );
+	const [ option3, setOption3 ] = React.useState( true );
+	const [ debugMode, setDebugMode ] = React.useState( false );
+	const [ disabledOption, setDisabledOption ] = React.useState( true );
+
+	return (
+		<>
+			<Dropdown.Root trigger={ <Button>Checkbox Items</Button> }>
+				<Dropdown.Group label="Settings">
+					<Dropdown.CheckboxItem
+						label="Show Notifications"
+						isSelected={ option1 }
+						onCheckedChange={ setOption1 }
+					/>
+					<Dropdown.CheckboxItem
+						label="Auto-save"
+						secondaryLabel="Save every 5 minutes"
+						isSelected={ option2 }
+						onCheckedChange={ setOption2 }
+					/>
+					<Dropdown.CheckboxItem
+						label="Premium Feature"
+						showBadge
+						badgeVariant="gold"
+						badgeText="Pro"
+						isSelected={ option3 }
+						onCheckedChange={ setOption3 }
+					/>
+				</Dropdown.Group>
+
+				<Dropdown.Group label="Advanced" separator>
+					<Dropdown.CheckboxItem
+						label="Debug Mode"
+						icon={ <BiCog /> }
+						showIcon
+						isSelected={ debugMode }
+						onCheckedChange={ setDebugMode }
+					/>
+					<Dropdown.CheckboxItem
+						label="Disabled Option"
+						state="disabled"
+						isSelected={ disabledOption }
+						onCheckedChange={ setDisabledOption }
+					/>
+				</Dropdown.Group>
+			</Dropdown.Root>
+
+			<Text sx={ { mt: 3 } }>
+				Enhanced CheckboxItem with persistent checkbox icons, proper state management, and full
+				feature parity with DropdownItem. All items are interactive, including the disabled one (for
+				demo purposes).
+			</Text>
+		</>
 	);
 };

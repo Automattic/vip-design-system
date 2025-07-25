@@ -12,7 +12,7 @@ import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';
 import ScreenReaderText from '../ScreenReaderText';
 
 export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {
-	checked: boolean;
+	checked: boolean; // We'll map this to isSelected in the component
 	item: {
 		label: string;
 		size?: number | string;
@@ -21,9 +21,9 @@ export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {
 };
 
 const FilterDropdownCheckItem = ( { checked, item, onClick }: FilterDropdownCheckItemProps ) => (
-	<Dropdown.CheckboxItem checked={ checked } onClick={ onClick }>
+	<Dropdown.CheckboxItem isSelected={ checked } onCheckedChange={ onClick }>
 		<Dropdown.ItemIndicator>
-			<MdCheck size={ 14 } sx={ { mr: 2 } } fill="brand" />
+			<MdCheck size={ 20 } sx={ { mr: 2 } } fill="brand" />
 		</Dropdown.ItemIndicator>
 		{ item.label } { item?.size ? `(${ item?.size })` : null }
 	</Dropdown.CheckboxItem>

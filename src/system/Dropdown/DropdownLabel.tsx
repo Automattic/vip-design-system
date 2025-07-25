@@ -11,6 +11,8 @@ import { ThemeUIStyleObject } from 'theme-ui';
 export interface DropdownLabelProps {
 	/** Additional CSS class name */
 	className?: string;
+	/** Label content */
+	children?: React.ReactNode;
 }
 
 /**
@@ -18,17 +20,19 @@ export interface DropdownLabelProps {
  * Based on Figma design specifications for group titles
  */
 export const styles: ThemeUIStyleObject = {
-	paddingLeft: 5, // 24px (pl-6 equivalent) - space[5]
-	paddingRight: 4, // 16px (pr-4 equivalent) - space[4]
-	paddingTop: 1, // 4px (py-1 equivalent) - space[1]
-	paddingBottom: 1, // 4px (py-1 equivalent) - space[1]
+	display: 'flex',
+	alignItems: 'center',
+	pl: 5, // 24px (pl-6 equivalent) - space[5]
+	pr: 4, // 16px (pr-4 equivalent) - space[4]
+	py: 1, // 4px (py-1 equivalent) - space[1]
 	fontSize: 1, // 12px - fontSizes[1]
 	fontFamily: 'heading', // Aktiv Grotesk VF
-	fontWeight: 'semiBold', // 600 weight
-	lineHeight: 1.5,
-	color: 'text.secondary', // #514e4d
+	fontWeight: 'medium', // 600 weight
+	lineHeight: 5,
+	minHeight: '31px',
+	color: 'texts.secondary', // #514e4d - matches DropdownItem
 	textTransform: 'uppercase' as const,
-	letterSpacing: '0.6px', // TODO: map to design system when token available
+	letterSpacing: '5%', // TODO: map to design system when token available
 };
 
 /**
