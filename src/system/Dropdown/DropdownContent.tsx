@@ -11,11 +11,10 @@ export interface DropdownContentProps {
 
 export const styles = {
 	minWidth: 220,
-	borderRadius: 2,
-	backgroundColor: 'background',
+	borderRadius: '3px',
+	backgroundColor: 'layer.2',
 	boxShadow: 'high',
-	px: 2,
-	py: 1,
+	p: 2,
 };
 
 export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
