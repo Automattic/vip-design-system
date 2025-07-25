@@ -10,8 +10,10 @@ export interface DropdownSeparatorProps {
 
 export const styles = {
 	height: '1px',
-	backgroundColor: 'borders.2',
-	my: '5px',
+	backgroundColor: 'border.2', // Design token for #e3e0df
+	paddingLeft: 'space.5', // 24px horizontal padding (px-6)
+	paddingRight: 'space.5', // 24px horizontal padding (px-6)
+	my: 0, // Remove vertical margin since we're using horizontal padding
 };
 
 export const DropdownSeparator = React.forwardRef< HTMLDivElement, DropdownSeparatorProps >(
