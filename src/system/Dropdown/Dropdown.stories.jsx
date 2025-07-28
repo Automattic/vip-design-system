@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react';
-import { BiCheck, BiCog, BiUser, BiFile, BiHeart, BiStar, BiSettings, BiDownload, BiTrash, BiEdit } from 'react-icons/bi';
+import { BiCheck, BiCog, BiUser, BiFile, BiHeart, BiStar, BiDownload, BiTrash, BiEdit } from 'react-icons/bi';
 
 /**
  * Internal dependencies
@@ -130,7 +130,7 @@ export const WithIcons = () => (
 			<Dropdown.Group label="Account Actions">
 				<Dropdown.Item label="Profile Settings" icon={ <BiUser /> } showIcon />
 				<Dropdown.Item label="Preferences" icon={ <BiCog /> } showIcon />
-				<Dropdown.Item label="Security" icon={ <BiSettings /> } showIcon isSelected />
+				<Dropdown.Item label="Security" icon={ <BiCog /> } showIcon isSelected />
 			</Dropdown.Group>
 			<Dropdown.Group label="File Operations" separator>
 				<Dropdown.Item label="Download" icon={ <BiDownload /> } showIcon />
@@ -189,7 +189,7 @@ export const WithSecondaryLabels = () => (
 				<Dropdown.Item
 					label="Staging"
 					secondaryLabel="us-west-2"
-					icon={ <BiSettings /> }
+					icon={ <BiCog /> }
 					showIcon
 					showBadge
 					badgeVariant="yellow"
@@ -440,7 +440,7 @@ export const SubMenus = () => (
 					<Dropdown.Group label="Developer" separator>
 						<Dropdown.Item 
 							label="Inspect Element" 
-							icon={ <BiSettings /> } 
+							icon={ <BiCog /> } 
 							showIcon 
 							showBadge 
 							badgeVariant="orange" 
@@ -521,7 +521,7 @@ export const CompleteExample = () => {
 						<Dropdown.Group label="Developer Tools" separator>
 							<Dropdown.Item 
 								label="Inspect Element" 
-								icon={ <BiSettings /> } 
+								icon={ <BiCog /> } 
 								showIcon 
 								showBadge 
 								badgeVariant="orange" 

@@ -181,7 +181,8 @@ export const DropdownItemLabelContent: React.FC< {
 	displayLabel: string | undefined;
 	secondaryLabel: string | undefined;
 	children: React.ReactNode;
-} > = ( { displayLabel, secondaryLabel, children } ) => {
+	disabled?: boolean;
+} > = ( { displayLabel, secondaryLabel, children, disabled = false } ) => {
 	const shouldShowSecondaryLabel = secondaryLabel;
 
 	return (
@@ -214,7 +215,7 @@ export const DropdownItemLabelContent: React.FC< {
 						fontFamily: 'body',
 						fontWeight: 'regular',
 						lineHeight: 5,
-						color: 'texts.secondary',
+						color: disabled ? 'texts.disabled' : 'texts.secondary',
 						overflow: 'hidden',
 						textOverflow: 'ellipsis',
 						whiteSpace: 'nowrap',
@@ -237,13 +238,23 @@ export const DropdownItemBadge: React.FC< {
 	badge?: React.ReactNode;
 	badgeVariant: BadgeVariant;
 	badgeText: string;
-} > = ( { showBadge, badge, badgeVariant, badgeText } ) => {
+	disabled?: boolean;
+} > = ( { showBadge, badge, badgeVariant, badgeText, disabled = false } ) => {
 	if ( ! showBadge ) return null;
 
 	return badge ? (
 		<>{ badge }</>
 	) : (
-		<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
+		<Badge 
+			variant={ badgeVariant } 
+			sx={ { 
+				marginBottom: 0,
+				...(disabled && {
+					opacity: 0.5,
+					color: 'texts.disabled',
+				})
+			} }
+		>
 			{ badgeText }
 		</Badge>
 	);
@@ -255,7 +266,8 @@ export const DropdownItemBadge: React.FC< {
  */
 export const DropdownItemIcon: React.FC< {
 	displayIcon: React.ReactNode;
-} > = ( { displayIcon } ) => {
+	disabled?: boolean;
+} > = ( { displayIcon, disabled = false } ) => {
 	if ( ! displayIcon ) return null;
 
 	return (
@@ -266,6 +278,7 @@ export const DropdownItemIcon: React.FC< {
 				flexShrink: 0,
 				width: iconSize,
 				height: iconSize,
+				color: disabled ? 'texts.disabled' : 'inherit',
 			} }
 		>
 			{ displayIcon }
@@ -355,13 +368,14 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 				{ isSelected && <CheckIcon /> }
 
 				{ /* Leading icon */ }
-				<DropdownItemIcon displayIcon={ displayIcon } />
+				<DropdownItemIcon displayIcon={ displayIcon } disabled={ disabled } />
 
 				{ /* Label content area */ }
 				<DropdownItemLabelContent
 					displayLabel={ displayLabel }
 					secondaryLabel={ secondaryLabel }
 					children={ children }
+					disabled={ disabled }
 				/>
 
 				{ /* Badge */ }
@@ -370,6 +384,7 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 					badge={ badge }
 					badgeVariant={ badgeVariant }
 					badgeText={ badgeText }
+					disabled={ disabled }
 				/>
 			</DropdownMenuPrimitive.DropdownMenuItem>
 		);
