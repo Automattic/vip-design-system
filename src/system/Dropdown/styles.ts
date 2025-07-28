@@ -27,7 +27,7 @@ export const dropdownItemStyles: ThemeUIStyleObject = {
 	lineHeight: 5,
 	gap: '6px', // 6px gap between elements (no design token available)
 	'&:hover, &:focus': {
-		backgroundColor: 'input.hover', // #f4f3f2
+		backgroundColor: 'input.radio-box.background.hover',
 		textDecoration: 'none',
 	},
 	'&[data-disabled]': {
@@ -35,6 +35,6 @@ export const dropdownItemStyles: ThemeUIStyleObject = {
 		pointerEvents: 'none',
 	},
 	'&[data-highlighted]': {
-		backgroundColor: 'input.hover',
+		backgroundColor: 'input.radio-box.background.hover',
 	},
-}; 
+};

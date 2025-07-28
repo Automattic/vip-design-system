@@ -3,26 +3,15 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { BiQuestionMark, BiCircle } from 'react-icons/bi';
 
-import { Badge } from '../Badge';
-import { Spinner } from '../Spinner';
+import { LoadingIcon, EmptyIcon, RadioEmptyIcon, RadioFilledIndicator } from './icons';
 import { dropdownItemStyles } from './styles';
+import { Badge } from '../Badge';
 
 // Extract Badge variant type from the Badge component
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
 
 // Styles imported from shared styles file
-
-/**
- * Loading state icon component
- */
-const LoadingIcon = () => <Spinner size={ 16 } color="icon.primary" />;
-
-/**
- * Empty state icon component
- */
-const EmptyIcon = () => <BiQuestionMark size={ 16 } sx={ { color: 'icon.primary' } } />;
 
 /**
  * Props for DropdownRadioItem component
@@ -70,15 +59,15 @@ export interface DropdownRadioItemProps extends DropdownMenuPrimitive.MenuRadioI
  * </DropdownMenuRadioGroup>
  *
  * // Enhanced radio item with all features
- * <DropdownRadioItem 
+ * <DropdownRadioItem
  *   value="beta"
- *   label="Beta Feature" 
+ *   label="Beta Feature"
  *   secondaryLabel="Preview version"
- *   icon={<SettingsIcon />} 
- *   showIcon 
- *   showBadge 
- *   badgeVariant="blue" 
- *   badgeText="Beta" 
+ *   icon={<SettingsIcon />}
+ *   showIcon
+ *   showBadge
+ *   badgeVariant="blue"
+ *   badgeText="Beta"
  * />
  * ```
  */
@@ -88,7 +77,6 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 			className,
 			label,
 			icon,
-			isSelected = false,
 			showBadge = false,
 			showIcon = false,
 			secondaryLabel,
@@ -125,22 +113,6 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 
 		const shouldShowSecondaryLabel = secondaryLabel;
 
-		// Radio button icons - empty circle always visible, filled circle overlays when selected
-		const RadioIcons = () => (
-			<>
-				{ /* Empty circle - always visible (matches Figma bx-circle) */ }
-				<BiCircle
-					size={ 16 }
-					sx={ {
-						position: 'absolute',
-						left: 1, // 4px from left - space[1]
-						top: 2, // 8px from top (matches Figma top-1.5)
-						color: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
-					} }
-				/>
-			</>
-		);
-
 		// For RadioItems, we don't use checked prop - selection is handled by RadioGroup value matching
 		// The filled circle will be handled by Radix's built-in ItemIndicator
 
@@ -161,30 +133,10 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 				{ ...props }
 			>
 				{ /* Radio button - empty circle always visible, filled circle overlays when selected */ }
-				<RadioIcons />
+				<RadioEmptyIcon state={ state } />
 
 				{ /* Filled circle - only visible when selected (matches Figma bxs-circle) */ }
-				<DropdownMenuPrimitive.ItemIndicator
-					sx={ {
-						position: 'absolute',
-						left: 1, // 4px from left - space[1] 
-						top: 2, // 8px from top (matches Figma top-1.5)
-						width: '16px',
-						height: '16px',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-					} }
-				>
-					<div
-						sx={ {
-							width: '8px', // Smaller filled circle (matches Figma inset-[8.333%])
-							height: '8px',
-							borderRadius: '50%',
-							backgroundColor: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
-						} }
-					/>
-				</DropdownMenuPrimitive.ItemIndicator>
+				<RadioFilledIndicator state={ state } />
 
 				{ /* Leading icon */ }
 				{ displayIcon && (
@@ -234,10 +186,17 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 				</div>
 
 				{ /* Badge */ }
-				{ showBadge && ( badge ? badge : <Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>{ badgeText }</Badge> ) }
+				{ showBadge &&
+					( badge ? (
+						badge
+					) : (
+						<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
+							{ badgeText }
+						</Badge>
+					) ) }
 			</DropdownMenuPrimitive.RadioItem>
 		);
 	}
 );
 
-DropdownRadioItem.displayName = 'DropdownRadioItem'; 
+DropdownRadioItem.displayName = 'DropdownRadioItem';

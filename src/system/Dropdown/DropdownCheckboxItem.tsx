@@ -3,26 +3,16 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { BiQuestionMark, BiSquare, BiCheckSquare } from 'react-icons/bi';
+import { BiSquare, BiCheckSquare } from 'react-icons/bi';
 
-import { Badge } from '../Badge';
-import { Spinner } from '../Spinner';
+import { LoadingIcon, EmptyIcon } from './icons';
 import { dropdownItemStyles } from './styles';
+import { Badge } from '../Badge';
 
 // Extract Badge variant type from the Badge component
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
 
 // Styles imported from shared styles file
-
-/**
- * Loading state icon component
- */
-const LoadingIcon = () => <Spinner size={ 16 } color="icon.primary" />;
-
-/**
- * Empty state icon component
- */
-const EmptyIcon = () => <BiQuestionMark size={ 16 } sx={ { color: 'icon.primary' } } />;
 
 /**
  * Props for DropdownCheckboxItem component
@@ -68,13 +58,13 @@ export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.MenuChe
  * <DropdownCheckboxItem label="Auto-save" isSelected />
  *
  * // With icon and badge
- * <DropdownCheckboxItem 
- *   label="Beta Feature" 
- *   icon={<SettingsIcon />} 
- *   showIcon 
- *   showBadge 
- *   badgeVariant="blue" 
- *   badgeText="Beta" 
+ * <DropdownCheckboxItem
+ *   label="Beta Feature"
+ *   icon={<SettingsIcon />}
+ *   showIcon
+ *   showBadge
+ *   badgeVariant="blue"
+ *   badgeText="Beta"
  * />
  * ```
  */
@@ -136,7 +126,7 @@ export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCh
 				/>
 				{ /* Checkmark - only visible when selected, overlays the square */ }
 				{ isChecked && (
-					<BiCheckSquare	
+					<BiCheckSquare
 						size={ 16 }
 						sx={ {
 							position: 'absolute',
@@ -217,10 +207,17 @@ export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCh
 				</div>
 
 				{ /* Badge */ }
-				{ showBadge && ( badge ? badge : <Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>{ badgeText }</Badge> ) }
+				{ showBadge &&
+					( badge ? (
+						badge
+					) : (
+						<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
+							{ badgeText }
+						</Badge>
+					) ) }
 			</DropdownMenuPrimitive.CheckboxItem>
 		);
 	}
 );
 
-DropdownCheckboxItem.displayName = 'DropdownCheckboxItem'; 
+DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';

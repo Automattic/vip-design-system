@@ -7,15 +7,12 @@ import {
 	DropdownItemIndicator,
 	DropdownSub,
 } from './Dropdown';
+import { DropdownCheckboxItem } from './DropdownCheckboxItem';
 import { DropdownSubContent, DropdownContent } from './DropdownContent';
 import { DropdownGroup } from './DropdownGroup';
-import {
-	DropdownItem,
-	DropdownSubTrigger,
-} from './DropdownItem';
-import { DropdownCheckboxItem } from './DropdownCheckboxItem';
-import { DropdownRadioItem } from './DropdownRadioItem';
+import { DropdownItem, DropdownSubTrigger } from './DropdownItem';
 import { DropdownLabel } from './DropdownLabel';
+import { DropdownRadioItem } from './DropdownRadioItem';
 import { DropdownSeparator } from './DropdownSeparator';
 
 const Root = Dropdown;
@@ -57,14 +54,10 @@ export {
 	type DropdownSubTriggerItemProps,
 } from './DropdownItem';
 
-export {
-	DropdownCheckboxItem,
-	type DropdownCheckboxItemProps,
-} from './DropdownCheckboxItem';
+export { DropdownCheckboxItem, type DropdownCheckboxItemProps } from './DropdownCheckboxItem';
 
-export {
-	DropdownRadioItem,
-	type DropdownRadioItemProps,
-} from './DropdownRadioItem';
+export { DropdownRadioItem, type DropdownRadioItemProps } from './DropdownRadioItem';
+
+export { LoadingIcon, EmptyIcon, CheckIcon, RadioEmptyIcon, RadioFilledIndicator } from './icons';
 
 export default Dropdown;

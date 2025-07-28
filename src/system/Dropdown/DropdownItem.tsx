@@ -3,12 +3,10 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { BiLoaderAlt, BiQuestionMark, BiCheck } from 'react-icons/bi';
-import { ThemeUIStyleObject } from 'theme-ui';
 
-import { Badge } from '../Badge';
-import { Spinner } from '../Spinner';
+import { LoadingIcon, EmptyIcon, CheckIcon } from './icons';
 import { dropdownItemStyles } from './styles';
+import { Badge } from '../Badge';
 
 // Extract Badge variant type from the Badge component
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
@@ -51,32 +49,6 @@ export interface DropdownSubTriggerItemProps
 }
 
 // Styles imported from shared styles file
-
-/**
- * Loading state icon component
- */
-const LoadingIcon = () => <Spinner size={ 16 } color="icon.primary" />;
-
-/**
- * Empty state icon component
- */
-const EmptyIcon = () => <BiQuestionMark size={ 16 } sx={ { color: 'icon.primary' } } />;
-
-/**
- * Check mark icon for selected state
- * Positioned absolutely at top-left of the item
- */
-const CheckIcon = () => (
-	<BiCheck
-		size={ 16 }
-		sx={ {
-			position: 'absolute',
-			left: 1, // 4px from left - space[1]
-			top: 2, // 8px from top 
-			// color: 'icon.primary',
-		} }
-	/>
-);
 
 /**
  * Dropdown item component with support for various states and features
@@ -212,15 +184,20 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 				</div>
 
 				{ /* Badge */ }
-				{ showBadge && ( badge ? badge : <Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>{ badgeText }</Badge> ) }
+				{ showBadge &&
+					( badge ? (
+						badge
+					) : (
+						<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
+							{ badgeText }
+						</Badge>
+					) ) }
 			</DropdownMenuPrimitive.DropdownMenuItem>
 		);
 	}
 );
 
 DropdownItem.displayName = 'DropdownItem';
-
-
 
 /**
  * Dropdown sub-trigger item component for nested dropdowns

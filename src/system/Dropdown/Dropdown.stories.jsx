@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react';
-import { BiDotsHorizontal, BiCheck, BiChevronRight, BiCog, BiUser, BiFile } from 'react-icons/bi';
+import { BiCheck, BiChevronRight, BiCog, BiUser, BiFile } from 'react-icons/bi';
 
 /**
  * Internal dependencies
@@ -30,12 +30,31 @@ export default {
  */
 export const Alignment = () => (
 	<>
-		<div style={{ display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'space-around', padding: '50px 20px' }}>
+		<div
+			style={ {
+				display: 'flex',
+				gap: '20px',
+				alignItems: 'center',
+				justifyContent: 'space-around',
+				padding: '50px 20px',
+			} }
+		>
 			<div>
-				<Text sx={{ mb: 2, textAlign: 'center' }}>Align Start</Text>
-				<Dropdown.Root 
-					trigger={<Button>Align Start</Button>} 
-					contentProps={{ align: 'start' }}
+				<Text sx={ { mb: 2, textAlign: 'center' } }>Align Start</Text>
+				<Dropdown.Root trigger={ <Button>Align Start</Button> } contentProps={ { align: 'start' } }>
+					<Dropdown.Group>
+						<Dropdown.Item label="Option 1" />
+						<Dropdown.Item label="Option 2" />
+						<Dropdown.Item label="Option 3" />
+					</Dropdown.Group>
+				</Dropdown.Root>
+			</div>
+
+			<div>
+				<Text sx={ { mb: 2, textAlign: 'center' } }>Align Center (Default)</Text>
+				<Dropdown.Root
+					trigger={ <Button>Align Center</Button> }
+					contentProps={ { align: 'center' } }
 				>
 					<Dropdown.Group>
 						<Dropdown.Item label="Option 1" />
@@ -46,25 +65,8 @@ export const Alignment = () => (
 			</div>
 
 			<div>
-				<Text sx={{ mb: 2, textAlign: 'center' }}>Align Center (Default)</Text>
-				<Dropdown.Root 
-					trigger={<Button>Align Center</Button>} 
-					contentProps={{ align: 'center' }}
-				>
-					<Dropdown.Group>
-						<Dropdown.Item label="Option 1" />
-						<Dropdown.Item label="Option 2" />
-						<Dropdown.Item label="Option 3" />
-					</Dropdown.Group>
-				</Dropdown.Root>
-			</div>
-
-			<div>
-				<Text sx={{ mb: 2, textAlign: 'center' }}>Align End</Text>
-				<Dropdown.Root 
-					trigger={<Button>Align End</Button>} 
-					contentProps={{ align: 'end' }}
-				>
+				<Text sx={ { mb: 2, textAlign: 'center' } }>Align End</Text>
+				<Dropdown.Root trigger={ <Button>Align End</Button> } contentProps={ { align: 'end' } }>
 					<Dropdown.Group>
 						<Dropdown.Item label="Option 1" />
 						<Dropdown.Item label="Option 2" />
@@ -74,9 +76,9 @@ export const Alignment = () => (
 			</div>
 		</div>
 
-		<Text sx={{ mt: 3 }}>
-			This demonstrates the dropdown alignment options: 'start', 'center', and 'end'. 
-			The dropdown content should align differently relative to the trigger button.
+		<Text sx={ { mt: 3 } }>
+			This demonstrates the dropdown alignment options: 'start', 'center', and 'end'. The dropdown
+			content should align differently relative to the trigger button.
 		</Text>
 	</>
 );
@@ -260,14 +262,9 @@ export const ComplexExample = () => {
 
 				<Dropdown.Group label="Active User" separator>
 					<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
-						<Dropdown.RadioItem 
-							value="pedro" 
-							label="Pedro Duarte"
-							icon={ <BiUser /> }
-							showIcon
-						/>
-						<Dropdown.RadioItem 
-							value="colm" 
+						<Dropdown.RadioItem value="pedro" label="Pedro Duarte" icon={ <BiUser /> } showIcon />
+						<Dropdown.RadioItem
+							value="colm"
 							label="Colm Tuite"
 							icon={ <BiUser /> }
 							showIcon
@@ -467,50 +464,37 @@ export const RadioItems = () => {
 			<Dropdown.Root trigger={ <Button>Radio Items</Button> }>
 				<Dropdown.Group label="Theme Preference">
 					<Dropdown.RadioGroup value={ theme } onValueChange={ setTheme }>
-						<Dropdown.RadioItem 
-							value="light" 
-							label="Light Mode"
-							icon={ <BiUser /> }
-							showIcon
-						/>
-						<Dropdown.RadioItem 
-							value="dark" 
+						<Dropdown.RadioItem value="light" label="Light Mode" icon={ <BiUser /> } showIcon />
+						<Dropdown.RadioItem
+							value="dark"
 							label="Dark Mode"
 							secondaryLabel="Easier on the eyes"
 							icon={ <BiCog /> }
 							showIcon
 						/>
-						<Dropdown.RadioItem 
-							value="system" 
+						<Dropdown.RadioItem
+							value="system"
 							label="System Preference"
 							showBadge
 							badgeVariant="blue"
 							badgeText="Auto"
 						/>
-						<Dropdown.RadioItem 
-							value="disabled" 
-							label="Disabled Option"
-							state="disabled"
-						/>
+						<Dropdown.RadioItem value="disabled" label="Disabled Option" state="disabled" />
 					</Dropdown.RadioGroup>
 				</Dropdown.Group>
 
 				<Dropdown.Group label="Language" separator>
 					<Dropdown.RadioGroup value={ language } onValueChange={ setLanguage }>
-						<Dropdown.RadioItem 
-							value="english" 
-							label="English"
-							secondaryLabel="Default"
-						/>
-						<Dropdown.RadioItem 
-							value="spanish" 
+						<Dropdown.RadioItem value="english" label="English" secondaryLabel="Default" />
+						<Dropdown.RadioItem
+							value="spanish"
 							label="Español"
 							showBadge
 							badgeVariant="green"
 							badgeText="Beta"
 						/>
-						<Dropdown.RadioItem 
-							value="french" 
+						<Dropdown.RadioItem
+							value="french"
 							label="Français"
 							icon={ <BiFile /> }
 							showIcon
