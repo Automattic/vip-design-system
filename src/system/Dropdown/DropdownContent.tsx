@@ -13,6 +13,8 @@ export interface DropdownContentProps {
 	className?: string;
 	/** Alignment of the dropdown content relative to the trigger */
 	align?: 'start' | 'center' | 'end';
+	/** Children elements */
+	children?: React.ReactNode;
 }
 
 /**
