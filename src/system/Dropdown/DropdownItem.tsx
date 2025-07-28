@@ -406,8 +406,7 @@ export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubT
 				...dropdownItemStyles,
 				...{
 					'&[data-state="open"]': {
-						background: 'highlight',
-						color: 'primary',
+						background: 'input.radio-box.background.hover',
 					},
 				},
 			} }

@@ -31,15 +31,15 @@ export const dropdownItemStyles: ThemeUIStyleObject = {
 	fontWeight: 'regular',
 	lineHeight: 5,
 	gap: '6px',
-	'&:hover': {
-		backgroundColor: 'input.radio-box.background.hover',
-		textDecoration: 'none',
-	},
-	'&:focus-visible:not(:hover), &:focus:not(:hover), &[data-highlighted]:not(:hover)': (
+	outline: 'none',
+    '&:hover': {
+        backgroundColor: 'input.radio-box.background.hover',
+    },
+	'&:focus-visible:not(:hover, [data-state="open"])': (
 		theme: DropdownTheme
 	) => theme.outline,
 	'&[data-disabled]': {
-		color: 'texts.disabled', // #9b9796 - matches texts pattern
+		color: 'texts.disabled', 
 		pointerEvents: 'none',
 	},
 };
