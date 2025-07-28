@@ -4,51 +4,15 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
 import { BiQuestionMark, BiCircle } from 'react-icons/bi';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 import { Badge } from '../Badge';
 import { Spinner } from '../Spinner';
+import { dropdownItemStyles } from './styles';
 
 // Extract Badge variant type from the Badge component
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
 
-/**
- * Base styles for dropdown items
- * Based on Figma design specifications
- */
-export const styles: ThemeUIStyleObject = {
-	unset: 'all',
-	cursor: 'pointer',
-	display: 'flex',
-	alignItems: 'center',
-	flexDirection: 'row',
-	textAlign: 'left',
-	height: '32px', 
-	textDecoration: 'none',
-	position: 'relative',
-	m: 0,
-	color: 'texts.secondary', // #514e4d
-	paddingLeft: 5, // 24px total left padding (no design token available)
-	paddingRight: 4, // 16px right padding - space[4]
-	paddingTop: 1, // 4px vertical padding - space[1]
-	paddingBottom: 1, // 4px vertical padding - space[1]
-	fontSize: 2, // 14px main text - fontSizes[2]
-	fontFamily: 'body',
-	fontWeight: 'regular',
-	lineHeight: 5,
-	gap: '6px', // 6px gap between elements (no design token available)
-	'&:hover, &:focus': {
-		backgroundColor: 'input.hover', // #f4f3f2
-		textDecoration: 'none',
-	},
-	'&[data-disabled]': {
-		color: 'texts.disabled', // #9b9796 - matches texts pattern
-		pointerEvents: 'none',
-	},
-	'&[data-highlighted]': {
-		backgroundColor: 'input.hover',
-	},
-};
+// Styles imported from shared styles file
 
 /**
  * Loading state icon component
@@ -184,7 +148,7 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 			<DropdownMenuPrimitive.RadioItem
 				className={ classNames( 'vip-dropdown-radio-item', className ) }
 				ref={ forwardRef }
-				sx={ styles }
+				sx={ dropdownItemStyles }
 				disabled={ state === 'disabled' }
 				onSelect={ event => {
 					// Prevent dropdown from closing when radio is selected
@@ -214,8 +178,8 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 				>
 					<div
 						sx={ {
-							width: '12px', // Smaller filled circle (matches Figma inset-[8.333%])
-							height: '12px',
+							width: '8px', // Smaller filled circle (matches Figma inset-[8.333%])
+							height: '8px',
 							borderRadius: '50%',
 							backgroundColor: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
 						} }
