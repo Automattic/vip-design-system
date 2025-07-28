@@ -3,30 +3,25 @@
 import classNames from 'classnames';
 import { useTranslate } from 'i18n-calypso';
 import React, { useState } from 'react';
-import { MdCheck, MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { Button } from '../Button';
 import * as Dropdown from '../Dropdown';
-import { DropdownCheckboxItemProps } from '../Dropdown/DropdownCheckboxItem';
 import { DropdownContentProps } from '../Dropdown/DropdownContent';
 import ScreenReaderText from '../ScreenReaderText';
 
-export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {
-	checked: boolean; // We'll map this to isSelected in the component
+export type FilterDropdownRadioItemProps = {
+	value: string;
 	item: {
 		label: string;
 		size?: number | string;
 	};
-	onClick: () => void;
 };
 
-const FilterDropdownCheckItem = ( { checked, item, onClick }: FilterDropdownCheckItemProps ) => (
-	<Dropdown.CheckboxItem isSelected={ checked } onCheckedChange={ onClick }>
-		<Dropdown.ItemIndicator>
-			<MdCheck size={ 20 } sx={ { mr: 2 } } fill="brand" />
-		</Dropdown.ItemIndicator>
+const FilterDropdownRadioItem = ( { value, item }: FilterDropdownRadioItemProps ) => (
+	<Dropdown.RadioItem value={ value }>
 		{ item.label } { item?.size ? `(${ item?.size })` : null }
-	</Dropdown.CheckboxItem>
+	</Dropdown.RadioItem>
 );
 export type FilterDropDownFilterProp = {
 	label: string;
@@ -80,17 +75,17 @@ export const FilterDropdown = ( {
 				</Button>
 			}
 		>
-			{ filterKeys.map( key => (
-				<FilterDropdownCheckItem
-					key={ key }
-					checked={ filter === key }
-					onClick={ () => {
-						setFilter( key );
-						onSelect( filters[ key ], key );
-					} }
-					item={ filters[ key ] }
-				/>
-			) ) }
+			<Dropdown.RadioGroup
+				value={ filter }
+				onValueChange={ newValue => {
+					setFilter( newValue );
+					onSelect( filters[ newValue ], newValue );
+				} }
+			>
+				{ filterKeys.map( key => (
+					<FilterDropdownRadioItem key={ key } value={ key } item={ filters[ key ] } />
+				) ) }
+			</Dropdown.RadioGroup>
 		</Dropdown.Root>
 	);
 };
