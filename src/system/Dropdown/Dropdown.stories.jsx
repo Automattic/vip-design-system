@@ -752,7 +752,6 @@ export const WithDialog = () => {
 						onConfirm={ () => {
 							setAlertOpen( false );
 							setMenuOpen( false );
-							console.log( 'Item deleted' );
 						} }
 						trigger={
 							<Dropdown.Item
