@@ -2,16 +2,25 @@
  * External dependencies
  */
 import React from 'react';
-import { BiCheck, BiCog, BiUser, BiFile, BiHeart, BiStar, BiDownload, BiTrash, BiEdit } from 'react-icons/bi';
+import {
+	BiCog,
+	BiUser,
+	BiFile,
+	BiHeart,
+	BiStar,
+	BiDownload,
+	BiTrash,
+	BiEdit,
+} from 'react-icons/bi';
 
 /**
  * Internal dependencies
  */
 import * as Dropdown from '.';
 import { Button } from '../Button';
+import { Flex } from '../Flex';
 import * as NewDialog from '../NewDialog';
 import { Text } from '../Text';
-import { Flex } from '../Flex';
 
 export default {
 	title: 'Dropdown',
@@ -44,8 +53,8 @@ export const Default = () => (
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			This component is based on Radix UI with VIP Design System styling. Notice the improved 32px item height, 
-			8px container padding, and enhanced typography using design system tokens.
+			This component is based on Radix UI with VIP Design System styling. Notice the improved 32px
+			item height, 8px container padding, and enhanced typography using design system tokens.
 		</Text>
 	</>
 );
@@ -72,9 +81,9 @@ export const ItemStates = () => (
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Demonstrates all available states: default, hover, selected (with absolute positioned check mark), 
-			disabled, loading (with BiLoaderAlt icon), and empty (with BiQuestionMark icon). Each state 
-			uses proper design system colors and typography tokens.
+			Demonstrates all available states: default, hover, selected (with absolute positioned check
+			mark), disabled, loading (with BiLoaderAlt icon), and empty (with BiQuestionMark icon). Each
+			state uses proper design system colors and typography tokens.
 		</Text>
 	</>
 );
@@ -94,29 +103,31 @@ export const WithBadges = () => (
 			<Dropdown.Group label="Alert Levels" separator>
 				<Dropdown.Item label="Critical Alert" showBadge badgeVariant="red" badgeText="Critical" />
 				<Dropdown.Item label="Warning Notice" showBadge badgeVariant="yellow" badgeText="Warning" />
-				<Dropdown.Item label="Primary Action" showBadge />{ /* Default yellow "Primary" badge */ }
+				<Dropdown.Item label="Primary Action" showBadge />
+				{ /* Default yellow "Primary" badge */ }
 			</Dropdown.Group>
 			<Dropdown.Group label="Combined Features" separator>
-				<Dropdown.Item 
-					label="Selected Beta" 
-					isSelected 
-					showBadge 
-					badgeVariant="blue" 
-					badgeText="Beta" 
+				<Dropdown.Item
+					label="Selected Beta"
+					isSelected
+					showBadge
+					badgeVariant="blue"
+					badgeText="Beta"
 				/>
-				<Dropdown.Item 
-					label="Disabled Premium" 
-					state="disabled" 
-					showBadge 
-					badgeVariant="gold" 
-					badgeText="Pro" 
+				<Dropdown.Item
+					label="Disabled Premium"
+					state="disabled"
+					showBadge
+					badgeVariant="gold"
+					badgeText="Pro"
 				/>
 			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Complete badge integration using design system tokens. Badges are positioned on the right with proper 
-			spacing and support all Badge component variants: blue, green, gold, orange, red, and yellow (default).
+			Complete badge integration using design system tokens. Badges are positioned on the right with
+			proper spacing and support all Badge component variants: blue, green, gold, orange, red, and
+			yellow (default).
 		</Text>
 	</>
 );
@@ -138,29 +149,29 @@ export const WithIcons = () => (
 				<Dropdown.Item label="Delete File" icon={ <BiTrash /> } showIcon state="disabled" />
 			</Dropdown.Group>
 			<Dropdown.Group label="Mixed Features" separator>
-				<Dropdown.Item 
-					label="Favorite Action" 
-					icon={ <BiHeart /> } 
-					showIcon 
-					showBadge 
-					badgeVariant="red" 
-					badgeText="Hot" 
+				<Dropdown.Item
+					label="Favorite Action"
+					icon={ <BiHeart /> }
+					showIcon
+					showBadge
+					badgeVariant="red"
+					badgeText="Hot"
 				/>
-				<Dropdown.Item 
-					label="Premium Feature" 
-					icon={ <BiStar /> } 
-					showIcon 
-					showBadge 
-					badgeVariant="gold" 
-					badgeText="Pro" 
-					isSelected 
+				<Dropdown.Item
+					label="Premium Feature"
+					icon={ <BiStar /> }
+					showIcon
+					showBadge
+					badgeVariant="gold"
+					badgeText="Pro"
+					isSelected
 				/>
 			</Dropdown.Group>
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Icons are automatically sized to 20px for consistency and positioned with proper 6px gap from text. 
-			Works seamlessly with all other features including selection, badges, and states.
+			Icons are automatically sized to 20px for consistency and positioned with proper 6px gap from
+			text. Works seamlessly with all other features including selection, badges, and states.
 		</Text>
 	</>
 );
@@ -208,8 +219,8 @@ export const WithSecondaryLabels = () => (
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Secondary labels provide additional context using 12px text with proper spacing. They work with all 
-			other features and automatically handle text overflow with ellipsis.
+			Secondary labels provide additional context using 12px text with proper spacing. They work
+			with all other features and automatically handle text overflow with ellipsis.
 		</Text>
 	</>
 );
@@ -269,9 +280,10 @@ export const CheckboxItems = () => {
 			</Dropdown.Root>
 
 			<Text sx={ { mt: 3 } }>
-				Enhanced CheckboxItem with persistent checkbox icons and full feature parity including icons, 
-				badges, secondary labels, and disabled states. Current selections: Notifications={ String(notifications) }, 
-				Auto-save={ String(autoSave) }, Premium={ String(premiumFeature) }, Debug={ String(debugMode) }.
+				Enhanced CheckboxItem with persistent checkbox icons and full feature parity including
+				icons, badges, secondary labels, and disabled states. Current selections: Notifications=
+				{ String( notifications ) }, Auto-save={ String( autoSave ) }, Premium=
+				{ String( premiumFeature ) }, Debug={ String( debugMode ) }.
 			</Text>
 		</>
 	);
@@ -289,12 +301,7 @@ export const RadioItems = () => {
 			<Dropdown.Root trigger={ <Button>Radio Selection</Button> }>
 				<Dropdown.Group label="Theme Preference">
 					<Dropdown.RadioGroup value={ theme } onValueChange={ setTheme }>
-						<Dropdown.RadioItem 
-							value="light" 
-							label="Light Mode" 
-							icon={ <BiUser /> } 
-							showIcon 
-						/>
+						<Dropdown.RadioItem value="light" label="Light Mode" icon={ <BiUser /> } showIcon />
 						<Dropdown.RadioItem
 							value="dark"
 							label="Dark Mode"
@@ -310,9 +317,9 @@ export const RadioItems = () => {
 							badgeVariant="blue"
 							badgeText="Auto"
 						/>
-						<Dropdown.RadioItem 
-							value="high-contrast" 
-							label="High Contrast" 
+						<Dropdown.RadioItem
+							value="high-contrast"
+							label="High Contrast"
 							secondaryLabel="Accessibility mode"
 							showBadge
 							badgeVariant="green"
@@ -323,11 +330,7 @@ export const RadioItems = () => {
 
 				<Dropdown.Group label="Language & Region" separator>
 					<Dropdown.RadioGroup value={ language } onValueChange={ setLanguage }>
-						<Dropdown.RadioItem 
-							value="english" 
-							label="English" 
-							secondaryLabel="Default language" 
-						/>
+						<Dropdown.RadioItem value="english" label="English" secondaryLabel="Default language" />
 						<Dropdown.RadioItem
 							value="spanish"
 							label="Español"
@@ -346,19 +349,20 @@ export const RadioItems = () => {
 							badgeVariant="gold"
 							badgeText="Pro"
 						/>
-						<Dropdown.RadioItem 
-							value="disabled" 
-							label="German" 
+						<Dropdown.RadioItem
+							value="disabled"
+							label="German"
 							secondaryLabel="Coming soon"
-							state="disabled" 
+							state="disabled"
 						/>
 					</Dropdown.RadioGroup>
 				</Dropdown.Group>
 			</Dropdown.Root>
 
 			<Text sx={ { mt: 3 } }>
-				Enhanced RadioItem with persistent radio button icons and proper RadioGroup selection management. 
-				Current selections: Theme="{ theme }", Language="{ language }". Notice how disabled items are properly styled.
+				Enhanced RadioItem with persistent radio button icons and proper RadioGroup selection
+				management. Current selections: Theme=&quot;{ theme }&quot;, Language=&quot;{ language }&quot;. Notice how
+				disabled items are properly styled.
 			</Text>
 		</>
 	);
@@ -382,21 +386,21 @@ export const GroupStructure = () => (
 			</Dropdown.Group>
 
 			<Dropdown.Group label="Advanced" separator>
-				<Dropdown.Item 
-					label="Find & Replace" 
+				<Dropdown.Item
+					label="Find & Replace"
 					secondaryLabel="Ctrl+H"
-					showBadge 
-					badgeVariant="blue" 
-					badgeText="Power" 
+					showBadge
+					badgeVariant="blue"
+					badgeText="Power"
 				/>
-				<Dropdown.Item 
-					label="Developer Tools" 
+				<Dropdown.Item
+					label="Developer Tools"
 					secondaryLabel="F12"
-					icon={ <BiCog /> } 
-					showIcon 
-					showBadge 
-					badgeVariant="orange" 
-					badgeText="Debug" 
+					icon={ <BiCog /> }
+					showIcon
+					showBadge
+					badgeVariant="orange"
+					badgeText="Debug"
 				/>
 			</Dropdown.Group>
 
@@ -407,8 +411,8 @@ export const GroupStructure = () => (
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Proper group structure with DropdownLabel components (12px semibold, uppercase, letter-spacing) 
-			and DropdownSeparator components. Groups can have labels, separators, or both.
+			Proper group structure with DropdownLabel components (12px semibold, uppercase,
+			letter-spacing) and DropdownSeparator components. Groups can have labels, separators, or both.
 		</Text>
 	</>
 );
@@ -426,7 +430,7 @@ export const SubMenus = () => (
 
 			<Dropdown.Sub>
 				<Dropdown.SubTrigger>
-					<span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+					<span style={ { display: 'flex', alignItems: 'center', gap: '6px' } }>
 						<BiCog />
 						More Options
 					</span>
@@ -438,13 +442,13 @@ export const SubMenus = () => (
 						<Dropdown.Item label="Print Preview" />
 					</Dropdown.Group>
 					<Dropdown.Group label="Developer" separator>
-						<Dropdown.Item 
-							label="Inspect Element" 
-							icon={ <BiCog /> } 
-							showIcon 
-							showBadge 
-							badgeVariant="orange" 
-							badgeText="Dev" 
+						<Dropdown.Item
+							label="Inspect Element"
+							icon={ <BiCog /> }
+							showIcon
+							showBadge
+							badgeVariant="orange"
+							badgeText="Dev"
 						/>
 						<Dropdown.Item label="Console" state="disabled" />
 					</Dropdown.Group>
@@ -457,7 +461,7 @@ export const SubMenus = () => (
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Sub-menu functionality with DropdownSub, DropdownSubTrigger (with automatic chevron), and 
+			Sub-menu functionality with DropdownSub, DropdownSubTrigger (with automatic chevron), and
 			DropdownSubContent. Sub-menus support all the same features as main dropdowns.
 		</Text>
 	</>
@@ -475,57 +479,47 @@ export const CompleteExample = () => {
 		<>
 			<Dropdown.Root trigger={ <Button variant="primary">Complete Feature Demo</Button> }>
 				<Dropdown.Group label="File Operations">
-					<Dropdown.Item 
-						label="New Tab" 
-						secondaryLabel="Ctrl+T"
-						icon={ <BiFile /> } 
-						showIcon 
-					/>
-					<Dropdown.Item 
-						label="New Window" 
+					<Dropdown.Item label="New Tab" secondaryLabel="Ctrl+T" icon={ <BiFile /> } showIcon />
+					<Dropdown.Item
+						label="New Window"
 						secondaryLabel="Ctrl+N"
-						icon={ <BiDownload /> } 
-						showIcon 
+						icon={ <BiDownload /> }
+						showIcon
 					/>
-					<Dropdown.Item 
-						label="Private Window" 
+					<Dropdown.Item
+						label="Private Window"
 						secondaryLabel="Ctrl+Shift+N"
-						icon={ <BiUser /> } 
-						showIcon 
-						state="disabled" 
+						icon={ <BiUser /> }
+						showIcon
+						state="disabled"
 					/>
 				</Dropdown.Group>
 
 				<Dropdown.Sub>
 					<Dropdown.SubTrigger>
-						<span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+						<span style={ { display: 'flex', alignItems: 'center', gap: '6px' } }>
 							<BiCog />
 							Advanced Tools
 						</span>
 					</Dropdown.SubTrigger>
 					<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
 						<Dropdown.Group label="Export Options">
-							<Dropdown.Item 
-								label="Save Page As..." 
-								showBadge 
-								badgeVariant="blue" 
-								badgeText="HTML" 
+							<Dropdown.Item
+								label="Save Page As..."
+								showBadge
+								badgeVariant="blue"
+								badgeText="HTML"
 							/>
-							<Dropdown.Item 
-								label="Export to PDF" 
-								showBadge 
-								badgeVariant="green" 
-								badgeText="New" 
-							/>
+							<Dropdown.Item label="Export to PDF" showBadge badgeVariant="green" badgeText="New" />
 						</Dropdown.Group>
 						<Dropdown.Group label="Developer Tools" separator>
-							<Dropdown.Item 
-								label="Inspect Element" 
-								icon={ <BiCog /> } 
-								showIcon 
-								showBadge 
-								badgeVariant="orange" 
-								badgeText="Dev" 
+							<Dropdown.Item
+								label="Inspect Element"
+								icon={ <BiCog /> }
+								showIcon
+								showBadge
+								badgeVariant="orange"
+								badgeText="Dev"
 							/>
 							<Dropdown.Item state="loading" />
 						</Dropdown.Group>
@@ -552,12 +546,12 @@ export const CompleteExample = () => {
 
 				<Dropdown.Group label="Active Profile" separator>
 					<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
-						<Dropdown.RadioItem 
-							value="john" 
-							label="John Doe" 
+						<Dropdown.RadioItem
+							value="john"
+							label="John Doe"
 							secondaryLabel="Administrator"
-							icon={ <BiUser /> } 
-							showIcon 
+							icon={ <BiUser /> }
+							showIcon
 							showBadge
 							badgeVariant="gold"
 							badgeText="Admin"
@@ -603,9 +597,9 @@ export const CompleteExample = () => {
 			</Dropdown.Root>
 
 			<Text sx={ { mt: 3 } }>
-				Complete demonstration of all dropdown features: states, icons, badges, secondary labels, 
-				checkboxes, radio groups, sub-menus, and proper group organization. This showcases the full 
-				capability of the redesigned component with 32px item height, improved spacing, and 
+				Complete demonstration of all dropdown features: states, icons, badges, secondary labels,
+				checkboxes, radio groups, sub-menus, and proper group organization. This showcases the full
+				capability of the redesigned component with 32px item height, improved spacing, and
 				comprehensive design system token integration.
 			</Text>
 		</>
@@ -617,7 +611,7 @@ export const CompleteExample = () => {
  */
 export const Alignment = () => (
 	<>
-		<Flex sx={{ gap: 4, justifyContent: 'space-around', p: 4 }}>
+		<Flex sx={ { gap: 4, justifyContent: 'space-around', p: 4 } }>
 			<div>
 				<Text sx={ { mb: 2, textAlign: 'center', fontWeight: 'semiBold' } }>Align Start</Text>
 				<Dropdown.Root trigger={ <Button>Align Start</Button> } contentProps={ { align: 'start' } }>
@@ -656,7 +650,7 @@ export const Alignment = () => (
 		</Flex>
 
 		<Text sx={ { mt: 3 } }>
-			Dropdown content alignment options relative to the trigger. The improved design maintains 
+			Dropdown content alignment options relative to the trigger. The improved design maintains
 			consistent spacing and styling across all alignment modes.
 		</Text>
 	</>
@@ -692,9 +686,9 @@ export const BackwardCompatibility = () => (
 		</Dropdown.Root>
 
 		<Text sx={ { mt: 3 } }>
-			Backward compatibility maintained - both legacy children-based API and new prop-based API 
-			work seamlessly together. The redesign preserves existing functionality while adding 
-			comprehensive new features.
+			Backward compatibility maintained - both legacy children-based API and new prop-based API work
+			seamlessly together. The redesign preserves existing functionality while adding comprehensive
+			new features.
 		</Text>
 	</>
 );
@@ -712,9 +706,11 @@ export const WithDialog = () => {
 			{ ...props }
 			content={
 				<>
-					<Text sx={{ mb: 3 }}>This action cannot be undone. Are you sure you want to proceed?</Text>
-					<Flex sx={{ gap: 2, justifyContent: 'flex-end' }}>
-						<Button variant="secondary" onClick={ () => props.onOpenChange?.(false) }>
+					<Text sx={ { mb: 3 } }>
+						This action cannot be undone. Are you sure you want to proceed?
+					</Text>
+					<Flex sx={ { gap: 2, justifyContent: 'flex-end' } }>
+						<Button variant="secondary" onClick={ () => props.onOpenChange?.( false ) }>
 							Cancel
 						</Button>
 						<Button variant="primary" onClick={ () => onConfirm() }>
@@ -736,18 +732,14 @@ export const WithDialog = () => {
 				trigger={ <Button>Menu with Dialog</Button> }
 			>
 				<Dropdown.Group label="Safe Actions">
-					<Dropdown.Item 
-						label="View Details" 
-						icon={ <BiFile /> } 
-						showIcon 
-					/>
-					<Dropdown.Item 
-						label="Edit Settings" 
-						icon={ <BiEdit /> } 
-						showIcon 
-						showBadge 
-						badgeVariant="blue" 
-						badgeText="Safe" 
+					<Dropdown.Item label="View Details" icon={ <BiFile /> } showIcon />
+					<Dropdown.Item
+						label="Edit Settings"
+						icon={ <BiEdit /> }
+						showIcon
+						showBadge
+						badgeVariant="blue"
+						badgeText="Safe"
 					/>
 				</Dropdown.Group>
 
@@ -760,7 +752,7 @@ export const WithDialog = () => {
 						onConfirm={ () => {
 							setAlertOpen( false );
 							setMenuOpen( false );
-							console.log('Item deleted');
+							console.log( 'Item deleted' );
 						} }
 						trigger={
 							<Dropdown.Item
@@ -779,8 +771,8 @@ export const WithDialog = () => {
 			</Dropdown.Root>
 
 			<Text sx={ { mt: 3 } }>
-				Proper modal behavior when combining dropdowns with dialogs. The dropdown modal state 
-				is managed to prevent conflicts, and dangerous actions are clearly marked with appropriate 
+				Proper modal behavior when combining dropdowns with dialogs. The dropdown modal state is
+				managed to prevent conflicts, and dangerous actions are clearly marked with appropriate
 				badges and confirmation dialogs.
 			</Text>
 		</>

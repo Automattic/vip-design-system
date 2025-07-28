@@ -245,14 +245,14 @@ export const DropdownItemBadge: React.FC< {
 	return badge ? (
 		<>{ badge }</>
 	) : (
-		<Badge 
-			variant={ badgeVariant } 
-			sx={ { 
+		<Badge
+			variant={ badgeVariant }
+			sx={ {
 				marginBottom: 0,
-				...(disabled && {
+				...( disabled && {
 					opacity: 0.5,
 					color: 'texts.disabled',
-				})
+				} ),
 			} }
 		>
 			{ badgeText }
