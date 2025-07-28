@@ -260,18 +260,21 @@ export const ComplexExample = () => {
 
 				<Dropdown.Group label="Active User" separator>
 					<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
-						<Dropdown.RadioItem value="pedro">
-							<Dropdown.ItemIndicator>
-								<BiDotsHorizontal />
-							</Dropdown.ItemIndicator>
-							Pedro Duarte
-						</Dropdown.RadioItem>
-						<Dropdown.RadioItem value="colm">
-							<Dropdown.ItemIndicator>
-								<BiDotsHorizontal />
-							</Dropdown.ItemIndicator>
-							Colm Tuite
-						</Dropdown.RadioItem>
+						<Dropdown.RadioItem 
+							value="pedro" 
+							label="Pedro Duarte"
+							icon={ <BiUser /> }
+							showIcon
+						/>
+						<Dropdown.RadioItem 
+							value="colm" 
+							label="Colm Tuite"
+							icon={ <BiUser /> }
+							showIcon
+							showBadge
+							badgeVariant="blue"
+							badgeText="Admin"
+						/>
 					</Dropdown.RadioGroup>
 				</Dropdown.Group>
 
@@ -447,6 +450,86 @@ export const CheckboxItems = () => {
 				Enhanced CheckboxItem with persistent checkbox icons, proper state management, and full
 				feature parity with DropdownItem. All items are interactive, including the disabled one (for
 				demo purposes).
+			</Text>
+		</>
+	);
+};
+
+/**
+ * Demonstrates the enhanced DropdownRadioItem with full feature parity
+ */
+export const RadioItems = () => {
+	const [ theme, setTheme ] = React.useState( 'system' );
+	const [ language, setLanguage ] = React.useState( 'english' );
+
+	return (
+		<>
+			<Dropdown.Root trigger={ <Button>Radio Items</Button> }>
+				<Dropdown.Group label="Theme Preference">
+					<Dropdown.RadioGroup value={ theme } onValueChange={ setTheme }>
+						<Dropdown.RadioItem 
+							value="light" 
+							label="Light Mode"
+							icon={ <BiUser /> }
+							showIcon
+						/>
+						<Dropdown.RadioItem 
+							value="dark" 
+							label="Dark Mode"
+							secondaryLabel="Easier on the eyes"
+							icon={ <BiCog /> }
+							showIcon
+						/>
+						<Dropdown.RadioItem 
+							value="system" 
+							label="System Preference"
+							showBadge
+							badgeVariant="blue"
+							badgeText="Auto"
+						/>
+						<Dropdown.RadioItem 
+							value="disabled" 
+							label="Disabled Option"
+							state="disabled"
+						/>
+					</Dropdown.RadioGroup>
+				</Dropdown.Group>
+
+				<Dropdown.Group label="Language" separator>
+					<Dropdown.RadioGroup value={ language } onValueChange={ setLanguage }>
+						<Dropdown.RadioItem 
+							value="english" 
+							label="English"
+							secondaryLabel="Default"
+						/>
+						<Dropdown.RadioItem 
+							value="spanish" 
+							label="Español"
+							showBadge
+							badgeVariant="green"
+							badgeText="Beta"
+						/>
+						<Dropdown.RadioItem 
+							value="french" 
+							label="Français"
+							icon={ <BiFile /> }
+							showIcon
+							showBadge
+							badgeVariant="gold"
+							badgeText="Pro"
+						/>
+						<Dropdown.RadioItem 
+							value="loading" 
+							state="loading"
+						/>
+					</Dropdown.RadioGroup>
+				</Dropdown.Group>
+			</Dropdown.Root>
+
+			<Text sx={ { mt: 3 } }>
+				Enhanced RadioItem with persistent radio button icons, proper state management, and full
+				feature parity with DropdownItem. Uses RadioGroup for proper single-selection behavior.
+				Current selections: Theme = "{ theme }", Language = "{ language }".
 			</Text>
 		</>
 	);
