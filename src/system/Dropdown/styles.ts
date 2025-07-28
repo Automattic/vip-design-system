@@ -35,7 +35,9 @@ export const dropdownItemStyles: ThemeUIStyleObject = {
 		backgroundColor: 'input.radio-box.background.hover',
 		textDecoration: 'none',
 	},
-	'&:focus-visible:not(:hover), &:focus:not(:hover), &[data-highlighted]:not(:hover)': ( theme: DropdownTheme ) => theme.outline,
+	'&:focus-visible:not(:hover), &:focus:not(:hover), &[data-highlighted]:not(:hover)': (
+		theme: DropdownTheme
+	) => theme.outline,
 	'&[data-disabled]': {
 		color: 'texts.disabled', // #9b9796 - matches texts pattern
 		pointerEvents: 'none',

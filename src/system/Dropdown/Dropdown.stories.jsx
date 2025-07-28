@@ -361,8 +361,8 @@ export const RadioItems = () => {
 
 			<Text sx={ { mt: 3 } }>
 				Enhanced RadioItem with persistent radio button icons and proper RadioGroup selection
-				management. Current selections: Theme=&quot;{ theme }&quot;, Language=&quot;{ language }&quot;. Notice how
-				disabled items are properly styled.
+				management. Current selections: Theme=&quot;{ theme }&quot;, Language=&quot;{ language }
+				&quot;. Notice how disabled items are properly styled.
 			</Text>
 		</>
 	);
