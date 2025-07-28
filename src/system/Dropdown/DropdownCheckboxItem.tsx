@@ -3,50 +3,13 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { BiLoaderAlt, BiQuestionMark, BiCheck } from 'react-icons/bi';
+import { BiLoaderAlt, BiQuestionMark, BiCheck, BiSquare } from 'react-icons/bi';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { Badge } from '../Badge';
 
 // Extract Badge variant type from the Badge component
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
-
-/**
- * Props for the DropdownItem component
- */
-export interface DropdownItemProps extends DropdownMenuPrimitive.MenuItemProps {
-	/** Additional CSS class name */
-	className?: string;
-	/** Main text content of the item */
-	label?: string;
-	/** Leading icon element */
-	icon?: React.ReactNode | null;
-	/** Whether to show a check mark indicating selection */
-	isSelected?: boolean;
-	/** Whether to show a badge on the right side */
-	showBadge?: boolean;
-	/** Whether to show an icon before the label (when icon is provided) */
-	showIcon?: boolean;
-	/** Secondary text displayed after the main label */
-	secondaryLabel?: string;
-	/** Visual state of the item */
-	state?: 'default' | 'hover' | 'disabled' | 'loading' | 'empty';
-	/** Custom badge component (overrides default badge) */
-	badge?: React.ReactNode;
-	/** Badge variant when using default badge */
-	badgeVariant?: BadgeVariant;
-	/** Badge text content when using default badge */
-	badgeText?: string;
-}
-
-/**
- * Props for DropdownSubTrigger component
- */
-export interface DropdownSubTriggerItemProps
-	extends DropdownMenuPrimitive.DropdownMenuSubTriggerProps {
-	/** Additional CSS class name */
-	className?: string;
-}
 
 /**
  * Base styles for dropdown items
@@ -97,46 +60,60 @@ const LoadingIcon = () => <BiLoaderAlt size={ 20 } sx={ { color: 'icon.primary' 
 const EmptyIcon = () => <BiQuestionMark size={ 20 } sx={ { color: 'icon.primary' } } />;
 
 /**
- * Check mark icon for selected state
- * Positioned absolutely at top-left of the item
+ * Props for DropdownCheckboxItem component
+ * Extends Radix CheckboxItem but adds VIP Design System features
  */
-const CheckIcon = () => (
-	<BiCheck
-		size={ 20 }
-		sx={ {
-			position: 'absolute',
-			left: 1, // 4px from left - space[1]
-			top: '6px', // 6px from top (no design token available)
-			color: 'icon.primary',
-		} }
-	/>
-);
+export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.MenuCheckboxItemProps {
+	/** Additional CSS class name */
+	className?: string;
+	/** Item label text */
+	label?: string;
+	/** Optional icon */
+	icon?: React.ReactNode;
+	/** Whether checkbox is checked - maps to Radix 'checked' prop */
+	isSelected?: boolean;
+	/** Show badge */
+	showBadge?: boolean;
+	/** Show icon */
+	showIcon?: boolean;
+	/** Secondary label text */
+	secondaryLabel?: string;
+	/** Item state */
+	state?: 'default' | 'hover' | 'disabled' | 'loading' | 'empty';
+	/** Custom badge component */
+	badge?: React.ReactNode;
+	/** Badge variant */
+	badgeVariant?: BadgeVariant;
+	/** Badge text */
+	badgeText?: string;
+	/** Children */
+	children?: React.ReactNode;
+}
 
 /**
- * Dropdown item component with support for various states and features
+ * Enhanced DropdownCheckboxItem with full DropdownItem feature parity
+ * Always shows a checkbox (checked or unchecked) instead of conditional check mark
  *
  * @example
  * ```tsx
- * // Basic item
- * <DropdownItem label="Edit Profile" />
+ * // Basic checkbox item
+ * <DropdownCheckboxItem label="Enable feature" />
  *
- * // With icon
- * <DropdownItem label="Settings" icon={<SettingsIcon />} showIcon />
+ * // Checked state
+ * <DropdownCheckboxItem label="Auto-save" isSelected />
  *
- * // With badge
- * <DropdownItem label="Beta Feature" showBadge badgeVariant="blue" badgeText="Beta" />
- *
- * // Loading state
- * <DropdownItem state="loading" />
- *
- * // Selected state
- * <DropdownItem label="Current Option" isSelected />
- *
- * // With secondary label
- * <DropdownItem label="John Doe" secondaryLabel="Administrator" />
+ * // With icon and badge
+ * <DropdownCheckboxItem 
+ *   label="Beta Feature" 
+ *   icon={<SettingsIcon />} 
+ *   showIcon 
+ *   showBadge 
+ *   badgeVariant="blue" 
+ *   badgeText="Beta" 
+ * />
  * ```
  */
-export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps >(
+export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCheckboxItemProps >(
 	(
 		{
 			className,
@@ -151,11 +128,13 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 			badgeVariant = 'yellow',
 			badgeText = 'Primary',
 			children,
+			checked, // Radix checked prop
+			onCheckedChange, // Radix onCheckedChange prop
 			...props
 		},
 		forwardRef
 	) => {
-		// Determine content based on state
+		// Determine content based on state (same logic as DropdownItem)
 		let displayIcon = icon;
 		let displayLabel = label;
 
@@ -177,30 +156,57 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 
 		const shouldShowSecondaryLabel = secondaryLabel;
 
+		// Checkbox icons - empty square always visible, checkmark overlays when selected
+		const CheckboxIcons = () => (
+			<>
+				{ /* Empty square - always visible */ }
+				<BiSquare
+					size={ 20 }
+					sx={ {
+						position: 'absolute',
+						left: 1, // 4px from left - space[1]
+						top: '6px', // 6px from top
+						color: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
+					} }
+				/>
+				{ /* Checkmark - only visible when selected, overlays the square */ }
+				{ isChecked && (
+					<BiCheck
+						size={ 20 }
+						sx={ {
+							position: 'absolute',
+							left: 1, // 4px from left - space[1]
+							top: '6px', // 6px from top
+							color: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
+						} }
+					/>
+				) }
+			</>
+		);
+
+		// Map our isSelected to Radix's checked prop (prioritize Radix checked if provided)
+		const isChecked = checked !== undefined ? checked : isSelected;
+
 		return (
-			<DropdownMenuPrimitive.DropdownMenuItem
-				className={ classNames( 'vip-dropdown-menu-item', className ) }
+			<DropdownMenuPrimitive.CheckboxItem
+				className={ classNames( 'vip-dropdown-checkbox-item', className ) }
 				ref={ forwardRef }
 				sx={ styles }
 				disabled={ state === 'disabled' }
+				checked={ isChecked }
+				onCheckedChange={ onCheckedChange }
+				onSelect={ event => {
+					// Prevent dropdown from closing when checkbox is toggled
+					event.preventDefault();
+				} }
 				{ ...props }
 			>
-				{ /* Selected state check mark - absolute positioned */ }
-				{ isSelected && <CheckIcon /> }
+				{ /* Checkbox - empty square always visible, checkmark overlays when selected */ }
+				<CheckboxIcons />
 
 				{ /* Leading icon */ }
 				{ displayIcon && (
-					<div
-						sx={ {
-							display: 'flex',
-							alignItems: 'center',
-							flexShrink: 0,
-							width: '20px',
-							height: '20px',
-						} }
-					>
-						{ displayIcon }
-					</div>
+					<div sx={ { display: 'flex', alignItems: 'center', flexShrink: 0 } }>{ displayIcon }</div>
 				) }
 
 				{ /* Label content area */ }
@@ -209,7 +215,7 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 						display: 'flex',
 						alignItems: 'baseline', // Align text baselines instead of centering containers
 						flex: 1,
-						gap: shouldShowSecondaryLabel ? '4px' : 0, // Figma shows gap-1 = 4px
+						gap: shouldShowSecondaryLabel ? '4px' : 0, // Consistent with DropdownItem
 						overflow: 'hidden',
 					} }
 				>
@@ -247,35 +253,9 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 
 				{ /* Badge */ }
 				{ showBadge && ( badge ? badge : <Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>{ badgeText }</Badge> ) }
-			</DropdownMenuPrimitive.DropdownMenuItem>
+			</DropdownMenuPrimitive.CheckboxItem>
 		);
 	}
 );
 
-DropdownItem.displayName = 'DropdownItem';
-
-
-
-/**
- * Dropdown sub-trigger item component for nested dropdowns
- */
-export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubTriggerItemProps >(
-	( { className, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.SubTrigger
-			className={ classNames( 'vip-dropdown-sub-trigger', className ) }
-			ref={ forwardRef }
-			sx={ {
-				...styles,
-				...{
-					'&[data-state="open"]': {
-						background: 'highlight',
-						color: 'primary',
-					},
-				},
-			} }
-			{ ...props }
-		/>
-	)
-);
-
-DropdownSubTrigger.displayName = 'DropdownSubTrigger';
+DropdownCheckboxItem.displayName = 'DropdownCheckboxItem'; 

@@ -8,7 +8,7 @@ import { MdCheck, MdKeyboardArrowDown } from 'react-icons/md';
 import { Button } from '../Button';
 import * as Dropdown from '../Dropdown';
 import { DropdownContentProps } from '../Dropdown/DropdownContent';
-import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';
+import { DropdownCheckboxItemProps } from '../Dropdown/DropdownCheckboxItem';
 import ScreenReaderText from '../ScreenReaderText';
 
 export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {

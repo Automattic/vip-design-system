@@ -11,10 +11,10 @@ import { DropdownSubContent, DropdownContent } from './DropdownContent';
 import { DropdownGroup } from './DropdownGroup';
 import {
 	DropdownItem,
-	DropdownCheckboxItem,
-	DropdownRadioItem,
 	DropdownSubTrigger,
 } from './DropdownItem';
+import { DropdownCheckboxItem } from './DropdownCheckboxItem';
+import { DropdownRadioItem } from './DropdownRadioItem';
 import { DropdownLabel } from './DropdownLabel';
 import { DropdownSeparator } from './DropdownSeparator';
 
@@ -52,13 +52,19 @@ export {
 
 export {
 	DropdownItem,
-	DropdownCheckboxItem,
-	DropdownRadioItem,
 	DropdownSubTrigger,
 	type DropdownItemProps,
-	type DropdownCheckboxItemProps,
-	type DropdownRadioItemProps,
 	type DropdownSubTriggerItemProps,
 } from './DropdownItem';
+
+export {
+	DropdownCheckboxItem,
+	type DropdownCheckboxItemProps,
+} from './DropdownCheckboxItem';
+
+export {
+	DropdownRadioItem,
+	type DropdownRadioItemProps,
+} from './DropdownRadioItem';
 
 export default Dropdown;

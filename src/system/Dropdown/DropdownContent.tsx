@@ -42,7 +42,7 @@ export const styles: ThemeUIStyleObject = {
  * ```
  */
 export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
-	( { className, align = 'center', ...props }, forwardRef ) => (
+	( { className, align = 'start', ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuContent
 			className={ classNames( 'vip-dropdown-menu-content', className ) }
 			ref={ forwardRef }

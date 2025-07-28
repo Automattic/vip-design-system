@@ -26,6 +26,62 @@ export default {
 };
 
 /**
+ * Demonstrates dropdown alignment options
+ */
+export const Alignment = () => (
+	<>
+		<div style={{ display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'space-around', padding: '50px 20px' }}>
+			<div>
+				<Text sx={{ mb: 2, textAlign: 'center' }}>Align Start</Text>
+				<Dropdown.Root 
+					trigger={<Button>Align Start</Button>} 
+					contentProps={{ align: 'start' }}
+				>
+					<Dropdown.Group>
+						<Dropdown.Item label="Option 1" />
+						<Dropdown.Item label="Option 2" />
+						<Dropdown.Item label="Option 3" />
+					</Dropdown.Group>
+				</Dropdown.Root>
+			</div>
+
+			<div>
+				<Text sx={{ mb: 2, textAlign: 'center' }}>Align Center (Default)</Text>
+				<Dropdown.Root 
+					trigger={<Button>Align Center</Button>} 
+					contentProps={{ align: 'center' }}
+				>
+					<Dropdown.Group>
+						<Dropdown.Item label="Option 1" />
+						<Dropdown.Item label="Option 2" />
+						<Dropdown.Item label="Option 3" />
+					</Dropdown.Group>
+				</Dropdown.Root>
+			</div>
+
+			<div>
+				<Text sx={{ mb: 2, textAlign: 'center' }}>Align End</Text>
+				<Dropdown.Root 
+					trigger={<Button>Align End</Button>} 
+					contentProps={{ align: 'end' }}
+				>
+					<Dropdown.Group>
+						<Dropdown.Item label="Option 1" />
+						<Dropdown.Item label="Option 2" />
+						<Dropdown.Item label="Option 3" />
+					</Dropdown.Group>
+				</Dropdown.Root>
+			</div>
+		</div>
+
+		<Text sx={{ mt: 3 }}>
+			This demonstrates the dropdown alignment options: 'start', 'center', and 'end'. 
+			The dropdown content should align differently relative to the trigger button.
+		</Text>
+	</>
+);
+
+/**
  * Basic dropdown with the new label prop API
  */
 export const Default = () => (
@@ -268,72 +324,6 @@ export const BackwardCompatibility = () => (
 
 		<Text sx={ { mt: 3 } }>
 			Shows backward compatibility - both old children-based and new prop-based APIs work together.
-		</Text>
-	</>
-);
-
-/**
- * Demonstrates the DropdownGroup component's spacing control
- */
-export const GroupSpacingDemo = () => (
-	<>
-		<Dropdown.Root trigger={ <Button>Group Spacing Demo</Button> }>
-			<Dropdown.Group label="First Group">
-				<Dropdown.Item label="Item 1 in group" />
-				<Dropdown.Item label="Item 2 in group" />
-				<Dropdown.Item label="Item 3 in group" />
-			</Dropdown.Group>
-
-			<Dropdown.Group label="Second Group" separator>
-				<Dropdown.Item label="Another item" />
-				<Dropdown.Item label="With tighter spacing" />
-			</Dropdown.Group>
-
-			<Dropdown.Group label="Third Group" separator>
-				<Dropdown.Item label="Notice the spacing" />
-				<Dropdown.Item label="Within groups: gap-1 (4px)" />
-				<Dropdown.Item label="Separator is part of group" />
-			</Dropdown.Group>
-		</Dropdown.Root>
-
-		<Text sx={ { mt: 3 } }>
-			Notice how the separator is now part of the group structure, exactly matching the Figma
-			design. The spacing within each group is consistent (4px).
-		</Text>
-	</>
-);
-
-/**
- * Design system showcase using the new DropdownGroup component
- */
-export const DesignSystemShowcase = () => (
-	<>
-		<Dropdown.Root trigger={ <Button>Design System Demo</Button> }>
-			<Dropdown.Group label="Design Tokens in Action">
-				<Dropdown.Item label="32px height items" />
-				<Dropdown.Item label="Proper spacing with groups" />
-				<Dropdown.Item label="Typography using fontSize tokens" />
-			</Dropdown.Group>
-
-			<Dropdown.Group label="Hover & States" separator>
-				<Dropdown.Item label="Hover me for input.hover background" />
-				<Dropdown.Item label="Disabled state" state="disabled" />
-			</Dropdown.Group>
-
-			<Dropdown.Group label="Advanced Features" separator>
-				<Dropdown.Item
-					label="Badge using tag.* tokens"
-					showBadge
-					badgeVariant="yellow"
-					badgeText="Tokens!"
-				/>
-				<Dropdown.Item label="With secondary label" secondaryLabel="Extra info" />
-			</Dropdown.Group>
-		</Dropdown.Root>
-
-		<Text sx={ { mt: 3 } }>
-			Demonstrates the new DropdownGroup component with proper separator integration. Notice how
-			separators are part of the group structure, not between groups.
 		</Text>
 	</>
 );
