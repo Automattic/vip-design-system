@@ -50,14 +50,30 @@ export {
 export {
 	DropdownItem,
 	DropdownSubTrigger,
+	type BaseDropdownItemProps,
 	type DropdownItemProps,
 	type DropdownSubTriggerItemProps,
+	useDropdownItemContent,
+	useDropdownItemProps,
+	useDropdownItemEventHandling,
+	useDropdownItemState,
+	DropdownItemLabelContent,
+	DropdownItemBadge,
+	DropdownItemIcon,
 } from './DropdownItem';
 
 export { DropdownCheckboxItem, type DropdownCheckboxItemProps } from './DropdownCheckboxItem';
 
 export { DropdownRadioItem, type DropdownRadioItemProps } from './DropdownRadioItem';
 
-export { LoadingIcon, EmptyIcon, CheckIcon, RadioEmptyIcon, RadioFilledIndicator } from './icons';
+export {
+	LoadingIcon,
+	EmptyIcon,
+	CheckIcon,
+	CheckboxEmptyIcon,
+	CheckboxFilledIcon,
+	RadioEmptyIcon,
+	RadioFilledIndicator,
+} from './icons';
 
 export default Dropdown;

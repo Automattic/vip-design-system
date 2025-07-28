@@ -3,8 +3,9 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
+import { BiChevronRight } from 'react-icons/bi';
 
-import { LoadingIcon, EmptyIcon, CheckIcon } from './icons';
+import { LoadingIcon, EmptyIcon, CheckIcon, iconSize } from './icons';
 import { dropdownItemStyles } from './styles';
 import { Badge } from '../Badge';
 
@@ -12,9 +13,10 @@ import { Badge } from '../Badge';
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
 
 /**
- * Props for the DropdownItem component
+ * Base interface for common dropdown item properties
+ * Shared across DropdownItem, DropdownCheckboxItem, and DropdownRadioItem
  */
-export interface DropdownItemProps extends DropdownMenuPrimitive.MenuItemProps {
+export interface BaseDropdownItemProps {
 	/** Additional CSS class name */
 	className?: string;
 	/** Main text content of the item */
@@ -37,7 +39,246 @@ export interface DropdownItemProps extends DropdownMenuPrimitive.MenuItemProps {
 	badgeVariant?: BadgeVariant;
 	/** Badge text content when using default badge */
 	badgeText?: string;
+	/** Children content */
+	children?: React.ReactNode;
 }
+
+/**
+ * Shared hook for common dropdown item state logic
+ * Handles state-based content determination and icon processing
+ */
+export const useDropdownItemContent = (
+	icon: React.ReactNode | null | undefined,
+	label: string | undefined,
+	showIcon: boolean,
+	state: BaseDropdownItemProps[ 'state' ]
+) => {
+	return React.useMemo( () => {
+		let displayIcon = icon;
+		let displayLabel = label;
+
+		if ( state === 'loading' ) {
+			displayIcon = <LoadingIcon />;
+			displayLabel = 'Loading...';
+		} else if ( state === 'empty' ) {
+			displayIcon = <EmptyIcon />;
+			displayLabel = 'Nothing found...';
+		} else if ( showIcon && icon ) {
+			displayIcon = React.isValidElement( icon )
+				? React.cloneElement( icon as React.ReactElement, {
+						size: iconSize,
+						width: iconSize,
+						height: iconSize,
+				  } )
+				: icon;
+		}
+
+		return { displayIcon, displayLabel };
+	}, [ icon, label, showIcon, state ] );
+};
+
+/**
+ * Shared utility for extracting and applying defaults to common dropdown item props
+ * Eliminates duplication in props destructuring and default values across all dropdown item components
+ */
+export const useDropdownItemProps = < T extends BaseDropdownItemProps >( props: T ) => {
+	const {
+		className,
+		label,
+		icon,
+		isSelected = false,
+		showBadge = false,
+		showIcon = false,
+		secondaryLabel,
+		state = 'default',
+		badge,
+		badgeVariant = 'yellow',
+		badgeText = 'Primary',
+		children,
+		...remainingProps
+	} = props;
+
+	const commonProps = {
+		className,
+		label,
+		icon,
+		isSelected,
+		showBadge,
+		showIcon,
+		secondaryLabel,
+		state,
+		badge,
+		badgeVariant,
+		badgeText,
+		children,
+	} as const;
+
+	return {
+		commonProps,
+		remainingProps: remainingProps as Omit< T, keyof BaseDropdownItemProps >,
+	};
+};
+
+/**
+ * Shared utility for dropdown item event handling
+ * Provides consistent behavior for different item types
+ */
+export const useDropdownItemEventHandling = (
+	itemType: 'item' | 'checkbox' | 'radio',
+	onSelect?: ( event: Event ) => void
+) => {
+	return React.useCallback(
+		( event: Event ) => {
+			// Checkbox and radio items should prevent dropdown from closing
+			if ( itemType === 'checkbox' || itemType === 'radio' ) {
+				event.preventDefault();
+			}
+
+			// Call custom onSelect if provided
+			if ( onSelect ) {
+				onSelect( event );
+			}
+		},
+		[ itemType, onSelect ]
+	);
+};
+
+/**
+ * Shared utility for mapping common dropdown item props to Radix-specific props
+ * Provides consistent prop handling across different item types
+ */
+export const useDropdownItemState = (
+	itemType: 'item' | 'checkbox' | 'radio',
+	commonProps: Pick< BaseDropdownItemProps, 'isSelected' | 'state' >,
+	radixProps: { checked?: boolean; value?: string }
+) => {
+	return React.useMemo( () => {
+		const { isSelected, state } = commonProps;
+		const { checked } = radixProps;
+
+		// Determine actual selection state based on item type
+		let actualSelected = isSelected;
+
+		if ( itemType === 'checkbox' && checked !== undefined ) {
+			// For checkbox items, prioritize Radix checked prop
+			actualSelected = checked;
+		}
+		// For radio items, selection is managed by RadioGroup value matching
+		// isSelected is only used for visual purposes (like showing badges)
+
+		return {
+			isSelected: actualSelected,
+			disabled: state === 'disabled',
+		};
+	}, [ itemType, commonProps, radixProps ] );
+};
+
+/**
+ * Shared component for dropdown item label content area
+ * Handles primary label, secondary label, and their layout
+ */
+export const DropdownItemLabelContent: React.FC< {
+	displayLabel: string | undefined;
+	secondaryLabel: string | undefined;
+	children: React.ReactNode;
+} > = ( { displayLabel, secondaryLabel, children } ) => {
+	const shouldShowSecondaryLabel = secondaryLabel;
+
+	return (
+		<div
+			sx={ {
+				display: 'flex',
+				alignItems: 'baseline',
+				flex: 1,
+				gap: shouldShowSecondaryLabel ? 1 : 0,
+				overflow: 'hidden',
+			} }
+		>
+			{ /* Primary label */ }
+			<div
+				sx={ {
+					overflow: 'hidden',
+					textOverflow: 'ellipsis',
+					whiteSpace: 'nowrap',
+					flexShrink: 0,
+				} }
+			>
+				{ displayLabel || children }
+			</div>
+
+			{ /* Secondary label */ }
+			{ shouldShowSecondaryLabel && secondaryLabel && (
+				<div
+					sx={ {
+						fontSize: 1,
+						fontFamily: 'body',
+						fontWeight: 'regular',
+						lineHeight: 5,
+						color: 'texts.secondary',
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						whiteSpace: 'nowrap',
+						minWidth: '40px',
+					} }
+				>
+					{ secondaryLabel }
+				</div>
+			) }
+		</div>
+	);
+};
+
+/**
+ * Shared component for dropdown item badge rendering
+ * Handles both custom badge and default badge with variants
+ */
+export const DropdownItemBadge: React.FC< {
+	showBadge: boolean;
+	badge?: React.ReactNode;
+	badgeVariant: BadgeVariant;
+	badgeText: string;
+} > = ( { showBadge, badge, badgeVariant, badgeText } ) => {
+	if ( ! showBadge ) return null;
+
+	return badge ? (
+		<>{ badge }</>
+	) : (
+		<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
+			{ badgeText }
+		</Badge>
+	);
+};
+
+/**
+ * Shared component for dropdown item leading icon
+ * Handles icon container styling
+ */
+export const DropdownItemIcon: React.FC< {
+	displayIcon: React.ReactNode;
+} > = ( { displayIcon } ) => {
+	if ( ! displayIcon ) return null;
+
+	return (
+		<div
+			sx={ {
+				display: 'flex',
+				alignItems: 'center',
+				flexShrink: 0,
+				width: iconSize,
+				height: iconSize,
+			} }
+		>
+			{ displayIcon }
+		</div>
+	);
+};
+
+/**
+ * Props for the DropdownItem component
+ */
+export interface DropdownItemProps
+	extends BaseDropdownItemProps,
+		DropdownMenuPrimitive.MenuItemProps {}
 
 /**
  * Props for DropdownSubTrigger component
@@ -46,6 +287,8 @@ export interface DropdownSubTriggerItemProps
 	extends DropdownMenuPrimitive.DropdownMenuSubTriggerProps {
 	/** Additional CSS class name */
 	className?: string;
+	/** Content to display in the sub-trigger (chevron icon is automatically added) */
+	children?: React.ReactNode;
 }
 
 // Styles imported from shared styles file
@@ -75,123 +318,59 @@ export interface DropdownSubTriggerItemProps
  * ```
  */
 export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps >(
-	(
-		{
+	( props, forwardRef ) => {
+		const { commonProps, remainingProps } = useDropdownItemProps( props );
+		const {
 			className,
 			label,
 			icon,
-			isSelected = false,
-			showBadge = false,
-			showIcon = false,
+			isSelected,
+			showBadge,
+			showIcon,
 			secondaryLabel,
-			state = 'default',
+			state,
 			badge,
-			badgeVariant = 'yellow',
-			badgeText = 'Primary',
+			badgeVariant,
+			badgeText,
 			children,
-			...props
-		},
-		forwardRef
-	) => {
-		// Determine content based on state
-		let displayIcon = icon;
-		let displayLabel = label;
+		} = commonProps;
 
-		if ( state === 'loading' ) {
-			displayIcon = <LoadingIcon />;
-			displayLabel = 'Loading...';
-		} else if ( state === 'empty' ) {
-			displayIcon = <EmptyIcon />;
-			displayLabel = 'Nothing found...';
-		} else if ( showIcon && icon ) {
-			displayIcon = React.isValidElement( icon )
-				? React.cloneElement( icon as React.ReactElement, {
-						size: 16, // For react-icons (BiLoaderAlt, etc.)
-						width: 16, // For Radix icons (GearIcon, etc.)
-						height: 16, // For Radix icons (GearIcon, etc.)
-				  } )
-				: icon;
-		}
+		// Extract onSelect for event handling
+		const { onSelect, ...otherProps } = remainingProps;
 
-		const shouldShowSecondaryLabel = secondaryLabel;
+		const { displayIcon, displayLabel } = useDropdownItemContent( icon, label, showIcon, state );
+		const { disabled } = useDropdownItemState( 'item', { isSelected, state }, {} );
+		const handleSelect = useDropdownItemEventHandling( 'item', onSelect );
 
 		return (
 			<DropdownMenuPrimitive.DropdownMenuItem
 				className={ classNames( 'vip-dropdown-menu-item', className ) }
 				ref={ forwardRef }
 				sx={ dropdownItemStyles }
-				disabled={ state === 'disabled' }
-				{ ...props }
+				disabled={ disabled }
+				onSelect={ handleSelect }
+				{ ...otherProps }
 			>
 				{ /* Selected state check mark - absolute positioned */ }
 				{ isSelected && <CheckIcon /> }
 
 				{ /* Leading icon */ }
-				{ displayIcon && (
-					<div
-						sx={ {
-							display: 'flex',
-							alignItems: 'center',
-							flexShrink: 0,
-							width: '16px',
-							height: '16px',
-						} }
-					>
-						{ displayIcon }
-					</div>
-				) }
+				<DropdownItemIcon displayIcon={ displayIcon } />
 
 				{ /* Label content area */ }
-				<div
-					sx={ {
-						display: 'flex',
-						alignItems: 'baseline', // Align text baselines instead of centering containers
-						flex: 1,
-						gap: shouldShowSecondaryLabel ? 1 : 0, // Figma shows gap-1 = 4px
-						overflow: 'hidden',
-					} }
-				>
-					{ /* Primary label */ }
-					<div
-						sx={ {
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							whiteSpace: 'nowrap',
-							flexShrink: 0,
-						} }
-					>
-						{ displayLabel || children }
-					</div>
-
-					{ /* Secondary label */ }
-					{ shouldShowSecondaryLabel && secondaryLabel && (
-						<div
-							sx={ {
-								fontSize: 1, // 12px - fontSizes[1]
-								fontFamily: 'body',
-								fontWeight: 'regular',
-								lineHeight: 5, // Keep proportional line height (150%)
-								color: 'texts.secondary', // Consistent with main text
-								overflow: 'hidden',
-								textOverflow: 'ellipsis',
-								whiteSpace: 'nowrap',
-								minWidth: '40px',
-							} }
-						>
-							{ secondaryLabel }
-						</div>
-					) }
-				</div>
+				<DropdownItemLabelContent
+					displayLabel={ displayLabel }
+					secondaryLabel={ secondaryLabel }
+					children={ children }
+				/>
 
 				{ /* Badge */ }
-				{ showBadge &&
-					( badge ? (
-						badge
-					) : (
-						<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
-							{ badgeText }
-						</Badge>
-					) ) }
+				<DropdownItemBadge
+					showBadge={ showBadge }
+					badge={ badge }
+					badgeVariant={ badgeVariant }
+					badgeText={ badgeText }
+				/>
 			</DropdownMenuPrimitive.DropdownMenuItem>
 		);
 	}
@@ -201,9 +380,10 @@ DropdownItem.displayName = 'DropdownItem';
 
 /**
  * Dropdown sub-trigger item component for nested dropdowns
+ * Automatically includes chevron icon
  */
 export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubTriggerItemProps >(
-	( { className, ...props }, forwardRef ) => (
+	( { className, children, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.SubTrigger
 			className={ classNames( 'vip-dropdown-sub-trigger', className ) }
 			ref={ forwardRef }
@@ -217,7 +397,19 @@ export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubT
 				},
 			} }
 			{ ...props }
-		/>
+		>
+			<div
+				sx={ {
+					display: 'flex',
+					alignItems: 'center',
+					flex: 1,
+					gap: '6px',
+				} }
+			>
+				{ children }
+			</div>
+			<BiChevronRight size={ iconSize } />
+		</DropdownMenuPrimitive.SubTrigger>
 	)
 );
 

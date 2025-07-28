@@ -4,12 +4,18 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
 
-import { LoadingIcon, EmptyIcon, RadioEmptyIcon, RadioFilledIndicator } from './icons';
+import {
+	BaseDropdownItemProps,
+	useDropdownItemContent,
+	useDropdownItemProps,
+	useDropdownItemEventHandling,
+	useDropdownItemState,
+	DropdownItemLabelContent,
+	DropdownItemBadge,
+	DropdownItemIcon,
+} from './DropdownItem';
+import { RadioEmptyIcon, RadioFilledIndicator } from './icons';
 import { dropdownItemStyles } from './styles';
-import { Badge } from '../Badge';
-
-// Extract Badge variant type from the Badge component
-type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
 
 // Styles imported from shared styles file
 
@@ -17,33 +23,13 @@ type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant'
  * Props for DropdownRadioItem component
  * Extends Radix RadioItem but adds VIP Design System features
  */
-export interface DropdownRadioItemProps extends DropdownMenuPrimitive.MenuRadioItemProps {
-	/** Additional CSS class name */
-	className?: string;
-	/** Item label text */
-	label?: string;
-	/** Optional icon */
-	icon?: React.ReactNode;
+export interface DropdownRadioItemProps
+	extends BaseDropdownItemProps,
+		DropdownMenuPrimitive.MenuRadioItemProps {
 	/** Whether radio is selected - for backward compatibility, but selection is managed by RadioGroup value */
-	isSelected?: boolean;
-	/** Radix checked prop - not typically used for RadioItems (managed by RadioGroup) */
 	checked?: boolean;
-	/** Show badge */
-	showBadge?: boolean;
-	/** Show icon */
-	showIcon?: boolean;
-	/** Secondary label text */
-	secondaryLabel?: string;
-	/** Item state */
-	state?: 'default' | 'hover' | 'disabled' | 'loading' | 'empty';
-	/** Custom badge component */
-	badge?: React.ReactNode;
-	/** Badge variant */
-	badgeVariant?: BadgeVariant;
-	/** Badge text */
-	badgeText?: string;
-	/** Children */
-	children?: React.ReactNode;
+	/** Custom onSelect handler */
+	onSelect?: ( event: Event ) => void;
 }
 
 /**
@@ -72,48 +58,31 @@ export interface DropdownRadioItemProps extends DropdownMenuPrimitive.MenuRadioI
  * ```
  */
 export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadioItemProps >(
-	(
-		{
+	( props, forwardRef ) => {
+		const { commonProps, remainingProps } = useDropdownItemProps( props );
+		const {
 			className,
 			label,
 			icon,
-			showBadge = false,
-			showIcon = false,
+			isSelected,
+			showBadge,
+			showIcon,
 			secondaryLabel,
-			state = 'default',
+			state,
 			badge,
-			badgeVariant = 'yellow',
-			badgeText = 'Primary',
+			badgeVariant,
+			badgeText,
 			children,
-			checked, // Radix checked prop
-			onSelect, // Radix onSelect prop
-			...props
-		},
-		forwardRef
-	) => {
-		// Determine content based on state (same logic as DropdownItem)
-		let displayIcon = icon;
-		let displayLabel = label;
+		} = commonProps;
 
-		if ( state === 'loading' ) {
-			displayIcon = <LoadingIcon />;
-			displayLabel = 'Loading...';
-		} else if ( state === 'empty' ) {
-			displayIcon = <EmptyIcon />;
-			displayLabel = 'Nothing found...';
-		} else if ( showIcon && icon ) {
-			displayIcon = React.isValidElement( icon )
-				? React.cloneElement( icon as React.ReactElement, {
-						size: 16, // For react-icons (BiLoaderAlt, etc.)
-						width: 16, // For Radix icons (GearIcon, etc.)
-						height: 16, // For Radix icons (GearIcon, etc.)
-				  } )
-				: icon;
-		}
+		// Extract radio-specific props
+		const { checked, onSelect, ...otherProps } = remainingProps;
 
-		const shouldShowSecondaryLabel = secondaryLabel;
+		const { displayIcon, displayLabel } = useDropdownItemContent( icon, label, showIcon, state );
+		const { disabled } = useDropdownItemState( 'radio', { isSelected, state }, { checked } );
+		const handleSelect = useDropdownItemEventHandling( 'radio', onSelect );
 
-		// For RadioItems, we don't use checked prop - selection is handled by RadioGroup value matching
+		// For RadioItems, selection is handled by RadioGroup value matching
 		// The filled circle will be handled by Radix's built-in ItemIndicator
 
 		return (
@@ -121,16 +90,9 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 				className={ classNames( 'vip-dropdown-radio-item', className ) }
 				ref={ forwardRef }
 				sx={ dropdownItemStyles }
-				disabled={ state === 'disabled' }
-				onSelect={ event => {
-					// Prevent dropdown from closing when radio is selected
-					event.preventDefault();
-					// Call custom onSelect if provided
-					if ( onSelect ) {
-						onSelect( event );
-					}
-				} }
-				{ ...props }
+				disabled={ disabled }
+				onSelect={ handleSelect }
+				{ ...otherProps }
 			>
 				{ /* Radio button - empty circle always visible, filled circle overlays when selected */ }
 				<RadioEmptyIcon state={ state } />
@@ -139,61 +101,22 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 				<RadioFilledIndicator state={ state } />
 
 				{ /* Leading icon */ }
-				{ displayIcon && (
-					<div sx={ { display: 'flex', alignItems: 'center', flexShrink: 0 } }>{ displayIcon }</div>
-				) }
+				<DropdownItemIcon displayIcon={ displayIcon } />
 
 				{ /* Label content area */ }
-				<div
-					sx={ {
-						display: 'flex',
-						alignItems: 'baseline', // Align text baselines instead of centering containers
-						flex: 1,
-						gap: shouldShowSecondaryLabel ? 1 : 0, // Consistent with DropdownItem
-						overflow: 'hidden',
-					} }
-				>
-					{ /* Primary label */ }
-					<div
-						sx={ {
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							whiteSpace: 'nowrap',
-							flexShrink: 0,
-						} }
-					>
-						{ displayLabel || children }
-					</div>
-
-					{ /* Secondary label */ }
-					{ shouldShowSecondaryLabel && secondaryLabel && (
-						<div
-							sx={ {
-								fontSize: 1, // 12px - fontSizes[1]
-								fontFamily: 'body',
-								fontWeight: 'regular',
-								lineHeight: 5, // Keep proportional line height (150%)
-								color: 'texts.secondary', // Consistent with main text
-								overflow: 'hidden',
-								textOverflow: 'ellipsis',
-								whiteSpace: 'nowrap',
-								minWidth: '40px',
-							} }
-						>
-							{ secondaryLabel }
-						</div>
-					) }
-				</div>
+				<DropdownItemLabelContent
+					displayLabel={ displayLabel }
+					secondaryLabel={ secondaryLabel }
+					children={ children }
+				/>
 
 				{ /* Badge */ }
-				{ showBadge &&
-					( badge ? (
-						badge
-					) : (
-						<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
-							{ badgeText }
-						</Badge>
-					) ) }
+				<DropdownItemBadge
+					showBadge={ showBadge }
+					badge={ badge }
+					badgeVariant={ badgeVariant }
+					badgeText={ badgeText }
+				/>
 			</DropdownMenuPrimitive.RadioItem>
 		);
 	}

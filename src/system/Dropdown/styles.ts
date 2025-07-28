@@ -1,4 +1,9 @@
-import { ThemeUIStyleObject } from 'theme-ui';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
+
+// Temporary interface until we add types to the theme definition.
+interface DropdownTheme extends Theme {
+	outline?: Record< string, string >;
+}
 
 /**
  * Base styles for dropdown items
@@ -16,25 +21,23 @@ export const dropdownItemStyles: ThemeUIStyleObject = {
 	textDecoration: 'none',
 	position: 'relative',
 	m: 0,
-	color: 'texts.secondary', // #514e4d
+	color: 'texts.secondary',
 	paddingLeft: 5,
-	paddingRight: 4, // 16px right padding - space[4]
-	paddingTop: 1, // 4px vertical padding - space[1]
-	paddingBottom: 1, // 4px vertical padding - space[1]
-	fontSize: 2, // 14px main text - fontSizes[2]
+	paddingRight: 4,
+	paddingTop: 1,
+	paddingBottom: 1,
+	fontSize: 2,
 	fontFamily: 'body',
 	fontWeight: 'regular',
 	lineHeight: 5,
-	gap: '6px', // 6px gap between elements (no design token available)
-	'&:hover, &:focus': {
+	gap: '6px',
+	'&:hover': {
 		backgroundColor: 'input.radio-box.background.hover',
 		textDecoration: 'none',
 	},
+	'&:focus-visible:not(:hover), &:focus:not(:hover)': ( theme: DropdownTheme ) => theme.outline,
 	'&[data-disabled]': {
 		color: 'texts.disabled', // #9b9796 - matches texts pattern
 		pointerEvents: 'none',
-	},
-	'&[data-highlighted]': {
-		backgroundColor: 'input.radio-box.background.hover',
 	},
 };

@@ -3,14 +3,19 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { BiSquare, BiCheckSquare } from 'react-icons/bi';
 
-import { LoadingIcon, EmptyIcon } from './icons';
+import {
+	BaseDropdownItemProps,
+	useDropdownItemContent,
+	useDropdownItemProps,
+	useDropdownItemEventHandling,
+	useDropdownItemState,
+	DropdownItemLabelContent,
+	DropdownItemBadge,
+	DropdownItemIcon,
+} from './DropdownItem';
+import { CheckboxEmptyIcon, CheckboxFilledIcon } from './icons';
 import { dropdownItemStyles } from './styles';
-import { Badge } from '../Badge';
-
-// Extract Badge variant type from the Badge component
-type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
 
 // Styles imported from shared styles file
 
@@ -18,31 +23,13 @@ type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant'
  * Props for DropdownCheckboxItem component
  * Extends Radix CheckboxItem but adds VIP Design System features
  */
-export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.MenuCheckboxItemProps {
-	/** Additional CSS class name */
-	className?: string;
-	/** Item label text */
-	label?: string;
-	/** Optional icon */
-	icon?: React.ReactNode;
+export interface DropdownCheckboxItemProps
+	extends BaseDropdownItemProps,
+		DropdownMenuPrimitive.MenuCheckboxItemProps {
 	/** Whether checkbox is checked - maps to Radix 'checked' prop */
-	isSelected?: boolean;
-	/** Show badge */
-	showBadge?: boolean;
-	/** Show icon */
-	showIcon?: boolean;
-	/** Secondary label text */
-	secondaryLabel?: string;
-	/** Item state */
-	state?: 'default' | 'hover' | 'disabled' | 'loading' | 'empty';
-	/** Custom badge component */
-	badge?: React.ReactNode;
-	/** Badge variant */
-	badgeVariant?: BadgeVariant;
-	/** Badge text */
-	badgeText?: string;
-	/** Children */
-	children?: React.ReactNode;
+	checked?: boolean;
+	/** Callback when checked state changes */
+	onCheckedChange?: ( checked: boolean ) => void;
 }
 
 /**
@@ -69,152 +56,71 @@ export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.MenuChe
  * ```
  */
 export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCheckboxItemProps >(
-	(
-		{
+	( props, forwardRef ) => {
+		const { commonProps, remainingProps } = useDropdownItemProps( props );
+		const {
 			className,
 			label,
 			icon,
-			isSelected = false,
-			showBadge = false,
-			showIcon = false,
+			isSelected,
+			showBadge,
+			showIcon,
 			secondaryLabel,
-			state = 'default',
+			state,
 			badge,
-			badgeVariant = 'yellow',
-			badgeText = 'Primary',
+			badgeVariant,
+			badgeText,
 			children,
-			checked, // Radix checked prop
-			onCheckedChange, // Radix onCheckedChange prop
-			...props
-		},
-		forwardRef
-	) => {
-		// Determine content based on state (same logic as DropdownItem)
-		let displayIcon = icon;
-		let displayLabel = label;
+		} = commonProps;
 
-		if ( state === 'loading' ) {
-			displayIcon = <LoadingIcon />;
-			displayLabel = 'Loading...';
-		} else if ( state === 'empty' ) {
-			displayIcon = <EmptyIcon />;
-			displayLabel = 'Nothing found...';
-		} else if ( showIcon && icon ) {
-			displayIcon = React.isValidElement( icon )
-				? React.cloneElement( icon as React.ReactElement, {
-						size: 16, // For react-icons (BiLoaderAlt, etc.)
-						width: 16, // For Radix icons (GearIcon, etc.)
-						height: 16, // For Radix icons (GearIcon, etc.)
-				  } )
-				: icon;
-		}
+		// Extract checkbox-specific props
+		const { checked, onCheckedChange, onSelect, ...otherProps } = remainingProps;
 
-		const shouldShowSecondaryLabel = secondaryLabel;
+		const { displayIcon, displayLabel } = useDropdownItemContent( icon, label, showIcon, state );
+		const { isSelected: actualSelected, disabled } = useDropdownItemState(
+			'checkbox',
+			{ isSelected, state },
+			{ checked }
+		);
+		const handleSelect = useDropdownItemEventHandling( 'checkbox', onSelect );
+
+		// Use actual selected state from shared utility
+		const isChecked = actualSelected;
 
 		// Checkbox icons - empty square always visible, checkmark overlays when selected
-		const CheckboxIcons = () => (
-			<>
-				{ /* Empty square - always visible */ }
-				<BiSquare
-					size={ 16 }
-					sx={ {
-						position: 'absolute',
-						left: 1, // 4px from left - space[1]
-						top: 2, // 8px from top
-						color: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
-					} }
-				/>
-				{ /* Checkmark - only visible when selected, overlays the square */ }
-				{ isChecked && (
-					<BiCheckSquare
-						size={ 16 }
-						sx={ {
-							position: 'absolute',
-							left: 1, // 4px from left - space[1]
-							top: 2, // 8px from top
-							color: state === 'disabled' ? 'icon.disabled' : 'icon.primary',
-						} }
-					/>
-				) }
-			</>
-		);
-
-		// Map our isSelected to Radix's checked prop (prioritize Radix checked if provided)
-		const isChecked = checked !== undefined ? checked : isSelected;
 
 		return (
 			<DropdownMenuPrimitive.CheckboxItem
 				className={ classNames( 'vip-dropdown-checkbox-item', className ) }
 				ref={ forwardRef }
 				sx={ dropdownItemStyles }
-				disabled={ state === 'disabled' }
+				disabled={ disabled }
 				checked={ isChecked }
 				onCheckedChange={ onCheckedChange }
-				onSelect={ event => {
-					// Prevent dropdown from closing when checkbox is toggled
-					event.preventDefault();
-				} }
-				{ ...props }
+				onSelect={ handleSelect }
+				{ ...otherProps }
 			>
 				{ /* Checkbox - empty square always visible, checkmark overlays when selected */ }
-				<CheckboxIcons />
+				<CheckboxEmptyIcon state={ state } />
+				{ isChecked && <CheckboxFilledIcon state={ state } /> }
 
 				{ /* Leading icon */ }
-				{ displayIcon && (
-					<div sx={ { display: 'flex', alignItems: 'center', flexShrink: 0 } }>{ displayIcon }</div>
-				) }
+				<DropdownItemIcon displayIcon={ displayIcon } />
 
 				{ /* Label content area */ }
-				<div
-					sx={ {
-						display: 'flex',
-						alignItems: 'baseline', // Align text baselines instead of centering containers
-						flex: 1,
-						gap: shouldShowSecondaryLabel ? 1 : 0, // Consistent with DropdownItem
-						overflow: 'hidden',
-					} }
-				>
-					{ /* Primary label */ }
-					<div
-						sx={ {
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							whiteSpace: 'nowrap',
-							flexShrink: 0,
-						} }
-					>
-						{ displayLabel || children }
-					</div>
-
-					{ /* Secondary label */ }
-					{ shouldShowSecondaryLabel && secondaryLabel && (
-						<div
-							sx={ {
-								fontSize: 1, // 12px - fontSizes[1]
-								fontFamily: 'body',
-								fontWeight: 'regular',
-								lineHeight: 5, // Keep proportional line height (150%)
-								color: 'texts.secondary', // Consistent with main text
-								overflow: 'hidden',
-								textOverflow: 'ellipsis',
-								whiteSpace: 'nowrap',
-								minWidth: '40px',
-							} }
-						>
-							{ secondaryLabel }
-						</div>
-					) }
-				</div>
+				<DropdownItemLabelContent
+					displayLabel={ displayLabel }
+					secondaryLabel={ secondaryLabel }
+					children={ children }
+				/>
 
 				{ /* Badge */ }
-				{ showBadge &&
-					( badge ? (
-						badge
-					) : (
-						<Badge variant={ badgeVariant } sx={ { marginBottom: 0 } }>
-							{ badgeText }
-						</Badge>
-					) ) }
+				<DropdownItemBadge
+					showBadge={ showBadge }
+					badge={ badge }
+					badgeVariant={ badgeVariant }
+					badgeText={ badgeText }
+				/>
 			</DropdownMenuPrimitive.CheckboxItem>
 		);
 	}

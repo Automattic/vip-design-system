@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react';
-import { BiCheck, BiChevronRight, BiCog, BiUser, BiFile } from 'react-icons/bi';
+import { BiCheck, BiCog, BiUser, BiFile } from 'react-icons/bi';
 
 /**
  * Internal dependencies
@@ -234,12 +234,7 @@ export const ComplexExample = () => {
 				</Dropdown.Group>
 
 				<Dropdown.Sub>
-					<Dropdown.SubTrigger>
-						<span style={ { display: 'flex', alignItems: 'center', gap: '6px' } }>
-							More Tools
-							<BiChevronRight />
-						</span>
-					</Dropdown.SubTrigger>
+					<Dropdown.SubTrigger>More Tools</Dropdown.SubTrigger>
 					<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
 						<Dropdown.Item label="Save Page As…" />
 						<Dropdown.Item label="Create Shortcut…" />
