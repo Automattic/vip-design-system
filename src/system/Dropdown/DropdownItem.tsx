@@ -60,12 +60,12 @@ export const styles: ThemeUIStyleObject = {
 	alignItems: 'center',
 	flexDirection: 'row',
 	textAlign: 'left',
-	height: '32px', // Changed from 25 to 32px (min-h-8)
+	height: '32px',
 	textDecoration: 'none',
 	position: 'relative',
 	m: 0,
 	color: 'texts.secondary', // #514e4d
-	paddingLeft: 5, // 24px + 4px = 28px total left padding (no design token available)
+	paddingLeft: 5,
 	paddingRight: 4, // 16px right padding - space[4]
 	paddingTop: 1, // 4px vertical padding - space[1]
 	paddingBottom: 1, // 4px vertical padding - space[1]
@@ -90,12 +90,12 @@ export const styles: ThemeUIStyleObject = {
 /**
  * Loading state icon component
  */
-const LoadingIcon = () => <Spinner size={ 20 } color="icon.primary" />;
+const LoadingIcon = () => <Spinner size={ 16 } color="icon.primary" />;
 
 /**
  * Empty state icon component
  */
-const EmptyIcon = () => <BiQuestionMark size={ 20 } sx={ { color: 'icon.primary' } } />;
+const EmptyIcon = () => <BiQuestionMark size={ 16 } sx={ { color: 'icon.primary' } } />;
 
 /**
  * Check mark icon for selected state
@@ -103,12 +103,12 @@ const EmptyIcon = () => <BiQuestionMark size={ 20 } sx={ { color: 'icon.primary'
  */
 const CheckIcon = () => (
 	<BiCheck
-		size={ 20 }
+		size={ 16 }
 		sx={ {
 			position: 'absolute',
 			left: 1, // 4px from left - space[1]
-			top: '6px', // 6px from top (no design token available)
-			color: 'icon.primary',
+			top: 2, // 8px from top 
+			// color: 'icon.primary',
 		} }
 	/>
 );
@@ -169,9 +169,9 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 		} else if ( showIcon && icon ) {
 			displayIcon = React.isValidElement( icon )
 				? React.cloneElement( icon as React.ReactElement, {
-						size: 20, // For react-icons (BiLoaderAlt, etc.)
-						width: 20, // For Radix icons (GearIcon, etc.)
-						height: 20, // For Radix icons (GearIcon, etc.)
+						size: 16, // For react-icons (BiLoaderAlt, etc.)
+						width: 16, // For Radix icons (GearIcon, etc.)
+						height: 16, // For Radix icons (GearIcon, etc.)
 				  } )
 				: icon;
 		}
@@ -196,8 +196,8 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 							display: 'flex',
 							alignItems: 'center',
 							flexShrink: 0,
-							width: '20px',
-							height: '20px',
+							width: '16px',
+							height: '16px',
 						} }
 					>
 						{ displayIcon }
@@ -210,7 +210,7 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 						display: 'flex',
 						alignItems: 'baseline', // Align text baselines instead of centering containers
 						flex: 1,
-						gap: shouldShowSecondaryLabel ? '4px' : 0, // Figma shows gap-1 = 4px
+						gap: shouldShowSecondaryLabel ? 1 : 0, // Figma shows gap-1 = 4px
 						overflow: 'hidden',
 					} }
 				>
