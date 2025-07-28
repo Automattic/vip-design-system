@@ -518,10 +518,6 @@ export const RadioItems = () => {
 							badgeVariant="gold"
 							badgeText="Pro"
 						/>
-						<Dropdown.RadioItem 
-							value="loading" 
-							state="loading"
-						/>
 					</Dropdown.RadioGroup>
 				</Dropdown.Group>
 			</Dropdown.Root>

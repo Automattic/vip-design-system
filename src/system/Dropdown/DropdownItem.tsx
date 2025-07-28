@@ -7,6 +7,7 @@ import { BiLoaderAlt, BiQuestionMark, BiCheck } from 'react-icons/bi';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { Badge } from '../Badge';
+import { Spinner } from '../Spinner';
 
 // Extract Badge variant type from the Badge component
 type BadgeVariant = NonNullable< React.ComponentProps< typeof Badge >[ 'variant' ] >;
@@ -89,7 +90,7 @@ export const styles: ThemeUIStyleObject = {
 /**
  * Loading state icon component
  */
-const LoadingIcon = () => <BiLoaderAlt size={ 20 } sx={ { color: 'icon.primary' } } />;
+const LoadingIcon = () => <Spinner size={ 20 } color="icon.primary" />;
 
 /**
  * Empty state icon component
