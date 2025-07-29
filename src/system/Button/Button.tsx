@@ -26,6 +26,7 @@ export interface ButtonProps extends ThemeButtonProps {
 	full?: boolean;
 	grow?: boolean;
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
+	danger?: boolean;
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
@@ -39,6 +40,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 			full,
 			grow,
 			variant = 'primary',
+			danger,
 			...rest
 		},
 		ref
@@ -46,7 +48,6 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 		const disabledAttributes =
 			disabled && preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
 		let disabledStyles = {};
-		let dangerStyles = {};
 
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
@@ -61,7 +62,13 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 			[ disabled, onClick ]
 		);
 
-		if ( disabled && variant !== 'text' && variant !== 'ghost' && variant !== 'tertiary' ) {
+		if (
+			disabled &&
+			! danger &&
+			variant !== 'text' &&
+			variant !== 'ghost' &&
+			variant !== 'tertiary'
+		) {
 			disabledStyles = {
 				opacity: 0.7,
 				backgroundColor: 'input.border.disabled',
@@ -84,7 +91,6 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 					},
 					flexGrow: Boolean( grow ) === true ? '1' : undefined,
 					width: Boolean( full ) === true ? '100%' : undefined,
-					...dangerStyles,
 					...sx,
 				} }
 				{ ...rest }
@@ -92,6 +98,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 				variant={ variant }
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
+				data-danger={ danger }
 				ref={ ref }
 			/>
 		);

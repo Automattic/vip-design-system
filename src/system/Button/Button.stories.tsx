@@ -19,6 +19,9 @@ export default {
 		disabled: {
 			control: { type: 'boolean' },
 		},
+		danger: {
+			control: { type: 'boolean' },
+		},
 		variant: {
 			type: 'select',
 			options: Object.values( ButtonVariant ),
@@ -66,6 +69,7 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 
 const Template = args => (
 	<div>
+		<h3>Default</h3>
 		<Table>
 			<TableRow>
 				<TableCell head>Variant</TableCell>
@@ -74,7 +78,6 @@ const Template = args => (
 				<TableCell head>Tertiary</TableCell>
 				<TableCell head>Ghost</TableCell>
 				<TableCell head>Display</TableCell>
-				<TableCell head>Danger</TableCell>
 				<TableCell head>Icon</TableCell>
 			</TableRow>
 			<TableRow>
@@ -100,11 +103,6 @@ const Template = args => (
 				<TableCell>
 					<Button variant="display" { ...args }>
 						Display
-					</Button>
-				</TableCell>
-				<TableCell>
-					<Button variant="danger" { ...args }>
-						Danger
 					</Button>
 				</TableCell>
 				<TableCell>
@@ -142,11 +140,6 @@ const Template = args => (
 					</Button>
 				</TableCell>
 				<TableCell>
-					<Button variant="danger" disabled { ...args }>
-						Danger
-					</Button>
-				</TableCell>
-				<TableCell>
 					<Button variant="icon" type="button" disabled { ...args }>
 						<BiCalendarHeart size={ 24 } />
 						<ScreenReaderText>domain.com</ScreenReaderText>
@@ -166,6 +159,52 @@ const Template = args => (
 				Button with grow width
 			</Button>
 		</div>
+
+		<h3>Danger</h3>
+		<Table>
+			<TableRow>
+				<TableCell head>Variant</TableCell>
+				<TableCell head>Primary</TableCell>
+				<TableCell head>Secondary</TableCell>
+				<TableCell head>Ghost</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Default</TableCell>
+				<TableCell>
+					<Button danger { ...args }>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button danger variant="secondary" { ...args }>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button danger variant="ghost" { ...args }>
+						Ghost
+					</Button>
+				</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Disabled</TableCell>
+				<TableCell>
+					<Button variant="primary" danger disabled { ...args }>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="secondary" danger disabled { ...args }>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="ghost" disabled { ...args }>
+						Ghost
+					</Button>
+				</TableCell>
+			</TableRow>
+		</Table>
 	</div>
 );
 
