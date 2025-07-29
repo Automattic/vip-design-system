@@ -388,6 +388,11 @@ export default {
 				border: '1px solid',
 				borderColor: 'button.tertiary.border.hover',
 			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.tertiary.background.default',
+				color: 'texts.disabled',
+			},
 		},
 
 		display: {
@@ -417,6 +422,11 @@ export default {
 				color: 'button.ghost.label.hover',
 				border: '1px solid',
 				borderColor: 'transparent',
+			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.ghost.background.default',
+				color: 'texts.disabled',
 			},
 		},
 

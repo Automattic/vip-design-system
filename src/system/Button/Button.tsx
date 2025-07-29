@@ -29,9 +29,24 @@ export interface ButtonProps extends ThemeButtonProps {
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	( { className, disabled, preferAriaDisabled, onClick, sx, full, grow, ...rest }, ref ) => {
+	(
+		{
+			className,
+			disabled,
+			preferAriaDisabled,
+			onClick,
+			sx,
+			full,
+			grow,
+			variant = 'primary',
+			...rest
+		},
+		ref
+	) => {
 		const disabledAttributes =
 			disabled && preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
+		let disabledStyles = {};
+		let dangerStyles = {};
 
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
@@ -46,27 +61,35 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 			[ disabled, onClick ]
 		);
 
+		if ( disabled && variant !== 'text' && variant !== 'ghost' && variant !== 'tertiary' ) {
+			disabledStyles = {
+				opacity: 0.7,
+				backgroundColor: 'input.border.disabled',
+				color: 'texts.secondary',
+			};
+		}
+
 		return (
 			<ThemeButton
 				sx={ {
 					'&:focus': 'none',
 					'&:focus-visible': ( theme: ButtonTheme ) => theme.outline,
 					'&[disabled], &[aria-disabled="true"]': {
-						opacity: 0.7,
-						backgroundColor: 'input.border.disabled',
-						color: 'texts.secondary',
 						cursor: 'not-allowed',
 						pointerEvents: 'none',
+						...disabledStyles,
 					},
 					'&:hover, &:focus': {
 						textDecoration: 'none',
 					},
 					flexGrow: Boolean( grow ) === true ? '1' : undefined,
 					width: Boolean( full ) === true ? '100%' : undefined,
+					...dangerStyles,
 					...sx,
 				} }
 				{ ...rest }
 				{ ...disabledAttributes }
+				variant={ variant }
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
 				ref={ ref }
