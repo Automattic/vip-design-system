@@ -34,6 +34,7 @@ export const Default = () => {
 		{
 			title: 'Configure DNS',
 			titleVariant: 'h2',
+			summaryTitle: 'Summary of Configure DNS',
 		},
 		{
 			title: 'Configure Certificate',
@@ -47,7 +48,13 @@ export const Default = () => {
 	return (
 		<React.Fragment>
 			<Box mt={ 4 }>
-				<Wizard activeStep={ 0 } steps={ steps } completed={ [ 1 ] } className="vip-wizard-xyz" />
+				<Wizard
+					activeStep={ 0 }
+					steps={ steps }
+					completed={ [ 1 ] }
+					summaryAs="dl"
+					className="vip-wizard-xyz"
+				/>
 			</Box>
 		</React.Fragment>
 	);

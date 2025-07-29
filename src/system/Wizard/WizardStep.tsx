@@ -79,7 +79,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 		if ( statusText !== '' ) {
 			statusText = `Status: ${ statusText }`;
 		}
-		const stepText = `Step ${ order } of ${ totalSteps }`;
+		const stepText = `STEP ${ order } OF ${ totalSteps }`;
 
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
@@ -104,6 +104,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					backgroundColor: active ? 'background' : 'transparent',
 					borderRadius: 0,
 					borderBottom: active ? 'none' : '1px solid',
+					borderRight: active ? 'none' : '1px solid',
 					'&:first-of-type': {
 						borderTopWidth: '1px',
 						borderTopStyle: 'solid',
@@ -168,8 +169,8 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						</Button>
 					) }
 				</Flex>
-				{ ! active && ( complete || skipped ) && summary && (
-					<DescriptionList as={ summaryAs } list={ summary } title={ summaryTitle } />
+				{ ! active && ( complete || skipped ) && ( summary || summaryTitle ) && (
+					<DescriptionList as={ summaryAs } list={ summary || [] } title={ summaryTitle } />
 				) }
 
 				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
