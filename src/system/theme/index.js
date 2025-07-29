@@ -362,6 +362,30 @@ export default {
 					fill: 'inherit',
 				},
 			},
+			'&[data-danger="true"]': {
+				color: 'button.danger.primary.label.default',
+				bg: 'button.danger.primary.background.default',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+
+			'&:hover[data-danger="true"]': {
+				backgroundColor: 'button.danger.primary.background.hover',
+				color: 'button.danger.primary.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.primary.background.disabled',
+				color: 'button.primary.label.disabled',
+				opacity: 0.7,
+			},
+
+			'&[disabled][data-danger="true"], &[aria-disabled="true"][data-danger="true"]': {
+				backgroundColor: 'button.secondary.background.disabled',
+				color: 'button.secondary.label.default',
+			},
 		},
 
 		secondary: {
@@ -372,6 +396,32 @@ export default {
 			'&:hover': {
 				backgroundColor: 'button.secondary.background.hover',
 				color: 'button.secondary.label.hover',
+			},
+
+			'&[data-danger="true"]': {
+				color: 'button.danger.secondary.label.default',
+				bg: 'button.danger.secondary.background.default',
+				border: '1px solid',
+				borderColor: 'button.danger.secondary.border.default',
+			},
+
+			'&:hover[data-danger="true"]': {
+				backgroundColor: 'button.danger.secondary.background.hover',
+				color: 'button.danger.secondary.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.secondary.background.disabled',
+				color: 'button.secondary.label.disabled',
+			},
+
+			'&[disabled][data-danger="true"], &[aria-disabled="true"][data-danger="true"]': {
+				backgroundColor: 'button.danger.secondary.background.default',
+				color: 'button.secondary.label.disabled',
+				border: '1px solid',
+				borderColor: 'button.secondary.border.default',
 			},
 		},
 
@@ -388,6 +438,11 @@ export default {
 				border: '1px solid',
 				borderColor: 'button.tertiary.border.hover',
 			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.tertiary.background.default',
+				color: 'texts.disabled',
+			},
 		},
 
 		display: {
@@ -403,6 +458,11 @@ export default {
 				border: '1px solid',
 				borderColor: 'transparent',
 			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.display.background.disabled',
+				color: 'button.display.label.disabled',
+			},
 		},
 
 		ghost: {
@@ -415,6 +475,23 @@ export default {
 			'&:hover': {
 				backgroundColor: 'button.ghost.background.hover',
 				color: 'button.ghost.label.hover',
+				border: '1px solid',
+				borderColor: 'transparent',
+			},
+
+			'&[disabled], &[aria-disabled="true"]': {
+				backgroundColor: 'button.ghost.background.default',
+				color: 'texts.disabled',
+			},
+
+			'&[data-danger="true"]': {
+				color: 'button.danger.ghost.label.default',
+				bg: 'button.danger.ghost.background.default',
+			},
+
+			'&:hover[data-danger="true"]': {
+				backgroundColor: 'button.danger.ghost.background.hover',
+				color: 'button.danger.ghost.label.hover',
 				border: '1px solid',
 				borderColor: 'transparent',
 			},

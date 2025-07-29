@@ -9,7 +9,7 @@ interface ButtonTheme extends Theme {
 }
 
 export enum ButtonVariant {
-	'danger',
+	'danger', // will be deprecated in the future
 	'display',
 	'ghost',
 	'icon',
@@ -26,12 +26,28 @@ export interface ButtonProps extends ThemeButtonProps {
 	full?: boolean;
 	grow?: boolean;
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
+	danger?: boolean;
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
-	( { className, disabled, preferAriaDisabled, onClick, sx, full, grow, ...rest }, ref ) => {
+	(
+		{
+			className,
+			disabled,
+			preferAriaDisabled,
+			onClick,
+			sx,
+			full,
+			grow,
+			variant = 'primary',
+			danger = variant === 'danger', // fallback for danger variant used before the prop was added
+			...rest
+		},
+		ref
+	) => {
 		const disabledAttributes =
 			disabled && preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
+		let disabledStyles = {};
 
 		const handleOnClick = useCallback(
 			( event: ButtonClickType ) => {
@@ -46,17 +62,29 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 			[ disabled, onClick ]
 		);
 
+		if (
+			disabled &&
+			! danger &&
+			variant !== 'text' &&
+			variant !== 'ghost' &&
+			variant !== 'tertiary'
+		) {
+			disabledStyles = {
+				opacity: 0.7,
+				backgroundColor: 'input.border.disabled',
+				color: 'texts.secondary',
+			};
+		}
+
 		return (
 			<ThemeButton
 				sx={ {
 					'&:focus': 'none',
 					'&:focus-visible': ( theme: ButtonTheme ) => theme.outline,
 					'&[disabled], &[aria-disabled="true"]': {
-						opacity: 0.7,
-						backgroundColor: 'input.border.disabled',
-						color: 'texts.secondary',
 						cursor: 'not-allowed',
 						pointerEvents: 'none',
+						...disabledStyles,
 					},
 					'&:hover, &:focus': {
 						textDecoration: 'none',
@@ -67,8 +95,10 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 				} }
 				{ ...rest }
 				{ ...disabledAttributes }
+				variant={ variant }
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
+				data-danger={ danger }
 				ref={ ref }
 			/>
 		);

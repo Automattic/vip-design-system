@@ -3,14 +3,12 @@
 /**
  * External dependencies
  */
-import React from 'react';
 import { BiCalendarHeart } from 'react-icons/bi';
 
 /**
  * Internal dependencies
  */
-import { Button, ButtonVariant } from '..';
-import { Flex } from '../Flex/Flex';
+import { Button, ButtonVariant, Table, TableCell, TableRow } from '..';
 import ScreenReaderText from '../ScreenReaderText';
 
 export default {
@@ -19,6 +17,9 @@ export default {
 	argTypes: {
 		children: {},
 		disabled: {
+			control: { type: 'boolean' },
+		},
+		danger: {
 			control: { type: 'boolean' },
 		},
 		variant: {
@@ -68,42 +69,84 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 
 const Template = args => (
 	<div>
-		<Flex sx={ { gap: 2, flexDirection: 'row' } }>
-			<Button { ...args }>Primary</Button>
-
-			<Button variant="secondary" sx={ { ml: 2 } } { ...args }>
-				Secondary
-			</Button>
-
-			<Button variant="tertiary" sx={ { ml: 2 } } { ...args }>
-				Tertiary
-			</Button>
-
-			<Button variant="ghost" sx={ { ml: 2 } } { ...args }>
-				Ghost
-			</Button>
-
-			<Button variant="display" sx={ { ml: 2 } } { ...args }>
-				Display
-			</Button>
-
-			<Button variant="danger" sx={ { ml: 2 } } { ...args }>
-				Danger
-			</Button>
-
-			<Button variant="primary" disabled={ true } sx={ { ml: 2 } } { ...args }>
-				Disabled
-			</Button>
-
-			<Button variant="text" sx={ { ml: 2 } } as="a" href="https://google/com" { ...args }>
-				Button link
-			</Button>
-
-			<Button variant="icon" sx={ { ml: 2 } } type="button" { ...args }>
-				<BiCalendarHeart size={ 24 } />
-				<ScreenReaderText>domain.com</ScreenReaderText>
-			</Button>
-		</Flex>
+		<h3>Default</h3>
+		<Table>
+			<TableRow>
+				<TableCell head>Variant</TableCell>
+				<TableCell head>Primary</TableCell>
+				<TableCell head>Secondary</TableCell>
+				<TableCell head>Tertiary</TableCell>
+				<TableCell head>Ghost</TableCell>
+				<TableCell head>Display</TableCell>
+				<TableCell head>Icon</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Default</TableCell>
+				<TableCell>
+					<Button { ...args }>Primary</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="secondary" { ...args }>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="tertiary" { ...args }>
+						Tertiary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="ghost" { ...args }>
+						Ghost
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="display" { ...args }>
+						Display
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="icon" type="button" { ...args }>
+						<BiCalendarHeart size={ 24 } />
+						<ScreenReaderText>domain.com</ScreenReaderText>
+					</Button>
+				</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Disabled</TableCell>
+				<TableCell>
+					<Button variant="primary" disabled { ...args }>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="secondary" disabled={ true } { ...args }>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="tertiary" disabled { ...args }>
+						Tertiary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="ghost" disabled { ...args }>
+						Ghost
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="display" disabled { ...args }>
+						Display
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="icon" type="button" disabled { ...args }>
+						<BiCalendarHeart size={ 24 } />
+						<ScreenReaderText>domain.com</ScreenReaderText>
+					</Button>
+				</TableCell>
+			</TableRow>
+		</Table>
 
 		<div sx={ { mt: 3 } }>
 			<Button variant="secondary" href="https://google/com" { ...args } full>
@@ -116,6 +159,52 @@ const Template = args => (
 				Button with grow width
 			</Button>
 		</div>
+
+		<h3>Danger</h3>
+		<Table>
+			<TableRow>
+				<TableCell head>Variant</TableCell>
+				<TableCell head>Primary</TableCell>
+				<TableCell head>Secondary</TableCell>
+				<TableCell head>Ghost</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Default</TableCell>
+				<TableCell>
+					<Button danger { ...args }>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button danger variant="secondary" { ...args }>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button danger variant="ghost" { ...args }>
+						Ghost
+					</Button>
+				</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Disabled</TableCell>
+				<TableCell>
+					<Button variant="primary" danger disabled { ...args }>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="secondary" danger disabled { ...args }>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button variant="ghost" disabled { ...args }>
+						Ghost
+					</Button>
+				</TableCell>
+			</TableRow>
+		</Table>
 	</div>
 );
 
