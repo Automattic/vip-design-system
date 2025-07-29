@@ -9,7 +9,7 @@ interface ButtonTheme extends Theme {
 }
 
 export enum ButtonVariant {
-	'danger',
+	'danger', // will be deprecated in the future
 	'display',
 	'ghost',
 	'icon',
@@ -40,7 +40,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 			full,
 			grow,
 			variant = 'primary',
-			danger,
+			danger = variant === 'danger', // fallback for danger variant used before the prop was added
 			...rest
 		},
 		ref
