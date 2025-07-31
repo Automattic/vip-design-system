@@ -3,10 +3,15 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { BiChevronRight } from 'react-icons/bi';
 
-import { LoadingIcon, EmptyIcon, CheckIcon, iconSize } from './icons';
-import { dropdownItemStyles } from './styles';
+import { LoadingIcon, EmptyIcon, CheckIcon, ChevronRightIcon, iconSize } from './icons';
+import {
+	dropdownItemStyles,
+	dropdownItemPrimaryLabelStyles,
+	dropdownItemLabelStyles,
+	dropdownItemSecondaryLabelStyles,
+	dropdownItemIconStyles,
+} from './styles';
 import { Badge } from '../Badge';
 
 // Extract Badge variant type from the Badge component
@@ -186,40 +191,16 @@ export const DropdownItemLabelContent: React.FC< {
 	const shouldShowSecondaryLabel = secondaryLabel;
 
 	return (
-		<div
-			sx={ {
-				display: 'flex',
-				alignItems: 'baseline',
-				flex: 1,
-				gap: shouldShowSecondaryLabel ? 1 : 0,
-				overflow: 'hidden',
-			} }
-		>
-			{ /* Primary label */ }
-			<div
-				sx={ {
-					overflow: 'hidden',
-					textOverflow: 'ellipsis',
-					whiteSpace: 'nowrap',
-					flexShrink: 0,
-				} }
-			>
-				{ displayLabel || children }
-			</div>
+		<div sx={ dropdownItemLabelStyles }>
+			{ /* Primary label - fits content and truncates when needed */ }
+			<div sx={ dropdownItemPrimaryLabelStyles }>{ displayLabel || children }</div>
 
-			{ /* Secondary label */ }
+			{ /* Secondary label - maintains minimum width, doesn't truncate */ }
 			{ shouldShowSecondaryLabel && secondaryLabel && (
 				<div
 					sx={ {
-						fontSize: 1,
-						fontFamily: 'body',
-						fontWeight: 'regular',
-						lineHeight: 5,
-						color: disabled ? 'texts.disabled' : 'texts.secondary',
-						overflow: 'hidden',
-						textOverflow: 'ellipsis',
-						whiteSpace: 'nowrap',
-						minWidth: '40px',
+						...dropdownItemSecondaryLabelStyles,
+						color: disabled ? 'texts.disabled' : 'texts.helper',
 					} }
 				>
 					{ secondaryLabel }
@@ -248,10 +229,9 @@ export const DropdownItemBadge: React.FC< {
 		<Badge
 			variant={ badgeVariant }
 			sx={ {
-				marginBottom: 0,
+				marginBottom: 0, // overriding the default margin bottom of the badge component
 				...( disabled && {
-					opacity: 0.5,
-					color: 'texts.disabled',
+					opacity: 0.5, // faking a disabled state
 				} ),
 			} }
 		>
@@ -273,12 +253,8 @@ export const DropdownItemIcon: React.FC< {
 	return (
 		<div
 			sx={ {
-				display: 'flex',
-				alignItems: 'center',
-				flexShrink: 0,
-				width: iconSize,
-				height: iconSize,
-				color: disabled ? 'texts.disabled' : 'inherit',
+				...dropdownItemIconStyles,
+				color: disabled ? 'texts.disabled' : 'inherit', // conditionally set to texts.disabled when disabled
 			} }
 		>
 			{ displayIcon }
@@ -297,12 +273,8 @@ export interface DropdownItemProps
  * Props for DropdownSubTrigger component
  */
 export interface DropdownSubTriggerItemProps
-	extends DropdownMenuPrimitive.DropdownMenuSubTriggerProps {
-	/** Additional CSS class name */
-	className?: string;
-	/** Content to display in the sub-trigger (chevron icon is automatically added) */
-	children?: React.ReactNode;
-}
+	extends BaseDropdownItemProps,
+		DropdownMenuPrimitive.DropdownMenuSubTriggerProps {}
 
 // Styles imported from shared styles file
 
@@ -395,36 +367,81 @@ DropdownItem.displayName = 'DropdownItem';
 
 /**
  * Dropdown sub-trigger item component for nested dropdowns
- * Automatically includes chevron icon
+ * Supports all the same options as DropdownItem (icon, label, secondary label, badges, states)
+ * Automatically includes chevron icon on the right
+ *
+ * @example
+ * ```tsx
+ * // Basic sub-trigger
+ * <DropdownSubTrigger label="More Options" />
+ *
+ * // With icon
+ * <DropdownSubTrigger label="Settings" icon={<SettingsIcon />} showIcon />
+ *
+ * // With badge
+ * <DropdownSubTrigger label="Beta Features" showBadge badgeVariant="blue" badgeText="Beta" />
+ *
+ * // With secondary label
+ * <DropdownSubTrigger label="John Doe" secondaryLabel="Administrator" />
+ * ```
  */
 export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubTriggerItemProps >(
-	( { className, children, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.SubTrigger
-			className={ classNames( 'vip-dropdown-sub-trigger', className ) }
-			ref={ forwardRef }
-			sx={ {
-				...dropdownItemStyles,
-				...{
-					'&[data-state="open"]': {
-						background: 'input.radio-box.background.hover',
-					},
-				},
-			} }
-			{ ...props }
-		>
-			<div
-				sx={ {
-					display: 'flex',
-					alignItems: 'center',
-					flex: 1,
-					gap: '6px',
-				} }
+	( props, forwardRef ) => {
+		const { commonProps, remainingProps } = useDropdownItemProps( props );
+		const {
+			className,
+			label,
+			icon,
+			isSelected,
+			showBadge,
+			showIcon,
+			secondaryLabel,
+			state,
+			badge,
+			badgeVariant,
+			badgeText,
+			children,
+		} = commonProps;
+
+		const { displayIcon, displayLabel } = useDropdownItemContent( icon, label, showIcon, state );
+		const { disabled } = useDropdownItemState( 'item', { isSelected, state }, {} );
+
+		return (
+			<DropdownMenuPrimitive.SubTrigger
+				className={ classNames( 'vip-dropdown-sub-trigger', className ) }
+				ref={ forwardRef }
+				sx={ dropdownItemStyles }
+				disabled={ disabled }
+				{ ...remainingProps }
 			>
-				{ children }
-			</div>
-			<BiChevronRight size={ iconSize } />
-		</DropdownMenuPrimitive.SubTrigger>
-	)
+				{ /* Selected state check mark - absolute positioned */ }
+				{ isSelected && <CheckIcon /> }
+
+				{ /* Leading icon */ }
+				<DropdownItemIcon displayIcon={ displayIcon } disabled={ disabled } />
+
+				{ /* Label content area */ }
+				<DropdownItemLabelContent
+					displayLabel={ displayLabel }
+					secondaryLabel={ secondaryLabel }
+					children={ children }
+					disabled={ disabled }
+				/>
+
+				{ /* Badge */ }
+				<DropdownItemBadge
+					showBadge={ showBadge }
+					badge={ badge }
+					badgeVariant={ badgeVariant }
+					badgeText={ badgeText }
+					disabled={ disabled }
+				/>
+
+				{ /* Chevron icon - always on the right */ }
+				<ChevronRightIcon disabled={ disabled } />
+			</DropdownMenuPrimitive.SubTrigger>
+		);
+	}
 );
 
 DropdownSubTrigger.displayName = 'DropdownSubTrigger';

@@ -1,10 +1,10 @@
 /** @jsxImportSource theme-ui */
 
 import React from 'react';
-import { ThemeUIStyleObject } from 'theme-ui';
 
 import { DropdownLabel } from './DropdownLabel';
 import { DropdownSeparator } from './DropdownSeparator';
+import { dropdownGroupStyles } from './styles';
 
 /**
  * Props for the DropdownGroup component
@@ -19,19 +19,6 @@ export interface DropdownGroupProps {
 	/** Additional CSS class name */
 	className?: string;
 }
-
-/**
- * Styles for dropdown groups
- * Based on Figma design specifications for .dropdown/group
- */
-export const styles: ThemeUIStyleObject = {
-	display: 'flex',
-	flexDirection: 'column',
-	gap: 1, // 4px gap within group (between label and items, between items)
-	width: '100%',
-	p: 0,
-	m: 0,
-};
 
 /**
  * Dropdown group component that wraps a label and items together
@@ -54,7 +41,7 @@ export const DropdownGroup = React.forwardRef< HTMLDivElement, DropdownGroupProp
 	( { label, separator = false, children, className, ...props }, forwardRef ) => (
 		<div
 			ref={ forwardRef }
-			sx={ styles }
+			sx={ dropdownGroupStyles }
 			className={ className }
 			data-name=".dropdown/group"
 			{ ...props }

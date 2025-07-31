@@ -4,6 +4,8 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
 
+import { dropdownSeparatorStyles } from './styles';
+
 /**
  * Props for the DropdownSeparator component
  */
@@ -16,13 +18,7 @@ export interface DropdownSeparatorProps {
  * Styles for dropdown separators/dividers
  * Based on Figma design specifications
  */
-export const styles = {
-	height: '1px',
-	backgroundColor: 'borders.2', // Design token for #e3e0df
-	marginLeft: 5, // 24px horizontal margin (px-6) - space[5]
-	marginRight: 5, // 24px horizontal margin (px-6) - space[5]
-	my: 0, // Remove vertical margin
-};
+export const styles = dropdownSeparatorStyles;
 
 /**
  * Dropdown separator component for visually dividing groups of items

@@ -3,7 +3,8 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
-import { ThemeUIStyleObject } from 'theme-ui';
+
+import { dropdownContentStyles } from './styles';
 
 /**
  * Props for the DropdownContent component
@@ -15,22 +16,8 @@ export interface DropdownContentProps {
 	align?: 'start' | 'center' | 'end';
 	/** Children elements */
 	children?: React.ReactNode;
+	alignOffset?: number;
 }
-
-/**
- * Styles for the dropdown content container
- * Based on Figma design specifications
- */
-export const styles: ThemeUIStyleObject = {
-	display: 'flex',
-	flexDirection: 'column',
-	minWidth: '220px',
-	borderRadius: 1, // 3px as per design (design token shows 4px but design shows 3px)
-	backgroundColor: 'layer.2', // White background (#ffffff)
-	boxShadow: 'high', // shadow.3 equivalent
-	gap: 2, // 8px gap between items (space/2: 8)
-	p: 2, // 8px padding all around (space/2: 8)
-};
 
 /**
  * Dropdown content container component
@@ -44,12 +31,15 @@ export const styles: ThemeUIStyleObject = {
  * ```
  */
 export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
-	( { className, align = 'start', ...props }, forwardRef ) => (
+	( { className, align = 'start', alignOffset = 0, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuContent
 			className={ classNames( 'vip-dropdown-menu-content', className ) }
 			ref={ forwardRef }
-			sx={ styles }
+			sx={ dropdownContentStyles }
 			align={ align }
+			alignOffset={ alignOffset }
+			avoidCollisions={ true }
+			collisionPadding={ 8 }
 			{ ...props }
 		/>
 	)
@@ -66,7 +56,7 @@ export const DropdownSubContent = React.forwardRef< HTMLDivElement, DropdownCont
 			<DropdownMenuPrimitive.DropdownMenuSubContent
 				className={ classNames( 'vip-dropdown-menu-sub-content', className ) }
 				ref={ forwardRef }
-				sx={ styles }
+				sx={ dropdownContentStyles }
 				{ ...props }
 			/>
 		</DropdownMenuPrimitive.Portal>

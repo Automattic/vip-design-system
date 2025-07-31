@@ -2,7 +2,14 @@
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import React from 'react';
-import { BiQuestionMark, BiCheck, BiCircle, BiSquare, BiCheckSquare } from 'react-icons/bi';
+import {
+	BiQuestionMark,
+	BiCheck,
+	BiCircle,
+	BiSquare,
+	BiCheckSquare,
+	BiChevronRight,
+} from 'react-icons/bi';
 
 import { Spinner } from '../Spinner';
 
@@ -17,6 +24,7 @@ const iconPosition = {
 	left: 1,
 	top: 2,
 } as const;
+
 /**
  * Loading state icon component
  */
@@ -37,6 +45,21 @@ export const CheckIcon = () => (
 		sx={ {
 			color: iconColor,
 			...iconPosition,
+		} }
+	/>
+);
+
+/**
+ * Chevron right icon for sub-trigger items
+ * Positioned on the right side of the item
+ */
+export const ChevronRightIcon = ( { disabled = false }: { disabled?: boolean } ) => (
+	<BiChevronRight
+		size={ iconSize }
+		sx={ {
+			flexShrink: 0,
+			marginLeft: 1,
+			color: disabled ? 'texts.disabled' : 'inherit',
 		} }
 	/>
 );

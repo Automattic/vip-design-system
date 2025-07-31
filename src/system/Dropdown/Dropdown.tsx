@@ -53,7 +53,7 @@ export const Dropdown: React.FC< DropdownProps > = ( {
 		<DropdownMenuPrimitive.Portal { ...portalProps }>
 			<DropdownContent { ...contentProps }>
 				{ children }
-				<DropdownMenuPrimitive.Arrow sx={ { fill: 'background', boxShadow: 'high' } } />
+				{ /* <DropdownMenuPrimitive.Arrow sx={ { fill: 'background', boxShadow: 'high' } } /> */ }
 			</DropdownContent>
 		</DropdownMenuPrimitive.Portal>
 	</DropdownMenu>
