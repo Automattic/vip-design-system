@@ -11,12 +11,19 @@ import {
 	BiDownload,
 	BiTrash,
 	BiEdit,
+	BiLogoNodejs,
+	BiLogoWordpress,
+	BiChevronDown,
+	BiSolidSquareRounded,
+	BiPlus,
 } from 'react-icons/bi';
 
 /**
  * Internal dependencies
  */
 import * as Dropdown from '.';
+import { Form } from '..';
+import { Box } from '../Box';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
 import * as NewDialog from '../NewDialog';
@@ -34,6 +41,426 @@ export default {
 		},
 	},
 };
+
+/**
+ * Switcher
+ */
+export const Switcher = () => (
+	<>
+		<Flex
+			sx={ {
+				gap: 3,
+				flexDirection: 'row',
+				alignItems: 'center',
+				justifyContent: 'flex-start',
+				width: '100%',
+				backgroundColor: 'toolbar.background',
+				color: 'texts.inverse',
+				py: 4,
+				px: 5,
+			} }
+		>
+			<Dropdown.Root
+				trigger={
+					<Flex
+						sx={ {
+							flexDirection: 'row',
+							alignItems: 'center',
+							gap: 0,
+							justifyContent: 'flex-start',
+							cursor: 'pointer',
+						} }
+					>
+						<Text
+							sx={ {
+								fontSize: 'heading.4',
+								fontWeight: 'regular',
+								m: 0,
+								ml: 1,
+								color: 'texts.inverse',
+							} }
+						>
+							US Government
+						</Text>
+						<BiChevronDown style={ { width: '24px', height: '24px' } } />
+					</Flex>
+				}
+				contentProps={ { align: 'start', alignOffset: -28, side: 'bottom', sideOffset: 8 } }
+			>
+				<Dropdown.Group label="Switch Organizations">
+					<Dropdown.Item label="10Up" />
+					<Dropdown.Item label="WPVIP" />
+					<Dropdown.Item label="Salesforce" />
+					<Dropdown.Item label="Meta" />
+					<Dropdown.Item label="Google" />
+				</Dropdown.Group>
+				<Dropdown.Group separator>
+					<Dropdown.Sub>
+						<Dropdown.SubTrigger label="View all" />
+					</Dropdown.Sub>
+				</Dropdown.Group>
+			</Dropdown.Root>
+
+			<Box
+				sx={ {
+					width: '1.5px',
+					height: '16px',
+					backgroundColor: 'texts.secondary',
+					m: 0,
+					rotate: '12deg',
+					transformOrigin: 'center',
+				} }
+			/>
+
+			<Dropdown.Root
+				contentProps={ { align: 'start', alignOffset: -4, side: 'bottom', sideOffset: 8 } }
+				trigger={
+					<Flex
+						sx={ {
+							flexDirection: 'row',
+							alignItems: 'center',
+							gap: 0,
+							justifyContent: 'flex-start',
+							cursor: 'pointer',
+						} }
+					>
+						<img
+							src="http://localhost:3845/assets/bd2832685377e7be1bd41fd3b13ffb83cab86e68.png"
+							alt="Site icon"
+							style={ {
+								width: '16px',
+								height: '16px',
+								margin: 4,
+								objectFit: 'cover',
+								borderRadius: '4px',
+								overflow: 'hidden',
+								display: 'block',
+							} }
+						/>
+						<Text
+							sx={ {
+								fontSize: 'heading.4',
+								fontWeight: 'regular',
+								m: 0,
+								ml: 1,
+								color: 'texts.inverse',
+							} }
+						>
+							The White House
+						</Text>
+						<BiChevronDown style={ { width: '24px', height: '24px' } } />
+					</Flex>
+				}
+			>
+				<Dropdown.Group label="Switch Applications">
+					<Flex
+						sx={ {
+							gap: 2,
+							alignItems: 'center',
+							justifyContent: 'stretch',
+							width: '100%',
+							px: 3,
+							paddingTop: 0,
+							paddingBottom: 0,
+							marginBottom: 0,
+						} }
+					>
+						<Form.Input placeholder="Search applications" />
+					</Flex>
+					<Dropdown.Item
+						label="NASA"
+						secondaryLabel="US Government"
+						icon={ <BiLogoNodejs /> }
+						showIcon
+					/>
+					<Dropdown.Item
+						label="Department of Veterans Affairs"
+						secondaryLabel="US Government"
+						showIcon
+						icon={ <BiLogoWordpress /> }
+					/>
+					<Dropdown.Item
+						label="wpvip.com"
+						secondaryLabel="WordPress VIP"
+						showIcon
+						icon={ <BiLogoWordpress /> }
+					/>
+					<Dropdown.Item
+						label="WordPress VIP Docs"
+						secondaryLabel="WordPress VIP"
+						showIcon
+						icon={ <BiLogoNodejs /> }
+					/>
+					<Dropdown.Item
+						label="Learn.wpvip.com"
+						secondaryLabel="WordPress VIP"
+						showIcon
+						icon={ <BiLogoWordpress /> }
+					/>
+				</Dropdown.Group>
+				<Dropdown.Group separator>
+					<Dropdown.Sub>
+						<Dropdown.SubTrigger label="View all applications" />
+					</Dropdown.Sub>
+				</Dropdown.Group>
+			</Dropdown.Root>
+
+			<Box
+				sx={ {
+					width: '1.5px',
+					height: '16px',
+					backgroundColor: 'texts.secondary',
+					m: 0,
+					rotate: '12deg',
+					transformOrigin: 'center',
+				} }
+			/>
+
+			<Dropdown.Root
+				trigger={
+					<Flex
+						sx={ {
+							flexDirection: 'row',
+							alignItems: 'center',
+							gap: 0,
+							justifyContent: 'flex-start',
+							cursor: 'pointer',
+							pl: '2px',
+						} }
+					>
+						<BiSolidSquareRounded size={ 24 } style={ { padding: 4, color: '#007934' } } />
+						<Text
+							sx={ {
+								fontSize: 'heading.4',
+								fontWeight: 'regular',
+								m: 0,
+								ml: 1,
+								color: 'texts.inverse',
+							} }
+						>
+							Production
+						</Text>
+						<BiChevronDown style={ { width: '24px', height: '24px' } } />
+					</Flex>
+				}
+				contentProps={ { align: 'start', alignOffset: -4, side: 'bottom', sideOffset: 8 } }
+			>
+				<Dropdown.Group label="Switch Environments">
+					<Dropdown.Item
+						label="Production"
+						icon={ <BiSolidSquareRounded style={ { color: '#007934' } } /> }
+						showIcon
+						isSelected
+					/>
+					<Dropdown.Item
+						label="Develop"
+						icon={ <BiSolidSquareRounded style={ { color: '#007586' } } /> }
+						showIcon
+					/>
+					<Dropdown.Item
+						label="Testing"
+						icon={ <BiSolidSquareRounded style={ { color: '#007586' } } /> }
+						showIcon
+					/>
+				</Dropdown.Group>
+				<Dropdown.Group separator>
+					<Dropdown.Item label="Create" icon={ <BiPlus /> } showIcon />
+					<Dropdown.Item label="Clone" icon={ <BiFile /> } showIcon />
+					<Dropdown.Item label="Delete" icon={ <BiTrash /> } showIcon state="disabled" />
+				</Dropdown.Group>
+			</Dropdown.Root>
+		</Flex>
+	</>
+);
+
+/**
+ * Mega Switcher
+ */
+export const MegaSwitcher = () => (
+	<>
+		<Dropdown.Root
+			trigger={
+				<Button variant="ghost">
+					<BiSolidSquareRounded size={ 24 } style={ { padding: 4, color: '#007934' } } />
+					The White House
+					<BiChevronDown style={ { width: '24px', height: '24px' } } />
+				</Button>
+			}
+		>
+			<Flex sx={ { gap: 0, flexDirection: 'row', minWidth: '500px' } }>
+				<Box
+					sx={ {
+						flexBasis: '50%',
+						borderRightWidth: '1px',
+						borderRightStyle: 'solid',
+						borderRightColor: 'borders.2',
+						pr: 2,
+					} }
+				>
+					<Dropdown.Group label="US Government">
+						<Dropdown.Item
+							label="The White House"
+							icon={ <BiLogoWordpress /> }
+							showIcon
+							isSelected
+						/>
+						<Dropdown.Item label="NASA" icon={ <BiLogoNodejs /> } showIcon />
+						<Dropdown.Item label="Department of Veterans Affairs" />
+					</Dropdown.Group>
+					<Dropdown.Group label="WordPress VIP" separator>
+						<Dropdown.Item label="wpvip.com" />
+						<Dropdown.Item label="WordPress VIP Docs" />
+						<Dropdown.Item label="Learn.wpvip.com" />
+					</Dropdown.Group>
+					<Dropdown.Group separator>
+						<Dropdown.Sub>
+							<Dropdown.SubTrigger>View all my applications</Dropdown.SubTrigger>
+						</Dropdown.Sub>
+					</Dropdown.Group>
+				</Box>
+				<Box
+					sx={ {
+						flexBasis: '50%',
+						pl: 2,
+						pt: '33px', // Add top padding to match the Figma design
+					} }
+				>
+					<Dropdown.Group>
+						<Dropdown.Item
+							label="Production"
+							icon={ <BiSolidSquareRounded size={ 20 } style={ { color: '#34773c' } } /> }
+							showIcon
+							isSelected
+						/>
+						<Dropdown.Item
+							label="Develop"
+							icon={ <BiSolidSquareRounded size={ 20 } style={ { color: '#327384' } } /> }
+							showIcon
+						/>
+						<Dropdown.Item
+							label="Testing"
+							icon={ <BiSolidSquareRounded size={ 20 } style={ { color: '#317080' } } /> }
+							showIcon
+						/>
+					</Dropdown.Group>
+					<Dropdown.Group separator>
+						<Dropdown.Item label="Create" icon={ <BiPlus /> } showIcon />
+						<Dropdown.Item label="Clone" icon={ <BiFile /> } showIcon />
+						<Dropdown.Item label="Delete" icon={ <BiTrash /> } showIcon />
+					</Dropdown.Group>
+				</Box>
+			</Flex>
+		</Dropdown.Root>
+	</>
+);
+
+/**
+ * Mega Switcher 2
+ */
+export const MegaSwitcher2 = () => (
+	<>
+		<Flex sx={ { gap: 2, flexDirection: 'column', alignItems: 'flex-start' } }>
+			<Dropdown.Root
+				trigger={
+					<Button variant="ghost">
+						<BiSolidSquareRounded size={ 24 } style={ { padding: 4, color: '#007934' } } />
+						The White House
+						<BiChevronDown style={ { width: '24px', height: '24px' } } />
+					</Button>
+				}
+			>
+				<Dropdown.Group>
+					<Dropdown.Sub>
+						<Dropdown.SubTrigger
+							label="The White House"
+							secondaryLabel="US Government"
+							icon={ <BiLogoWordpress /> }
+							showBadge
+							badgeText="Production"
+							badgeVariant="green"
+						/>
+						<Dropdown.SubContent>
+							<Dropdown.Group label="Environments">
+								<Dropdown.Item
+									label="Production"
+									icon={ <BiSolidSquareRounded size={ 20 } style={ { color: '#34773c' } } /> }
+									showIcon
+									isSelected
+								/>
+								<Dropdown.Item
+									label="Develop"
+									icon={ <BiSolidSquareRounded size={ 20 } style={ { color: '#327384' } } /> }
+									showIcon
+								/>
+								<Dropdown.Item
+									label="Testing"
+									icon={ <BiSolidSquareRounded size={ 20 } style={ { color: '#317080' } } /> }
+									showIcon
+								/>
+							</Dropdown.Group>
+							<Dropdown.Group separator>
+								<Dropdown.Item label="Create" icon={ <BiPlus /> } showIcon />
+								<Dropdown.Item label="Clone" icon={ <BiFile /> } showIcon />
+								<Dropdown.Item label="Delete" icon={ <BiTrash /> } showIcon />
+							</Dropdown.Group>
+						</Dropdown.SubContent>
+					</Dropdown.Sub>
+				</Dropdown.Group>
+				<Dropdown.Group label="Switch Applications" separator>
+					<Flex
+						sx={ {
+							gap: 2,
+							alignItems: 'center',
+							justifyContent: 'stretch',
+							width: '100%',
+							px: 3,
+							paddingTop: 0,
+							paddingBottom: 0,
+							marginBottom: 0,
+						} }
+					>
+						<Form.Input placeholder="Search applications" />
+					</Flex>
+					<Dropdown.Item
+						label="NASA"
+						secondaryLabel="US Government"
+						icon={ <BiLogoNodejs /> }
+						showIcon
+					/>
+					<Dropdown.Item
+						label="Department of Veterans Affairs"
+						secondaryLabel="US Government"
+						showIcon
+						icon={ <BiLogoWordpress /> }
+					/>
+					<Dropdown.Item
+						label="wpvip.com"
+						secondaryLabel="WordPress VIP"
+						showIcon
+						icon={ <BiLogoWordpress /> }
+					/>
+					<Dropdown.Item
+						label="WordPress VIP Docs"
+						secondaryLabel="WordPress VIP"
+						showIcon
+						icon={ <BiLogoNodejs /> }
+					/>
+					<Dropdown.Item
+						label="Learn.wpvip.com"
+						secondaryLabel="WordPress VIP"
+						showIcon
+						icon={ <BiLogoWordpress /> }
+					/>
+				</Dropdown.Group>
+				<Dropdown.Group>
+					<Dropdown.Sub>
+						<Dropdown.SubTrigger>View all</Dropdown.SubTrigger>
+					</Dropdown.Sub>
+				</Dropdown.Group>
+			</Dropdown.Root>
+		</Flex>
+	</>
+);
 
 /**
  * Basic dropdown showcasing the new design system tokens and improved styling
@@ -777,3 +1204,143 @@ export const WithDialog = () => {
 		</>
 	);
 };
+
+/**
+ * Text Overflow
+ */
+export const TextOverflow = () => (
+	<>
+		<Text sx={ { mb: 2 } }>
+			Testing text overflow behavior with ellipsis for long labels and secondary labels. The
+			dropdown has a constrained width to demonstrate the ellipsis effect.
+		</Text>
+		<Dropdown.Root
+			trigger={
+				<Button variant="primary">
+					Text Overflow Test
+					<BiChevronDown />
+				</Button>
+			}
+			contentProps={ { style: { maxWidth: '280px' } } }
+		>
+			<Dropdown.Group label="Long Text Examples">
+				<Dropdown.Item label="This is a very long dropdown item label that should truncate with ellipsis when it exceeds the available width" />
+				<Dropdown.Item
+					label="Another extremely long label that will definitely need to be truncated"
+					icon={ <BiUser /> }
+					showIcon
+				/>
+				<Dropdown.Item
+					label="Long primary label with secondary"
+					secondaryLabel="This is also a very long secondary label that should truncate properly"
+				/>
+				<Dropdown.Item
+					label="With badge and very long text that should still truncate properly"
+					showBadge
+					badgeText="Important"
+					badgeVariant="blue"
+				/>
+				<Dropdown.Item
+					label="Department of Veterans Affairs with additional context and information"
+					icon={ <BiLogoWordpress /> }
+					showIcon
+					isSelected
+				/>
+			</Dropdown.Group>
+			<Dropdown.Group label="Mixed Content" separator>
+				<Dropdown.Item label="Short" />
+				<Dropdown.Item label="Medium length label" />
+				<Dropdown.Item label="This one has an extremely long label that should demonstrate the ellipsis truncation behavior when space is constrained" />
+			</Dropdown.Group>
+		</Dropdown.Root>
+	</>
+);
+
+/**
+ * Enhanced DropdownSubTrigger examples showcasing the new props support
+ * Now supports all the same options as DropdownItem: icon, label, secondary label, badges, states
+ */
+export const EnhancedSubTriggers = () => (
+	<>
+		<Dropdown.Root trigger={ <Button>Enhanced SubTrigger Examples</Button> }>
+			<Dropdown.Group>
+				<Dropdown.Item label="Regular Item" />
+				<Dropdown.Item label="Another Item" />
+			</Dropdown.Group>
+
+			{ /* Basic enhanced sub-trigger with label prop */ }
+			<Dropdown.Sub>
+				<Dropdown.SubTrigger label="Settings" />
+				<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+					<Dropdown.Item label="Preferences" />
+					<Dropdown.Item label="Account" />
+				</Dropdown.SubContent>
+			</Dropdown.Sub>
+
+			{ /* Sub-trigger with icon */ }
+			<Dropdown.Sub>
+				<Dropdown.SubTrigger label="Tools" icon={ <BiCog /> } showIcon />
+				<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+					<Dropdown.Item label="Developer Console" />
+					<Dropdown.Item label="Performance Monitor" />
+				</Dropdown.SubContent>
+			</Dropdown.Sub>
+
+			{ /* Sub-trigger with badge */ }
+			<Dropdown.Sub>
+				<Dropdown.SubTrigger label="Beta Features" showBadge badgeVariant="blue" badgeText="Beta" />
+				<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+					<Dropdown.Item label="New Dashboard" />
+					<Dropdown.Item label="AI Assistant" />
+				</Dropdown.SubContent>
+			</Dropdown.Sub>
+
+			{ /* Sub-trigger with secondary label */ }
+			<Dropdown.Sub>
+				<Dropdown.SubTrigger label="Advanced Options" secondaryLabel="Admin" />
+				<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+					<Dropdown.Item label="System Settings" />
+					<Dropdown.Item label="User Management" />
+				</Dropdown.SubContent>
+			</Dropdown.Sub>
+
+			{ /* Full featured sub-trigger */ }
+			<Dropdown.Sub>
+				<Dropdown.SubTrigger
+					label="Reports"
+					secondaryLabel="Premium"
+					icon={ <BiFile /> }
+					showIcon
+					showBadge
+					badgeVariant="green"
+					badgeText="Pro"
+				/>
+				<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+					<Dropdown.Item label="Analytics Dashboard" />
+					<Dropdown.Item label="Export Data" />
+					<Dropdown.Item label="Custom Reports" />
+				</Dropdown.SubContent>
+			</Dropdown.Sub>
+
+			{ /* Disabled sub-trigger */ }
+			<Dropdown.Sub>
+				<Dropdown.SubTrigger label="Coming Soon" icon={ <BiFile /> } showIcon state="disabled" />
+				<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+					<Dropdown.Item label="Feature 1" />
+					<Dropdown.Item label="Feature 2" />
+				</Dropdown.SubContent>
+			</Dropdown.Sub>
+
+			<Dropdown.Group label="Regular Items" separator>
+				<Dropdown.Item label="Logout" />
+			</Dropdown.Group>
+		</Dropdown.Root>
+
+		<Text sx={ { mt: 3 } }>
+			Enhanced DropdownSubTrigger now supports all the same props as DropdownItem:
+			<code>label</code>, <code>icon</code>, <code>showIcon</code>, <code>secondaryLabel</code>,
+			<code>showBadge</code>, <code>badgeVariant</code>, <code>badgeText</code>, and{ ' ' }
+			<code>state</code>. The chevron icon is automatically added on the right side.
+		</Text>
+	</>
+);
