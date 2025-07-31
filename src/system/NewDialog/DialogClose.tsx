@@ -47,7 +47,7 @@ export const DialogCloseDefault = forwardRef< HTMLButtonElement, DialogCloseDefa
 				<Button
 					ref={ forwardedRef }
 					aria-label="Close"
-					variant="tertiary"
+					variant="ghost"
 					sx={ defaultCloseStyles( variant ) }
 				>
 					<IoClose aria-hidden="true" width={ 20 } height={ 20 } />
