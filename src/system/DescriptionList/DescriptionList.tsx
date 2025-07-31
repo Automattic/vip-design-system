@@ -83,17 +83,22 @@ const DescriptionListComponent = ( {
 );
 
 const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
-	( { sx, className, list, labelWidth = '100px', as = 'dl', title }: DescriptionListProps ) => {
+	(
+		{ sx, className, list, labelWidth = '100px', as = 'dl', title }: DescriptionListProps,
+		ref
+	) => {
 		const Component = as === 'table' ? TableComponent : DescriptionListComponent;
 
 		return (
-			<Component
-				list={ list }
-				className={ className }
-				sx={ sx }
-				labelWidth={ labelWidth }
-				title={ title }
-			/>
+			<Box ref={ ref }>
+				<Component
+					list={ list }
+					className={ className }
+					sx={ sx }
+					labelWidth={ labelWidth }
+					title={ title }
+				/>
+			</Box>
 		);
 	}
 );

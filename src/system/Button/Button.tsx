@@ -95,7 +95,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 				} }
 				{ ...rest }
 				{ ...disabledAttributes }
-				variant={ variant }
+				variant={ variant === 'danger' ? 'primary' : variant } // fallback for danger variant used before the prop was added
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
 				data-danger={ danger }
