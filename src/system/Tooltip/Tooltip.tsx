@@ -13,6 +13,7 @@ export interface TooltipProps {
 	title?: string;
 	trigger?: ReactElement;
 	position?: 'top' | 'bottom' | 'left' | 'right';
+	arrow?: boolean;
 }
 
 const Tooltip = ( {
@@ -20,12 +21,14 @@ const Tooltip = ( {
 	trigger,
 	children,
 	position = 'top',
+	arrow = false,
 }: PropsWithChildren< TooltipProps > ) => {
 	const triggerCloned = trigger
 		? cloneElement( trigger, {
 				'data-vip-tooltip': title,
 				'aria-label': title,
 				'data-vip-tooltip-position': position,
+				'data-vip-tooltip-arrow': `${ arrow }`,
 		  } )
 		: null;
 
