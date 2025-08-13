@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import {Tooltip, Button, Heading, Text, Link, Box, Grid} from '..';
+import { Tooltip, Button, Heading, Text, Link, Box, Grid } from '..';
 
 export default {
 	title: 'Tooltip',
@@ -117,11 +117,7 @@ export const Basic = () => (
 				arrow={ true }
 			/>
 
-			<Tooltip
-				trigger={ <Button>Right</Button> }
-				title="On the Right"
-				position="right"
-			/>
+			<Tooltip trigger={ <Button>Right</Button> } title="On the Right" position="right" />
 
 			<Tooltip
 				trigger={ <Button>Right with Arrow</Button> }
