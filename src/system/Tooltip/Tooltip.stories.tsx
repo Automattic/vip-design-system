@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { Tooltip, Button, Heading, Text, Link, Box } from '..';
+import { Tooltip, Button, Heading, Text, Link, Box, Grid } from '..';
 
 export default {
 	title: 'Tooltip',
@@ -73,30 +73,68 @@ export const Basic = () => (
 			Pass a trigger and title, the trigger component will be cloned and injected with a{ ' ' }
 			<code>[vip-tooltip]</code> HTML attribute.
 		</Text>
+		<Grid
+			columns={ [ 'auto auto' ] }
+			gap={ '100px 160px' }
+			sx={ { justifyContent: 'center', pt: '50px' } }
+		>
+			<Tooltip trigger={ <Button>Top</Button> } title="At the top" position="top" />
 
-		<Tooltip
-			trigger={ <Button sx={ { mr: 3 } }>Button with top tooltip</Button> }
-			title="On the top"
-			position="top"
-		/>
+			<Tooltip
+				trigger={ <Button>Top with Arrow</Button> }
+				title="At the top with arrow"
+				position="top"
+				arrow={ true }
+			/>
 
-		<Tooltip
-			trigger={ <Button sx={ { mr: 3 } }>Button with bottom tooltip</Button> }
-			title="On the Bottom"
-			position="bottom"
-		/>
+			<Tooltip trigger={ <Button>Bottom</Button> } title="At the Bottom" position="bottom" />
 
-		<Tooltip
-			trigger={ <Button sx={ { mr: 3 } }>Button with left tooltip</Button> }
-			title="On the Left"
-			position="left"
-		/>
+			<Tooltip
+				trigger={ <Button>Bottom with Arrow</Button> }
+				title="At the Bottom with arrow"
+				position="bottom"
+				arrow={ true }
+			/>
 
-		<Tooltip
-			trigger={ <Button>Button with right tooltip</Button> }
-			title="On the Right"
-			position="right"
-		/>
+			<Tooltip trigger={ <Button>Left</Button> } title="On the Left" position="left" />
+
+			<Tooltip
+				trigger={ <Button>Left with Arrow</Button> }
+				title="On the Left with arrow"
+				position="left"
+				arrow={ true }
+			/>
+
+			<Tooltip trigger={ <Button>Right</Button> } title="On the Right" position="right" />
+
+			<Tooltip
+				trigger={ <Button>Right with Arrow</Button> }
+				title="On the Right with arrow"
+				position="right"
+				arrow={ true }
+			/>
+
+			<Tooltip
+				trigger={
+					<Button disabled={ true } preferAriaDisabled={ true }>
+						Disabled (use focus)
+					</Button>
+				}
+				title="Disabled trigger"
+				position="top"
+			/>
+
+			<Tooltip
+				trigger={
+					<Button disabled={ true } preferAriaDisabled={ true }>
+						Disabled with Arrow (use focus)
+					</Button>
+				}
+				title="Disabled trigger with arrow"
+				position="top"
+				arrow={ true }
+			/>
+		</Grid>
 	</>
 );
 
@@ -111,6 +149,8 @@ export const Container = () => (
 
 		<Box sx={ { backgroundColor: 'red' } }>
 			<Tooltip>
+				<br />
+
 				<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 3 } }>
 					This is another way
 				</Button>
@@ -122,7 +162,8 @@ export const Container = () => (
 				<Link
 					href="http://google.com"
 					data-vip-tooltip-position="right"
-					data-vip-tooltip="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500"
+					data-vip-tooltip-arrow="true"
+					data-vip-tooltip="Lorem Ipsum has been the industry's standard dummy text ever since the 1500"
 					sx={ { ml: 3 } }
 				>
 					Use with links too
