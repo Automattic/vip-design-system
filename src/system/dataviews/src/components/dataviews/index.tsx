@@ -98,6 +98,7 @@ function DefaultUI( {
 				justify="space-between"
 				className="dataviews__view-actions"
 				spacing={ 1 }
+				style={{ boxSizing: 'border-box', padding: '8px 24px', position: 'sticky', top: 0, background: 'inherit', zIndex: 1 }}
 			>
 				<HStack
 					justify="start"
@@ -259,7 +260,7 @@ function DataViews< Item >( {
 				hasInfiniteScrollHandler: !! infiniteScrollHandler,
 			} }
 		>
-			<div className="dataviews-wrapper" ref={ containerRef }>
+			<div className="dataviews-wrapper" ref={ containerRef } style={{ height: '100%', overflow: 'auto', boxSizing: 'border-box' }}>
 				{ children ?? (
 					<DefaultUI
 						header={ header }

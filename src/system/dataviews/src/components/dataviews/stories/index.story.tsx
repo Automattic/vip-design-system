@@ -41,7 +41,7 @@ import { LAYOUT_GRID, LAYOUT_LIST, LAYOUT_TABLE } from '../../../constants';
 import { filterSortAndPaginate } from '../../../filter-and-sort-data-view';
 import type { Field, View } from '../../../types';
 
-import './style.css';
+// Styles inlined via components; no external CSS
 
 const meta = {
 	title: 'DataViews/DataViews',
