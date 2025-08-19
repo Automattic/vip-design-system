@@ -104,7 +104,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					backgroundColor: active ? 'background' : 'transparent',
 					borderRadius: 0,
 					borderBottom: active ? 'none' : '1px solid',
-					borderRight: active ? 'none' : '1px solid',
+					borderRight: '1px solid',
 					'&:first-of-type': {
 						borderTopWidth: '1px',
 						borderTopStyle: 'solid',
@@ -133,12 +133,16 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						aria-current={ active ? 'step' : undefined }
 					>
 						{ showStepText && (
-							<Text sx={ { color: 'wizard.step.number.color' } } aria-hidden="true">
+							<Text sx={ { fontSize: 1, color: 'wizard.step.number.color' } } aria-hidden="true">
 								{ stepText }
 							</Text>
 						) }
 
-						<Flex as="span" sx={ { mt: 3, alignItems: 'center' } } aria-hidden="true">
+						<Flex
+							as="span"
+							sx={ { mt: showStepText ? 3 : 2, alignItems: 'center' } }
+							aria-hidden="true"
+						>
 							{ complete ? (
 								<BsFillCheckCircleFill sx={ statusIconStyles } />
 							) : (
@@ -165,7 +169,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						>
 							{ actionLabel }{ ' ' }
 							<ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
-							{ Boolean( actionIcon ) && <Box sx={ { ml: 4 } }>{ actionIcon }</Box> }
+							{ Boolean( actionIcon ) && <Box sx={ { ml: 2 } }>{ actionIcon }</Box> }
 						</Button>
 					) }
 				</Flex>
