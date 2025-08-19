@@ -5,21 +5,13 @@ import clsx from 'clsx';
 import type { ComponentProps, ReactElement } from 'react';
 
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import {
-	__experimentalHStack as HStack,
-	__experimentalVStack as VStack,
-	Spinner,
-	Flex,
-	FlexItem,
-	Tooltip,
-	privateApis as componentsPrivateApis,
-} from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
-import { useInstanceId } from '@wordpress/compose';
-import { isAppleOS } from '@wordpress/keycodes';
-import { useContext } from '@wordpress/element';
+import { HStack, VStack, Spinner } from '../../adapter/components';
+import { __, sprintf } from '../../adapter/i18n';
+import { useInstanceId } from '../../adapter/compose';
+import { isAppleOS } from '../../adapter/keycodes';
+import { useContext } from '../../adapter/element';
 
 /**
  * Internal dependencies

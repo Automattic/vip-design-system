@@ -6,9 +6,17 @@ import type { MutableRefObject } from 'react';
 /**
  * WordPress dependencies
  */
-import { useDebounce } from '@wordpress/compose';
-import { useCallback, useEffect, useState } from '@wordpress/element';
-import { isRTL } from '@wordpress/i18n';
+import { useCallback, useEffect, useState } from '../../adapter/element';
+import { isRTL } from '../../adapter/i18n';
+// Simple inline debounce using setTimeout for this hook
+function useDebounce<T extends (...args: any[]) => void>(fn: T, wait = 150) {
+	let timer: number | null = null;
+	const debounced = (...args: any[]) => {
+		if (timer) window.clearTimeout(timer);
+		timer = window.setTimeout(() => fn(...args), wait);
+	};
+	return debounced as T;
+}
 
 const isScrolledToEnd = ( element: Element ) => {
 	if ( isRTL() ) {

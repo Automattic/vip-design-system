@@ -4,17 +4,17 @@
 import type { ReactNode, ComponentProps, ReactElement } from 'react';
 
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import { __experimentalHStack as HStack } from '@wordpress/components';
+import { HStack } from '../../adapter/components';
 import {
 	useContext,
 	useEffect,
 	useMemo,
 	useRef,
 	useState,
-} from '@wordpress/element';
-import { useResizeObserver, throttle } from '@wordpress/compose';
+} from '../../adapter/element';
+import { useResizeObserver, throttle } from '../../adapter/compose';
 
 /**
  * Internal dependencies

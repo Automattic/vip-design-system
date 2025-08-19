@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __, isRTL } from '@wordpress/i18n';
+import { __, isRTL } from '../adapter/i18n';
 import {
 	blockTable,
 	category,

@@ -1,8 +1,8 @@
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import { dateI18n, getDate, getSettings } from '@wordpress/date';
-import { __ } from '@wordpress/i18n';
+import { dateI18n, getDate, getSettings } from '../adapter/date';
+import { __ } from '../adapter/i18n';
 
 /**
  * Internal dependencies
