@@ -16,7 +16,7 @@ import { useContext } from '../../adapter/element';
 /**
  * Internal dependencies
  */
-import { unlock } from '../../lock-unlock';
+// private-apis removed
 import ItemActions from '../../components/dataviews-item-actions';
 import DataViewsSelectionCheckbox from '../../components/dataviews-selection-checkbox';
 import DataViewsContext from '../../components/dataviews-context';
@@ -32,7 +32,9 @@ import type {
 } from '../../types';
 import type { SetSelection } from '../../private-types';
 import { ItemClickWrapper } from '../utils/item-click-wrapper';
-const { Badge } = unlock( componentsPrivateApis );
+const Badge = ({ children }: { children: React.ReactNode }) => (
+    <span style={{ padding: '0 6px', borderRadius: 6, background: '#eee' }}>{children}</span>
+);
 
 interface GridItemProps< Item > {
 	view: ViewGridType;

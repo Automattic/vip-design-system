@@ -4,26 +4,21 @@
 import type { MouseEventHandler } from 'react';
 
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import {
-	Button,
-	Modal,
-	__experimentalHStack as HStack,
-	privateApis as componentsPrivateApis,
-} from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
-import { useMemo, useState } from '@wordpress/element';
-import { moreVertical } from '@wordpress/icons';
-import { useRegistry } from '@wordpress/data';
+import { Button, HStack } from '../../adapter/components';
+import { __ } from '../../adapter/i18n';
+import { useMemo, useState } from '../../adapter/element';
+import { getIcon } from '../../adapter/icons';
 
 /**
  * Internal dependencies
  */
-import { unlock } from '../../lock-unlock';
+import { Menu } from '../../adapter/menu';
 import type { Action, ActionModal as ActionModalType } from '../../types';
 
-const { Menu, kebabCase } = unlock( componentsPrivateApis );
+const kebabCase = (s: string) => s.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+const MoreVertical = getIcon('moreVertical');
 
 export interface ActionTriggerProps< Item > {
 	action: Action< Item >;

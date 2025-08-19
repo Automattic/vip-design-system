@@ -1,17 +1,11 @@
 /**
  * WordPress dependencies
  */
-import {
-	BaseControl,
-	Button,
-	privateApis as componentsPrivateApis,
-	__experimentalInputControl as InputControl,
-	__experimentalHStack as HStack,
-	__experimentalVStack as VStack,
-} from '@wordpress/components';
-import { useCallback, useMemo, useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
-import { getDate, getSettings } from '@wordpress/date';
+import { useCallback, useMemo, useState } from '../../adapter/element';
+import { __ } from '../../adapter/i18n';
+import { getDate, getSettings } from '../../adapter/date';
+import { Button, HStack, VStack } from '../../adapter/components';
+import { Input } from '../../../Form';
 
 /**
  * External dependencies
@@ -37,10 +31,9 @@ import {
 	OPERATOR_OVER,
 	OPERATOR_BETWEEN,
 } from '../constants';
-import { unlock } from '../lock-unlock';
 import type { DataFormControlProps } from '../types';
 
-const { DateCalendar, DateRangeCalendar } = unlock( componentsPrivateApis );
+// No calendar components in MVP; rely on native inputs and presets
 
 const DATE_PRESETS: {
 	id: string;
@@ -50,13 +43,13 @@ const DATE_PRESETS: {
 	{
 		id: 'today',
 		label: __( 'Today' ),
-		getValue: () => getDate( null ),
+		getValue: () => getDate( null as unknown as any ),
 	},
 	{
 		id: 'yesterday',
 		label: __( 'Yesterday' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return subDays( today, 1 );
 		},
 	},
@@ -64,7 +57,7 @@ const DATE_PRESETS: {
 		id: 'past-week',
 		label: __( 'Past week' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return subDays( today, 7 );
 		},
 	},
@@ -72,7 +65,7 @@ const DATE_PRESETS: {
 		id: 'past-month',
 		label: __( 'Past month' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return subMonths( today, 1 );
 		},
 	},
@@ -83,7 +76,7 @@ const DATE_RANGE_PRESETS = [
 		id: 'last-7-days',
 		label: __( 'Last 7 days' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return [ subDays( today, 7 ), today ];
 		},
 	},
@@ -91,7 +84,7 @@ const DATE_RANGE_PRESETS = [
 		id: 'last-30-days',
 		label: __( 'Last 30 days' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return [ subDays( today, 30 ), today ];
 		},
 	},
@@ -99,7 +92,7 @@ const DATE_RANGE_PRESETS = [
 		id: 'month-to-date',
 		label: __( 'Month to date' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return [ startOfMonth( today ), today ];
 		},
 	},
@@ -107,7 +100,7 @@ const DATE_RANGE_PRESETS = [
 		id: 'last-year',
 		label: __( 'Last year' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return [ subYears( today, 1 ), today ];
 		},
 	},
@@ -115,7 +108,7 @@ const DATE_RANGE_PRESETS = [
 		id: 'year-to-date',
 		label: __( 'Year to date' ),
 		getValue: () => {
-			const today = getDate( null );
+			const today = getDate( null as unknown as any );
 			return [ startOfYear( today ), today ];
 		},
 	},
@@ -125,7 +118,7 @@ const parseDate = ( dateString?: string ): Date | null => {
 	if ( ! dateString ) {
 		return null;
 	}
-	const parsed = getDate( dateString );
+	const parsed = getDate( dateString as any );
 	return parsed && isValid( parsed ) ? parsed : null;
 };
 
@@ -203,15 +196,9 @@ function CalendarDateControl( {
 	} = getSettings();
 
 	return (
-		<BaseControl
-			__nextHasNoMarginBottom
-			id={ id }
-			className={ className }
-			label={ label }
-			hideLabelFromVision={ hideLabelFromVision }
-		>
+		<div id={ id } className={ className }>
 			<VStack spacing={ 4 }>
-				{ /* Preset buttons */ }
+				{/* Preset buttons */}
 				<HStack spacing={ 2 } wrap justify="flex-start">
 					{ DATE_PRESETS.map( ( preset ) => {
 						const isSelected = selectedPresetId === preset.id;
@@ -220,7 +207,7 @@ function CalendarDateControl( {
 								className="dataviews-controls__date-preset"
 								key={ preset.id }
 								variant="tertiary"
-								isPressed={ isSelected }
+								isPressed={ isSelected as any }
 								size="small"
 								onClick={ () => handlePresetClick( preset ) }
 							>
@@ -231,39 +218,25 @@ function CalendarDateControl( {
 					<Button
 						className="dataviews-controls__date-preset"
 						variant="tertiary"
-						isPressed={ ! selectedPresetId }
+						isPressed={ ! selectedPresetId as any }
 						size="small"
 						disabled={ !! selectedPresetId }
-						accessibleWhenDisabled={ false }
+						accessibleWhenDisabled={ false as any }
 					>
 						{ __( 'Custom' ) }
 					</Button>
 				</HStack>
 
-				{ /* Manual date input */ }
-				<InputControl
-					__next40pxDefaultSize
+				{/* Manual date input */}
+				<Input
 					type="date"
-					label={ __( 'Date' ) }
-					hideLabelFromVision
 					value={ value }
-					onChange={ handleManualDateChange }
+					onChange={ (e: React.ChangeEvent<HTMLInputElement>) => handleManualDateChange(e.target.value) }
 				/>
 
-				{ /* Calendar widget */ }
-				<DateCalendar
-					style={ { width: '100%' } }
-					selected={
-						value ? parseDate( value ) || undefined : undefined
-					}
-					onSelect={ onSelectDate }
-					month={ calendarMonth }
-					onMonthChange={ setCalendarMonth }
-					timeZone={ timezoneString || undefined }
-					weekStartsOn={ startOfWeek }
-				/>
+				{/* Calendar widget omitted in MVP */}
 			</VStack>
-		</BaseControl>
+		</div>
 	);
 }
 
@@ -364,15 +337,9 @@ function CalendarDateRangeControl( {
 	const { timezone, l10n } = getSettings();
 
 	return (
-		<BaseControl
-			__nextHasNoMarginBottom
-			id={ id }
-			className={ className }
-			label={ label }
-			hideLabelFromVision={ hideLabelFromVision }
-		>
+		<div id={ id } className={ className }>
 			<VStack spacing={ 4 }>
-				{ /* Preset buttons */ }
+				{/* Preset buttons */}
 				<HStack spacing={ 2 } wrap justify="flex-start">
 					{ DATE_RANGE_PRESETS.map( ( preset ) => {
 						const isSelected = selectedPresetId === preset.id;
@@ -381,7 +348,7 @@ function CalendarDateRangeControl( {
 								className="dataviews-controls__date-preset"
 								key={ preset.id }
 								variant="tertiary"
-								isPressed={ isSelected }
+								isPressed={ isSelected as any }
 								size="small"
 								onClick={ () => handlePresetClick( preset ) }
 							>
@@ -392,50 +359,36 @@ function CalendarDateRangeControl( {
 					<Button
 						className="dataviews-controls__date-preset"
 						variant="tertiary"
-						isPressed={ ! selectedPresetId }
+						isPressed={ ! selectedPresetId as any }
 						size="small"
-						accessibleWhenDisabled={ false }
 						disabled={ !! selectedPresetId }
+						accessibleWhenDisabled={ false as any }
 					>
 						{ __( 'Custom' ) }
 					</Button>
 				</HStack>
 
-				{ /* Manual date range inputs */ }
+				{/* Manual date range inputs */}
 				<HStack spacing={ 2 }>
-					<InputControl
-						__next40pxDefaultSize
+					<Input
 						type="date"
-						label={ __( 'From' ) }
-						hideLabelFromVision
 						value={ value?.[ 0 ] }
-						onChange={ ( newValue ) =>
-							handleManualDateChange( 'from', newValue )
+						onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) =>
+							handleManualDateChange( 'from', e.target.value )
 						}
 					/>
-					<InputControl
-						__next40pxDefaultSize
+					<Input
 						type="date"
-						label={ __( 'To' ) }
-						hideLabelFromVision
 						value={ value?.[ 1 ] }
-						onChange={ ( newValue ) =>
-							handleManualDateChange( 'to', newValue )
+						onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) =>
+							handleManualDateChange( 'to', e.target.value )
 						}
 					/>
 				</HStack>
 
-				<DateRangeCalendar
-					style={ { width: '100%' } }
-					selected={ selectedRange }
-					onSelect={ onSelectCalendarRange }
-					month={ calendarMonth }
-					onMonthChange={ setCalendarMonth }
-					timeZone={ timezone.string || undefined }
-					weekStartsOn={ l10n.startOfWeek }
-				/>
+				{/* Calendar range widget omitted in MVP */}
 			</VStack>
-		</BaseControl>
+		</div>
 	);
 }
 

@@ -4,21 +4,18 @@
 import type { ReactNode, Ref, PropsWithoutRef, RefAttributes } from 'react';
 
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { arrowLeft, arrowRight, unseen, funnel } from '@wordpress/icons';
-import {
-	Button,
-	Icon,
-	privateApis as componentsPrivateApis,
-} from '@wordpress/components';
-import { forwardRef, Children, Fragment } from '@wordpress/element';
+import { __ } from '../../adapter/i18n';
+import { getIcon } from '../../adapter/icons';
+import { Button } from '../../adapter/components';
+import { forwardRef, Children, Fragment } from '../../adapter/element';
+import { Menu } from '../../adapter/menu';
 
 /**
  * Internal dependencies
  */
-import { unlock } from '../../lock-unlock';
+// private-apis removed
 import { SORTING_DIRECTIONS, sortArrows, sortLabels } from '../../constants';
 import type {
 	NormalizedField,
@@ -27,7 +24,10 @@ import type {
 	Operator,
 } from '../../types';
 
-const { Menu } = unlock( componentsPrivateApis );
+const ArrowLeft = getIcon('arrowLeft');
+const ArrowRight = getIcon('arrowRight');
+const Unseen = getIcon('unseen');
+const Funnel = getIcon('funnel');
 
 interface HeaderMenuProps< Item > {
 	fieldId: string;
@@ -164,7 +164,7 @@ const _HeaderMenu = forwardRef( function HeaderMenu< Item >(
 					{ canAddFilter && (
 						<Menu.Group>
 							<Menu.Item
-								prefix={ <Icon icon={ funnel } /> }
+								prefix={ <Funnel /> }
 								onClick={ () => {
 									setOpenedFilter( fieldId );
 									onChangeView( {
@@ -191,7 +191,7 @@ const _HeaderMenu = forwardRef( function HeaderMenu< Item >(
 						<Menu.Group>
 							{ canMove && (
 								<Menu.Item
-									prefix={ <Icon icon={ arrowLeft } /> }
+									prefix={ <ArrowLeft /> }
 									disabled={ index < 1 }
 									onClick={ () => {
 										onChangeView( {
@@ -217,7 +217,7 @@ const _HeaderMenu = forwardRef( function HeaderMenu< Item >(
 							) }
 							{ canMove && (
 								<Menu.Item
-									prefix={ <Icon icon={ arrowRight } /> }
+									prefix={ <ArrowRight /> }
 									disabled={
 										index >= visibleFieldIds.length - 1
 									}
@@ -245,7 +245,7 @@ const _HeaderMenu = forwardRef( function HeaderMenu< Item >(
 							) }
 							{ isHidable && field && (
 								<Menu.Item
-									prefix={ <Icon icon={ unseen } /> }
+									prefix={ <Unseen /> }
 									onClick={ () => {
 										onHide( field );
 										onChangeView( {

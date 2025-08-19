@@ -1,16 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { privateApis } from '@wordpress/components';
-import { useCallback, useState } from '@wordpress/element';
+import { useCallback, useState } from '../../adapter/element';
 
 /**
  * Internal dependencies
  */
 import type { DataFormControlProps } from '../types';
-import { unlock } from '../lock-unlock';
-
-const { ValidatedTextControl } = unlock( privateApis );
+import { Input, Label } from '../../../Form';
 
 export default function Email< Item >( {
 	data,
@@ -20,12 +17,7 @@ export default function Email< Item >( {
 }: DataFormControlProps< Item > ) {
 	const { id, label, placeholder, description } = field;
 	const value = field.getValue( { item: data } );
-	const [ customValidity, setCustomValidity ] =
-		useState<
-			React.ComponentProps<
-				typeof ValidatedTextControl
-			>[ 'customValidity' ]
-		>( undefined );
+	const [ customValidity ] = useState< { type: 'invalid'; message: string } | undefined >( undefined );
 
 	const onChangeControl = useCallback(
 		( newValue: string ) =>
@@ -36,37 +28,17 @@ export default function Email< Item >( {
 	);
 
 	return (
-		<ValidatedTextControl
-			required={ !! field.isValid?.required }
-			onValidate={ ( newValue: any ) => {
-				const message = field.isValid?.custom?.(
-					{
-						...data,
-						[ id ]: newValue,
-					},
-					field
-				);
-
-				if ( message ) {
-					setCustomValidity( {
-						type: 'invalid',
-						message,
-					} );
-					return;
-				}
-
-				setCustomValidity( undefined );
-			} }
-			customValidity={ customValidity }
-			type="email"
-			label={ label }
-			placeholder={ placeholder }
-			value={ value ?? '' }
-			help={ description }
-			onChange={ onChangeControl }
-			__next40pxDefaultSize
-			__nextHasNoMarginBottom
-			hideLabelFromVision={ hideLabelFromVision }
-		/>
+		<div>
+			{ !hideLabelFromVision && label && <Label>{label}</Label> }
+			<Input
+				type="email"
+				required={ !! field.isValid?.required }
+				value={ value ?? '' }
+				placeholder={ placeholder }
+				onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeControl(e.target.value) }
+				aria-invalid={ customValidity?.type === 'invalid' }
+			/>
+			{ description && <small>{description}</small> }
+		</div>
 	);
 }

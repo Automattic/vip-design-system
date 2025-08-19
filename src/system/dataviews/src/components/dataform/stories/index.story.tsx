@@ -5,8 +5,13 @@ import { useCallback, useMemo, useState } from '@wordpress/element';
 import {
 	Button,
 	__experimentalVStack as VStack,
-	privateApis,
 } from '@wordpress/components';
+
+/**
+ * Adapter dependencies
+ */
+import { useCallback, useMemo, useState } from '../../../adapter/element';
+import { Button, VStack } from '../../../adapter/components';
 
 /**
  * Internal dependencies
@@ -14,9 +19,6 @@ import {
 import DataForm from '../index';
 import { isItemValid } from '../../../validation';
 import type { Field, Form, DataFormControlProps } from '../../../types';
-import { unlock } from '../../../lock-unlock';
-
-const { ValidatedTextControl } = unlock( privateApis );
 
 type SamplePost = {
 	title: string;
@@ -348,17 +350,15 @@ function CustomEditControl< Item >( {
 	);
 
 	return (
-		<ValidatedTextControl
-			required={ !! field.isValid?.required }
-			label={ label }
-			placeholder={ placeholder }
-			value={ value ?? '' }
-			help={ description }
-			onChange={ onChangeControl }
-			__next40pxDefaultSize
-			__nextHasNoMarginBottom
-			hideLabelFromVision={ hideLabelFromVision }
-		/>
+		<div>
+			{ !hideLabelFromVision && <label>{label}</label> }
+			<input
+				placeholder={ placeholder }
+				value={ value ?? '' }
+				onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeControl(e.target.value) }
+			/>
+			{ description && <small>{description}</small> }
+		</div>
 	);
 }
 

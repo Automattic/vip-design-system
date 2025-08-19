@@ -6,16 +6,8 @@ import clsx from 'clsx';
 /**
  * WordPress dependencies
  */
-import { useInstanceId, usePrevious } from '@wordpress/compose';
-import {
-	__experimentalHStack as HStack,
-	__experimentalVStack as VStack,
-	Button,
-	privateApis as componentsPrivateApis,
-	Spinner,
-	VisuallyHidden,
-	Composite,
-} from '@wordpress/components';
+import { useInstanceId, usePrevious } from '../../adapter/compose';
+import { HStack, VStack, Button, Spinner, VisuallyHidden } from '../../adapter/components';
 import {
 	useCallback,
 	useEffect,
@@ -23,15 +15,14 @@ import {
 	useRef,
 	useState,
 	useContext,
-} from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
-import { moreVertical } from '@wordpress/icons';
-import { useRegistry } from '@wordpress/data';
+} from '../../adapter/element';
+import { __ } from '../../adapter/i18n';
+import { getIcon } from '../../adapter/icons';
 
 /**
  * Internal dependencies
  */
-import { unlock } from '../../lock-unlock';
+import { Menu } from '../../adapter/menu';
 import {
 	ActionsMenuGroup,
 	ActionModal,
@@ -60,7 +51,7 @@ interface ListViewItemProps< Item > {
 	posinset?: number;
 }
 
-const { Menu } = unlock( componentsPrivateApis );
+const MoreVertical = getIcon('moreVertical');
 
 function generateItemWrapperCompositeId( idPrefix: string ) {
 	return `${ idPrefix }-item-wrapper`;

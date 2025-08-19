@@ -1,23 +1,16 @@
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import {
-	Flex,
-	BaseControl,
-	__experimentalNumberControl as NumberControl,
-	privateApis,
-} from '@wordpress/components';
-import { useCallback, useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { useCallback, useState } from '../../adapter/element';
+import { __ } from '../../adapter/i18n';
+import { Input, Label } from '../../../Form';
 
 /**
  * Internal dependencies
  */
 import { OPERATOR_BETWEEN } from '../constants';
 import type { DataFormControlProps } from '../types';
-import { unlock } from '../lock-unlock';
-
-const { ValidatedNumberControl } = unlock( privateApis );
+// replaced ValidatedNumberControl with DS Input + simple validation
 
 function BetweenControls< Item >( {
 	id,
@@ -49,29 +42,19 @@ function BetweenControls< Item >( {
 	);
 
 	return (
-		<BaseControl
-			__nextHasNoMarginBottom
-			help={ __( 'The max. value must be greater than the min. value.' ) }
-		>
-			<Flex direction="row" gap={ 4 }>
-				<NumberControl
-					label={ __( 'Min.' ) }
-					value={ min }
-					max={ max ? Number( max ) - 1 : undefined }
-					onChange={ onChangeMin }
-					__next40pxDefaultSize
-					hideLabelFromVision={ hideLabelFromVision }
-				/>
-				<NumberControl
-					label={ __( 'Max.' ) }
-					value={ max }
-					min={ min ? Number( min ) + 1 : undefined }
-					onChange={ onChangeMax }
-					__next40pxDefaultSize
-					hideLabelFromVision={ hideLabelFromVision }
-				/>
-			</Flex>
-		</BaseControl>
+		<div>
+			<div style={{ display: 'flex', gap: 16 }}>
+				<label>
+					{ !hideLabelFromVision && <Label>{ __( 'Min.' ) }</Label> }
+					<Input type="number" value={ min } onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeMin(e.target.value) } />
+				</label>
+				<label>
+					{ !hideLabelFromVision && <Label>{ __( 'Max.' ) }</Label> }
+					<Input type="number" value={ max } onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeMax(e.target.value) } />
+				</label>
+			</div>
+			<small>{ __( 'The max. value must be greater than the min. value.' ) }</small>
+		</div>
 	);
 }
 
@@ -117,36 +100,18 @@ export default function Integer< Item >( {
 	}
 
 	return (
-		<ValidatedNumberControl
-			required={ !! field.isValid?.required }
-			onValidate={ ( newValue: any ) => {
-				const message = field.isValid?.custom?.(
-					{
-						...data,
-						[ id ]: [ undefined, '', null ].includes( newValue )
-							? undefined
-							: Number( newValue ),
-					},
-					field
-				);
-
-				if ( message ) {
-					setCustomValidity( {
-						type: 'invalid',
-						message,
-					} );
-					return;
-				}
-
-				setCustomValidity( undefined );
-			} }
-			customValidity={ customValidity }
-			label={ label }
-			help={ description }
-			value={ value }
-			onChange={ onChangeControl }
-			__next40pxDefaultSize
-			hideLabelFromVision={ hideLabelFromVision }
-		/>
+		<div>
+			{ label && !hideLabelFromVision && <Label>{label}</Label> }
+			<Input
+				type="number"
+				value={ value }
+				onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeControl(e.target.value) }
+				aria-invalid={ customValidity?.type === 'invalid' }
+			/>
+			{ description && <small>{description}</small> }
+			{ customValidity?.message && (
+				<div role="alert" style={{ color: 'var(--ds-danger, #c00)' }}>{customValidity.message}</div>
+			) }
+		</div>
 	);
 }
