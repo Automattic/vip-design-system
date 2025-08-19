@@ -4,9 +4,9 @@
 import type { ComponentProps, ReactElement, ReactNode } from 'react';
 
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import { createContext, createRef } from '@wordpress/element';
+import { createContext, createRef } from '../../adapter/element';
 
 /**
  * Internal dependencies

@@ -75,7 +75,6 @@ function PrimaryActionGridCell< Item >( {
 	primaryAction: Action< Item >;
 	item: Item;
 } ) {
-	const registry = useRegistry();
 	const [ isModalOpen, setIsModalOpen ] = useState( false );
 
 	const compositeItemId = generatePrimaryActionCompositeId(
@@ -125,9 +124,7 @@ function PrimaryActionGridCell< Item >( {
 						icon={ primaryAction.icon }
 						isDestructive={ primaryAction.isDestructive }
 						size="small"
-						onClick={ () => {
-							primaryAction.callback( [ item ], { registry } );
-						} }
+						onClick={ () => primaryAction.callback( [ item ] ) }
 					/>
 				}
 			/>
@@ -159,7 +156,7 @@ function ListItem< Item >( {
 	const labelId = `${ idPrefix }-label`;
 	const descriptionId = `${ idPrefix }-description`;
 
-	const registry = useRegistry();
+	const registry = useContext( DataViewsContext );
 	const [ isHovered, setIsHovered ] = useState( false );
 	const [ activeModalAction, setActiveModalAction ] = useState(
 		null as ActionModalType< Item > | null
