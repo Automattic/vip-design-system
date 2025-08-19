@@ -133,7 +133,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						aria-current={ active ? 'step' : undefined }
 					>
 						{ showStepText && (
-							<Text sx={ { fontSize: 1, color: 'wizard.step.number.color' } } aria-den="true">
+							<Text sx={ { fontSize: 1, color: 'wizard.step.number.color' } } aria-hidden="true">
 								{ stepText }
 							</Text>
 						) }
