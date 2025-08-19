@@ -73,6 +73,7 @@ const DescriptionListComponent = ( {
 					fontSize: 2,
 					gap: 2,
 					alignItems: 'flex-start',
+					color: 'texts.helper',
 				} }
 			>
 				<dt>{ item.label }:</dt>
