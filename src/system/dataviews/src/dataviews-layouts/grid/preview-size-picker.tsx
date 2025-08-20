@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { RangeControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+import { __ } from '../../adapter/i18n';
 import { useContext } from '@wordpress/element';
 
 /**

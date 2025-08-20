@@ -1,8 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { CheckboxControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+import CheckboxControl from '../../controls/CheckboxControl';
+import { __ } from '../../adapter/i18n';
 
 /**
  * Internal dependencies

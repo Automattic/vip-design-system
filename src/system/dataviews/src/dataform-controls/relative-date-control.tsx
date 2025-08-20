@@ -4,16 +4,12 @@
 import clsx from 'clsx';
 
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import {
-	BaseControl,
-	SelectControl,
-	__experimentalNumberControl as NumberControl,
-	__experimentalHStack as HStack,
-} from '@wordpress/components';
-import { useCallback } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { HStack } from '../../adapter/components';
+import { useCallback } from '../../adapter/element';
+import { __ } from '../../adapter/i18n';
+import { Input, Label } from '../../../Form';
 
 /**
  * Internal dependencies
@@ -73,34 +69,23 @@ export default function RelativeDateControl( {
 	);
 
 	return (
-		<BaseControl
-			id={ id }
-			__nextHasNoMarginBottom
-			className={ clsx( className, 'dataviews-controls__relative-date' ) }
-			label={ label }
-			hideLabelFromVision={ hideLabelFromVision }
-		>
-			<HStack spacing={ 2.5 }>
-				<NumberControl
-					__next40pxDefaultSize
-					className="dataviews-controls__relative-date-number"
-					spinControls="none"
-					min={ 1 }
-					step={ 1 }
-					value={ relValue }
-					onChange={ onChangeValue }
+		<div id={ id } className={ clsx( className, 'dataviews-controls__relative-date' ) }>
+			{ !hideLabelFromVision && <Label>{label}</Label> }
+			<HStack spacing={ 2 }>
+				<Input
+					type="number"
+					value={ String(relValue) }
+					onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeValue(e.target.value) }
 				/>
-				<SelectControl
-					className="dataviews-controls__relative-date-unit"
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					label={ __( 'Unit' ) }
+				<select
 					value={ unit }
-					options={ options }
-					onChange={ onChangeUnit }
-					hideLabelFromVision
-				/>
+					onChange={ (e: React.ChangeEvent<HTMLSelectElement>) => onChangeUnit(e.target.value) }
+				>
+					{ options.map((opt) => (
+						<option key={opt.value} value={opt.value}>{opt.label}</option>
+					)) }
+				</select>
 			</HStack>
-		</BaseControl>
+		</div>
 	);
 }

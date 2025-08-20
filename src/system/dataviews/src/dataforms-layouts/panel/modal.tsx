@@ -7,7 +7,7 @@ import {
 	Button,
 	Modal,
 } from '@wordpress/components';
-import { __, sprintf, _x } from '@wordpress/i18n';
+import { __, sprintf, _x } from '../../adapter/i18n';
 import { useState, useMemo } from '@wordpress/element';
 
 /**

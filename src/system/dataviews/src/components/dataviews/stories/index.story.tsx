@@ -24,7 +24,7 @@ import {
 	__experimentalVStack as VStack,
 	Button,
 } from '@wordpress/components';
-import { __, _n } from '@wordpress/i18n';
+import { __, _n } from '../../../adapter/i18n';
 
 /**
  * Internal dependencies

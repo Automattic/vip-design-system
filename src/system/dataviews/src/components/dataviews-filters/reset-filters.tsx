@@ -1,8 +1,8 @@
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import { Button } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+import { Button } from '../../adapter/components';
+import { __ } from '../../adapter/i18n';
 
 /**
  * Internal dependencies

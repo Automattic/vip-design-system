@@ -1,5 +1,5 @@
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
 import {
 	memo,
@@ -8,10 +8,10 @@ import {
 	useMemo,
 	useCallback,
 	useEffect,
-} from '@wordpress/element';
+} from '../../adapter/element';
 import { __experimentalHStack as HStack, Button } from '@wordpress/components';
-import { funnel } from '@wordpress/icons';
-import { __, _x } from '@wordpress/i18n';
+import { getIcon } from '../../adapter/icons';
+import { __, _x } from '../../adapter/i18n';
 
 /**
  * Internal dependencies
@@ -55,7 +55,7 @@ export function useFilters( fields: NormalizedField< any >[], view: View ) {
 						( f ) =>
 							f.field === field.id &&
 							ALL_OPERATORS.includes( f.operator )
-					),
+						),
 				isPrimary,
 				isLocked,
 			} );
@@ -130,7 +130,7 @@ export function FiltersToggle() {
 			ref={ buttonRef }
 			className="dataviews-filters__visibility-toggle"
 			size="compact"
-			icon={ funnel }
+			icon={ getIcon('funnel') }
 			{ ...( hasVisibleFilters
 				? toggleFiltersButtonProps
 				: addFilterButtonProps ) }
@@ -178,9 +178,15 @@ function FilterVisibilityToggle( {
 		<>
 			{ children }
 			{ !! filtersCount && (
-				<span className="dataviews-filters-toggle__count">
-					{ filtersCount }
-				</span>
+				<HStack
+					expanded={ false }
+					className="dataviews-filters__message"
+				>
+					{ _x( 'Filters', 'noun' ) }
+					<span className="dataviews-filters__message-badge">
+						{ filtersCount }
+					</span>
+				</HStack>
 			) }
 		</>
 	);

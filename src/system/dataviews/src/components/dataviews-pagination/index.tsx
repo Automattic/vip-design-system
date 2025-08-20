@@ -1,14 +1,11 @@
 /**
- * WordPress dependencies
+ * Adapter dependencies
  */
-import {
-	Button,
-	__experimentalHStack as HStack,
-	SelectControl,
-} from '@wordpress/components';
-import { createInterpolateElement, memo, useContext } from '@wordpress/element';
-import { sprintf, __, _x, isRTL } from '@wordpress/i18n';
-import { next, previous } from '@wordpress/icons';
+import { Button, HStack } from '../../adapter/components';
+import { createElement as createInterpolateElement, memo, useContext } from '../../adapter/element';
+import { sprintf, __, _x, isRTL } from '../../adapter/i18n';
+import { getIcon } from '../../adapter/icons';
+import { Input } from '../../../Form';
 
 /**
  * Internal dependencies
@@ -74,19 +71,13 @@ export function DataViewsPagination() {
 						{
 							div: <div aria-hidden />,
 							CurrentPage: (
-								<SelectControl
+								<Input
 									aria-label={ __( 'Current page' ) }
 									value={ currentPage.toString() }
-									options={ pageSelectOptions }
-									onChange={ ( newValue ) => {
-										onChangeView( {
-											...view,
-											page: +newValue,
-										} );
+									onChange={ (e: React.ChangeEvent<HTMLInputElement>) => {
+										const newValue = e.target.value;
+										onChangeView( { ...view, page: +newValue } );
 									} }
-									size="small"
-									__nextHasNoMarginBottom
-									variant="minimal"
 								/>
 							),
 						}
@@ -103,7 +94,7 @@ export function DataViewsPagination() {
 						disabled={ currentPage === 1 }
 						accessibleWhenDisabled
 						label={ __( 'Previous page' ) }
-						icon={ isRTL() ? next : previous }
+						icon={ isRTL() ? getIcon('arrowRight') : getIcon('arrowLeft') }
 						showTooltip
 						size="compact"
 						tooltipPosition="top"
@@ -115,7 +106,7 @@ export function DataViewsPagination() {
 						disabled={ currentPage >= totalPages }
 						accessibleWhenDisabled
 						label={ __( 'Next page' ) }
-						icon={ isRTL() ? previous : next }
+						icon={ isRTL() ? getIcon('arrowLeft') : getIcon('arrowRight') }
 						showTooltip
 						size="compact"
 						tooltipPosition="top"

@@ -5,7 +5,7 @@ import {
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 } from '@wordpress/components';
-import { __, _x } from '@wordpress/i18n';
+import { __, _x } from '../../adapter/i18n';
 import { useContext } from '@wordpress/element';
 
 /**
