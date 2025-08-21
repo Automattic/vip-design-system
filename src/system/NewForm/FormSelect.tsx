@@ -3,14 +3,15 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import React, { useCallback, useMemo } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
+import { Box } from '../Box';
 import { Validation } from '../Form';
 import { baseControlStyle } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
@@ -19,19 +20,46 @@ const MAX_SUGGESTED_OPTIONS = 15;
 const ICON_SIZE = 24;
 const isDev = process.env.NODE_ENV !== 'production';
 
-const defaultStyles = {
+const defaultStyles: ThemeUIStyleObject = {
 	...baseControlStyle,
 	paddingLeft: 3,
 	paddingRight: 7,
 	py: 0,
-	appearance: 'none',
+	appearance: 'none' as const,
 	minHeight: '36px',
 	lineHeight: '36px',
 	fontFamily: 'inherit',
 	fontSize: '1em',
 };
 
-const renderOption = ( label, value ) => {
+interface Option {
+	label: string;
+	value: string | number;
+	options?: Option[];
+}
+
+interface FormSelectProps {
+	isInline?: boolean;
+	placeholder?: string;
+	forLabel?: string;
+	options: Option[];
+	required?: boolean;
+	label?: string;
+	getOptionLabel?: ( option: Option ) => string;
+	getOptionValue?: ( option: Option ) => string | number;
+	onChange?: ( option: Option | undefined, event: React.ChangeEvent< HTMLSelectElement > ) => void;
+	hasError?: boolean;
+	errorMessage?: string;
+	wrapperSx?: ThemeUIStyleObject;
+	value?: string | number;
+	disabled?: boolean;
+	className?: string;
+	'aria-describedby'?: string;
+	'aria-required'?: boolean;
+	id?: string;
+}
+
+const renderOption = ( label: string, value: string | number ) => {
 	return (
 		<option key={ value } value={ value }>
 			{ label }
@@ -39,7 +67,7 @@ const renderOption = ( label, value ) => {
 	);
 };
 
-const renderGroup = ( groupLabel, groupOptions ) => {
+const renderGroup = ( groupLabel: string, groupOptions: Option[] ) => {
 	return (
 		<optgroup key={ groupLabel } label={ groupLabel }>
 			{ groupOptions.map( ( { label, value } ) => renderOption( label, value ) ) }
@@ -47,7 +75,7 @@ const renderGroup = ( groupLabel, groupOptions ) => {
 	);
 };
 
-const FormSelect = React.forwardRef(
+const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 	(
 		{
 			isInline,
@@ -61,6 +89,7 @@ const FormSelect = React.forwardRef(
 			onChange,
 			hasError,
 			errorMessage,
+			wrapperSx,
 			...props
 		},
 		forwardRef
@@ -73,31 +102,31 @@ const FormSelect = React.forwardRef(
 		}
 
 		const getAllOptions = useMemo(
-			() =>
-				[
-					...options.filter( option => ! option.options ),
-					...options.filter( option => option.options ).map( option => option.options ),
-				].reduce( ( a, b ) => a.concat( b ), [] ),
+			() => [
+				...options.filter( option => ! option.options ),
+				...options.filter( option => option.options ).flatMap( option => option.options || [] ),
+			],
 			[ options ]
 		);
 
 		const optionLabel = useCallback(
-			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+			( option: Option ) => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
 			[ getOptionLabel ]
 		);
 
 		const optionValue = useCallback(
-			option => ( getOptionValue ? getOptionValue( option ) : option.value ),
+			( option: Option ) => ( getOptionValue ? getOptionValue( option ) : option.value ),
 			[ getOptionValue ]
 		);
 
 		const getOptionByValue = useCallback(
-			value => getAllOptions.find( option => `${ optionValue( option ) }` === `${ value }` ),
+			( value: string ) =>
+				getAllOptions.find( option => `${ optionValue( option ) }` === `${ value }` ),
 			[ getAllOptions, optionValue ]
 		);
 
 		const onValueChange = useCallback(
-			event =>
+			( event: React.ChangeEvent< HTMLSelectElement > ) =>
 				onChange
 					? onChange( getOptionByValue( event.target.value ), event )
 					: getOptionByValue( event.target.value ),
@@ -113,7 +142,7 @@ const FormSelect = React.forwardRef(
 		const inlineLabel = Boolean( isInline && label );
 
 		return (
-			<>
+			<Box sx={ { ...wrapperSx } }>
 				{ label && ! isInline && <SelectLabel /> }
 
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
@@ -142,25 +171,12 @@ const FormSelect = React.forwardRef(
 						{ errorMessage }
 					</Validation>
 				) }
-			</>
+			</Box>
 		);
 	}
 );
 
-FormSelect.propTypes = {
-	errorMessage: PropTypes.string,
-	forLabel: PropTypes.string,
-	getOptionLabel: PropTypes.func,
-	getOptionValue: PropTypes.func,
-	hasError: PropTypes.bool,
-	isInline: PropTypes.bool,
-	label: PropTypes.string,
-	onChange: PropTypes.func,
-	options: PropTypes.array,
-	placeholder: PropTypes.string,
-	required: PropTypes.bool,
-};
-
 FormSelect.displayName = 'FormSelect';
 
 export { FormSelect };
+export type { FormSelectProps, Option };

@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React from 'react';
-import { Input as ThemeInput, InputProps as ThemeInputProps } from 'theme-ui';
+import { Input as ThemeInput, InputProps as ThemeInputProps, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -30,10 +30,23 @@ interface InputProps extends ThemeInputProps {
 	required?: boolean;
 	forLabel?: string;
 	errorMessage?: string;
+	wrapperSx?: ThemeUIStyleObject;
 }
 export const Input = React.forwardRef< HTMLInputElement, InputProps >(
-	( { label, forLabel, hasError = false, required, sx = {}, errorMessage, ...props }, ref ) => (
-		<React.Fragment>
+	(
+		{
+			label,
+			forLabel,
+			hasError = false,
+			required,
+			sx = {},
+			wrapperSx = {},
+			errorMessage,
+			...props
+		},
+		ref
+	) => (
+		<Box sx={ { ...wrapperSx } }>
 			{ label && (
 				<Label required={ required } htmlFor={ forLabel }>
 					{ label }
@@ -59,7 +72,7 @@ export const Input = React.forwardRef< HTMLInputElement, InputProps >(
 					</Validation>
 				) }
 			</Box>
-		</React.Fragment>
+		</Box>
 	)
 );
 
