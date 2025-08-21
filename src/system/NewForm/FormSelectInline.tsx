@@ -7,9 +7,11 @@
 /**
  * Internal dependencies
  */
+import { ThemeUIStyleObject } from 'theme-ui';
+
 import { baseControlBorderStyle } from '../Form/Input.styles';
 
-export const inlineStyles = {
+export const inlineStyles: ThemeUIStyleObject = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	position: 'relative',
@@ -20,7 +22,7 @@ export const inlineStyles = {
 	paddingRight: 0,
 	paddingLeft: 3,
 
-	label: {
+	'& label': {
 		margin: 0,
 		paddingRight: 2,
 		borderRightWidth: baseControlBorderStyle.borderWidth,
