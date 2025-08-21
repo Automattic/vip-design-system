@@ -4,17 +4,17 @@
 import type { ReactNode, ComponentProps, ReactElement } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { HStack } from '../../adapter/components';
+import { __experimentalHStack as HStack } from '@wordpress/components';
 import {
 	useContext,
 	useEffect,
 	useMemo,
 	useRef,
 	useState,
-} from '../../adapter/element';
-import { useResizeObserver, throttle } from '../../adapter/compose';
+} from '@wordpress/element';
+import { useResizeObserver, throttle } from '@wordpress/compose';
 
 /**
  * Internal dependencies
@@ -98,7 +98,6 @@ function DefaultUI( {
 				justify="space-between"
 				className="dataviews__view-actions"
 				spacing={ 1 }
-				style={{ boxSizing: 'border-box', padding: '8px 24px', position: 'sticky', top: 0, background: 'inherit', zIndex: 1 }}
 			>
 				<HStack
 					justify="start"
@@ -260,7 +259,7 @@ function DataViews< Item >( {
 				hasInfiniteScrollHandler: !! infiniteScrollHandler,
 			} }
 		>
-			<div className="dataviews-wrapper" ref={ containerRef } style={{ height: '100%', overflow: 'auto', boxSizing: 'border-box' }}>
+			<div className="dataviews-wrapper" ref={ containerRef }>
 				{ children ?? (
 					<DefaultUI
 						header={ header }

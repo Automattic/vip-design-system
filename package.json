@@ -40,6 +40,7 @@
     "@radix-ui/react-tabs": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",
     "@theme-ui/match-media": "^0.16.1",
+    "@wordpress/dataviews": "^7.0.0",
     "accessible-autocomplete": "^2.0.4",
     "classnames": "^2.3.1",
     "framer-motion": "^3.9.1",

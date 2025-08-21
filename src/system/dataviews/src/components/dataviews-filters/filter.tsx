@@ -5,12 +5,20 @@ import clsx from 'clsx';
 import type { RefObject } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { HStack, VStack, Button } from '../../adapter/components';
-import { __ } from '../../adapter/i18n';
-import { useRef } from '../../adapter/element';
-import { getIcon } from '../../adapter/icons';
+import {
+	Dropdown,
+	__experimentalVStack as VStack,
+	__experimentalHStack as HStack,
+	FlexItem,
+	SelectControl,
+	Tooltip,
+	Icon,
+} from '@wordpress/components';
+import { __, sprintf } from '@wordpress/i18n';
+import { useRef, createInterpolateElement } from '@wordpress/element';
+import { closeSmall } from '@wordpress/icons';
 
 const ENTER = 'Enter';
 const SPACE = ' ';
@@ -89,95 +97,282 @@ const FilterText = ( {
 	};
 
 	if ( filterInView?.operator === OPERATOR_IS_ANY ) {
-		return `${filter.name} is any: ${activeElements.map( ( element ) => element.label ).join( ', ' )}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Author is any: Admin, Editor". */
+				__( '<Name>%1$s is any: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements.map( ( element ) => element.label ).join( ', ' )
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_IS_NONE ) {
-		return `${filter.name} is none: ${activeElements.map( ( element ) => element.label ).join( ', ' )}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Author is none: Admin, Editor". */
+				__( '<Name>%1$s is none: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements.map( ( element ) => element.label ).join( ', ' )
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_IS_ALL ) {
-		return `${filter.name} is all: ${activeElements.map( ( element ) => element.label ).join( ', ' )}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Author is all: Admin, Editor". */
+				__( '<Name>%1$s is all: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements.map( ( element ) => element.label ).join( ', ' )
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_IS_NOT_ALL ) {
-		return `${filter.name} is not all: ${activeElements.map( ( element ) => element.label ).join( ', ' )}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Author is not all: Admin, Editor". */
+				__( '<Name>%1$s is not all: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements.map( ( element ) => element.label ).join( ', ' )
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_IS ) {
-		return `${filter.name} is: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Author is: Admin". */
+				__( '<Name>%1$s is: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_IS_NOT ) {
-		return `${filter.name} is not: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Author is not: Admin". */
+				__( '<Name>%1$s is not: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_LESS_THAN ) {
-		return `${filter.name} is less than: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Price is less than: 10". */
+				__( '<Name>%1$s is less than: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_GREATER_THAN ) {
-		return `${filter.name} is greater than: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Price is greater than: 10". */
+				__( '<Name>%1$s is greater than: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_LESS_THAN_OR_EQUAL ) {
-		return `${filter.name} is less than or equal to: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Price is less than or equal to: 10". */
+				__(
+					'<Name>%1$s is less than or equal to: </Name><Value>%2$s</Value>'
+				),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_GREATER_THAN_OR_EQUAL ) {
-		return `${filter.name} is greater than or equal to: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Price is greater than or equal to: 10". */
+				__(
+					'<Name>%1$s is greater than or equal to: </Name><Value>%2$s</Value>'
+				),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_CONTAINS ) {
-		return `${filter.name} contains: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Title contains: Mars". */
+				__( '<Name>%1$s contains: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_NOT_CONTAINS ) {
-		return `${filter.name} doesn't contain: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Description doesn't contain: photo". */
+				__( "<Name>%1$s doesn't contain: </Name><Value>%2$s</Value>" ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_STARTS_WITH ) {
-		return `${filter.name} starts with: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Title starts with: Mar". */
+				__( '<Name>%1$s starts with: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_BEFORE ) {
-		return `${filter.name} is before: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is before: 2024-01-01". */
+				__( '<Name>%1$s is before: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_AFTER ) {
-		return `${filter.name} is after: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is after: 2024-01-01". */
+				__( '<Name>%1$s is after: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_BEFORE_INC ) {
-		return `${filter.name} is on or before: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is on or before: 2024-01-01". */
+				__( '<Name>%1$s is on or before: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_AFTER_INC ) {
-		return `${filter.name} is on or after: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is on or after: 2024-01-01". */
+				__( '<Name>%1$s is on or after: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_BETWEEN ) {
 		const { label } = activeElements[ 0 ];
 
-		return `${filter.name} between (inc): ${label[ 0 ]} and ${label[ 1 ]}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Min value. 3: Max value. e.g.: "Item count between (inc): 10 and 180". */
+				__(
+					'<Name>%1$s between (inc): </Name><Value>%2$s and %3$s</Value>'
+				),
+				filter.name,
+				label[ 0 ],
+				label[ 1 ]
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_ON ) {
-		return `${filter.name} is: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is: 2024-01-01". */
+				__( '<Name>%1$s is: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_NOT_ON ) {
-		return `${filter.name} is not: ${activeElements[ 0 ].label}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is not: 2024-01-01". */
+				__( '<Name>%1$s is not: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				activeElements[ 0 ].label
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_IN_THE_PAST ) {
-		return `${filter.name} is in the past: ${activeElements[ 0 ].value.value} ${activeElements[ 0 ].value.unit}`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is in the past: 1 days". */
+				__( '<Name>%1$s is in the past: </Name><Value>%2$s</Value>' ),
+				filter.name,
+				`${ activeElements[ 0 ].value.value } ${ activeElements[ 0 ].value.unit }`
+			),
+			filterTextWrappers
+		);
 	}
 
 	if ( filterInView?.operator === OPERATOR_OVER ) {
-		return `${filter.name} is over: ${activeElements[ 0 ].value.value} ${activeElements[ 0 ].value.unit} ago`;
+		return createInterpolateElement(
+			sprintf(
+				/* translators: 1: Filter name. 2: Filter value. e.g.: "Date is over: 1 days ago". */
+				__( '<Name>%1$s is over: </Name><Value>%2$s</Value> ago' ),
+				filter.name,
+				`${ activeElements[ 0 ].value.value } ${ activeElements[ 0 ].value.unit }`
+			),
+			filterTextWrappers
+		);
 	}
-	return `${filter.name}`;
+	return sprintf(
+		/* translators: 1: Filter name e.g.: "Unknown status for Author". */
+		__( 'Unknown status for %1$s' ),
+		filter.name
+	);
 };
 
 function OperatorSelector( {
@@ -200,43 +395,52 @@ function OperatorSelector( {
 				justify="flex-start"
 				className="dataviews-filters__summary-operators-container"
 			>
-				<span className="dataviews-filters__summary-operators-filter-name">
+				<FlexItem className="dataviews-filters__summary-operators-filter-name">
 					{ filter.name }
-				</span>
+				</FlexItem>
 
-				<select
+				<SelectControl
 					className="dataviews-filters__summary-operators-filter-select"
-					aria-label={ __( 'Conditions' ) }
-					value={ value as any }
-					onChange={ ( e: React.ChangeEvent<HTMLSelectElement> ) => {
-						const operator = e.target.value as Operator;
+					label={ __( 'Conditions' ) }
+					value={ value }
+					options={ operatorOptions }
+					onChange={ ( newValue ) => {
+						const operator = newValue as Operator;
 						const currentOperator = currentFilter?.operator;
 						const newFilters = currentFilter
 							? [
-									...( view.filters ?? [] ).map( ( _filter ) => {
-										if ( _filter.field === filter.field ) {
-											// Reset the value only when switching between operators that have different value types.
-											const OPERATORS_SHOULD_RESET_VALUE = [
-												OPERATOR_BETWEEN,
-												OPERATOR_IN_THE_PAST,
-												OPERATOR_OVER,
-											];
-											const shouldResetValue =
-												currentOperator &&
-												(
-													OPERATORS_SHOULD_RESET_VALUE.includes( currentOperator ) ||
-													OPERATORS_SHOULD_RESET_VALUE.includes( operator )
-												)
-											);
+									...( view.filters ?? [] ).map(
+										( _filter ) => {
+											if (
+												_filter.field === filter.field
+											) {
+												// Reset the value only when switching between operators that have different value types.
+												const OPERATORS_SHOULD_RESET_VALUE =
+													[
+														OPERATOR_BETWEEN,
+														OPERATOR_IN_THE_PAST,
+														OPERATOR_OVER,
+													];
+												const shouldResetValue =
+													currentOperator &&
+													( OPERATORS_SHOULD_RESET_VALUE.includes(
+														currentOperator
+													) ||
+														OPERATORS_SHOULD_RESET_VALUE.includes(
+															operator
+														) );
 
-											return {
-												..._filter,
-												value: shouldResetValue ? undefined : _filter.value,
-												operator,
-											};
+												return {
+													..._filter,
+													value: shouldResetValue
+														? undefined
+														: _filter.value,
+													operator,
+												};
+											}
+											return _filter;
 										}
-										return _filter;
-									} ),
+									),
 							  ]
 							: [
 									...( view.filters ?? [] ),
@@ -252,6 +456,10 @@ function OperatorSelector( {
 							filters: newFilters,
 						} );
 					} }
+					size="small"
+					variant="minimal"
+					__nextHasNoMarginBottom
+					hideLabelFromVision
 				/>
 			</HStack>
 		)
@@ -293,49 +501,113 @@ export default function Filter( {
 	const hasValues = ! isLocked && filterInView?.value !== undefined;
 	const canResetOrRemove = ! isLocked && ( ! isPrimary || hasValues );
 	return (
-		<div className={ clsx( 'dataviews-filters__filter', { 'is-open': openedFilter === filter.field } ) }>
-			{/* Header */}
-			<HStack className="dataviews-filters__summary" spacing={ 2 }>
-				<Button
-					className="dataviews-filters__summary-toggle"
-					label={ __( 'Toggle filter' ) }
-					icon={ getIcon('chevronDown') }
-					aria-expanded={ openedFilter === filter.field }
-					onClick={ () => {
-						onChangeView( {
-							...view,
-							filters: view.filters?.map( ( f ) => ( {
-								...f,
-								isOpen:
-									f.field === filter.field ? ! f.isOpen : f.isOpen,
-							} ) ),
-						} );
-					} }
-				/>
-				<div className="dataviews-filters__summary-text">
-					<FilterText
-						activeElements={ activeElements }
-						filterInView={ filterInView }
-						filter={ filter }
-					/>
-				</div>
-			</HStack>
-
-			{/* Body */}
-			{ openedFilter === filter.field && (
-				<VStack className="dataviews-filters__content" spacing={ 3 }>
-					<OperatorSelector
-						filter={ filter }
-						view={ view }
-						onChangeView={ onChangeView }
-					/>
-					{ filter.elements.length > 0 ? (
-						<SearchWidget { ...commonProps } />
-					) : (
-						<InputWidget { ...commonProps } />
+		<Dropdown
+			defaultOpen={ openedFilter === filter.field }
+			contentClassName="dataviews-filters__summary-popover"
+			popoverProps={ { placement: 'bottom-start', role: 'dialog' } }
+			onClose={ () => {
+				toggleRef.current?.focus();
+			} }
+			renderToggle={ ( { isOpen, onToggle } ) => (
+				<div className="dataviews-filters__summary-chip-container">
+					<Tooltip
+						text={ sprintf(
+							/* translators: 1: Filter name. */
+							__( 'Filter by: %1$s' ),
+							filter.name.toLowerCase()
+						) }
+						placement="top"
+					>
+						<div
+							className={ clsx(
+								'dataviews-filters__summary-chip',
+								{
+									'has-reset': canResetOrRemove,
+									'has-values': hasValues,
+									'is-not-clickable': isLocked,
+								}
+							) }
+							role="button"
+							tabIndex={ isLocked ? -1 : 0 }
+							onClick={ () => {
+								if ( ! isLocked ) {
+									onToggle();
+								}
+							} }
+							onKeyDown={ ( event ) => {
+								if (
+									! isLocked &&
+									[ ENTER, SPACE ].includes( event.key )
+								) {
+									onToggle();
+									event.preventDefault();
+								}
+							} }
+							aria-disabled={ isLocked }
+							aria-pressed={ isOpen }
+							aria-expanded={ isOpen }
+							ref={ toggleRef }
+						>
+							<FilterText
+								activeElements={ activeElements }
+								filterInView={ filterInView }
+								filter={ filter }
+							/>
+						</div>
+					</Tooltip>
+					{ canResetOrRemove && (
+						<Tooltip
+							text={ isPrimary ? __( 'Reset' ) : __( 'Remove' ) }
+							placement="top"
+						>
+							<button
+								className={ clsx(
+									'dataviews-filters__summary-chip-remove',
+									{ 'has-values': hasValues }
+								) }
+								onClick={ () => {
+									onChangeView( {
+										...view,
+										page: 1,
+										filters: view.filters?.filter(
+											( _filter ) =>
+												_filter.field !== filter.field
+										),
+									} );
+									// If the filter is not primary and can be removed, it will be added
+									// back to the available filters from `Add filter` component.
+									if ( ! isPrimary ) {
+										addFilterRef.current?.focus();
+									} else {
+										// If is primary, focus the toggle button.
+										toggleRef.current?.focus();
+									}
+								} }
+							>
+								<Icon icon={ closeSmall } />
+							</button>
+						</Tooltip>
 					) }
-				</VStack>
+				</div>
 			) }
-		</div>
+			renderContent={ () => {
+				return (
+					<VStack spacing={ 0 } justify="flex-start">
+						<OperatorSelector { ...commonProps } />
+						{ commonProps.filter.elements.length > 0 ? (
+							<SearchWidget
+								{ ...commonProps }
+								filter={ {
+									...commonProps.filter,
+									elements: commonProps.filter.elements,
+								} }
+							/>
+						) : (
+							<InputWidget { ...commonProps } fields={ fields } />
+						) }
+					</VStack>
+				);
+			} }
+		/>
 	);
 }

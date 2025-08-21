@@ -6,8 +6,8 @@ import type { ComponentType } from 'react';
 /**
  * WordPress dependencies
  */
-import { useContext } from '../../adapter/element';
-import { __ } from '../../adapter/i18n';
+import { useContext } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies

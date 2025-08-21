@@ -1,9 +1,10 @@
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { __ } from '../../adapter/i18n';
-import { useEffect, useRef, memo, useContext } from '../../adapter/element';
-import { Input } from '../../../Form';
+import { __ } from '@wordpress/i18n';
+import { useEffect, useRef, memo, useContext } from '@wordpress/element';
+import { SearchControl } from '@wordpress/components';
+import { useDebouncedInput } from '@wordpress/compose';
 
 /**
  * Internal dependencies
@@ -16,26 +17,37 @@ interface SearchProps {
 
 const DataViewsSearch = memo( function Search( { label }: SearchProps ) {
 	const { view, onChangeView } = useContext( DataViewsContext );
-	const search = view.search ?? '';
-	const onChange = ( next: string ) => {
-		onChangeView( { ...view, page: 1, search: next } );
-	};
+	const [ search, setSearch, debouncedSearch ] = useDebouncedInput(
+		view.search
+	);
+	useEffect( () => {
+		setSearch( view.search ?? '' );
+	}, [ view.search, setSearch ] );
 	const onChangeViewRef = useRef( onChangeView );
 	const viewRef = useRef( view );
 	useEffect( () => {
 		onChangeViewRef.current = onChangeView;
 		viewRef.current = view;
 	}, [ onChangeView, view ] );
+	useEffect( () => {
+		if ( debouncedSearch !== viewRef.current?.search ) {
+			onChangeViewRef.current( {
+				...viewRef.current,
+				page: 1,
+				search: debouncedSearch,
+			} );
+		}
+	}, [ debouncedSearch ] );
 	const searchLabel = label || __( 'Search' );
 	return (
-		<Input
+		<SearchControl
 			className="dataviews-search"
+			__nextHasNoMarginBottom
+			onChange={ setSearch }
 			value={ search }
-			onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) =>
-				onChange( e.target.value )
-			}
-			aria-label={ searchLabel }
+			label={ searchLabel }
 			placeholder={ searchLabel }
+			size="compact"
 		/>
 	);
 } );

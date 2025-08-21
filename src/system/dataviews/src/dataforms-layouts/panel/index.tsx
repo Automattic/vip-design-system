@@ -6,8 +6,11 @@ import clsx from 'clsx';
 /**
  * WordPress dependencies
  */
-import { VStack, HStack } from '../../adapter/components';
-import { useState, useContext } from '../../adapter/element';
+import {
+	__experimentalVStack as VStack,
+	__experimentalHStack as HStack,
+} from '@wordpress/components';
+import { useState, useContext } from '@wordpress/element';
 
 /**
  * Internal dependencies

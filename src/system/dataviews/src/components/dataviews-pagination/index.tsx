@@ -1,11 +1,14 @@
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { Button, HStack } from '../../adapter/components';
-import { createElement as createInterpolateElement, memo, useContext } from '../../adapter/element';
-import { sprintf, __, _x, isRTL } from '../../adapter/i18n';
-import { getIcon } from '../../adapter/icons';
-import { Input } from '../../../Form';
+import {
+	Button,
+	__experimentalHStack as HStack,
+	SelectControl,
+} from '@wordpress/components';
+import { createInterpolateElement, memo, useContext } from '@wordpress/element';
+import { sprintf, __, _x, isRTL } from '@wordpress/i18n';
+import { next, previous } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -71,13 +74,19 @@ export function DataViewsPagination() {
 						{
 							div: <div aria-hidden />,
 							CurrentPage: (
-								<Input
+								<SelectControl
 									aria-label={ __( 'Current page' ) }
 									value={ currentPage.toString() }
-									onChange={ (e: React.ChangeEvent<HTMLInputElement>) => {
-										const newValue = e.target.value;
-										onChangeView( { ...view, page: +newValue } );
+									options={ pageSelectOptions }
+									onChange={ ( newValue ) => {
+										onChangeView( {
+											...view,
+											page: +newValue,
+										} );
 									} }
+									size="small"
+									__nextHasNoMarginBottom
+									variant="minimal"
 								/>
 							),
 						}
@@ -94,7 +103,7 @@ export function DataViewsPagination() {
 						disabled={ currentPage === 1 }
 						accessibleWhenDisabled
 						label={ __( 'Previous page' ) }
-						icon={ isRTL() ? getIcon('arrowRight') : getIcon('arrowLeft') }
+						icon={ isRTL() ? next : previous }
 						showTooltip
 						size="compact"
 						tooltipPosition="top"
@@ -106,7 +115,7 @@ export function DataViewsPagination() {
 						disabled={ currentPage >= totalPages }
 						accessibleWhenDisabled
 						label={ __( 'Next page' ) }
-						icon={ isRTL() ? getIcon('arrowLeft') : getIcon('arrowRight') }
+						icon={ isRTL() ? previous : next }
 						showTooltip
 						size="compact"
 						tooltipPosition="top"

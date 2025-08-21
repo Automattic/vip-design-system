@@ -4,21 +4,26 @@
 import type { MouseEventHandler } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { Button, HStack } from '../../adapter/components';
-import { __ } from '../../adapter/i18n';
-import { useMemo, useState } from '../../adapter/element';
-import { getIcon } from '../../adapter/icons';
+import {
+	Button,
+	Modal,
+	__experimentalHStack as HStack,
+	privateApis as componentsPrivateApis,
+} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { useMemo, useState } from '@wordpress/element';
+import { moreVertical } from '@wordpress/icons';
+import { useRegistry } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
-import { Menu } from '../../adapter/menu';
+import { unlock } from '../../lock-unlock';
 import type { Action, ActionModal as ActionModalType } from '../../types';
 
-const kebabCase = (s: string) => s.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-const MoreVertical = getIcon('moreVertical');
+const { Menu, kebabCase } = unlock( componentsPrivateApis );
 
 export interface ActionTriggerProps< Item > {
 	action: Action< Item >;
@@ -36,6 +41,7 @@ export interface ActionModalProps< Item > {
 interface ActionsMenuGroupProps< Item > {
 	actions: Action< Item >[];
 	item: Item;
+	registry: ReturnType< typeof useRegistry >;
 	setActiveModalAction: ( action: ActionModalType< Item > | null ) => void;
 }
 
@@ -49,11 +55,13 @@ interface CompactItemActionsProps< Item > {
 	item: Item;
 	actions: Action< Item >[];
 	isSmall?: boolean;
+	registry: ReturnType< typeof useRegistry >;
 }
 
 interface PrimaryActionsProps< Item > {
 	item: Item;
 	actions: Action< Item >[];
+	registry: ReturnType< typeof useRegistry >;
 }
 
 function ButtonTrigger< Item >( {
@@ -116,6 +124,7 @@ export function ActionModal< Item >( {
 export function ActionsMenuGroup< Item >( {
 	actions,
 	item,
+	registry,
 	setActiveModalAction,
 }: ActionsMenuGroupProps< Item > ) {
 	return (
@@ -129,7 +138,7 @@ export function ActionsMenuGroup< Item >( {
 							setActiveModalAction( action );
 							return;
 						}
-						action.callback( [ item ] );
+						action.callback( [ item ], { registry } );
 					} }
 					items={ [ item ] }
 				/>
@@ -143,6 +152,7 @@ export default function ItemActions< Item >( {
 	actions,
 	isCompact,
 }: ItemActionsProps< Item > ) {
+	const registry = useRegistry();
 	const { primaryActions, eligibleActions } = useMemo( () => {
 		// If an action is eligible for all items, doesn't need
 		// to provide the `isEligible` function.
@@ -164,6 +174,7 @@ export default function ItemActions< Item >( {
 				item={ item }
 				actions={ eligibleActions }
 				isSmall
+				registry={ registry }
 			/>
 		);
 	}
@@ -174,6 +185,7 @@ export default function ItemActions< Item >( {
 			<PrimaryActions
 				item={ item }
 				actions={ primaryActions }
+				registry={ registry }
 			/>
 		);
 	}
@@ -191,10 +203,12 @@ export default function ItemActions< Item >( {
 			<PrimaryActions
 				item={ item }
 				actions={ primaryActions }
+				registry={ registry }
 			/>
 			<CompactItemActions
 				item={ item }
 				actions={ eligibleActions }
+				registry={ registry }
 			/>
 		</HStack>
 	);
@@ -204,6 +218,7 @@ function CompactItemActions< Item >( {
 	item,
 	actions,
 	isSmall,
+	registry,
 }: CompactItemActionsProps< Item > ) {
 	const [ activeModalAction, setActiveModalAction ] = useState(
 		null as ActionModalType< Item > | null
@@ -215,7 +230,7 @@ function CompactItemActions< Item >( {
 					render={
 						<Button
 							size={ isSmall ? 'small' : 'compact' }
-							icon={ MoreVertical }
+							icon={ moreVertical }
 							label={ __( 'Actions' ) }
 							accessibleWhenDisabled
 							disabled={ ! actions.length }
@@ -227,6 +242,7 @@ function CompactItemActions< Item >( {
 					<ActionsMenuGroup
 						actions={ actions }
 						item={ item }
+						registry={ registry }
 						setActiveModalAction={ setActiveModalAction }
 					/>
 				</Menu.Popover>
@@ -245,6 +261,7 @@ function CompactItemActions< Item >( {
 function PrimaryActions< Item >( {
 	item,
 	actions,
+	registry,
 }: PrimaryActionsProps< Item > ) {
 	const [ activeModalAction, setActiveModalAction ] = useState( null as any );
 	if ( ! Array.isArray( actions ) || actions.length === 0 ) {
@@ -261,7 +278,7 @@ function PrimaryActions< Item >( {
 							setActiveModalAction( action );
 							return;
 						}
-						action.callback( [ item ] );
+						action.callback( [ item ], { registry } );
 					} }
 					items={ [ item ] }
 				/>

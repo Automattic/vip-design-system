@@ -1,9 +1,9 @@
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { useCallback } from '../../adapter/element';
-import { __ } from '../../adapter/i18n';
-import { Input, Label } from '../../../Form';
+import { SelectControl } from '@wordpress/components';
+import { useCallback } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -48,25 +48,16 @@ export default function Select< Item >( {
 			  ];
 
 	return (
-		<div>
-			{ !hideLabelFromVision && label && <Label>{label}</Label> }
-			<select
-				value={ value as any }
-				multiple={ isMultiple }
-				onChange={ (e: React.ChangeEvent<HTMLSelectElement>) => {
-					const newValue = isMultiple
-						? Array.from(e.target.selectedOptions).map(o => o.value)
-						: e.target.value;
-					onChangeControl(newValue);
-				} }
-			>
-				{ elements.map((opt) => (
-					<option key={ String(opt.value) } value={ opt.value as any }>
-						{ opt.label }
-					</option>
-				)) }
-			</select>
-			{ field.description && <small>{field.description}</small> }
-		</div>
+		<SelectControl
+			label={ label }
+			value={ value }
+			help={ field.description }
+			options={ elements }
+			onChange={ onChangeControl }
+			__next40pxDefaultSize
+			__nextHasNoMarginBottom
+			hideLabelFromVision={ hideLabelFromVision }
+			multiple={ isMultiple }
+		/>
 	);
 }

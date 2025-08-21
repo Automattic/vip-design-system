@@ -4,16 +4,19 @@
 import type { ComponentProps, ReactElement } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { HStack, VStack } from '../../adapter/components';
+import {
+	__experimentalHStack as HStack,
+	__experimentalVStack as VStack,
+} from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import type { NormalizedField } from '../../types';
 import { ItemClickWrapper } from '../utils/item-click-wrapper';
-import { sprintf, __ } from '../../adapter/i18n';
+import { sprintf, __ } from '@wordpress/i18n';
 
 function ColumnPrimary< Item >( {
 	item,

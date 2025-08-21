@@ -1,3 +1,10 @@
-// Removed: WordPress private-apis. File retained to avoid import crashes during refactor.
-export const lock = undefined as unknown as any;
-export const unlock = undefined as unknown as any;
+/**
+ * WordPress dependencies
+ */
+import { __dangerousOptInToUnstableAPIsOnlyForCoreModules } from '@wordpress/private-apis';
+
+export const { lock, unlock } =
+	__dangerousOptInToUnstableAPIsOnlyForCoreModules(
+		'I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.',
+		'@wordpress/dataviews'
+	);

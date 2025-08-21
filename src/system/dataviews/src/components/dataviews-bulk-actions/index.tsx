@@ -4,12 +4,17 @@
 import type { ReactElement } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { Button, HStack } from '../../adapter/components';
-import { __, sprintf, _n } from '../../adapter/i18n';
-import { useMemo, useState, useRef, useContext } from '../../adapter/element';
-import { getIcon } from '../../adapter/icons';
+import {
+	Button,
+	CheckboxControl,
+	__experimentalHStack as HStack,
+} from '@wordpress/components';
+import { __, sprintf, _n } from '@wordpress/i18n';
+import { useMemo, useState, useRef, useContext } from '@wordpress/element';
+import { useRegistry } from '@wordpress/data';
+import { closeSmall } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -19,7 +24,6 @@ import { ActionModal } from '../dataviews-item-actions';
 import type { Action, ActionModal as ActionModalType } from '../../types';
 import type { SetSelection } from '../../private-types';
 import type { ActionTriggerProps } from '../dataviews-item-actions';
-import CheckboxControl from '../../controls/CheckboxControl';
 
 interface ActionWithModalProps< Item > {
 	action: ActionModalType< Item >;
@@ -170,7 +174,7 @@ function ActionTrigger< Item >( {
 			isDestructive={ action.isDestructive }
 			size="compact"
 			onClick={ onClick }
-			isBusy={ isBusy as any }
+			isBusy={ isBusy }
 			tooltipPosition="top"
 		/>
 	);
@@ -184,6 +188,7 @@ function ActionButton< Item >( {
 	actionInProgress,
 	setActionInProgress,
 }: ActionButtonProps< Item > ) {
+	const registry = useRegistry();
 	const selectedEligibleItems = useMemo( () => {
 		return selectedItems.filter( ( item ) => {
 			return ! action.isEligible || action.isEligible( item );
@@ -205,7 +210,9 @@ function ActionButton< Item >( {
 			action={ action }
 			onClick={ async () => {
 				setActionInProgress( action.id );
-				await action.callback( selectedItems );
+				await action.callback( selectedItems, {
+					registry,
+				} );
 				setActionInProgress( null );
 			} }
 			items={ selectedEligibleItems }
@@ -275,7 +282,7 @@ function renderFooterContent< Item >(
 				} ) }
 				{ selectedItems.length > 0 && (
 					<Button
-						icon={ getIcon( 'closeSmall' ) }
+						icon={ closeSmall }
 						showTooltip
 						tooltipPosition="top"
 						size="compact"

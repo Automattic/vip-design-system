@@ -1,13 +1,16 @@
 /**
  * WordPress dependencies
  */
-import { useState } from '../../adapter/element';
+import { privateApis } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
 import type { DataFormControlProps } from '../types';
-import CheckboxControl from '../controls/CheckboxControl';
+import { unlock } from '../lock-unlock';
+
+const { ValidatedToggleControl } = unlock( privateApis );
 
 export default function Boolean< Item >( {
 	field,
@@ -16,13 +19,43 @@ export default function Boolean< Item >( {
 	hideLabelFromVision,
 }: DataFormControlProps< Item > ) {
 	const { id, getValue, label } = field;
-	const [ customValidity ] = useState< { type: 'invalid'; message: string } | undefined >( undefined );
+	const [ customValidity, setCustomValidity ] =
+		useState<
+			React.ComponentProps<
+				typeof ValidatedToggleControl
+			>[ 'customValidity' ]
+		>( undefined );
 
 	return (
-		<CheckboxControl
+		<ValidatedToggleControl
+			required={ !! field.isValid.required }
+			onValidate={ ( newValue: any ) => {
+				const message = field.isValid?.custom?.(
+					{
+						...data,
+						[ id ]: newValue,
+					},
+					field
+				);
+
+				if ( message ) {
+					setCustomValidity( {
+						type: 'invalid',
+						message,
+					} );
+					return;
+				}
+
+				setCustomValidity( undefined );
+			} }
+			customValidity={ customValidity }
+			hidden={ hideLabelFromVision }
+			__nextHasNoMarginBottom
 			label={ label }
-			checked={ !!getValue( { item: data } ) }
-			onChange={ (v: boolean) => onChange( { [ id ]: v } ) }
+			checked={ getValue( { item: data } ) }
+			onChange={ () =>
+				onChange( { [ id ]: ! getValue( { item: data } ) } )
+			}
 		/>
 	);
 }

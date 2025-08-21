@@ -6,8 +6,13 @@ import clsx from 'clsx';
 /**
  * WordPress dependencies
  */
-import { useContext, useMemo } from '../../adapter/element';
-import { HStack, VStack } from '../../adapter/components';
+import { useContext, useMemo } from '@wordpress/element';
+import {
+	__experimentalHStack as HStack,
+	__experimentalVStack as VStack,
+	__experimentalHeading as Heading,
+	__experimentalSpacer as Spacer,
+} from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -25,9 +30,11 @@ import { DEFAULT_LAYOUT, normalizeLayout } from '../../normalize-form-fields';
 function Header( { title }: { title: string } ) {
 	return (
 		<VStack className="dataforms-layouts-regular__header" spacing={ 4 }>
-			<HStack alignment="center" justify="space-between">
-				<h2 style={{ fontSize: 13, margin: 0 }}>{ title }</h2>
-				<span />
+			<HStack alignment="center">
+				<Heading level={ 2 } size={ 13 }>
+					{ title }
+				</Heading>
+				<Spacer />
 			</HStack>
 		</VStack>
 	);

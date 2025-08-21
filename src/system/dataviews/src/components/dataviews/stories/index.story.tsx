@@ -24,7 +24,7 @@ import {
 	__experimentalVStack as VStack,
 	Button,
 } from '@wordpress/components';
-import { __, _n } from '../../../adapter/i18n';
+import { __, _n } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -41,7 +41,7 @@ import { LAYOUT_GRID, LAYOUT_LIST, LAYOUT_TABLE } from '../../../constants';
 import { filterSortAndPaginate } from '../../../filter-and-sort-data-view';
 import type { Field, View } from '../../../types';
 
-// Styles inlined via components; no external CSS
+import './style.css';
 
 const meta = {
 	title: 'DataViews/DataViews',

@@ -5,18 +5,26 @@ import clsx from 'clsx';
 import type { ComponentProps, ReactElement } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { HStack, VStack, Spinner } from '../../adapter/components';
-import { __, sprintf } from '../../adapter/i18n';
-import { useInstanceId } from '../../adapter/compose';
-import { isAppleOS } from '../../adapter/keycodes';
-import { useContext } from '../../adapter/element';
+import {
+	__experimentalHStack as HStack,
+	__experimentalVStack as VStack,
+	Spinner,
+	Flex,
+	FlexItem,
+	Tooltip,
+	privateApis as componentsPrivateApis,
+} from '@wordpress/components';
+import { __, sprintf } from '@wordpress/i18n';
+import { useInstanceId } from '@wordpress/compose';
+import { isAppleOS } from '@wordpress/keycodes';
+import { useContext } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
-// private-apis removed
+import { unlock } from '../../lock-unlock';
 import ItemActions from '../../components/dataviews-item-actions';
 import DataViewsSelectionCheckbox from '../../components/dataviews-selection-checkbox';
 import DataViewsContext from '../../components/dataviews-context';
@@ -32,9 +40,7 @@ import type {
 } from '../../types';
 import type { SetSelection } from '../../private-types';
 import { ItemClickWrapper } from '../utils/item-click-wrapper';
-const Badge = ({ children }: { children: React.ReactNode }) => (
-    <span style={{ padding: '0 6px', borderRadius: 6, background: '#eee' }}>{children}</span>
-);
+const { Badge } = unlock( componentsPrivateApis );
 
 interface GridItemProps< Item > {
 	view: ViewGridType;

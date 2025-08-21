@@ -5,18 +5,18 @@ import clsx from 'clsx';
 import type { ComponentProps, ReactElement } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { __, sprintf } from '../../adapter/i18n';
-import { Spinner } from '../../adapter/components';
+import { __, sprintf } from '@wordpress/i18n';
+import { Spinner } from '@wordpress/components';
 import {
 	useContext,
 	useEffect,
 	useId,
 	useRef,
 	useState,
-} from '../../adapter/element';
-import { isAppleOS } from '../../adapter/keycodes';
+} from '@wordpress/element';
+import { isAppleOS } from '@wordpress/keycodes';
 
 /**
  * Internal dependencies

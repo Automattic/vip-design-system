@@ -4,19 +4,22 @@
 import type { Ref } from 'react';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { Button } from '../../adapter/components';
-import { __ } from '../../adapter/i18n';
-import { forwardRef } from '../../adapter/element';
+import {
+	privateApis as componentsPrivateApis,
+	Button,
+} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { forwardRef } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
-import { Menu } from '../../adapter/menu';
+import { unlock } from '../../lock-unlock';
 import type { NormalizedFilter, View } from '../../types';
 
-// private-apis removed
+const { Menu } = unlock( componentsPrivateApis );
 
 interface AddFilterProps {
 	filters: NormalizedFilter[];

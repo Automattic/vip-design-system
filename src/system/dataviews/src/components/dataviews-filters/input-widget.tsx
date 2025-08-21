@@ -4,10 +4,11 @@
 import fastDeepEqual from 'fast-deep-equal/es6';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { useMemo } from '../../adapter/element';
-import { Flex } from '../../adapter/components';
+import { useEvent } from '@wordpress/compose';
+import { useMemo } from '@wordpress/element';
+import { Flex } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -44,7 +45,7 @@ export default function InputWidget( {
 		);
 	}, [ view.filters ] );
 
-	const handleChange = ( updatedData: Record< string, any > ) => {
+	const handleChange = useEvent( ( updatedData: Record< string, any > ) => {
 		if ( ! field || ! currentFilter ) {
 			return;
 		}
@@ -72,7 +73,7 @@ export default function InputWidget( {
 					: _filter
 			),
 		} );
-	};
+	} );
 
 	if ( ! field || ! field.Edit || ! currentFilter ) {
 		return null;

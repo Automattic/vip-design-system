@@ -5,15 +5,40 @@ import type { ChangeEvent, ReactNode } from 'react';
 import clsx from 'clsx';
 
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { __, _x, sprintf } from '../../adapter/i18n';
-import { memo, useContext, useMemo, useState } from '../../adapter/element';
-import { useInstanceId } from '../../adapter/compose';
-import { getIcon } from '../../adapter/icons';
-import { Menu } from '../../adapter/menu';
-import { Button, Text, HStack, VStack } from '../../adapter/components';
-import warning from '../../adapter/warning';
+import {
+	Button,
+	__experimentalDropdownContentWrapper as DropdownContentWrapper,
+	Dropdown,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
+	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
+	SelectControl,
+	__experimentalItemGroup as ItemGroup,
+	__experimentalItem as Item,
+	__experimentalGrid as Grid,
+	__experimentalVStack as VStack,
+	__experimentalHStack as HStack,
+	__experimentalHeading as Heading,
+	__experimentalText as Text,
+	privateApis as componentsPrivateApis,
+	BaseControl,
+	Icon,
+} from '@wordpress/components';
+import { __, _x, sprintf } from '@wordpress/i18n';
+import { memo, useContext, useMemo, useState } from '@wordpress/element';
+import {
+	chevronDown,
+	chevronUp,
+	cog,
+	seen,
+	unseen,
+	lock,
+	moreVertical,
+} from '@wordpress/icons';
+import warning from '@wordpress/warning';
+import { useInstanceId } from '@wordpress/compose';
 
 /**
  * Internal dependencies
@@ -23,7 +48,9 @@ import { VIEW_LAYOUTS } from '../../dataviews-layouts';
 import type { NormalizedField, View } from '../../types';
 import DataViewsContext from '../dataviews-context';
 import InfiniteScrollToggle from './infinite-scroll-toggle';
-// private-apis removed
+import { unlock } from '../../lock-unlock';
+
+const { Menu } = unlock( componentsPrivateApis );
 
 const DATAVIEWS_CONFIG_POPOVER_PROPS = {
 	className: 'dataviews-config__popover',

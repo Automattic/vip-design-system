@@ -1,13 +1,16 @@
 /**
- * Adapter dependencies
+ * WordPress dependencies
  */
-import { useCallback, useState } from '../../adapter/element';
+import { privateApis } from '@wordpress/components';
+import { useCallback, useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
 import type { DataFormControlProps } from '../types';
-import { Input, Label } from '../../../Form';
+import { unlock } from '../lock-unlock';
+
+const { ValidatedTextControl } = unlock( privateApis );
 
 export default function Text< Item >( {
 	data,
@@ -33,24 +36,36 @@ export default function Text< Item >( {
 	);
 
 	return (
-		<div>
-			{ !hideLabelFromVision && label && <Label>{label}</Label> }
-			<Input
-				required={ !! field.isValid?.required }
-				aria-invalid={ customValidity?.type === 'invalid' }
-				aria-describedby={ description ? `${id}-help` : undefined }
-				placeholder={ placeholder }
-				value={ value ?? '' }
-				onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeControl(e.target.value) }
-			/>
-			{ description && (
-				<small id={`${id}-help`}>{description}</small>
-			) }
-			{ customValidity?.message && (
-				<div role="alert" style={{ color: 'var(--ds-danger, #c00)' }}>
-					{customValidity.message}
-				</div>
-			) }
-		</div>
+		<ValidatedTextControl
+			required={ !! field.isValid?.required }
+			onValidate={ ( newValue: any ) => {
+				const message = field.isValid?.custom?.(
+					{
+						...data,
+						[ id ]: newValue,
+					},
+					field
+				);
+
+				if ( message ) {
+					setCustomValidity( {
+						type: 'invalid',
+						message,
+					} );
+					return;
+				}
+
+				setCustomValidity( undefined );
+			} }
+			customValidity={ customValidity }
+			label={ label }
+			placeholder={ placeholder }
+			value={ value ?? '' }
+			help={ description }
+			onChange={ onChangeControl }
+			__next40pxDefaultSize
+			__nextHasNoMarginBottom
+			hideLabelFromVision={ hideLabelFromVision }
+		/>
 	);
 }

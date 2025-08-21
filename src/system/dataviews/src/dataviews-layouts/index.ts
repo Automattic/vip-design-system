@@ -1,8 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { __, isRTL } from '../adapter/i18n';
-import { getIcon } from '../adapter/icons';
+import { __, isRTL } from '@wordpress/i18n';
+import {
+	blockTable,
+	category,
+	formatListBullets,
+	formatListBulletsRTL,
+} from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -19,20 +24,20 @@ export const VIEW_LAYOUTS = [
 		type: LAYOUT_TABLE,
 		label: __( 'Table' ),
 		component: ViewTable,
-		icon: getIcon('chevronDown'),
+		icon: blockTable,
 		viewConfigOptions: DensityPicker,
 	},
 	{
 		type: LAYOUT_GRID,
 		label: __( 'Grid' ),
 		component: ViewGrid,
-		icon: getIcon('chevronDown'),
+		icon: category,
 		viewConfigOptions: PreviewSizePicker,
 	},
 	{
 		type: LAYOUT_LIST,
 		label: __( 'List' ),
 		component: ViewList,
-		icon: getIcon('chevronDown'),
+		icon: isRTL() ? formatListBulletsRTL : formatListBullets,
 	},
 ];

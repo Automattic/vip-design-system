@@ -6,8 +6,16 @@ import clsx from 'clsx';
 /**
  * WordPress dependencies
  */
-import { useInstanceId, usePrevious } from '../../adapter/compose';
-import { HStack, VStack, Button, Spinner, VisuallyHidden } from '../../adapter/components';
+import { useInstanceId, usePrevious } from '@wordpress/compose';
+import {
+	__experimentalHStack as HStack,
+	__experimentalVStack as VStack,
+	Button,
+	privateApis as componentsPrivateApis,
+	Spinner,
+	VisuallyHidden,
+	Composite,
+} from '@wordpress/components';
 import {
 	useCallback,
 	useEffect,
@@ -15,14 +23,15 @@ import {
 	useRef,
 	useState,
 	useContext,
-} from '../../adapter/element';
-import { __ } from '../../adapter/i18n';
-import { getIcon } from '../../adapter/icons';
+} from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+import { moreVertical } from '@wordpress/icons';
+import { useRegistry } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
-import { Menu } from '../../adapter/menu';
+import { unlock } from '../../lock-unlock';
 import {
 	ActionsMenuGroup,
 	ActionModal,
@@ -51,7 +60,7 @@ interface ListViewItemProps< Item > {
 	posinset?: number;
 }
 
-const MoreVertical = getIcon('moreVertical');
+const { Menu } = unlock( componentsPrivateApis );
 
 function generateItemWrapperCompositeId( idPrefix: string ) {
 	return `${ idPrefix }-item-wrapper`;
@@ -75,6 +84,7 @@ function PrimaryActionGridCell< Item >( {
 	primaryAction: Action< Item >;
 	item: Item;
 } ) {
+	const registry = useRegistry();
 	const [ isModalOpen, setIsModalOpen ] = useState( false );
 
 	const compositeItemId = generatePrimaryActionCompositeId(
@@ -124,7 +134,9 @@ function PrimaryActionGridCell< Item >( {
 						icon={ primaryAction.icon }
 						isDestructive={ primaryAction.isDestructive }
 						size="small"
-						onClick={ () => primaryAction.callback( [ item ] ) }
+						onClick={ () => {
+							primaryAction.callback( [ item ], { registry } );
+						} }
 					/>
 				}
 			/>
@@ -156,7 +168,7 @@ function ListItem< Item >( {
 	const labelId = `${ idPrefix }-label`;
 	const descriptionId = `${ idPrefix }-description`;
 
-	const registry = useContext( DataViewsContext );
+	const registry = useRegistry();
 	const [ isHovered, setIsHovered ] = useState( false );
 	const [ activeModalAction, setActiveModalAction ] = useState(
 		null as ActionModalType< Item > | null

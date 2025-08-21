@@ -1,13 +1,16 @@
 /**
  * WordPress dependencies
  */
-import { useCallback, useState } from '../../adapter/element';
+import { privateApis } from '@wordpress/components';
+import { useCallback, useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
 import type { DataFormControlProps } from '../types';
-import { Input, Label } from '../../../Form';
+import { unlock } from '../lock-unlock';
+
+const { ValidatedTextControl } = unlock( privateApis );
 
 export default function Email< Item >( {
 	data,
@@ -17,7 +20,12 @@ export default function Email< Item >( {
 }: DataFormControlProps< Item > ) {
 	const { id, label, placeholder, description } = field;
 	const value = field.getValue( { item: data } );
-	const [ customValidity ] = useState< { type: 'invalid'; message: string } | undefined >( undefined );
+	const [ customValidity, setCustomValidity ] =
+		useState<
+			React.ComponentProps<
+				typeof ValidatedTextControl
+			>[ 'customValidity' ]
+		>( undefined );
 
 	const onChangeControl = useCallback(
 		( newValue: string ) =>
@@ -28,17 +36,37 @@ export default function Email< Item >( {
 	);
 
 	return (
-		<div>
-			{ !hideLabelFromVision && label && <Label>{label}</Label> }
-			<Input
-				type="email"
-				required={ !! field.isValid?.required }
-				value={ value ?? '' }
-				placeholder={ placeholder }
-				onChange={ (e: React.ChangeEvent<HTMLInputElement>) => onChangeControl(e.target.value) }
-				aria-invalid={ customValidity?.type === 'invalid' }
-			/>
-			{ description && <small>{description}</small> }
-		</div>
+		<ValidatedTextControl
+			required={ !! field.isValid?.required }
+			onValidate={ ( newValue: any ) => {
+				const message = field.isValid?.custom?.(
+					{
+						...data,
+						[ id ]: newValue,
+					},
+					field
+				);
+
+				if ( message ) {
+					setCustomValidity( {
+						type: 'invalid',
+						message,
+					} );
+					return;
+				}
+
+				setCustomValidity( undefined );
+			} }
+			customValidity={ customValidity }
+			type="email"
+			label={ label }
+			placeholder={ placeholder }
+			value={ value ?? '' }
+			help={ description }
+			onChange={ onChangeControl }
+			__next40pxDefaultSize
+			__nextHasNoMarginBottom
+			hideLabelFromVision={ hideLabelFromVision }
+		/>
 	);
 }
