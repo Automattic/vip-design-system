@@ -11,6 +11,7 @@ import React, { useCallback, useMemo } from 'react';
  */
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
+import { Box } from '../Box';
 import { Validation } from '../Form';
 import { baseControlStyle } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
@@ -61,6 +62,7 @@ const FormSelect = React.forwardRef(
 			onChange,
 			hasError,
 			errorMessage,
+			wrapperSx,
 			...props
 		},
 		forwardRef
@@ -113,7 +115,7 @@ const FormSelect = React.forwardRef(
 		const inlineLabel = Boolean( isInline && label );
 
 		return (
-			<>
+			<Box sx={ { ...wrapperSx } }>
 				{ label && ! isInline && <SelectLabel /> }
 
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
@@ -142,7 +144,7 @@ const FormSelect = React.forwardRef(
 						{ errorMessage }
 					</Validation>
 				) }
-			</>
+			</Box>
 		);
 	}
 );
@@ -159,6 +161,7 @@ FormSelect.propTypes = {
 	options: PropTypes.array,
 	placeholder: PropTypes.string,
 	required: PropTypes.bool,
+	wrapperSx: PropTypes.object,
 };
 
 FormSelect.displayName = 'FormSelect';
