@@ -7,19 +7,20 @@ import Autocomplete from 'accessible-autocomplete/react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { MdClose } from 'react-icons/md';
 
 /**
  * Internal dependencies
  */
+import { FormAutocompleteMultiselectButton } from './FormAutocompleteMultiselectButton';
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
 import { FormSelectSearch } from './FormSelectSearch';
-import { Button, Flex } from '../';
+import { Flex } from '../';
 import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { FormAutocompleteMultiselectBadge } from './FormAutocompleteMultiselectBadge';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -126,42 +127,6 @@ AddSelectionStatus.propTypes = {
 	status: PropTypes.string.isRequired,
 };
 
-const SelectedOptions = ( { index, option, unselectValue } ) => {
-	return (
-		<div key={ index } sx={ { mr: 1, maxWidth: '100%' } }>
-			<Button
-				variant="tertiary"
-				onClick={ e => {
-					e.preventDefault();
-					unselectValue( option, index );
-				} }
-				sx={ {
-					mt: 1,
-					fontSize: 1,
-					maxWidth: '100%',
-				} }
-			>
-				<div
-					sx={ {
-						overflow: 'hidden',
-						textOverflow: 'ellipsis',
-						whiteSpace: 'nowrap',
-					} }
-				>
-					{ option }
-				</div>
-				<MdClose sx={ { ml: 2 } } />
-			</Button>
-		</div>
-	);
-};
-
-SelectedOptions.propTypes = {
-	index: PropTypes.number.isRequired,
-	option: PropTypes.string.isRequired,
-	unselectValue: PropTypes.func.isRequired,
-};
-
 const FormAutocompleteMultiselect = React.forwardRef(
 	(
 		{
@@ -188,6 +153,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			showAllValues = false,
 			source,
 			value,
+			listType = 'button',
 			...props
 		},
 		forwardRef
@@ -197,6 +163,8 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			REMOVE: 'remove',
 			NONE: 'none',
 		};
+		const ListComponent =
+			listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
 		const [ isDirty, setIsDirty ] = useState( false );
 		const [ selectedOptions, setSelectedOptions ] = useState( [] );
 		const [ addStatus, setAddStatus ] = useState( '' );
@@ -367,10 +335,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
 			} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
 				// Move focus to the first selected item, if the last element is removed and there are other elements in the list
-				global.document.querySelector( '.vip-button-component' ).focus();
+				global.document.querySelector( '.vip-button-component' )?.focus();
 			} else if ( selectedOptions.length === 0 ) {
 				// Move focus to the input field if the last element is removed and there are no other elements in the list
-				global.document.querySelector( '.autocomplete__input' ).focus();
+				global.document.querySelector( '.autocomplete__input' )?.focus();
 			}
 		}, [ currentOption ] );
 
@@ -421,7 +389,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
 					{ selectedOptions &&
 						selectedOptions.map( ( option, idx ) => (
-							<SelectedOptions
+							<ListComponent
 								key={ idx }
 								index={ idx }
 								option={ option }
