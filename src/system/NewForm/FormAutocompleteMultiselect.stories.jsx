@@ -86,6 +86,19 @@ export const Default = () => {
 	);
 };
 
+export const WithBadges = () => {
+	const customArgs = {
+		...args,
+		listType: 'badge',
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
 export const Inline = () => {
 	const customArgs = {
 		isInline: true,
