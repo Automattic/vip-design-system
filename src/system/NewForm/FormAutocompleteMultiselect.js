@@ -11,6 +11,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 /**
  * Internal dependencies
  */
+import { FormAutocompleteMultiselectBadge } from './FormAutocompleteMultiselectBadge';
 import { FormAutocompleteMultiselectButton } from './FormAutocompleteMultiselectButton';
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
@@ -20,7 +21,6 @@ import { Flex } from '../';
 import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
-import { FormAutocompleteMultiselectBadge } from './FormAutocompleteMultiselectBadge';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
