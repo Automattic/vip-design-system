@@ -99,6 +99,19 @@ export const WithBadges = () => {
 	);
 };
 
+export const WithInitialValueBadges = () => {
+	const customArgs = {
+		...args,
+		initialValue: shortOptions.slice( 0, 2 ).map( option => option.label ),
+	};
+
+	return (
+		<>
+			<DefaultComponent { ...customArgs } />
+		</>
+	);
+};
+
 export const Inline = () => {
 	const customArgs = {
 		isInline: true,
