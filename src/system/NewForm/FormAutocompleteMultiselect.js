@@ -154,6 +154,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			source,
 			value,
 			listType = 'button',
+			initialValue = [],
 			...props
 		},
 		forwardRef
@@ -166,7 +167,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const ListComponent =
 			listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
 		const [ isDirty, setIsDirty ] = useState( false );
-		const [ selectedOptions, setSelectedOptions ] = useState( [] );
+		const [ selectedOptions, setSelectedOptions ] = useState( initialValue );
 		const [ addStatus, setAddStatus ] = useState( '' );
 		const [ currentOption, setCurrentOption ] = useState( {
 			action: OPTION_ACTION.NONE,
@@ -426,6 +427,7 @@ FormAutocompleteMultiselect.propTypes = {
 	source: PropTypes.func,
 	value: PropTypes.string,
 	dropdownArrow: PropTypes.node,
+	initialValue: PropTypes.array,
 };
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';
