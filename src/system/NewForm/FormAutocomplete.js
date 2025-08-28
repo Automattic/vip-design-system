@@ -85,6 +85,12 @@ const inlineStyles = {
 	borderWidth: 0,
 };
 
+const allowCustomStyles = {
+	'& .autocomplete__option--no-results': {
+		cursor: 'pointer',
+	},
+};
+
 const searchIconStyles = {
 	'& .autocomplete__input.autocomplete__input': {
 		paddingLeft: 6,
@@ -120,6 +126,7 @@ const FormAutocomplete = React.forwardRef(
 			resetOnBlur = false, // resets the input value to the selection if the input is blurred. Returns null if selection is empty
 			source,
 			value,
+			allowCustom = false,
 			...props
 		},
 		forwardRef
@@ -199,9 +206,13 @@ const FormAutocomplete = React.forwardRef(
 
 		const handleTypeChange = useCallback(
 			query => {
-				return options.filter(
+				const filteredOptions = options.filter(
 					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
 				);
+				if ( allowCustom && filteredOptions.length === 0 ) {
+					return [ { label: query, value: query } ];
+				}
+				return filteredOptions;
 			},
 			[ options ]
 		);
@@ -319,6 +330,7 @@ const FormAutocomplete = React.forwardRef(
 						...defaultStyles,
 						...( isInline && inlineStyles ),
 						...( searchIcon && searchIconStyles ),
+						...( allowCustom && allowCustomStyles ),
 						...( hasError ? { borderColor: 'input.border.error' } : {} ),
 					} }
 				>
@@ -382,6 +394,7 @@ FormAutocomplete.propTypes = {
 	source: PropTypes.func,
 	value: PropTypes.string,
 	dropdownArrow: PropTypes.node,
+	allowCustom: PropTypes.bool,
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';

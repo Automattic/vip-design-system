@@ -67,6 +67,12 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 export const Default = DefaultComponent.bind( {} );
 Default.args = args;
 
+export const WithAllowCustom = DefaultComponent.bind( {} );
+WithAllowCustom.args = {
+	...Default.args,
+	allowCustom: true,
+};
+
 export const Inline = DefaultComponent.bind( {} );
 Inline.args = {
 	...Default.args,
