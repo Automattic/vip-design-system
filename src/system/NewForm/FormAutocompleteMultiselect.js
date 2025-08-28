@@ -155,6 +155,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			value,
 			listType = 'button',
 			initialValue = [],
+			allowCustom = false,
 			...props
 		},
 		forwardRef
@@ -220,6 +221,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 
 		const onValueChange = useCallback(
 			inputValue => {
+				// if ( allowCustom && ! selectedOptions.includes( inputValue ) ) {
+				// 	setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
+				// 	setSelectedOptions( [ ...selectedOptions, inputValue ] );
+				// }
 				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
 					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
 					setSelectedOptions( [ ...selectedOptions, inputValue ] );
@@ -245,11 +250,16 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 
 		const handleTypeChange = useCallback(
-			query =>
-				options.filter(
+			query => {
+				const filteredOptions = options.filter(
 					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-				),
-			[ options ]
+				);
+				if ( allowCustom && filteredOptions.length === 0 ) {
+					return [ { label: query, value: query } ];
+				}
+				return filteredOptions;
+			},
+			[ options, allowCustom ]
 		);
 
 		const handleInputChange = useCallback(
@@ -384,7 +394,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						</Validation>
 					) }
 					<div sx={ { fontSize: 1 } }>
-						{ selectedOptions.length } item{ selectedOptions.length > 1 ? 's' : '' } selected
+						{ selectedOptions.length } item{ selectedOptions.length === 1 ? '' : 's' } selected
 					</div>
 				</Flex>
 				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
@@ -428,6 +438,7 @@ FormAutocompleteMultiselect.propTypes = {
 	value: PropTypes.string,
 	dropdownArrow: PropTypes.node,
 	initialValue: PropTypes.array,
+	allowCustom: PropTypes.bool,
 };
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';

@@ -86,6 +86,15 @@ export const Default = () => {
 	);
 };
 
+export const WithAllowCustom = () => {
+	const customArgs = {
+		...args,
+		allowCustom: true,
+	};
+
+	return <DefaultComponent { ...customArgs } />;
+};
+
 export const WithBadges = () => {
 	const customArgs = {
 		...args,
