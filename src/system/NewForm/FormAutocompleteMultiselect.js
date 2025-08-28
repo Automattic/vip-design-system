@@ -221,10 +221,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 
 		const onValueChange = useCallback(
 			inputValue => {
-				// if ( allowCustom && ! selectedOptions.includes( inputValue ) ) {
-				// 	setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
-				// 	setSelectedOptions( [ ...selectedOptions, inputValue ] );
-				// }
 				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
 					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
 					setSelectedOptions( [ ...selectedOptions, inputValue ] );
