@@ -152,6 +152,8 @@ export const WithTitleAutoFocus = () => {
 };
 
 export const HideStepText = () => {
+	const [ activeStep, setActiveStep ] = React.useState< number | undefined >( undefined );
+
 	const steps: WizardStepProps[] = [
 		{
 			title: 'Included Logs',
@@ -159,7 +161,7 @@ export const HideStepText = () => {
 			subTitle: '',
 			children: <Text sx={ { mb: 0 } }>Error Logs</Text>,
 			onChange: () => {
-				console.log( 'edit' );
+				setActiveStep( 0 );
 			},
 			actionLabel: 'Edit',
 			actionIcon: <BsPencil />,
@@ -171,6 +173,7 @@ export const HideStepText = () => {
 			<Box mt={ 4 }>
 				<Wizard
 					showStepText={ false }
+					activeStep={ activeStep }
 					steps={ steps }
 					completed={ [ 0 ] }
 					className="vip-wizard-xyz"
