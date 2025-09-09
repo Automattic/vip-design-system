@@ -157,7 +157,12 @@ export const HideStepText = () => {
 			title: 'Included Logs',
 			titleVariant: 'h2',
 			subTitle: '',
-			children: <Text>Error Logs</Text>,
+			children: <Text sx={ { mb: 0 } }>Error Logs</Text>,
+			onChange: () => {
+				console.log( 'edit' );
+			},
+			actionLabel: 'Edit',
+			actionIcon: <BsPencil />,
 		},
 	];
 
@@ -166,7 +171,6 @@ export const HideStepText = () => {
 			<Box mt={ 4 }>
 				<Wizard
 					showStepText={ false }
-					activeStep={ 0 }
 					steps={ steps }
 					completed={ [ 0 ] }
 					className="vip-wizard-xyz"
