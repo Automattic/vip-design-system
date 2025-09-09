@@ -119,11 +119,10 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 				className={ `wizard-step-${ status }` }
 				ref={ forwardRef }
 			>
-				<Flex sx={ { /*alignItems: 'flex-end',*/ alignItems: 'center' } }>
+				<Flex sx={ { alignItems: 'center' } }>
 					<Heading
 						variant={ titleVariant }
 						sx={ {
-							// mb: 1,
 							mb: 0,
 							color: headingColor,
 							fontSize: 2,
