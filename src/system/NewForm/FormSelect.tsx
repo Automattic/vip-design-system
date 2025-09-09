@@ -39,6 +39,7 @@ interface Option {
 }
 
 interface FormSelectProps {
+	disabled?: boolean;
 	isInline?: boolean;
 	placeholder?: string;
 	forLabel?: string;
@@ -52,7 +53,6 @@ interface FormSelectProps {
 	errorMessage?: string;
 	wrapperSx?: ThemeUIStyleObject;
 	value?: string | number;
-	disabled?: boolean;
 	className?: string;
 	'aria-describedby'?: string;
 	'aria-required'?: boolean;
@@ -78,6 +78,7 @@ const renderGroup = ( groupLabel: string, groupOptions: Option[] ) => {
 const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 	(
 		{
+			disabled,
 			isInline,
 			placeholder,
 			forLabel = 'vip-form-select',
@@ -149,8 +150,9 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 					<select
 						onChange={ onValueChange }
 						ref={ forwardRef }
-						sx={ defaultStyles }
+						sx={ { cursor: disabled ? 'not-allowed' : 'pointer', ...defaultStyles } }
 						required={ required }
+						disabled={ disabled }
 						aria-required={ required }
 						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
 						id={ forLabel }

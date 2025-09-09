@@ -76,6 +76,14 @@ Default.args = {
 	options,
 };
 
+export const Disabled = DefaultComponent.bind( {} );
+Disabled.args = {
+	placeholder: '- Select -',
+	required: true,
+	disabled: true,
+	options,
+};
+
 export const WithErrors = DefaultComponent.bind( {} );
 WithErrors.args = {
 	placeholder: '- Select -',

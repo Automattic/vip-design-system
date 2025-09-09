@@ -112,17 +112,18 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					borderColor: 'wizard.step.border.default',
 					borderLeftColor,
 					overflow: 'inherit',
+					py: 1,
 				} }
 				data-step={ order }
 				data-active={ active || undefined }
 				className={ `wizard-step-${ status }` }
 				ref={ forwardRef }
 			>
-				<Flex sx={ { alignItems: 'flex-end', mb: 2 } }>
+				<Flex sx={ { alignItems: 'center' } }>
 					<Heading
 						variant={ titleVariant }
 						sx={ {
-							mb: 1,
+							mb: 0,
 							color: headingColor,
 							fontSize: 2,
 							fontWeight: 'heading',
@@ -133,16 +134,15 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						aria-current={ active ? 'step' : undefined }
 					>
 						{ showStepText && (
-							<Text sx={ { fontSize: 1, color: 'wizard.step.number.color' } } aria-hidden="true">
+							<Text
+								sx={ { fontSize: 1, color: 'wizard.step.number.color', pb: 1 } }
+								aria-hidden="true"
+							>
 								{ stepText }
 							</Text>
 						) }
 
-						<Flex
-							as="span"
-							sx={ { mt: showStepText ? 3 : 2, alignItems: 'center' } }
-							aria-hidden="true"
-						>
+						<Flex as="span" sx={ { alignItems: 'center' } } aria-hidden="true">
 							{ complete ? (
 								<BsFillCheckCircleFill sx={ statusIconStyles } />
 							) : (
@@ -174,12 +174,17 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					) }
 				</Flex>
 				{ ! active && ( complete || skipped ) && ( summary || summaryTitle ) && (
-					<DescriptionList as={ summaryAs } list={ summary || [] } title={ summaryTitle } />
+					<DescriptionList
+						as={ summaryAs }
+						list={ summary || [] }
+						title={ summaryTitle }
+						sx={ { mt: 2 } }
+					/>
 				) }
 
-				{ subTitle && active && <Text sx={ { mb: 3, mt: 2 } }>{ subTitle }</Text> }
+				{ subTitle && active && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
 
-				{ active && children }
+				{ active && Boolean( children ) && <Box sx={ { pt: 2 } }>{ children }</Box> }
 			</Card>
 		);
 	}
