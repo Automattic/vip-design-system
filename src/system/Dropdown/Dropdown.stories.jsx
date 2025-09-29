@@ -55,7 +55,9 @@ export const ComplexOptions = () => {
 			<Dropdown.Root trigger={ <Button>See options</Button> }>
 				<Dropdown.Item>New Tab</Dropdown.Item>
 				<Dropdown.Item>New Window</Dropdown.Item>
-				<Dropdown.Item disabled>New Private Window</Dropdown.Item>
+				<Dropdown.Item disabled onSelect={ () => console.log( 'disabled' ) }>
+					New Private Window
+				</Dropdown.Item>
 				<Dropdown.Sub>
 					<Dropdown.SubTrigger>
 						More Tools
