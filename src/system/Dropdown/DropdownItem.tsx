@@ -43,7 +43,8 @@ export const styles: ThemeUIStyleObject = {
 	},
 	'&[data-disabled]': {
 		color: 'muted',
-		pointerEvents: 'none',
+		pointerEvents: 'auto',
+		cursor: 'not-allowed',
 	},
 	'&[data-highlighted]': {
 		backgroundColor: 'hover',
@@ -91,9 +92,10 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 DropdownRadioItem.displayName = 'DropdownRadioItem';
 
 export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubTriggerItemProps >(
-	( { className, ...props }, forwardRef ) => (
+	( { className, disabled, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.SubTrigger
 			className={ classNames( 'vip-dropdown-sub-trigger', className ) }
+			disabled={ disabled }
 			ref={ forwardRef }
 			sx={ {
 				...styles,
@@ -103,6 +105,10 @@ export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubT
 						color: 'primary',
 					},
 				},
+				...( disabled && {
+					cursor: 'not-allowed',
+					color: 'muted',
+				} ),
 			} }
 			{ ...props }
 		/>
