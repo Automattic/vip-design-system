@@ -15,21 +15,25 @@ import { Box } from '../Box';
 import { Validation } from '../Form';
 import { baseControlStyle } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { ControlSize, getControlHeight } from '../types/controlSize';
 
 const MAX_SUGGESTED_OPTIONS = 15;
 const ICON_SIZE = 24;
 const isDev = process.env.NODE_ENV !== 'production';
 
-const defaultStyles: ThemeUIStyleObject = {
-	...baseControlStyle,
-	paddingLeft: 3,
-	paddingRight: 7,
-	py: 0,
-	appearance: 'none' as const,
-	minHeight: '36px',
-	lineHeight: '36px',
-	fontFamily: 'inherit',
-	fontSize: '1em',
+const getSelectStyles = ( size: ControlSize = 'large' ): ThemeUIStyleObject => {
+	const height = getControlHeight( size );
+	return {
+		...baseControlStyle,
+		paddingLeft: size === 'small' ? 3 : 3,
+		paddingRight: size === 'small' ? 6 : 7,
+		py: 0,
+		appearance: 'none' as const,
+		minHeight: height,
+		lineHeight: height,
+		fontFamily: 'inherit',
+		fontSize: 2,
+	};
 };
 
 interface Option {
@@ -57,6 +61,7 @@ interface FormSelectProps {
 	'aria-describedby'?: string;
 	'aria-required'?: boolean;
 	id?: string;
+	size?: ControlSize;
 }
 
 const renderOption = ( label: string, value: string | number ) => {
@@ -91,6 +96,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 			hasError,
 			errorMessage,
 			wrapperSx,
+			size = 'large',
 			...props
 		},
 		forwardRef
@@ -150,7 +156,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 					<select
 						onChange={ onValueChange }
 						ref={ forwardRef }
-						sx={ { cursor: disabled ? 'not-allowed' : 'pointer', ...defaultStyles } }
+						sx={ { cursor: disabled ? 'not-allowed' : 'pointer', ...getSelectStyles( size ) } }
 						required={ required }
 						disabled={ disabled }
 						aria-required={ required }

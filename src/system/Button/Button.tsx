@@ -2,6 +2,8 @@ import classNames from 'classnames';
 import React, { useCallback, forwardRef } from 'react';
 import { Theme, Button as ThemeButton, ButtonProps as ThemeButtonProps } from 'theme-ui';
 
+import { ControlSize } from '../types/controlSize';
+
 type ButtonClickType = React.MouseEvent< HTMLButtonElement, MouseEvent >;
 
 interface ButtonTheme extends Theme {
@@ -27,6 +29,7 @@ export interface ButtonProps extends ThemeButtonProps {
 	grow?: boolean;
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
 	danger?: boolean;
+	size?: ControlSize;
 }
 
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
@@ -41,6 +44,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 			grow,
 			variant = 'primary',
 			danger = variant === 'danger', // fallback for danger variant used before the prop was added
+			size = 'large',
 			...rest
 		},
 		ref
@@ -99,6 +103,7 @@ const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 				onClick={ handleOnClick }
 				className={ classNames( 'vip-button-component', className ) }
 				data-danger={ danger }
+				data-size={ size }
 				ref={ ref }
 			/>
 		);

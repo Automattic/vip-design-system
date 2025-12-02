@@ -10,6 +10,7 @@ import * as Dropdown from '../Dropdown';
 import { DropdownContentProps } from '../Dropdown/DropdownContent';
 import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';
 import ScreenReaderText from '../ScreenReaderText';
+import { ControlSize } from '../types/controlSize';
 
 export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {
 	checked: boolean;
@@ -45,6 +46,7 @@ export type FilterDropdownProps = {
 	onSelect: ( filter: FilterDropDownFilterProp, key: string ) => void;
 	defaultValue?: string | null;
 	contentProps?: DropdownContentProps;
+	size?: ControlSize;
 };
 
 export const FilterDropdown = ( {
@@ -54,6 +56,7 @@ export const FilterDropdown = ( {
 	onSelect,
 	defaultValue = null,
 	contentProps = {},
+	size = 'large',
 }: FilterDropdownProps ) => {
 	const translate = useTranslate();
 	const filterKeys = Object.keys( filters );
@@ -67,6 +70,7 @@ export const FilterDropdown = ( {
 				<Button
 					className={ classNames( 'vip-filter-dropdown-trigger', className ) }
 					variant="secondary"
+					size={ size }
 				>
 					<ScreenReaderText>{ translate( 'Filter:' ) } </ScreenReaderText>
 
