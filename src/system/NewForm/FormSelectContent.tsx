@@ -24,16 +24,25 @@ interface FormSelectContentProps {
 	isInline?: boolean;
 	label?: React.ReactNode;
 	children?: React.ReactNode;
+	hasError?: boolean;
+	size?: string;
 }
 
 const FormSelectContent = React.forwardRef< HTMLDivElement, FormSelectContentProps >(
-	( { isInline, label, children }, forwardRef ) => (
-		<div sx={ isInline ? inlineStyles : {} } className="vip-select-component" ref={ forwardRef }>
-			{ isInline && label }
+	( { isInline, label, children, hasError, size }, forwardRef ) => {
+		const inlineStylesWithError = isInline ? {
+			...inlineStyles,
+			borderColor: hasError ? 'input.border.error' : inlineStyles.borderColor,
+		} : {};
+		
+		return (
+			<div sx={ inlineStylesWithError } className="vip-select-component" ref={ forwardRef }>
+				{ isInline && label }
 
-			<div sx={ defaultStyles }>{ children }</div>
-		</div>
-	)
+				<div sx={ defaultStyles }>{ children }</div>
+			</div>
+		);
+	}
 );
 
 FormSelectContent.displayName = 'FormSelectContent';

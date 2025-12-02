@@ -84,12 +84,30 @@ Disabled.args = {
 	options,
 };
 
+export const ReadOnly = DefaultComponent.bind( {} );
+ReadOnly.args = {
+	placeholder: '- Select -',
+	required: true,
+	readOnly: true,
+	value: 'chocolate',
+	options,
+};
+
+export const WithHelperText = DefaultComponent.bind( {} );
+WithHelperText.args = {
+	placeholder: '- Select -',
+	required: true,
+	helperText: 'Helper text',
+	options,
+};
+
 export const WithErrors = DefaultComponent.bind( {} );
 WithErrors.args = {
 	placeholder: '- Select -',
 	required: true,
 	hasError: true,
-	errorMessage: 'This is an error message',
+	errorMessage: 'Error text',
+	helperText: 'Helper text',
 	options,
 };
 

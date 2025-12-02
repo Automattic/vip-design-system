@@ -18,13 +18,13 @@ interface FormSelectArrowProps {
 
 const arrowStyles: ThemeUIStyleObject = {
 	position: 'absolute',
-	paddingLeft: 2,
-	borderLeftWidth: borderStyle.borderWidth,
-	borderLeftStyle: borderStyle.borderStyle,
-	borderLeftColor: borderStyle.borderColor,
-	right: 3,
-	top: '7px',
+	right: 2, // 8px from right edge
+	top: '50%',
+	transform: 'translateY(-50%)',
 	pointerEvents: 'none',
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
 	svg: {
 		fill: borderStyle.borderColor,
 	},

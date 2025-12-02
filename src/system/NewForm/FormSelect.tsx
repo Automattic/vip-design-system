@@ -25,11 +25,12 @@ const getSelectStyles = ( size: ControlSize = 'large' ): ThemeUIStyleObject => {
 	const height = getControlHeight( size );
 	return {
 		...baseControlStyle,
-		paddingLeft: size === 'small' ? 3 : 3,
-		paddingRight: size === 'small' ? 6 : 7,
+		paddingLeft: 3, // 12px
+		paddingRight: 2, // 8px
 		py: 0,
 		appearance: 'none' as const,
 		minHeight: height,
+		height,
 		lineHeight: height,
 		fontFamily: 'inherit',
 		fontSize: 2,
@@ -55,6 +56,7 @@ interface FormSelectProps {
 	onChange?: ( option: Option | undefined, event: React.ChangeEvent< HTMLSelectElement > ) => void;
 	hasError?: boolean;
 	errorMessage?: string;
+	helperText?: string;
 	wrapperSx?: ThemeUIStyleObject;
 	value?: string | number;
 	className?: string;
@@ -62,6 +64,7 @@ interface FormSelectProps {
 	'aria-required'?: boolean;
 	id?: string;
 	size?: ControlSize;
+	readOnly?: boolean;
 }
 
 const renderOption = ( label: string, value: string | number ) => {
@@ -95,8 +98,10 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 			onChange,
 			hasError,
 			errorMessage,
+			helperText,
 			wrapperSx,
 			size = 'large',
+			readOnly,
 			...props
 		},
 		forwardRef
@@ -141,7 +146,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 		);
 
 		const SelectLabel = () => (
-			<Label sx={ { lineHeight: `${ ICON_SIZE }px` } } required={ required } htmlFor={ forLabel }>
+			<Label sx={ { lineHeight: 1, mb: isInline ? 0 : 2 } } required={ required } htmlFor={ forLabel }>
 				{ label }
 			</Label>
 		);
@@ -152,19 +157,29 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 			<Box sx={ { ...wrapperSx } }>
 				{ label && ! isInline && <SelectLabel /> }
 
-				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
+				<FormSelectContent 
+					isInline={ inlineLabel } 
+					label={ inlineLabel ? <SelectLabel /> : null }
+					hasError={ hasError }
+					size={ size }
+				>
 					<select
 						onChange={ onValueChange }
 						ref={ forwardRef }
-						sx={ { cursor: disabled ? 'not-allowed' : 'pointer', ...getSelectStyles( size ) } }
+						sx={ { 
+							cursor: disabled ? 'not-allowed' : 'pointer', 
+							...getSelectStyles( size ),
+							borderColor: hasError ? 'input.border.error' : undefined,
+						} }
 						required={ required }
 						disabled={ disabled }
+						readOnly={ readOnly }
 						aria-required={ required }
 						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
 						id={ forLabel }
 						{ ...props }
 					>
-						{ placeholder && <option>{ placeholder }</option> }
+						{ placeholder && <option value="">{ placeholder }</option> }
 						{ options.map( ( { options: groupOptions, ...option } ) =>
 							groupOptions
 								? renderGroup( optionLabel( option ), groupOptions )
@@ -178,6 +193,12 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 					<Validation isValid={ false } describedId={ forLabel }>
 						{ errorMessage }
 					</Validation>
+				) }
+				
+				{ helperText && ! hasError && (
+					<Box sx={ { fontSize: 1, color: 'texts.helper', mt: 2, display: 'flex', gap: 1, alignItems: 'center' } }>
+						{ helperText }
+					</Box>
 				) }
 			</Box>
 		);
