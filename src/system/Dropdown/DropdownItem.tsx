@@ -15,7 +15,8 @@ export interface DropdownRadioItemProps extends DropdownMenuPrimitive.DropdownMe
 	children?: React.ReactNode;
 }
 
-export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.DropdownMenuCheckboxItemProps {
+export interface DropdownCheckboxItemProps
+	extends DropdownMenuPrimitive.DropdownMenuCheckboxItemProps {
 	className?: string;
 	children?: React.ReactNode;
 }
