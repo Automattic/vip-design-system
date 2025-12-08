@@ -5,16 +5,19 @@ import classNames from 'classnames';
 import React from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
-export interface DropdownItemProps extends DropdownMenuPrimitive.MenuItemProps {
+export interface DropdownItemProps extends DropdownMenuPrimitive.DropdownMenuItemProps {
 	className?: string;
+	children?: React.ReactNode;
 }
 
-export interface DropdownRadioItemProps extends DropdownMenuPrimitive.MenuRadioItemProps {
+export interface DropdownRadioItemProps extends DropdownMenuPrimitive.DropdownMenuRadioItemProps {
 	className?: string;
+	children?: React.ReactNode;
 }
 
-export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.MenuCheckboxItemProps {
+export interface DropdownCheckboxItemProps extends DropdownMenuPrimitive.DropdownMenuCheckboxItemProps {
 	className?: string;
+	children?: React.ReactNode;
 }
 
 export interface DropdownSubTriggerItemProps
@@ -79,11 +82,12 @@ export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCh
 DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';
 
 export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadioItemProps >(
-	( { className, ...props }, forwardRef ) => (
+	( { className, value, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.RadioItem
 			className={ classNames( 'vip-dropdown-radio-item', className ) }
 			ref={ forwardRef }
 			sx={ styles }
+			value={ value }
 			{ ...props }
 		/>
 	)
