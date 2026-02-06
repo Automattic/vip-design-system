@@ -46,6 +46,7 @@ import { Nav } from './Nav/Nav';
 import { NavItem } from './Nav/NavItem';
 import { NewConfirmationDialog } from './NewConfirmationDialog';
 import * as NewDialog from './NewDialog';
+import { NewTooltip } from './NewTooltip';
 import * as Form from './NewForm';
 import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
@@ -91,6 +92,7 @@ export {
 	MobileMenuTrigger,
 	MobileMenuWrapper,
 	NewConfirmationDialog,
+	NewTooltip,
 	Grid,
 	FilterDropdown,
 	Flex,
