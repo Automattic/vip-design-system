@@ -36,16 +36,16 @@ build/                   # Compiled output (generated, do not edit)
 
 ## Commands
 
-| Command | Purpose |
-|---|---|
-| `npm run test` | Run Jest unit tests |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Auto-fix ESLint issues |
-| `npm run format:check` | Check Prettier formatting |
-| `npm run format` | Auto-format with Prettier |
-| `npm run check-types` | TypeScript type checking |
-| `npm run build` | Full production build |
-| `npm run dev` | Start Storybook dev server (port 6006) |
+| Command                | Purpose                                |
+| ---------------------- | -------------------------------------- |
+| `npm run test`         | Run Jest unit tests                    |
+| `npm run lint`         | Run ESLint                             |
+| `npm run lint:fix`     | Auto-fix ESLint issues                 |
+| `npm run format:check` | Check Prettier formatting              |
+| `npm run format`       | Auto-format with Prettier              |
+| `npm run check-types`  | TypeScript type checking               |
+| `npm run build`        | Full production build                  |
+| `npm run dev`          | Start Storybook dev server (port 6006) |
 
 ## Component Conventions
 
