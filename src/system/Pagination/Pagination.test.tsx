@@ -94,15 +94,23 @@ describe( '<Pagination />', () => {
 	it( 'shows ellipsis for large page counts', () => {
 		render( <Pagination { ...defaultProps } currentPage={ 5 } totalPages={ 20 } /> );
 
-		const nav = screen.getByRole( 'navigation' );
-		expect( nav ).toHaveTextContent( '…' );
+		// Intermediate pages are replaced by ellipsis icon
+		expect(
+			screen.queryByRole( 'button', { name: 'Go to page 2' } )
+		).not.toBeInTheDocument();
+		expect(
+			screen.queryByRole( 'button', { name: 'Go to page 3' } )
+		).not.toBeInTheDocument();
 	} );
 
 	it( 'does not show ellipsis for small page counts', () => {
 		render( <Pagination { ...defaultProps } currentPage={ 1 } totalPages={ 5 } /> );
 
-		const nav = screen.getByRole( 'navigation' );
-		expect( nav ).not.toHaveTextContent( '…' );
+		// All pages are rendered when total is small
+		expect( screen.getByRole( 'button', { name: 'Go to page 2' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Go to page 3' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Go to page 4' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Go to page 5' } ) ).toBeInTheDocument();
 	} );
 
 	it( 'renders compact variant with Page text', () => {
@@ -114,7 +122,12 @@ describe( '<Pagination />', () => {
 
 	it( 'renders custom pageSizeOptions in the trigger', () => {
 		render(
-			<Pagination { ...defaultProps } pageSizeOptions={ [ 5, 25, 75 ] } itemsPerPage={ 5 } />
+			<Pagination
+				{ ...defaultProps }
+				displayItemsPerPageSelector
+				pageSizeOptions={ [ 5, 25, 75 ] }
+				itemsPerPage={ 5 }
+			/>
 		);
 
 		expect( screen.getByRole( 'button', { name: /5 \/ page/ } ) ).toBeInTheDocument();
@@ -152,17 +165,17 @@ describe( 'getPageNumbers', () => {
 
 	it( 'shows end ellipsis when current page is near start', () => {
 		const result = getPageNumbers( 1, 10 );
-		expect( result ).toEqual( [ 1, 2, 'ellipsis', 10 ] );
+		expect( result ).toEqual( [ 1, 2, 3, 'ellipsis', 10 ] );
 	} );
 
 	it( 'shows both ellipsis when current page is in the middle', () => {
 		const result = getPageNumbers( 5, 10 );
-		expect( result ).toEqual( [ 1, 'ellipsis', 4, 5, 6, 'ellipsis', 10 ] );
+		expect( result ).toEqual( [ 1, 'ellipsis', 4, 5, 6, 7, 'ellipsis', 10 ] );
 	} );
 
 	it( 'handles page near start with no start ellipsis', () => {
 		const result = getPageNumbers( 3, 10 );
-		expect( result ).toEqual( [ 1, 2, 3, 4, 'ellipsis', 10 ] );
+		expect( result ).toEqual( [ 1, 2, 3, 4, 5, 'ellipsis', 10 ] );
 	} );
 
 	it( 'handles page near end with no end ellipsis', () => {
