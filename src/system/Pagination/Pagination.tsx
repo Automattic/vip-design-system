@@ -2,6 +2,7 @@
 
 import classNames from 'classnames';
 import { forwardRef } from 'react';
+import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { MdCheck, MdChevronLeft, MdChevronRight, MdKeyboardArrowDown } from 'react-icons/md';
 import { Flex, ThemeUIStyleObject } from 'theme-ui';
 
@@ -11,10 +12,10 @@ import {
 	pageButtonStyles,
 	activePageButtonStyles,
 	arrowButtonStyles,
-	ellipsisStyles,
 	compactTextStyles,
 	compactTriggerStyles,
 } from './styles';
+import { Box } from '../Box';
 import { Button } from '../Button';
 import * as Dropdown from '../Dropdown';
 import { Text } from '../Text';
@@ -22,6 +23,7 @@ import { Text } from '../Text';
 export type PaginationVariant = 'full' | 'compact';
 
 export interface PaginationProps {
+	displayItemsPerPageSelector?: boolean;
 	currentPage: number;
 	totalItems: number;
 	totalPages: number;
@@ -37,20 +39,26 @@ export interface PaginationProps {
 export type PageNumberItem = number | 'ellipsis';
 
 export function getPageNumbers( currentPage: number, totalPages: number ): PageNumberItem[] {
-	if ( totalPages <= 7 ) {
-		return Array.from( { length: totalPages }, ( _, i ) => i + 1 );
+	const maxPage = Math.max( 1, Number( totalPages ) );
+	if ( ! Number.isFinite( maxPage ) || maxPage < 1 ) {
+		return [];
 	}
-
+	if ( maxPage <= 7 ) {
+		return Array.from( { length: maxPage }, ( _, i ) => i + 1 );
+	}
 	const pages: PageNumberItem[] = [];
 	const siblings = new Set< number >( [
 		1,
-		totalPages,
+		maxPage,
 		currentPage,
 		currentPage - 1,
 		currentPage + 1,
+		currentPage + 2,
 	] );
 
-	const sorted = [ ...siblings ].filter( p => p >= 1 && p <= totalPages ).sort( ( a, b ) => a - b );
+	const sorted = Array.from( siblings )
+		.filter( p => p >= 1 && p <= maxPage )
+		.sort( ( a, b ) => a - b );
 
 	for ( let i = 0; i < sorted.length; i++ ) {
 		if ( i > 0 && sorted[ i ] - sorted[ i - 1 ] > 1 ) {
@@ -73,7 +81,7 @@ const ItemsPerPageDropdown = ( {
 } ) => (
 	<Dropdown.Root
 		trigger={
-			<Button variant="ghost" sx={ { fontSize: 1, py: 1, px: 2, color: 'heading' } }>
+			<Button variant="ghost" sx={ { fontSize: 2, py: 1, px: 2, color: 'heading' } }>
 				{ itemsPerPage } / page
 				<MdKeyboardArrowDown sx={ { ml: 1 } } />
 			</Button>
@@ -110,11 +118,7 @@ const PageNumbers = ( {
 		<>
 			{ pages.map( ( page, index ) => {
 				if ( page === 'ellipsis' ) {
-					return (
-						<span key={ `ellipsis-${ index }` } sx={ ellipsisStyles }>
-							&hellip;
-						</span>
-					);
+					return <BiDotsHorizontalRounded key={ `ellipsis-${ index }` } />;
 				}
 
 				const isActive = page === currentPage;
@@ -149,7 +153,7 @@ const CompactPageSelector = ( {
 
 	return (
 		<Flex sx={ compactTextStyles }>
-			<Text as="span" sx={ { fontSize: 1, color: 'heading', mb: 0 } }>
+			<Text as="span" sx={ { fontSize: 2, color: 'heading', mb: 0 } }>
 				Page
 			</Text>
 			<Dropdown.Root
@@ -174,7 +178,7 @@ const CompactPageSelector = ( {
 					) ) }
 				</Dropdown.RadioGroup>
 			</Dropdown.Root>
-			<Text as="span" sx={ { fontSize: 1, color: 'heading', mb: 0 } }>
+			<Text as="span" sx={ { fontSize: 2, color: 'heading', mb: 0 } }>
 				of { totalPages }
 			</Text>
 		</Flex>
@@ -184,6 +188,7 @@ const CompactPageSelector = ( {
 export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 	(
 		{
+			displayItemsPerPageSelector = false,
 			currentPage,
 			totalItems,
 			totalPages,
@@ -209,11 +214,15 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 				sx={ { ...containerStyles, ...sx } }
 				{ ...rest }
 			>
-				<ItemsPerPageDropdown
-					itemsPerPage={ itemsPerPage }
-					pageSizeOptions={ pageSizeOptions }
-					onItemsPerPageChange={ onItemsPerPageChange }
-				/>
+				<Box>
+					{ displayItemsPerPageSelector && (
+						<ItemsPerPageDropdown
+							itemsPerPage={ itemsPerPage }
+							pageSizeOptions={ pageSizeOptions }
+							onItemsPerPageChange={ onItemsPerPageChange }
+						/>
+					) }
+				</Box>
 
 				<Flex sx={ navigationStyles }>
 					{ variant === 'full' && (

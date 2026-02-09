@@ -11,6 +11,7 @@ export const navigationStyles: ThemeUIStyleObject = {
 	display: 'flex',
 	alignItems: 'center',
 	gap: 1,
+	justifySelf: 'flex-end',
 };
 
 export const pageButtonStyles: ThemeUIStyleObject = {
@@ -24,11 +25,11 @@ export const pageButtonStyles: ThemeUIStyleObject = {
 	bg: 'transparent',
 	color: 'heading',
 	cursor: 'pointer',
-	fontSize: 1,
+	fontSize: 2,
 	fontFamily: 'body',
 	px: 2,
 	'&:hover': {
-		bg: 'hover',
+		bg: 'button.tertiary.background.hover',
 	},
 	'&:focus-visible': {
 		outline: '2px solid',
@@ -39,17 +40,19 @@ export const pageButtonStyles: ThemeUIStyleObject = {
 
 export const activePageButtonStyles: ThemeUIStyleObject = {
 	...pageButtonStyles,
-	bg: 'primary',
-	color: 'white',
+	borderBottom: '3px solid',
+	borderColor: 'button.display.background.default',
+	borderRadius: 0,
 	fontWeight: 'bold',
 	'&:hover': {
-		bg: 'primary',
+		bg: 'button.tertiary.background.hover',
 	},
 };
 
 export const arrowButtonStyles: ThemeUIStyleObject = {
 	...pageButtonStyles,
 	'&:disabled, &[aria-disabled="true"]': {
+		bg: 'button.tertiary.background.disabled',
 		cursor: 'not-allowed',
 		opacity: 0.4,
 		pointerEvents: 'none',
@@ -63,14 +66,14 @@ export const ellipsisStyles: ThemeUIStyleObject = {
 	alignItems: 'center',
 	justifyContent: 'center',
 	color: 'muted',
-	fontSize: 1,
+	fontSize: 2,
 };
 
 export const compactTextStyles: ThemeUIStyleObject = {
 	display: 'inline-flex',
 	alignItems: 'center',
 	gap: 1,
-	fontSize: 1,
+	fontSize: 2,
 	color: 'heading',
 	whiteSpace: 'nowrap',
 };
@@ -79,17 +82,19 @@ export const compactTriggerStyles: ThemeUIStyleObject = {
 	display: 'inline-flex',
 	alignItems: 'center',
 	gap: 1,
-	border: 'none',
+	border: '1px solid',
+	borderColor: 'button.tertiary.border.default',
 	bg: 'transparent',
 	color: 'heading',
 	cursor: 'pointer',
-	fontSize: 1,
+	fontSize: 2,
 	fontFamily: 'body',
 	fontWeight: 'bold',
-	px: 1,
+	px: 2,
 	borderRadius: 1,
 	'&:hover': {
-		bg: 'hover',
+		bg: 'button.tertiary.background.hover',
+		borderColor: 'button.tertiary.background.hover',
 	},
 	'&:focus-visible': {
 		outline: '2px solid',
