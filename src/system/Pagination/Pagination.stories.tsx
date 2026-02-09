@@ -12,7 +12,7 @@ import { Text } from '../Text';
 
 import type { StoryObj, Meta } from '@storybook/react';
 
-export default {
+const meta: Meta< typeof Pagination > = {
 	title: 'Pagination',
 	component: Pagination,
 	parameters: {
@@ -31,7 +31,9 @@ A Pagination component for navigating paged data.
 			},
 		},
 	},
-} as Meta< typeof Pagination >;
+};
+
+export default meta;
 
 type Story = StoryObj< typeof Pagination >;
 
