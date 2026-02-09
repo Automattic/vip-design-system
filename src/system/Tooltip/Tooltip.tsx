@@ -9,6 +9,9 @@ import css from './Tooltip.css';
  * Internal dependencies
  */
 
+/**
+ * @deprecated Use `NewTooltip` instead.
+ */
 export interface TooltipProps {
 	title?: string;
 	trigger?: ReactElement;
@@ -16,6 +19,9 @@ export interface TooltipProps {
 	arrow?: boolean;
 }
 
+/**
+ * @deprecated Use `NewTooltip` instead.
+ */
 const Tooltip = ( {
 	title,
 	trigger,
