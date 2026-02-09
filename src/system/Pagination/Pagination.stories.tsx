@@ -39,6 +39,7 @@ const PaginationWithState = ( {
 	initialPage = 1,
 	totalItems = 200,
 	initialItemsPerPage = 20,
+	displayItemsPerPageSelector = false,
 	...props
 }: {
 	initialPage?: number;
@@ -46,6 +47,7 @@ const PaginationWithState = ( {
 	initialItemsPerPage?: number;
 	variant?: 'full' | 'compact';
 	pageSizeOptions?: number[];
+	displayItemsPerPageSelector?: boolean;
 } ) => {
 	const [ currentPage, setCurrentPage ] = useState( initialPage );
 	const [ itemsPerPage, setItemsPerPage ] = useState( initialItemsPerPage );
@@ -67,6 +69,7 @@ const PaginationWithState = ( {
 				totalPages={ totalPages }
 				itemsPerPage={ itemsPerPage }
 				onPageChange={ setCurrentPage }
+				displayItemsPerPageSelector={ displayItemsPerPageSelector }
 				onItemsPerPageChange={ size => {
 					setItemsPerPage( size );
 					setCurrentPage( 1 );
