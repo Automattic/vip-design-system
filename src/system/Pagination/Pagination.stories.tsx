@@ -104,3 +104,13 @@ export const CustomPageSizes: Story = {
 		/>
 	),
 };
+
+export const WithItemsPerPageSelector: Story = {
+	render: () => (
+		<PaginationWithState
+			totalItems={ 100 }
+			initialItemsPerPage={ 25 }
+			displayItemsPerPageSelector={ true }
+		/>
+	),
+};

@@ -95,12 +95,8 @@ describe( '<Pagination />', () => {
 		render( <Pagination { ...defaultProps } currentPage={ 5 } totalPages={ 20 } /> );
 
 		// Intermediate pages are replaced by ellipsis icon
-		expect(
-			screen.queryByRole( 'button', { name: 'Go to page 2' } )
-		).not.toBeInTheDocument();
-		expect(
-			screen.queryByRole( 'button', { name: 'Go to page 3' } )
-		).not.toBeInTheDocument();
+		expect( screen.queryByRole( 'button', { name: 'Go to page 2' } ) ).not.toBeInTheDocument();
+		expect( screen.queryByRole( 'button', { name: 'Go to page 3' } ) ).not.toBeInTheDocument();
 	} );
 
 	it( 'does not show ellipsis for small page counts', () => {
