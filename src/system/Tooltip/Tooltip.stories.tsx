@@ -4,7 +4,7 @@
 import { Tooltip, Button, Heading, Text, Link, Box, Grid } from '..';
 
 export default {
-	title: 'Tooltip',
+	title: 'Deprecated/Tooltip',
 	component: Tooltip,
 	parameters: {
 		docs: {
