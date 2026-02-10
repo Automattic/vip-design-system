@@ -4,6 +4,7 @@ export const containerStyles: ThemeUIStyleObject = {
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
+	flexFlow: 'row wrap',
 	gap: 3,
 };
 

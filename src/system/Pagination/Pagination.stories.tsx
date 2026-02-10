@@ -56,7 +56,19 @@ const PaginationWithState = ( {
 	const totalPages = Math.ceil( totalItems / itemsPerPage );
 
 	return (
-		<>
+		<Pagination
+			currentPage={ currentPage }
+			totalItems={ totalItems }
+			totalPages={ totalPages }
+			itemsPerPage={ itemsPerPage }
+			onPageChange={ setCurrentPage }
+			displayItemsPerPageSelector={ displayItemsPerPageSelector }
+			onItemsPerPageChange={ size => {
+				setItemsPerPage( size );
+				setCurrentPage( 1 );
+			} }
+			{ ...props }
+		>
 			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
 				<Badge variant="gold" sx={ { mr: 2 } }>
 					DEBUG
@@ -65,20 +77,7 @@ const PaginationWithState = ( {
 					Page { currentPage } of { totalPages }
 				</Text>
 			</Flex>
-			<Pagination
-				currentPage={ currentPage }
-				totalItems={ totalItems }
-				totalPages={ totalPages }
-				itemsPerPage={ itemsPerPage }
-				onPageChange={ setCurrentPage }
-				displayItemsPerPageSelector={ displayItemsPerPageSelector }
-				onItemsPerPageChange={ size => {
-					setItemsPerPage( size );
-					setCurrentPage( 1 );
-				} }
-				{ ...props }
-			/>
-		</>
+		</Pagination>
 	);
 };
 
@@ -97,25 +96,24 @@ const OpenEndedPaginationWithState = ( {
 	const [ itemsPerPage, setItemsPerPage ] = useState( initialItemsPerPage );
 
 	return (
-		<>
+		<Pagination
+			currentPage={ currentPage }
+			itemsPerPage={ itemsPerPage }
+			onPageChange={ setCurrentPage }
+			onItemsPerPageChange={ size => {
+				setItemsPerPage( size );
+				setCurrentPage( 1 );
+			} }
+			hasNextPage={ hasNextPage }
+			{ ...props }
+		>
 			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
 				<Badge variant="gold" sx={ { mr: 2 } }>
 					DEBUG
 				</Badge>
 				<Text>Page { currentPage } (open-ended)</Text>
 			</Flex>
-			<Pagination
-				currentPage={ currentPage }
-				itemsPerPage={ itemsPerPage }
-				onPageChange={ setCurrentPage }
-				onItemsPerPageChange={ size => {
-					setItemsPerPage( size );
-					setCurrentPage( 1 );
-				} }
-				hasNextPage={ hasNextPage }
-				{ ...props }
-			/>
-		</>
+		</Pagination>
 	);
 };
 

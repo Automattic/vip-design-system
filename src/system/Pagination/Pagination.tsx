@@ -35,6 +35,7 @@ export interface PaginationProps {
 	pageSizeOptions?: number[];
 	className?: string;
 	sx?: ThemeUIStyleObject;
+	children?: React.ReactNode;
 }
 
 export type PageNumberItem = number | 'ellipsis';
@@ -241,6 +242,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			pageSizeOptions = [ 10, 20, 50, 100 ],
 			className,
 			sx,
+			children,
 			...rest
 		},
 		ref
@@ -265,7 +267,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						/>
 					) }
 				</Box>
-
+				<Box sx={ { flex: 1 } }>{ children }</Box>
 				<Flex sx={ navigationStyles }>
 					{ variant === 'full' && (
 						<PageNumbers
