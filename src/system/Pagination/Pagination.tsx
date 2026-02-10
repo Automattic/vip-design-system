@@ -25,11 +25,12 @@ export type PaginationVariant = 'full' | 'compact';
 export interface PaginationProps {
 	displayItemsPerPageSelector?: boolean;
 	currentPage: number;
-	totalItems: number;
-	totalPages: number;
+	totalItems?: number;
+	totalPages?: number;
 	itemsPerPage: number;
 	onPageChange: ( page: number ) => void;
 	onItemsPerPageChange: ( itemsPerPage: number ) => void;
+	hasNextPage?: boolean;
 	variant?: PaginationVariant;
 	pageSizeOptions?: number[];
 	className?: string;
@@ -38,7 +39,40 @@ export interface PaginationProps {
 
 export type PageNumberItem = number | 'ellipsis';
 
-export function getPageNumbers( currentPage: number, totalPages: number ): PageNumberItem[] {
+export function getPageNumbers(
+	currentPage: number,
+	totalPages?: number,
+	hasNextPage?: boolean
+): PageNumberItem[] {
+	// Open-ended mode: totalPages is undefined
+	if ( totalPages === undefined ) {
+		const pages: PageNumberItem[] = [];
+		const siblings = new Set< number >( [ 1, currentPage - 1, currentPage ] );
+
+		if ( hasNextPage !== false ) {
+			siblings.add( currentPage + 1 );
+			siblings.add( currentPage + 2 );
+		}
+
+		const sorted = Array.from( siblings )
+			.filter( p => p >= 1 )
+			.sort( ( a, b ) => a - b );
+
+		for ( let i = 0; i < sorted.length; i++ ) {
+			if ( i > 0 && sorted[ i ] - sorted[ i - 1 ] > 1 ) {
+				pages.push( 'ellipsis' );
+			}
+			pages.push( sorted[ i ] );
+		}
+
+		// End with ellipsis only when more pages exist
+		if ( hasNextPage !== false ) {
+			pages.push( 'ellipsis' );
+		}
+
+		return pages;
+	}
+
 	const maxPage = Math.max( 1, Number( totalPages ) );
 	if ( ! Number.isFinite( maxPage ) || maxPage < 1 ) {
 		return [];
@@ -106,13 +140,15 @@ const ItemsPerPageDropdown = ( {
 const PageNumbers = ( {
 	currentPage,
 	totalPages,
+	hasNextPage,
 	onPageChange,
 }: {
 	currentPage: number;
-	totalPages: number;
+	totalPages?: number;
+	hasNextPage?: boolean;
 	onPageChange: ( page: number ) => void;
 } ) => {
-	const pages = getPageNumbers( currentPage, totalPages );
+	const pages = getPageNumbers( currentPage, totalPages, hasNextPage );
 
 	return (
 		<>
@@ -146,10 +182,13 @@ const CompactPageSelector = ( {
 	onPageChange,
 }: {
 	currentPage: number;
-	totalPages: number;
+	totalPages?: number;
 	onPageChange: ( page: number ) => void;
 } ) => {
-	const pageOptions = Array.from( { length: totalPages }, ( _, i ) => i + 1 );
+	const isOpenEnded = totalPages === undefined;
+	const pageOptions = isOpenEnded
+		? Array.from( { length: currentPage + 1 }, ( _, i ) => i + 1 )
+		: Array.from( { length: totalPages }, ( _, i ) => i + 1 );
 
 	return (
 		<Flex sx={ compactTextStyles }>
@@ -178,9 +217,11 @@ const CompactPageSelector = ( {
 					) ) }
 				</Dropdown.RadioGroup>
 			</Dropdown.Root>
-			<Text as="span" sx={ { fontSize: 2, color: 'heading', mb: 0 } }>
-				of { totalPages }
-			</Text>
+			{ ! isOpenEnded && (
+				<Text as="span" sx={ { fontSize: 2, color: 'heading', mb: 0 } }>
+					of { totalPages }
+				</Text>
+			) }
 		</Flex>
 	);
 };
@@ -195,6 +236,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			itemsPerPage,
 			onPageChange,
 			onItemsPerPageChange,
+			hasNextPage,
 			variant = 'full',
 			pageSizeOptions = [ 10, 20, 50, 100 ],
 			className,
@@ -204,7 +246,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 		ref
 	) => {
 		const isFirstPage = currentPage <= 1;
-		const isLastPage = currentPage >= totalPages;
+		const isLastPage = totalPages !== undefined ? currentPage >= totalPages : hasNextPage === false;
 
 		return (
 			<nav
@@ -229,6 +271,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						<PageNumbers
 							currentPage={ currentPage }
 							totalPages={ totalPages }
+							hasNextPage={ hasNextPage }
 							onPageChange={ onPageChange }
 						/>
 					) }

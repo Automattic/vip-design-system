@@ -179,3 +179,76 @@ describe( 'getPageNumbers', () => {
 		expect( result ).toEqual( [ 1, 'ellipsis', 7, 8, 9, 10 ] );
 	} );
 } );
+
+describe( 'getPageNumbers (open-ended)', () => {
+	it( 'returns trailing ellipsis on page 1', () => {
+		expect( getPageNumbers( 1 ) ).toEqual( [ 1, 2, 3, 'ellipsis' ] );
+	} );
+
+	it( 'returns trailing ellipsis on page 5', () => {
+		expect( getPageNumbers( 5 ) ).toEqual( [ 1, 'ellipsis', 4, 5, 6, 7, 'ellipsis' ] );
+	} );
+
+	it( 'returns trailing ellipsis on page 10', () => {
+		expect( getPageNumbers( 10 ) ).toEqual( [ 1, 'ellipsis', 9, 10, 11, 12, 'ellipsis' ] );
+	} );
+
+	it( 'excludes forward pages and trailing ellipsis when hasNextPage is false', () => {
+		expect( getPageNumbers( 1, undefined, false ) ).toEqual( [ 1 ] );
+		expect( getPageNumbers( 5, undefined, false ) ).toEqual( [ 1, 'ellipsis', 4, 5 ] );
+		expect( getPageNumbers( 10, undefined, false ) ).toEqual( [ 1, 'ellipsis', 9, 10 ] );
+	} );
+} );
+
+describe( '<Pagination /> open-ended mode', () => {
+	const openEndedProps = {
+		currentPage: 5,
+		itemsPerPage: 20,
+		onPageChange: jest.fn(),
+		onItemsPerPageChange: jest.fn(),
+	};
+
+	beforeEach( () => {
+		jest.clearAllMocks();
+	} );
+
+	it( 'enables "Next" button when totalPages is omitted', () => {
+		render( <Pagination { ...openEndedProps } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Next page' } ) ).not.toBeDisabled();
+	} );
+
+	it( 'disables "Next" button when hasNextPage is false', () => {
+		render( <Pagination { ...openEndedProps } hasNextPage={ false } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Next page' } ) ).toBeDisabled();
+	} );
+
+	it( 'calls onPageChange when clicking next in open-ended mode', async () => {
+		const user = userEvent.setup();
+		render( <Pagination { ...openEndedProps } /> );
+
+		await user.click( screen.getByRole( 'button', { name: 'Next page' } ) );
+
+		expect( openEndedProps.onPageChange ).toHaveBeenCalledWith( 6 );
+	} );
+
+	it( 'renders compact variant with "Page" but without "of Y"', () => {
+		render( <Pagination { ...openEndedProps } variant="compact" /> );
+
+		expect( screen.getByText( 'Page' ) ).toBeInTheDocument();
+		expect( screen.queryByText( /of \d+/ ) ).not.toBeInTheDocument();
+	} );
+
+	it( 'has no accessibility violations (open-ended full)', async () => {
+		const { container } = render( <Pagination { ...openEndedProps } /> );
+
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	it( 'has no accessibility violations (open-ended compact)', async () => {
+		const { container } = render( <Pagination { ...openEndedProps } variant="compact" /> );
+
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+} );

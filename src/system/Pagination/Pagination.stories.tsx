@@ -82,6 +82,43 @@ const PaginationWithState = ( {
 	);
 };
 
+const OpenEndedPaginationWithState = ( {
+	initialPage = 1,
+	initialItemsPerPage = 20,
+	hasNextPage,
+	...props
+}: {
+	initialPage?: number;
+	initialItemsPerPage?: number;
+	hasNextPage?: boolean;
+	variant?: 'full' | 'compact';
+} ) => {
+	const [ currentPage, setCurrentPage ] = useState( initialPage );
+	const [ itemsPerPage, setItemsPerPage ] = useState( initialItemsPerPage );
+
+	return (
+		<>
+			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
+				<Badge variant="gold" sx={ { mr: 2 } }>
+					DEBUG
+				</Badge>
+				<Text>Page { currentPage } (open-ended)</Text>
+			</Flex>
+			<Pagination
+				currentPage={ currentPage }
+				itemsPerPage={ itemsPerPage }
+				onPageChange={ setCurrentPage }
+				onItemsPerPageChange={ size => {
+					setItemsPerPage( size );
+					setCurrentPage( 1 );
+				} }
+				hasNextPage={ hasNextPage }
+				{ ...props }
+			/>
+		</>
+	);
+};
+
 export const Default: Story = {
 	render: () => <PaginationWithState />,
 };
@@ -118,4 +155,16 @@ export const WithItemsPerPageSelector: Story = {
 			displayItemsPerPageSelector={ true }
 		/>
 	),
+};
+
+export const OpenEnded: Story = {
+	render: () => <OpenEndedPaginationWithState />,
+};
+
+export const OpenEndedCompact: Story = {
+	render: () => <OpenEndedPaginationWithState variant="compact" />,
+};
+
+export const OpenEndedLastPage: Story = {
+	render: () => <OpenEndedPaginationWithState hasNextPage={ false } initialPage={ 15 } />,
 };
