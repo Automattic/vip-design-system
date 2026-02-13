@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import { forwardRef } from 'react';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import { MdCheck, MdChevronLeft, MdChevronRight, MdKeyboardArrowDown } from 'react-icons/md';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { Flex, ThemeUIStyleObject } from 'theme-ui';
 
 import {
@@ -13,13 +13,11 @@ import {
 	activePageButtonStyles,
 	arrowButtonStyles,
 	compactTextStyles,
-	compactTriggerStyles,
 } from './styles';
 import { Box } from '../Box';
 import { Button } from '../Button';
-import * as Dropdown from '../Dropdown';
-import { Text } from '../Text';
 import { Select } from '../NewForm';
+import { Text } from '../Text';
 
 export type PaginationVariant = 'full' | 'compact';
 
@@ -50,12 +48,16 @@ export function getPageNumbers(
 	totalPages?: number,
 	hasNextPage?: boolean
 ): PageNumberItem[] {
-	const last =
-		totalPages === undefined
-			? hasNextPage === false
-				? currentPage
-				: undefined
-			: Math.max( 1, Number( totalPages ) );
+	let last: number | undefined;
+	if ( totalPages === undefined ) {
+		if ( hasNextPage === false ) {
+			last = currentPage;
+		} else {
+			last = undefined;
+		}
+	} else {
+		last = Math.max( 1, Number( totalPages ) );
+	}
 
 	if ( last !== undefined && ( ! Number.isFinite( last ) || last < 1 ) ) {
 		return [];
@@ -86,6 +88,8 @@ const ItemsPerPageSelect = ( {
 	onItemsPerPageChange: ( size: number ) => void;
 } ) => (
 	<Select
+		id="items-per-page"
+		aria-label="Items per page"
 		separator={ false }
 		value={ itemsPerPage }
 		options={ pageSizeOptions.map( size => ( {
@@ -155,6 +159,8 @@ const CompactPageSelector = ( {
 				Page
 			</Text>
 			<Select
+				id="page"
+				aria-label="Page"
 				separator={ false }
 				value={ currentPage }
 				onChange={ option => onPageChange( Number( option?.value ) ) }

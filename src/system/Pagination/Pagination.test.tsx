@@ -126,7 +126,8 @@ describe( '<Pagination />', () => {
 			/>
 		);
 
-		expect( screen.getByRole( 'button', { name: /5 \/ page/ } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
+		expect( screen.getAllByRole( 'option' ) ).toHaveLength( 3 );
 	} );
 
 	it( 'has no accessibility violations (full variant)', async () => {
