@@ -19,6 +19,7 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 import * as Dropdown from '../Dropdown';
 import { Text } from '../Text';
+import { Select } from '../NewForm';
 
 export type PaginationVariant = 'full' | 'compact';
 
@@ -40,69 +41,39 @@ export interface PaginationProps {
 
 export type PageNumberItem = number | 'ellipsis';
 
+function range( start: number, end: number ): number[] {
+	return Array.from( { length: end - start + 1 }, ( _, i ) => start + i );
+}
+
 export function getPageNumbers(
 	currentPage: number,
 	totalPages?: number,
 	hasNextPage?: boolean
 ): PageNumberItem[] {
-	// Open-ended mode: totalPages is undefined
-	if ( totalPages === undefined ) {
-		const pages: PageNumberItem[] = [];
-		const siblings = new Set< number >( [ 1, currentPage - 1, currentPage ] );
+	const last =
+		totalPages === undefined
+			? hasNextPage === false
+				? currentPage
+				: undefined
+			: Math.max( 1, Number( totalPages ) );
 
-		if ( hasNextPage !== false ) {
-			siblings.add( currentPage + 1 );
-			siblings.add( currentPage + 2 );
-		}
-
-		const sorted = Array.from( siblings )
-			.filter( p => p >= 1 )
-			.sort( ( a, b ) => a - b );
-
-		for ( let i = 0; i < sorted.length; i++ ) {
-			if ( i > 0 && sorted[ i ] - sorted[ i - 1 ] > 1 ) {
-				pages.push( 'ellipsis' );
-			}
-			pages.push( sorted[ i ] );
-		}
-
-		// End with ellipsis only when more pages exist
-		if ( hasNextPage !== false ) {
-			pages.push( 'ellipsis' );
-		}
-
-		return pages;
-	}
-
-	const maxPage = Math.max( 1, Number( totalPages ) );
-	if ( ! Number.isFinite( maxPage ) || maxPage < 1 ) {
+	if ( last !== undefined && ( ! Number.isFinite( last ) || last < 1 ) ) {
 		return [];
 	}
-	if ( maxPage <= 7 ) {
-		return Array.from( { length: maxPage }, ( _, i ) => i + 1 );
-	}
-	const pages: PageNumberItem[] = [];
-	const siblings = new Set< number >( [
-		1,
-		maxPage,
-		currentPage,
-		currentPage - 1,
-		currentPage + 1,
-		currentPage + 2,
-	] );
-
-	const sorted = Array.from( siblings )
-		.filter( p => p >= 1 && p <= maxPage )
-		.sort( ( a, b ) => a - b );
-
-	for ( let i = 0; i < sorted.length; i++ ) {
-		if ( i > 0 && sorted[ i ] - sorted[ i - 1 ] > 1 ) {
-			pages.push( 'ellipsis' );
-		}
-		pages.push( sorted[ i ] );
+	if ( last !== undefined && last <= 8 ) {
+		return range( 1, last );
 	}
 
-	return pages;
+	// Bounded (last is a known page number)
+	if ( last !== undefined ) {
+		if ( currentPage <= 5 ) return [ ...range( 1, 6 ), 'ellipsis', last ];
+		if ( currentPage >= last - 4 ) return [ 1, 'ellipsis', ...range( last - 5, last ) ];
+		return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 2 ), 'ellipsis', last ];
+	}
+
+	// Open-ended (no known last page)
+	if ( currentPage <= 5 ) return [ ...range( 1, 7 ), 'ellipsis' ];
+	return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 3 ), 'ellipsis' ];
 }
 
 const ItemsPerPageDropdown = ( {
@@ -196,28 +167,13 @@ const CompactPageSelector = ( {
 			<Text as="span" sx={ { fontSize: 2, color: 'heading', mb: 0 } }>
 				Page
 			</Text>
-			<Dropdown.Root
-				trigger={
-					<Button type="button" sx={ compactTriggerStyles }>
-						{ currentPage }
-						<MdKeyboardArrowDown size={ 16 } />
-					</Button>
-				}
-			>
-				<Dropdown.RadioGroup
-					value={ String( currentPage ) }
-					onValueChange={ value => onPageChange( Number( value ) ) }
-				>
-					{ pageOptions.map( page => (
-						<Dropdown.RadioItem key={ page } value={ String( page ) }>
-							<Dropdown.ItemIndicator>
-								<MdCheck size={ 14 } sx={ { mr: 2 } } />
-							</Dropdown.ItemIndicator>
-							{ page }
-						</Dropdown.RadioItem>
-					) ) }
-				</Dropdown.RadioGroup>
-			</Dropdown.Root>
+			<Select
+				separator={ false }
+				value={ currentPage }
+				onChange={ option => onPageChange( Number( option?.value ) ) }
+				options={ pageOptions.map( page => ( { value: page, label: page.toString() } ) ) }
+				sx={ { minWidth: '70px', mx: 1 } }
+			/>
 			{ ! isOpenEnded && (
 				<Text as="span" sx={ { fontSize: 2, color: 'heading', mb: 0 } }>
 					of { totalPages }

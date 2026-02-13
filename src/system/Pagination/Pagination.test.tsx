@@ -92,7 +92,7 @@ describe( '<Pagination />', () => {
 	} );
 
 	it( 'shows ellipsis for large page counts', () => {
-		render( <Pagination { ...defaultProps } currentPage={ 5 } totalPages={ 20 } /> );
+		render( <Pagination { ...defaultProps } currentPage={ 10 } totalPages={ 20 } /> );
 
 		// Intermediate pages are replaced by ellipsis icon
 		expect( screen.queryByRole( 'button', { name: 'Go to page 2' } ) ).not.toBeInTheDocument();
@@ -145,58 +145,67 @@ describe( '<Pagination />', () => {
 } );
 
 describe( 'getPageNumbers', () => {
-	it( 'returns all pages when totalPages <= 7', () => {
+	it( 'returns all pages when totalPages <= 8', () => {
 		expect( getPageNumbers( 1, 5 ) ).toEqual( [ 1, 2, 3, 4, 5 ] );
 		expect( getPageNumbers( 3, 7 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7 ] );
+		expect( getPageNumbers( 4, 8 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7, 8 ] );
 	} );
 
 	it( 'returns single page', () => {
 		expect( getPageNumbers( 1, 1 ) ).toEqual( [ 1 ] );
 	} );
 
-	it( 'shows start ellipsis when current page is near end', () => {
-		const result = getPageNumbers( 9, 10 );
-		expect( result ).toEqual( [ 1, 'ellipsis', 8, 9, 10 ] );
+	it( 'always returns 8 items when totalPages > 8', () => {
+		for ( let cp = 1; cp <= 20; cp++ ) {
+			expect( getPageNumbers( cp, 20 ) ).toHaveLength( 8 );
+		}
 	} );
 
 	it( 'shows end ellipsis when current page is near start', () => {
-		const result = getPageNumbers( 1, 10 );
-		expect( result ).toEqual( [ 1, 2, 3, 'ellipsis', 10 ] );
+		expect( getPageNumbers( 1, 10 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 'ellipsis', 10 ] );
+		expect( getPageNumbers( 3, 10 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 'ellipsis', 10 ] );
+		expect( getPageNumbers( 5, 10 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 'ellipsis', 10 ] );
+	} );
+
+	it( 'shows start ellipsis when current page is near end', () => {
+		expect( getPageNumbers( 9, 10 ) ).toEqual( [ 1, 'ellipsis', 5, 6, 7, 8, 9, 10 ] );
+		expect( getPageNumbers( 8, 10 ) ).toEqual( [ 1, 'ellipsis', 5, 6, 7, 8, 9, 10 ] );
 	} );
 
 	it( 'shows both ellipsis when current page is in the middle', () => {
-		const result = getPageNumbers( 5, 10 );
-		expect( result ).toEqual( [ 1, 'ellipsis', 4, 5, 6, 7, 'ellipsis', 10 ] );
-	} );
-
-	it( 'handles page near start with no start ellipsis', () => {
-		const result = getPageNumbers( 3, 10 );
-		expect( result ).toEqual( [ 1, 2, 3, 4, 5, 'ellipsis', 10 ] );
-	} );
-
-	it( 'handles page near end with no end ellipsis', () => {
-		const result = getPageNumbers( 8, 10 );
-		expect( result ).toEqual( [ 1, 'ellipsis', 7, 8, 9, 10 ] );
+		expect( getPageNumbers( 10, 20 ) ).toEqual( [ 1, 'ellipsis', 9, 10, 11, 12, 'ellipsis', 20 ] );
 	} );
 } );
 
 describe( 'getPageNumbers (open-ended)', () => {
-	it( 'returns trailing ellipsis on page 1', () => {
-		expect( getPageNumbers( 1 ) ).toEqual( [ 1, 2, 3, 'ellipsis' ] );
+	it( 'always returns 8 items when page >= 6', () => {
+		for ( let cp = 6; cp <= 20; cp++ ) {
+			expect( getPageNumbers( cp ) ).toHaveLength( 8 );
+		}
 	} );
 
-	it( 'returns trailing ellipsis on page 5', () => {
-		expect( getPageNumbers( 5 ) ).toEqual( [ 1, 'ellipsis', 4, 5, 6, 7, 'ellipsis' ] );
+	it( 'returns near-start pattern for pages 1-5', () => {
+		expect( getPageNumbers( 1 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7, 'ellipsis' ] );
+		expect( getPageNumbers( 5 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7, 'ellipsis' ] );
 	} );
 
-	it( 'returns trailing ellipsis on page 10', () => {
-		expect( getPageNumbers( 10 ) ).toEqual( [ 1, 'ellipsis', 9, 10, 11, 12, 'ellipsis' ] );
+	it( 'returns middle pattern with trailing ellipsis for higher pages', () => {
+		expect( getPageNumbers( 10 ) ).toEqual( [ 1, 'ellipsis', 9, 10, 11, 12, 13, 'ellipsis' ] );
 	} );
 
 	it( 'excludes forward pages and trailing ellipsis when hasNextPage is false', () => {
 		expect( getPageNumbers( 1, undefined, false ) ).toEqual( [ 1 ] );
-		expect( getPageNumbers( 5, undefined, false ) ).toEqual( [ 1, 'ellipsis', 4, 5 ] );
-		expect( getPageNumbers( 10, undefined, false ) ).toEqual( [ 1, 'ellipsis', 9, 10 ] );
+		expect( getPageNumbers( 5, undefined, false ) ).toEqual( [ 1, 2, 3, 4, 5 ] );
+		expect( getPageNumbers( 10, undefined, false ) ).toEqual( [
+			1,
+			'ellipsis',
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+		] );
 	} );
 } );
 

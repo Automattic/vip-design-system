@@ -29,6 +29,8 @@ export const pageButtonStyles: ThemeUIStyleObject = {
 	fontSize: 2,
 	fontFamily: 'body',
 	px: 2,
+	borderBottom: '3px solid',
+	borderColor: 'transparent',
 	'&:hover': {
 		bg: 'button.tertiary.background.hover',
 	},
@@ -41,7 +43,6 @@ export const pageButtonStyles: ThemeUIStyleObject = {
 
 export const activePageButtonStyles: ThemeUIStyleObject = {
 	...pageButtonStyles,
-	borderBottom: '3px solid',
 	borderColor: 'button.display.background.default',
 	borderRadius: 0,
 	fontWeight: 'bold',
