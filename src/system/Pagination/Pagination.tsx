@@ -76,7 +76,7 @@ export function getPageNumbers(
 	return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 3 ), 'ellipsis' ];
 }
 
-const ItemsPerPageDropdown = ( {
+const ItemsPerPageSelect = ( {
 	itemsPerPage,
 	pageSizeOptions,
 	onItemsPerPageChange,
@@ -85,28 +85,15 @@ const ItemsPerPageDropdown = ( {
 	pageSizeOptions: number[];
 	onItemsPerPageChange: ( size: number ) => void;
 } ) => (
-	<Dropdown.Root
-		trigger={
-			<Button variant="ghost" sx={ { fontSize: 2, py: 1, px: 2, color: 'heading' } }>
-				{ itemsPerPage } / page
-				<MdKeyboardArrowDown sx={ { ml: 1 } } />
-			</Button>
-		}
-	>
-		<Dropdown.RadioGroup
-			value={ String( itemsPerPage ) }
-			onValueChange={ value => onItemsPerPageChange( Number( value ) ) }
-		>
-			{ pageSizeOptions.map( size => (
-				<Dropdown.RadioItem key={ size } value={ String( size ) }>
-					<Dropdown.ItemIndicator>
-						<MdCheck size={ 14 } sx={ { mr: 2 } } />
-					</Dropdown.ItemIndicator>
-					{ size } / page
-				</Dropdown.RadioItem>
-			) ) }
-		</Dropdown.RadioGroup>
-	</Dropdown.Root>
+	<Select
+		separator={ false }
+		value={ itemsPerPage }
+		options={ pageSizeOptions.map( size => ( {
+			value: size,
+			label: `${ size.toString() } / page`,
+		} ) ) }
+		onChange={ option => onItemsPerPageChange( Number( option?.value ) ) }
+	/>
 );
 
 const PageNumbers = ( {
@@ -216,7 +203,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			>
 				<Box>
 					{ displayItemsPerPageSelector && (
-						<ItemsPerPageDropdown
+						<ItemsPerPageSelect
 							itemsPerPage={ itemsPerPage }
 							pageSizeOptions={ pageSizeOptions }
 							onItemsPerPageChange={ onItemsPerPageChange }
