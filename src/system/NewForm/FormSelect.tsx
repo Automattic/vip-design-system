@@ -46,6 +46,7 @@ interface FormSelectProps {
 	options: Option[];
 	required?: boolean;
 	label?: string;
+	separator?: boolean;
 	getOptionLabel?: ( option: Option ) => string;
 	getOptionValue?: ( option: Option ) => string | number;
 	onChange?: ( option: Option | undefined, event: React.ChangeEvent< HTMLSelectElement > ) => void;
@@ -91,6 +92,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 			hasError,
 			errorMessage,
 			wrapperSx,
+			separator = true,
 			...props
 		},
 		forwardRef
@@ -150,7 +152,11 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 					<select
 						onChange={ onValueChange }
 						ref={ forwardRef }
-						sx={ { cursor: disabled ? 'not-allowed' : 'pointer', ...defaultStyles } }
+						sx={ {
+							cursor: disabled ? 'not-allowed' : 'pointer',
+							...defaultStyles,
+							...( ! separator && { paddingRight: 6 } ),
+						} }
 						required={ required }
 						disabled={ disabled }
 						aria-required={ required }
@@ -165,7 +171,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 								: renderOption( optionLabel( option ), optionValue( option ) )
 						) }
 					</select>
-					<FormSelectArrow iconSize={ ICON_SIZE } />
+					<FormSelectArrow iconSize={ ICON_SIZE } separator={ separator } />
 				</FormSelectContent>
 
 				{ hasError && errorMessage && (
