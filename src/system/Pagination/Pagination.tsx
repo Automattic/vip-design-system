@@ -196,8 +196,12 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 		},
 		ref
 	) => {
+		const resolvedTotalPages =
+			totalPages ?? ( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
+
 		const isFirstPage = currentPage <= 1;
-		const isLastPage = totalPages !== undefined ? currentPage >= totalPages : hasNextPage === false;
+		const isLastPage =
+			resolvedTotalPages !== undefined ? currentPage >= resolvedTotalPages : hasNextPage === false;
 
 		return (
 			<nav
@@ -221,7 +225,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 					{ variant === 'full' && (
 						<PageNumbers
 							currentPage={ currentPage }
-							totalPages={ totalPages }
+							totalPages={ resolvedTotalPages }
 							hasNextPage={ hasNextPage }
 							onPageChange={ onPageChange }
 						/>
@@ -230,7 +234,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 					{ variant === 'compact' && (
 						<CompactPageSelector
 							currentPage={ currentPage }
-							totalPages={ totalPages }
+							totalPages={ resolvedTotalPages }
 							onPageChange={ onPageChange }
 						/>
 					) }
