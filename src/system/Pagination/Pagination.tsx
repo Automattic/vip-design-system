@@ -188,7 +188,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			onItemsPerPageChange,
 			hasNextPage,
 			variant = 'full',
-			pageSizeOptions = [ 10, 20, 50, 100 ],
+			pageSizeOptions = [ 20, 50, 100 ],
 			className,
 			sx,
 			children,
@@ -197,7 +197,8 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 		ref
 	) => {
 		const resolvedTotalPages =
-			totalPages ?? ( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
+			totalPages ??
+			( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
 
 		const isFirstPage = currentPage <= 1;
 		const isLastPage =

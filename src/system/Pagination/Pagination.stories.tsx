@@ -59,7 +59,6 @@ const PaginationWithState = ( {
 		<Pagination
 			currentPage={ currentPage }
 			totalItems={ totalItems }
-			totalPages={ totalPages }
 			itemsPerPage={ itemsPerPage }
 			onPageChange={ setCurrentPage }
 			displayItemsPerPageSelector={ displayItemsPerPageSelector }

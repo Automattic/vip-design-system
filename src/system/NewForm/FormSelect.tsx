@@ -155,7 +155,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 						sx={ {
 							cursor: disabled ? 'not-allowed' : 'pointer',
 							...defaultStyles,
-							...( ! separator && { paddingRight: 5 } ),
+							...( ! separator && { paddingRight: 6 } ),
 						} }
 						required={ required }
 						disabled={ disabled }
