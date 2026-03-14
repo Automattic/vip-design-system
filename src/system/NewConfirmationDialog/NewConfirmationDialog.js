@@ -21,7 +21,7 @@ const NewConfirmationDialogContent = ( {
 	buttonDisabled = false,
 } ) => (
 	<Box className={ classNames( 'vip-confirmation-dialog-component', className ) }>
-		<Flex sx={ { justifyContent: 'flex-end', mt: 4 } }>
+		<Flex sx={ { justifyContent: 'flex-end', mt: 4, mr: -3 } }>
 			<Button variant="ghost" sx={ { mr: 2 } } onClick={ onClose }>
 				Cancel
 			</Button>
