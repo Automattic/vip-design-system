@@ -3,7 +3,7 @@
  */
 import { PropsWithChildren, ReactElement, cloneElement } from 'react';
 
-import css from './Tooltip.css';
+import './Tooltip.css';
 
 /**
  * Internal dependencies
@@ -57,4 +57,4 @@ const Tooltip = ( {
 	);
 };
 
-export { Tooltip, css };
+export { Tooltip };

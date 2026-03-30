@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { StoryObj } from '@storybook/react-webpack5';
+import { StoryObj } from '@storybook/react-vite';
 
 import { Footer } from '../Footer/Footer';
 

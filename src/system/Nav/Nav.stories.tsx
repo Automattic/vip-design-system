@@ -15,7 +15,7 @@ import { Nav } from './Nav';
 import { NavItem } from './NavItem';
 import { CustomLink } from '../utils/stories/CustomLink';
 
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react-vite';
 
 export default {
 	title: 'Navigation/Nav',

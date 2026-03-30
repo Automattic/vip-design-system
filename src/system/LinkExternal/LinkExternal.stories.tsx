@@ -1,6 +1,6 @@
 import LinkExternal from './LinkExternal';
 
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react-vite';
 
 export default {
 	title: 'Navigation/LinkExternal',

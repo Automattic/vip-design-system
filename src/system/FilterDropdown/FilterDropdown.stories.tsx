@@ -2,7 +2,7 @@
 
 import { FilterDropdown } from './FilterDropdown';
 
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react-vite';
 
 export default {
 	title: 'FilterDropdown',

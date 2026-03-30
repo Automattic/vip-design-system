@@ -3,7 +3,7 @@
  */
 import { Box } from '..';
 
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react-vite';
 
 /**
  * Internal dependencies
