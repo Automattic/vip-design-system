@@ -116,6 +116,6 @@
     "storybook": "^7.6.17",
     "theme-ui": "0.16.0",
     "token-transformer": "0.0.33",
-    "typescript": "5.2.2"
+    "typescript": "5.8.3"
   }
 }
