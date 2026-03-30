@@ -6,7 +6,7 @@ import { Text, Avatar, Nav, NavItem, Flex, Toggle, Label } from '../../system';
 import ScreenReaderText from '../ScreenReaderText';
 import { CustomLink } from '../utils/stories/CustomLink';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
 export default {
 	title: 'Navigation/Toolbar',

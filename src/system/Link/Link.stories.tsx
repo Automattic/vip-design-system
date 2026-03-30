@@ -5,7 +5,7 @@ import { Link, LinkVariant } from './Link';
 import { Flex } from '../Flex/Flex';
 
 import type { LinkProps } from './Link';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
 /**
  * Internal dependencies

@@ -10,7 +10,7 @@ import { Badge } from '../Badge';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
 
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-webpack5';
 
 const meta: Meta< typeof Pagination > = {
 	title: 'Pagination',

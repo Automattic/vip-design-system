@@ -17,7 +17,7 @@ import { MobileMenu, MobileMenuTrigger, MobileMenuWrapper } from './MobileMenu';
 import { Flex, Nav, NavItem } from '..';
 import { CustomLink } from '../utils/stories/CustomLink';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
 export default {
 	title: 'Navigation/MobileMenu',

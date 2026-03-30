@@ -3,7 +3,7 @@
  */
 import { Badge, Link } from '..';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
 /**
  * Internal dependencies

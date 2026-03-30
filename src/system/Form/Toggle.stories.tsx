@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react-webpack5';
 
 import { Toggle, Label } from '..';
 export default {

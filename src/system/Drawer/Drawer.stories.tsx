@@ -5,7 +5,7 @@
 import { Drawer, Root, Trigger, Content } from './Drawer';
 import { Button } from '..';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
 export default {
 	title: 'Navigation/Drawer',
