@@ -14,30 +14,76 @@ import { HeadingProps } from '../Heading/Heading';
 import { ScreenReaderText } from '../ScreenReaderText';
 
 export interface WizardStepSummary {
+	/** The label for the summary item. */
 	label?: React.ReactNode;
+	/** The value for the summary item. */
 	value?: React.ReactNode;
 }
+
 export interface WizardStepProps {
+	/** Whether this step is the currently active step. */
 	active?: boolean;
+	/**
+	 * Whether this step has been completed.
+	 * @default false
+	 */
 	complete?: boolean;
+	/** The 1-based order number of this step. */
 	order?: number;
+	/** The total number of steps in the wizard. */
 	totalSteps?: number;
+	/** The title content displayed in the step header. */
 	title: React.ReactNode;
+	/**
+	 * The heading variant used for the step title.
+	 * @default 'h3'
+	 */
 	titleVariant?: HeadingProps[ 'variant' ];
+	/** A subtitle displayed below the title when the step is active. */
 	subTitle?: React.ReactNode;
+	/** The content rendered inside the step when it is active. */
 	children?: React.ReactNode;
+	/**
+	 * Whether this step was skipped.
+	 * @default false
+	 */
 	skipped?: boolean;
+	/** Callback invoked when the user clicks the change action on a completed or skipped step. */
 	onChange?: () => void;
+	/** An array of label-value pairs displayed as a summary when the step is completed or skipped. */
 	summary?: WizardStepSummary[];
+	/** A title displayed above the summary list. */
 	summaryTitle?: string;
+	/**
+	 * The HTML element type used to render the summary.
+	 * @default 'table'
+	 */
 	summaryAs?: 'table' | 'dl';
+	/** Whether to focus the step title when the step becomes active. */
 	shouldFocusTitle?: boolean;
+	/**
+	 * The label for the action button on completed or skipped steps.
+	 * @default 'Change'
+	 */
 	actionLabel?: string;
+	/** An optional icon displayed next to the action label. */
 	actionIcon?: React.ReactNode;
+	/**
+	 * Whether the action button is disabled.
+	 * @default false
+	 */
 	actionDisabled?: boolean;
+	/**
+	 * Whether to display the "STEP X OF Y" text above the title.
+	 * @default true
+	 */
 	showStepText?: boolean;
 }
 
+/**
+ * An individual step within a Wizard component.
+ * Displays a title, status indicator, optional summary, and content area.
+ */
 export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 	(
 		{

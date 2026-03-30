@@ -16,10 +16,15 @@ export interface NavItemTheme extends Theme {
 }
 
 export interface NavItemBaseProps extends NavigationMenu.NavigationMenuItemProps {
+	/** Additional CSS class name for the nav item. */
 	className?: string;
+	/** The visual style variant of the nav item. */
 	variant?: NavVariant;
+	/** Theme UI style overrides. */
 	sx?: ThemeUIStyleObject;
+	/** The layout direction inherited from the parent Nav. */
 	orientation?: NavProps[ 'orientation' ];
+	/** Whether this nav item is currently active/selected. */
 	active?: boolean;
 }
 
@@ -52,13 +57,23 @@ export type NavItemAsProp = React.ComponentType< {
 } >;
 
 export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
+	/** Additional CSS class name for the nav item link. */
 	className?: string;
+	/** Whether the nav item is disabled and non-interactive. */
 	disabled?: boolean;
+	/** The visual style variant of the nav item.
+	 * @default 'primary'
+	 */
 	variant?: NavVariant;
+	/** Render function for an optional leading icon. Receives the icon size as argument. */
 	renderIcon?: NavItemRenderIconProp;
+	/** The URL the nav item links to. */
 	href?: string;
+	/** Theme UI style overrides. */
 	sx?: ThemeUIStyleObject;
+	/** Custom link component to render instead of the default anchor element. */
 	as?: NavItemAsProp;
+	/** The layout direction inherited from the parent Nav. */
 	orientation?: NavProps[ 'orientation' ];
 }
 
@@ -158,6 +173,10 @@ export const ItemMenuInverse = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
+/**
+ * Individual navigation link item with multiple style variants.
+ * Use the appropriate sub-component matching the parent Nav variant.
+ */
 export const NavItem = {
 	Primary: ItemPrimary,
 	Tab: ItemTab,

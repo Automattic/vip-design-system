@@ -8,12 +8,31 @@
 import { Box } from '../Box';
 
 export interface SkeletonProps {
+	/**
+	 * The shape variant of the skeleton. Use `'circle'` for a circular shape.
+	 * @default 'text'
+	 */
 	variant?: string;
+	/**
+	 * The width of the skeleton element.
+	 * @default '100%'
+	 */
 	width?: number | string;
+	/**
+	 * The height of the skeleton element.
+	 * @default '30px'
+	 */
 	height?: number | string;
+	/**
+	 * Border radius applied to the skeleton (ignored when variant is `'circle'`).
+	 * @default 1
+	 */
 	borderRadius?: number;
 }
 
+/**
+ * A placeholder loading indicator that mimics the shape of content with a pulsing animation.
+ */
 export const Skeleton = ( {
 	variant = 'text',
 	width = '100%',

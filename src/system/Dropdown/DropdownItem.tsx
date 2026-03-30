@@ -6,23 +6,30 @@ import React from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 export interface DropdownItemProps extends DropdownMenuPrimitive.DropdownMenuItemProps {
+	/** Additional CSS class name applied to the menu item. */
 	className?: string;
+	/** The content rendered inside the menu item. */
 	children?: React.ReactNode;
 }
 
 export interface DropdownRadioItemProps extends DropdownMenuPrimitive.DropdownMenuRadioItemProps {
+	/** Additional CSS class name applied to the radio item. */
 	className?: string;
+	/** The content rendered inside the radio item. */
 	children?: React.ReactNode;
 }
 
 export interface DropdownCheckboxItemProps
 	extends DropdownMenuPrimitive.DropdownMenuCheckboxItemProps {
+	/** Additional CSS class name applied to the checkbox item. */
 	className?: string;
+	/** The content rendered inside the checkbox item. */
 	children?: React.ReactNode;
 }
 
 export interface DropdownSubTriggerItemProps
 	extends DropdownMenuPrimitive.DropdownMenuSubTriggerProps {
+	/** Additional CSS class name applied to the sub-menu trigger. */
 	className?: string;
 }
 
@@ -56,6 +63,9 @@ export const styles: ThemeUIStyleObject = {
 	},
 };
 
+/**
+ * A single selectable item within a Dropdown menu.
+ */
 export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps >(
 	( { className, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuItem
@@ -69,6 +79,9 @@ export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps 
 
 DropdownItem.displayName = 'DropdownItem';
 
+/**
+ * A toggleable checkbox item within a Dropdown menu.
+ */
 export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCheckboxItemProps >(
 	( { className, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.CheckboxItem
@@ -82,6 +95,9 @@ export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCh
 
 DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';
 
+/**
+ * A radio-selectable item within a Dropdown menu radio group.
+ */
 export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadioItemProps >(
 	( { className, value, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.RadioItem
@@ -96,6 +112,9 @@ export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadio
 
 DropdownRadioItem.displayName = 'DropdownRadioItem';
 
+/**
+ * A menu item that opens a nested sub-menu when hovered or clicked.
+ */
 export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubTriggerItemProps >(
 	( { className, disabled, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.SubTrigger

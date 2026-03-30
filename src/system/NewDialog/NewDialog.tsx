@@ -12,22 +12,43 @@ import { DialogTitle } from './DialogTitle';
 import { contentStyles } from './styles';
 
 export interface DialogContentProps extends DialogPrimitive.DialogContentProps {
+	/** Custom Theme UI styles for the dialog content. */
 	sx?: ThemeUIStyleObject;
+	/** Additional CSS class name for the dialog content. */
 	className?: string;
 }
 
 export interface NewDialogProps extends DialogPrimitive.DialogProps {
+	/** The element that opens the dialog when clicked. */
 	trigger?: ReactNode;
+	/** The title displayed at the top of the dialog. */
 	title: ReactNode;
+	/** A short description displayed below the title. */
 	description: ReactNode;
+	/** The main content of the dialog, or a render function receiving an `onClose` callback. */
 	content?: ReactNode | ( ( { onClose }: { onClose: () => void } ) => ReactNode );
+	/**
+	 * Whether to display the title and description visually.
+	 * @default true
+	 */
 	showHeading?: boolean;
+	/**
+	 * When true, the dialog renders nothing.
+	 * @default false
+	 */
 	disabled?: boolean;
+	/** Custom Theme UI styles applied to the dialog content wrapper. */
 	style?: ThemeUIStyleObject;
+	/** Additional CSS class name for the dialog content wrapper. */
 	className?: string;
+	/** Props forwarded to the underlying Radix Dialog.Content element. */
 	contentProps?: DialogContentProps;
 }
 
+/**
+ * A modal dialog component built on Radix UI Dialog primitives.
+ * Supports a trigger element, title, description, and custom content with an optional close callback.
+ */
 export const NewDialog: React.FC< NewDialogProps > = ( {
 	trigger = null,
 	description,

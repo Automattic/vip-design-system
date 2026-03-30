@@ -16,18 +16,41 @@ const DropdownSubTrigger = DropdownMenuPrimitive.DropdownMenuSubTrigger;
 const DropdownSubContent = DropdownMenuPrimitive.DropdownMenuSubContent;
 
 export interface DropdownProps {
+	/** The element that toggles the dropdown menu. */
 	trigger: ReactNode;
+	/** The menu items rendered inside the dropdown. */
 	children: ReactNode;
+	/** Controls the open state when used as a controlled component. */
 	open?: boolean;
+	/**
+	 * Whether the dropdown is open by default (uncontrolled).
+	 * @default false
+	 */
 	defaultOpen?: boolean;
+	/** Callback fired when the dropdown open state changes. */
 	onOpenChange?: ( open: boolean ) => void;
+	/**
+	 * Whether interaction with outside elements is blocked while open.
+	 * @default true
+	 */
 	modal?: boolean;
+	/**
+	 * The reading direction of the dropdown menu.
+	 * @default 'ltr'
+	 */
 	dir?: 'ltr' | 'rtl';
+	/** Props forwarded to the DropdownContent wrapper. */
 	contentProps?: DropdownContentProps;
+	/** Props forwarded to the Radix Portal component. */
 	portalProps?: object;
+	/** Additional CSS class name applied to the dropdown trigger. */
 	className?: string;
 }
 
+/**
+ * A dropdown menu component built on Radix UI.
+ * Renders a trigger button that opens a positioned menu with items.
+ */
 export const Dropdown: React.FC< DropdownProps > = ( {
 	trigger,
 	children,

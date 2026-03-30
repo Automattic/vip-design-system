@@ -20,11 +20,20 @@ export type responsiveDimensionsProp = {
 };
 
 export interface DrawerProps extends DialogPrimitive.DialogProps {
+	/** The content rendered inside the drawer panel. */
 	children?: ReactNode;
+	/** The element that opens the drawer when clicked. */
 	trigger?: ReactNode;
+	/** Accessible label for the drawer dialog. */
 	label?: string;
+	/**
+	 * The side or position from which the drawer slides in.
+	 * @default 'left'
+	 */
 	variant?: 'top' | 'right' | 'bottom' | 'left' | 'left-header' | 'right-header';
+	/** Responsive width/height dimensions for the drawer panel. */
 	dimensions?: responsiveDimensionsProp;
+	/** Custom render function for the close button. Returns null to hide it. */
 	renderClose?: () => JSX.Element | null;
 }
 
@@ -45,6 +54,10 @@ export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
 	)
 );
 
+/**
+ * A slide-out panel component built on Radix Dialog.
+ * Supports multiple positions and responsive dimensions.
+ */
 export const Drawer = React.forwardRef< HTMLDivElement, DrawerProps >(
 	( { children, dimensions, variant = 'left', trigger, label, ...rest }, forwardedRef ) => (
 		<Root trigger={ trigger }>
@@ -62,7 +75,9 @@ export const Drawer = React.forwardRef< HTMLDivElement, DrawerProps >(
 );
 
 export interface DrawerRootProps {
+	/** The drawer content and any additional elements. */
 	children: ReactNode;
+	/** The element that opens the drawer when clicked. */
 	trigger?: ReactNode;
 }
 

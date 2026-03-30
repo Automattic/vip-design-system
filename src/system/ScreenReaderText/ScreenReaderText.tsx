@@ -26,9 +26,13 @@ export const screenReaderTextClass: ThemeUIStyleObject = {
 };
 
 export interface ScreenReaderTextProps {
+	/** The content to be read by screen readers. */
 	children: ReactNode;
 }
 
+/**
+ * A utility component that visually hides content while keeping it accessible to screen readers.
+ */
 export const ScreenReaderText = forwardRef< HTMLSpanElement, ScreenReaderTextProps >(
 	( props: ScreenReaderTextProps, ref: Ref< HTMLSpanElement > ) => (
 		<span className="screen-reader-text" sx={ screenReaderTextClass } { ...props } ref={ ref }>

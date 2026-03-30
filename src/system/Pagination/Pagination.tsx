@@ -22,18 +22,37 @@ import { Text } from '../Text';
 export type PaginationVariant = 'full' | 'compact';
 
 export interface PaginationProps {
+	/** Whether to show the items-per-page dropdown selector.
+	 * @default false
+	 */
 	displayItemsPerPageSelector?: boolean;
+	/** The currently active page number (1-based). */
 	currentPage: number;
+	/** Total number of items across all pages. Used to compute totalPages if not provided. */
 	totalItems?: number;
+	/** Total number of pages. Takes precedence over totalItems for page count. */
 	totalPages?: number;
+	/** Number of items displayed per page. */
 	itemsPerPage: number;
+	/** Callback fired when the user navigates to a different page. */
 	onPageChange: ( page: number ) => void;
+	/** Callback fired when the user changes the items-per-page value. */
 	onItemsPerPageChange: ( itemsPerPage: number ) => void;
+	/** Whether there is a next page available. Used for open-ended pagination without totalPages. */
 	hasNextPage?: boolean;
+	/** The display variant: 'full' shows page number buttons, 'compact' shows a page dropdown.
+	 * @default 'full'
+	 */
 	variant?: PaginationVariant;
+	/** Available page size options for the items-per-page selector.
+	 * @default [20, 50, 100]
+	 */
 	pageSizeOptions?: number[];
+	/** Additional CSS class name for the pagination container. */
 	className?: string;
+	/** Theme UI style overrides. */
 	sx?: ThemeUIStyleObject;
+	/** Optional content rendered between the items-per-page selector and page navigation. */
 	children?: React.ReactNode;
 }
 
@@ -176,6 +195,10 @@ const CompactPageSelector = ( {
 	);
 };
 
+/**
+ * A pagination control for navigating through paged content.
+ * Supports full page-number buttons and compact dropdown modes, with optional items-per-page selection.
+ */
 export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 	(
 		{

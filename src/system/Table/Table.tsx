@@ -17,12 +17,20 @@ import { generateId } from '../utils/random';
 import type { ThemeUIStyleObject } from 'theme-ui';
 
 export interface TableProps {
+	/** Accessible caption describing the table contents. A console warning is shown if omitted. */
 	caption?: string;
+	/** Table content (thead, tbody, tr elements, etc.). */
 	children?: ReactNode;
+	/** Additional CSS class name(s) for the table container. */
 	className?: Argument;
+	/** Theme UI style overrides applied to the table element. */
 	sx?: ThemeUIStyleObject;
 }
 
+/**
+ * A horizontally scrollable data table with an accessible caption.
+ * Wraps a native HTML table in a scrollable region with proper ARIA labeling.
+ */
 export const Table = forwardRef< HTMLTableElement, TableProps >(
 	( { sx, className, children, caption, ...props }: TableProps, ref: Ref< HTMLTableElement > ) => {
 		if ( ! caption ) {

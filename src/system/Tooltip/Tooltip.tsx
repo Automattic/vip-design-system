@@ -13,13 +13,24 @@ import css from './Tooltip.css';
  * @deprecated Use `NewTooltip` instead.
  */
 export interface TooltipProps {
+	/** The text content displayed inside the tooltip. */
 	title?: string;
+	/** The element that triggers the tooltip on hover. */
 	trigger?: ReactElement;
+	/**
+	 * The position of the tooltip relative to the trigger.
+	 * @default 'top'
+	 */
 	position?: 'top' | 'bottom' | 'left' | 'right';
+	/**
+	 * Whether to display a directional arrow on the tooltip.
+	 * @default false
+	 */
 	arrow?: boolean;
 }
 
 /**
+ * A CSS-based tooltip component that displays text on hover.
  * @deprecated Use `NewTooltip` instead.
  */
 const Tooltip = ( {

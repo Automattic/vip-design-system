@@ -8,9 +8,13 @@ import { ThemeUIStyleObject } from 'theme-ui';
 import { Button } from '..';
 
 export interface DialogCloseProps {
+	/** The custom close trigger element to render inside the dialog. */
 	children?: React.ReactNode;
 }
 
+/**
+ * A wrapper around Radix Dialog.Close that renders a custom close trigger element.
+ */
 export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
 	( props, forwardedRef ) => (
 		<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
@@ -22,6 +26,10 @@ export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
 DialogClose.displayName = 'DialogClose';
 
 export interface DialogCloseDefaultProps {
+	/**
+	 * The visual style variant of the close button.
+	 * @default 'primary'
+	 */
 	variant?: 'primary' | 'inverse';
 }
 
@@ -40,6 +48,9 @@ export const defaultCloseStyles = ( variant = 'primary' ): ThemeUIStyleObject =>
 	},
 } );
 
+/**
+ * A pre-styled close button for the dialog with an X icon.
+ */
 export const DialogCloseDefault = forwardRef< HTMLButtonElement, DialogCloseDefaultProps >(
 	( { variant = 'primary' }, forwardedRef ) => {
 		return (
