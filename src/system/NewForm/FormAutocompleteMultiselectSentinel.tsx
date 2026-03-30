@@ -293,7 +293,7 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 		const isFirstRender = useRef( true );
 
 		// ── DOM refs ────────────────────────────────────────────────────────────
-		const inputRef = useRef< HTMLInputElement >( null );
+		const inputRef = useRef< HTMLInputElement | null >( null );
 		const listboxRef = useRef< HTMLUListElement >( null );
 		const containerRef = useRef< HTMLDivElement >( null );
 		const optionRefs = useRef< ( HTMLLIElement | null )[] >( [] );
@@ -308,7 +308,7 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 		// Access theme outline styles directly to avoid the problematic
 		// `{ '&': fn }` sx pattern which can cause rendering issues.
 		const { theme } = useThemeUI();
-		const outlineStyles = ( ( theme as any ).outline ?? {} ) as Record< string, string >;
+		const outlineStyles = ( theme as { outline?: Record< string, string > } ).outline ?? {};
 
 		// ── Derived flags ───────────────────────────────────────────────────────
 		const isAsync = Boolean( onFetchItems );
@@ -394,6 +394,8 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 		 */
 		const runTwoStageSearch = useCallback(
 			async ( query: string, gen: number ) => {
+				if ( ! onFetchLabels || ! onFetchByIds ) return;
+
 				setIsSearchMode( true );
 				setIsSearching( true );
 				setSearchError( false );
@@ -401,16 +403,20 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 				setLoadAnnouncement( 'Searching for more results.' );
 
 				try {
-					// Stage 1: Scan all remaining pages for labels
+					// Stage 1: Scan all remaining pages for labels sequentially
 					const allNewLabels: Array< { id: string | number; label: string } > = [];
 					let labelPage = pageRef.current;
+					let hasMoreLabels = true;
 
-					while ( true ) {
+					while ( hasMoreLabels ) {
 						if ( searchGenRef.current !== gen ) return;
-						const labels = await onFetchLabels!( labelPage );
+						// eslint-disable-next-line no-await-in-loop
+						const labels = await onFetchLabels( labelPage );
 						allNewLabels.push( ...labels );
 						labelPage++;
-						if ( labels.length < pageSize ) break;
+						if ( labels.length < pageSize ) {
+							hasMoreLabels = false;
+						}
 					}
 
 					if ( searchGenRef.current !== gen ) return;
@@ -427,7 +433,7 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 					let newItems: ComboboxItem[] = [];
 					if ( matchingIds.length > 0 ) {
 						if ( searchGenRef.current !== gen ) return;
-						newItems = await onFetchByIds!( matchingIds );
+						newItems = await onFetchByIds( matchingIds );
 					}
 
 					if ( searchGenRef.current !== gen ) return;
@@ -692,6 +698,41 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 
 		const inlineLabel = Boolean( isInline && label );
 
+		// ── Sentinel content ─────────────────────────────────────────────────────
+		let sentinelContent: React.ReactNode;
+		if ( isLoadingMore ) {
+			sentinelContent = (
+				<Flex sx={ { alignItems: 'center', gap: 2, color: 'input.text.placeholder' } }>
+					<Spinner size={ 14 } />
+					Loading more results…
+				</Flex>
+			);
+		} else if ( fetchError ) {
+			sentinelContent = (
+				<Flex sx={ { alignItems: 'center', gap: 2, color: 'error' } }>
+					<MdWarning size={ 14 } aria-hidden="true" />
+					Error loading additional results.
+				</Flex>
+			);
+		} else if ( isSearching ) {
+			sentinelContent = (
+				<Flex sx={ { alignItems: 'center', gap: 2, color: 'input.text.placeholder' } }>
+					<Spinner size={ 14 } />
+					Searching for more results…
+				</Flex>
+			);
+		} else if ( searchError ) {
+			sentinelContent = (
+				<Flex sx={ { alignItems: 'center', gap: 2, color: 'error' } }>
+					<MdWarning size={ 14 } aria-hidden="true" />
+					Error — search failed. Please try again.
+				</Flex>
+			);
+		} else {
+			// Invisible scroll trigger when idle with more browse pages remaining
+			sentinelContent = <span sx={ srOnly } aria-hidden="true" />;
+		}
+
 		// ── Render ───────────────────────────────────────────────────────────────
 		return (
 			<div
@@ -737,12 +778,11 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 
 						<input
 							ref={ node => {
-								( inputRef as React.MutableRefObject< HTMLInputElement | null > ).current = node;
+								inputRef.current = node;
 								if ( typeof forwardRef === 'function' ) {
 									forwardRef( node );
 								} else if ( forwardRef ) {
-									( forwardRef as React.MutableRefObject< HTMLInputElement | null > ).current =
-										node;
+									forwardRef.current = node;
 								}
 							} }
 							id={ forLabel }
@@ -795,7 +835,7 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 									cursor: 'pointer',
 									flexShrink: 0,
 									'&:hover': { color: 'text' },
-									'&:focus-visible': ( theme: any ) => theme.outline,
+									'&:focus-visible': outlineStyles,
 								} }
 							>
 								<MdClose size={ 14 } aria-hidden="true" />
@@ -880,7 +920,12 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 											...optionBaseStyles,
 											...( isActive
 												? optionActiveStyles
-												: { '&:hover': { backgroundColor: 'input.background.primary', color: '#ffffff' } } ),
+												: {
+														'&:hover': {
+															backgroundColor: 'input.background.primary',
+															color: '#ffffff',
+														},
+												  } ),
 										} }
 										onClick={ () => selectItem( item ) }
 										onMouseEnter={ () => setActiveIndex( index ) }
@@ -894,34 +939,10 @@ const FormAutocompleteMultiselectSentinel = React.forwardRef<
 							{ /* Sentinel — loading, searching, error, or invisible scroll trigger */ }
 							{ showSentinel && (
 								<li
-									role="none"
 									aria-hidden="true"
 									sx={ { px: 3, py: 2, fontSize: 'inherit', cursor: 'default' } }
 								>
-									{ isLoadingMore ? (
-										<Flex sx={ { alignItems: 'center', gap: 2, color: 'input.text.placeholder' } }>
-											<Spinner size={ 14 } />
-											Loading more results…
-										</Flex>
-									) : fetchError ? (
-										<Flex sx={ { alignItems: 'center', gap: 2, color: 'error' } }>
-											<MdWarning size={ 14 } aria-hidden="true" />
-											Error loading additional results.
-										</Flex>
-									) : isSearching ? (
-										<Flex sx={ { alignItems: 'center', gap: 2, color: 'input.text.placeholder' } }>
-											<Spinner size={ 14 } />
-											Searching for more results…
-										</Flex>
-									) : searchError ? (
-										<Flex sx={ { alignItems: 'center', gap: 2, color: 'error' } }>
-											<MdWarning size={ 14 } aria-hidden="true" />
-											Error — search failed. Please try again.
-										</Flex>
-									) : (
-										// Invisible scroll trigger when idle with more browse pages remaining
-										<span sx={ srOnly } aria-hidden="true" />
-									) }
+									{ sentinelContent }
 								</li>
 							) }
 						</ul>

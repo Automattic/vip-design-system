@@ -47,12 +47,12 @@ describe( '<FormAutocompleteMultiselectSentinel />', () => {
 			const { container } = render(
 				<FormAutocompleteMultiselectSentinel forLabel="a11y-empty" label="Test" />
 			);
-			await expect( await axe( container ) ).toHaveNoViolations();
+			expect( await axe( container ) ).toHaveNoViolations();
 		} );
 
 		it( 'passes axe with static options', async () => {
 			const { container } = render( <FormAutocompleteMultiselectSentinel { ...defaultProps } /> );
-			await expect( await axe( container ) ).toHaveNoViolations();
+			expect( await axe( container ) ).toHaveNoViolations();
 		} );
 
 		it( 'passes axe with error state', async () => {
@@ -63,7 +63,7 @@ describe( '<FormAutocompleteMultiselectSentinel />', () => {
 					errorMessage="Selection required."
 				/>
 			);
-			await expect( await axe( container ) ).toHaveNoViolations();
+			expect( await axe( container ) ).toHaveNoViolations();
 		} );
 	} );
 
@@ -262,7 +262,7 @@ describe( '<FormAutocompleteMultiselectSentinel />', () => {
 	// ── Keyboard navigation ───────────────────────────────────────────────────
 
 	describe( 'keyboard navigation', () => {
-		it( 'opens dropdown and sets first option active on ArrowDown', async () => {
+		it( 'opens dropdown and sets first option active on ArrowDown', () => {
 			render( <FormAutocompleteMultiselectSentinel { ...defaultProps } /> );
 			const input = screen.getByRole( 'combobox' );
 			fireEvent.keyDown( input, { key: 'ArrowDown' } );
