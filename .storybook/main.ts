@@ -10,6 +10,16 @@ const config: StorybookConfig = {
 		'@storybook/addon-webpack5-compiler-babel',
 	],
 
+	tags: {
+		new: {},
+		deprecated: {
+			defaultFilterSelection: 'exclude',
+		},
+		experimental: {
+			defaultFilterSelection: 'exclude',
+		},
+	},
+
 	docs: {},
 
 	framework: {

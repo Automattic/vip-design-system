@@ -5,6 +5,7 @@ import { Box, ConfirmationDialog, Button, Heading, Text, Flex } from '..';
 
 export default {
 	title: 'Deprecated/ConfirmationDialog',
+	tags: [ 'deprecated' ],
 	component: ConfirmationDialog,
 };
 

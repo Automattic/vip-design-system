@@ -5,6 +5,7 @@ import { NewTooltip, Button, Heading, Text, Grid } from '..';
 
 export default {
 	title: 'NewTooltip',
+	tags: [ 'new' ],
 	component: NewTooltip,
 	parameters: {
 		docs: {
