@@ -30,33 +30,50 @@ const slideUp = keyframes( {
 interface AccordionTheme extends Theme {
 	outline?: Record< string, string >;
 }
-interface AccordionItemProps {
+export interface AccordionItemProps {
+	/** Content to render inside the accordion item. */
 	children: ReactNode;
+	/** Unique value that identifies this item within the accordion. */
 	value: string;
 }
-interface TriggerProps {
+export interface TriggerProps {
+	/** Label content for the trigger button. */
 	children: ReactNode;
+	/** Heading level used to wrap the trigger. @default 'h3' */
 	headingVariant?: HeadingProps[ 'variant' ];
+	/** Theme UI style overrides for the trigger button. */
 	sx?: ThemeUIStyleObject;
 }
-interface TriggerWithIconProps {
+export interface TriggerWithIconProps {
+	/** Label content displayed next to the icon. */
 	children: ReactNode;
+	/** Icon element rendered before the label. */
 	icon: ReactNode;
 }
 
-interface ContentProps {
+export interface ContentProps {
+	/** Content revealed when the accordion item is expanded. */
 	children: ReactNode;
+	/** Theme UI style overrides for the content area. */
 	sx?: ThemeUIStyleObject;
 }
-interface RootProps {
+export interface RootProps {
+	/** Optional caption for the accordion. */
 	caption?: string;
+	/** Accordion items to render. */
 	children?: ReactNode;
+	/** Additional CSS class names. */
 	className?: Argument;
+	/** Theme UI style overrides for the root container. */
 	sx?: ThemeUIStyleObject;
+	/** Value of the item expanded by default. */
 	defaultValue?: string;
+	/** Controlled value of the currently expanded item. */
 	value?: string;
+	/** Callback fired when the expanded item changes. */
 	onValueChange?: ( value: string ) => void;
 }
+/** A single collapsible section within the Accordion. */
 export const Item = ( { children, ...props }: AccordionItemProps ) => (
 	<AccordionPrimitive.Item
 		{ ...props }
@@ -84,6 +101,7 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 
 Item.displayName = 'Accordion.Item';
 
+/** Button that toggles the visibility of the associated Accordion.Content. */
 export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 	( { children, headingVariant = 'h3', sx = {}, ...props }, forwardedRef ) => (
 		<Heading
@@ -143,6 +161,7 @@ export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 
 Trigger.displayName = 'Accordion.Trigger';
 
+/** Trigger variant that renders an icon alongside the label. */
 export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithIconProps >(
 	( { children, icon, ...props }, forwardedRef ) => (
 		<Trigger { ...props } ref={ forwardedRef }>
@@ -156,6 +175,7 @@ export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithI
 
 TriggerWithIcon.displayName = 'Accordion.TriggerWithIcon';
 
+/** Collapsible content area revealed when its parent Accordion.Item is expanded. */
 export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
 	( { children, sx = {}, ...props }, forwardedRef ) => {
 		return (
@@ -187,6 +207,7 @@ export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
 
 Content.displayName = 'Accordion.Content';
 
+/** Root container for the Accordion. Wraps one or more Accordion.Item elements. */
 export const Root = React.forwardRef< HTMLDivElement, RootProps >(
 	( { sx = {}, children, className, ...props }, forwardRef ) => (
 		<AccordionPrimitive.Root

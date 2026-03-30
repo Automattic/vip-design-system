@@ -10,6 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 export default {
 	title: 'Navigation/Drawer',
 	component: Drawer,
+	subcomponents: { Root, Trigger, Content },
 	parameters: {
 		docs: {
 			description: {

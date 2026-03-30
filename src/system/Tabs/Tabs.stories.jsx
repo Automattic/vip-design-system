@@ -13,6 +13,7 @@ import { Tabs, TabsTrigger, TabsList, TabsContent, Text, Link, Button } from '..
 export default {
 	title: 'Navigation/Tabs',
 	component: Tabs,
+	subcomponents: { TabsList, TabsTrigger, TabsContent },
 };
 
 export const Default = () => (

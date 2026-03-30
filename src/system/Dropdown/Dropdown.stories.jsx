@@ -19,6 +19,18 @@ import { Text } from '../Text';
 export default {
 	title: 'Dropdown',
 	component: Dropdown.Root,
+	subcomponents: {
+		'Dropdown.Content': Dropdown.Content,
+		'Dropdown.Item': Dropdown.Item,
+		'Dropdown.CheckboxItem': Dropdown.CheckboxItem,
+		'Dropdown.RadioGroup': Dropdown.RadioGroup,
+		'Dropdown.RadioItem': Dropdown.RadioItem,
+		'Dropdown.Label': Dropdown.Label,
+		'Dropdown.Separator': Dropdown.Separator,
+		'Dropdown.Sub': Dropdown.Sub,
+		'Dropdown.SubTrigger': Dropdown.SubTrigger,
+		'Dropdown.SubContent': Dropdown.SubContent,
+	},
 };
 
 export const Default = () => (

@@ -15,6 +15,13 @@ import { Button, Text, Input, Label } from '../../system';
 export default {
 	title: 'Dialog/NewDialog',
 	component: NewDialog.Root,
+	subcomponents: {
+		'NewDialog.Close': NewDialog.Close,
+		'NewDialog.CloseDefault': NewDialog.CloseDefault,
+		'NewDialog.Overlay': NewDialog.Overlay,
+		'NewDialog.Title': NewDialog.Title,
+		'NewDialog.Description': NewDialog.Description,
+	},
 };
 
 const defaultProps = {

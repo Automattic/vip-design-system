@@ -13,7 +13,13 @@ import { Box, Accordion } from '..';
 
 export default {
 	title: 'Accordion',
-	component: Accordion,
+	component: Accordion.Root,
+	subcomponents: {
+		'Accordion.Item': Accordion.Item,
+		'Accordion.Trigger': Accordion.Trigger,
+		'Accordion.TriggerWithIcon': Accordion.TriggerWithIcon,
+		'Accordion.Content': Accordion.Content,
+	},
 };
 
 const ExampleContent = () => (
