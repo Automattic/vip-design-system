@@ -1,39 +1,51 @@
 /** @jsxImportSource theme-ui */
 
 /**
+ * External dependencies
+ */
+import { Input } from './Input';
+import { Form } from '..';
+
+import type { StoryObj } from '@storybook/react-vite';
+
+/**
  * Internal dependencies
  */
-import { Form } from '..';
+
+type Story = StoryObj< typeof Input >;
 
 export default {
 	title: 'Form/Input',
+	component: Input,
 };
 
-export const Default = () => (
-	<Form.Root>
-		<Form.Input
-			placeholder="Your input here..."
-			label="Always add a label to inputs"
-			forLabel="input-simple"
-		/>
+export const Default: Story = {
+	render: () => (
+		<Form.Root>
+			<Form.Input
+				placeholder="Your input here..."
+				label="Always add a label to inputs"
+				forLabel="input-simple"
+			/>
 
-		<hr sx={ { my: 4 } } />
+			<hr sx={ { my: 4 } } />
 
-		<Form.Input
-			forLabel="input-with-error"
-			label="Error Input"
-			errorMessage="Please type numeric characters only"
-			hasError
-		/>
+			<Form.Input
+				forLabel="input-with-error"
+				label="Error Input"
+				errorMessage="Please type numeric characters only"
+				hasError
+			/>
 
-		<hr sx={ { my: 4 } } />
+			<hr sx={ { my: 4 } } />
 
-		<Form.Input forLabel="input-with-required" label="Required" required />
+			<Form.Input forLabel="input-with-required" label="Required" required />
 
-		<hr sx={ { my: 4 } } />
+			<hr sx={ { my: 4 } } />
 
-		<Form.Label htmlFor="input-with-custom-label">Custom Label outside the Input</Form.Label>
-		<Form.Input forLabel="input-with-custom-label" required />
-		<Form.Input forLabel="input-readonly" readOnly value="This is a readonly input" />
-	</Form.Root>
-);
+			<Form.Label htmlFor="input-with-custom-label">Custom Label outside the Input</Form.Label>
+			<Form.Input forLabel="input-with-custom-label" required />
+			<Form.Input forLabel="input-readonly" readOnly value="This is a readonly input" />
+		</Form.Root>
+	),
+};

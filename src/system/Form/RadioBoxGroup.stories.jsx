@@ -56,30 +56,34 @@ const options = [
 	},
 ];
 
-export const Default = () => {
-	const [ value, setValue ] = useState( 'one' );
-	return (
-		<RadioBoxGroup
-			defaultValue={ value }
-			onChange={ e => setValue( e.target.value ) }
-			options={ options }
-			optionWidth="300px"
-		/>
-	);
+export const Default = {
+	render: () => {
+		const [ value, setValue ] = useState( 'one' );
+		return (
+			<RadioBoxGroup
+				defaultValue={ value }
+				onChange={ e => setValue( e.target.value ) }
+				options={ options }
+				optionWidth="300px"
+			/>
+		);
+	},
 };
 
-export const Errors = () => {
-	const [ value, setValue ] = useState( null );
+export const Errors = {
+	render: () => {
+		const [ value, setValue ] = useState( null );
 
-	return (
-		<RadioBoxGroup
-			defaultValue={ value }
-			onChange={ e => setValue( e.target.value ) }
-			options={ options }
-			required
-			groupLabel="Radio Box Group"
-			hasError={ true }
-			errorMessage="This is an error message"
-		/>
-	);
+		return (
+			<RadioBoxGroup
+				defaultValue={ value }
+				onChange={ e => setValue( e.target.value ) }
+				options={ options }
+				required
+				groupLabel="Radio Box Group"
+				hasError={ true }
+				errorMessage="This is an error message"
+			/>
+		);
+	},
 };

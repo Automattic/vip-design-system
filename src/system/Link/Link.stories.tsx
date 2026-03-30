@@ -75,12 +75,14 @@ const buttonTypes: LinkProps[ 'variant' ][] = [
 	'button-ghost',
 ];
 
-export const ButtonVariants = () => (
-	<Flex sx={ { gap: 2 } }>
-		{ buttonTypes.map( ( variant, index ) => (
-			<Link key={ index } href="#!" variant={ variant }>
-				Hello
-			</Link>
-		) ) }
-	</Flex>
-);
+export const ButtonVariants: Story = {
+	render: () => (
+		<Flex sx={ { gap: 2 } }>
+			{ buttonTypes.map( ( variant, index ) => (
+				<Link key={ index } href="#!" variant={ variant }>
+					Hello
+				</Link>
+			) ) }
+		</Flex>
+	),
+};

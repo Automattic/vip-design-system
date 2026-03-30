@@ -3,6 +3,8 @@
 
 import { DescriptionList } from './DescriptionList';
 
+import type { StoryObj } from '@storybook/react-vite';
+
 /**
  * Internal dependencies
  */
@@ -12,10 +14,12 @@ export default {
 	component: DescriptionList,
 };
 
-export const Default = () => (
-	<DescriptionList
-		title="Summary of the list"
-		list={ [
+type Story = StoryObj< typeof DescriptionList >;
+
+export const Default: Story = {
+	args: {
+		title: 'Summary of the list',
+		list: [
 			{
 				label: 'Short Label',
 				value:
@@ -25,21 +29,26 @@ export const Default = () => (
 				label: 'Long label to test label width',
 				value: 'Value',
 			},
-		] }
-	/>
-);
+		],
+	},
+};
 
-export const WithEmptySummary = () => <DescriptionList title="Summary of the list" list={ [] } />;
+export const WithEmptySummary: Story = {
+	args: {
+		title: 'Summary of the list',
+		list: [],
+	},
+};
 
-export const Table = () => (
-	<DescriptionList
-		as="table"
-		title="Summary of the list"
-		list={ [
+export const Table: Story = {
+	args: {
+		as: 'table',
+		title: 'Summary of the list',
+		list: [
 			{
 				label: 'Short Label',
 				value: 'Value',
 			},
-		] }
-	/>
-);
+		],
+	},
+};

@@ -21,10 +21,12 @@ const ConfirmationContent = (
 	</Box>
 );
 
-export const Default = () => (
-	<Flex>
-		<Box>
-			<ConfirmationDialog trigger={ ConfirmationTrigger } content={ ConfirmationContent } />
-		</Box>
-	</Flex>
-);
+export const Default = {
+	render: () => (
+		<Flex>
+			<Box>
+				<ConfirmationDialog trigger={ ConfirmationTrigger } content={ ConfirmationContent } />
+			</Box>
+		</Flex>
+	),
+};

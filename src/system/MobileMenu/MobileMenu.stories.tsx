@@ -57,7 +57,7 @@ The MobileMenu component is a navigation component that is hidden by default and
 
 type Story = StoryObj< typeof MobileMenu >;
 
-export const MobileMenuExample = () => (
+const MobileMenuContent = () => (
 	<MobileMenuWrapper>
 		<MobileMenuTrigger label="Menu" variant="primary" display={ [ 'flex', 'flex', 'flex' ] } />
 		<MobileMenu
@@ -171,10 +171,10 @@ export const MobileMenuExample = () => (
 	</MobileMenuWrapper>
 );
 
+export const MobileMenuExample: Story = {
+	render: () => <MobileMenuContent />,
+};
+
 export const Default: Story = {
-	render: () => (
-		<>
-			<MobileMenuExample />
-		</>
-	),
+	render: () => <MobileMenuContent />,
 };

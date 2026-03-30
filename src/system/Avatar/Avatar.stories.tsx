@@ -18,13 +18,18 @@ type Story = StoryObj< typeof Avatar >;
 
 const COMMON_SIZES = [ 128, 64, 48, 32, 24, 16 ];
 
-export const Default = () => (
-	<>
-		{ COMMON_SIZES.map( size => (
-			<Avatar key={ size } size={ size } src="https://i.pravatar.cc/100" />
-		) ) }
-	</>
-);
+export const Default: Story = {
+	args: {
+		src: 'https://i.pravatar.cc/100',
+	},
+	render: args => (
+		<>
+			{ COMMON_SIZES.map( size => (
+				<Avatar key={ size } { ...args } size={ size } />
+			) ) }
+		</>
+	),
+};
 export const WithName: Story = {
 	args: {
 		name: 'Kitty',

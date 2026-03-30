@@ -11,6 +11,11 @@ import { RiUserAddLine, RiCodeSSlashFill } from 'react-icons/ri';
  */
 import { Box, Accordion } from '..';
 
+import type { RootProps } from './Accordion';
+import type { StoryObj } from '@storybook/react-vite';
+
+type Story = StoryObj< typeof Accordion.Root >;
+
 export default {
 	title: 'Accordion',
 	component: Accordion.Root,
@@ -30,8 +35,8 @@ const ExampleContent = () => (
 	</Box>
 );
 
-const ExampleAccordion = () => (
-	<Accordion.Root defaultValue="teamPermissions" sx={ { width: '250px' } }>
+const ExampleAccordion = ( props: Partial< RootProps > ) => (
+	<Accordion.Root defaultValue="teamPermissions" sx={ { width: '250px' } } { ...props }>
 		<Accordion.Item value="teamPermissions">
 			<Accordion.TriggerWithIcon
 				icon={ <RiUserAddLine sx={ { color: 'support.accent.success' } } /> }
@@ -65,10 +70,20 @@ const ExampleAccordion = () => (
 	</Accordion.Root>
 );
 
-export const Default = () => <ExampleAccordion />;
+export const Default: Story = {
+	args: {
+		defaultValue: 'teamPermissions',
+	},
+	render: args => <ExampleAccordion { ...args } />,
+};
 
-export const WithLargeText = () => (
-	<Box sx={ { '.vip-heading-component > button': { fontSize: 4 } } }>
-		<ExampleAccordion />
-	</Box>
-);
+export const WithLargeText: Story = {
+	args: {
+		defaultValue: 'teamPermissions',
+	},
+	render: args => (
+		<Box sx={ { '.vip-heading-component > button': { fontSize: 4 } } }>
+			<ExampleAccordion { ...args } />
+		</Box>
+	),
+};

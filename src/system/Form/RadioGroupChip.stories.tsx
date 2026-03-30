@@ -8,6 +8,10 @@ import { useState } from 'react';
  */
 import { RadioGroupChip } from './RadioGroupChip';
 
+import type { StoryObj } from '@storybook/react-vite';
+
+type Story = StoryObj< typeof RadioGroupChip >;
+
 export default {
 	title: 'RadioGroupChip',
 	component: RadioGroupChip,
@@ -29,45 +33,49 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 	},
 };
 
-export const MediumSize = () => {
-	const [ value, setValue ] = useState( 'table' );
+export const MediumSize: Story = {
+	render: () => {
+		const [ value, setValue ] = useState( 'table' );
 
-	return (
-		<RadioGroupChip
-			defaultValue={ value }
-			onChange={ e => setValue( e.target.value ) }
-			options={ [
-				{
-					label: 'Table',
-					value: 'table',
-				},
-				{
-					label: 'Grid',
-					value: 'grid',
-				},
-			] }
-		/>
-	);
+		return (
+			<RadioGroupChip
+				defaultValue={ value }
+				onChange={ e => setValue( e.target.value ) }
+				options={ [
+					{
+						label: 'Table',
+						value: 'table',
+					},
+					{
+						label: 'Grid',
+						value: 'grid',
+					},
+				] }
+			/>
+		);
+	},
 };
 
-export const SmallSize = () => {
-	const [ value, setValue ] = useState( 'table' );
+export const SmallSize: Story = {
+	render: () => {
+		const [ value, setValue ] = useState( 'table' );
 
-	return (
-		<RadioGroupChip
-			defaultValue={ value }
-			onChange={ e => setValue( e.target.value ) }
-			options={ [
-				{
-					label: 'Table',
-					value: 'table',
-				},
-				{
-					label: 'Grid',
-					value: 'grid',
-				},
-			] }
-			size="small"
-		/>
-	);
+		return (
+			<RadioGroupChip
+				defaultValue={ value }
+				onChange={ e => setValue( e.target.value ) }
+				options={ [
+					{
+						label: 'Table',
+						value: 'table',
+					},
+					{
+						label: 'Grid',
+						value: 'grid',
+					},
+				] }
+				size="small"
+			/>
+		);
+	},
 };

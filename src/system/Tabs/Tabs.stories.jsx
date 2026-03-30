@@ -16,56 +16,63 @@ export default {
 	subcomponents: { TabsList, TabsTrigger, TabsContent },
 };
 
-export const Default = () => (
-	<Tabs defaultValue="all">
-		<TabsList title="See all the content">
-			<TabsTrigger value="all">All (5)</TabsTrigger>
-			<TabsTrigger value="live">Live (2)</TabsTrigger>
-			<TabsTrigger value="dev">In Development (3)</TabsTrigger>
-			<TabsTrigger value="protect" disabled>
-				Not accessible
-			</TabsTrigger>
-		</TabsList>
-		<TabsContent value="all">
-			<Text>
-				All content <Link href="https://google.com">https://google.com</Link>
-			</Text>
-		</TabsContent>
-		<TabsContent value="live">Live content</TabsContent>
-		<TabsContent value="dev">
-			<Text>
-				In Development content <Button variant="secondary">Hey I am a button</Button>{ ' ' }
-			</Text>
-		</TabsContent>
-	</Tabs>
-);
-
-export const SetActiveTab = () => {
-	const [ activeTab, setActiveTab ] = React.useState( 'all' );
-
-	return (
-		<Tabs value={ activeTab } onValueChange={ val => setActiveTab( val ) }>
+export const Default = {
+	args: {
+		defaultValue: 'all',
+	},
+	render: args => (
+		<Tabs { ...args }>
 			<TabsList title="See all the content">
 				<TabsTrigger value="all">All (5)</TabsTrigger>
 				<TabsTrigger value="live">Live (2)</TabsTrigger>
 				<TabsTrigger value="dev">In Development (3)</TabsTrigger>
-				<TabsTrigger value="protect" disabled={ true }>
+				<TabsTrigger value="protect" disabled>
 					Not accessible
 				</TabsTrigger>
 			</TabsList>
 			<TabsContent value="all">
 				<Text>
-					<button type="button" onClick={ () => setActiveTab( 'live' ) }>
-						Switch to live tab
-					</button>
+					All content <Link href="https://google.com">https://google.com</Link>
 				</Text>
 			</TabsContent>
 			<TabsContent value="live">Live content</TabsContent>
 			<TabsContent value="dev">
 				<Text>
-					In Development content <button type="button">Hey I am a button</button>{ ' ' }
+					In Development content <Button variant="secondary">Hey I am a button</Button>{ ' ' }
 				</Text>
 			</TabsContent>
 		</Tabs>
-	);
+	),
+};
+
+export const SetActiveTab = {
+	render: () => {
+		const [ activeTab, setActiveTab ] = React.useState( 'all' );
+
+		return (
+			<Tabs value={ activeTab } onValueChange={ val => setActiveTab( val ) }>
+				<TabsList title="See all the content">
+					<TabsTrigger value="all">All (5)</TabsTrigger>
+					<TabsTrigger value="live">Live (2)</TabsTrigger>
+					<TabsTrigger value="dev">In Development (3)</TabsTrigger>
+					<TabsTrigger value="protect" disabled={ true }>
+						Not accessible
+					</TabsTrigger>
+				</TabsList>
+				<TabsContent value="all">
+					<Text>
+						<button type="button" onClick={ () => setActiveTab( 'live' ) }>
+							Switch to live tab
+						</button>
+					</Text>
+				</TabsContent>
+				<TabsContent value="live">Live content</TabsContent>
+				<TabsContent value="dev">
+					<Text>
+						In Development content <button type="button">Hey I am a button</button>{ ' ' }
+					</Text>
+				</TabsContent>
+			</Tabs>
+		);
+	},
 };

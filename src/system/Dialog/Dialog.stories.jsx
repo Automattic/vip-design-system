@@ -46,16 +46,18 @@ const ModalContent = (
 	</Box>
 );
 
-export const Default = () => (
-	<Flex>
-		<Box>
-			<Dialog
-				trigger={ ModalTrigger }
-				content={ ModalContent }
-				sx={ { width: 480 } }
-				variant="modal"
-			/>
-		</Box>
-		<Dialog trigger={ DropdownTrigger } content={ DropdownContent } sx={ { width: 200 } } />
-	</Flex>
-);
+export const Default = {
+	render: () => (
+		<Flex>
+			<Box>
+				<Dialog
+					trigger={ ModalTrigger }
+					content={ ModalContent }
+					sx={ { width: 480 } }
+					variant="modal"
+				/>
+			</Box>
+			<Dialog trigger={ DropdownTrigger } content={ DropdownContent } sx={ { width: 200 } } />
+		</Flex>
+	),
+};
