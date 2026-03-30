@@ -116,6 +116,16 @@ const OpenEndedPaginationWithState = ( {
 	);
 };
 
+export const Primary: Story = {
+	args: {
+		currentPage: 1,
+		totalItems: 200,
+		itemsPerPage: 20,
+		variant: 'full',
+		displayItemsPerPageSelector: false,
+	},
+};
+
 export const Default: Story = {
 	render: () => <PaginationWithState />,
 };

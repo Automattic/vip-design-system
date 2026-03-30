@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-import { MobileMenuExample } from './MobileMenu.stories';
+import { MobileMenuContent as MobileMenuExample } from './MobileMenu.stories';
 import { theme } from '../';
 
 const renderWithTheme = children =>

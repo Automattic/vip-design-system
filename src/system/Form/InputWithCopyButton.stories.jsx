@@ -13,6 +13,16 @@ export default {
 	component: InputWithCopyButton,
 };
 
+export const Primary = {
+	args: {
+		label: 'Input label',
+		forLabel: 'input-primary',
+		placeholder: 'Your input here...',
+		hasError: false,
+		required: false,
+	},
+};
+
 export const Default = {
 	render: () => {
 		const [ copiedText, setCopiedText ] = useState( '' );

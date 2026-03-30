@@ -11,6 +11,8 @@ import { BiCalendarHeart } from 'react-icons/bi';
 import { Button, ButtonVariant, Table, TableCell, TableRow } from '..';
 import ScreenReaderText from '../ScreenReaderText';
 
+import type { StoryObj } from '@storybook/react-vite';
+
 export default {
 	title: 'Button',
 	component: Button,
@@ -64,6 +66,18 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 `,
 			},
 		},
+	},
+};
+
+type Story = StoryObj< typeof Button >;
+
+export const Primary: Story = {
+	args: {
+		children: 'Button',
+		variant: 'primary',
+		disabled: false,
+		full: false,
+		danger: false,
 	},
 };
 

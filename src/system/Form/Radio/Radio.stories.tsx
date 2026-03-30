@@ -55,6 +55,19 @@ This documentation and its contents are inspired by https://designsystem.digital
 	},
 };
 
+export const Primary: Story = {
+	args: {
+		name: 'primary_example',
+		variant: 'primary',
+		defaultValue: 'option-a',
+		options: [
+			{ id: 'option-a', value: 'option-a', label: 'Option A' },
+			{ id: 'option-b', value: 'option-b', label: 'Option B' },
+			{ id: 'option-c', value: 'option-c', label: 'Option C' },
+		],
+	},
+};
+
 export const Default: Story = {
 	render: () => {
 		const [ checked, setChecked ] = useState< { [ key: string ]: string } >( {} );
@@ -76,10 +89,12 @@ export const Default: Story = {
 						<Radio
 							variant={ variant }
 							onChange={ ( _, option ) =>
-								toggleChecked( `the_option_${ variant }`, option?.value )
+								toggleChecked( `default_the_option_${ variant }`, option?.value )
 							}
-							name={ `the_option_${ variant }` }
-							defaultValue={ checked?.[ `the_option_${ variant }` ] || `${ variant }-option-a` }
+							name={ `default_the_option_${ variant }` }
+							defaultValue={
+								checked?.[ `default_the_option_${ variant }` ] || `${ variant }-option-a`
+							}
 							options={ [
 								{
 									id: `${ variant }-option-a`,
@@ -102,8 +117,8 @@ export const Default: Story = {
 
 					<Radio
 						disabled
-						name={ `the_option_` }
-						defaultValue={ `disabled-option-a` }
+						name="default_the_option_disabled"
+						defaultValue="disabled-option-a"
 						options={ [
 							{
 								id: `disabled-option-a`,

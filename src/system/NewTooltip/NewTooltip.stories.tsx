@@ -29,6 +29,19 @@ like \`<strong>\` and \`<br />\`. Built on \`@radix-ui/react-tooltip\` for full 
 
 type Story = StoryObj< typeof NewTooltip >;
 
+export const Primary: Story = {
+	args: {
+		content: 'Tooltip text',
+		position: 'top',
+		arrow: true,
+	},
+	render: args => (
+		<NewTooltip { ...args }>
+			<Button>Hover me</Button>
+		</NewTooltip>
+	),
+};
+
 export const Basic: Story = {
 	render: () => (
 		<>

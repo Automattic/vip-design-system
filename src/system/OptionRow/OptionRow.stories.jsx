@@ -14,6 +14,16 @@ export default {
 	component: OptionRow,
 };
 
+export const Primary = {
+	args: {
+		label: 'Option Row',
+		subTitle: 'Mostly used to link off to other pages.',
+		as: 'a',
+		href: 'http://google.com/',
+		variant: 'default',
+	},
+};
+
 // eslint-disable-next-line react/prop-types
 const Base = ( { variant } ) => (
 	<Box>

@@ -19,6 +19,23 @@ export default {
 
 type Story = StoryObj< typeof Table >;
 
+export const Primary: Story = {
+	args: {
+		caption: 'Example Table',
+	},
+	render: args => (
+		<Table { ...args }>
+			<thead>
+				<TableRow head cells={ [ 'Name', 'Value', 'Status' ] } />
+			</thead>
+			<tbody>
+				<TableRow cells={ [ 'Item A', '100', 'Active' ] } />
+				<TableRow cells={ [ 'Item B', '200', 'Inactive' ] } />
+			</tbody>
+		</Table>
+	),
+};
+
 interface ExampleTableProps {
 	caption: string;
 }

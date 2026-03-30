@@ -15,6 +15,13 @@ export default {
 
 type Story = StoryObj< typeof Text >;
 
+export const Primary: Story = {
+	args: {
+		children:
+			'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.',
+	},
+};
+
 export const Default: Story = {
 	render: () => (
 		<>

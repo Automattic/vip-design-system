@@ -47,6 +47,21 @@ The Toolbar component provides a way to users reach the main sections of a websi
 
 type Story = StoryObj< typeof Toolbar >;
 
+export const Primary: Story = {
+	render: args => (
+		<Toolbar.Primary { ...args }>
+			<Toolbar.Logo href="https://wpvip.com/" />
+			<Nav.Toolbar label="Main">
+				<NavItem.Toolbar active href="#">
+					My Applications
+				</NavItem.Toolbar>
+				<NavItem.Toolbar href="#">My Organization</NavItem.Toolbar>
+			</Nav.Toolbar>
+		</Toolbar.Primary>
+	),
+	args: {},
+};
+
 export const Default: Story = {
 	render: () => (
 		<>

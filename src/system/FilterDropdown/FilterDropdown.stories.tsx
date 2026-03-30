@@ -33,6 +33,18 @@ A Dropdown component that acts as a filter for a list of items.
 
 type Story = StoryObj< typeof FilterDropdown >;
 
+export const Primary: Story = {
+	args: {
+		label: 'Filter:',
+		filters: {
+			all: { value: 'all', label: 'All' },
+			active: { value: 'active', label: 'Active' },
+			inactive: { value: 'inactive', label: 'Inactive' },
+		},
+		defaultValue: 'all',
+	},
+};
+
 const filterTypes = [ 'all', 'hasUpdate', 'isVulnerable' ] as const;
 type FilterType = ( typeof filterTypes )[ number ];
 

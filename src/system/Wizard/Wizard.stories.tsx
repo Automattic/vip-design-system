@@ -21,6 +21,32 @@ export default {
 
 type Story = StoryObj< typeof Wizard >;
 
+export const Primary: Story = {
+	args: {
+		activeStep: 0,
+		completed: [],
+		showStepText: true,
+		summaryAs: 'dl',
+		steps: [
+			{
+				title: 'Step One',
+				titleVariant: 'h2',
+				subTitle: 'First step description.',
+				children: 'Step one content',
+			},
+			{
+				title: 'Step Two',
+				titleVariant: 'h2',
+				subTitle: 'Second step description.',
+			},
+			{
+				title: 'Step Three',
+				titleVariant: 'h2',
+			},
+		],
+	},
+};
+
 export const Default: Story = {
 	render: () => {
 		const steps: WizardStepProps[] = [

@@ -56,6 +56,18 @@ const options = [
 	},
 ];
 
+export const Primary = {
+	args: {
+		defaultValue: 'one',
+		options: [
+			{ label: 'One', value: 'one', description: 'This is a description' },
+			{ label: 'Two', value: 'two', description: 'This is a description' },
+			{ label: 'Three', value: 'three', description: 'This is a description' },
+		],
+		optionWidth: '300px',
+	},
+};
+
 export const Default = {
 	render: () => {
 		const [ value, setValue ] = useState( 'one' );

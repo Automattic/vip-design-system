@@ -53,6 +53,19 @@ The Drawer component is a navigation component that is hidden by default and can
 
 type Story = StoryObj< typeof Drawer >;
 
+export const Primary: Story = {
+	args: {
+		label: 'Drawer Dialog',
+		variant: 'left',
+		dimensions: { width: 320 },
+	},
+	render: args => (
+		<Drawer trigger={ <Button>Open Drawer</Button> } { ...args }>
+			<p sx={ { ml: 3 } }>Drawer content goes here.</p>
+		</Drawer>
+	),
+};
+
 export const Default: Story = {
 	render: () => (
 		<>

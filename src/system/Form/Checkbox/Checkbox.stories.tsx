@@ -59,6 +59,13 @@ This documentation and its contents are inspired by https://designsystem.digital
 	},
 };
 
+export const Primary: Story = {
+	args: {
+		variant: 'primary',
+		disabled: false,
+	},
+};
+
 export const Default: Story = {
 	render: () => {
 		const [ checked, setChecked ] = useState< CheckedState >( true );

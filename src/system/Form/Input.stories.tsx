@@ -19,6 +19,16 @@ export default {
 	component: Input,
 };
 
+export const Primary: Story = {
+	args: {
+		label: 'Input label',
+		forLabel: 'input-primary',
+		placeholder: 'Your input here...',
+		hasError: false,
+		required: false,
+	},
+};
+
 export const Default: Story = {
 	render: () => (
 		<Form.Root>

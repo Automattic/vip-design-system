@@ -4,10 +4,16 @@ import React, { Ref, forwardRef } from 'react';
 import { Flex } from '..';
 
 export type ToolbarUtilNavProps = {
+	/** Navigation items rendered inside the utility nav. */
 	children: React.ReactNode;
+	/**
+	 * Accessible label for the `<nav>` landmark.
+	 * @default 'Utility'
+	 */
 	label?: string;
 };
 
+/** Right-aligned utility navigation area within the Toolbar. */
 export const ToolbarUtilNav = forwardRef< HTMLElement, ToolbarUtilNavProps >(
 	( { label = 'Utility', children }: ToolbarUtilNavProps, ref: Ref< HTMLElement > ) => (
 		<nav

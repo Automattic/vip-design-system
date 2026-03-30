@@ -19,6 +19,17 @@ export default {
 
 type Story = StoryObj< typeof Snackbar >;
 
+export const Primary: Story = {
+	args: {
+		title: 'Snackbar title',
+		variant: 'info',
+		loading: false,
+		isDismissable: false,
+		ctaText: 'View',
+		children: 'This is an informational snackbar message.',
+	},
+};
+
 export const Default: Story = {
 	render: () => {
 		const [ visible, setVisible ] = useState( true );

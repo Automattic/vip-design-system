@@ -19,6 +19,15 @@ export default {
 
 type Story = StoryObj< typeof Notice >;
 
+export const Primary: Story = {
+	args: {
+		title: 'Notice title',
+		variant: 'info',
+		inline: false,
+		children: 'This is an informational notice message.',
+	},
+};
+
 export const Default: Story = {
 	render: () => (
 		<React.Fragment>

@@ -12,6 +12,13 @@ export default {
 
 type Story = StoryObj< typeof Heading >;
 
+export const Primary: Story = {
+	args: {
+		variant: 'h1',
+		children: 'Your Applications',
+	},
+};
+
 export const Default: Story = {
 	render: () => (
 		<Box>

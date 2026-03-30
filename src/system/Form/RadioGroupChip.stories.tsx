@@ -33,6 +33,17 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 	},
 };
 
+export const Primary: Story = {
+	args: {
+		defaultValue: 'table',
+		size: 'medium',
+		options: [
+			{ label: 'Table', value: 'table' },
+			{ label: 'Grid', value: 'grid' },
+		],
+	},
+};
+
 export const MediumSize: Story = {
 	render: () => {
 		const [ value, setValue ] = useState( 'table' );

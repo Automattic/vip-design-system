@@ -38,6 +38,10 @@ Horizontal Line.
 
 type Story = StoryObj< typeof Hr >;
 
+export const Primary: Story = {
+	args: {},
+};
+
 export const Default: Story = {
 	render: () => (
 		<>

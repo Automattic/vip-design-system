@@ -57,7 +57,28 @@ The MobileMenu component is a navigation component that is hidden by default and
 
 type Story = StoryObj< typeof MobileMenu >;
 
-const MobileMenuContent = () => (
+export const Primary: Story = {
+	args: {},
+	render: () => (
+		<MobileMenuWrapper>
+			<MobileMenuTrigger label="Menu" variant="primary" display={ [ 'flex', 'flex', 'flex' ] } />
+			<MobileMenu>
+				<Flex sx={ { gap: 3, px: 5, py: 3, flexDirection: 'column' } }>
+					<Nav.Menu label="Nav Menu">
+						<NavItem.Menu href="https://wordpress.com" as={ CustomLink }>
+							Overview
+						</NavItem.Menu>
+						<NavItem.Menu href="https://newrelic.com/" as={ CustomLink }>
+							New Relic
+						</NavItem.Menu>
+					</Nav.Menu>
+				</Flex>
+			</MobileMenu>
+		</MobileMenuWrapper>
+	),
+};
+
+export const MobileMenuContent = () => (
 	<MobileMenuWrapper>
 		<MobileMenuTrigger label="Menu" variant="primary" display={ [ 'flex', 'flex', 'flex' ] } />
 		<MobileMenu
