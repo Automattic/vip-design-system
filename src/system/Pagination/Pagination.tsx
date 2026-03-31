@@ -30,6 +30,7 @@ export interface PaginationProps {
 	onPageChange: ( page: number ) => void;
 	onItemsPerPageChange: ( itemsPerPage: number ) => void;
 	hasNextPage?: boolean;
+	maxReachablePage?: number;
 	variant?: PaginationVariant;
 	pageSizeOptions?: number[];
 	className?: string;
@@ -43,39 +44,72 @@ function range( start: number, end: number ): number[] {
 	return Array.from( { length: end - start + 1 }, ( _, i ) => start + i );
 }
 
+/** Total number of visible items (page numbers + ellipsis indicators) in the pagination bar. */
+const VISIBLE_PAGE_SLOTS = 8;
+
+/** When currentPage <= this value, the "near start" layout is used (no leading ellipsis). */
+const NEAR_START_THRESHOLD = 5;
+
+/** Pages shown before the current page in the middle layout. */
+const PAGES_BEFORE_CURRENT = 1;
+
+/** Pages shown after the current page in the bounded middle layout. */
+const PAGES_AFTER_CURRENT = 2;
+
 export function getPageNumbers(
 	currentPage: number,
 	totalPages?: number,
-	hasNextPage?: boolean
+	hasNextPage?: boolean,
+	maxReachablePage?: number
 ): PageNumberItem[] {
+	// Resolve the last known page
 	let last: number | undefined;
-	if ( totalPages === undefined ) {
-		if ( hasNextPage === false ) {
-			last = currentPage;
-		} else {
-			last = undefined;
-		}
-	} else {
+	if ( totalPages !== undefined ) {
 		last = Math.max( 1, Number( totalPages ) );
+	} else if ( hasNextPage === false ) {
+		last = currentPage;
 	}
 
 	if ( last !== undefined && ( ! Number.isFinite( last ) || last < 1 ) ) {
 		return [];
 	}
-	if ( last !== undefined && last <= 8 ) {
-		return range( 1, last );
+
+	// Effective end anchor: known last page, or capped reachable page
+	const end =
+		last ??
+		( maxReachablePage !== undefined ? Math.max( currentPage, maxReachablePage ) : undefined );
+
+	// Small page count — show all without ellipsis
+	if ( end !== undefined && end <= VISIBLE_PAGE_SLOTS ) {
+		return range( 1, end );
 	}
 
-	// Bounded (last is a known page number)
-	if ( last !== undefined ) {
-		if ( currentPage <= 5 ) return [ ...range( 1, 6 ), 'ellipsis', last ];
-		if ( currentPage >= last - 4 ) return [ 1, 'ellipsis', ...range( last - 5, last ) ];
-		return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 2 ), 'ellipsis', last ];
+	// Near start
+	if ( currentPage <= NEAR_START_THRESHOLD ) {
+		if ( end !== undefined ) return [ ...range( 1, NEAR_START_THRESHOLD + 1 ), 'ellipsis', end ];
+		return [ ...range( 1, VISIBLE_PAGE_SLOTS - 1 ), 'ellipsis' ];
 	}
 
-	// Open-ended (no known last page)
-	if ( currentPage <= 5 ) return [ ...range( 1, 7 ), 'ellipsis' ];
-	return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 3 ), 'ellipsis' ];
+	// Near end (bounded only — open-ended has no "end zone")
+	if ( last !== undefined && currentPage >= last - ( NEAR_START_THRESHOLD - 1 ) ) {
+		return [ 1, 'ellipsis', ...range( last - NEAR_START_THRESHOLD, last ) ];
+	}
+
+	// Middle
+	if ( end !== undefined ) {
+		const rangeEnd = Math.min( currentPage + PAGES_AFTER_CURRENT, end );
+		const middle = range( currentPage - PAGES_BEFORE_CURRENT, rangeEnd );
+		if ( rangeEnd >= end ) return [ 1, 'ellipsis', ...middle ];
+		return [ 1, 'ellipsis', ...middle, 'ellipsis', end ];
+	}
+
+	// Fully open-ended middle
+	return [
+		1,
+		'ellipsis',
+		...range( currentPage - PAGES_BEFORE_CURRENT, currentPage + PAGES_AFTER_CURRENT + 1 ),
+		'ellipsis',
+	];
 }
 
 const ItemsPerPageSelect = ( {
@@ -104,14 +138,16 @@ const PageNumbers = ( {
 	currentPage,
 	totalPages,
 	hasNextPage,
+	maxReachablePage,
 	onPageChange,
 }: {
 	currentPage: number;
 	totalPages?: number;
 	hasNextPage?: boolean;
+	maxReachablePage?: number;
 	onPageChange: ( page: number ) => void;
 } ) => {
-	const pages = getPageNumbers( currentPage, totalPages, hasNextPage );
+	const pages = getPageNumbers( currentPage, totalPages, hasNextPage, maxReachablePage );
 
 	return (
 		<>
@@ -142,16 +178,17 @@ const PageNumbers = ( {
 const CompactPageSelector = ( {
 	currentPage,
 	totalPages,
+	maxReachablePage,
 	onPageChange,
 }: {
 	currentPage: number;
 	totalPages?: number;
+	maxReachablePage?: number;
 	onPageChange: ( page: number ) => void;
 } ) => {
 	const isOpenEnded = totalPages === undefined;
-	const pageOptions = isOpenEnded
-		? Array.from( { length: currentPage + 1 }, ( _, i ) => i + 1 )
-		: Array.from( { length: totalPages }, ( _, i ) => i + 1 );
+	const upperBound: number = isOpenEnded ? maxReachablePage ?? currentPage + 1 : totalPages;
+	const pageOptions = Array.from( { length: upperBound }, ( _, i ) => i + 1 );
 
 	return (
 		<Flex sx={ compactTextStyles }>
@@ -187,6 +224,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			onPageChange,
 			onItemsPerPageChange,
 			hasNextPage,
+			maxReachablePage,
 			variant = 'full',
 			pageSizeOptions = [ 20, 50, 100 ],
 			className,
@@ -228,6 +266,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
 							hasNextPage={ hasNextPage }
+							maxReachablePage={ maxReachablePage }
 							onPageChange={ onPageChange }
 						/>
 					) }
@@ -236,6 +275,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						<CompactPageSelector
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
+							maxReachablePage={ maxReachablePage }
 							onPageChange={ onPageChange }
 						/>
 					) }

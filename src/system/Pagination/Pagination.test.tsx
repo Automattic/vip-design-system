@@ -3,7 +3,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import React from 'react';
 import '@testing-library/jest-dom';
 
 import { Pagination, getPageNumbers } from './Pagination';
@@ -178,6 +177,41 @@ describe( 'getPageNumbers', () => {
 	} );
 } );
 
+describe( 'getPageNumbers (open-ended with maxReachablePage)', () => {
+	it( 'caps pages to maxReachablePage when near start', () => {
+		expect( getPageNumbers( 1, undefined, true, 2 ) ).toEqual( [ 1, 2 ] );
+	} );
+
+	it( 'shows all reachable pages when they fit', () => {
+		expect( getPageNumbers( 3, undefined, true, 4 ) ).toEqual( [ 1, 2, 3, 4 ] );
+	} );
+
+	it( 'shows ellipsis for large reachable ranges', () => {
+		expect( getPageNumbers( 8, undefined, true, 9 ) ).toEqual( [ 1, 'ellipsis', 7, 8, 9 ] );
+	} );
+
+	it( 'shows both ellipsis when end is far from current page', () => {
+		expect( getPageNumbers( 8, undefined, true, 15 ) ).toEqual( [
+			1,
+			'ellipsis',
+			7,
+			8,
+			9,
+			10,
+			'ellipsis',
+			15,
+		] );
+	} );
+
+	it( 'returns all pages when maxReachablePage <= 8', () => {
+		expect( getPageNumbers( 1, undefined, true, 8 ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7, 8 ] );
+	} );
+
+	it( 'does not affect behavior when maxReachablePage is undefined', () => {
+		expect( getPageNumbers( 1, undefined, true ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7, 'ellipsis' ] );
+	} );
+} );
+
 describe( 'getPageNumbers (open-ended)', () => {
 	it( 'always returns 8 items when page >= 6', () => {
 		for ( let cp = 6; cp <= 20; cp++ ) {
@@ -207,6 +241,32 @@ describe( 'getPageNumbers (open-ended)', () => {
 			9,
 			10,
 		] );
+	} );
+} );
+
+describe( '<Pagination /> with maxReachablePage', () => {
+	const maxReachableProps = {
+		currentPage: 1,
+		itemsPerPage: 20,
+		hasNextPage: true,
+		maxReachablePage: 2,
+		onPageChange: jest.fn(),
+		onItemsPerPageChange: jest.fn(),
+	};
+
+	it( 'only renders reachable page buttons', () => {
+		render( <Pagination { ...maxReachableProps } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Go to page 1' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Go to page 2' } ) ).toBeInTheDocument();
+		expect( screen.queryByRole( 'button', { name: 'Go to page 3' } ) ).not.toBeInTheDocument();
+		expect( screen.queryByRole( 'button', { name: 'Go to page 7' } ) ).not.toBeInTheDocument();
+	} );
+
+	it( 'has no accessibility violations', async () => {
+		const { container } = render( <Pagination { ...maxReachableProps } /> );
+
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
 
