@@ -75,9 +75,7 @@ export const Primary: Story = {
 			{ href: 'https://google.com/', label: 'Current Page' },
 		],
 	},
-	render: args => (
-		<Breadcrumbs { ...args } LinkComponent={ CustomLink } />
-	),
+	render: args => <Breadcrumbs { ...args } LinkComponent={ CustomLink } />,
 };
 
 export const Default: Story = {
