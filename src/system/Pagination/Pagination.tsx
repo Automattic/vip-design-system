@@ -62,59 +62,52 @@ export function getPageNumbers(
 	hasNextPage?: boolean,
 	maxReachablePage?: number
 ): PageNumberItem[] {
+	// Resolve the last known page
 	let last: number | undefined;
-	if ( totalPages === undefined ) {
-		if ( hasNextPage === false ) {
-			last = currentPage;
-		} else {
-			last = undefined;
-		}
-	} else {
+	if ( totalPages !== undefined ) {
 		last = Math.max( 1, Number( totalPages ) );
+	} else if ( hasNextPage === false ) {
+		last = currentPage;
 	}
 
 	if ( last !== undefined && ( ! Number.isFinite( last ) || last < 1 ) ) {
 		return [];
 	}
-	if ( last !== undefined && last <= VISIBLE_PAGE_SLOTS ) {
-		return range( 1, last );
+
+	// Effective end anchor: known last page, or capped reachable page
+	const end =
+		last ??
+		( maxReachablePage !== undefined ? Math.max( currentPage, maxReachablePage ) : undefined );
+
+	// Small page count — show all without ellipsis
+	if ( end !== undefined && end <= VISIBLE_PAGE_SLOTS ) {
+		return range( 1, end );
 	}
 
-	// Bounded (last is a known page number)
-	if ( last !== undefined ) {
-		if ( currentPage <= NEAR_START_THRESHOLD )
-			return [ ...range( 1, NEAR_START_THRESHOLD + 1 ), 'ellipsis', last ];
-		if ( currentPage >= last - ( NEAR_START_THRESHOLD - 1 ) )
-			return [ 1, 'ellipsis', ...range( last - NEAR_START_THRESHOLD, last ) ];
-		return [
-			1,
-			'ellipsis',
-			...range( currentPage - PAGES_BEFORE_CURRENT, currentPage + PAGES_AFTER_CURRENT ),
-			'ellipsis',
-			last,
-		];
+	// Near start
+	if ( currentPage <= NEAR_START_THRESHOLD ) {
+		if ( end !== undefined ) return [ ...range( 1, NEAR_START_THRESHOLD + 1 ), 'ellipsis', end ];
+		return [ ...range( 1, VISIBLE_PAGE_SLOTS - 1 ), 'ellipsis' ];
 	}
 
-	// Open-ended (no known last page)
-	if ( maxReachablePage !== undefined ) {
-		const end = Math.max( currentPage, maxReachablePage );
-		if ( end <= VISIBLE_PAGE_SLOTS ) return range( 1, end );
-		if ( currentPage <= NEAR_START_THRESHOLD )
-			return [ ...range( 1, NEAR_START_THRESHOLD + 1 ), 'ellipsis', end ];
+	// Near end (bounded only — open-ended has no "end zone")
+	if ( last !== undefined && currentPage >= last - ( NEAR_START_THRESHOLD - 1 ) ) {
+		return [ 1, 'ellipsis', ...range( last - NEAR_START_THRESHOLD, last ) ];
+	}
+
+	// Middle
+	if ( end !== undefined ) {
 		const rangeEnd = Math.min( currentPage + PAGES_AFTER_CURRENT, end );
 		const middle = range( currentPage - PAGES_BEFORE_CURRENT, rangeEnd );
 		if ( rangeEnd >= end ) return [ 1, 'ellipsis', ...middle ];
 		return [ 1, 'ellipsis', ...middle, 'ellipsis', end ];
 	}
-	if ( currentPage <= NEAR_START_THRESHOLD )
-		return [ ...range( 1, VISIBLE_PAGE_SLOTS - 1 ), 'ellipsis' ];
+
+	// Fully open-ended middle
 	return [
 		1,
 		'ellipsis',
-		...range(
-			currentPage - PAGES_BEFORE_CURRENT,
-			currentPage + PAGES_AFTER_CURRENT + 1 // one extra slot: no last-page number
-		),
+		...range( currentPage - PAGES_BEFORE_CURRENT, currentPage + PAGES_AFTER_CURRENT + 1 ),
 		'ellipsis',
 	];
 }
