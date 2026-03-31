@@ -44,6 +44,18 @@ function range( start: number, end: number ): number[] {
 	return Array.from( { length: end - start + 1 }, ( _, i ) => start + i );
 }
 
+/** Total number of visible items (page numbers + ellipsis indicators) in the pagination bar. */
+const VISIBLE_PAGE_SLOTS = 8;
+
+/** When currentPage <= this value, the "near start" layout is used (no leading ellipsis). */
+const NEAR_START_THRESHOLD = 5;
+
+/** Pages shown before the current page in the middle layout. */
+const PAGES_BEFORE_CURRENT = 1;
+
+/** Pages shown after the current page in the bounded middle layout. */
+const PAGES_AFTER_CURRENT = 2;
+
 export function getPageNumbers(
 	currentPage: number,
 	totalPages?: number,
@@ -64,29 +76,47 @@ export function getPageNumbers(
 	if ( last !== undefined && ( ! Number.isFinite( last ) || last < 1 ) ) {
 		return [];
 	}
-	if ( last !== undefined && last <= 8 ) {
+	if ( last !== undefined && last <= VISIBLE_PAGE_SLOTS ) {
 		return range( 1, last );
 	}
 
 	// Bounded (last is a known page number)
 	if ( last !== undefined ) {
-		if ( currentPage <= 5 ) return [ ...range( 1, 6 ), 'ellipsis', last ];
-		if ( currentPage >= last - 4 ) return [ 1, 'ellipsis', ...range( last - 5, last ) ];
-		return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 2 ), 'ellipsis', last ];
+		if ( currentPage <= NEAR_START_THRESHOLD )
+			return [ ...range( 1, NEAR_START_THRESHOLD + 1 ), 'ellipsis', last ];
+		if ( currentPage >= last - ( NEAR_START_THRESHOLD - 1 ) )
+			return [ 1, 'ellipsis', ...range( last - NEAR_START_THRESHOLD, last ) ];
+		return [
+			1,
+			'ellipsis',
+			...range( currentPage - PAGES_BEFORE_CURRENT, currentPage + PAGES_AFTER_CURRENT ),
+			'ellipsis',
+			last,
+		];
 	}
 
 	// Open-ended (no known last page)
 	if ( maxReachablePage !== undefined ) {
 		const end = Math.max( currentPage, maxReachablePage );
-		if ( end <= 8 ) return range( 1, end );
-		if ( currentPage <= 5 ) return [ ...range( 1, 6 ), 'ellipsis', end ];
-		const rangeEnd = Math.min( currentPage + 2, end );
-		const middle = range( currentPage - 1, rangeEnd );
+		if ( end <= VISIBLE_PAGE_SLOTS ) return range( 1, end );
+		if ( currentPage <= NEAR_START_THRESHOLD )
+			return [ ...range( 1, NEAR_START_THRESHOLD + 1 ), 'ellipsis', end ];
+		const rangeEnd = Math.min( currentPage + PAGES_AFTER_CURRENT, end );
+		const middle = range( currentPage - PAGES_BEFORE_CURRENT, rangeEnd );
 		if ( rangeEnd >= end ) return [ 1, 'ellipsis', ...middle ];
 		return [ 1, 'ellipsis', ...middle, 'ellipsis', end ];
 	}
-	if ( currentPage <= 5 ) return [ ...range( 1, 7 ), 'ellipsis' ];
-	return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 3 ), 'ellipsis' ];
+	if ( currentPage <= NEAR_START_THRESHOLD )
+		return [ ...range( 1, VISIBLE_PAGE_SLOTS - 1 ), 'ellipsis' ];
+	return [
+		1,
+		'ellipsis',
+		...range(
+			currentPage - PAGES_BEFORE_CURRENT,
+			currentPage + PAGES_AFTER_CURRENT + 1 // one extra slot: no last-page number
+		),
+		'ellipsis',
+	];
 }
 
 const ItemsPerPageSelect = ( {
@@ -164,10 +194,7 @@ const CompactPageSelector = ( {
 	onPageChange: ( page: number ) => void;
 } ) => {
 	const isOpenEnded = totalPages === undefined;
-	let upperBound = totalPages;
-	if ( isOpenEnded ) {
-		upperBound = maxReachablePage !== undefined ? maxReachablePage : currentPage + 1;
-	}
+	const upperBound: number = isOpenEnded ? maxReachablePage ?? currentPage + 1 : totalPages;
 	const pageOptions = Array.from( { length: upperBound }, ( _, i ) => i + 1 );
 
 	return (
