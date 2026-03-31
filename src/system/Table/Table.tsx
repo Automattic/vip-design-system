@@ -5,14 +5,13 @@
  * External dependencies
  */
 import classNames, { Argument } from 'classnames';
-import { forwardRef, ReactNode, Ref, useMemo } from 'react';
+import { forwardRef, ReactNode, Ref, useId } from 'react';
 
 /**
  * Internal dependencies
  */
 import { Box } from '../';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
-import { generateId } from '../utils/random';
 
 import type { ThemeUIStyleObject } from 'theme-ui';
 
@@ -38,15 +37,15 @@ export const Table = forwardRef< HTMLTableElement, TableProps >(
 			console.warn( '[A11Y] Please, add a caption to your table.' );
 		}
 
-		const captionId = useMemo( () => `table_caption_${ generateId() }`, [] );
+		const captionId = useId();
 
 		return (
 			<Box
 				className={ classNames( 'vip-table-component', className ) }
 				sx={ { width: '100%', maxWidth: '100vw', overflowX: 'auto' } }
-				role="region"
-				aria-labelledby={ captionId }
-				tabIndex={ 0 }
+				{ ...( caption
+					? { role: 'region', 'aria-labelledby': captionId, tabIndex: 0 }
+					: {} ) }
 			>
 				<table
 					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }

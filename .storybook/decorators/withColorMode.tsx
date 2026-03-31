@@ -48,7 +48,7 @@ const withColorMode = ( Story, context ) => {
 	return (
 		<>
 			<ThemeChanger background={ context.globals?.backgrounds?.value } />
-			<Story { ...context } />
+			<Story />
 		</>
 	);
 };

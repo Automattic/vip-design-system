@@ -28,7 +28,7 @@ const withBoundingBox = ( Story, context ) => (
 			` }
 		/>
 		<Box sx={ { p: 3 } }>
-			<Story { ...context } />
+			<Story args={ context.args } />
 		</Box>
 	</>
 );
