@@ -30,6 +30,7 @@ export interface PaginationProps {
 	onPageChange: ( page: number ) => void;
 	onItemsPerPageChange: ( itemsPerPage: number ) => void;
 	hasNextPage?: boolean;
+	maxReachablePage?: number;
 	variant?: PaginationVariant;
 	pageSizeOptions?: number[];
 	className?: string;
@@ -46,7 +47,8 @@ function range( start: number, end: number ): number[] {
 export function getPageNumbers(
 	currentPage: number,
 	totalPages?: number,
-	hasNextPage?: boolean
+	hasNextPage?: boolean,
+	maxReachablePage?: number
 ): PageNumberItem[] {
 	let last: number | undefined;
 	if ( totalPages === undefined ) {
@@ -74,6 +76,15 @@ export function getPageNumbers(
 	}
 
 	// Open-ended (no known last page)
+	if ( maxReachablePage !== undefined ) {
+		const end = Math.max( currentPage, maxReachablePage );
+		if ( end <= 8 ) return range( 1, end );
+		if ( currentPage <= 5 ) return [ ...range( 1, 6 ), 'ellipsis', end ];
+		const rangeEnd = Math.min( currentPage + 2, end );
+		const middle = range( currentPage - 1, rangeEnd );
+		if ( rangeEnd >= end ) return [ 1, 'ellipsis', ...middle ];
+		return [ 1, 'ellipsis', ...middle, 'ellipsis', end ];
+	}
 	if ( currentPage <= 5 ) return [ ...range( 1, 7 ), 'ellipsis' ];
 	return [ 1, 'ellipsis', ...range( currentPage - 1, currentPage + 3 ), 'ellipsis' ];
 }
@@ -104,14 +115,16 @@ const PageNumbers = ( {
 	currentPage,
 	totalPages,
 	hasNextPage,
+	maxReachablePage,
 	onPageChange,
 }: {
 	currentPage: number;
 	totalPages?: number;
 	hasNextPage?: boolean;
+	maxReachablePage?: number;
 	onPageChange: ( page: number ) => void;
 } ) => {
-	const pages = getPageNumbers( currentPage, totalPages, hasNextPage );
+	const pages = getPageNumbers( currentPage, totalPages, hasNextPage, maxReachablePage );
 
 	return (
 		<>
@@ -142,16 +155,19 @@ const PageNumbers = ( {
 const CompactPageSelector = ( {
 	currentPage,
 	totalPages,
+	maxReachablePage,
 	onPageChange,
 }: {
 	currentPage: number;
 	totalPages?: number;
+	maxReachablePage?: number;
 	onPageChange: ( page: number ) => void;
 } ) => {
 	const isOpenEnded = totalPages === undefined;
-	const pageOptions = isOpenEnded
-		? Array.from( { length: currentPage + 1 }, ( _, i ) => i + 1 )
-		: Array.from( { length: totalPages }, ( _, i ) => i + 1 );
+	const upperBound = isOpenEnded
+		? ( maxReachablePage !== undefined ? maxReachablePage : currentPage + 1 )
+		: totalPages;
+	const pageOptions = Array.from( { length: upperBound }, ( _, i ) => i + 1 );
 
 	return (
 		<Flex sx={ compactTextStyles }>
@@ -187,6 +203,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			onPageChange,
 			onItemsPerPageChange,
 			hasNextPage,
+			maxReachablePage,
 			variant = 'full',
 			pageSizeOptions = [ 20, 50, 100 ],
 			className,
@@ -228,6 +245,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
 							hasNextPage={ hasNextPage }
+							maxReachablePage={ maxReachablePage }
 							onPageChange={ onPageChange }
 						/>
 					) }
@@ -236,6 +254,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						<CompactPageSelector
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
+							maxReachablePage={ maxReachablePage }
 							onPageChange={ onPageChange }
 						/>
 					) }
