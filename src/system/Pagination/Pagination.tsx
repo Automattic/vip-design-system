@@ -164,11 +164,10 @@ const CompactPageSelector = ( {
 	onPageChange: ( page: number ) => void;
 } ) => {
 	const isOpenEnded = totalPages === undefined;
-	const upperBound = isOpenEnded
-		? maxReachablePage !== undefined
-			? maxReachablePage
-			: currentPage + 1
-		: totalPages;
+	let upperBound = totalPages;
+	if ( isOpenEnded ) {
+		upperBound = maxReachablePage !== undefined ? maxReachablePage : currentPage + 1;
+	}
 	const pageOptions = Array.from( { length: upperBound }, ( _, i ) => i + 1 );
 
 	return (
