@@ -164,6 +164,49 @@ export const WithItemsPerPageSelector: Story = {
 	),
 };
 
+const CursorBasedPaginationWithState = () => {
+	const [ currentPage, setCurrentPage ] = useState( 1 );
+	const [ itemsPerPage, setItemsPerPage ] = useState( 20 );
+	const [ maxVisited, setMaxVisited ] = useState( 1 );
+
+	const handlePageChange = ( page: number ) => {
+		setCurrentPage( page );
+		setMaxVisited( prev => Math.max( prev, page ) );
+	};
+
+	const hasNextPage = true; // Simulate always having a next page
+	const maxReachablePage = hasNextPage ? maxVisited + 1 : maxVisited;
+
+	return (
+		<Pagination
+			currentPage={ currentPage }
+			itemsPerPage={ itemsPerPage }
+			onPageChange={ handlePageChange }
+			onItemsPerPageChange={ size => {
+				setItemsPerPage( size );
+				setCurrentPage( 1 );
+				setMaxVisited( 1 );
+			} }
+			hasNextPage={ hasNextPage }
+			maxReachablePage={ maxReachablePage }
+			displayItemsPerPageSelector
+		>
+			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
+				<Badge variant="gold" sx={ { mr: 2 } }>
+					DEBUG
+				</Badge>
+				<Text>
+					Page { currentPage } — max reachable: { maxReachablePage }
+				</Text>
+			</Flex>
+		</Pagination>
+	);
+};
+
+export const OpenEndedCursorBased: Story = {
+	render: () => <CursorBasedPaginationWithState />,
+};
+
 export const OpenEnded: Story = {
 	render: () => <OpenEndedPaginationWithState />,
 };
