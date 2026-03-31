@@ -165,7 +165,9 @@ const CompactPageSelector = ( {
 } ) => {
 	const isOpenEnded = totalPages === undefined;
 	const upperBound = isOpenEnded
-		? ( maxReachablePage !== undefined ? maxReachablePage : currentPage + 1 )
+		? maxReachablePage !== undefined
+			? maxReachablePage
+			: currentPage + 1
 		: totalPages;
 	const pageOptions = Array.from( { length: upperBound }, ( _, i ) => i + 1 );
 

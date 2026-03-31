@@ -3,7 +3,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import React from 'react';
 import '@testing-library/jest-dom';
 
 import { Pagination, getPageNumbers } from './Pagination';
@@ -188,13 +187,7 @@ describe( 'getPageNumbers (open-ended with maxReachablePage)', () => {
 	} );
 
 	it( 'shows ellipsis for large reachable ranges', () => {
-		expect( getPageNumbers( 8, undefined, true, 9 ) ).toEqual( [
-			1,
-			'ellipsis',
-			7,
-			8,
-			9,
-		] );
+		expect( getPageNumbers( 8, undefined, true, 9 ) ).toEqual( [ 1, 'ellipsis', 7, 8, 9 ] );
 	} );
 
 	it( 'shows both ellipsis when end is far from current page', () => {
@@ -215,16 +208,7 @@ describe( 'getPageNumbers (open-ended with maxReachablePage)', () => {
 	} );
 
 	it( 'does not affect behavior when maxReachablePage is undefined', () => {
-		expect( getPageNumbers( 1, undefined, true ) ).toEqual( [
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			'ellipsis',
-		] );
+		expect( getPageNumbers( 1, undefined, true ) ).toEqual( [ 1, 2, 3, 4, 5, 6, 7, 'ellipsis' ] );
 	} );
 } );
 
