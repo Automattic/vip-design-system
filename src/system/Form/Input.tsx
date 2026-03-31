@@ -24,7 +24,7 @@ const inputStyles = {
 	variant: 'inputs.default',
 };
 
-interface InputProps extends ThemeInputProps {
+export interface InputProps extends ThemeInputProps {
 	label?: string;
 	hasError?: boolean;
 	required?: boolean;

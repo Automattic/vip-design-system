@@ -48,13 +48,7 @@ const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
 	)
 );
 
-export type NavItemAsProp = React.ComponentType< {
-	href?: string;
-	'aria-disabled'?: boolean;
-	disabled?: boolean;
-	ref?: Ref< HTMLAnchorElement >;
-	children?: React.ReactNode;
-} >;
+export type NavItemAsProp = React.ElementType;
 
 export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	/** Additional CSS class name for the nav item link. */
@@ -95,7 +89,10 @@ const NavItemRoot = forwardRef< HTMLAnchorElement, NavItemProps >(
 	)
 );
 
-export const NavRawLink = forwardRef< HTMLAnchorElement >(
+export const NavRawLink = forwardRef<
+	HTMLAnchorElement,
+	React.AnchorHTMLAttributes< HTMLAnchorElement >
+>(
 	// eslint-disable-next-line jsx-a11y/anchor-has-content
 	( props, ref: Ref< HTMLAnchorElement > ) => <a { ...props } ref={ ref } />
 );
