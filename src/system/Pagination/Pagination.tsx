@@ -19,13 +19,39 @@ import { Button } from '../Button';
 import { Select } from '../NewForm';
 import { Text } from '../Text';
 
-export type PaginationVariant = 'full' | 'compact';
+export type PaginationVariant = 'full' | 'compact' | 'arrows';
 
-export interface PaginationProps {
+/** A navigation parameter for the arrows pagination variant. */
+export interface ArrowsNavigationParam {
+	/** The query parameter name (e.g., 'after', 'before'). */
+	param: string;
+	/** The parameter token value. */
+	value: string;
+}
+
+interface PaginationBaseProps {
 	/** Whether to show the items-per-page dropdown selector.
 	 * @default false
 	 */
 	displayItemsPerPageSelector?: boolean;
+	/** Available page size options for the items-per-page selector.
+	 * @default [20, 50, 100]
+	 */
+	pageSizeOptions?: number[];
+	/** Additional CSS class name for the pagination container. */
+	className?: string;
+	/** Theme UI style overrides. */
+	sx?: ThemeUIStyleObject;
+	/** Optional content rendered between the items-per-page selector and page navigation. */
+	children?: React.ReactNode;
+}
+
+/** Props for page-number based variants ('full' | 'compact'). */
+interface PageNumberPaginationProps extends PaginationBaseProps {
+	/** The display variant: 'full' shows page number buttons, 'compact' shows a page dropdown.
+	 * @default 'full'
+	 */
+	variant?: 'full' | 'compact';
 	/** The currently active page number (1-based). */
 	currentPage: number;
 	/** Total number of items across all pages. Used to compute totalPages if not provided. */
@@ -42,21 +68,38 @@ export interface PaginationProps {
 	hasNextPage?: boolean;
 	/** The maximum page number that can be reached. Used for open-ended pagination without totalPages. */
 	maxReachablePage?: number;
-	/** The display variant: 'full' shows page number buttons, 'compact' shows a page dropdown.
-	 * @default 'full'
-	 */
-	variant?: PaginationVariant;
-	/** Available page size options for the items-per-page selector.
-	 * @default [20, 50, 100]
-	 */
-	pageSizeOptions?: number[];
-	/** Additional CSS class name for the pagination container. */
-	className?: string;
-	/** Theme UI style overrides. */
-	sx?: ThemeUIStyleObject;
-	/** Optional content rendered between the items-per-page selector and page navigation. */
-	children?: React.ReactNode;
+	nextParam?: never;
+	previousParam?: never;
+	onNavigate?: never;
+	hasPreviousPage?: never;
 }
+
+/** Props for the 'arrows' variant. Only shows prev/next arrow buttons. */
+interface ArrowsPaginationProps extends PaginationBaseProps {
+	/** The 'arrows' variant renders only previous/next arrow buttons. */
+	variant: 'arrows';
+	/** Whether there is a next page available. */
+	hasNextPage?: boolean;
+	/** Whether there is a previous page available. */
+	hasPreviousPage?: boolean;
+	/** Navigation parameter for the next page. */
+	nextParam?: ArrowsNavigationParam;
+	/** Navigation parameter for the previous page. */
+	previousParam?: ArrowsNavigationParam;
+	/** Callback fired when the user navigates. Receives the param name and value. */
+	onNavigate: ( param: string, value: string ) => void;
+	/** Number of items displayed per page. Optional for arrows variant. */
+	itemsPerPage?: number;
+	/** Callback fired when the user changes the items-per-page value. Optional for arrows variant. */
+	onItemsPerPageChange?: ( itemsPerPage: number ) => void;
+	currentPage?: never;
+	totalItems?: never;
+	totalPages?: never;
+	onPageChange?: never;
+	maxReachablePage?: never;
+}
+
+export type PaginationProps = PageNumberPaginationProps | ArrowsPaginationProps;
 
 export type PageNumberItem = number | 'ellipsis';
 
@@ -241,15 +284,6 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 	(
 		{
 			displayItemsPerPageSelector = false,
-			currentPage,
-			totalItems,
-			totalPages,
-			itemsPerPage,
-			onPageChange,
-			onItemsPerPageChange,
-			hasNextPage,
-			maxReachablePage,
-			variant = 'full',
 			pageSizeOptions = [ 20, 50, 100 ],
 			className,
 			sx,
@@ -258,13 +292,59 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 		},
 		ref
 	) => {
+		const isArrows = rest.variant === 'arrows';
+
+		// Page-number variant values
+		const currentPage = isArrows ? undefined : rest.currentPage;
+		const totalItems = isArrows ? undefined : rest.totalItems;
+		const totalPages = isArrows ? undefined : rest.totalPages;
+		const itemsPerPage = rest.itemsPerPage;
+		const onPageChange = isArrows ? undefined : rest.onPageChange;
+		const onItemsPerPageChange = rest.onItemsPerPageChange;
+		const maxReachablePage = isArrows ? undefined : rest.maxReachablePage;
+		const variant = rest.variant ?? 'full';
+
+		// Arrows variant values
+		const hasNextPage = rest.hasNextPage;
+		const hasPreviousPage = isArrows ? rest.hasPreviousPage : undefined;
+		const nextParam = isArrows ? rest.nextParam : undefined;
+		const previousParam = isArrows ? rest.previousParam : undefined;
+		const onNavigate = isArrows ? rest.onNavigate : undefined;
+
 		const resolvedTotalPages =
 			totalPages ??
-			( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
+			( totalItems !== undefined && itemsPerPage
+				? Math.ceil( totalItems / itemsPerPage )
+				: undefined );
 
-		const isFirstPage = currentPage <= 1;
-		const isLastPage =
-			resolvedTotalPages !== undefined ? currentPage >= resolvedTotalPages : hasNextPage === false;
+		const isPrevDisabled = isArrows
+			? ! hasPreviousPage || ! previousParam?.value
+			: ( currentPage ?? 1 ) <= 1;
+
+		let isNextDisabled: boolean;
+		if ( isArrows ) {
+			isNextDisabled = ! hasNextPage || ! nextParam?.value;
+		} else if ( resolvedTotalPages !== undefined ) {
+			isNextDisabled = ( currentPage ?? 1 ) >= resolvedTotalPages;
+		} else {
+			isNextDisabled = hasNextPage === false;
+		}
+
+		const handlePrevClick = () => {
+			if ( isArrows && onNavigate && previousParam ) {
+				onNavigate( previousParam.param, previousParam.value );
+			} else if ( onPageChange && currentPage !== undefined ) {
+				onPageChange( currentPage - 1 );
+			}
+		};
+
+		const handleNextClick = () => {
+			if ( isArrows && onNavigate && nextParam ) {
+				onNavigate( nextParam.param, nextParam.value );
+			} else if ( onPageChange && currentPage !== undefined ) {
+				onPageChange( currentPage + 1 );
+			}
+		};
 
 		return (
 			<nav
@@ -272,10 +352,9 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 				aria-label="Pagination"
 				className={ classNames( 'vip-pagination-component', className ) }
 				sx={ { ...containerStyles, ...sx } }
-				{ ...rest }
 			>
 				<Box>
-					{ displayItemsPerPageSelector && (
+					{ displayItemsPerPageSelector && itemsPerPage && onItemsPerPageChange && (
 						<ItemsPerPageSelect
 							itemsPerPage={ itemsPerPage }
 							pageSizeOptions={ pageSizeOptions }
@@ -285,7 +364,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 				</Box>
 				<Box sx={ { flex: 1 } }>{ children }</Box>
 				<Flex sx={ navigationStyles }>
-					{ variant === 'full' && (
+					{ variant === 'full' && currentPage !== undefined && onPageChange && (
 						<PageNumbers
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
@@ -295,7 +374,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						/>
 					) }
 
-					{ variant === 'compact' && (
+					{ variant === 'compact' && currentPage !== undefined && onPageChange && (
 						<CompactPageSelector
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
@@ -306,17 +385,17 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 
 					<Button
 						aria-label="Previous page"
-						disabled={ isFirstPage }
-						onClick={ () => onPageChange( currentPage - 1 ) }
-						sx={ { ...arrowButtonStyles, ml: 4 } }
+						disabled={ isPrevDisabled }
+						onClick={ handlePrevClick }
+						sx={ { ...arrowButtonStyles, ml: variant === 'arrows' ? 0 : 4 } }
 					>
 						<MdChevronLeft size={ 20 } />
 					</Button>
 
 					<Button
 						aria-label="Next page"
-						disabled={ isLastPage }
-						onClick={ () => onPageChange( currentPage + 1 ) }
+						disabled={ isNextDisabled }
+						onClick={ handleNextClick }
 						sx={ arrowButtonStyles }
 					>
 						<MdChevronRight size={ 20 } />

@@ -25,6 +25,7 @@ A Pagination component for navigating paged data.
 
 - **full** (default): Shows individual page number buttons with ellipsis for large page counts.
 - **compact**: Shows a dropdown page selector instead of individual page numbers.
+- **arrows**: Shows only prev/next arrow buttons. Designed for cursor-based pagination APIs with custom param names (e.g., \`after\`/\`before\`).
 
 ## Component Properties
 `,
@@ -217,4 +218,95 @@ export const OpenEndedCompact: Story = {
 
 export const OpenEndedLastPage: Story = {
 	render: () => <OpenEndedPaginationWithState hasNextPage={ false } initialPage={ 15 } />,
+};
+
+const ArrowsPaginationWithState = ( {
+	initialHasPreviousPage = false,
+	initialHasNextPage = true,
+	displayItemsPerPageSelector = false,
+}: {
+	initialHasPreviousPage?: boolean;
+	initialHasNextPage?: boolean;
+	displayItemsPerPageSelector?: boolean;
+} ) => {
+	const cursors = [ 'start', 'abc123', 'def456', 'ghi789', 'jkl012', 'end' ];
+	const [ index, setIndex ] = useState( initialHasPreviousPage ? 2 : 0 );
+	const [ itemsPerPage, setItemsPerPage ] = useState( 20 );
+
+	const hasPreviousPage = index > 0;
+	const hasNextPage = initialHasNextPage && index < cursors.length - 1;
+
+	return (
+		<Pagination
+			variant="arrows"
+			hasNextPage={ hasNextPage }
+			hasPreviousPage={ hasPreviousPage }
+			nextParam={ hasNextPage ? { param: 'after', value: cursors[ index + 1 ] } : undefined }
+			previousParam={ hasPreviousPage ? { param: 'before', value: cursors[ index ] } : undefined }
+			onNavigate={ param => {
+				if ( param === 'after' ) {
+					setIndex( i => i + 1 );
+				}
+				if ( param === 'before' ) {
+					setIndex( i => i - 1 );
+				}
+			} }
+			displayItemsPerPageSelector={ displayItemsPerPageSelector }
+			itemsPerPage={ displayItemsPerPageSelector ? itemsPerPage : undefined }
+			onItemsPerPageChange={
+				displayItemsPerPageSelector
+					? size => {
+							setItemsPerPage( size );
+							setIndex( 0 );
+					  }
+					: undefined
+			}
+		>
+			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
+				<Badge variant="gold" sx={ { mr: 2 } }>
+					DEBUG
+				</Badge>
+				<Text>
+					Index: { index } — value: { cursors[ index ] }
+				</Text>
+			</Flex>
+		</Pagination>
+	);
+};
+
+export const Arrows: Story = {
+	render: () => <ArrowsPaginationWithState />,
+};
+
+export const ArrowsFirstPage: Story = {
+	render: () => <ArrowsPaginationWithState />,
+	parameters: {
+		docs: {
+			description: {
+				story: 'Arrows variant on the first page — Previous button is disabled.',
+			},
+		},
+	},
+};
+
+export const ArrowsLastPage: Story = {
+	render: () => <ArrowsPaginationWithState initialHasNextPage={ false } initialHasPreviousPage />,
+	parameters: {
+		docs: {
+			description: {
+				story: 'Arrows variant on the last page — Next button is disabled.',
+			},
+		},
+	},
+};
+
+export const ArrowsWithPageSize: Story = {
+	render: () => <ArrowsPaginationWithState displayItemsPerPageSelector />,
+	parameters: {
+		docs: {
+			description: {
+				story: 'Arrows variant with an items-per-page selector.',
+			},
+		},
+	},
 };

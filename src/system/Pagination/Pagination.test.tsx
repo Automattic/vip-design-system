@@ -322,3 +322,116 @@ describe( '<Pagination /> open-ended mode', () => {
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
+
+describe( '<Pagination /> arrows variant', () => {
+	const arrowsProps = {
+		variant: 'arrows' as const,
+		hasNextPage: true,
+		hasPreviousPage: true,
+		nextParam: { param: 'after', value: 'cursor_abc' },
+		previousParam: { param: 'before', value: 'cursor_xyz' },
+		onNavigate: jest.fn(),
+	};
+
+	beforeEach( () => {
+		jest.clearAllMocks();
+	} );
+
+	it( 'renders a nav landmark with aria-label', () => {
+		render( <Pagination { ...arrowsProps } /> );
+
+		expect( screen.getByRole( 'navigation', { name: 'Pagination' } ) ).toBeInTheDocument();
+	} );
+
+	it( 'renders prev and next arrow buttons', () => {
+		render( <Pagination { ...arrowsProps } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Previous page' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Next page' } ) ).toBeInTheDocument();
+	} );
+
+	it( 'does not render page number buttons', () => {
+		render( <Pagination { ...arrowsProps } /> );
+
+		expect( screen.queryByRole( 'button', { name: /Go to page/ } ) ).not.toBeInTheDocument();
+	} );
+
+	it( 'disables previous button when hasPreviousPage is false', () => {
+		render( <Pagination { ...arrowsProps } hasPreviousPage={ false } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Previous page' } ) ).toBeDisabled();
+	} );
+
+	it( 'disables next button when hasNextPage is false', () => {
+		render( <Pagination { ...arrowsProps } hasNextPage={ false } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Next page' } ) ).toBeDisabled();
+	} );
+
+	it( 'disables previous button when previousParam is undefined', () => {
+		render( <Pagination { ...arrowsProps } previousParam={ undefined } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Previous page' } ) ).toBeDisabled();
+	} );
+
+	it( 'disables next button when nextParam is undefined', () => {
+		render( <Pagination { ...arrowsProps } nextParam={ undefined } /> );
+
+		expect( screen.getByRole( 'button', { name: 'Next page' } ) ).toBeDisabled();
+	} );
+
+	it( 'calls onNavigate with correct param and value when clicking next', async () => {
+		const user = userEvent.setup();
+		render( <Pagination { ...arrowsProps } /> );
+
+		await user.click( screen.getByRole( 'button', { name: 'Next page' } ) );
+
+		expect( arrowsProps.onNavigate ).toHaveBeenCalledWith( 'after', 'cursor_abc' );
+	} );
+
+	it( 'calls onNavigate with correct param and value when clicking previous', async () => {
+		const user = userEvent.setup();
+		render( <Pagination { ...arrowsProps } /> );
+
+		await user.click( screen.getByRole( 'button', { name: 'Previous page' } ) );
+
+		expect( arrowsProps.onNavigate ).toHaveBeenCalledWith( 'before', 'cursor_xyz' );
+	} );
+
+	it( 'renders children content', () => {
+		render(
+			<Pagination { ...arrowsProps }>
+				<span>Showing results</span>
+			</Pagination>
+		);
+
+		expect( screen.getByText( 'Showing results' ) ).toBeInTheDocument();
+	} );
+
+	it( 'renders items-per-page selector when enabled', () => {
+		render(
+			<Pagination
+				{ ...arrowsProps }
+				displayItemsPerPageSelector
+				itemsPerPage={ 20 }
+				onItemsPerPageChange={ jest.fn() }
+			/>
+		);
+
+		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
+	} );
+
+	it( 'has no accessibility violations', async () => {
+		const { container } = render( <Pagination { ...arrowsProps } /> );
+
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	it( 'has no accessibility violations with both buttons disabled', async () => {
+		const { container } = render(
+			<Pagination { ...arrowsProps } hasNextPage={ false } hasPreviousPage={ false } />
+		);
+
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+} );
