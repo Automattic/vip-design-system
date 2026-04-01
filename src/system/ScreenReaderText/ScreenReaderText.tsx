@@ -35,8 +35,16 @@ export interface ScreenReaderTextProps {
  * A utility component that visually hides content while keeping it accessible to screen readers.
  */
 export const ScreenReaderText = forwardRef< HTMLSpanElement, ScreenReaderTextProps >(
-	( { className, ...props }: ScreenReaderTextProps & { className?: string }, ref: Ref< HTMLSpanElement > ) => (
-		<span className={ classNames( 'screen-reader-text', className ) } sx={ screenReaderTextClass } { ...props } ref={ ref }>
+	(
+		{ className, ...props }: ScreenReaderTextProps & { className?: string },
+		ref: Ref< HTMLSpanElement >
+	) => (
+		<span
+			className={ classNames( 'screen-reader-text', className ) }
+			sx={ screenReaderTextClass }
+			{ ...props }
+			ref={ ref }
+		>
 			{ props.children }
 		</span>
 	)

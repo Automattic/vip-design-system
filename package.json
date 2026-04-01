@@ -106,7 +106,7 @@
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "cross-env": "7.0.3",
-    "eslint": "8.52.0",
+    "eslint": "8.57.1",
     "eslint-plugin-storybook": "10.3.3",
     "jest": "29.7.0",
     "jest-axe": "8.0.0",
@@ -119,5 +119,8 @@
     "token-transformer": "0.0.33",
     "typescript": "5.8.3",
     "vite": "^8.0.3"
+  },
+  "overrides": {
+    "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0"
   }
 }

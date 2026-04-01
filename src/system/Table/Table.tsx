@@ -43,9 +43,7 @@ export const Table = forwardRef< HTMLTableElement, TableProps >(
 			<Box
 				className={ classNames( 'vip-table-component', className ) }
 				sx={ { width: '100%', maxWidth: '100vw', overflowX: 'auto' } }
-				{ ...( caption
-					? { role: 'region', 'aria-labelledby': captionId, tabIndex: 0 }
-					: {} ) }
+				{ ...( caption ? { role: 'region', 'aria-labelledby': captionId, tabIndex: 0 } : {} ) }
 			>
 				<table
 					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }
