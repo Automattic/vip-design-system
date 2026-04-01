@@ -6,8 +6,24 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { ThemeUIProvider } from 'theme-ui';
 
-import { MobileMenuExample } from './MobileMenu.stories';
+import { MobileMenuContent as MobileMenuExample } from './MobileMenu.stories';
 import { theme } from '../';
+
+// Mock getComputedStyle to avoid jsdom/nwsapi selector parse errors
+// with Radix UI-generated IDs containing special characters.
+const originalGetComputedStyle = window.getComputedStyle;
+beforeAll( () => {
+	window.getComputedStyle = ( element, pseudoElt ) => {
+		try {
+			return originalGetComputedStyle( element, pseudoElt );
+		} catch {
+			return {} as CSSStyleDeclaration;
+		}
+	};
+} );
+afterAll( () => {
+	window.getComputedStyle = originalGetComputedStyle;
+} );
 
 const renderWithTheme = children =>
 	render( <ThemeUIProvider theme={ theme }>{ children }</ThemeUIProvider> );

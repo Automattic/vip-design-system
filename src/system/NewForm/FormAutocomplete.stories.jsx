@@ -64,101 +64,130 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 	);
 };
 
-export const Default = DefaultComponent.bind( {} );
-Default.args = args;
-
-export const WithAllowCustom = DefaultComponent.bind( {} );
-WithAllowCustom.args = {
-	...Default.args,
-	allowCustom: true,
+export const Default = {
+	render: props => <DefaultComponent { ...props } />,
+	args,
 };
 
-export const Inline = DefaultComponent.bind( {} );
-Inline.args = {
-	...Default.args,
-	isInline: true,
-};
-
-export const WithDefaultValue = DefaultComponent.bind( {} );
-WithDefaultValue.args = {
-	...Default.args,
-	value: 'Chocolate',
-};
-export const WithSearchIcon = DefaultComponent.bind( {} );
-WithSearchIcon.args = {
-	...Default.args,
-	searchIcon: true,
-	placeholder: 'Type to search',
-};
-export const WithLoading = DefaultComponent.bind( {} );
-WithLoading.args = {
-	...Default.args,
-	loading: true,
-};
-
-export const WithDebounce = () => {
-	const [ value, setValue ] = useState( null );
-	const customArgs = {
+export const WithAllowCustom = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		...args,
-		minLength: 3,
-		debounce: 300,
-		onInputChange: query => {
-			setValue( query );
-		},
-	};
-
-	return (
-		<>
-			Filter: { value }
-			<DefaultComponent { ...customArgs } />
-		</>
-	);
-};
-export const WithSlowSearchAndDebounce = DefaultComponent.bind( {} );
-WithSlowSearchAndDebounce.args = {
-	...Default.args,
-	label: 'Label',
-	autoFilter: false,
-	minLength: 3,
-	required: true,
-	debounce: 500,
-	source: async ( query, populateResults ) => {
-		if ( ! query || query.length >= 3 ) {
-			setTimeout( () => {
-				const filteredResults = args.options
-					.map( option => option.label )
-					.filter( result => result.toLowerCase().indexOf( query?.toLowerCase() ) !== -1 );
-				populateResults( filteredResults );
-			}, 1000 );
-		}
+		allowCustom: true,
 	},
 };
-export const WithCustomMessages = DefaultComponent.bind( {} );
-WithCustomMessages.args = {
-	...Default.args,
-	noOptionsMessage: () => 'No data',
-	placeholder: 'Type to search',
-};
-export const WithErrors = DefaultComponent.bind( {} );
-WithErrors.args = {
-	...Default.args,
-	hasError: true,
-	errorMessage: 'Please select a value.',
-	required: true,
+
+export const Inline = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		isInline: true,
+	},
 };
 
-export const WithArrow = DefaultComponent.bind( {} );
-WithArrow.args = {
-	...Default.args,
-	showAllValues: true,
+export const WithDefaultValue = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		value: 'Chocolate',
+	},
 };
-export const WithCustomArrow = DefaultComponent.bind( {} );
-WithCustomArrow.args = {
-	...Default.args,
-	showAllValues: true,
-	// eslint-disable-next-line react/display-name
-	dropdownArrow: () => (
-		<span sx={ { position: 'absolute', top: 1, right: 3, pointerEvents: 'none' } }>👇</span>
-	),
+
+export const WithSearchIcon = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		searchIcon: true,
+		placeholder: 'Type to search',
+	},
 };
-WithCustomArrow.displayName = 'WithCustomArrow';
+
+export const WithLoading = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		loading: true,
+	},
+};
+
+export const WithDebounce = {
+	render: () => {
+		const [ value, setValue ] = useState( null );
+		const customArgs = {
+			...args,
+			minLength: 3,
+			debounce: 300,
+			onInputChange: query => {
+				setValue( query );
+			},
+		};
+
+		return (
+			<>
+				Filter: { value }
+				<DefaultComponent { ...customArgs } />
+			</>
+		);
+	},
+};
+
+export const WithSlowSearchAndDebounce = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		label: 'Label',
+		autoFilter: false,
+		minLength: 3,
+		required: true,
+		debounce: 500,
+		source: async ( query, populateResults ) => {
+			if ( ! query || query.length >= 3 ) {
+				setTimeout( () => {
+					const filteredResults = args.options
+						.map( option => option.label )
+						.filter( result => result.toLowerCase().indexOf( query?.toLowerCase() ) !== -1 );
+					populateResults( filteredResults );
+				}, 1000 );
+			}
+		},
+	},
+};
+
+export const WithCustomMessages = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		noOptionsMessage: () => 'No data',
+		placeholder: 'Type to search',
+	},
+};
+
+export const WithErrors = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		hasError: true,
+		errorMessage: 'Please select a value.',
+		required: true,
+	},
+};
+
+export const WithArrow = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		showAllValues: true,
+	},
+};
+
+export const WithCustomArrow = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		showAllValues: true,
+		// eslint-disable-next-line react/display-name
+		dropdownArrow: () => (
+			<span sx={ { position: 'absolute', top: 1, right: 3, pointerEvents: 'none' } }>👇</span>
+		),
+	},
+};

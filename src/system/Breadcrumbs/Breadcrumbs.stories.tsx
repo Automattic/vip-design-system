@@ -6,7 +6,7 @@ import { Breadcrumbs as Breadcrumbs } from './Breadcrumbs';
 import { Box } from '../Box';
 import { CustomLink, CustomLinkComponentized } from '../utils/stories/CustomLink';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 export default {
 	title: 'Navigation/Breadcrumbs',
@@ -65,6 +65,18 @@ import Link from 'next/link';
 };
 
 type Story = StoryObj< typeof Breadcrumbs >;
+
+export const Primary: Story = {
+	args: {
+		label: 'Nav Breadcrumbs',
+		links: [
+			{ href: 'https://wordpress.com', label: 'WordPress' },
+			{ href: 'https://newrelic.com/', label: 'New Relic' },
+			{ href: 'https://google.com/', label: 'Current Page' },
+		],
+	},
+	render: args => <Breadcrumbs { ...args } LinkComponent={ CustomLink } />,
+};
 
 export const Default: Story = {
 	render: () => (

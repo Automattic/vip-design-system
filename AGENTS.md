@@ -8,12 +8,13 @@ This is `@automattic/vip-design-system`, a React component library and design to
 
 ## Tech Stack
 
-- **React 18** with **TypeScript 5.2**
+- **React 18.3** with **TypeScript 5.8**
+- **Node.js >= 22**
 - **Theme UI 0.16** for styling (CSS-in-JS via Emotion)
 - **Radix UI** for accessible primitive components (accordion, checkbox, dialog, dropdown, switch, tabs, tooltip)
 - **Babel 7** for compilation (output to `build/`)
 - **Jest 29** + **@testing-library/react** + **jest-axe** for testing
-- **Storybook 7.6** for component documentation
+- **Storybook 10** with **Vite 8** (`@storybook/react-vite`) for component documentation
 - **ESLint 8** with `@automattic/eslint-plugin-wpvip` + **Prettier** (`wp-prettier`)
 
 ## Code Structure
@@ -86,6 +87,9 @@ build/                   # Compiled output (generated, do not edit)
 - Write stories using the CSF3 format (Component Story Format).
 - Include multiple variants and states of the component.
 - Place stories next to the component: `ComponentName.stories.tsx`.
+- Autodocs is enabled globally — JSDoc on components and props generates docs pages automatically.
+- Use `react-docgen-typescript` for prop extraction (configured in `.storybook/main.ts`).
+- Use custom tags for component lifecycle: `new`, `deprecated`, `experimental`. Deprecated and experimental are hidden from the sidebar by default.
 
 ## Theme and Design Tokens
 

@@ -12,14 +12,18 @@ import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';
 import ScreenReaderText from '../ScreenReaderText';
 
 export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {
+	/** Whether this filter option is currently selected. */
 	checked: boolean;
+	/** Filter option data including its display label and optional size indicator. */
 	item: {
 		label: string;
 		size?: number | string;
 	};
+	/** Callback fired when the filter option is clicked. */
 	onClick: () => void;
 };
 
+/** Individual checkbox item rendered inside the FilterDropdown menu. */
 const FilterDropdownCheckItem = ( { checked, item, onClick }: FilterDropdownCheckItemProps ) => (
 	<Dropdown.CheckboxItem checked={ checked } onClick={ onClick }>
 		<Dropdown.ItemIndicator>
@@ -39,14 +43,24 @@ export interface FilterDropdownFiltersProp {
 }
 
 export type FilterDropdownProps = {
+	/** Additional CSS class name(s) appended to the trigger button. */
 	className?: string;
+	/** Map of available filter options keyed by their identifier. */
 	filters: FilterDropdownFiltersProp;
+	/** Label displayed before the currently selected filter. */
 	label?: React.ReactNode | string;
+	/** Callback fired when a filter option is selected, receiving the filter data and its key. */
 	onSelect: ( filter: FilterDropDownFilterProp, key: string ) => void;
+	/**
+	 * Key of the initially selected filter. Falls back to the first filter when omitted.
+	 * @default null
+	 */
 	defaultValue?: string | null;
+	/** Props forwarded to the underlying Dropdown content container. */
 	contentProps?: DropdownContentProps;
 };
 
+/** Dropdown menu for selecting a single filter from a set of options. */
 export const FilterDropdown = ( {
 	className,
 	filters,

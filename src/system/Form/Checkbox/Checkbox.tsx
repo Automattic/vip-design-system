@@ -6,7 +6,15 @@ import { checkboxIndicatorStyle, checkboxStyle } from './styles';
 import { RadioOptionProps } from '../Radio/RadioOption';
 
 export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
+	/**
+	 * Whether the checkbox is disabled.
+	 * @default false
+	 */
 	disabled?: boolean;
+	/**
+	 * The color variant of the checkbox.
+	 * @default 'primary'
+	 */
 	variant?: 'primary' | 'success' | 'brand' | 'disabled';
 }
 
@@ -22,6 +30,10 @@ const StyledIndicator = ( { variant, ...rest }: StyledIndicatorProps ) => (
 	<CheckboxPrimitive.Indicator sx={ checkboxIndicatorStyle( variant ) } { ...rest } />
 );
 
+/**
+ * A styled checkbox input built on Radix UI Checkbox primitives.
+ * Supports multiple color variants and disabled state.
+ */
 const Checkbox = ( {
 	disabled = false,
 	onCheckedChange,

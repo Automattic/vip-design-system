@@ -10,7 +10,7 @@ import { Badge } from '../Badge';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
 
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 const meta: Meta< typeof Pagination > = {
 	title: 'Pagination',
@@ -114,6 +114,16 @@ const OpenEndedPaginationWithState = ( {
 			</Flex>
 		</Pagination>
 	);
+};
+
+export const Primary: Story = {
+	args: {
+		currentPage: 1,
+		totalItems: 200,
+		itemsPerPage: 20,
+		variant: 'full',
+		displayItemsPerPageSelector: false,
+	},
 };
 
 export const Default: Story = {

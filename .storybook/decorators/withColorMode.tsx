@@ -3,7 +3,6 @@
  */
 
 import React, { useEffect } from 'react';
-import { makeDecorator } from '@storybook/addons';
 import { useColorMode } from 'theme-ui';
 
 /**
@@ -45,15 +44,13 @@ function ThemeChanger( { background } ) {
 	return null;
 }
 
-export default makeDecorator( {
-	name: 'withColorMode',
-	parameterName: 'colorMode',
-	wrapper: ( storyFn, context ) => {
-		return (
-			<>
-				<ThemeChanger background={ context.globals?.backgrounds?.value } />
-				{ storyFn() }
-			</>
-		);
-	},
-} );
+const withColorMode = ( Story, context ) => {
+	return (
+		<>
+			<ThemeChanger background={ context.globals?.backgrounds?.value } />
+			<Story />
+		</>
+	);
+};
+
+export default withColorMode;

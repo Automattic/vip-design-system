@@ -15,7 +15,7 @@ import { Nav } from './Nav';
 import { NavItem } from './NavItem';
 import { CustomLink } from '../utils/stories/CustomLink';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 export default {
 	title: 'Navigation/Nav',
@@ -83,6 +83,22 @@ import Link from 'next/link';
 };
 
 type Story = StoryObj< typeof Nav >;
+
+export const Primary: Story = {
+	render: () => (
+		<Nav.Primary label="Nav Primary">
+			<NavItem.Primary active as={ CustomLink } href="https://random-website.com/">
+				PHP
+			</NavItem.Primary>
+			<NavItem.Primary as={ CustomLink } href="https://wordpress.com">
+				WordPress
+			</NavItem.Primary>
+			<NavItem.Primary as={ CustomLink } href="https://newrelic.com/">
+				New Relic
+			</NavItem.Primary>
+		</Nav.Primary>
+	),
+};
 
 export const Default: Story = {
 	render: () => (

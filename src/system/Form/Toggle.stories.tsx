@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react-vite';
 
 import { Toggle, Label } from '..';
 export default {
@@ -44,6 +44,16 @@ The Toggle component is two-state switch that can be toggled on or off. It is us
 };
 
 type Story = StoryObj< typeof Toggle >;
+
+export const Primary: Story = {
+	args: {
+		name: 'toggle-primary',
+		variant: 'primary',
+		disabled: false,
+		defaultChecked: true,
+		'aria-label': 'Feature flag',
+	},
+};
 
 export const Default: Story = {
 	render: args => (

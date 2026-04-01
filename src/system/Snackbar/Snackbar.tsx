@@ -20,15 +20,25 @@ interface SnackbarIconProps {
 }
 
 export type SnackbarProps = React.HTMLAttributes< HTMLDivElement > & {
+	/** Content rendered inside the snackbar body. */
 	children?: React.ReactNode;
+	/** Theme UI style overrides applied to the root element. */
 	sx?: ThemeUIStyleObject;
+	/** Bold heading displayed above the body content. */
 	title?: React.ReactNode;
+	/** Color variant that determines the icon and visual style. @default 'warning' */
 	variant?: ColorVariants;
+	/** When true, replaces the status icon with a loading spinner. @default false */
 	loading?: boolean;
+	/** When true, reserves space for a dismiss action. @default false */
 	isDismissable?: boolean;
+	/** Additional CSS class name(s) appended to the root element. */
 	className?: string;
+	/** Click handler for the call-to-action link. */
 	ctaOnClick?: () => void;
+	/** Label text for the call-to-action link. */
 	ctaText?: string;
+	/** URL for the call-to-action link. */
 	ctaHref?: string;
 };
 
@@ -56,6 +66,7 @@ const SnackbarIcon = ( { color, variant, loading }: SnackbarIconProps ) => {
 	return <Element sx={ sx } size={ size } aria-hidden="true" />;
 };
 
+/** A brief, non-intrusive notification bar for surfacing status messages and alerts. */
 export const Snackbar = React.forwardRef< HTMLDivElement, SnackbarProps >(
 	(
 		{

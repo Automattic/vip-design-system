@@ -16,12 +16,19 @@ const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );
 
 export interface ThemeProgressProps extends ProgressProps {
+	/** Array of step labels describing each stage of the progress. */
 	steps: string[];
+	/** Zero-based index of the currently active step. */
 	activeStep: number;
+	/** Accessible label for the progress bar element. */
 	forLabel?: string;
+	/** Additional CSS class name. */
 	className?: string;
 }
 
+/**
+ * A step-based progress bar that displays the current step label and a completion indicator.
+ */
 export const Progress = forwardRef< HTMLProgressElement, ThemeProgressProps >(
 	(
 		{ steps, activeStep, sx, forLabel = '', className, ...props }: ThemeProgressProps,

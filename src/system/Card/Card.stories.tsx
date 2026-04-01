@@ -2,43 +2,74 @@
 
 import { Box, Card } from '..';
 
+import type { StoryObj } from '@storybook/react-vite';
+
 export default {
 	title: 'Card',
 	component: Card,
 };
 
-export const Default = () => <Card>Hello</Card>;
+type Story = StoryObj< typeof Card >;
 
-export const WithHeader = () => <Card title="Header">This is a card with a header.</Card>;
+export const Default: Story = {
+	args: {
+		children: 'Hello',
+	},
+};
 
-export const WithCustomHeader = () => (
-	<Box sx={ { maxWidth: 500 } }>
-		<Card
-			title="Screenshot of a website"
-			renderHeader={ title => (
-				<img
-					src={ `https://s0.wp.com/mshots/v1/https://google.com/` }
-					sx={ { width: '100%' } }
-					alt={ title }
-				/>
-			) }
-		>
-			This is a card with a customized header content.
-		</Card>
-	</Box>
-);
+export const WithHeader: Story = {
+	args: {
+		title: 'Header',
+		children: 'This is a card with a header.',
+	},
+};
 
-export const DefaultSecondary = () => <Card variant="secondary">Hello</Card>;
+export const WithCustomHeader: Story = {
+	args: {
+		title: 'Screenshot of a website',
+		renderHeader: title => (
+			<img
+				src={ `https://s0.wp.com/mshots/v1/https://google.com/` }
+				sx={ { width: '100%' } }
+				alt={ title }
+			/>
+		),
+		children: 'This is a card with a customized header content.',
+	},
+	render: args => (
+		<Box sx={ { maxWidth: 500 } }>
+			<Card { ...args } />
+		</Box>
+	),
+};
 
-export const WithHeaderSecondary = () => (
-	<Card title="Header" variant="secondary">
-		This is a card with a header.
-	</Card>
-);
+export const DefaultSecondary: Story = {
+	args: {
+		variant: 'secondary',
+		children: 'Hello',
+	},
+};
 
-export const DefaultIndent = () => <Card variant="indent">Hello</Card>;
-export const StyledBody = () => (
-	<Card variant="indent" title="Hello world" bodyStyles={ { p: 6, backgroundColor: 'layer.2' } }>
-		Hello styled body.
-	</Card>
-);
+export const WithHeaderSecondary: Story = {
+	args: {
+		title: 'Header',
+		variant: 'secondary',
+		children: 'This is a card with a header.',
+	},
+};
+
+export const DefaultIndent: Story = {
+	args: {
+		variant: 'indent',
+		children: 'Hello',
+	},
+};
+
+export const StyledBody: Story = {
+	args: {
+		variant: 'indent',
+		title: 'Hello world',
+		bodyStyles: { p: 6, backgroundColor: 'layer.2' },
+		children: 'Hello styled body.',
+	},
+};

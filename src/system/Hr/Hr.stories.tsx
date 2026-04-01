@@ -3,7 +3,7 @@
  */
 import { Hr } from './Hr';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 /**
  * Internal dependencies
@@ -37,6 +37,10 @@ Horizontal Line.
 };
 
 type Story = StoryObj< typeof Hr >;
+
+export const Primary: Story = {
+	args: {},
+};
 
 export const Default: Story = {
 	render: () => (

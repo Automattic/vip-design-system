@@ -1,10 +1,17 @@
 /**
- * Internal dependencies
+ * External dependencies
  */
 import { Tooltip, Button, Heading, Text, Link, Box, Grid } from '..';
 
+import type { StoryObj } from '@storybook/react-vite';
+
+/**
+ * Internal dependencies
+ */
+
 export default {
 	title: 'Deprecated/Tooltip',
+	tags: [ 'deprecated' ],
 	component: Tooltip,
 	parameters: {
 		docs: {
@@ -66,109 +73,115 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 	},
 };
 
-export const Basic = () => (
-	<>
-		<Heading variant="h2">Basic Usage</Heading>
-		<Text>
-			Pass a trigger and title, the trigger component will be cloned and injected with a{ ' ' }
-			<code>[vip-tooltip]</code> HTML attribute.
-		</Text>
-		<Grid
-			columns={ [ 'auto auto' ] }
-			gap={ '100px 160px' }
-			sx={ { justifyContent: 'center', pt: '50px' } }
-		>
-			<Tooltip trigger={ <Button>Top</Button> } title="At the top" position="top" />
+type Story = StoryObj< typeof Tooltip >;
 
-			<Tooltip
-				trigger={ <Button>Top with Arrow</Button> }
-				title="At the top with arrow"
-				position="top"
-				arrow={ true }
-			/>
+export const Basic: Story = {
+	render: () => (
+		<>
+			<Heading variant="h2">Basic Usage</Heading>
+			<Text>
+				Pass a trigger and title, the trigger component will be cloned and injected with a{ ' ' }
+				<code>[vip-tooltip]</code> HTML attribute.
+			</Text>
+			<Grid
+				columns={ [ 'auto auto' ] }
+				gap={ '100px 160px' }
+				sx={ { justifyContent: 'center', pt: '50px' } }
+			>
+				<Tooltip trigger={ <Button>Top</Button> } title="At the top" position="top" />
 
-			<Tooltip trigger={ <Button>Bottom</Button> } title="At the Bottom" position="bottom" />
+				<Tooltip
+					trigger={ <Button>Top with Arrow</Button> }
+					title="At the top with arrow"
+					position="top"
+					arrow={ true }
+				/>
 
-			<Tooltip
-				trigger={ <Button>Bottom with Arrow</Button> }
-				title="At the Bottom with arrow"
-				position="bottom"
-				arrow={ true }
-			/>
+				<Tooltip trigger={ <Button>Bottom</Button> } title="At the Bottom" position="bottom" />
 
-			<Tooltip trigger={ <Button>Left</Button> } title="On the Left" position="left" />
+				<Tooltip
+					trigger={ <Button>Bottom with Arrow</Button> }
+					title="At the Bottom with arrow"
+					position="bottom"
+					arrow={ true }
+				/>
 
-			<Tooltip
-				trigger={ <Button>Left with Arrow</Button> }
-				title="On the Left with arrow"
-				position="left"
-				arrow={ true }
-			/>
+				<Tooltip trigger={ <Button>Left</Button> } title="On the Left" position="left" />
 
-			<Tooltip trigger={ <Button>Right</Button> } title="On the Right" position="right" />
+				<Tooltip
+					trigger={ <Button>Left with Arrow</Button> }
+					title="On the Left with arrow"
+					position="left"
+					arrow={ true }
+				/>
 
-			<Tooltip
-				trigger={ <Button>Right with Arrow</Button> }
-				title="On the Right with arrow"
-				position="right"
-				arrow={ true }
-			/>
+				<Tooltip trigger={ <Button>Right</Button> } title="On the Right" position="right" />
 
-			<Tooltip
-				trigger={
-					<Button disabled={ true } preferAriaDisabled={ true }>
-						Disabled (use focus)
+				<Tooltip
+					trigger={ <Button>Right with Arrow</Button> }
+					title="On the Right with arrow"
+					position="right"
+					arrow={ true }
+				/>
+
+				<Tooltip
+					trigger={
+						<Button disabled={ true } preferAriaDisabled={ true }>
+							Disabled (use focus)
+						</Button>
+					}
+					title="Disabled trigger"
+					position="top"
+				/>
+
+				<Tooltip
+					trigger={
+						<Button disabled={ true } preferAriaDisabled={ true }>
+							Disabled with Arrow (use focus)
+						</Button>
+					}
+					title="Disabled trigger with arrow"
+					position="top"
+					arrow={ true }
+				/>
+			</Grid>
+		</>
+	),
+};
+
+export const Container: Story = {
+	render: () => (
+		<div>
+			<Heading variant="h2">Container Usage</Heading>
+
+			<Text>
+				You can also wrap a component with the <code>Tooltip</code> component. To use tooltips you
+				can simply pass <code>data-vip-tooltip</code> as an HTML attribute to your component.
+			</Text>
+
+			<Box sx={ { backgroundColor: 'red' } }>
+				<Tooltip>
+					<br />
+
+					<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 3 } }>
+						This is another way
 					</Button>
-				}
-				title="Disabled trigger"
-				position="top"
-			/>
 
-			<Tooltip
-				trigger={
-					<Button disabled={ true } preferAriaDisabled={ true }>
-						Disabled with Arrow (use focus)
-					</Button>
-				}
-				title="Disabled trigger with arrow"
-				position="top"
-				arrow={ true }
-			/>
-		</Grid>
-	</>
-);
+					<br />
+					<br />
+					<br />
 
-export const Container = () => (
-	<div>
-		<Heading variant="h2">Container Usage</Heading>
-
-		<Text>
-			You can also wrap a component with the <code>Tooltip</code> component. To use tooltips you can
-			simply pass <code>data-vip-tooltip</code> as an HTML attribute to your component.
-		</Text>
-
-		<Box sx={ { backgroundColor: 'red' } }>
-			<Tooltip>
-				<br />
-
-				<Button data-vip-tooltip-position="top" data-vip-tooltip="Test test" sx={ { ml: 3 } }>
-					This is another way
-				</Button>
-
-				<br />
-				<br />
-				<br />
-
-				<Link
-					href="http://google.com"
-					data-vip-tooltip-position="right"
-					data-vip-tooltip-arrow="true"
-					data-vip-tooltip="Lorem Ipsum has been the industry's standard dummy text ever since the 1500"
-					sx={ { ml: 3 } }
-				>
-					Use with links too
-				</Link>
-			</Tooltip>
-		</Box>
-	</div>
-);
+					<Link
+						href="http://google.com"
+						data-vip-tooltip-position="right"
+						data-vip-tooltip-arrow="true"
+						data-vip-tooltip="Lorem Ipsum has been the industry's standard dummy text ever since the 1500"
+						sx={ { ml: 3 } }
+					>
+						Use with links too
+					</Link>
+				</Tooltip>
+			</Box>
+		</div>
+	),
+};

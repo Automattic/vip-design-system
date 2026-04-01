@@ -9,7 +9,9 @@ import { Flex } from '..';
 export type ToolbarVariant = 'primary';
 
 export interface ToolbarProps {
+	/** Additional CSS class name for the toolbar element. */
 	className?: string;
+	/** Content to display within the toolbar (logo, nav items, actions, etc.). */
 	children: React.ReactNode;
 }
 
@@ -35,6 +37,10 @@ const Toolbar = forwardRef< HTMLElement, ToolbarProps >(
 );
 
 // Variant: Primary (TODO)
+/**
+ * A horizontal toolbar header bar used as the top-level application banner.
+ * Contains the logo, navigation items, and action buttons.
+ */
 export const ToolbarPrimary = forwardRef< HTMLElement, ToolbarProps >(
 	( props: ToolbarProps, ref: Ref< HTMLElement > ) => <Toolbar { ...props } ref={ ref } />
 );

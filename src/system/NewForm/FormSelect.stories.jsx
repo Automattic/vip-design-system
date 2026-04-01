@@ -69,79 +69,90 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 	</>
 );
 
-export const Default = DefaultComponent.bind( {} );
-Default.args = {
-	placeholder: '- Select -',
-	required: true,
-	options,
-};
-
-export const Disabled = DefaultComponent.bind( {} );
-Disabled.args = {
-	placeholder: '- Select -',
-	required: true,
-	disabled: true,
-	options,
-};
-
-export const WithErrors = DefaultComponent.bind( {} );
-WithErrors.args = {
-	placeholder: '- Select -',
-	required: true,
-	hasError: true,
-	errorMessage: 'This is an error message',
-	options,
-};
-
-export const WithGroup = DefaultComponent.bind( {} );
-
-WithGroup.args = {
-	label: 'Group Label',
-	options: [ ...options, ...groupedOptions ],
-};
-
-export const IsInline = DefaultComponent.bind( {} );
-
-IsInline.args = {
-	label: 'Inline Select',
-	isInline: true,
-	width: '100%',
-	options: groupedOptions,
-};
-
-export const WithOptionLabelAndValue = DefaultComponent.bind( {} );
-
-WithOptionLabelAndValue.args = {
-	label: 'Select with getOptionLabel / getOptionValue',
-	width: '100%',
-	options: options.map( ( { label, value } ) => ( {
-		name: label,
-		id: value,
-	} ) ),
-	getOptionLabel: option => option.name,
-	getOptionValue: option => option.id,
-};
-
-export const WithOnChange = () => {
-	const [ option, setOption ] = useState( null );
-
-	const onChange = useCallback( ( val, event ) =>
-		setOption( { obj: val, eventValue: event.target.value } )
-	);
-
-	const args = {
-		label: 'Select with onChange',
+export const Default = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		placeholder: '- Select -',
-		width: '100%',
-		onChange,
-		options: [ ...options, ...groupedOptions ],
-	};
+		required: true,
+		options,
+	},
+};
 
-	return (
-		<>
-			<DefaultComponent onChange={ onChange } { ...args } />
-			{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
-			{ option && <p>Original Event Value: { option.eventValue }</p> }
-		</>
-	);
+export const Disabled = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		disabled: true,
+		options,
+	},
+};
+
+export const WithErrors = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		hasError: true,
+		errorMessage: 'This is an error message',
+		options,
+	},
+};
+
+export const WithGroup = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		label: 'Group Label',
+		options: [ ...options, ...groupedOptions ],
+	},
+};
+
+export const IsInline = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		label: 'Inline Select',
+		isInline: true,
+		width: '100%',
+		options: groupedOptions,
+	},
+};
+
+export const WithOptionLabelAndValue = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		label: 'Select with getOptionLabel / getOptionValue',
+		width: '100%',
+		options: options.map( ( { label, value } ) => ( {
+			name: label,
+			id: value,
+		} ) ),
+		getOptionLabel: option => option.name,
+		getOptionValue: option => option.id,
+	},
+};
+
+export const WithOnChange = {
+	render: () => {
+		const [ option, setOption ] = useState( null );
+
+		const onChange = useCallback( ( val, event ) =>
+			setOption( { obj: val, eventValue: event.target.value } )
+		);
+
+		const onChangeArgs = {
+			label: 'Select with onChange',
+			placeholder: '- Select -',
+			width: '100%',
+			onChange,
+			options: [ ...options, ...groupedOptions ],
+		};
+
+		return (
+			<>
+				<DefaultComponent onChange={ onChange } { ...onChangeArgs } />
+				{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
+				{ option && <p>Original Event Value: { option.eventValue }</p> }
+			</>
+		);
+	},
 };

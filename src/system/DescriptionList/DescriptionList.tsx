@@ -10,14 +10,26 @@ import { ThemeUIStyleObject } from 'theme-ui';
 import { Table, TableRow, TableCell, Grid, Box, Text } from '..';
 
 export interface DescriptionListProps {
+	/** The array of label-value pairs to display. */
 	list: {
 		label?: string | React.ReactNode;
 		value?: string | React.ReactNode;
 	}[];
+	/** Additional CSS class name for the list container. */
 	className?: string;
+	/** Custom Theme UI styles for the list container. */
 	sx?: ThemeUIStyleObject;
+	/**
+	 * The width of the label column when rendered as a description list.
+	 * @default '100px'
+	 */
 	labelWidth?: string;
+	/** An optional title displayed above the list. */
 	title?: string;
+	/**
+	 * The HTML element type used to render the list.
+	 * @default 'dl'
+	 */
 	as?: 'table' | 'dl';
 }
 
@@ -83,6 +95,9 @@ const DescriptionListComponent = ( {
 	</Box>
 );
 
+/**
+ * A component that renders a list of label-value pairs as either a description list or a table.
+ */
 const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
 	(
 		{ sx, className, list, labelWidth = '100px', as = 'dl', title }: DescriptionListProps,

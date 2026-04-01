@@ -18,18 +18,28 @@ import { Box, Flex, Heading, Card, Button } from '../';
 type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
 
 type CollapsibleProps = {
+	/** When true, renders the notice as a collapsible section with a toggle header. @default false */
 	collapsible?: boolean;
+	/** Whether the collapsible content is expanded on initial render. @default false */
 	defaultOpen?: boolean;
+	/** Custom ARIA content ID for the collapsible region. */
 	ariaContentId?: string;
 };
 
 export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
+	/** Content rendered inside the notice body. */
 	children: React.ReactNode;
+	/** When true, renders the notice with a transparent background. @default false */
 	inline?: boolean;
+	/** Theme UI style overrides applied to the root element. */
 	sx?: ThemeUIStyleObject;
+	/** Bold heading displayed above the body content. */
 	title?: React.ReactNode;
+	/** Color variant that determines the icon and visual style. @default 'warning' */
 	variant?: ColorVariants;
+	/** HTML element type used for the heading. @default 'p' */
 	headingVariant?: React.ElementType;
+	/** Additional CSS class name(s) appended to the root element. */
 	className?: string;
 } & CollapsibleProps;
 
@@ -50,6 +60,7 @@ const NoticeIcon = ( { color, variant }: { color: string; variant: ColorVariants
 	return <MdWarning sx={ sx } size={ size } aria-hidden="true" />;
 };
 
+/** A contextual banner for displaying informational, warning, error, or success messages. */
 export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 	(
 		{

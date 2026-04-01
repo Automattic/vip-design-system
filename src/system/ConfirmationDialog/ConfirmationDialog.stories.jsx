@@ -5,6 +5,7 @@ import { Box, ConfirmationDialog, Button, Heading, Text, Flex } from '..';
 
 export default {
 	title: 'Deprecated/ConfirmationDialog',
+	tags: [ 'deprecated' ],
 	component: ConfirmationDialog,
 };
 
@@ -20,10 +21,12 @@ const ConfirmationContent = (
 	</Box>
 );
 
-export const Default = () => (
-	<Flex>
-		<Box>
-			<ConfirmationDialog trigger={ ConfirmationTrigger } content={ ConfirmationContent } />
-		</Box>
-	</Flex>
-);
+export const Default = {
+	render: () => (
+		<Flex>
+			<Box>
+				<ConfirmationDialog trigger={ ConfirmationTrigger } content={ ConfirmationContent } />
+			</Box>
+		</Flex>
+	),
+};

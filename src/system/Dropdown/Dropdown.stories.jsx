@@ -19,88 +19,33 @@ import { Text } from '../Text';
 export default {
 	title: 'Dropdown',
 	component: Dropdown.Root,
+	subcomponents: {
+		'Dropdown.Content': Dropdown.Content,
+		'Dropdown.Item': Dropdown.Item,
+		'Dropdown.CheckboxItem': Dropdown.CheckboxItem,
+		'Dropdown.RadioGroup': Dropdown.RadioGroup,
+		'Dropdown.RadioItem': Dropdown.RadioItem,
+		'Dropdown.Label': Dropdown.Label,
+		'Dropdown.Separator': Dropdown.Separator,
+		'Dropdown.Sub': Dropdown.Sub,
+		'Dropdown.SubTrigger': Dropdown.SubTrigger,
+		'Dropdown.SubContent': Dropdown.SubContent,
+	},
 };
 
-export const Default = () => (
-	<>
-		<Dropdown.Root trigger={ <Button>Open</Button> }>
-			<Dropdown.Item>All</Dropdown.Item>
-			<Dropdown.Item>Completed</Dropdown.Item>
-			<Dropdown.Item>Running</Dropdown.Item>
-			<Dropdown.Item>Cancelled</Dropdown.Item>
-			<Dropdown.Separator />
-			<Dropdown.Item>Errored</Dropdown.Item>
-		</Dropdown.Root>
-
-		<Text>
-			This component is based on the Radix Dropdown. You can find all available options, props and
-			features in the{ ' ' }
-			<Link
-				href="https://www.radix-ui.com/docs/primitives/components/dropdown-menu"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Dropdown Documentation page.
-			</Link>
-		</Text>
-	</>
-);
-
-export const ComplexOptions = () => {
-	const [ bookmarksChecked, setBookmarksChecked ] = React.useState( true );
-	const [ urlsChecked, setUrlsChecked ] = React.useState( false );
-	const [ person, setPerson ] = React.useState( 'pedro' );
-
-	return (
+export const Default = {
+	args: {
+		trigger: <Button>Open</Button>,
+	},
+	render: args => (
 		<>
-			<Dropdown.Root trigger={ <Button>See options</Button> }>
-				<Dropdown.Item>New Tab</Dropdown.Item>
-				<Dropdown.Item>New Window</Dropdown.Item>
-				<Dropdown.Item disabled onSelect={ () => console.log( 'disabled' ) }>
-					New Private Window
-				</Dropdown.Item>
-				<Dropdown.Sub>
-					<Dropdown.SubTrigger>
-						More Tools
-						<ChevronRightIcon />
-					</Dropdown.SubTrigger>
-					<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
-						<Dropdown.Item>Save Page As…</Dropdown.Item>
-						<Dropdown.Item>Create Shortcut…</Dropdown.Item>
-						<Dropdown.Item>Name Window…</Dropdown.Item>
-						<Dropdown.Separator />
-						<Dropdown.Item>Developer Tools</Dropdown.Item>
-					</Dropdown.SubContent>
-				</Dropdown.Sub>
+			<Dropdown.Root { ...args }>
+				<Dropdown.Item>All</Dropdown.Item>
+				<Dropdown.Item>Completed</Dropdown.Item>
+				<Dropdown.Item>Running</Dropdown.Item>
+				<Dropdown.Item>Cancelled</Dropdown.Item>
 				<Dropdown.Separator />
-				<Dropdown.CheckboxItem checked={ bookmarksChecked } onCheckedChange={ setBookmarksChecked }>
-					<Dropdown.ItemIndicator>
-						<CheckIcon />
-					</Dropdown.ItemIndicator>
-					Show Bookmarks
-				</Dropdown.CheckboxItem>
-				<Dropdown.CheckboxItem checked={ urlsChecked } onCheckedChange={ setUrlsChecked }>
-					<Dropdown.ItemIndicator>
-						<CheckIcon />
-					</Dropdown.ItemIndicator>
-					Show Full URLs
-				</Dropdown.CheckboxItem>
-				<Dropdown.Separator />
-				<Dropdown.Label>People</Dropdown.Label>
-				<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
-					<Dropdown.RadioItem value="pedro">
-						<Dropdown.ItemIndicator>
-							<DotFilledIcon />
-						</Dropdown.ItemIndicator>
-						Pedro Duarte
-					</Dropdown.RadioItem>
-					<Dropdown.RadioItem value="colm">
-						<Dropdown.ItemIndicator>
-							<DotFilledIcon />
-						</Dropdown.ItemIndicator>
-						Colm Tuite
-					</Dropdown.RadioItem>
-				</Dropdown.RadioGroup>
+				<Dropdown.Item>Errored</Dropdown.Item>
 			</Dropdown.Root>
 
 			<Text>
@@ -115,59 +60,143 @@ export const ComplexOptions = () => {
 				</Link>
 			</Text>
 		</>
-	);
+	),
 };
 
-export const WithDialog = () => {
-	const [ alertOpen, setAlertOpen ] = React.useState( false );
-	const [ menuOpen, setMenuOpen ] = React.useState( false );
+export const ComplexOptions = {
+	args: {
+		trigger: <Button>See options</Button>,
+	},
+	render: args => {
+		const [ bookmarksChecked, setBookmarksChecked ] = React.useState( true );
+		const [ urlsChecked, setUrlsChecked ] = React.useState( false );
+		const [ person, setPerson ] = React.useState( 'pedro' );
 
-	// eslint-disable-next-line react/prop-types
-	const AreYouSureDialog = ( { onConfirm, ...props } ) => (
-		<NewDialog.Root
-			{ ...props }
-			content={
-				<>
-					<Button variant="secondary" onClick={ () => onConfirm() }>
-						Custom Close.
-					</Button>
-					<p>Teste abc.</p>
-				</>
-			}
-		/>
-	);
+		return (
+			<>
+				<Dropdown.Root { ...args }>
+					<Dropdown.Item>New Tab</Dropdown.Item>
+					<Dropdown.Item>New Window</Dropdown.Item>
+					<Dropdown.Item disabled onSelect={ () => console.log( 'disabled' ) }>
+						New Private Window
+					</Dropdown.Item>
+					<Dropdown.Sub>
+						<Dropdown.SubTrigger>
+							More Tools
+							<ChevronRightIcon />
+						</Dropdown.SubTrigger>
+						<Dropdown.SubContent sideOffset={ 2 } alignOffset={ -5 }>
+							<Dropdown.Item>Save Page As…</Dropdown.Item>
+							<Dropdown.Item>Create Shortcut…</Dropdown.Item>
+							<Dropdown.Item>Name Window…</Dropdown.Item>
+							<Dropdown.Separator />
+							<Dropdown.Item>Developer Tools</Dropdown.Item>
+						</Dropdown.SubContent>
+					</Dropdown.Sub>
+					<Dropdown.Separator />
+					<Dropdown.CheckboxItem
+						checked={ bookmarksChecked }
+						onCheckedChange={ setBookmarksChecked }
+					>
+						<Dropdown.ItemIndicator>
+							<CheckIcon />
+						</Dropdown.ItemIndicator>
+						Show Bookmarks
+					</Dropdown.CheckboxItem>
+					<Dropdown.CheckboxItem checked={ urlsChecked } onCheckedChange={ setUrlsChecked }>
+						<Dropdown.ItemIndicator>
+							<CheckIcon />
+						</Dropdown.ItemIndicator>
+						Show Full URLs
+					</Dropdown.CheckboxItem>
+					<Dropdown.Separator />
+					<Dropdown.Label>People</Dropdown.Label>
+					<Dropdown.RadioGroup value={ person } onValueChange={ setPerson }>
+						<Dropdown.RadioItem value="pedro">
+							<Dropdown.ItemIndicator>
+								<DotFilledIcon />
+							</Dropdown.ItemIndicator>
+							Pedro Duarte
+						</Dropdown.RadioItem>
+						<Dropdown.RadioItem value="colm">
+							<Dropdown.ItemIndicator>
+								<DotFilledIcon />
+							</Dropdown.ItemIndicator>
+							Colm Tuite
+						</Dropdown.RadioItem>
+					</Dropdown.RadioGroup>
+				</Dropdown.Root>
 
-	return (
-		<div>
-			<Text>
-				This is an important example when combining the Dropdown component with the NewDialog
-				component. In order to have the correct accessibility, there are some events you need to
-				use. Use this example if you want to copy and paste the code.
-			</Text>
+				<Text>
+					This component is based on the Radix Dropdown. You can find all available options, props
+					and features in the{ ' ' }
+					<Link
+						href="https://www.radix-ui.com/docs/primitives/components/dropdown-menu"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Dropdown Documentation page.
+					</Link>
+				</Text>
+			</>
+		);
+	},
+};
 
-			<Dropdown.Root
-				modal={ ! alertOpen }
-				open={ menuOpen }
-				onOpenChange={ setMenuOpen }
-				contentProps={ { sideOffset: 5 } }
-				trigger={ <Button>Open</Button> }
-			>
-				<Dropdown.Item>I don&apos;t do anything</Dropdown.Item>
+export const WithDialog = {
+	render: () => {
+		const [ alertOpen, setAlertOpen ] = React.useState( false );
+		const [ menuOpen, setMenuOpen ] = React.useState( false );
 
-				<AreYouSureDialog
-					title="Are you in the jungle?"
-					description="sha-n-n-n-n-n-n-n-n knees, knees"
-					open={ alertOpen }
-					onOpenChange={ setAlertOpen }
-					onConfirm={ () => {
-						setAlertOpen( false );
-						setMenuOpen( false );
-					} }
-					trigger={
-						<Dropdown.Item onSelect={ event => event.preventDefault() }>Open Dialog</Dropdown.Item>
-					}
-				/>
-			</Dropdown.Root>
-		</div>
-	);
+		// eslint-disable-next-line react/prop-types
+		const AreYouSureDialog = ( { onConfirm, ...props } ) => (
+			<NewDialog.Root
+				{ ...props }
+				content={
+					<>
+						<Button variant="secondary" onClick={ () => onConfirm() }>
+							Custom Close.
+						</Button>
+						<p>Teste abc.</p>
+					</>
+				}
+			/>
+		);
+
+		return (
+			<div>
+				<Text>
+					This is an important example when combining the Dropdown component with the NewDialog
+					component. In order to have the correct accessibility, there are some events you need to
+					use. Use this example if you want to copy and paste the code.
+				</Text>
+
+				<Dropdown.Root
+					modal={ ! alertOpen }
+					open={ menuOpen }
+					onOpenChange={ setMenuOpen }
+					contentProps={ { sideOffset: 5 } }
+					trigger={ <Button>Open</Button> }
+				>
+					<Dropdown.Item>I don&apos;t do anything</Dropdown.Item>
+
+					<AreYouSureDialog
+						title="Are you in the jungle?"
+						description="sha-n-n-n-n-n-n-n-n knees, knees"
+						open={ alertOpen }
+						onOpenChange={ setAlertOpen }
+						onConfirm={ () => {
+							setAlertOpen( false );
+							setMenuOpen( false );
+						} }
+						trigger={
+							<Dropdown.Item onSelect={ event => event.preventDefault() }>
+								Open Dialog
+							</Dropdown.Item>
+						}
+					/>
+				</Dropdown.Root>
+			</div>
+		);
+	},
 };

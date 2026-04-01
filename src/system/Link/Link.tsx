@@ -25,6 +25,10 @@ export enum LinkVariant {
 }
 
 export interface LinkProps extends ThemeLinkProps {
+	/**
+	 * The visual style variant of the link. Button variants render the link styled as a button.
+	 * @default 'primary'
+	 */
 	variant?: keyof typeof LinkVariant;
 }
 
@@ -38,6 +42,9 @@ export const defaultLinkComponentStyle: ThemeUIStyleObject = {
 	'&:focus-visible': ( theme: LinkTheme ) => theme.outline,
 };
 
+/**
+ * A themed anchor element that supports text and button-style variants with focus-visible styling.
+ */
 export const Link = forwardRef< HTMLAnchorElement, LinkProps >(
 	( { variant = 'primary', sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
 		<ThemeLink

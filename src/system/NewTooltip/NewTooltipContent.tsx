@@ -8,9 +8,13 @@ import { ThemeUIStyleObject } from 'theme-ui';
 import { contentStyles } from './styles';
 
 export interface NewTooltipContentProps extends TooltipPrimitive.TooltipContentProps {
+	/** Theme UI style overrides for the tooltip content container. */
 	sx?: ThemeUIStyleObject;
 }
 
+/**
+ * The styled content container for the NewTooltip component.
+ */
 export const NewTooltipContent = React.forwardRef< HTMLDivElement, NewTooltipContentProps >(
 	( { sx, className, children, ...props }, ref ) => (
 		<TooltipPrimitive.Content

@@ -12,24 +12,25 @@ export default {
 
 const ConfirmationTrigger = <Button sx={ { mr: 3 } }>Click to answer</Button>;
 
-export const Default = () => {
-	const [ answer, setAnswer ] = React.useState( '🤔' );
-	return (
-		<Box>
-			<p>Confirm that your name is John doe?</p>
-			<NewConfirmationDialog
-				className="storybook-confirmation-dialog"
-				title={ 'Are you John Doe?' }
-				buttonVariant="danger"
-				description={ 'Please confirm that your name is John Doe.' }
-				trigger={ ConfirmationTrigger }
-				body="A modal is used to perform more detailed actions that don&lsquo;t necessarily need the context
-					behind."
-				onConfirm={ () => setAnswer( '👍' ) }
-				needsConfirm={ true }
-			/>
+export const Default = {
+	args: {
+		className: 'storybook-confirmation-dialog',
+		title: 'Are you John Doe?',
+		buttonVariant: 'danger',
+		description: 'Please confirm that your name is John Doe.',
+		trigger: ConfirmationTrigger,
+		body: "A modal is used to perform more detailed actions that don't necessarily need the context behind.",
+		needsConfirm: true,
+	},
+	render: args => {
+		const [ answer, setAnswer ] = React.useState( '🤔' );
+		return (
+			<Box>
+				<p>Confirm that your name is John doe?</p>
+				<NewConfirmationDialog { ...args } onConfirm={ () => setAnswer( '👍' ) } />
 
-			<p>Answer: { answer }</p>
-		</Box>
-	);
+				<p>Answer: { answer }</p>
+			</Box>
+		);
+	},
 };

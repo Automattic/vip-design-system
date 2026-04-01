@@ -14,10 +14,15 @@ import { Link, LinkProps } from 'theme-ui';
 const VIP_LOGO = 'vip-logo-component';
 
 export interface LogoProps extends LinkProps {
+	/** Additional CSS class name for the logo SVG element. */
 	className?: string;
+	/** The URL the logo links to. */
 	href?: string;
 }
 
+/**
+ * The WordPress VIP logo rendered as an SVG inside a themed link.
+ */
 export const Logo = ( { className, as = 'a', href }: LogoProps ) => (
 	<Link
 		sx={ {

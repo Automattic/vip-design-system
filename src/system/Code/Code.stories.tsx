@@ -5,7 +5,7 @@ import React from 'react';
 
 import { Code } from '..';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 /**
  * Internal dependencies
@@ -17,6 +17,14 @@ export default {
 };
 
 type Story = StoryObj< typeof Code >;
+
+export const Primary: Story = {
+	args: {
+		children: 'npm install @automattic/vip-design-system',
+		prompt: true,
+		showCopy: true,
+	},
+};
 
 export const DefaultWithTime: Story = {
 	render: () => (

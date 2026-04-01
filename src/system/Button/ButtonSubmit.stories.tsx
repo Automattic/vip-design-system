@@ -5,7 +5,7 @@ import React from 'react';
 
 import { ButtonSubmit } from '..';
 
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 /**
  * Internal dependencies
@@ -19,6 +19,13 @@ export default {
 type Story = StoryObj< typeof ButtonSubmit >;
 
 export const Primary: Story = {
+	args: {
+		label: 'Submit',
+		loading: false,
+	},
+};
+
+export const PrimaryVariant: Story = {
 	render: () => <ButtonSubmit label="Primary" variant="primary" sx={ { ml: 2 } } />,
 };
 

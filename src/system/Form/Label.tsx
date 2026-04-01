@@ -20,12 +20,19 @@ export const baseLabelStyle = {
 };
 
 export interface LabelProps extends BoxProps {
+	/** The content rendered inside the label. */
 	children?: React.ReactNode;
+	/** Whether the label should display a pointer cursor on hover. */
 	clickable?: boolean;
+	/** Whether to display a required field indicator next to the label. */
 	required?: boolean;
+	/** The ID of the form element this label is associated with. */
 	htmlFor?: string;
 }
 
+/**
+ * A form label component with support for required field indicators and clickable styling.
+ */
 export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
 	( { sx, children, required, clickable, as = 'label', ...rest }, forwardRef ) => (
 		<Box

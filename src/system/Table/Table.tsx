@@ -5,24 +5,31 @@
  * External dependencies
  */
 import classNames, { Argument } from 'classnames';
-import { forwardRef, ReactNode, Ref, useMemo } from 'react';
+import { forwardRef, ReactNode, Ref, useId } from 'react';
 
 /**
  * Internal dependencies
  */
 import { Box } from '../';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
-import { generateId } from '../utils/random';
 
 import type { ThemeUIStyleObject } from 'theme-ui';
 
 export interface TableProps {
+	/** Accessible caption describing the table contents. A console warning is shown if omitted. */
 	caption?: string;
+	/** Table content (thead, tbody, tr elements, etc.). */
 	children?: ReactNode;
+	/** Additional CSS class name(s) for the table container. */
 	className?: Argument;
+	/** Theme UI style overrides applied to the table element. */
 	sx?: ThemeUIStyleObject;
 }
 
+/**
+ * A horizontally scrollable data table with an accessible caption.
+ * Wraps a native HTML table in a scrollable region with proper ARIA labeling.
+ */
 export const Table = forwardRef< HTMLTableElement, TableProps >(
 	( { sx, className, children, caption, ...props }: TableProps, ref: Ref< HTMLTableElement > ) => {
 		if ( ! caption ) {
@@ -30,15 +37,13 @@ export const Table = forwardRef< HTMLTableElement, TableProps >(
 			console.warn( '[A11Y] Please, add a caption to your table.' );
 		}
 
-		const captionId = useMemo( () => `table_caption_${ generateId() }`, [] );
+		const captionId = useId();
 
 		return (
 			<Box
 				className={ classNames( 'vip-table-component', className ) }
 				sx={ { width: '100%', maxWidth: '100vw', overflowX: 'auto' } }
-				role="region"
-				aria-labelledby={ captionId }
-				tabIndex={ 0 }
+				{ ...( caption ? { role: 'region', 'aria-labelledby': captionId, tabIndex: 0 } : {} ) }
 			>
 				<table
 					sx={ { width: '100%', minWidth: '1024px', borderSpacing: 0, ...sx } }

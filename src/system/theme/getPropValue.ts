@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument */
 /**
  * Internal dependencies
  */
@@ -48,7 +49,7 @@ export default theme => {
 	const getHeadingStyles = () => {
 		const variantValues = getVariants( 'heading' );
 
-		const headingStyles = {};
+		const headingStyles: Record< string, unknown > = {};
 		const baseProps = {
 			fontWeight: 'heading',
 			color: 'heading',

@@ -8,12 +8,25 @@ import { RadioOption, RadioOptionOptionProps } from './RadioOption';
 export const VIP_RADIO = 'vip-radio-component';
 
 export type RadioProps = {
+	/**
+	 * The visual style variant.
+	 * @default 'primary'
+	 */
 	variant?: 'primary' | 'success' | 'brand' | 'disabled';
+	/**
+	 * Disables all radio options.
+	 * @default false
+	 */
 	disabled?: boolean | undefined;
+	/** The initially selected value. */
 	defaultValue?: string | number;
+	/** Callback fired when the selected option changes. */
 	onChange?: ( e: React.ChangeEvent< HTMLInputElement >, option?: RadioOptionOptionProps ) => void;
+	/** The HTML name attribute shared by all radio inputs in the group. */
 	name?: string;
+	/** The list of radio options to render. */
 	options?: RadioOptionOptionProps[];
+	/** Additional CSS class name. */
 	className?: string;
 };
 

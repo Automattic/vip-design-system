@@ -11,16 +11,28 @@ import { Image, ImageProps, ThemeUIStyleObject } from 'theme-ui';
 import { Box, Text } from '..';
 
 export interface AvatarProps {
+	/**
+	 * The width and height of the avatar in pixels.
+	 * @default 32
+	 */
 	size?: number;
+	/** Image URL for the avatar. When provided, renders an image instead of initials. */
 	src?: string;
+	/** The full name of the user; the first character is used as the fallback initial. */
 	name?: string;
+	/** Custom abbreviation text displayed when no image is provided, overrides the initial from `name`. */
 	abbr?: string;
+	/** Additional CSS class names. */
 	className?: Argument;
+	/** Additional Theme UI styles applied to the avatar container. */
 	sx?: ThemeUIStyleObject;
 }
 
 type AvatarImageProps = AvatarProps & ImageProps;
 
+/**
+ * A circular avatar component that displays a user image or falls back to an initial/abbreviation.
+ */
 export const Avatar = forwardRef< HTMLElement, AvatarImageProps >(
 	(
 		{ name, size = 32, src, className, sx = {}, abbr, ...props }: AvatarImageProps,

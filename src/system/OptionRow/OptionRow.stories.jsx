@@ -14,6 +14,16 @@ export default {
 	component: OptionRow,
 };
 
+export const Primary = {
+	args: {
+		label: 'Option Row',
+		subTitle: 'Mostly used to link off to other pages.',
+		as: 'a',
+		href: 'http://google.com/',
+		variant: 'default',
+	},
+};
+
 // eslint-disable-next-line react/prop-types
 const Base = ( { variant } ) => (
 	<Box>
@@ -48,28 +58,34 @@ const Base = ( { variant } ) => (
 	</Box>
 );
 
-export const Default = () => <Base />;
+export const Default = {
+	render: () => <Base />,
+};
 
-export const Alternative = () => <Base variant="alt" />;
+export const Alternative = {
+	render: () => <Base variant="alt" />,
+};
 
-export const WithMeta = () => (
-	<Box>
-		<OptionRow
-			image={ <BiAddToQueue size={ 24 } /> }
-			label="Option Row 1"
-			subTitle="Build changes from def5fee229ecda72382e7d881305b572417a53b8 https://github.com/wpcomvip/my-repo/actions/runs/6883309086"
-			as="div"
-			href="http://google.com/"
-			meta="Meta text"
-		/>
-		<OptionRow
-			image={ <BiCalendarHeart size={ 24 } /> }
-			label="Option Row 2"
-			subTitle="Build changes from def5fee229ecda72382e7d881305b572417a53b8 https://github.com/wpcomvip/my-repo/actions/runs/6883309086"
-			as="div"
-			href="http://google.com/"
-			order={ 2 }
-			meta="Meta text"
-		/>
-	</Box>
-);
+export const WithMeta = {
+	render: () => (
+		<Box>
+			<OptionRow
+				image={ <BiAddToQueue size={ 24 } /> }
+				label="Option Row 1"
+				subTitle="Build changes from def5fee229ecda72382e7d881305b572417a53b8 https://github.com/wpcomvip/my-repo/actions/runs/6883309086"
+				as="div"
+				href="http://google.com/"
+				meta="Meta text"
+			/>
+			<OptionRow
+				image={ <BiCalendarHeart size={ 24 } /> }
+				label="Option Row 2"
+				subTitle="Build changes from def5fee229ecda72382e7d881305b572417a53b8 https://github.com/wpcomvip/my-repo/actions/runs/6883309086"
+				as="div"
+				href="http://google.com/"
+				order={ 2 }
+				meta="Meta text"
+			/>
+		</Box>
+	),
+};

@@ -3,15 +3,35 @@
  */
 import { Skeleton } from '..';
 
+import type { StoryObj } from '@storybook/react-vite';
+
 export default {
 	title: 'Skeleton',
 	component: Skeleton,
 };
 
-export const Default = () => <Skeleton />;
+type Story = StoryObj< typeof Skeleton >;
 
-export const Grouped = () => <Skeleton times={ 3 } />;
+export const Default: Story = {
+	args: {},
+};
 
-export const Circle = () => <Skeleton variant="circle" width="50px" height="50px" />;
+export const Grouped: Story = {
+	args: {
+		times: 3,
+	},
+};
 
-export const Text = () => <Skeleton variant="text" />;
+export const Circle: Story = {
+	args: {
+		variant: 'circle',
+		width: '50px',
+		height: '50px',
+	},
+};
+
+export const Text: Story = {
+	args: {
+		variant: 'text',
+	},
+};

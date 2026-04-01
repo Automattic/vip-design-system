@@ -16,8 +16,11 @@ import {
 } from './styles/variants/menugroup';
 
 export interface NavItemGroupProps extends NavItemBaseProps {
+	/** Render function for an optional leading icon. Receives the icon size as argument. */
 	renderIcon?: NavItemRenderIconProp;
+	/** Whether any child item within the group is currently active. */
 	activeChildren?: boolean;
+	/** The visible text label for the collapsible group trigger. */
 	label: string;
 }
 
@@ -98,6 +101,10 @@ export const IconContainer = ( { children }: { children: React.ReactNode } ) => 
 	</div>
 );
 
+/**
+ * A collapsible group of navigation items for vertical menu navigation.
+ * Renders a trigger button that expands/collapses a list of child nav items.
+ */
 export const ItemGroupMenu = forwardRef< HTMLLIElement, NavItemGroupProps >(
 	( props: NavItemGroupProps, ref: Ref< HTMLLIElement > ) => (
 		<NavItemGroupBase { ...props } orientation="vertical" variant="menu" ref={ ref } />

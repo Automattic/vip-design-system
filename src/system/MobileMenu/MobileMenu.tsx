@@ -9,10 +9,16 @@ import { Logo } from '../Toolbar/Logo';
 import { Button, Flex, Nav, Box } from '../index';
 
 export interface MobileMenuProps {
+	/** The main navigation content displayed below the toolbar items. */
 	children: React.ReactNode;
+	/** Optional toolbar links rendered at the top of the mobile menu in an inverse nav. */
 	toolbarItems?: React.ReactNode;
 }
 
+/**
+ * A full-screen mobile navigation drawer with a logo header and navigation items.
+ * Designed to be used inside a MobileMenuWrapper with a MobileMenuTrigger.
+ */
 export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
 	( { children, toolbarItems }, ref ) => (
 		<Drawer.Content
@@ -91,8 +97,17 @@ export const MobileMenuWrapper = ( { children }: MobileMenuProps ) => (
 
 type MobileMenuTriggerDisplayProp = 'none' | 'flex';
 type MobileMenuTriggerProps = {
+	/** Accessible label for the menu trigger button.
+	 * @default 'Menu'
+	 */
 	label: string;
+	/** The color variant of the trigger button.
+	 * @default 'primary'
+	 */
 	variant?: 'primary' | 'inverse';
+	/** Responsive display values controlling visibility at each breakpoint.
+	 * @default ['none', 'flex', 'flex', 'none']
+	 */
 	display?: MobileMenuTriggerDisplayProp[];
 };
 

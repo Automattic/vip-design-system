@@ -16,9 +16,17 @@ export type NavVariant =
 	| 'primary-inverse';
 
 export interface NavProps extends NavigationMenu.NavigationMenuProps {
+	/** Additional CSS class name for the nav element. */
 	className?: string;
+	/** The visual style variant of the navigation.
+	 * @default 'primary'
+	 */
 	variant?: NavVariant;
+	/** Accessible label for the navigation landmark. */
 	label: string;
+	/** The layout direction of the navigation items.
+	 * @default 'horizontal'
+	 */
 	orientation?: 'horizontal' | 'vertical';
 }
 
@@ -76,6 +84,10 @@ const NavMenu = forwardRef< HTMLElement, NavProps >(
 
 export type NavItemRenderIconProp = ( size: number ) => JSX.Element | null;
 
+/**
+ * Navigation component with multiple style variants built on Radix UI NavigationMenu.
+ * Use the appropriate sub-component for each context (Primary, Tab, Toolbar, Menu).
+ */
 export const Nav = {
 	Primary: NavPrimary,
 	PrimaryInverse: NavPrimaryInverse,
