@@ -220,6 +220,8 @@ export const OpenEndedLastPage: Story = {
 	render: () => <OpenEndedPaginationWithState hasNextPage={ false } initialPage={ 15 } />,
 };
 
+const arrowsPageTokens = [ 'start', 'abc123', 'def456', 'ghi789', 'jkl012', 'end' ];
+
 const ArrowsPaginationWithState = ( {
 	initialHasPreviousPage = false,
 	initialHasNextPage = true,
@@ -229,20 +231,23 @@ const ArrowsPaginationWithState = ( {
 	initialHasNextPage?: boolean;
 	displayItemsPerPageSelector?: boolean;
 } ) => {
-	const cursors = [ 'start', 'abc123', 'def456', 'ghi789', 'jkl012', 'end' ];
 	const [ index, setIndex ] = useState( initialHasPreviousPage ? 2 : 0 );
 	const [ itemsPerPage, setItemsPerPage ] = useState( 20 );
 
 	const hasPreviousPage = index > 0;
-	const hasNextPage = initialHasNextPage && index < cursors.length - 1;
+	const hasNextPage = initialHasNextPage && index < arrowsPageTokens.length - 1;
 
 	return (
 		<Pagination
 			variant="arrows"
 			hasNextPage={ hasNextPage }
 			hasPreviousPage={ hasPreviousPage }
-			nextParam={ hasNextPage ? { param: 'after', value: cursors[ index + 1 ] } : undefined }
-			previousParam={ hasPreviousPage ? { param: 'before', value: cursors[ index ] } : undefined }
+			nextParam={
+				hasNextPage ? { param: 'after', value: arrowsPageTokens[ index + 1 ] } : undefined
+			}
+			previousParam={
+				hasPreviousPage ? { param: 'before', value: arrowsPageTokens[ index ] } : undefined
+			}
 			onNavigate={ param => {
 				if ( param === 'after' ) {
 					setIndex( i => i + 1 );
@@ -267,7 +272,7 @@ const ArrowsPaginationWithState = ( {
 					DEBUG
 				</Badge>
 				<Text>
-					Index: { index } — value: { cursors[ index ] }
+					Index: { index } — value: { arrowsPageTokens[ index ] }
 				</Text>
 			</Flex>
 		</Pagination>
@@ -276,37 +281,4 @@ const ArrowsPaginationWithState = ( {
 
 export const Arrows: Story = {
 	render: () => <ArrowsPaginationWithState />,
-};
-
-export const ArrowsFirstPage: Story = {
-	render: () => <ArrowsPaginationWithState />,
-	parameters: {
-		docs: {
-			description: {
-				story: 'Arrows variant on the first page — Previous button is disabled.',
-			},
-		},
-	},
-};
-
-export const ArrowsLastPage: Story = {
-	render: () => <ArrowsPaginationWithState initialHasNextPage={ false } initialHasPreviousPage />,
-	parameters: {
-		docs: {
-			description: {
-				story: 'Arrows variant on the last page — Next button is disabled.',
-			},
-		},
-	},
-};
-
-export const ArrowsWithPageSize: Story = {
-	render: () => <ArrowsPaginationWithState displayItemsPerPageSelector />,
-	parameters: {
-		docs: {
-			description: {
-				story: 'Arrows variant with an items-per-page selector.',
-			},
-		},
-	},
 };

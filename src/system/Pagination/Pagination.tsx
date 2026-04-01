@@ -29,15 +29,43 @@ export interface ArrowsNavigationParam {
 	value: string;
 }
 
-interface PaginationBaseProps {
+export interface PaginationProps {
 	/** Whether to show the items-per-page dropdown selector.
 	 * @default false
 	 */
 	displayItemsPerPageSelector?: boolean;
+	/** The currently active page number (1-based). */
+	currentPage?: number;
+	/** Total number of items across all pages. Used to compute totalPages if not provided. */
+	totalItems?: number;
+	/** Total number of pages. Takes precedence over totalItems for page count. */
+	totalPages?: number;
+	/** Number of items displayed per page. */
+	itemsPerPage?: number;
+	/** Callback fired when the user navigates to a different page. */
+	onPageChange?: ( page: number ) => void;
+	/** Callback fired when the user changes the items-per-page value. */
+	onItemsPerPageChange?: ( itemsPerPage: number ) => void;
+	/** Whether there is a next page available. Used for open-ended pagination without totalPages. */
+	hasNextPage?: boolean;
+	/** Whether there is a previous page available. Used with the 'arrows' variant. */
+	hasPreviousPage?: boolean;
+	/** The maximum page number that can be reached. Used for open-ended pagination without totalPages. */
+	maxReachablePage?: number;
+	/** The display variant: 'full' shows page number buttons, 'compact' shows a page dropdown, 'arrows' shows only prev/next buttons.
+	 * @default 'full'
+	 */
+	variant?: PaginationVariant;
 	/** Available page size options for the items-per-page selector.
 	 * @default [20, 50, 100]
 	 */
 	pageSizeOptions?: number[];
+	/** Navigation parameter for the next page. Used with the 'arrows' variant. */
+	nextParam?: ArrowsNavigationParam;
+	/** Navigation parameter for the previous page. Used with the 'arrows' variant. */
+	previousParam?: ArrowsNavigationParam;
+	/** Callback fired when the user navigates via arrows. Receives the param name and value. Used with the 'arrows' variant. */
+	onNavigate?: ( param: string, value: string ) => void;
 	/** Additional CSS class name for the pagination container. */
 	className?: string;
 	/** Theme UI style overrides. */
@@ -45,61 +73,6 @@ interface PaginationBaseProps {
 	/** Optional content rendered between the items-per-page selector and page navigation. */
 	children?: React.ReactNode;
 }
-
-/** Props for page-number based variants ('full' | 'compact'). */
-interface PageNumberPaginationProps extends PaginationBaseProps {
-	/** The display variant: 'full' shows page number buttons, 'compact' shows a page dropdown.
-	 * @default 'full'
-	 */
-	variant?: 'full' | 'compact';
-	/** The currently active page number (1-based). */
-	currentPage: number;
-	/** Total number of items across all pages. Used to compute totalPages if not provided. */
-	totalItems?: number;
-	/** Total number of pages. Takes precedence over totalItems for page count. */
-	totalPages?: number;
-	/** Number of items displayed per page. */
-	itemsPerPage: number;
-	/** Callback fired when the user navigates to a different page. */
-	onPageChange: ( page: number ) => void;
-	/** Callback fired when the user changes the items-per-page value. */
-	onItemsPerPageChange: ( itemsPerPage: number ) => void;
-	/** Whether there is a next page available. Used for open-ended pagination without totalPages. */
-	hasNextPage?: boolean;
-	/** The maximum page number that can be reached. Used for open-ended pagination without totalPages. */
-	maxReachablePage?: number;
-	nextParam?: never;
-	previousParam?: never;
-	onNavigate?: never;
-	hasPreviousPage?: never;
-}
-
-/** Props for the 'arrows' variant. Only shows prev/next arrow buttons. */
-interface ArrowsPaginationProps extends PaginationBaseProps {
-	/** The 'arrows' variant renders only previous/next arrow buttons. */
-	variant: 'arrows';
-	/** Whether there is a next page available. */
-	hasNextPage?: boolean;
-	/** Whether there is a previous page available. */
-	hasPreviousPage?: boolean;
-	/** Navigation parameter for the next page. */
-	nextParam?: ArrowsNavigationParam;
-	/** Navigation parameter for the previous page. */
-	previousParam?: ArrowsNavigationParam;
-	/** Callback fired when the user navigates. Receives the param name and value. */
-	onNavigate: ( param: string, value: string ) => void;
-	/** Number of items displayed per page. Optional for arrows variant. */
-	itemsPerPage?: number;
-	/** Callback fired when the user changes the items-per-page value. Optional for arrows variant. */
-	onItemsPerPageChange?: ( itemsPerPage: number ) => void;
-	currentPage?: never;
-	totalItems?: never;
-	totalPages?: never;
-	onPageChange?: never;
-	maxReachablePage?: never;
-}
-
-export type PaginationProps = PageNumberPaginationProps | ArrowsPaginationProps;
 
 export type PageNumberItem = number | 'ellipsis';
 
@@ -278,13 +251,27 @@ const CompactPageSelector = ( {
 
 /**
  * A pagination control for navigating through paged content.
- * Supports full page-number buttons and compact dropdown modes, with optional items-per-page selection.
+ * Supports full page-number buttons, compact dropdown, and arrows-only modes,
+ * with optional items-per-page selection.
  */
 export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 	(
 		{
 			displayItemsPerPageSelector = false,
+			currentPage = 1,
+			totalItems,
+			totalPages,
+			itemsPerPage = 20,
+			onPageChange,
+			onItemsPerPageChange,
+			hasNextPage,
+			hasPreviousPage,
+			maxReachablePage,
+			variant = 'full',
 			pageSizeOptions = [ 20, 50, 100 ],
+			nextParam,
+			previousParam,
+			onNavigate,
 			className,
 			sx,
 			children,
@@ -292,56 +279,34 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 		},
 		ref
 	) => {
-		const isArrows = rest.variant === 'arrows';
-
-		// Page-number variant values
-		const currentPage = isArrows ? undefined : rest.currentPage;
-		const totalItems = isArrows ? undefined : rest.totalItems;
-		const totalPages = isArrows ? undefined : rest.totalPages;
-		const itemsPerPage = rest.itemsPerPage;
-		const onPageChange = isArrows ? undefined : rest.onPageChange;
-		const onItemsPerPageChange = rest.onItemsPerPageChange;
-		const maxReachablePage = isArrows ? undefined : rest.maxReachablePage;
-		const variant = rest.variant ?? 'full';
-
-		// Arrows variant values
-		const hasNextPage = rest.hasNextPage;
-		const hasPreviousPage = isArrows ? rest.hasPreviousPage : undefined;
-		const nextParam = isArrows ? rest.nextParam : undefined;
-		const previousParam = isArrows ? rest.previousParam : undefined;
-		const onNavigate = isArrows ? rest.onNavigate : undefined;
-
 		const resolvedTotalPages =
 			totalPages ??
-			( totalItems !== undefined && itemsPerPage
-				? Math.ceil( totalItems / itemsPerPage )
-				: undefined );
+			( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
 
-		const isPrevDisabled = isArrows
-			? ! hasPreviousPage || ! previousParam?.value
-			: ( currentPage ?? 1 ) <= 1;
+		const isFirstPage =
+			variant === 'arrows' ? ! hasPreviousPage || ! previousParam?.value : currentPage <= 1;
 
-		let isNextDisabled: boolean;
-		if ( isArrows ) {
-			isNextDisabled = ! hasNextPage || ! nextParam?.value;
+		let isLastPage: boolean;
+		if ( variant === 'arrows' ) {
+			isLastPage = ! hasNextPage || ! nextParam?.value;
 		} else if ( resolvedTotalPages !== undefined ) {
-			isNextDisabled = ( currentPage ?? 1 ) >= resolvedTotalPages;
+			isLastPage = currentPage >= resolvedTotalPages;
 		} else {
-			isNextDisabled = hasNextPage === false;
+			isLastPage = hasNextPage === false;
 		}
 
 		const handlePrevClick = () => {
-			if ( isArrows && onNavigate && previousParam ) {
+			if ( variant === 'arrows' && onNavigate && previousParam ) {
 				onNavigate( previousParam.param, previousParam.value );
-			} else if ( onPageChange && currentPage !== undefined ) {
+			} else if ( onPageChange ) {
 				onPageChange( currentPage - 1 );
 			}
 		};
 
 		const handleNextClick = () => {
-			if ( isArrows && onNavigate && nextParam ) {
+			if ( variant === 'arrows' && onNavigate && nextParam ) {
 				onNavigate( nextParam.param, nextParam.value );
-			} else if ( onPageChange && currentPage !== undefined ) {
+			} else if ( onPageChange ) {
 				onPageChange( currentPage + 1 );
 			}
 		};
@@ -352,9 +317,10 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 				aria-label="Pagination"
 				className={ classNames( 'vip-pagination-component', className ) }
 				sx={ { ...containerStyles, ...sx } }
+				{ ...rest }
 			>
 				<Box>
-					{ displayItemsPerPageSelector && itemsPerPage && onItemsPerPageChange && (
+					{ displayItemsPerPageSelector && onItemsPerPageChange && (
 						<ItemsPerPageSelect
 							itemsPerPage={ itemsPerPage }
 							pageSizeOptions={ pageSizeOptions }
@@ -364,7 +330,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 				</Box>
 				<Box sx={ { flex: 1 } }>{ children }</Box>
 				<Flex sx={ navigationStyles }>
-					{ variant === 'full' && currentPage !== undefined && onPageChange && (
+					{ variant === 'full' && onPageChange && (
 						<PageNumbers
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
@@ -374,7 +340,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						/>
 					) }
 
-					{ variant === 'compact' && currentPage !== undefined && onPageChange && (
+					{ variant === 'compact' && onPageChange && (
 						<CompactPageSelector
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
@@ -385,7 +351,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 
 					<Button
 						aria-label="Previous page"
-						disabled={ isPrevDisabled }
+						disabled={ isFirstPage }
 						onClick={ handlePrevClick }
 						sx={ { ...arrowButtonStyles, ml: variant === 'arrows' ? 0 : 4 } }
 					>
@@ -394,7 +360,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 
 					<Button
 						aria-label="Next page"
-						disabled={ isNextDisabled }
+						disabled={ isLastPage }
 						onClick={ handleNextClick }
 						sx={ arrowButtonStyles }
 					>
