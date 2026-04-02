@@ -21,11 +21,12 @@ const meta: Meta< typeof Pagination > = {
 				component: `
 A Pagination component for navigating paged data.
 
-## Variants
+## Modes
 
-- **full** (default): Shows individual page number buttons with ellipsis for large page counts.
-- **compact**: Shows a dropdown page selector instead of individual page numbers.
-- **arrows**: Shows only prev/next arrow buttons. Designed for cursor-based pagination APIs with custom param names (e.g., \`after\`/\`before\`).
+- **Default**: Shows individual page number buttons with ellipsis for large page counts.
+- **Compact** (\`compact\` prop): Shows a dropdown page selector instead of individual page numbers.
+
+For cursor-based pagination with only prev/next arrows, see \`SimplePagination\`.
 
 ## Component Properties
 `,
@@ -43,12 +44,13 @@ const PaginationWithState = ( {
 	totalItems = 200,
 	initialItemsPerPage = 20,
 	displayItemsPerPageSelector = false,
+	compact = false,
 	...props
 }: {
 	initialPage?: number;
 	totalItems?: number;
 	initialItemsPerPage?: number;
-	variant?: 'full' | 'compact';
+	compact?: boolean;
 	pageSizeOptions?: number[];
 	displayItemsPerPageSelector?: boolean;
 } ) => {
@@ -63,6 +65,7 @@ const PaginationWithState = ( {
 			itemsPerPage={ itemsPerPage }
 			onPageChange={ setCurrentPage }
 			displayItemsPerPageSelector={ displayItemsPerPageSelector }
+			compact={ compact }
 			onItemsPerPageChange={ size => {
 				setItemsPerPage( size );
 				setCurrentPage( 1 );
@@ -85,12 +88,12 @@ const OpenEndedPaginationWithState = ( {
 	initialPage = 1,
 	initialItemsPerPage = 20,
 	hasNextPage,
-	...props
+	compact = false,
 }: {
 	initialPage?: number;
 	initialItemsPerPage?: number;
 	hasNextPage?: boolean;
-	variant?: 'full' | 'compact';
+	compact?: boolean;
 } ) => {
 	const [ currentPage, setCurrentPage ] = useState( initialPage );
 	const [ itemsPerPage, setItemsPerPage ] = useState( initialItemsPerPage );
@@ -105,7 +108,7 @@ const OpenEndedPaginationWithState = ( {
 				setCurrentPage( 1 );
 			} }
 			hasNextPage={ hasNextPage }
-			{ ...props }
+			compact={ compact }
 		>
 			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
 				<Badge variant="gold" sx={ { mr: 2 } }>
@@ -122,7 +125,6 @@ export const Primary: Story = {
 		currentPage: 1,
 		totalItems: 200,
 		itemsPerPage: 20,
-		variant: 'full',
 		displayItemsPerPageSelector: false,
 	},
 };
@@ -132,7 +134,7 @@ export const Default: Story = {
 };
 
 export const Compact: Story = {
-	render: () => <PaginationWithState variant="compact" />,
+	render: () => <PaginationWithState compact />,
 };
 
 export const FewPages: Story = {
@@ -213,72 +215,9 @@ export const OpenEnded: Story = {
 };
 
 export const OpenEndedCompact: Story = {
-	render: () => <OpenEndedPaginationWithState variant="compact" />,
+	render: () => <OpenEndedPaginationWithState compact />,
 };
 
 export const OpenEndedLastPage: Story = {
 	render: () => <OpenEndedPaginationWithState hasNextPage={ false } initialPage={ 15 } />,
-};
-
-const arrowsPageTokens = [ 'start', 'abc123', 'def456', 'ghi789', 'jkl012', 'end' ];
-
-const ArrowsPaginationWithState = ( {
-	initialHasPreviousPage = false,
-	initialHasNextPage = true,
-	displayItemsPerPageSelector = false,
-}: {
-	initialHasPreviousPage?: boolean;
-	initialHasNextPage?: boolean;
-	displayItemsPerPageSelector?: boolean;
-} ) => {
-	const [ index, setIndex ] = useState( initialHasPreviousPage ? 2 : 0 );
-	const [ itemsPerPage, setItemsPerPage ] = useState( 20 );
-
-	const hasPreviousPage = index > 0;
-	const hasNextPage = initialHasNextPage && index < arrowsPageTokens.length - 1;
-
-	return (
-		<Pagination
-			variant="arrows"
-			hasNextPage={ hasNextPage }
-			hasPreviousPage={ hasPreviousPage }
-			nextParam={
-				hasNextPage ? { param: 'after', value: arrowsPageTokens[ index + 1 ] } : undefined
-			}
-			previousParam={
-				hasPreviousPage ? { param: 'before', value: arrowsPageTokens[ index ] } : undefined
-			}
-			onNavigate={ param => {
-				if ( param === 'after' ) {
-					setIndex( i => i + 1 );
-				}
-				if ( param === 'before' ) {
-					setIndex( i => i - 1 );
-				}
-			} }
-			displayItemsPerPageSelector={ displayItemsPerPageSelector }
-			itemsPerPage={ displayItemsPerPageSelector ? itemsPerPage : undefined }
-			onItemsPerPageChange={
-				displayItemsPerPageSelector
-					? size => {
-							setItemsPerPage( size );
-							setIndex( 0 );
-					  }
-					: undefined
-			}
-		>
-			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
-				<Badge variant="gold" sx={ { mr: 2 } }>
-					DEBUG
-				</Badge>
-				<Text>
-					Index: { index } — value: { arrowsPageTokens[ index ] }
-				</Text>
-			</Flex>
-		</Pagination>
-	);
-};
-
-export const Arrows: Story = {
-	render: () => <ArrowsPaginationWithState />,
 };
