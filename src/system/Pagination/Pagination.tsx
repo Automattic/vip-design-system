@@ -1,13 +1,12 @@
 /** @jsxImportSource theme-ui */
 
-import classNames from 'classnames';
 import { forwardRef } from 'react';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { Flex, ThemeUIStyleObject } from 'theme-ui';
+import { Flex } from 'theme-ui';
 
+import { PaginationLayout, PaginationLayoutProps } from './PaginationLayout';
 import {
-	containerStyles,
 	navigationStyles,
 	pageButtonStyles,
 	activePageButtonStyles,
@@ -19,13 +18,7 @@ import { Button } from '../Button';
 import { Select } from '../NewForm';
 import { Text } from '../Text';
 
-export type PaginationVariant = 'full' | 'compact';
-
-export interface PaginationProps {
-	/** Whether to show the items-per-page dropdown selector.
-	 * @default false
-	 */
-	displayItemsPerPageSelector?: boolean;
+export interface PaginationProps extends PaginationLayoutProps {
 	/** The currently active page number (1-based). */
 	currentPage: number;
 	/** Total number of items across all pages. Used to compute totalPages if not provided. */
@@ -42,20 +35,15 @@ export interface PaginationProps {
 	hasNextPage?: boolean;
 	/** The maximum page number that can be reached. Used for open-ended pagination without totalPages. */
 	maxReachablePage?: number;
-	/** The display variant: 'full' shows page number buttons, 'compact' shows a page dropdown.
+	/** When true, shows a compact dropdown page selector instead of individual page buttons.
+	 * @default false
+	 */
+	compact?: boolean;
+	/** Display variant. Use 'compact' for dropdown page selector. Equivalent to the `compact` prop.
 	 * @default 'full'
+	 * @deprecated Use the `compact` prop instead, or `SimplePagination` for cursor-based navigation.
 	 */
-	variant?: PaginationVariant;
-	/** Available page size options for the items-per-page selector.
-	 * @default [20, 50, 100]
-	 */
-	pageSizeOptions?: number[];
-	/** Additional CSS class name for the pagination container. */
-	className?: string;
-	/** Theme UI style overrides. */
-	sx?: ThemeUIStyleObject;
-	/** Optional content rendered between the items-per-page selector and page navigation. */
-	children?: React.ReactNode;
+	variant?: 'full' | 'compact';
 }
 
 export type PageNumberItem = number | 'ellipsis';
@@ -131,28 +119,6 @@ export function getPageNumbers(
 		'ellipsis',
 	];
 }
-
-const ItemsPerPageSelect = ( {
-	itemsPerPage,
-	pageSizeOptions,
-	onItemsPerPageChange,
-}: {
-	itemsPerPage: number;
-	pageSizeOptions: number[];
-	onItemsPerPageChange: ( size: number ) => void;
-} ) => (
-	<Select
-		id="items-per-page"
-		aria-label="Items per page"
-		separator={ false }
-		value={ itemsPerPage }
-		options={ pageSizeOptions.map( size => ( {
-			value: size,
-			label: `${ size.toString() } / page`,
-		} ) ) }
-		onChange={ option => onItemsPerPageChange( Number( option?.value ) ) }
-	/>
-);
 
 const PageNumbers = ( {
 	currentPage,
@@ -235,12 +201,11 @@ const CompactPageSelector = ( {
 
 /**
  * A pagination control for navigating through paged content.
- * Supports full page-number buttons and compact dropdown modes, with optional items-per-page selection.
+ * Shows page-number buttons by default, or a compact dropdown when `compact` is true.
  */
 export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 	(
 		{
-			displayItemsPerPageSelector = false,
 			currentPage,
 			totalItems,
 			totalPages,
@@ -249,8 +214,10 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 			onItemsPerPageChange,
 			hasNextPage,
 			maxReachablePage,
-			variant = 'full',
-			pageSizeOptions = [ 20, 50, 100 ],
+			compact = false,
+			variant,
+			displayItemsPerPageSelector,
+			pageSizeOptions,
 			className,
 			sx,
 			children,
@@ -258,47 +225,45 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 		},
 		ref
 	) => {
+		const isCompact = compact || variant === 'compact';
+
 		const resolvedTotalPages =
 			totalPages ??
 			( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
 
 		const isFirstPage = currentPage <= 1;
-		const isLastPage =
-			resolvedTotalPages !== undefined ? currentPage >= resolvedTotalPages : hasNextPage === false;
+		let isLastPage: boolean;
+		if ( resolvedTotalPages !== undefined ) {
+			isLastPage = currentPage >= resolvedTotalPages;
+		} else {
+			isLastPage = hasNextPage === false;
+		}
 
 		return (
-			<nav
+			<PaginationLayout
 				ref={ ref }
-				aria-label="Pagination"
-				className={ classNames( 'vip-pagination-component', className ) }
-				sx={ { ...containerStyles, ...sx } }
+				displayItemsPerPageSelector={ displayItemsPerPageSelector }
+				itemsPerPage={ itemsPerPage }
+				pageSizeOptions={ pageSizeOptions }
+				onItemsPerPageChange={ onItemsPerPageChange }
+				className={ className }
+				sx={ sx }
 				{ ...rest }
 			>
-				<Box>
-					{ displayItemsPerPageSelector && (
-						<ItemsPerPageSelect
-							itemsPerPage={ itemsPerPage }
-							pageSizeOptions={ pageSizeOptions }
-							onItemsPerPageChange={ onItemsPerPageChange }
-						/>
-					) }
-				</Box>
 				<Box sx={ { flex: 1 } }>{ children }</Box>
 				<Flex sx={ navigationStyles }>
-					{ variant === 'full' && (
+					{ isCompact ? (
+						<CompactPageSelector
+							currentPage={ currentPage }
+							totalPages={ resolvedTotalPages }
+							maxReachablePage={ maxReachablePage }
+							onPageChange={ onPageChange }
+						/>
+					) : (
 						<PageNumbers
 							currentPage={ currentPage }
 							totalPages={ resolvedTotalPages }
 							hasNextPage={ hasNextPage }
-							maxReachablePage={ maxReachablePage }
-							onPageChange={ onPageChange }
-						/>
-					) }
-
-					{ variant === 'compact' && (
-						<CompactPageSelector
-							currentPage={ currentPage }
-							totalPages={ resolvedTotalPages }
 							maxReachablePage={ maxReachablePage }
 							onPageChange={ onPageChange }
 						/>
@@ -322,7 +287,7 @@ export const Pagination = forwardRef< HTMLElement, PaginationProps >(
 						<MdChevronRight size={ 20 } />
 					</Button>
 				</Flex>
-			</nav>
+			</PaginationLayout>
 		);
 	}
 );
