@@ -118,7 +118,7 @@
     "theme-ui": "0.16.0",
     "token-transformer": "0.0.33",
     "typescript": "5.8.3",
-    "vite": "^8.0.3"
+    "vite": "^8.0.5"
   },
   "overrides": {
     "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0"
