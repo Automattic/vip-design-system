@@ -39,35 +39,35 @@ Most of our components are based on [https://theme-ui.com/](https://theme-ui.com
 
 ## Updating the Theme with VIP Design System Tokens
 
-You need to update the tokens once the VIP Design System updates the core files. The Figma Studio plugin will push files into the [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) folder. Once these files are there, you can run the following:
+Token sources live under [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) in [W3C DTCG](https://www.designtokens.org/) format (`.tokens.json`). Figma writes these files directly. Run:
 
 ```bash
 npm run theme-update
 ```
 
-to have an updated json theme under [src/system/theme/generated/](https://github.com/Automattic/vip-design-system/tree/trunk/src/system/theme/generated).
+to regenerate `src/system/theme/generated/valet-theme-{light,dark}.json` from the sources.
 
-### How the theming works
+### Source layout
 
-We use the VIP Design System Tokens as our base theme structure. All colors, spaces, types should come from a dynamic token system provided by the VIP Design team, currently using Figma as the design software. When the design system is updated by the Design team, they push files to the [tokens/](https://github.com/Automattic/vip-design-system/tree/trunk/tokens) directory.
+- `tokens/primitives.tokens.json` — raw color ramps, spacing, type, breakpoints (the `valet-core` layer).
+- `tokens/semantic.tokens.json` — intent-based aliases for the light theme.
+- `tokens/semantic.dark.tokens.json` — overrides applied on top of the semantic layer to produce the dark theme.
 
-By using the [Token Transformer](https://docs.tokens.studio/sync/github#7-how-to-use-tokens-stored-in-github-in-development) and a custom npm script, we parse this file getting only the VIP Dashboard theme we need for the react components. The light theme is called: `wpvip-product-core`, and the dark theme is called `wpvip-product-dark`.
+### Pipeline
 
-Once the new file is updated, we need to generate a custom theme file in [src/system/theme/generated/valet-theme-light.json](https://github.com/Automattic/vip-design-system/blob/trunk/src/system/theme/generated/valet-theme-light.json). It will also generate a Dark theme version. This operation generates JSON files with the colors we need already filled in.
+[Style Dictionary v4](https://styledictionary.com/) (configured in [`style-dictionary/`](https://github.com/Automattic/vip-design-system/tree/trunk/style-dictionary)) reads the DTCG sources, resolves references, evaluates math expressions, converts inline `rgba(...)` calls to 8-char hex, and emits JSON in the legacy `{value, type}` shape that [`src/system/theme/index.ts`](https://github.com/Automattic/vip-design-system/blob/trunk/src/system/theme/index.ts) consumes via `getPropValue` / `getVariants`. Components import the assembled `theme` object from `@automattic/vip-design-system` and mount it with `<ThemeUIProvider>`.
 
-Once the theme is updated, the file [src/system/theme/index.js](https://github.com/Automattic/vip-design-system/blob/trunk/src/system/theme/index.js) reads the colors and apply to all components.
+### Snapshot regression gate
 
-Use the section below to run the script and update the theme.
-
-_Important:_ If you change the `generated/valet-theme-light.json` or the `generated/valet-theme-dark.json`, or changes will be overwritten once someone runs `npm run theme-update` again.
-
-### Update theme script
-
-Run this command to update the VIP Valet Theme with the latest `tokens/**` files.
+Generated themes are pinned to [`tests/fixtures/theme-snapshot/`](https://github.com/Automattic/vip-design-system/tree/trunk/tests/fixtures/theme-snapshot). Run:
 
 ```bash
-npm run theme-update
+npm run theme-verify
 ```
+
+to diff the current build against the snapshot. CI fails on any mismatch. Update the snapshot intentionally when token output is meant to change.
+
+_Important:_ Do not hand-edit `generated/valet-theme-{light,dark}.json` — they're overwritten on every `theme-update`.
 
 ## Feature flags
 

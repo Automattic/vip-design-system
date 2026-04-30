@@ -3,4 +3,5 @@ coverage
 node_modules
 storybook-static
 src/system/theme/generated
+tests/fixtures/theme-snapshot
 tokens/
