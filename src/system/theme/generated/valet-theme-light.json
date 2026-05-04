@@ -1081,55 +1081,61 @@
     },
     "helper-text": {
       "value": {
-        "fontFamily": "SF Pro Text",
+        "fontFamily": "aktiv-grotesk",
         "fontWeight": 400,
         "fontSize": 12,
-        "lineHeight": "150%"
+        "lineHeight": "150%",
+        "letterSpacing": "0.01em"
       },
       "type": "typography"
     },
     "label-xs": {
       "value": {
-        "fontFamily": "SF Pro Text",
+        "fontFamily": "aktiv-grotesk",
         "fontWeight": 400,
         "lineHeight": "100%",
-        "fontSize": 11
+        "fontSize": 11,
+        "letterSpacing": "0.05em"
       },
       "type": "typography"
     },
     "label-small": {
       "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 400,
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 600,
         "lineHeight": "100%",
-        "fontSize": 12
+        "fontSize": 12,
+        "letterSpacing": "0.005em"
       },
       "type": "typography"
     },
     "label-default": {
       "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 500,
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 600,
         "lineHeight": "100%",
-        "fontSize": 14
+        "fontSize": 14,
+        "letterSpacing": "0.005em"
       },
       "type": "typography"
     },
     "label-default-quiet": {
       "value": {
-        "fontFamily": "SF Pro Text",
+        "fontFamily": "aktiv-grotesk",
         "fontWeight": 400,
         "lineHeight": "100%",
-        "fontSize": 14
+        "fontSize": 14,
+        "letterSpacing": "0.005em"
       },
       "type": "typography"
     },
     "label-default-loud": {
       "value": {
-        "fontFamily": "SF Pro Text",
+        "fontFamily": "aktiv-grotesk",
         "fontWeight": 700,
         "lineHeight": "100%",
-        "fontSize": 14
+        "fontSize": 14,
+        "letterSpacing": "0.005em"
       },
       "type": "typography"
     }
@@ -1681,12 +1687,8 @@
     }
   },
   "fontFamily": {
-    "body": {
-      "value": "SF Pro Text",
-      "type": "fontFamilies"
-    },
-    "serif": {
-      "value": "Recoleta",
+    "default": {
+      "value": "aktiv-grotesk",
       "type": "fontFamilies"
     },
     "monospace": {
@@ -1694,40 +1696,136 @@
       "type": "fontFamilies"
     }
   },
-  "fontSize": {
-    "0": {
-      "value": 10,
-      "type": "fontSizes"
-    },
+  "heading": {
     "1": {
-      "value": 12,
-      "type": "fontSizes"
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 700,
+        "lineHeight": "115%",
+        "fontSize": 40,
+        "letterSpacing": "-0.02em"
+      },
+      "type": "typography"
     },
     "2": {
-      "value": 14,
-      "type": "fontSizes"
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 600,
+        "lineHeight": "125%",
+        "fontSize": 28,
+        "letterSpacing": "-0.015em"
+      },
+      "type": "typography"
     },
     "3": {
-      "value": 19,
-      "type": "fontSizes"
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 600,
+        "lineHeight": "130%",
+        "fontSize": 18,
+        "letterSpacing": "-0.015em"
+      },
+      "type": "typography"
     },
     "4": {
-      "value": 32,
-      "type": "fontSizes"
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 700,
+        "lineHeight": "140%",
+        "fontSize": 14,
+        "letterSpacing": "0em"
+      },
+      "type": "typography"
     },
     "5": {
-      "value": 40,
-      "type": "fontSizes"
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 700,
+        "lineHeight": "140%",
+        "fontSize": 12,
+        "letterSpacing": "0em"
+      },
+      "type": "typography"
     },
+    "caps": {
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 600,
+        "lineHeight": "150%",
+        "fontSize": 12,
+        "letterSpacing": "0.05em",
+        "textTransform": "uppercase"
+      },
+      "type": "typography"
+    }
+  },
+  "body": {
+    "small": {
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 12,
+        "letterSpacing": "0.01em"
+      },
+      "type": "typography"
+    },
+    "default": {
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 14,
+        "letterSpacing": "0.01em"
+      },
+      "type": "typography"
+    },
+    "large": {
+      "value": {
+        "fontFamily": "aktiv-grotesk",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 18,
+        "letterSpacing": "0.01em"
+      },
+      "type": "typography"
+    },
+    "mono": {
+      "value": {
+        "fontFamily": "SF Mono",
+        "fontWeight": 400,
+        "lineHeight": "150%",
+        "fontSize": 14,
+        "letterSpacing": "0em"
+      },
+      "type": "typography"
+    },
+    "mono-bold": {
+      "value": {
+        "fontFamily": "SF Mono",
+        "lineHeight": "150%",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "letterSpacing": "0em"
+      },
+      "type": "typography"
+    }
+  },
+  "rem": {
+    "value": 16,
+    "type": "other",
+    "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
+  },
+  "fontSize": {
     "static": {
       "0": {
-        "value": 10,
+        "value": 11,
         "type": "fontSizes"
       },
       "1": {
         "value": 12,
         "type": "fontSizes",
-        "description": "these are non-responsive font sizes used for body copy, helper text and other elements that don't need to respond to viewport width."
+        "description": "These static font sizes are non-responsive and are used for body copy, helper text, and other UI text that should not scale with viewport width."
       },
       "2": {
         "value": 14,
@@ -1742,7 +1840,11 @@
         "type": "fontSizes"
       },
       "5": {
-        "value": 20,
+        "value": 28,
+        "type": "fontSizes"
+      },
+      "6": {
+        "value": 40,
         "type": "fontSizes"
       }
     },
@@ -2233,190 +2335,6 @@
       }
     }
   },
-  "lineHeight": {
-    "1": {
-      "value": "110%",
-      "type": "lineHeights",
-      "description": "Use only for display."
-    },
-    "2": {
-      "value": "120%",
-      "type": "lineHeights",
-      "description": "Use for larger headings."
-    },
-    "3": {
-      "value": "130%",
-      "type": "lineHeights",
-      "description": "Use for small and medium sized headings."
-    },
-    "4": {
-      "value": "140%",
-      "type": "lineHeights",
-      "description": "Use for body-sized text"
-    },
-    "5": {
-      "value": "150%",
-      "type": "lineHeights",
-      "description": "Use for body-sized text in long-form reading applications."
-    },
-    "body": {
-      "value": "150%",
-      "type": "lineHeights"
-    },
-    "heading": {
-      "value": "113%",
-      "type": "lineHeights"
-    },
-    "description": {
-      "value": "In production, all units are in %.",
-      "type": "other"
-    },
-    "responsive": {
-      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
-      "type": "lineHeights",
-      "description": "This is the responsive line height for the responsive type sizes."
-    }
-  },
-  "heading": {
-    "1": {
-      "value": {
-        "fontFamily": "Recoleta",
-        "fontWeight": 400,
-        "lineHeight": "135%",
-        "fontSize": 40,
-        "letterSpacing": "-1%"
-      },
-      "type": "typography"
-    },
-    "2": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 500,
-        "lineHeight": "120%",
-        "fontSize": 32,
-        "letterSpacing": "0%"
-      },
-      "type": "typography"
-    },
-    "3": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 500,
-        "lineHeight": "150%",
-        "fontSize": 19,
-        "letterSpacing": "0%"
-      },
-      "type": "typography"
-    },
-    "4": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 500,
-        "lineHeight": "160%",
-        "fontSize": 14,
-        "letterSpacing": "0%"
-      },
-      "type": "typography"
-    },
-    "5": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 500,
-        "lineHeight": "150%",
-        "fontSize": 12
-      },
-      "type": "typography"
-    },
-    "caps": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 700,
-        "lineHeight": "150%",
-        "fontSize": 12,
-        "letterSpacing": "5%",
-        "textCase": "uppercase"
-      },
-      "type": "typography"
-    }
-  },
-  "fontWeight": {
-    "body": {
-      "value": 400,
-      "type": "fontWeights"
-    },
-    "heading": {
-      "value": 500,
-      "type": "fontWeights"
-    },
-    "regular": {
-      "value": 400,
-      "type": "fontWeights"
-    },
-    "medium": {
-      "value": 500,
-      "type": "fontWeights"
-    },
-    "bold": {
-      "value": 700,
-      "type": "fontWeights"
-    },
-    "light": {
-      "value": 200,
-      "type": "fontWeights"
-    }
-  },
-  "body": {
-    "small": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 400,
-        "lineHeight": "150%",
-        "fontSize": 12
-      },
-      "type": "typography"
-    },
-    "default": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 400,
-        "lineHeight": "150%",
-        "fontSize": 14
-      },
-      "type": "typography"
-    },
-    "large": {
-      "value": {
-        "fontFamily": "SF Pro Text",
-        "fontWeight": 400,
-        "lineHeight": "150%",
-        "fontSize": 20
-      },
-      "type": "typography"
-    },
-    "mono": {
-      "value": {
-        "fontFamily": "SF Mono",
-        "fontWeight": 400,
-        "lineHeight": "150%",
-        "fontSize": 14
-      },
-      "type": "typography"
-    },
-    "mono-bold": {
-      "value": {
-        "fontFamily": "SF Mono",
-        "lineHeight": "150%",
-        "fontSize": 14,
-        "fontWeight": 700
-      },
-      "type": "typography"
-    }
-  },
-  "rem": {
-    "value": 16,
-    "type": "other",
-    "description": "Use as the base rem value for calculations in Figma Tokens. In production all size values should be in rems, which is modifiable by the user. Since Figma Tokens doesn't support different units, we use this variable to do rem calculations. For our purposes, we're setting the rem value to 16px."
-  },
   "shadow": {
     "1": {
       "value": [
@@ -2514,18 +2432,97 @@
       "type": "boxShadow"
     }
   },
+  "lineHeight": {
+    "0": {
+      "value": "100%",
+      "type": "lineHeights",
+      "description": "Use for short text labels"
+    },
+    "1": {
+      "value": "115%",
+      "type": "lineHeights",
+      "description": "Use only for display."
+    },
+    "2": {
+      "value": "125%",
+      "type": "lineHeights",
+      "description": "Use for larger headings."
+    },
+    "3": {
+      "value": "130%",
+      "type": "lineHeights",
+      "description": "Use for small and medium sized headings."
+    },
+    "4": {
+      "value": "140%",
+      "type": "lineHeights",
+      "description": "Use for body-sized text"
+    },
+    "5": {
+      "value": "150%",
+      "type": "lineHeights",
+      "description": "Use for body-sized text in long-form reading applications."
+    },
+    "description": {
+      "value": "In production, all units are in %.",
+      "type": "other"
+    },
+    "responsive": {
+      "value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
+      "type": "lineHeights",
+      "description": "This is the responsive line height for the responsive type sizes."
+    }
+  },
+  "fontWeight": {
+    "regular": {
+      "value": 400,
+      "type": "fontWeights"
+    },
+    "medium": {
+      "value": 500,
+      "type": "fontWeights"
+    },
+    "semibold": {
+      "value": 600,
+      "type": "fontWeights"
+    },
+    "bold": {
+      "value": 700,
+      "type": "fontWeights"
+    },
+    "light": {
+      "value": 200,
+      "type": "fontWeights"
+    }
+  },
   "letterSpacing": {
+    "tight-3": {
+      "value": "-0.02em",
+      "type": "letterSpacing"
+    },
+    "tight-2": {
+      "value": "-0.015em",
+      "type": "letterSpacing"
+    },
+    "tight-1": {
+      "value": "-0.01em",
+      "type": "letterSpacing"
+    },
     "none": {
       "value": "0em",
       "type": "letterSpacing",
       "description": "in Figma, letter spacing values need to be % but in production they need to be expressed in em to work with varable fonts"
     },
-    "tight": {
-      "value": "-0.02em",
+    "loose-1": {
+      "value": "0.005em",
       "type": "letterSpacing"
     },
-    "loose": {
-      "value": "0.03em",
+    "loose-2": {
+      "value": "0.01em",
+      "type": "letterSpacing"
+    },
+    "loose-3": {
+      "value": "0.05em",
       "type": "letterSpacing"
     }
   },
