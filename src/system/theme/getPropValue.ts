@@ -50,23 +50,17 @@ export default theme => {
 		const variantValues = getVariants( 'heading' );
 
 		const headingStyles: Record< string, unknown > = {};
-		const baseProps = {
-			fontWeight: 'heading',
-			color: 'heading',
-		};
 
 		Object.keys( variantValues ).forEach( variant => {
 			if ( variant === 'caps' ) {
 				headingStyles.caps = {
 					...variantValues[ variant ],
-					...baseProps,
 				};
 			}
 
 			if ( parseInt( variant, 10 ) > 0 ) {
 				headingStyles[ `h${ variant }` ] = {
 					...variantValues[ variant ],
-					...baseProps,
 					fontFamily: variant.toString() === '1' ? 'serif' : 'body',
 				};
 			}

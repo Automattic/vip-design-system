@@ -30,13 +30,6 @@ const outline = {
 	) }`,
 };
 
-const fonts = {
-	body: '-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
-	heading: 'inherit',
-	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-	serif: 'recoletaregular, Georgia, serif',
-};
-
 const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	// Valet Theme Colors
 
@@ -222,13 +215,19 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 export default {
 	outline,
 	space: getVariants( 'space' ),
-	fonts,
+	fonts: {
+		monospace: getPropValue( 'fontFamily', 'monospace' ),
+		serif: getPropValue( 'fontFamily', 'default' ),
+		body: getPropValue( 'fontFamily', 'default' ),
+		heading: getPropValue( 'fontFamily', 'default' ),
+	},
 	fontSizes: getVariants( 'fontSize.static' ),
 	breakpoints: generateBreakpoints( getVariants( 'breakpoint' ) ),
 	fontWeights: {
-		body: getPropValue( 'fontWeight', 'body' ),
-		heading: getPropValue( 'fontWeight', 'heading' ),
+		// body: getPropValue( 'fontWeight', 'body' ),
+		// heading: getPropValue( 'fontWeight', 'heading' ),
 		regular: getPropValue( 'fontWeight', 'regular' ),
+		semibold: getPropValue( 'fontWeight', 'semibold' ),
 		bold: getPropValue( 'fontWeight', 'bold' ),
 		medium: getPropValue( 'fontWeight', 'medium' ),
 		light: getPropValue( 'fontWeight', 'light' ),

@@ -20,10 +20,11 @@ export const Heading = forwardRef< HTMLHeadingElement, HeadingProps >(
 	( { variant = 'h3', sx, className, ...rest }: HeadingProps, ref: Ref< HTMLHeadingElement > ) => (
 		<ThemeHeading
 			as={ variant }
+			variant={ variant }
 			sx={ {
 				color: 'heading',
 				// pass variant prop to sx
-				variant: `text.${ variant.toString() }`,
+				// variant: `text.${ variant.toString() }`,
 				...sx,
 			} }
 			className={ classNames( 'vip-heading-component', className ) }

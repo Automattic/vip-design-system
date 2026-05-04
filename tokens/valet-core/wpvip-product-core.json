@@ -1612,7 +1612,7 @@
         "lineHeight": "{lineHeight.5}",
         "fontSize": "{fontSize.static.1}",
         "letterSpacing": "{letterSpacing.loose-3}",
-        "textCase": "{textCase.uppercase}"
+        "textTransform": "uppercase"
       },
       "type": "typography"
     }
