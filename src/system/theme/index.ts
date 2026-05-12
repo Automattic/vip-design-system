@@ -11,7 +11,6 @@ import { linkUnderlineProperties } from '../Link/Link';
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
-const bodyDefaultTypography = getPropValue( 'body', 'default' ) ?? {};
 const supportLabelDefault = ValetTheme.support?.[ 'label-default' ] ?? {};
 const supportLabelDefaultTypography = {
 	fontFamily: supportLabelDefault.fontFamily ?? 'body',

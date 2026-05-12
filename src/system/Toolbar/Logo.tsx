@@ -58,11 +58,7 @@ export const Logo = ( { className, as = 'a', href }: LogoProps ) => (
 				fill="currentColor"
 				d="m197.5,39.2h21.9l22.8,66.3,23.4-66.3h21l-35.3,93.9h-18.5l-35.3-93.9Z"
 			/>
-			<path
-				fill="currentColor"
-				fillRule="evenodd"
-				d="m311,39.2h-13.3l-6.3,16.9v76.9h19.6V39.2Z"
-			/>
+			<path fill="currentColor" fillRule="evenodd" d="m311,39.2h-13.3l-6.3,16.9v76.9h19.6V39.2Z" />
 		</svg>
 	</Link>
 );
