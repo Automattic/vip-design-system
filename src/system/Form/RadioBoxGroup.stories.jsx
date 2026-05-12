@@ -60,7 +60,7 @@ export const Primary = {
 	args: {
 		defaultValue: 'one',
 		options: [
-			{ label: 'One', value: 'one', description: 'This is a description' },
+			{ label: 'One', value: 'one', description: 'This is a longer description that allows us to see the text wrap and determine if the line height is correct' },
 			{ label: 'Two', value: 'two', description: 'This is a description' },
 			{ label: 'Three', value: 'three', description: 'This is a description' },
 		],

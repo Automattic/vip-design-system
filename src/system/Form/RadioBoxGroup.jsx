@@ -92,6 +92,8 @@ const RadioOption = ( {
 							mt: 1,
 							fontSize: 1,
 							fontWeight: 'regular',
+							letterSpacing: '0.01em',
+							lineHeight: '140%',
 							display: 'block',
 						} }
 						id={ describedById }
