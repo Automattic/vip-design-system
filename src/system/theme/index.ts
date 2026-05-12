@@ -11,6 +11,15 @@ import { linkUnderlineProperties } from '../Link/Link';
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
+const bodyDefaultTypography = getPropValue( 'body', 'default' ) ?? {};
+const supportLabelDefault = ValetTheme.support?.[ 'label-default' ] ?? {};
+const supportLabelDefaultTypography = {
+	fontFamily: supportLabelDefault.fontFamily ?? 'body',
+	fontWeight: supportLabelDefault.fontWeight ?? 'medium',
+	fontSize: supportLabelDefault.fontSize ?? 14,
+	lineHeight: supportLabelDefault.lineHeight ?? '100%',
+	letterSpacing: supportLabelDefault.letterSpacing ?? '0.005em',
+};
 
 // Dark
 const {
@@ -331,10 +340,19 @@ export default {
 			},
 		},
 	},
+	forms: {
+		label: {
+			...supportLabelDefaultTypography,
+		},
+	},
 
 	buttons: {
 		primary: {
-			fontFamily: 'body',
+			// Typography for all button variants (many inherit `buttons.primary`).
+			// Pulled from the `support.label-default` design token.
+			...supportLabelDefaultTypography,
+			// Button label weight: theme `medium` (500).
+			fontWeight: 'medium',
 			color: 'button.primary.label.default',
 			bg: 'button.primary.background.default',
 			border: '1px solid transparent',
@@ -343,7 +361,6 @@ export default {
 			minHeight: '38px',
 			display: 'inline-flex',
 			cursor: 'pointer',
-			fontWeight: 'medium',
 			boxShadow: 'none',
 			borderRadius: 1,
 			'&:hover': {
@@ -660,6 +677,7 @@ export default {
 	styles: {
 		root: {
 			fontFamily: 'body',
+			fontSize: bodyDefaultTypography.fontSize ?? 14,
 			lineHeight: 'body',
 			fontWeight: 'body',
 			color: 'text',
