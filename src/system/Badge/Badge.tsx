@@ -27,6 +27,7 @@ export const Badge = forwardRef< HTMLDivElement, BadgeProps >(
 			as="span"
 			sx={ {
 				fontSize: 0,
+				letterSpacing: '0.01em',
 				padding: 0, // do we need padding declared twice here?
 				bg: `tag.${ variant }.background`,
 				color: `tag.${ variant }.text`,
@@ -35,7 +36,7 @@ export const Badge = forwardRef< HTMLDivElement, BadgeProps >(
 				px: 2,
 				display: 'inline-block',
 				borderRadius: 1,
-				fontWeight: 'heading',
+				fontWeight: 'medium',
 				a: {
 					color: `tag.${ variant }.text`,
 					'&:hover, &:focus, &:active': {
