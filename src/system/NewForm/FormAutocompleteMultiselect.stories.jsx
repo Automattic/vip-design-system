@@ -78,67 +78,51 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 	);
 };
 
-export const Default = () => {
-	return (
-		<>
-			<DefaultComponent required { ...args } placeholder="Start typing..." />
-		</>
-	);
+export const Default = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		required: true,
+		placeholder: 'Start typing...',
+	},
 };
 
-export const WithAllowCustom = () => {
-	const customArgs = {
+export const WithAllowCustom = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		...args,
 		allowCustom: true,
-	};
-
-	return <DefaultComponent { ...customArgs } />;
+	},
 };
 
-export const WithBadges = () => {
-	const customArgs = {
+export const WithBadges = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		...args,
 		listType: 'badge',
-	};
-
-	return (
-		<>
-			<DefaultComponent { ...customArgs } />
-		</>
-	);
+	},
 };
 
-export const WithInitialValueBadges = () => {
-	const customArgs = {
+export const WithInitialValueBadges = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		...args,
 		initialValue: shortOptions.slice( 0, 2 ).map( option => option.label ),
-	};
-
-	return (
-		<>
-			<DefaultComponent { ...customArgs } />
-		</>
-	);
+	},
 };
 
-export const Inline = () => {
-	const customArgs = {
+export const Inline = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		isInline: true,
 		...args,
 		showAllValues: true,
-	};
-
-	return (
-		<>
-			<DefaultComponent { ...customArgs } />
-		</>
-	);
+	},
 };
 
-Inline.displayName = 'Inline';
-
-export const WithStaticData = () => {
-	const customArgs = {
+export const WithStaticData = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		label: 'Select domains',
 		searchIcon: true,
 		required: true,
@@ -147,52 +131,44 @@ export const WithStaticData = () => {
 		placeholder: 'Select domains',
 		hasError: true,
 		errorMessage: 'Domain is required.',
-	};
-
-	return (
-		<>
-			<DefaultComponent { ...customArgs } />
-		</>
-	);
+	},
 };
 
-WithStaticData.displayName = 'WithStaticData';
-
-export const WithDynamicData = () => {
-	const [ selectedValues, setSelectedValues ] = useState( [] );
-	const customArgs = {
-		label: 'Select domains',
-		searchIcon: true,
-		required: true,
-		placeholder: 'Start typing...',
-		source: ( q, populateResults ) => {
-			const filtered = longOptions.filter( option => option.label.toLowerCase().includes( q ) );
-			const optionForDisplay = filtered?.map( option => option.label );
-			populateResults( optionForDisplay.filter( option => ! selectedValues.includes( option ) ) );
-		},
-		onChange: obj => {
-			setSelectedValues( obj );
-		},
-	};
-	return (
-		<>
-			<Form.Root>
-				<div sx={ { width: '100%' } }>
-					<Form.AutocompleteMulti
-						forLabel="form-autocompletemultiselect"
-						label={ customArgs.label }
-						onChange={ obj => {
-							setSelectedValues( obj );
-						} }
-						hasError={ true }
-						errorMessage="Please select a value."
-						{ ...customArgs }
-					/>
-				</div>
-				<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
-			</Form.Root>
-		</>
-	);
+export const WithDynamicData = {
+	render: () => {
+		const [ selectedValues, setSelectedValues ] = useState( [] );
+		const customArgs = {
+			label: 'Select domains',
+			searchIcon: true,
+			required: true,
+			placeholder: 'Start typing...',
+			source: ( q, populateResults ) => {
+				const filtered = longOptions.filter( option => option.label.toLowerCase().includes( q ) );
+				const optionForDisplay = filtered?.map( option => option.label );
+				populateResults( optionForDisplay.filter( option => ! selectedValues.includes( option ) ) );
+			},
+			onChange: obj => {
+				setSelectedValues( obj );
+			},
+		};
+		return (
+			<>
+				<Form.Root>
+					<div sx={ { width: '100%' } }>
+						<Form.AutocompleteMulti
+							forLabel="form-autocompletemultiselect"
+							label={ customArgs.label }
+							onChange={ obj => {
+								setSelectedValues( obj );
+							} }
+							hasError={ true }
+							errorMessage="Please select a value."
+							{ ...customArgs }
+						/>
+					</div>
+					<div sx={ { mt: 3 } }>Selected value: { selectedValues.join( ', ' ) }</div>
+				</Form.Root>
+			</>
+		);
+	},
 };
-
-WithDynamicData.displayName = 'WithDynamicDataFullSize';

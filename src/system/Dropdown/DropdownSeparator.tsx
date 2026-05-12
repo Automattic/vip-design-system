@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 export interface DropdownSeparatorProps {
+	/** Additional CSS class name applied to the separator. */
 	className?: string;
 }
 
@@ -14,6 +15,9 @@ export const styles = {
 	my: '5px',
 };
 
+/**
+ * A visual divider between groups of items in a Dropdown menu.
+ */
 export const DropdownSeparator = React.forwardRef< HTMLDivElement, DropdownSeparatorProps >(
 	( { className, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuSeparator

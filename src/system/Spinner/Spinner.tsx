@@ -6,12 +6,25 @@ import { forwardRef, Ref } from 'react';
 import { Spinner as ThemeSpinner, SpinnerProps, ThemeUIStyleObject } from 'theme-ui';
 
 export interface ThemeSpinnerProps extends SpinnerProps {
+	/** Additional Theme UI styles applied to the spinner. */
 	sx?: ThemeUIStyleObject;
+	/** Additional CSS class name. */
 	className?: string;
+	/**
+	 * The color of the spinner stroke.
+	 * @default 'icon.helper'
+	 */
 	color?: string;
+	/**
+	 * The width of the spinner's SVG stroke.
+	 * @default 2
+	 */
 	strokeWidth?: number;
 }
 
+/**
+ * An animated SVG spinner used to indicate a loading state.
+ */
 export const Spinner = forwardRef< SVGSVGElement, ThemeSpinnerProps >(
 	(
 		{ sx, color = 'icon.helper', strokeWidth = 2, className, ...props }: ThemeSpinnerProps,

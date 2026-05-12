@@ -12,6 +12,9 @@ import React, { forwardRef } from 'react';
 export interface DialogOverlayProps
 	extends React.ComponentPropsWithoutRef< typeof Dialog.Overlay > {}
 
+/**
+ * A semi-transparent overlay that covers the page behind an open dialog.
+ */
 export const DialogOverlay = forwardRef< HTMLDivElement, DialogOverlayProps >(
 	( props, forwardedRef ) => (
 		<Dialog.Overlay

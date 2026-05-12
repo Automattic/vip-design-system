@@ -11,6 +11,8 @@ import { BiCalendarHeart } from 'react-icons/bi';
 import { Button, ButtonVariant, Table, TableCell, TableRow } from '..';
 import ScreenReaderText from '../ScreenReaderText';
 
+import type { StoryObj } from '@storybook/react-vite';
+
 export default {
 	title: 'Button',
 	component: Button,
@@ -64,6 +66,18 @@ This documentation is heavily inspired by the [U.S Web Design System (USWDS)](ht
 `,
 			},
 		},
+	},
+};
+
+type Story = StoryObj< typeof Button >;
+
+export const Primary: Story = {
+	args: {
+		children: 'Button',
+		variant: 'primary',
+		disabled: false,
+		full: false,
+		danger: false,
 	},
 };
 
@@ -220,21 +234,37 @@ const SizeVariantsTemplate = args => (
 	<div>
 		<h3>Size Variants</h3>
 		<p>Buttons support two sizes: large (40px, default) and small (32px, compact)</p>
-		
+
 		<h4>Large (Default - 40px)</h4>
 		<div sx={ { display: 'flex', gap: 2, mb: 4, alignItems: 'center' } }>
-			<Button size="large" { ...args }>Primary Large</Button>
-			<Button size="large" variant="secondary" { ...args }>Secondary Large</Button>
-			<Button size="large" variant="tertiary" { ...args }>Tertiary Large</Button>
-			<Button size="large" variant="ghost" { ...args }>Ghost Large</Button>
+			<Button size="large" { ...args }>
+				Primary Large
+			</Button>
+			<Button size="large" variant="secondary" { ...args }>
+				Secondary Large
+			</Button>
+			<Button size="large" variant="tertiary" { ...args }>
+				Tertiary Large
+			</Button>
+			<Button size="large" variant="ghost" { ...args }>
+				Ghost Large
+			</Button>
 		</div>
 
 		<h4>Small (Compact - 32px)</h4>
 		<div sx={ { display: 'flex', gap: 2, alignItems: 'center' } }>
-			<Button size="small" { ...args }>Primary Small</Button>
-			<Button size="small" variant="secondary" { ...args }>Secondary Small</Button>
-			<Button size="small" variant="tertiary" { ...args }>Tertiary Small</Button>
-			<Button size="small" variant="ghost" { ...args }>Ghost Small</Button>
+			<Button size="small" { ...args }>
+				Primary Small
+			</Button>
+			<Button size="small" variant="secondary" { ...args }>
+				Secondary Small
+			</Button>
+			<Button size="small" variant="tertiary" { ...args }>
+				Tertiary Small
+			</Button>
+			<Button size="small" variant="ghost" { ...args }>
+				Ghost Small
+			</Button>
 		</div>
 	</div>
 );

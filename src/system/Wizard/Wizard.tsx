@@ -13,15 +13,43 @@ import { WizardStepProps } from './WizardStep';
 import { Box, WizardStep } from '..';
 
 export interface WizardProps {
+	/** The array of step configurations to render. */
 	steps: WizardStepProps[];
+	/** The zero-based index of the currently active step. */
 	activeStep?: number;
+	/**
+	 * Array of zero-based indices for steps that have been completed.
+	 * @default []
+	 */
 	completed?: number[];
+	/**
+	 * Array of zero-based indices for steps that have been skipped.
+	 * @default []
+	 */
 	skipped?: number[];
+	/** Additional CSS class name for the wizard container. */
 	className?: string;
+	/**
+	 * Whether to automatically focus the step title when the active step changes.
+	 * @default false
+	 */
 	titleAutofocus?: boolean;
+	/**
+	 * Whether to display the "STEP X OF Y" text above each step title.
+	 * @default true
+	 */
 	showStepText?: boolean;
+	/**
+	 * The HTML element type used to render step summaries.
+	 * @default 'table'
+	 */
 	summaryAs?: 'table' | 'dl';
 }
+
+/**
+ * A multi-step wizard component that displays a sequence of steps with progress tracking.
+ * Supports completed, skipped, and active step states with optional summaries.
+ */
 export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 	(
 		{

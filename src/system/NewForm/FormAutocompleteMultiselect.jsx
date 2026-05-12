@@ -34,7 +34,7 @@ const getDefaultStyles = ( size = 'large' ) => {
 	const height = getControlHeight( size );
 	const paddingLeft = size === 'small' ? 3 : 4;
 	const paddingRight = size === 'small' ? 6 : 7;
-	
+
 	return {
 		width: '100%',
 		...baseBorderTextColors,

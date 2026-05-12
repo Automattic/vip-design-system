@@ -19,13 +19,33 @@ function DefaultSpinner( { size, color = 'link' }: DefaultSpinnerProps ) {
 DefaultSpinner.displayName = 'DefaultSpinner';
 
 export interface ButtonSubmitProps extends ButtonProps {
+	/** The content displayed inside the button. */
 	label: React.ReactNode;
+	/**
+	 * Whether the button is in a loading state, showing a spinner.
+	 * @default false
+	 */
 	loading?: boolean;
+	/**
+	 * Custom loading icon component rendered when `loading` is true.
+	 * @default DefaultSpinner
+	 */
 	loadingIcon?: ( props: DefaultSpinnerProps ) => JSX.Element;
+	/**
+	 * Size (in pixels) of the loading icon.
+	 * @default 20
+	 */
 	loadingIconSize?: number;
+	/**
+	 * Controls whether the button is rendered.
+	 * @default true
+	 */
 	show?: boolean;
 }
 
+/**
+ * A button designed for form submissions with built-in loading state and spinner indicator.
+ */
 export const ButtonSubmit = React.forwardRef< HTMLButtonElement, ButtonSubmitProps >(
 	(
 		{

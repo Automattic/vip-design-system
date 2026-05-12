@@ -8,13 +8,25 @@ import React, { ReactNode, createRef, useState } from 'react';
 import { MdContentCopy } from 'react-icons/md';
 
 export type CodeProps = React.ComponentPropsWithoutRef< 'code' > & {
+	/**
+	 * Display a shell-style `$` prompt before the code content.
+	 * @default false
+	 */
 	prompt?: boolean;
+	/**
+	 * Show a copy-to-clipboard button alongside the code.
+	 * @default false
+	 */
 	showCopy?: boolean;
+	/** Callback fired after the code text has been copied to the clipboard. */
 	onCopy?: () => void;
+	/** Additional CSS class name(s) appended to the root element. */
 	className?: Argument;
+	/** Content rendered inside the code block. */
 	children?: ReactNode;
 };
 
+/** Styled code block with optional shell prompt and copy-to-clipboard support. */
 const Code = React.forwardRef< HTMLDivElement, CodeProps >(
 	( { prompt = false, showCopy = false, onCopy, className, ...props }: CodeProps, forwardRef ) => {
 		const ref = createRef< HTMLElement >();

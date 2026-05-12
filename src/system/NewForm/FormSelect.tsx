@@ -51,6 +51,7 @@ interface FormSelectProps {
 	options: Option[];
 	required?: boolean;
 	label?: string;
+	separator?: boolean;
 	getOptionLabel?: ( option: Option ) => string;
 	getOptionValue?: ( option: Option ) => string | number;
 	onChange?: ( option: Option | undefined, event: React.ChangeEvent< HTMLSelectElement > ) => void;
@@ -102,6 +103,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 			wrapperSx,
 			size = 'large',
 			readOnly,
+			separator = true,
 			...props
 		},
 		forwardRef
@@ -146,7 +148,11 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 		);
 
 		const SelectLabel = () => (
-			<Label sx={ { lineHeight: 1, mb: isInline ? 0 : 2 } } required={ required } htmlFor={ forLabel }>
+			<Label
+				sx={ { lineHeight: 1, mb: isInline ? 0 : 2 } }
+				required={ required }
+				htmlFor={ forLabel }
+			>
 				{ label }
 			</Label>
 		);
@@ -157,8 +163,8 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 			<Box sx={ { ...wrapperSx } }>
 				{ label && ! isInline && <SelectLabel /> }
 
-				<FormSelectContent 
-					isInline={ inlineLabel } 
+				<FormSelectContent
+					isInline={ inlineLabel }
 					label={ inlineLabel ? <SelectLabel /> : null }
 					hasError={ hasError }
 					size={ size }
@@ -166,17 +172,20 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 					<select
 						onChange={ onValueChange }
 						ref={ forwardRef }
-						sx={ { 
-							cursor: disabled ? 'not-allowed' : 'pointer', 
+						sx={ {
+							cursor: disabled || readOnly ? 'not-allowed' : 'pointer',
 							...getSelectStyles( size ),
 							borderColor: hasError ? 'input.border.error' : undefined,
+							...( ! separator && { paddingRight: 6 } ),
+							...( readOnly && { pointerEvents: 'none' } ),
 						} }
 						required={ required }
 						disabled={ disabled }
-						readOnly={ readOnly }
 						aria-required={ required }
+						aria-readonly={ readOnly }
 						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
 						id={ forLabel }
+						tabIndex={ readOnly ? -1 : undefined }
 						{ ...props }
 					>
 						{ placeholder && <option value="">{ placeholder }</option> }
@@ -186,7 +195,7 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 								: renderOption( optionLabel( option ), optionValue( option ) )
 						) }
 					</select>
-					<FormSelectArrow iconSize={ ICON_SIZE } />
+					<FormSelectArrow iconSize={ ICON_SIZE } separator={ separator } />
 				</FormSelectContent>
 
 				{ hasError && errorMessage && (
@@ -194,9 +203,18 @@ const FormSelect = React.forwardRef< HTMLSelectElement, FormSelectProps >(
 						{ errorMessage }
 					</Validation>
 				) }
-				
+
 				{ helperText && ! hasError && (
-					<Box sx={ { fontSize: 1, color: 'texts.helper', mt: 2, display: 'flex', gap: 1, alignItems: 'center' } }>
+					<Box
+						sx={ {
+							fontSize: 1,
+							color: 'texts.helper',
+							mt: 2,
+							display: 'flex',
+							gap: 1,
+							alignItems: 'center',
+						} }
+					>
 						{ helperText }
 					</Box>
 				) }

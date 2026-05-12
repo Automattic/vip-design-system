@@ -1,6 +1,6 @@
 /**
  * Shared type definitions for control sizing across the design system.
- * 
+ *
  * All interactive form controls (buttons, inputs, selects, etc.) should
  * support these two size variants for consistency.
  */
@@ -61,4 +61,3 @@ export const controlSizeStyles = {
 		fontSize: 2, // 14px - consistent across all sizes
 	},
 } as const;
-

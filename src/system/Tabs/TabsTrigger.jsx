@@ -42,6 +42,9 @@ const styles = {
 	'&:focus-visible': theme => theme.outline,
 };
 
+/**
+ * TabsTrigger — A button that activates its associated TabsContent panel.
+ */
 const TabsTrigger = React.forwardRef(
 	( { value, disabled = false, children, className = null }, forwardRef ) => (
 		<TabsPrimitive.TabsTrigger
@@ -59,9 +62,13 @@ const TabsTrigger = React.forwardRef(
 );
 
 TabsTrigger.propTypes = {
+	/** Additional CSS class name(s) to apply to the trigger button. */
 	className: PropTypes.string,
+	/** Unique identifier that associates this trigger with a TabsContent panel. */
 	value: PropTypes.string,
+	/** Whether the tab trigger is disabled and cannot be activated. */
 	disabled: PropTypes.bool,
+	/** The label content rendered inside the trigger button. */
 	children: PropTypes.node.isRequired,
 };
 

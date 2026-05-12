@@ -69,142 +69,149 @@ const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } )
 	</>
 );
 
-export const Default = DefaultComponent.bind( {} );
-Default.args = {
-	placeholder: '- Select -',
-	required: true,
-	options,
-};
-
-export const Disabled = DefaultComponent.bind( {} );
-Disabled.args = {
-	placeholder: '- Select -',
-	required: true,
-	disabled: true,
-	options,
-};
-
-export const ReadOnly = DefaultComponent.bind( {} );
-ReadOnly.args = {
-	placeholder: '- Select -',
-	required: true,
-	readOnly: true,
-	value: 'chocolate',
-	options,
-};
-
-export const WithHelperText = DefaultComponent.bind( {} );
-WithHelperText.args = {
-	placeholder: '- Select -',
-	required: true,
-	helperText: 'Helper text',
-	options,
-};
-
-export const WithErrors = DefaultComponent.bind( {} );
-WithErrors.args = {
-	placeholder: '- Select -',
-	required: true,
-	hasError: true,
-	errorMessage: 'Error text',
-	helperText: 'Helper text',
-	options,
-};
-
-export const WithGroup = DefaultComponent.bind( {} );
-
-WithGroup.args = {
-	label: 'Group Label',
-	options: [ ...options, ...groupedOptions ],
-};
-
-export const IsInline = DefaultComponent.bind( {} );
-
-IsInline.args = {
-	label: 'Inline Select',
-	isInline: true,
-	width: '100%',
-	options: groupedOptions,
-};
-
-export const WithOptionLabelAndValue = DefaultComponent.bind( {} );
-
-WithOptionLabelAndValue.args = {
-	label: 'Select with getOptionLabel / getOptionValue',
-	width: '100%',
-	options: options.map( ( { label, value } ) => ( {
-		name: label,
-		id: value,
-	} ) ),
-	getOptionLabel: option => option.name,
-	getOptionValue: option => option.id,
-};
-
-export const WithOnChange = () => {
-	const [ option, setOption ] = useState( null );
-
-	const onChange = useCallback( ( val, event ) =>
-		setOption( { obj: val, eventValue: event.target.value } )
-	);
-
-	const args = {
-		label: 'Select with onChange',
+export const Default = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
 		placeholder: '- Select -',
-		width: '100%',
-		onChange,
-		options: [ ...options, ...groupedOptions ],
-	};
-
-	return (
-		<>
-			<DefaultComponent onChange={ onChange } { ...args } />
-			{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
-			{ option && <p>Original Event Value: { option.eventValue }</p> }
-		</>
-	);
+		required: true,
+		options,
+	},
 };
 
-export const SizeVariants = () => (
-	<div>
-		<h3>Size Variants</h3>
-		<p>FormSelect supports two sizes: large (40px, default) and small (32px, compact)</p>
+export const ReadOnly = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		readOnly: true,
+		value: 'chocolate',
+		options,
+	},
+};
 
-		<h4>Large (Default - 40px)</h4>
-		<div sx={ { maxWidth: 400, mb: 4 } }>
-			<Form.Select
-				size="large"
-				label="Large Select"
-				forLabel="select-large"
-				options={ options }
-				placeholder="Select an option..."
-			/>
-		</div>
+export const WithHelperText = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		helperText: 'Helper text',
+		options,
+	},
+};
 
-		<h4>Small (Compact - 32px)</h4>
-		<div sx={ { maxWidth: 400, mb: 4 } }>
-			<Form.Select
-				size="small"
-				label="Small Select"
-				forLabel="select-small"
-				options={ options }
-				placeholder="Select an option..."
-			/>
-		</div>
+export const Disabled = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		disabled: true,
+		options,
+	},
+};
 
-		<h4>Side by Side Comparison</h4>
-		<div sx={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3, maxWidth: 800 } }>
-			<Form.Select
-				size="large"
-				label="Large"
-				forLabel="select-large-2"
-				options={ options }
-			/>
-			<Form.Select
-				size="small"
-				label="Small"
-				forLabel="select-small-2"
-				options={ options }
-			/>
+export const WithErrors = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		hasError: true,
+		errorMessage: 'This is an error message',
+		helperText: 'Helper text',
+		options,
+	},
+};
+
+export const WithGroup = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		label: 'Group Label',
+		options: [ ...options, ...groupedOptions ],
+	},
+};
+
+export const IsInline = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		label: 'Inline Select',
+		isInline: true,
+		width: '100%',
+		options: groupedOptions,
+	},
+};
+
+export const WithOptionLabelAndValue = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		label: 'Select with getOptionLabel / getOptionValue',
+		width: '100%',
+		options: options.map( ( { label, value } ) => ( {
+			name: label,
+			id: value,
+		} ) ),
+		getOptionLabel: option => option.name,
+		getOptionValue: option => option.id,
+	},
+};
+
+export const WithOnChange = {
+	render: () => {
+		const [ option, setOption ] = useState( null );
+
+		const onChange = useCallback( ( val, event ) =>
+			setOption( { obj: val, eventValue: event.target.value } )
+		);
+
+		const onChangeArgs = {
+			label: 'Select with onChange',
+			placeholder: '- Select -',
+			width: '100%',
+			onChange,
+			options: [ ...options, ...groupedOptions ],
+		};
+
+		return (
+			<>
+				<DefaultComponent onChange={ onChange } { ...onChangeArgs } />
+				{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
+				{ option && <p>Original Event Value: { option.eventValue }</p> }
+			</>
+		);
+	},
+};
+
+export const SizeVariants = {
+	render: () => (
+		<div>
+			<h3>Size Variants</h3>
+			<p>FormSelect supports two sizes: large (40px, default) and small (32px, compact)</p>
+
+			<h4>Large (Default - 40px)</h4>
+			<div sx={ { maxWidth: 400, mb: 4 } }>
+				<Form.Select
+					size="large"
+					label="Large Select"
+					forLabel="select-large"
+					options={ options }
+					placeholder="Select an option..."
+				/>
+			</div>
+
+			<h4>Small (Compact - 32px)</h4>
+			<div sx={ { maxWidth: 400, mb: 4 } }>
+				<Form.Select
+					size="small"
+					label="Small Select"
+					forLabel="select-small"
+					options={ options }
+					placeholder="Select an option..."
+				/>
+			</div>
+
+			<h4>Side by Side Comparison</h4>
+			<div sx={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3, maxWidth: 800 } }>
+				<Form.Select size="large" label="Large" forLabel="select-large-2" options={ options } />
+				<Form.Select size="small" label="Small" forLabel="select-small-2" options={ options } />
+			</div>
 		</div>
-	</div>
-);
+	),
+};

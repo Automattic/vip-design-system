@@ -13,13 +13,26 @@ import { ThemeUIStyleObject } from 'theme-ui';
 import { TableCell } from './TableCell';
 
 export interface TableRowProps extends React.HTMLProps< HTMLTableRowElement > {
+	/** Array of cell contents to render as TableCell components.
+	 * @default []
+	 */
 	cells?: ReactNode[];
+	/** Custom row content rendered after the cells array. */
 	children?: ReactNode;
+	/** Whether this row is a header row, rendering th elements instead of td.
+	 * @default false
+	 */
 	head?: boolean;
+	/** Click handler that makes the row interactive with hover styles and keyboard support. */
 	onClick?: () => void;
+	/** Theme UI style overrides. */
 	sx?: ThemeUIStyleObject;
 }
 
+/**
+ * A table row that supports both header and body rendering.
+ * When an onClick handler is provided, the row becomes interactive with hover styles and keyboard navigation.
+ */
 export const TableRow = ( {
 	onClick,
 	head = false,

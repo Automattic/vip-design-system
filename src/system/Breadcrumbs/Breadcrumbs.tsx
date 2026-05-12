@@ -14,17 +14,32 @@ import { ItemBreadcrumb, NavItemProps, NavRawLink } from '../Nav/NavItem';
 import { navItemStyles, navMenuListStyles } from '../Nav/styles';
 
 export type BreadcrumbsLinkProps = {
+	/** The URL the breadcrumb links to. */
 	href?: string;
+	/** The visible text for the breadcrumb item. */
 	label: string;
+	/** Whether this breadcrumb represents the current page. */
 	active?: boolean;
+	/** Theme UI style overrides. */
 	sx?: ThemeUIStyleObject;
 };
 
 export interface BreacrumbsProps extends NavigationMenu.NavigationMenuProps {
+	/** Additional CSS class name for the breadcrumbs container. */
 	className?: string;
+	/** Accessible label for the breadcrumbs navigation landmark.
+	 * @default 'Breadcrumbs'
+	 */
 	label?: string;
+	/** How breadcrumbs collapse on small screens: 'collapsible' shows an ellipsis button, 'lastItem' hides the last item.
+	 * @default 'lastItem'
+	 */
 	wrapMode?: 'collapsible' | 'lastItem';
+	/** Custom link component used to render breadcrumb links. */
 	LinkComponent: NavItemProps[ 'as' ];
+	/** Array of breadcrumb link items to display.
+	 * @default []
+	 */
 	links?: BreadcrumbsLinkProps[];
 }
 
@@ -75,6 +90,10 @@ const breadcrumbLinks = (
 	return { separatorLink, lastLink, otherLinks };
 };
 
+/**
+ * A responsive breadcrumb navigation bar that collapses gracefully on small screens.
+ * Supports collapsible and lastItem wrap modes for different responsive behaviors.
+ */
 export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 	(
 		{

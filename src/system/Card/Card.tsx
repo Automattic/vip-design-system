@@ -19,17 +19,33 @@ export enum CardVariant {
 }
 
 export interface CardProps {
+	/**
+	 * The visual style variant of the card.
+	 * @default 'primary'
+	 */
 	variant?: keyof typeof CardVariant;
+	/** Title text displayed in the card header. */
 	title?: string;
+	/** The content rendered inside the card body. */
 	children?: React.ReactNode;
+	/** Custom render function for the card header, receives the title as an argument. */
 	renderHeader?: ( title?: string ) => React.ReactNode;
+	/** Additional Theme UI styles applied to the card body. */
 	bodyStyles?: ThemeUIStyleObject;
+	/** Additional Theme UI styles applied to the card header. */
 	headerStyles?: ThemeUIStyleObject;
+	/**
+	 * Hides the card body when true.
+	 * @default false
+	 */
 	hideBody?: boolean;
 }
 
 type CardBoxProps = CardProps & BoxProps;
 
+/**
+ * A container component with optional header and body sections, supporting multiple visual variants.
+ */
 export const Card = forwardRef< HTMLElement, CardBoxProps >(
 	(
 		{

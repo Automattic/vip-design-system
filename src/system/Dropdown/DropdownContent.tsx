@@ -5,7 +5,12 @@ import classNames from 'classnames';
 import React from 'react';
 
 export interface DropdownContentProps {
+	/** Additional CSS class name applied to the content container. */
 	className?: string;
+	/**
+	 * The horizontal alignment of the content relative to the trigger.
+	 * @default 'center'
+	 */
 	align?: 'start' | 'center' | 'end';
 }
 
@@ -18,6 +23,9 @@ export const styles = {
 	py: 1,
 };
 
+/**
+ * The styled content container for the Dropdown menu.
+ */
 export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
 	( { className, align = 'center', ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuContent
@@ -32,6 +40,9 @@ export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContent
 
 DropdownContent.displayName = 'DropdownContent';
 
+/**
+ * The styled content container for a nested sub-menu within a Dropdown.
+ */
 export const DropdownSubContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
 	( { className, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.Portal>

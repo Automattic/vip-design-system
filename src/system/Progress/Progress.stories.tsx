@@ -5,22 +5,33 @@ import React, { useEffect } from 'react';
 
 import { Progress } from '..';
 
+import type { StoryObj } from '@storybook/react-vite';
+
 export default {
 	title: 'Progress',
 	component: Progress,
 };
 
-export const Default = () => {
-	const [ counter, setCounter ] = React.useState( 0 );
-	const steps = [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ];
+type Story = StoryObj< typeof Progress >;
 
-	useEffect( () => {
-		setTimeout( () => {
-			if ( counter < steps.length - 1 ) {
-				setCounter( counter + 1 );
-			}
-		}, 2000 );
-	}, [ counter, setCounter ] );
+export const Default: Story = {
+	args: {
+		forLabel: 'Update site progress',
+		steps: [ 'Downloading Data', 'Importing Data...', 'Finalizing', 'Done' ],
+		activeStep: 0,
+	},
+	render: args => {
+		const [ counter, setCounter ] = React.useState( args.activeStep );
+		const steps = args.steps;
 
-	return <Progress forLabel="Update site progress" steps={ steps } activeStep={ counter } />;
+		useEffect( () => {
+			setTimeout( () => {
+				if ( counter < steps.length - 1 ) {
+					setCounter( counter + 1 );
+				}
+			}, 2000 );
+		}, [ counter, setCounter ] );
+
+		return <Progress { ...args } activeStep={ counter } />;
+	},
 };

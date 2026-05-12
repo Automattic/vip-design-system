@@ -33,7 +33,7 @@ const getDefaultStyles = ( size = 'large' ) => {
 	const paddingLeft = size === 'small' ? 3 : 3;
 	const paddingRight = size === 'small' ? 6 : 7;
 	const hintHeight = size === 'small' ? '23px' : '27px';
-	
+
 	return {
 		width: '100%',
 		mb: 2,

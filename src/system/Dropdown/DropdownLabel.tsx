@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 export interface DropdownLabelProps {
+	/** Additional CSS class name applied to the label. */
 	className?: string;
 }
 
@@ -15,6 +16,9 @@ export const styles = {
 	color: 'muted',
 };
 
+/**
+ * A non-interactive label used to describe a group of items within a Dropdown menu.
+ */
 export const DropdownLabel = React.forwardRef< HTMLDivElement, DropdownLabelProps >(
 	( { className, ...props }, forwardRef ) => (
 		<DropdownMenuPrimitive.DropdownMenuLabel

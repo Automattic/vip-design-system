@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react-vite';
 
 import { Footer } from '../Footer/Footer';
 
@@ -17,6 +17,34 @@ export default {
 };
 
 type Story = StoryObj< typeof Footer >;
+
+export const Primary: Story = {
+	args: {
+		hasTrailingSeparator: false,
+		hasUnderlinedLinks: false,
+		maxWidth: '100%',
+		links: [
+			{
+				children: 'About',
+				href: 'https://wpvip.com/',
+				screenReaderText: 'WordPress VIP. Learn more about us',
+				showExternalIcon: false,
+			},
+			{
+				children: 'Docs',
+				href: 'https://docs.wpvip.com/',
+				screenReaderText: 'our public documentation on our platform and tools',
+			},
+			{
+				children: 'Status',
+				href: 'https://wpvipstatus.com',
+				screenReaderText:
+					". See real-time availability and performance monitoring for WordPress VIP's services",
+				newTab: true,
+			},
+		],
+	},
+};
 
 export const Default: Story = {
 	render: () => (

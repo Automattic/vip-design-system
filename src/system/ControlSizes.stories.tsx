@@ -20,22 +20,22 @@ export default {
 export const SizeComparison = () => (
 	<div>
 		<h2>Control Size System</h2>
-		<p>
-			All form controls and buttons now support two standardized sizes:
-		</p>
+		<p>All form controls and buttons now support two standardized sizes:</p>
 		<ul>
-			<li><strong>Large (40px)</strong> - Default size, better for touch interfaces and accessibility</li>
-			<li><strong>Small (32px)</strong> - Compact size for dense UIs and space-constrained layouts</li>
+			<li>
+				<strong>Large (40px)</strong> - Default size, better for touch interfaces and accessibility
+			</li>
+			<li>
+				<strong>Small (32px)</strong> - Compact size for dense UIs and space-constrained layouts
+			</li>
 		</ul>
-		<p>
-			Both sizes maintain a consistent 14px font size for readability across all variants.
-		</p>
+		<p>Both sizes maintain a consistent 14px font size for readability across all variants.</p>
 
 		<hr sx={ { my: 4 } } />
 
 		<h3>Large Size (40px) - Default</h3>
 		<p>This is the default size for all components. Use for standard forms and interfaces.</p>
-		
+
 		<h4>Button + Input Alignment</h4>
 		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4 } }>
 			<Form.Input
@@ -59,25 +59,28 @@ export const SizeComparison = () => (
 					{ value: 'option3', label: 'Option 3' },
 				] }
 			/>
-			<Button size="large" variant="secondary">Apply</Button>
+			<Button size="large" variant="secondary">
+				Apply
+			</Button>
 		</div>
 
 		<h4>Input + Button + Button Alignment</h4>
 		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4 } }>
-			<Form.Input
-				size="large"
-				label="Search"
-				forLabel="search-large"
-				placeholder="Search..."
-			/>
-			<Button size="large" variant="primary">Search</Button>
-			<Button size="large" variant="ghost">Clear</Button>
+			<Form.Input size="large" label="Search" forLabel="search-large" placeholder="Search..." />
+			<Button size="large" variant="primary">
+				Search
+			</Button>
+			<Button size="large" variant="ghost">
+				Clear
+			</Button>
 		</div>
 
 		<hr sx={ { my: 4 } } />
 
 		<h3>Small Size (32px) - Compact</h3>
-		<p>Use the small size for compact UIs, toolbars, table filters, and space-constrained layouts.</p>
+		<p>
+			Use the small size for compact UIs, toolbars, table filters, and space-constrained layouts.
+		</p>
 
 		<h4>Button + Input Alignment</h4>
 		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4 } }>
@@ -102,25 +105,28 @@ export const SizeComparison = () => (
 					{ value: 'option3', label: 'Option 3' },
 				] }
 			/>
-			<Button size="small" variant="secondary">Apply</Button>
+			<Button size="small" variant="secondary">
+				Apply
+			</Button>
 		</div>
 
 		<h4>Input + Button + Button Alignment</h4>
 		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4 } }>
-			<Form.Input
-				size="small"
-				label="Search"
-				forLabel="search-small"
-				placeholder="Search..."
-			/>
-			<Button size="small" variant="primary">Search</Button>
-			<Button size="small" variant="ghost">Clear</Button>
+			<Form.Input size="small" label="Search" forLabel="search-small" placeholder="Search..." />
+			<Button size="small" variant="primary">
+				Search
+			</Button>
+			<Button size="small" variant="ghost">
+				Clear
+			</Button>
 		</div>
 
 		<hr sx={ { my: 4 } } />
 
 		<h3>All Button Variants - Size Comparison</h3>
-		<div sx={ { display: 'grid', gridTemplateColumns: 'auto 1fr 1fr', gap: 3, alignItems: 'center' } }>
+		<div
+			sx={ { display: 'grid', gridTemplateColumns: 'auto 1fr 1fr', gap: 3, alignItems: 'center' } }
+		>
 			<div sx={ { fontWeight: 'bold' } }>Variant</div>
 			<div sx={ { fontWeight: 'bold' } }>Large (40px)</div>
 			<div sx={ { fontWeight: 'bold' } }>Small (32px)</div>
@@ -130,32 +136,43 @@ export const SizeComparison = () => (
 			<Button size="small">Small Primary</Button>
 
 			<div>Secondary</div>
-			<Button size="large" variant="secondary">Large Secondary</Button>
-			<Button size="small" variant="secondary">Small Secondary</Button>
+			<Button size="large" variant="secondary">
+				Large Secondary
+			</Button>
+			<Button size="small" variant="secondary">
+				Small Secondary
+			</Button>
 
 			<div>Tertiary</div>
-			<Button size="large" variant="tertiary">Large Tertiary</Button>
-			<Button size="small" variant="tertiary">Small Tertiary</Button>
+			<Button size="large" variant="tertiary">
+				Large Tertiary
+			</Button>
+			<Button size="small" variant="tertiary">
+				Small Tertiary
+			</Button>
 
 			<div>Ghost</div>
-			<Button size="large" variant="ghost">Large Ghost</Button>
-			<Button size="small" variant="ghost">Small Ghost</Button>
+			<Button size="large" variant="ghost">
+				Large Ghost
+			</Button>
+			<Button size="small" variant="ghost">
+				Small Ghost
+			</Button>
 
 			<div>Display</div>
-			<Button size="large" variant="display">Large Display</Button>
-			<Button size="small" variant="display">Small Display</Button>
+			<Button size="large" variant="display">
+				Large Display
+			</Button>
+			<Button size="small" variant="display">
+				Small Display
+			</Button>
 		</div>
 
 		<hr sx={ { my: 4 } } />
 
 		<h3>Complex Form Layout - Large Size</h3>
 		<div sx={ { maxWidth: 600 } }>
-			<Form.Input
-				size="large"
-				label="Full Name"
-				forLabel="name-large"
-				placeholder="John Doe"
-			/>
+			<Form.Input size="large" label="Full Name" forLabel="name-large" placeholder="John Doe" />
 			<NewForm.Select
 				size="large"
 				label="Country"
@@ -174,8 +191,12 @@ export const SizeComparison = () => (
 				type="email"
 			/>
 			<div sx={ { display: 'flex', gap: 2, mt: 3 } }>
-				<Button size="large" variant="primary">Submit Form</Button>
-				<Button size="large" variant="ghost">Cancel</Button>
+				<Button size="large" variant="primary">
+					Submit Form
+				</Button>
+				<Button size="large" variant="ghost">
+					Cancel
+				</Button>
 			</div>
 		</div>
 
@@ -183,12 +204,7 @@ export const SizeComparison = () => (
 
 		<h3>Complex Form Layout - Small Size</h3>
 		<div sx={ { maxWidth: 600 } }>
-			<Form.Input
-				size="small"
-				label="Full Name"
-				forLabel="name-small"
-				placeholder="John Doe"
-			/>
+			<Form.Input size="small" label="Full Name" forLabel="name-small" placeholder="John Doe" />
 			<NewForm.Select
 				size="small"
 				label="Country"
@@ -207,8 +223,12 @@ export const SizeComparison = () => (
 				type="email"
 			/>
 			<div sx={ { display: 'flex', gap: 2, mt: 3 } }>
-				<Button size="small" variant="primary">Submit Form</Button>
-				<Button size="small" variant="ghost">Cancel</Button>
+				<Button size="small" variant="primary">
+					Submit Form
+				</Button>
+				<Button size="small" variant="ghost">
+					Cancel
+				</Button>
 			</div>
 		</div>
 	</div>
@@ -222,24 +242,34 @@ export const MixedSizesAntiPattern = () => (
 		</p>
 
 		<h3>Wrong: Large Input + Small Button</h3>
-		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4, p: 3, bg: 'notice.background.error', borderRadius: 2 } }>
-			<Form.Input
-				size="large"
-				label="Search"
-				forLabel="mixed-1"
-				placeholder="Search..."
-			/>
+		<div
+			sx={ {
+				display: 'flex',
+				gap: 2,
+				alignItems: 'flex-end',
+				mb: 4,
+				p: 3,
+				bg: 'notice.background.error',
+				borderRadius: 2,
+			} }
+		>
+			<Form.Input size="large" label="Search" forLabel="mixed-1" placeholder="Search..." />
 			<Button size="small">Search</Button>
 		</div>
 
 		<h3>Wrong: Small Input + Large Button</h3>
-		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4, p: 3, bg: 'notice.background.error', borderRadius: 2 } }>
-			<Form.Input
-				size="small"
-				label="Search"
-				forLabel="mixed-2"
-				placeholder="Search..."
-			/>
+		<div
+			sx={ {
+				display: 'flex',
+				gap: 2,
+				alignItems: 'flex-end',
+				mb: 4,
+				p: 3,
+				bg: 'notice.background.error',
+				borderRadius: 2,
+			} }
+		>
+			<Form.Input size="small" label="Search" forLabel="mixed-2" placeholder="Search..." />
 			<Button size="large">Search</Button>
 		</div>
 
@@ -251,26 +281,35 @@ export const MixedSizesAntiPattern = () => (
 		</p>
 
 		<h3>Correct: All Large</h3>
-		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4, p: 3, bg: 'notice.background.success', borderRadius: 2 } }>
-			<Form.Input
-				size="large"
-				label="Search"
-				forLabel="correct-1"
-				placeholder="Search..."
-			/>
+		<div
+			sx={ {
+				display: 'flex',
+				gap: 2,
+				alignItems: 'flex-end',
+				mb: 4,
+				p: 3,
+				bg: 'notice.background.success',
+				borderRadius: 2,
+			} }
+		>
+			<Form.Input size="large" label="Search" forLabel="correct-1" placeholder="Search..." />
 			<Button size="large">Search</Button>
 		</div>
 
 		<h3>Correct: All Small</h3>
-		<div sx={ { display: 'flex', gap: 2, alignItems: 'flex-end', mb: 4, p: 3, bg: 'notice.background.success', borderRadius: 2 } }>
-			<Form.Input
-				size="small"
-				label="Search"
-				forLabel="correct-2"
-				placeholder="Search..."
-			/>
+		<div
+			sx={ {
+				display: 'flex',
+				gap: 2,
+				alignItems: 'flex-end',
+				mb: 4,
+				p: 3,
+				bg: 'notice.background.success',
+				borderRadius: 2,
+			} }
+		>
+			<Form.Input size="small" label="Search" forLabel="correct-2" placeholder="Search..." />
 			<Button size="small">Search</Button>
 		</div>
 	</div>
 );
-

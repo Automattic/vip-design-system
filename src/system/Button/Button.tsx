@@ -22,16 +22,29 @@ export enum ButtonVariant {
 }
 
 export interface ButtonProps extends ThemeButtonProps {
+	/** Whether the button is disabled. */
 	disabled?: boolean;
+	/** Uses `aria-disabled` instead of the native `disabled` attribute, keeping the button focusable. */
 	preferAriaDisabled?: boolean;
+	/** Click event handler. */
 	onClick?: ( event: ButtonClickType ) => void;
+	/** Stretches the button to full width of its container. */
 	full?: boolean;
+	/** Allows the button to grow within a flex container. */
 	grow?: boolean;
+	/**
+	 * The visual style variant of the button.
+	 * @default 'primary'
+	 */
 	variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
+	/** Applies danger/destructive styling to the button. */
 	danger?: boolean;
 	size?: ControlSize;
 }
 
+/**
+ * A versatile button component with multiple style variants, danger state, and accessible disabled support.
+ */
 const Button = forwardRef< HTMLButtonElement, ButtonProps >(
 	(
 		{

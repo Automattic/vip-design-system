@@ -21,7 +21,7 @@ const getInputStyles = ( size: ControlSize = 'large' ) => ( {
 	variant: 'inputs.default',
 } );
 
-interface InputProps extends Omit< ThemeInputProps, 'size' > {
+export interface InputProps extends Omit< ThemeInputProps, 'size' > {
 	label?: string;
 	hasError?: boolean;
 	required?: boolean;

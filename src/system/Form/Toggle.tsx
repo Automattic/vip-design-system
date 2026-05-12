@@ -13,13 +13,19 @@ interface ThemeProps extends Theme {
 }
 
 export type ToggleProps = Switch.SwitchProps & {
+	/** Form field name for the underlying switch input. @default 'toggle' */
 	name?: string;
+	/** Additional CSS class name(s) appended to the root element. */
 	className?: Argument;
+	/** Callback fired when the toggle checked state changes. */
 	onChange?: () => void;
+	/** Theme color key used as the background when the toggle is checked. @default 'primary' */
 	variant?: string;
+	/** When true, dims the toggle and prevents interaction. */
 	disabled?: boolean;
 };
 
+/** An accessible on/off switch built on Radix UI Switch. */
 export const Toggle = ( {
 	name = 'toggle',
 	onChange,

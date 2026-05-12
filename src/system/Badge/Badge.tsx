@@ -11,9 +11,16 @@ import { TextProps as ThemeTextProps } from 'theme-ui';
 import { Text } from '..';
 
 export interface BadgeProps extends ThemeTextProps {
+	/** The color variant of the badge.
+	 * @default 'blue'
+	 */
 	variant?: 'blue' | 'gold' | 'gray' | 'green' | 'orange' | 'red' | 'salmon' | 'yellow';
 }
 
+/**
+ * A small label used to highlight status, category, or metadata.
+ * Supports multiple color variants for different semantic meanings.
+ */
 export const Badge = forwardRef< HTMLDivElement, BadgeProps >(
 	( { variant = 'blue', sx, className, ...props }: BadgeProps, ref: Ref< HTMLDivElement > ) => (
 		<Text
