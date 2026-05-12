@@ -72,7 +72,14 @@ const RadioOption = ( {
 				{ ...restOption }
 			/>
 			<div
-				sx={ { mb: 0, color: 'input.radio-box.label.primary.default', p: 3, pr: 0, flex: 'auto' } }
+				sx={ {
+					mb: 0,
+					color: 'input.radio-box.label.primary.default',
+					fontWeight: 'semibold',
+					p: 3,
+					pr: 0,
+					flex: 'auto',
+				} }
 			>
 				<label htmlFor={ forLabel } { ...labelProps }>
 					{ label }
@@ -82,7 +89,9 @@ const RadioOption = ( {
 						sx={ {
 							color: 'input.radio-box.label.secondary.default',
 							mb: 0,
+							mt: 1,
 							fontSize: 1,
+							fontWeight: 'regular',
 							display: 'block',
 						} }
 						id={ describedById }
