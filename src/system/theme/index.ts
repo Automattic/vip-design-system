@@ -677,7 +677,6 @@ export default {
 	styles: {
 		root: {
 			fontFamily: 'body',
-			fontSize: bodyDefaultTypography.fontSize ?? 14,
 			lineHeight: 'body',
 			fontWeight: 'body',
 			color: 'text',
