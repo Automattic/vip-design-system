@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: false
+  commands:
+    check-types:
+      run: npm run check-types
+    lint:
+      run: npm run lint
+    format-check:
+      run: npm run format:check
