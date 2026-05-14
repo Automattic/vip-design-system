@@ -1081,7 +1081,7 @@
     },
     "helper-text": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 400,
         "fontSize": 12,
         "lineHeight": "150%",
@@ -1091,17 +1091,17 @@
     },
     "label-xs": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 400,
         "lineHeight": "100%",
         "fontSize": 11,
-        "letterSpacing": "0.05em"
+        "letterSpacing": "0.02em"
       },
       "type": "typography"
     },
     "label-small": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 600,
         "lineHeight": "100%",
         "fontSize": 12,
@@ -1111,7 +1111,7 @@
     },
     "label-default": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 600,
         "lineHeight": "100%",
         "fontSize": 14,
@@ -1121,7 +1121,7 @@
     },
     "label-default-quiet": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 400,
         "lineHeight": "100%",
         "fontSize": 14,
@@ -1131,7 +1131,7 @@
     },
     "label-default-loud": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "lineHeight": "100%",
         "fontSize": 14,
@@ -1688,7 +1688,7 @@
   },
   "fontFamily": {
     "default": {
-      "value": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+      "value": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
       "type": "fontFamilies"
     },
     "monospace": {
@@ -1699,7 +1699,7 @@
   "heading": {
     "1": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "lineHeight": "115%",
         "fontSize": 40,
@@ -1709,7 +1709,7 @@
     },
     "2": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 600,
         "lineHeight": "125%",
         "fontSize": 28,
@@ -1719,7 +1719,7 @@
     },
     "3": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 600,
         "lineHeight": "130%",
         "fontSize": 18,
@@ -1729,7 +1729,7 @@
     },
     "4": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "lineHeight": "140%",
         "fontSize": 14,
@@ -1739,7 +1739,7 @@
     },
     "5": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "lineHeight": "140%",
         "fontSize": 12,
@@ -1749,11 +1749,11 @@
     },
     "caps": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 600,
         "lineHeight": "150%",
         "fontSize": 12,
-        "letterSpacing": "0.05em",
+        "letterSpacing": "0.02em",
         "textTransform": "uppercase"
       },
       "type": "typography"
@@ -1762,7 +1762,7 @@
   "body": {
     "small": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 12,
@@ -1772,7 +1772,7 @@
     },
     "default": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 14,
@@ -1782,7 +1782,7 @@
     },
     "large": {
       "value": {
-        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+        "fontFamily": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         "fontWeight": 400,
         "lineHeight": "150%",
         "fontSize": 18,
@@ -2522,7 +2522,7 @@
       "type": "letterSpacing"
     },
     "loose-3": {
-      "value": "0.05em",
+      "value": "0.02em",
       "type": "letterSpacing"
     }
   },
