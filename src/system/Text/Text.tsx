@@ -13,7 +13,6 @@ export const Text = forwardRef< HTMLDivElement, ThemeTextProps >(
 		<ThemeText
 			as="p"
 			sx={ {
-				lineHeight: 'body',
 				marginBottom: 2,
 				color: 'text',
 				...sx,

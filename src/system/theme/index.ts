@@ -11,14 +11,10 @@ import { linkUnderlineProperties } from '../Link/Link';
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
-const supportLabelDefault = ValetTheme.support?.[ 'label-default' ] ?? {};
-const supportLabelDefaultTypography = {
-	fontFamily: supportLabelDefault.fontFamily ?? 'body',
-	fontWeight: supportLabelDefault.fontWeight ?? 'medium',
-	fontSize: supportLabelDefault.fontSize ?? 14,
-	lineHeight: supportLabelDefault.lineHeight ?? '100%',
-	letterSpacing: supportLabelDefault.letterSpacing ?? '0.005em',
-};
+const supportLabelDefaultTypography = getPropValue( 'support', 'label-default' ) as Record<
+	string,
+	unknown
+>;
 
 // Dark
 const {
@@ -225,15 +221,11 @@ export default {
 	space: getVariants( 'space' ),
 	fonts: {
 		monospace: getPropValue( 'fontFamily', 'monospace' ),
-		serif: getPropValue( 'fontFamily', 'default' ),
-		body: getPropValue( 'fontFamily', 'default' ),
-		heading: getPropValue( 'fontFamily', 'default' ),
+		default: getPropValue( 'fontFamily', 'default' ),
 	},
 	fontSizes: getVariants( 'fontSize.static' ),
 	breakpoints: generateBreakpoints( getVariants( 'breakpoint' ) ),
 	fontWeights: {
-		// body: getPropValue( 'fontWeight', 'body' ),
-		// heading: getPropValue( 'fontWeight', 'heading' ),
 		regular: getPropValue( 'fontWeight', 'regular' ),
 		semibold: getPropValue( 'fontWeight', 'semibold' ),
 		bold: getPropValue( 'fontWeight', 'bold' ),
@@ -592,7 +584,16 @@ export default {
 		},
 	},
 
-	text: getHeadingStyles(),
+	text: {
+		...getHeadingStyles(),
+		...getVariants( 'body' ),
+		'support-helper-text': getPropValue( 'support', 'helper-text' ),
+		'support-label-xs': getPropValue( 'support', 'label-xs' ),
+		'support-label-small': getPropValue( 'support', 'label-small' ),
+		'support-label-default': getPropValue( 'support', 'label-default' ),
+		'support-label-default-quiet': getPropValue( 'support', 'label-default-quiet' ),
+		'support-label-default-loud': getPropValue( 'support', 'label-default-loud' ),
+	},
 
 	dialog: {
 		modal: {
@@ -675,9 +676,9 @@ export default {
 
 	styles: {
 		root: {
-			fontFamily: 'body',
-			lineHeight: 'body',
-			fontWeight: 'body',
+			fontFamily: ( getPropValue( 'body', 'default' ) as Record< string, unknown > ).fontFamily,
+			lineHeight: ( getPropValue( 'body', 'default' ) as Record< string, unknown > ).lineHeight,
+			fontWeight: ( getPropValue( 'body', 'default' ) as Record< string, unknown > ).fontWeight,
 			color: 'text',
 			backgroundColor: 'backgrounds.primary',
 			webkitFontSmoothing: 'antialiased',
@@ -694,12 +695,11 @@ export default {
 				display: 'block',
 			},
 			pre: {
-				fontFamily: 'body',
+				fontFamily: 'default',
 			},
 			p: {
 				color: 'text',
 			},
-			...getHeadingStyles(),
 		},
 	},
 };

@@ -48,7 +48,6 @@ export default theme => {
 	// We need to build h1: {}, h2: {}, h3: {}, caps: {}.
 	const getHeadingStyles = () => {
 		const variantValues = getVariants( 'heading' );
-
 		const headingStyles: Record< string, unknown > = {};
 
 		Object.keys( variantValues ).forEach( variant => {
@@ -61,7 +60,7 @@ export default theme => {
 			if ( parseInt( variant, 10 ) > 0 ) {
 				headingStyles[ `h${ variant }` ] = {
 					...variantValues[ variant ],
-					fontFamily: variant.toString() === '1' ? 'serif' : 'body',
+					fontFamily: 'default',
 				};
 			}
 		} );
