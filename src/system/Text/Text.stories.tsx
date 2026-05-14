@@ -38,7 +38,7 @@ export const Default: Story = {
 			<Text variant="large">Body Large</Text>
 			<Text variant="mono">Body Mono</Text>
 			<Text variant="mono-bold">Body Mono Bold</Text>
-			
+
 			<Text sx={ { color: 'texts.accent' } }>Text Accent</Text>
 			<Text sx={ { color: 'texts.helper' } }>Text Helper</Text>
 

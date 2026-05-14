@@ -27,7 +27,7 @@ export const Default: Story = {
 			<Heading variant="h3">Heading Three</Heading>
 			<Heading variant="h4">Heading Four</Heading>
 			<Heading variant="h5">Heading Five</Heading>
-			
+
 			<Heading variant="h3" as="h1">
 				Heading One with Heading Three Styles
 			</Heading>
