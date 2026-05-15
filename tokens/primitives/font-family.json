@@ -1,0 +1,9 @@
+{
+	"font-family": {
+		"default": {
+			"$value": "aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+			"$type": "fontFamily"
+		},
+		"monospace": { "$value": "SF Mono, monospace", "$type": "fontFamily" }
+	}
+}

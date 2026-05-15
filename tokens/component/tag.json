@@ -1,0 +1,67 @@
+{
+	"tag": {
+		"gray": {
+			"background": { "$value": "{gray.7}", "$type": "color" },
+			"text": { "$value": "{gray.85}", "$type": "color" },
+			"icon": { "$value": "{gray.65}", "$type": "color" },
+			"hover": { "$value": "{gray.15}", "$type": "color" },
+			"active": { "$value": "{gray.20}", "$type": "color" }
+		},
+		"blue": {
+			"background": { "$value": "{blue.7}", "$type": "color" },
+			"text": { "$value": "{blue.85}", "$type": "color" },
+			"icon": { "$value": "{blue.65}", "$type": "color" },
+			"hover": { "$value": "{blue.15}", "$type": "color" },
+			"active": { "$value": "{blue.20}", "$type": "color" }
+		},
+		"green": {
+			"background": { "$value": "{green.7}", "$type": "color" },
+			"text": { "$value": "{green.85}", "$type": "color" },
+			"icon": { "$value": "{green.65}", "$type": "color" },
+			"hover": { "$value": "{green.15}", "$type": "color" },
+			"active": { "$value": "{green.20}", "$type": "color" }
+		},
+		"red": {
+			"background": { "$value": "{red.7}", "$type": "color" },
+			"text": { "$value": "{red.85}", "$type": "color" },
+			"icon": { "$value": "{red.65}", "$type": "color" },
+			"hover": { "$value": "{red.15}", "$type": "color" },
+			"active": { "$value": "{red.20}", "$type": "color" }
+		},
+		"gold": {
+			"background": { "$value": "{gold.7}", "$type": "color" },
+			"text": { "$value": "{gold.85}", "$type": "color" },
+			"icon": { "$value": "{gold.65}", "$type": "color" },
+			"hover": { "$value": "{gold.15}", "$type": "color" },
+			"active": { "$value": "{gold.20}", "$type": "color" }
+		},
+		"yellow": {
+			"background": { "$value": "{yellow.7}", "$type": "color" },
+			"text": { "$value": "{yellow.85}", "$type": "color" },
+			"icon": { "$value": "{yellow.65}", "$type": "color" },
+			"hover": { "$value": "{yellow.15}", "$type": "color" },
+			"active": { "$value": "{yellow.20}", "$type": "color" }
+		},
+		"orange": {
+			"background": { "$value": "{orange.7}", "$type": "color" },
+			"text": { "$value": "{orange.85}", "$type": "color" },
+			"icon": { "$value": "{orange.65}", "$type": "color" },
+			"hover": { "$value": "{orange.15}", "$type": "color" },
+			"active": { "$value": "{orange.20}", "$type": "color" }
+		},
+		"salmon": {
+			"background": { "$value": "{salmon.7}", "$type": "color" },
+			"text": { "$value": "{salmon.85}", "$type": "color" },
+			"icon": { "$value": "{salmon.65}", "$type": "color" },
+			"hover": { "$value": "{salmon.15}", "$type": "color" },
+			"active": { "$value": "{salmon.20}", "$type": "color" }
+		},
+		"pink": {
+			"background": { "$value": "{pink.7}", "$type": "color" },
+			"text": { "$value": "{pink.85}", "$type": "color" },
+			"icon": { "$value": "{pink.65}", "$type": "color" },
+			"hover": { "$value": "{pink.15}", "$type": "color" },
+			"active": { "$value": "{pink.20}", "$type": "color" }
+		}
+	}
+}

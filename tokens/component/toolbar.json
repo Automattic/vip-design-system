@@ -1,0 +1,22 @@
+{
+	"toolbar": {
+		"background": {
+			"$value": "{black}",
+			"$type": "color",
+			"$description": "The background color for the top toolbar"
+		},
+		"text": {
+			"default": {
+				"$value": "{gray.7}",
+				"$type": "color",
+				"$description": "Default text color for the top toolbar's contents"
+			},
+			"hover": { "$value": "{gray.7}", "$type": "color" }
+		},
+		"brand": {
+			"$value": "{pure-white}",
+			"$type": "color",
+			"$description": "Use for the logo"
+		}
+	}
+}

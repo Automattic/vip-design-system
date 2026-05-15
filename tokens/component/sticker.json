@@ -1,0 +1,85 @@
+{
+	"sticker": {
+		"gray": {
+			"background": { "$value": "{gray.90}", "$type": "color" },
+			"background-secondary": { "$value": "{gray.20}", "$type": "color" },
+			"text": { "$value": "{pure-white}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{pure-white}", "$type": "color" },
+			"hover": { "$value": "{gray.80}", "$type": "color" },
+			"active": { "$value": "{gray.75}", "$type": "color" }
+		},
+		"blue": {
+			"background": { "$value": "{blue.30}", "$type": "color" },
+			"background-secondary": { "$value": "{blue.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{blue.40}", "$type": "color" },
+			"active": { "$value": "{blue.45}", "$type": "color" }
+		},
+		"green": {
+			"background": { "$value": "{green.30}", "$type": "color" },
+			"background-secondary": { "$value": "{green.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{green.40}", "$type": "color" },
+			"active": { "$value": "{green.45}", "$type": "color" }
+		},
+		"red": {
+			"background": { "$value": "{red.60}", "$type": "color" },
+			"background-secondary": { "$value": "{red.7}", "$type": "color" },
+			"text": { "$value": "{pure-white}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{pure-white}", "$type": "color" },
+			"hover": { "$value": "{red.70}", "$type": "color" },
+			"active": { "$value": "{red.75}", "$type": "color" }
+		},
+		"gold": {
+			"background": { "$value": "{gold.30}", "$type": "color" },
+			"background-secondary": { "$value": "{gold.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{gold.40}", "$type": "color" },
+			"active": { "$value": "{gold.45}", "$type": "color" }
+		},
+		"yellow": {
+			"background": { "$value": "{yellow.30}", "$type": "color" },
+			"background-secondary": { "$value": "{yellow.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{yellow.40}", "$type": "color" },
+			"active": { "$value": "{yellow.45}", "$type": "color" }
+		},
+		"orange": {
+			"background": { "$value": "{orange.35}", "$type": "color" },
+			"background-secondary": { "$value": "{orange.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{orange.45}", "$type": "color" },
+			"active": { "$value": "{orange.50}", "$type": "color" }
+		},
+		"salmon": {
+			"background": { "$value": "{salmon.30}", "$type": "color" },
+			"background-secondary": { "$value": "{salmon.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{salmon.40}", "$type": "color" },
+			"active": { "$value": "{salmon.45}", "$type": "color" }
+		},
+		"pink": {
+			"background": { "$value": "{pink.30}", "$type": "color" },
+			"background-secondary": { "$value": "{pink.7}", "$type": "color" },
+			"text": { "$value": "{black}", "$type": "color" },
+			"text-secondary": { "$value": "{black}", "$type": "color" },
+			"icon": { "$value": "{black}", "$type": "color" },
+			"hover": { "$value": "{pink.40}", "$type": "color" },
+			"active": { "$value": "{pink.45}", "$type": "color" }
+		}
+	}
+}

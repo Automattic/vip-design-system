@@ -1,0 +1,112 @@
+{
+	"button": {
+		"primary": {
+			"background": {
+				"default": { "$value": "{black}", "$type": "color" },
+				"hover": { "$value": "{gold.30}", "$type": "color" },
+				"disabled": { "$value": "{gray.25}", "$type": "color" }
+			},
+			"label": {
+				"default": { "$value": "{color.text.inverse}", "$type": "color" },
+				"hover": { "$value": "{color.text.primary}", "$type": "color" },
+				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+			}
+		},
+		"secondary": {
+			"background": {
+				"default": { "$value": "{gray.10}", "$type": "color" },
+				"hover": { "$value": "{gold.30}", "$type": "color" },
+				"disabled": { "$value": "{gray.25}", "$type": "color" }
+			},
+			"label": {
+				"default": { "$value": "{color.text.primary}", "$type": "color" },
+				"hover": { "$value": "{color.text.primary}", "$type": "color" },
+				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+			}
+		},
+		"tertiary": {
+			"background": {
+				"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+				"hover": { "$value": "{gray.10}", "$type": "color" },
+				"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+			},
+			"border": {
+				"default": { "$value": "{gray.45}", "$type": "color" },
+				"hover": { "$value": "{gray.10}", "$type": "color" },
+				"disabled": { "$value": "{gray.25}", "$type": "color" }
+			},
+			"label": {
+				"default": { "$value": "{color.text.primary}", "$type": "color" },
+				"hover": { "$value": "{color.text.primary}", "$type": "color" },
+				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+			}
+		},
+		"ghost": {
+			"background": {
+				"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+				"hover": { "$value": "{gray.10}", "$type": "color" },
+				"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+			},
+			"label": {
+				"default": { "$value": "{color.text.accent}", "$type": "color" },
+				"hover": { "$value": "{color.text.primary}", "$type": "color" },
+				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+			}
+		},
+		"display": {
+			"background": {
+				"default": { "$value": "{gold.30}", "$type": "color" },
+				"hover": { "$value": "{gold.60}", "$type": "color" },
+				"disabled": { "$value": "{gray.25}", "$type": "color" }
+			},
+			"label": {
+				"default": { "$value": "{color.text.primary}", "$type": "color" },
+				"hover": { "$value": "{color.text.inverse}", "$type": "color" },
+				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+			}
+		},
+		"danger": {
+			"primary": {
+				"background": {
+					"default": { "$value": "{red.55}", "$type": "color" },
+					"hover": { "$value": "{red.70}", "$type": "color" },
+					"disabled": { "$value": "{gray.25}", "$type": "color" }
+				},
+				"label": {
+					"default": { "$value": "{color.text.inverse}", "$type": "color" },
+					"hover": { "$value": "{color.text.inverse}", "$type": "color" },
+					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				}
+			},
+			"secondary": {
+				"background": {
+					"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+					"hover": { "$value": "{red.70}", "$type": "color" },
+					"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+				},
+				"label": {
+					"default": { "$value": "{red.55}", "$type": "color" },
+					"hover": { "$value": "{color.text.inverse}", "$type": "color" },
+					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				},
+				"border": {
+					"default": { "$value": "{red.55}", "$type": "color" },
+					"hover": { "$value": "{red.70}", "$type": "color" },
+					"disabled": { "$value": "{gray.25}", "$type": "color" }
+				}
+			},
+			"ghost": {
+				"background": {
+					"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+					"hover": { "$value": "{red.70}", "$type": "color" },
+					"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+				},
+				"label": {
+					"default": { "$value": "{red.55}", "$type": "color" },
+					"hover": { "$value": "{color.text.inverse}", "$type": "color" },
+					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				}
+			}
+		}
+	}
+}

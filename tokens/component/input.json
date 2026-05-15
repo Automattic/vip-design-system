@@ -1,0 +1,74 @@
+{
+	"input": {
+		"background": {
+			"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+			"primary": { "$value": "{black}", "$type": "color" },
+			"success": { "$value": "{green.60}", "$type": "color" },
+			"brand": { "$value": "{gold.60}", "$type": "color" },
+			"inactive": { "$value": "{gray.50}", "$type": "color" },
+			"disabled": { "$value": "{gray.20}", "$type": "color" },
+			"read-only": { "$value": "{color.layer.1}", "$type": "color" }
+		},
+		"label": {
+			"default": { "$value": "{black}", "$type": "color" }
+		},
+		"text": {
+			"default": { "$value": "{black}", "$type": "color" },
+			"placeholder": {
+				"$value": "{gray.55}",
+				"$type": "color",
+				"$description": "Use for placeholder text in fields"
+			}
+		},
+		"border": {
+			"default": { "$value": "{gray.45}", "$type": "color" },
+			"disabled": { "$value": "{gray.25}", "$type": "color" },
+			"error": {
+				"$value": "{red.55}",
+				"$type": "color",
+				"$description": "Use for inputs which are in an error state."
+			},
+			"read-only": { "$value": "{color.border.2}", "$type": "color" }
+		},
+		"switcher": {
+			"background": {
+				"primary": { "$value": "{green.60}", "$type": "color" },
+				"secondary": { "$value": "{blue.60}", "$type": "color" }
+			}
+		},
+		"radio-box": {
+			"background": {
+				"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+				"hover": { "$value": "{gray.3}", "$type": "color" },
+				"active": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
+				"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+			},
+			"label": {
+				"primary": {
+					"default": { "$value": "{color.text.primary}", "$type": "color" },
+					"hover": { "$value": "{color.text.primary}", "$type": "color" },
+					"active": { "$value": "{color.text.primary}", "$type": "color" },
+					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				},
+				"secondary": {
+					"default": { "$value": "{color.text.secondary}", "$type": "color" },
+					"hover": { "$value": "{color.text.secondary}", "$type": "color" },
+					"acive": { "$value": "{color.text.secondary}", "$type": "color" },
+					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				}
+			},
+			"border": {
+				"default": { "$value": "{gray.45}", "$type": "color" },
+				"hover": { "$value": "{gray.45}", "$type": "color" },
+				"active": { "$value": "{gold.60}", "$type": "color" },
+				"disabled": { "$value": "{gray.25}", "$type": "color" }
+			}
+		},
+		"toggle": {
+			"switch": {
+				"default": { "$value": "{pure-white}", "$type": "color" },
+				"disabled": { "$value": "{gray.7}", "$type": "color" }
+			}
+		}
+	}
+}

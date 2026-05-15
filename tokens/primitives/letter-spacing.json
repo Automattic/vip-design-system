@@ -1,0 +1,11 @@
+{
+	"letter-spacing": {
+		"tight-3": { "$value": "-0.02em", "$type": "dimension" },
+		"tight-2": { "$value": "-0.015em", "$type": "dimension" },
+		"tight-1": { "$value": "-0.01em", "$type": "dimension" },
+		"none": { "$value": "0em", "$type": "dimension" },
+		"loose-1": { "$value": "0.005em", "$type": "dimension" },
+		"loose-2": { "$value": "0.01em", "$type": "dimension" },
+		"loose-3": { "$value": "0.02em", "$type": "dimension" }
+	}
+}

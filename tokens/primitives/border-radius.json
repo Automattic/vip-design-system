@@ -1,0 +1,15 @@
+{
+	"border-radius": {
+		"0": { "$value": "0.125rem", "$type": "dimension", "$description": "2px" },
+		"1": { "$value": "0.25rem", "$type": "dimension", "$description": "4px" },
+		"2": { "$value": "0.5rem", "$type": "dimension", "$description": "8px" },
+		"3": { "$value": "1rem", "$type": "dimension", "$description": "16px" },
+		"4": { "$value": "2rem", "$type": "dimension", "$description": "32px" },
+		"5": { "$value": "2.5rem", "$type": "dimension", "$description": "40px" },
+		"6": { "$value": "3.5rem", "$type": "dimension", "$description": "56px" },
+		"responsive": {
+			"3-5": { "$value": "clamp(1.00rem, calc(0.64rem + 1.81vw), 2.50rem)", "$type": "dimension" },
+			"4-6": { "$value": "clamp(2.00rem, calc(1.64rem + 1.81vw), 3.50rem)", "$type": "dimension" }
+		}
+	}
+}

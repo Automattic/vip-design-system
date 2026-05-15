@@ -1,0 +1,37 @@
+{
+	"font-size": {
+		"0": {
+			"$value": "0.6875rem",
+			"$type": "dimension",
+			"$description": "11px — static, non-responsive"
+		},
+		"1": { "$value": "0.75rem", "$type": "dimension", "$description": "12px — static" },
+		"2": { "$value": "0.875rem", "$type": "dimension", "$description": "14px — static" },
+		"3": { "$value": "1rem", "$type": "dimension", "$description": "16px — static" },
+		"4": { "$value": "1.125rem", "$type": "dimension", "$description": "18px — static" },
+		"5": { "$value": "1.75rem", "$type": "dimension", "$description": "28px — static" },
+		"6": { "$value": "2.5rem", "$type": "dimension", "$description": "40px — static" },
+		"responsive": {
+			"1": { "$value": "clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem)", "$type": "dimension" },
+			"2": { "$value": "clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem)", "$type": "dimension" },
+			"3": { "$value": "clamp(0.74rem, calc(0.91rem + -0.17vw), 0.88rem)", "$type": "dimension" },
+			"4": { "$value": "clamp(0.89rem, calc(0.95rem + -0.06vw), 0.94rem)", "$type": "dimension" },
+			"5": { "$value": "clamp(1.00rem, calc(0.98rem + 0.08vw), 1.06rem)", "$type": "dimension" },
+			"6": { "$value": "clamp(1.07rem, calc(1.02rem + 0.25vw), 1.28rem)", "$type": "dimension" },
+			"7": { "$value": "clamp(1.14rem, calc(1.04rem + 0.47vw), 1.53rem)", "$type": "dimension" },
+			"8": { "$value": "clamp(1.22rem, calc(1.07rem + 0.75vw), 1.84rem)", "$type": "dimension" },
+			"9": { "$value": "clamp(1.30rem, calc(1.08rem + 1.09vw), 2.20rem)", "$type": "dimension" },
+			"10": { "$value": "clamp(1.38rem, calc(1.08rem + 1.52vw), 2.64rem)", "$type": "dimension" },
+			"11": { "$value": "clamp(1.48rem, calc(1.07rem + 2.04vw), 3.17rem)", "$type": "dimension" },
+			"12": { "$value": "clamp(1.57rem, calc(1.04rem + 2.69vw), 3.81rem)", "$type": "dimension" },
+			"13": { "$value": "clamp(1.68rem, calc(0.98rem + 3.48vw), 4.57rem)", "$type": "dimension" },
+			"14": { "$value": "clamp(1.79rem, calc(0.90rem + 4.45vw), 5.48rem)", "$type": "dimension" },
+			"15": { "$value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)", "$type": "dimension" },
+			"12b": {
+				"$value": "clamp(3.00rem, calc(2.82rem + 0.90vw), 3.75rem)",
+				"$type": "dimension",
+				"$description": "Lower contrast token for statistics."
+			}
+		}
+	}
+}

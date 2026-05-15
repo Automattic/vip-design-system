@@ -1,0 +1,12 @@
+{
+	"slider": {
+		"background": {
+			"default": { "$value": "{gray.15}", "$type": "color" },
+			"disabled": { "$value": "{gray.15}", "$type": "color" }
+		},
+		"handle": {
+			"default": { "$value": "{black}", "$type": "color" },
+			"disabled": { "$value": "{gray.40}", "$type": "color" }
+		}
+	}
+}

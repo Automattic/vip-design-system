@@ -1,0 +1,10 @@
+{
+	"breakpoint": {
+		"s": { "$value": 320, "$type": "number", "$description": "< 655px" },
+		"m": { "$value": 656, "$type": "number", "$description": "656–1047px" },
+		"l": { "$value": 1048, "$type": "number", "$description": "1048–1311px" },
+		"xl": { "$value": 1312, "$type": "number", "$description": "1312–1535px" },
+		"xxl": { "$value": 1536, "$type": "number", "$description": "1536–1647px" },
+		"max": { "$value": 1648, "$type": "number", "$description": "1648px +" }
+	}
+}
