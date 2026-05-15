@@ -1,0 +1,50 @@
+@layer blocks {
+	.option-row {
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
+		padding: var(--space-3) var(--space-4);
+		border-radius: var(--border-radius-2);
+		cursor: pointer;
+		transition: background-color 120ms ease;
+
+		/* Default variant */
+		background-color: var(--option-row-default-background);
+	}
+
+	.option-row__icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		color: var(--option-row-default-icon);
+	}
+
+	.option-row__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-0);
+	}
+
+	.option-row__label {
+		font-weight: var(--font-weight-semibold);
+		font-size: var(--font-size-2);
+		line-height: var(--line-height-4);
+	}
+
+	.option-row__description {
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-5);
+		color: var(--color-text-helper);
+	}
+
+	/* ── Alt variant ──────────────────────────────────────────────────────────── */
+
+	.option-row[data-variant='alt'] {
+		background-color: var(--option-row-alt-background);
+	}
+
+	.option-row[data-variant='alt'] .option-row__icon {
+		color: var(--option-row-alt-icon);
+	}
+}

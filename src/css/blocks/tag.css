@@ -1,0 +1,152 @@
+@layer blocks {
+	.tag {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-1);
+		padding: var(--space-1) var(--space-2);
+		border-radius: var(--border-radius-5);
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-1);
+		font-weight: var(--font-weight-semibold);
+		line-height: var(--line-height-0);
+		letter-spacing: var(--letter-spacing-loose-1);
+		white-space: nowrap;
+
+		/* Default color: gray */
+		background-color: var(--tag-gray-background);
+		color: var(--tag-gray-text);
+	}
+
+	.tag[data-interactive] {
+		cursor: pointer;
+		transition: background-color 120ms ease;
+	}
+
+	.tag[data-interactive]:hover {
+		background-color: var(--tag-gray-hover);
+	}
+
+	.tag[data-interactive]:active {
+		background-color: var(--tag-gray-active);
+	}
+
+	.tag__icon {
+		color: var(--tag-gray-icon);
+		display: flex;
+		align-items: center;
+	}
+
+	/* ── Color variants ───────────────────────────────────────────────────────── */
+
+	.tag[data-color='blue'] {
+		background-color: var(--tag-blue-background);
+		color: var(--tag-blue-text);
+	}
+	.tag[data-color='blue'] .tag__icon {
+		color: var(--tag-blue-icon);
+	}
+	.tag[data-color='blue'][data-interactive]:hover {
+		background-color: var(--tag-blue-hover);
+	}
+	.tag[data-color='blue'][data-interactive]:active {
+		background-color: var(--tag-blue-active);
+	}
+
+	.tag[data-color='green'] {
+		background-color: var(--tag-green-background);
+		color: var(--tag-green-text);
+	}
+	.tag[data-color='green'] .tag__icon {
+		color: var(--tag-green-icon);
+	}
+	.tag[data-color='green'][data-interactive]:hover {
+		background-color: var(--tag-green-hover);
+	}
+	.tag[data-color='green'][data-interactive]:active {
+		background-color: var(--tag-green-active);
+	}
+
+	.tag[data-color='red'] {
+		background-color: var(--tag-red-background);
+		color: var(--tag-red-text);
+	}
+	.tag[data-color='red'] .tag__icon {
+		color: var(--tag-red-icon);
+	}
+	.tag[data-color='red'][data-interactive]:hover {
+		background-color: var(--tag-red-hover);
+	}
+	.tag[data-color='red'][data-interactive]:active {
+		background-color: var(--tag-red-active);
+	}
+
+	.tag[data-color='gold'] {
+		background-color: var(--tag-gold-background);
+		color: var(--tag-gold-text);
+	}
+	.tag[data-color='gold'] .tag__icon {
+		color: var(--tag-gold-icon);
+	}
+	.tag[data-color='gold'][data-interactive]:hover {
+		background-color: var(--tag-gold-hover);
+	}
+	.tag[data-color='gold'][data-interactive]:active {
+		background-color: var(--tag-gold-active);
+	}
+
+	.tag[data-color='yellow'] {
+		background-color: var(--tag-yellow-background);
+		color: var(--tag-yellow-text);
+	}
+	.tag[data-color='yellow'] .tag__icon {
+		color: var(--tag-yellow-icon);
+	}
+	.tag[data-color='yellow'][data-interactive]:hover {
+		background-color: var(--tag-yellow-hover);
+	}
+	.tag[data-color='yellow'][data-interactive]:active {
+		background-color: var(--tag-yellow-active);
+	}
+
+	.tag[data-color='orange'] {
+		background-color: var(--tag-orange-background);
+		color: var(--tag-orange-text);
+	}
+	.tag[data-color='orange'] .tag__icon {
+		color: var(--tag-orange-icon);
+	}
+	.tag[data-color='orange'][data-interactive]:hover {
+		background-color: var(--tag-orange-hover);
+	}
+	.tag[data-color='orange'][data-interactive]:active {
+		background-color: var(--tag-orange-active);
+	}
+
+	.tag[data-color='salmon'] {
+		background-color: var(--tag-salmon-background);
+		color: var(--tag-salmon-text);
+	}
+	.tag[data-color='salmon'] .tag__icon {
+		color: var(--tag-salmon-icon);
+	}
+	.tag[data-color='salmon'][data-interactive]:hover {
+		background-color: var(--tag-salmon-hover);
+	}
+	.tag[data-color='salmon'][data-interactive]:active {
+		background-color: var(--tag-salmon-active);
+	}
+
+	.tag[data-color='pink'] {
+		background-color: var(--tag-pink-background);
+		color: var(--tag-pink-text);
+	}
+	.tag[data-color='pink'] .tag__icon {
+		color: var(--tag-pink-icon);
+	}
+	.tag[data-color='pink'][data-interactive]:hover {
+		background-color: var(--tag-pink-hover);
+	}
+	.tag[data-color='pink'][data-interactive]:active {
+		background-color: var(--tag-pink-active);
+	}
+}

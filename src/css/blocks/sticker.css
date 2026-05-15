@@ -1,0 +1,156 @@
+@layer blocks {
+	.sticker {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2);
+		padding: var(--space-2) var(--space-3);
+		border-radius: var(--border-radius-5);
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-semibold);
+		line-height: var(--line-height-0);
+		letter-spacing: var(--letter-spacing-loose-1);
+
+		/* Default color: gray */
+		background-color: var(--sticker-gray-background);
+		color: var(--sticker-gray-text);
+	}
+
+	.sticker[data-interactive] {
+		cursor: pointer;
+		transition: background-color 120ms ease;
+	}
+
+	.sticker[data-interactive]:hover {
+		background-color: var(--sticker-gray-hover);
+	}
+
+	.sticker[data-interactive]:active {
+		background-color: var(--sticker-gray-active);
+	}
+
+	.sticker__icon {
+		color: var(--sticker-gray-icon);
+		display: flex;
+		align-items: center;
+	}
+
+	.sticker__secondary {
+		background-color: var(--sticker-gray-background-secondary);
+		color: var(--sticker-gray-text-secondary);
+	}
+
+	/* ── Color variants ───────────────────────────────────────────────────────── */
+
+	.sticker[data-color='blue'] {
+		background-color: var(--sticker-blue-background);
+		color: var(--sticker-blue-text);
+	}
+	.sticker[data-color='blue'] .sticker__icon {
+		color: var(--sticker-blue-icon);
+	}
+	.sticker[data-color='blue'][data-interactive]:hover {
+		background-color: var(--sticker-blue-hover);
+	}
+	.sticker[data-color='blue'][data-interactive]:active {
+		background-color: var(--sticker-blue-active);
+	}
+
+	.sticker[data-color='green'] {
+		background-color: var(--sticker-green-background);
+		color: var(--sticker-green-text);
+	}
+	.sticker[data-color='green'] .sticker__icon {
+		color: var(--sticker-green-icon);
+	}
+	.sticker[data-color='green'][data-interactive]:hover {
+		background-color: var(--sticker-green-hover);
+	}
+	.sticker[data-color='green'][data-interactive]:active {
+		background-color: var(--sticker-green-active);
+	}
+
+	.sticker[data-color='red'] {
+		background-color: var(--sticker-red-background);
+		color: var(--sticker-red-text);
+	}
+	.sticker[data-color='red'] .sticker__icon {
+		color: var(--sticker-red-icon);
+	}
+	.sticker[data-color='red'][data-interactive]:hover {
+		background-color: var(--sticker-red-hover);
+	}
+	.sticker[data-color='red'][data-interactive]:active {
+		background-color: var(--sticker-red-active);
+	}
+
+	.sticker[data-color='gold'] {
+		background-color: var(--sticker-gold-background);
+		color: var(--sticker-gold-text);
+	}
+	.sticker[data-color='gold'] .sticker__icon {
+		color: var(--sticker-gold-icon);
+	}
+	.sticker[data-color='gold'][data-interactive]:hover {
+		background-color: var(--sticker-gold-hover);
+	}
+	.sticker[data-color='gold'][data-interactive]:active {
+		background-color: var(--sticker-gold-active);
+	}
+
+	.sticker[data-color='yellow'] {
+		background-color: var(--sticker-yellow-background);
+		color: var(--sticker-yellow-text);
+	}
+	.sticker[data-color='yellow'] .sticker__icon {
+		color: var(--sticker-yellow-icon);
+	}
+	.sticker[data-color='yellow'][data-interactive]:hover {
+		background-color: var(--sticker-yellow-hover);
+	}
+	.sticker[data-color='yellow'][data-interactive]:active {
+		background-color: var(--sticker-yellow-active);
+	}
+
+	.sticker[data-color='orange'] {
+		background-color: var(--sticker-orange-background);
+		color: var(--sticker-orange-text);
+	}
+	.sticker[data-color='orange'] .sticker__icon {
+		color: var(--sticker-orange-icon);
+	}
+	.sticker[data-color='orange'][data-interactive]:hover {
+		background-color: var(--sticker-orange-hover);
+	}
+	.sticker[data-color='orange'][data-interactive]:active {
+		background-color: var(--sticker-orange-active);
+	}
+
+	.sticker[data-color='salmon'] {
+		background-color: var(--sticker-salmon-background);
+		color: var(--sticker-salmon-text);
+	}
+	.sticker[data-color='salmon'] .sticker__icon {
+		color: var(--sticker-salmon-icon);
+	}
+	.sticker[data-color='salmon'][data-interactive]:hover {
+		background-color: var(--sticker-salmon-hover);
+	}
+	.sticker[data-color='salmon'][data-interactive]:active {
+		background-color: var(--sticker-salmon-active);
+	}
+
+	.sticker[data-color='pink'] {
+		background-color: var(--sticker-pink-background);
+		color: var(--sticker-pink-text);
+	}
+	.sticker[data-color='pink'] .sticker__icon {
+		color: var(--sticker-pink-icon);
+	}
+	.sticker[data-color='pink'][data-interactive]:hover {
+		background-color: var(--sticker-pink-hover);
+	}
+	.sticker[data-color='pink'][data-interactive]:active {
+		background-color: var(--sticker-pink-active);
+	}
+}

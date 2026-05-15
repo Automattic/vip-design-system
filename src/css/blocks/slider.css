@@ -1,0 +1,60 @@
+@layer blocks {
+	.slider {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.slider__label {
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-semibold);
+		line-height: var(--line-height-0);
+		letter-spacing: var(--letter-spacing-loose-1);
+		color: var(--color-text-primary);
+	}
+
+	.slider__track {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: var(--space-3);
+	}
+
+	.slider__rail {
+		width: 100%;
+		height: 0.25rem;
+		border-radius: var(--border-radius-5);
+		background-color: var(--slider-background-default);
+	}
+
+	.slider__handle {
+		position: absolute;
+		width: var(--space-4);
+		height: var(--space-4);
+		border-radius: var(--border-radius-6);
+		background-color: var(--slider-handle-default);
+		transform: translateX(-50%);
+		cursor: grab;
+		transition: box-shadow 120ms ease;
+	}
+
+	.slider__handle:focus-visible {
+		outline: 2px solid var(--color-focus-default);
+		outline-offset: 2px;
+	}
+
+	.slider__handle:active {
+		cursor: grabbing;
+	}
+
+	/* ── Disabled state ───────────────────────────────────────────────────────── */
+
+	.slider[data-state='disabled'] .slider__rail {
+		background-color: var(--slider-background-disabled);
+	}
+
+	.slider[data-state='disabled'] .slider__handle {
+		background-color: var(--slider-handle-disabled);
+		cursor: not-allowed;
+	}
+}

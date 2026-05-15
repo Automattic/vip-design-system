@@ -6,6 +6,17 @@
 @import './generated/primitives.css';
 @import './generated/semantic.css';
 
+/* Component token custom properties — scoped to each block class, outside layers */
+@import './generated/components/button.css';
+@import './generated/components/input.css';
+@import './generated/components/tag.css';
+@import './generated/components/sticker.css';
+@import './generated/components/support.css';
+@import './generated/components/toolbar.css';
+@import './generated/components/logs.css';
+@import './generated/components/option-row.css';
+@import './generated/components/slider.css';
+
 /* Typography utility classes (.type-heading-1, .type-body-default, etc.) */
 @import './generated/typography.css';
 
@@ -23,6 +34,17 @@
 @import './compositions/switcher.css';
 @import './compositions/cover.css';
 @import './compositions/frame.css';
+
+/* Blocks */
+@import './blocks/button.css';
+@import './blocks/input.css';
+@import './blocks/tag.css';
+@import './blocks/sticker.css';
+@import './blocks/support.css';
+@import './blocks/toolbar.css';
+@import './blocks/logs.css';
+@import './blocks/option-row.css';
+@import './blocks/slider.css';
 
 /* Utilities */
 @import './utilities/gap.css';

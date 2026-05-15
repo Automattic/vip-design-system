@@ -1,0 +1,77 @@
+@layer blocks {
+	.input {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.input__label {
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-semibold);
+		line-height: var(--line-height-0);
+		letter-spacing: var(--letter-spacing-loose-1);
+		color: var(--input-label-default);
+	}
+
+	.input__field {
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-regular);
+		line-height: var(--line-height-5);
+		color: var(--input-text-default);
+		background-color: var(--input-background-default);
+		border: 1px solid var(--input-border-default);
+		border-radius: var(--border-radius-1);
+		padding: var(--space-2) var(--space-3);
+		width: 100%;
+		transition:
+			border-color 120ms ease,
+			box-shadow 120ms ease;
+	}
+
+	.input__field::placeholder {
+		color: var(--input-text-placeholder);
+	}
+
+	.input__field:focus-visible {
+		outline: 2px solid var(--color-focus-default);
+		outline-offset: 2px;
+		border-color: var(--input-background-primary);
+	}
+
+	/* ── Error state ──────────────────────────────────────────────────────────── */
+
+	.input[data-state='error'] .input__field {
+		border-color: var(--input-border-error);
+	}
+
+	/* ── Disabled state ───────────────────────────────────────────────────────── */
+
+	.input[data-state='disabled'] .input__field,
+	.input__field:disabled {
+		background-color: var(--input-background-disabled);
+		border-color: var(--input-border-disabled);
+		cursor: not-allowed;
+	}
+
+	/* ── Read-only state ──────────────────────────────────────────────────────── */
+
+	.input[data-state='read-only'] .input__field,
+	.input__field[readonly] {
+		background-color: var(--input-background-read-only);
+		border-color: var(--input-border-read-only);
+	}
+
+	/* ── Helper / error text ──────────────────────────────────────────────────── */
+
+	.input__helper {
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-5);
+		color: var(--color-text-helper);
+	}
+
+	.input[data-state='error'] .input__helper {
+		color: var(--color-text-error);
+	}
+}
