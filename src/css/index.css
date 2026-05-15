@@ -9,6 +9,20 @@
 /* Typography utility classes (.type-heading-1, .type-body-default, etc.) */
 @import './generated/typography.css';
 
-/* CSS layers are added here as each phase is built:
-   Phase 4: reset, global, compositions, utilities
-   Phase 5: blocks (component CSS), exceptions             */
+/* Reset */
+@import './reset.css';
+
+/* Global HTML element styles */
+@import './global.css';
+
+/* Compositions */
+@import './compositions/stack.css';
+@import './compositions/cluster.css';
+@import './compositions/grid.css';
+@import './compositions/sidebar.css';
+@import './compositions/switcher.css';
+@import './compositions/cover.css';
+@import './compositions/frame.css';
+
+/* Utilities */
+@import './utilities/gap.css';

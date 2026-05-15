@@ -1,0 +1,282 @@
+@layer global {
+	body {
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-regular);
+		line-height: var(--line-height-5);
+		color: var(--color-text-secondary);
+		background-color: var(--color-background-primary);
+	}
+
+	/* ── Headings ─────────────────────────────────────────────────────────────── */
+
+	h1 {
+		font-family: var(--font-family-default);
+		font-weight: var(--font-weight-bold);
+		font-size: var(--font-size-6);
+		line-height: var(--line-height-1);
+		letter-spacing: var(--letter-spacing-tight-3);
+		color: var(--color-text-primary);
+	}
+
+	h2 {
+		font-family: var(--font-family-default);
+		font-weight: var(--font-weight-semibold);
+		font-size: var(--font-size-5);
+		line-height: var(--line-height-2);
+		letter-spacing: var(--letter-spacing-tight-2);
+		color: var(--color-text-primary);
+	}
+
+	h3 {
+		font-family: var(--font-family-default);
+		font-weight: var(--font-weight-semibold);
+		font-size: var(--font-size-4);
+		line-height: var(--line-height-3);
+		letter-spacing: var(--letter-spacing-tight-2);
+		color: var(--color-text-primary);
+	}
+
+	h4 {
+		font-family: var(--font-family-default);
+		font-weight: var(--font-weight-bold);
+		font-size: var(--font-size-2);
+		line-height: var(--line-height-4);
+		letter-spacing: var(--letter-spacing-none);
+		color: var(--color-text-primary);
+	}
+
+	h5 {
+		font-family: var(--font-family-default);
+		font-weight: var(--font-weight-bold);
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-4);
+		letter-spacing: var(--letter-spacing-none);
+		color: var(--color-text-primary);
+	}
+
+	h6 {
+		font-family: var(--font-family-default);
+		font-weight: var(--font-weight-semibold);
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-5);
+		letter-spacing: var(--letter-spacing-loose-3);
+		text-transform: uppercase;
+		color: var(--color-text-primary);
+	}
+
+	/* ── Body text ────────────────────────────────────────────────────────────── */
+
+	p {
+		font-size: var(--font-size-2);
+		line-height: var(--line-height-5);
+		letter-spacing: var(--letter-spacing-loose-2);
+	}
+
+	strong,
+	b {
+		font-weight: var(--font-weight-bold);
+	}
+
+	em,
+	i {
+		font-style: italic;
+	}
+
+	small {
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-5);
+		letter-spacing: var(--letter-spacing-loose-2);
+	}
+
+	/* ── Links ────────────────────────────────────────────────────────────────── */
+
+	a {
+		color: var(--color-link-default);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+
+	a:hover {
+		color: var(--color-link-hover);
+	}
+
+	a:active {
+		color: var(--color-link-active);
+	}
+
+	a:visited {
+		color: var(--color-link-visited);
+	}
+
+	a:focus-visible {
+		outline: 2px solid var(--color-focus-default);
+		outline-offset: 2px;
+		border-radius: var(--border-radius-0);
+	}
+
+	/* ── Code ─────────────────────────────────────────────────────────────────── */
+
+	code,
+	kbd,
+	samp {
+		font-family: var(--font-family-monospace);
+		font-size: var(--font-size-2);
+		letter-spacing: var(--letter-spacing-none);
+	}
+
+	pre {
+		font-family: var(--font-family-monospace);
+		font-size: var(--font-size-2);
+		line-height: var(--line-height-5);
+		letter-spacing: var(--letter-spacing-none);
+		overflow-x: auto;
+	}
+
+	pre code {
+		font-size: inherit;
+	}
+
+	/* ── Blockquote ───────────────────────────────────────────────────────────── */
+
+	blockquote {
+		padding-inline-start: var(--space-4);
+		border-inline-start: 3px solid var(--color-border-accent);
+		color: var(--color-text-helper);
+		font-style: italic;
+	}
+
+	/* ── Lists ────────────────────────────────────────────────────────────────── */
+
+	ul,
+	ol {
+		padding-inline-start: var(--space-5);
+	}
+
+	li {
+		line-height: var(--line-height-5);
+		letter-spacing: var(--letter-spacing-loose-2);
+	}
+
+	li + li {
+		margin-block-start: var(--space-1);
+	}
+
+	/* ── Horizontal rule ──────────────────────────────────────────────────────── */
+
+	hr {
+		border: none;
+		border-block-start: 1px solid var(--color-border-1);
+	}
+
+	/* ── Tables ───────────────────────────────────────────────────────────────── */
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: var(--font-size-2);
+		line-height: var(--line-height-5);
+	}
+
+	th {
+		font-weight: var(--font-weight-semibold);
+		text-align: start;
+		padding: var(--space-2) var(--space-3);
+		border-block-end: 2px solid var(--color-border-2);
+		color: var(--color-text-primary);
+	}
+
+	td {
+		padding: var(--space-2) var(--space-3);
+		border-block-end: 1px solid var(--color-border-1);
+		color: var(--color-text-secondary);
+	}
+
+	/* ── Media ────────────────────────────────────────────────────────────────── */
+
+	img,
+	video {
+		height: auto;
+	}
+
+	figure {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	figcaption {
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-5);
+		letter-spacing: var(--letter-spacing-loose-2);
+		color: var(--color-text-helper);
+	}
+
+	/* ── Form elements ────────────────────────────────────────────────────────── */
+
+	button {
+		cursor: pointer;
+	}
+
+	input,
+	textarea,
+	select {
+		color: var(--color-text-primary);
+		background-color: var(--color-background-primary);
+		border: 1px solid var(--color-border-3);
+		border-radius: var(--border-radius-1);
+	}
+
+	input:focus-visible,
+	textarea:focus-visible,
+	select:focus-visible,
+	button:focus-visible {
+		outline: 2px solid var(--color-focus-default);
+		outline-offset: 2px;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	/* ── Details / Summary ────────────────────────────────────────────────────── */
+
+	details > summary {
+		cursor: pointer;
+		list-style: none;
+	}
+
+	details > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	/* ── Typographic inline elements ──────────────────────────────────────────── */
+
+	abbr[title] {
+		text-decoration: underline dotted;
+		cursor: help;
+	}
+
+	mark {
+		background-color: var(--color-layer-accent);
+		color: var(--color-text-primary);
+		border-radius: var(--border-radius-0);
+		padding-inline: var(--space-0);
+	}
+
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sub {
+		bottom: -0.25em;
+	}
+
+	sup {
+		top: -0.5em;
+	}
+}

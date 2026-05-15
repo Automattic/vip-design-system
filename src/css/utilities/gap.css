@@ -1,0 +1,35 @@
+@layer utilities {
+	.gap-0 {
+		gap: var(--space-0);
+	}
+	.gap-1 {
+		gap: var(--space-1);
+	}
+	.gap-2 {
+		gap: var(--space-2);
+	}
+	.gap-3 {
+		gap: var(--space-3);
+	}
+	.gap-4 {
+		gap: var(--space-4);
+	}
+	.gap-5 {
+		gap: var(--space-5);
+	}
+	.gap-6 {
+		gap: var(--space-6);
+	}
+	.gap-7 {
+		gap: var(--space-7);
+	}
+	.gap-8 {
+		gap: var(--space-8);
+	}
+	.gap-9 {
+		gap: var(--space-9);
+	}
+	.gap-10 {
+		gap: var(--space-10);
+	}
+}

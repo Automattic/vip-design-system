@@ -1,0 +1,10 @@
+@layer compositions {
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(
+			var(--grid-columns, auto-fill),
+			minmax(var(--grid-min-item-size, 16rem), 1fr)
+		);
+		gap: var(--grid-gap, var(--space-4));
+	}
+}

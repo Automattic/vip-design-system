@@ -1,0 +1,11 @@
+@layer compositions {
+	.stack {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.stack > * + * {
+		margin-block-start: var(--stack-gap, var(--space-4));
+	}
+}

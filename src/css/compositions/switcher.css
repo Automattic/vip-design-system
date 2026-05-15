@@ -1,0 +1,19 @@
+@layer compositions {
+	.switcher {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--switcher-gap, var(--space-4));
+	}
+
+	/* Children switch from row to column when combined width exceeds --switcher-threshold */
+	.switcher > * {
+		flex-grow: 1;
+		flex-basis: calc((var(--switcher-threshold, 40rem) - 100%) * 999);
+	}
+
+	/* Limit the number of items per row before switching */
+	.switcher > :nth-last-child(n + 5),
+	.switcher > :nth-last-child(n + 5) ~ * {
+		flex-basis: 100%;
+	}
+}

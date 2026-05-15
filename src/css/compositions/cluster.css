@@ -1,0 +1,9 @@
+@layer compositions {
+	.cluster {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--cluster-gap, var(--space-3));
+		justify-content: var(--cluster-justify, flex-start);
+		align-items: var(--cluster-align, center);
+	}
+}
