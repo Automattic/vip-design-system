@@ -31,7 +31,7 @@ export const TableCell = ( { children, head, sx, ...rest }: TableCellProps ) => 
 		borderTop: head ? '1px solid' : 'none',
 		// borderColor should come after borderTop so it can override it
 		borderColor: 'table.border',
-		fontWeight: 'body',
+		variant: 'text.default',
 		px: 3,
 		py: 2,
 		textAlign: 'left',

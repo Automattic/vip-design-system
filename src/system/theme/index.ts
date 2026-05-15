@@ -11,6 +11,10 @@ import { linkUnderlineProperties } from '../Link/Link';
 // Light
 const { getPropValue, getVariants, ValetTheme, getHeadingStyles } = ThemeBuilder( Valet );
 const light = ColorBuilder( ValetTheme );
+const supportLabelDefaultTypography = getPropValue( 'support', 'label-default' ) as Record<
+	string,
+	unknown
+>;
 
 // Dark
 const {
@@ -28,13 +32,6 @@ const outline = {
 	boxShadow: `0 0 0 1px ${ getPropValue( 'focus', 'inset' ) }, 0 0 0 3px ${ getPropValue(
 		'focus'
 	) }`,
-};
-
-const fonts = {
-	body: '-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
-	heading: 'inherit',
-	monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-	serif: 'recoletaregular, Georgia, serif',
 };
 
 const getComponentColors = ( theme, gColor, gVariants ) => ( {
@@ -222,13 +219,15 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 export default {
 	outline,
 	space: getVariants( 'space' ),
-	fonts,
+	fonts: {
+		monospace: getPropValue( 'fontFamily', 'monospace' ),
+		default: getPropValue( 'fontFamily', 'default' ),
+	},
 	fontSizes: getVariants( 'fontSize.static' ),
 	breakpoints: generateBreakpoints( getVariants( 'breakpoint' ) ),
 	fontWeights: {
-		body: getPropValue( 'fontWeight', 'body' ),
-		heading: getPropValue( 'fontWeight', 'heading' ),
 		regular: getPropValue( 'fontWeight', 'regular' ),
+		semibold: getPropValue( 'fontWeight', 'semibold' ),
 		bold: getPropValue( 'fontWeight', 'bold' ),
 		medium: getPropValue( 'fontWeight', 'medium' ),
 		light: getPropValue( 'fontWeight', 'light' ),
@@ -332,10 +331,19 @@ export default {
 			},
 		},
 	},
+	forms: {
+		label: {
+			...supportLabelDefaultTypography,
+		},
+	},
 
 	buttons: {
 		primary: {
-			fontFamily: 'body',
+			// Typography for all button variants (many inherit `buttons.primary`).
+			// Pulled from the `support.label-default` design token.
+			...supportLabelDefaultTypography,
+			// Button label weight: theme `medium` (500).
+			fontWeight: 'medium',
 			color: 'button.primary.label.default',
 			bg: 'button.primary.background.default',
 			border: '1px solid transparent',
@@ -344,7 +352,6 @@ export default {
 			minHeight: '38px',
 			display: 'inline-flex',
 			cursor: 'pointer',
-			fontWeight: 'medium',
 			boxShadow: 'none',
 			borderRadius: 1,
 			'&:hover': {
@@ -577,7 +584,16 @@ export default {
 		},
 	},
 
-	text: getHeadingStyles(),
+	text: {
+		...getHeadingStyles(),
+		...getVariants( 'body' ),
+		'support-helper-text': getPropValue( 'support', 'helper-text' ),
+		'support-label-xs': getPropValue( 'support', 'label-xs' ),
+		'support-label-small': getPropValue( 'support', 'label-small' ),
+		'support-label-default': getPropValue( 'support', 'label-default' ),
+		'support-label-default-quiet': getPropValue( 'support', 'label-default-quiet' ),
+		'support-label-default-loud': getPropValue( 'support', 'label-default-loud' ),
+	},
 
 	dialog: {
 		modal: {
@@ -660,9 +676,9 @@ export default {
 
 	styles: {
 		root: {
-			fontFamily: 'body',
-			lineHeight: 'body',
-			fontWeight: 'body',
+			fontFamily: ( getPropValue( 'body', 'default' ) as Record< string, unknown > ).fontFamily,
+			lineHeight: ( getPropValue( 'body', 'default' ) as Record< string, unknown > ).lineHeight,
+			fontWeight: ( getPropValue( 'body', 'default' ) as Record< string, unknown > ).fontWeight,
 			color: 'text',
 			backgroundColor: 'backgrounds.primary',
 			webkitFontSmoothing: 'antialiased',
@@ -679,12 +695,11 @@ export default {
 				display: 'block',
 			},
 			pre: {
-				fontFamily: 'body',
+				fontFamily: 'default',
 			},
 			p: {
 				color: 'text',
 			},
-			...getHeadingStyles(),
 		},
 	},
 };

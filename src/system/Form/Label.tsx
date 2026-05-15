@@ -13,9 +13,7 @@ import { RequiredLabel } from './RequiredLabel';
 
 export const baseLabelColor = 'input.label.default';
 export const baseLabelStyle = {
-	fontWeight: 'heading',
-	fontSize: 2,
-	lineHeight: 1.5,
+	variant: 'forms.label',
 	color: baseLabelColor,
 };
 

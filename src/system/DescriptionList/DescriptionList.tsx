@@ -42,7 +42,6 @@ const TableComponent = ( { list, className, sx, title }: DescriptionListProps ) 
 			minWidth: 'auto',
 			'> tbody > tr': {
 				'> td, > th': {
-					fontWeight: 'heading',
 					border: 'none',
 					pl: 0,
 					'&:first-of-type': { pl: 0 },

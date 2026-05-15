@@ -240,7 +240,7 @@ export const Notice = React.forwardRef< HTMLDivElement, NoticeProps >(
 							as={ headingVariant }
 							sx={ {
 								color: textColor,
-								mb: 0,
+								mb: 1,
 								fontSize: 2,
 								fontWeight: 'bold',
 							} }
