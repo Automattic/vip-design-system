@@ -1,16 +1,13 @@
 {
 	"font-size": {
-		"0": {
-			"$value": "0.6875rem",
-			"$type": "dimension",
-			"$description": "11px — static, non-responsive"
-		},
+		"0": { "$value": "0.6875rem", "$type": "dimension", "$description": "11px — static, non-responsive" },
 		"1": { "$value": "0.75rem", "$type": "dimension", "$description": "12px — static" },
 		"2": { "$value": "0.875rem", "$type": "dimension", "$description": "14px — static" },
 		"3": { "$value": "1rem", "$type": "dimension", "$description": "16px — static" },
 		"4": { "$value": "1.125rem", "$type": "dimension", "$description": "18px — static" },
 		"5": { "$value": "1.75rem", "$type": "dimension", "$description": "28px — static" },
 		"6": { "$value": "2.5rem", "$type": "dimension", "$description": "40px — static" },
+		
 		"responsive": {
 			"1": { "$value": "clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem)", "$type": "dimension" },
 			"2": { "$value": "clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem)", "$type": "dimension" },
@@ -27,11 +24,7 @@
 			"13": { "$value": "clamp(1.68rem, calc(0.98rem + 3.48vw), 4.57rem)", "$type": "dimension" },
 			"14": { "$value": "clamp(1.79rem, calc(0.90rem + 4.45vw), 5.48rem)", "$type": "dimension" },
 			"15": { "$value": "clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem)", "$type": "dimension" },
-			"12b": {
-				"$value": "clamp(3.00rem, calc(2.82rem + 0.90vw), 3.75rem)",
-				"$type": "dimension",
-				"$description": "Lower contrast token for statistics."
-			}
+			"12b": { "$value": "clamp(3.00rem, calc(2.82rem + 0.90vw), 3.75rem)", "$type": "dimension", "$description": "Lower contrast token for statistics." }
 		}
 	}
 }
