@@ -7,7 +7,7 @@
 				"$description": "Use as main application background"
 			},
 			"overlay": {
-				"$value": "rgba({black}, 0.7)",
+				"$value": "rgb(19 25 30 / 70%)",
 				"$type": "color",
 				"$description": "Use for modal UI overlay"
 			}

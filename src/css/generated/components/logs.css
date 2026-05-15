@@ -1,0 +1,6 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.logs {
+	--logs-text-primary: var(--gray-7);
+	--logs-text-secondary: var(--gray-30);
+	--logs-background: var(--black);
+}

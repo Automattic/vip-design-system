@@ -1,0 +1,7 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.toolbar {
+	--toolbar-background: var(--black);
+	--toolbar-text-default: var(--gray-7);
+	--toolbar-text-hover: var(--gray-7);
+	--toolbar-brand: var(--pure-white);
+}

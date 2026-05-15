@@ -3,6 +3,7 @@
 	"version": "3.0.0",
 	"description": "A CSS/token-first design system for VIP projects",
 	"license": "GPL-2.0-or-later",
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",

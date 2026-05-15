@@ -1,0 +1,7 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.option-row {
+	--option-row-default-background: var(--gold-40);
+	--option-row-default-icon: var(--gray-93);
+	--option-row-alt-background: var(--color-layer-inverse);
+	--option-row-alt-icon: var(--color-icon-inverse);
+}

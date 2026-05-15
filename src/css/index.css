@@ -1,0 +1,14 @@
+/* Declare cascade layer order — this line is the single source of truth */
+@layer reset, global, compositions, blocks, utilities, exceptions;
+
+/* Token CSS custom properties — intentionally outside all layers so they
+   cascade globally and are available to every layer below */
+@import './generated/primitives.css';
+@import './generated/semantic.css';
+
+/* Typography utility classes (.type-heading-1, .type-body-default, etc.) */
+@import './generated/typography.css';
+
+/* CSS layers are added here as each phase is built:
+   Phase 4: reset, global, compositions, utilities
+   Phase 5: blocks (component CSS), exceptions             */

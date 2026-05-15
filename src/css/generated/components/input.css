@@ -1,0 +1,37 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.input {
+	--input-background-default: rgba(var(--gray-0), 0);
+	--input-background-primary: var(--black);
+	--input-background-success: var(--green-60);
+	--input-background-brand: var(--gold-60);
+	--input-background-inactive: var(--gray-50);
+	--input-background-disabled: var(--gray-20);
+	--input-background-read-only: var(--color-layer-1);
+	--input-label-default: var(--black);
+	--input-text-default: var(--black);
+	--input-text-placeholder: var(--gray-55);
+	--input-border-default: var(--gray-45);
+	--input-border-disabled: var(--gray-25);
+	--input-border-error: var(--red-55);
+	--input-border-read-only: var(--color-border-2);
+	--input-switcher-background-primary: var(--green-60);
+	--input-switcher-background-secondary: var(--blue-60);
+	--input-radio-box-background-default: rgba(var(--gray-0), 0);
+	--input-radio-box-background-hover: var(--gray-3);
+	--input-radio-box-background-active: rgba(var(--gray-0), 0);
+	--input-radio-box-background-disabled: rgba(var(--gray-0), 0);
+	--input-radio-box-label-primary-default: var(--color-text-primary);
+	--input-radio-box-label-primary-hover: var(--color-text-primary);
+	--input-radio-box-label-primary-active: var(--color-text-primary);
+	--input-radio-box-label-primary-disabled: var(--color-text-disabled);
+	--input-radio-box-label-secondary-default: var(--color-text-secondary);
+	--input-radio-box-label-secondary-hover: var(--color-text-secondary);
+	--input-radio-box-label-secondary-acive: var(--color-text-secondary);
+	--input-radio-box-label-secondary-disabled: var(--color-text-disabled);
+	--input-radio-box-border-default: var(--gray-45);
+	--input-radio-box-border-hover: var(--gray-45);
+	--input-radio-box-border-active: var(--gold-60);
+	--input-radio-box-border-disabled: var(--gray-25);
+	--input-toggle-switch-default: var(--pure-white);
+	--input-toggle-switch-disabled: var(--gray-7);
+}

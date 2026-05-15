@@ -1,0 +1,7 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.slider {
+	--slider-background-default: var(--gray-15);
+	--slider-background-disabled: var(--gray-15);
+	--slider-handle-default: var(--black);
+	--slider-handle-disabled: var(--gray-40);
+}
