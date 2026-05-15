@@ -41,7 +41,7 @@ Run:
 npm run dev
 ```
 
-You can then visit [http://localhost:60006/](http://localhost:60006/) to view.
+You can then visit [http://localhost:6006/](http://localhost:6006/) to view.
 
 ## Updating dependencies
 
