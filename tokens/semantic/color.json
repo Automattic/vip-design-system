@@ -1,29 +1,19 @@
 {
 	"color": {
 		"background": {
-			"primary": {
-				"$value": "{gray.0}",
-				"$type": "color",
-				"$description": "Use as main application background"
-			},
-			"overlay": {
-				"$value": "rgb(19 25 30 / 70%)",
-				"$type": "color",
-				"$description": "Use for modal UI overlay"
-			}
+			"primary": { "$value": "{gray.0}", "$type": "color", "$description": "Use as main application background" },
+			"overlay": { "$value": "rgb(19 25 30 / 70%)", "$type": "color", "$description": "Use for modal UI overlay"}
 		},
+		
 		"layer": {
 			"1": { "$value": "{gray.3}", "$type": "color" },
 			"2": { "$value": "{pure-white}", "$type": "color" },
 			"3": { "$value": "{gray.7}", "$type": "color" },
 			"4": { "$value": "{pure-white}", "$type": "color" },
-			"inverse": {
-				"$value": "{black}",
-				"$type": "color",
-				"$description": "Use as component background in high-contrast situations."
-			},
+			"inverse": { "$value": "{black}", "$type": "color", "$description": "Use as component background in high-contrast situations." },
 			"accent": { "$value": "{gold.40}", "$type": "color" }
 		},
+		
 		"border": {
 			"1": { "$value": "{gray.25}", "$type": "color" },
 			"2": { "$value": "{gray.10}", "$type": "color" },
@@ -32,55 +22,26 @@
 			"inverse": { "$value": "{gray.50}", "$type": "color" },
 			"accent": { "$value": "{gold.50}", "$type": "color" }
 		},
+		
 		"text": {
-			"primary": {
-				"$value": "{black}",
-				"$type": "color",
-				"$description": "Use for headings"
-			},
-			"secondary": {
-				"$value": "{gray.70}",
-				"$type": "color",
-				"$description": "Use for body text"
-			},
-			"helper": {
-				"$value": "{gray.60}",
-				"$type": "color",
-				"$description": "Use for helper text"
-			},
+			"primary": { "$value": "{black}", "$type": "color", "$description": "Use for headings" },
+			"secondary": { "$value": "{gray.70}", "$type": "color", "$description": "Use for body text" },
+			"helper": { "$value": "{gray.60}", "$type": "color", "$description": "Use for helper text" },
 			"disabled": { "$value": "{gray.40}", "$type": "color" },
-			"inverse": {
-				"$value": "{gray.0}",
-				"$type": "color",
-				"$description": "Use for primary text on an inverse layer"
-			},
-			"inverse-secondary": {
-				"$value": "{gray.30}",
-				"$type": "color",
-				"$description": "Use for secondary text on an inverse layer."
-			},
+			"inverse": { "$value": "{gray.0}", "$type": "color", "$description": "Use for primary text on an inverse layer" },
+			"inverse-secondary": { "$value": "{gray.30}", "$type": "color", "$description": "Use for secondary text on an inverse layer." },
 			"accent": { "$value": "{gold.60}", "$type": "color" },
-			"error": {
-				"$value": "{red.60}",
-				"$type": "color",
-				"$description": "Use for error text/icons outside of a notice."
-			},
-			"success": {
-				"$value": "{green.60}",
-				"$type": "color",
-				"$description": "Use for success text/icons outside of a notice."
-			}
+			"error": { "$value": "{red.60}", "$type": "color", "$description": "Use for error text/icons outside of a notice." },
+			"success": { "$value": "{green.60}", "$type": "color", "$description": "Use for success text/icons outside of a notice." }
 		},
+		
 		"link": {
-			"default": {
-				"$value": "{gold.60}",
-				"$type": "color",
-				"$description": "Use for text links"
-			},
+			"default": { "$value": "{gold.60}", "$type": "color", "$description": "Use for text links" },
 			"hover": { "$value": "{gold.70}", "$type": "color" },
 			"active": { "$value": "{gold.80}", "$type": "color" },
 			"visited": { "$value": "{gold.70}", "$type": "color" }
 		},
+		
 		"icon": {
 			"primary": { "$value": "{gray.85}", "$type": "color" },
 			"secondary": { "$value": "{gray.50}", "$type": "color" },
