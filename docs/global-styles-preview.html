@@ -1,0 +1,1681 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VIP Design System — Global Styles Preview</title>
+		<style>
+			@layer reset, global, compositions, blocks, utilities, exceptions;
+			/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+			:root {
+				--black: #13191e;
+				--pure-white: #ffffff;
+				--pure-black: #000000;
+				--focus: #0f62fe;
+				--gray-0: #fbfbfb;
+				--gray-3: #f4f3f2;
+				--gray-7: #ebe9e8;
+				--gray-10: #e3e0df;
+				--gray-15: #d7d4d3;
+				--gray-20: #cbc7c6;
+				--gray-25: #bfbcbb;
+				--gray-30: #b3afae;
+				--gray-35: #a7a4a3;
+				--gray-40: #9b9796;
+				--gray-45: #8f8c8b;
+				--gray-50: #827f7e;
+				--gray-55: #767372;
+				--gray-60: #6a6766;
+				--gray-65: #5e5b5a;
+				--gray-70: #514e4d;
+				--gray-73: #4c4948;
+				--gray-75: #444140;
+				--gray-78: #3f3c3b;
+				--gray-80: #383635;
+				--gray-83: #32302f;
+				--gray-85: #2c2a29;
+				--gray-88: #282625;
+				--gray-90: #201e1d;
+				--gray-93: #1b1918;
+				--gray-95: #141110;
+				--gray-100: #080402;
+				--blue-0: #fafbff;
+				--blue-3: #ecf4f8;
+				--blue-7: #ddebf3;
+				--blue-10: #cde6eb;
+				--blue-15: #b2dde6;
+				--blue-20: #94d4de;
+				--blue-25: #77cad8;
+				--blue-30: #54c0cd;
+				--blue-35: #30b5c4;
+				--blue-40: #19a8b8;
+				--blue-45: #009bad;
+				--blue-50: #0190a0;
+				--blue-55: #008292;
+				--blue-60: #007586;
+				--blue-65: #006979;
+				--blue-70: #005b6d;
+				--blue-73: #005366;
+				--blue-75: #004d5f;
+				--blue-78: #004657;
+				--blue-80: #004252;
+				--blue-83: #00394d;
+				--blue-85: #003344;
+				--blue-88: #012e41;
+				--blue-90: #012839;
+				--blue-93: #002233;
+				--blue-95: #001c2a;
+				--blue-100: #000a23;
+				--green-0: #f5fbf7;
+				--green-3: #e9f6ee;
+				--green-7: #d7efdf;
+				--green-10: #c6ead0;
+				--green-15: #aae1b7;
+				--green-20: #89daa0;
+				--green-25: #6dd18b;
+				--green-30: #4dc679;
+				--green-35: #40ba6f;
+				--green-40: #30ac63;
+				--green-45: #1da158;
+				--green-50: #01944d;
+				--green-55: #008840;
+				--green-60: #007934;
+				--green-65: #006d29;
+				--green-70: #00611e;
+				--green-73: #005710;
+				--green-75: #00510f;
+				--green-78: #004c03;
+				--green-80: #004502;
+				--green-83: #003d00;
+				--green-85: #003700;
+				--green-88: #013300;
+				--green-90: #012c00;
+				--green-93: #012400;
+				--green-95: #011b00;
+				--green-100: #010800;
+				--red-0: #fff6f9;
+				--red-3: #ffeceb;
+				--red-7: #ffdedb;
+				--red-10: #ffd5ce;
+				--red-15: #ffc3b9;
+				--red-20: #ffb0a1;
+				--red-25: #fe9d8c;
+				--red-30: #ff8872;
+				--red-35: #ff745f;
+				--red-40: #ff5f4d;
+				--red-45: #f84d3c;
+				--red-50: #e74135;
+				--red-55: #d3372b;
+				--red-60: #bf2a23;
+				--red-65: #ad221f;
+				--red-70: #9a1a19;
+				--red-73: #8d1119;
+				--red-75: #840b10;
+				--red-78: #770d12;
+				--red-80: #710208;
+				--red-83: #6a0101;
+				--red-85: #5e0000;
+				--red-88: #570000;
+				--red-90: #4a0001;
+				--red-93: #420001;
+				--red-95: #380001;
+				--red-100: #2e0002;
+				--gold-0: #fcfafa;
+				--gold-3: #f5f2f1;
+				--gold-7: #eeeae5;
+				--gold-10: #eae3da;
+				--gold-15: #e3d0b8;
+				--gold-20: #dfc39e;
+				--gold-25: #dcb480;
+				--gold-30: #d8a45f;
+				--gold-35: #da9a45;
+				--gold-40: #d29137;
+				--gold-45: #c5832a;
+				--gold-50: #ba7920;
+				--gold-55: #a66915;
+				--gold-60: #9a6014;
+				--gold-65: #8c5407;
+				--gold-70: #7a4909;
+				--gold-73: #6d4108;
+				--gold-75: #633a0a;
+				--gold-78: #583409;
+				--gold-80: #522e03;
+				--gold-83: #4a2903;
+				--gold-85: #3f2300;
+				--gold-88: #331c00;
+				--gold-90: #2d1803;
+				--gold-93: #211202;
+				--gold-95: #1a0e04;
+				--gold-100: #0f0000;
+				--yellow-0: #fff9f1;
+				--yellow-3: #fff0e0;
+				--yellow-7: #ffe2c2;
+				--yellow-10: #ffd8a5;
+				--yellow-15: #ffc876;
+				--yellow-20: #ffb84a;
+				--yellow-25: #ffa920;
+				--yellow-30: #f09d01;
+				--yellow-35: #e29101;
+				--yellow-40: #d38500;
+				--yellow-45: #c67a00;
+				--yellow-50: #b86e01;
+				--yellow-55: #a96100;
+				--yellow-60: #985600;
+				--yellow-65: #894b00;
+				--yellow-70: #7b3f01;
+				--yellow-73: #743901;
+				--yellow-75: #683301;
+				--yellow-78: #602d00;
+				--yellow-80: #592800;
+				--yellow-83: #522300;
+				--yellow-85: #491d00;
+				--yellow-88: #421700;
+				--yellow-90: #3b1200;
+				--yellow-93: #330a00;
+				--yellow-95: #2b0400;
+				--yellow-100: #230000;
+				--orange-0: #fff9f1;
+				--orange-3: #ffefe5;
+				--orange-7: #ffe0cc;
+				--orange-10: #ffd7bd;
+				--orange-15: #ffc39f;
+				--orange-20: #ffb27e;
+				--orange-25: #fe9f5f;
+				--orange-30: #ff8b40;
+				--orange-35: #ff7b28;
+				--orange-40: #f46e15;
+				--orange-45: #e76205;
+				--orange-50: #d75001;
+				--orange-55: #c54900;
+				--orange-60: #b43c00;
+				--orange-65: #a53100;
+				--orange-70: #942601;
+				--orange-73: #831b01;
+				--orange-75: #811701;
+				--orange-78: #740e01;
+				--orange-80: #6f0801;
+				--orange-83: #650401;
+				--orange-85: #5f0000;
+				--orange-88: #520000;
+				--orange-90: #4e0000;
+				--orange-93: #420000;
+				--orange-95: #3c0000;
+				--orange-100: #320003;
+				--salmon-0: #fef8f8;
+				--salmon-3: #feefeb;
+				--salmon-7: #fedfd8;
+				--salmon-10: #fed6ce;
+				--salmon-15: #fec3b1;
+				--salmon-20: #ffb296;
+				--salmon-25: #ffa378;
+				--salmon-30: #f9945e;
+				--salmon-35: #ed8955;
+				--salmon-40: #e07b4d;
+				--salmon-45: #d27146;
+				--salmon-50: #c5653f;
+				--salmon-55: #b55638;
+				--salmon-60: #a74930;
+				--salmon-65: #993c2b;
+				--salmon-70: #892f26;
+				--salmon-73: #842724;
+				--salmon-75: #7c1e1e;
+				--salmon-78: #751515;
+				--salmon-80: #6c0f17;
+				--salmon-83: #630814;
+				--salmon-85: #5e0010;
+				--salmon-88: #570007;
+				--salmon-90: #4e0000;
+				--salmon-93: #420002;
+				--salmon-95: #3e0001;
+				--salmon-100: #340002;
+				--pink-0: #fff8f6;
+				--pink-3: #fff1f0;
+				--pink-7: #ffdedb;
+				--pink-10: #ffd6d2;
+				--pink-15: #ffc5c1;
+				--pink-20: #fbb7b4;
+				--pink-25: #efaba8;
+				--pink-30: #e29e9d;
+				--pink-35: #d49294;
+				--pink-40: #ca8588;
+				--pink-45: #bc7a7e;
+				--pink-50: #b06d74;
+				--pink-55: #a35f6a;
+				--pink-60: #95535d;
+				--pink-65: #894755;
+				--pink-70: #7c394a;
+				--pink-73: #763247;
+				--pink-75: #6d293e;
+				--pink-78: #66243a;
+				--pink-80: #5f1e34;
+				--pink-83: #5a1633;
+				--pink-85: #530e2b;
+				--pink-88: #4a0825;
+				--pink-90: #45001f;
+				--pink-93: #3d0015;
+				--pink-95: #350012;
+				--pink-100: #2e0003;
+				--parsely-green-0: #f3feed;
+				--parsely-green-3: #e9fbdf;
+				--parsely-green-7: #dbf5cc;
+				--parsely-green-10: #c6ecb0;
+				--parsely-green-15: #afe393;
+				--parsely-green-20: #a0d782;
+				--parsely-green-25: #94cb77;
+				--parsely-green-30: #87be6b;
+				--parsely-green-35: #7cb260;
+				--parsely-green-40: #6fa654;
+				--parsely-green-45: #649a49;
+				--parsely-green-50: #588e3e;
+				--parsely-green-55: #488131;
+				--parsely-green-60: #3b7425;
+				--parsely-green-65: #29681b;
+				--parsely-green-70: #165c0d;
+				--parsely-green-73: #0b5706;
+				--parsely-green-75: #004e00;
+				--parsely-green-78: #004700;
+				--parsely-green-80: #004200;
+				--parsely-green-83: #003b00;
+				--parsely-green-85: #003500;
+				--parsely-green-88: #003000;
+				--parsely-green-90: #002900;
+				--parsely-green-93: #002400;
+				--parsely-green-95: #001b00;
+				--parsely-green-100: #000800;
+				--purple-0: #faf5ff;
+				--purple-3: #f1e0ff;
+				--purple-7: #e8ccff;
+				--purple-10: #dfb8ff;
+				--purple-15: #d5a3ff;
+				--purple-20: #cc8fff;
+				--purple-25: #c37aff;
+				--purple-30: #ba66ff;
+				--purple-35: #b052ff;
+				--purple-40: #a73dff;
+				--purple-45: #9e29ff;
+				--purple-50: #9514ff;
+				--purple-55: #8c00ff;
+				--purple-60: #8000eb;
+				--purple-65: #7500d6;
+				--purple-70: #6a00c2;
+				--purple-73: #5f00ad;
+				--purple-75: #540099;
+				--purple-78: #490085;
+				--purple-80: #3d0070;
+				--purple-83: #32005c;
+				--purple-85: #270047;
+				--purple-88: #1c0033;
+				--purple-90: #11001f;
+				--purple-93: #06000a;
+				--purple-95: #050008;
+				--purple-100: #050008;
+				--space-0: 0.125rem;
+				--space-1: 0.25rem;
+				--space-2: 0.5rem;
+				--space-3: 0.75rem;
+				--space-4: 1rem;
+				--space-5: 1.5rem;
+				--space-6: 2rem;
+				--space-7: 3.5rem;
+				--space-8: 5rem;
+				--space-9: 7rem;
+				--space-10: 10rem;
+				--space-responsive-0-1: clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem);
+				--space-responsive-1-2: clamp(0.25rem, calc(0.19rem + 0.3vw), 0.5rem);
+				--space-responsive-2-3: clamp(0.5rem, calc(0.44rem + 0.3vw), 0.75rem);
+				--space-responsive-3-4: clamp(0.75rem, calc(0.69rem + 0.3vw), 1rem);
+				--space-responsive-4-5: clamp(1rem, calc(0.88rem + 0.6vw), 1.5rem);
+				--space-responsive-5-6: clamp(1.5rem, calc(1.38rem + 0.6vw), 2rem);
+				--space-responsive-6-7: clamp(2rem, calc(1.64rem + 1.81vw), 3.5rem);
+				--space-responsive-7-8: clamp(3.5rem, calc(3.14rem + 1.81vw), 5rem);
+				--space-responsive-8-9: clamp(5rem, calc(4.52rem + 2.41vw), 7rem);
+				--space-responsive-9-10: clamp(7rem, calc(6.28rem + 3.61vw), 10rem);
+				--space-responsive-3-6: clamp(0.75rem, calc(0.45rem + 1.51vw), 2rem);
+				--space-responsive-4-7: clamp(1rem, calc(0.4rem + 3.01vw), 3.5rem);
+				--space-responsive-5-8: clamp(1.5rem, calc(0.66rem + 4.22vw), 5rem);
+				--space-responsive-6-9: clamp(2rem, calc(0.8rem + 6.02vw), 7rem);
+				--font-size-0: 0.6875rem;
+				--font-size-1: 0.75rem;
+				--font-size-2: 0.875rem;
+				--font-size-3: 1rem;
+				--font-size-4: 1.125rem;
+				--font-size-5: 1.75rem;
+				--font-size-6: 2.5rem;
+				--font-size-responsive-1: clamp(0.51rem, calc(0.83rem + -0.31vw), 0.77rem);
+				--font-size-responsive-2: clamp(0.62rem, calc(0.87rem + -0.25vw), 0.82rem);
+				--font-size-responsive-3: clamp(0.74rem, calc(0.91rem + -0.17vw), 0.88rem);
+				--font-size-responsive-4: clamp(0.89rem, calc(0.95rem + -0.06vw), 0.94rem);
+				--font-size-responsive-5: clamp(1rem, calc(0.98rem + 0.08vw), 1.06rem);
+				--font-size-responsive-6: clamp(1.07rem, calc(1.02rem + 0.25vw), 1.28rem);
+				--font-size-responsive-7: clamp(1.14rem, calc(1.04rem + 0.47vw), 1.53rem);
+				--font-size-responsive-8: clamp(1.22rem, calc(1.07rem + 0.75vw), 1.84rem);
+				--font-size-responsive-9: clamp(1.3rem, calc(1.08rem + 1.09vw), 2.2rem);
+				--font-size-responsive-10: clamp(1.38rem, calc(1.08rem + 1.52vw), 2.64rem);
+				--font-size-responsive-11: clamp(1.48rem, calc(1.07rem + 2.04vw), 3.17rem);
+				--font-size-responsive-12: clamp(1.57rem, calc(1.04rem + 2.69vw), 3.81rem);
+				--font-size-responsive-13: clamp(1.68rem, calc(0.98rem + 3.48vw), 4.57rem);
+				--font-size-responsive-14: clamp(1.79rem, calc(0.9rem + 4.45vw), 5.48rem);
+				--font-size-responsive-15: clamp(1.91rem, calc(0.79rem + 5.62vw), 6.58rem);
+				--font-size-responsive-12b: clamp(3rem, calc(2.82rem + 0.9vw), 3.75rem);
+				--font-weight-light: 200;
+				--font-weight-regular: 400;
+				--font-weight-medium: 500;
+				--font-weight-semibold: 600;
+				--font-weight-bold: 700;
+				--line-height-0: 1;
+				--line-height-1: 1.15;
+				--line-height-2: 1.25;
+				--line-height-3: 1.3;
+				--line-height-4: 1.4;
+				--line-height-5: 1.5;
+				--line-height-responsive: clamp(1.1em, calc(1.25em + -0.4vw), 1.2em);
+				--letter-spacing-tight-3: -0.02em;
+				--letter-spacing-tight-2: -0.015em;
+				--letter-spacing-tight-1: -0.01em;
+				--letter-spacing-none: 0em;
+				--letter-spacing-loose-1: 0.005em;
+				--letter-spacing-loose-2: 0.01em;
+				--letter-spacing-loose-3: 0.02em;
+				--border-radius-0: 0.125rem;
+				--border-radius-1: 0.25rem;
+				--border-radius-2: 0.5rem;
+				--border-radius-3: 1rem;
+				--border-radius-4: 2rem;
+				--border-radius-5: 2.5rem;
+				--border-radius-6: 3.5rem;
+				--border-radius-responsive-3-5: clamp(1rem, calc(0.64rem + 1.81vw), 2.5rem);
+				--border-radius-responsive-4-6: clamp(2rem, calc(1.64rem + 1.81vw), 3.5rem);
+				--shadow-1: 0 1px 1px 0 #00000026, 0 1px 5px 0 #0000000d;
+				--shadow-2: 0 1px 2px 0 #00000008, 0 15px 30px 0 #00000012;
+				--shadow-3:
+					0 2.767px 2.214px 0 #00000005, 0 6.65px 5.32px 0 #00000008,
+					0 12.522px 10.017px 0 #0000000a, 0 22.336px 17.869px 0 #0000000a,
+					0 41.778px 33.422px 0 #0000000d, 0 100px 80px 0 #00000012;
+				--font-family-default:
+					aktiv-grotesk, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+					Helvetica, Arial, sans-serif;
+				--font-family-monospace: SF Mono, monospace;
+			}
+
+			/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+			:root {
+				--color-background-primary: var(--gray-0);
+				--color-background-overlay: rgb(19 25 30 / 70%);
+				--color-layer-1: var(--gray-3);
+				--color-layer-2: var(--pure-white);
+				--color-layer-3: var(--gray-7);
+				--color-layer-4: var(--pure-white);
+				--color-layer-inverse: var(--black);
+				--color-layer-accent: var(--gold-40);
+				--color-border-1: var(--gray-25);
+				--color-border-2: var(--gray-10);
+				--color-border-3: var(--gray-30);
+				--color-border-4: var(--gray-10);
+				--color-border-inverse: var(--gray-50);
+				--color-border-accent: var(--gold-50);
+				--color-text-primary: var(--black);
+				--color-text-secondary: var(--gray-70);
+				--color-text-helper: var(--gray-60);
+				--color-text-disabled: var(--gray-40);
+				--color-text-inverse: var(--gray-0);
+				--color-text-inverse-secondary: var(--gray-30);
+				--color-text-accent: var(--gold-60);
+				--color-text-error: var(--red-60);
+				--color-text-success: var(--green-60);
+				--color-link-default: var(--gold-60);
+				--color-link-hover: var(--gold-70);
+				--color-link-active: var(--gold-80);
+				--color-link-visited: var(--gold-70);
+				--color-icon-primary: var(--gray-85);
+				--color-icon-secondary: var(--gray-50);
+				--color-icon-helper: var(--gray-40);
+				--color-icon-inverse: var(--pure-white);
+				--color-icon-disabled: var(--gray-45);
+				--color-icon-brand: var(--gold-60);
+				--color-icon-inverse-disabled: var(--gray-10);
+				--color-focus-default: var(--focus);
+				--color-focus-inset: var(--pure-white);
+			}
+
+			@supports (color: light-dark(red, blue)) {
+				:root {
+					color-scheme: light dark;
+					--color-background-primary: light-dark(var(--gray-0), var(--gray-95));
+					--color-background-overlay: light-dark(rgb(19 25 30 / 70%), rgba(var(--black), 0.7));
+					--color-layer-1: light-dark(var(--gray-3), var(--gray-93));
+					--color-layer-2: light-dark(var(--pure-white), var(--gray-88));
+					--color-layer-3: light-dark(var(--gray-7), var(--gray-70));
+					--color-layer-4: light-dark(var(--pure-white), var(--gray-65));
+					--color-layer-inverse: light-dark(var(--black), var(--gray-15));
+					--color-layer-accent: light-dark(var(--gold-40), var(--gold-40));
+					--color-border-1: light-dark(var(--gray-25), var(--gray-73));
+					--color-border-2: light-dark(var(--gray-10), var(--gray-75));
+					--color-border-3: light-dark(var(--gray-30), var(--gray-30));
+					--color-border-4: light-dark(var(--gray-10), var(--gray-75));
+					--color-border-inverse: light-dark(var(--gray-50), var(--gray-50));
+					--color-border-accent: light-dark(var(--gold-50), var(--gold-50));
+					--color-text-primary: light-dark(var(--black), var(--gray-10));
+					--color-text-secondary: light-dark(var(--gray-70), var(--gray-35));
+					--color-text-helper: light-dark(var(--gray-60), var(--gray-40));
+					--color-text-disabled: light-dark(var(--gray-40), var(--gray-55));
+					--color-text-inverse: light-dark(var(--gray-0), var(--black));
+					--color-text-inverse-secondary: light-dark(var(--gray-30), var(--gray-30));
+					--color-text-accent: light-dark(var(--gold-60), var(--gold-45));
+					--color-text-error: light-dark(var(--red-60), var(--red-40));
+					--color-text-success: light-dark(var(--green-60), var(--green-45));
+					--color-link-default: light-dark(var(--gold-60), var(--gold-45));
+					--color-link-hover: light-dark(var(--gold-70), var(--gold-40));
+					--color-link-active: light-dark(var(--gold-80), var(--gold-40));
+					--color-link-visited: light-dark(var(--gold-70), var(--gold-45));
+					--color-icon-primary: light-dark(var(--gray-85), var(--gray-15));
+					--color-icon-secondary: light-dark(var(--gray-50), var(--gray-40));
+					--color-icon-helper: light-dark(var(--gray-40), var(--gray-50));
+					--color-icon-inverse: light-dark(var(--pure-white), var(--gray-7));
+					--color-icon-disabled: light-dark(var(--gray-45), var(--gray-65));
+					--color-icon-brand: light-dark(var(--gold-60), var(--gold-45));
+					--color-icon-inverse-disabled: light-dark(var(--gray-10), var(--gray-60));
+					--color-focus-default: light-dark(var(--focus), var(--focus));
+					--color-focus-inset: light-dark(var(--pure-white), var(--pure-white));
+				}
+				:root.theme-dark {
+					color-scheme: dark;
+				}
+				:root.theme-light {
+					color-scheme: light;
+				}
+			}
+
+			/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+			.button {
+				--button-primary-background-default: var(--black);
+				--button-primary-background-hover: var(--gold-30);
+				--button-primary-background-disabled: var(--gray-25);
+				--button-primary-label-default: var(--color-text-inverse);
+				--button-primary-label-hover: var(--color-text-primary);
+				--button-primary-label-disabled: var(--color-text-disabled);
+				--button-secondary-background-default: var(--gray-10);
+				--button-secondary-background-hover: var(--gold-30);
+				--button-secondary-background-disabled: var(--gray-25);
+				--button-secondary-label-default: var(--color-text-primary);
+				--button-secondary-label-hover: var(--color-text-primary);
+				--button-secondary-label-disabled: var(--color-text-disabled);
+				--button-tertiary-background-default: rgba(var(--gray-0), 0);
+				--button-tertiary-background-hover: var(--gray-10);
+				--button-tertiary-background-disabled: rgba(var(--gray-0), 0);
+				--button-tertiary-border-default: var(--gray-45);
+				--button-tertiary-border-hover: var(--gray-10);
+				--button-tertiary-border-disabled: var(--gray-25);
+				--button-tertiary-label-default: var(--color-text-primary);
+				--button-tertiary-label-hover: var(--color-text-primary);
+				--button-tertiary-label-disabled: var(--color-text-disabled);
+				--button-ghost-background-default: rgba(var(--gray-0), 0);
+				--button-ghost-background-hover: var(--gray-10);
+				--button-ghost-background-disabled: rgba(var(--gray-0), 0);
+				--button-ghost-label-default: var(--color-text-accent);
+				--button-ghost-label-hover: var(--color-text-primary);
+				--button-ghost-label-disabled: var(--color-text-disabled);
+				--button-display-background-default: var(--gold-30);
+				--button-display-background-hover: var(--gold-60);
+				--button-display-background-disabled: var(--gray-25);
+				--button-display-label-default: var(--color-text-primary);
+				--button-display-label-hover: var(--color-text-inverse);
+				--button-display-label-disabled: var(--color-text-disabled);
+				--button-danger-primary-background-default: var(--red-55);
+				--button-danger-primary-background-hover: var(--red-70);
+				--button-danger-primary-background-disabled: var(--gray-25);
+				--button-danger-primary-label-default: var(--color-text-inverse);
+				--button-danger-primary-label-hover: var(--color-text-inverse);
+				--button-danger-primary-label-disabled: var(--color-text-disabled);
+				--button-danger-secondary-background-default: rgba(var(--gray-0), 0);
+				--button-danger-secondary-background-hover: var(--red-70);
+				--button-danger-secondary-background-disabled: rgba(var(--gray-0), 0);
+				--button-danger-secondary-label-default: var(--red-55);
+				--button-danger-secondary-label-hover: var(--color-text-inverse);
+				--button-danger-secondary-label-disabled: var(--color-text-disabled);
+				--button-danger-secondary-border-default: var(--red-55);
+				--button-danger-secondary-border-hover: var(--red-70);
+				--button-danger-secondary-border-disabled: var(--gray-25);
+				--button-danger-ghost-background-default: rgba(var(--gray-0), 0);
+				--button-danger-ghost-background-hover: var(--red-70);
+				--button-danger-ghost-background-disabled: rgba(var(--gray-0), 0);
+				--button-danger-ghost-label-default: var(--red-55);
+				--button-danger-ghost-label-hover: var(--color-text-inverse);
+				--button-danger-ghost-label-disabled: var(--color-text-disabled);
+			}
+
+			/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+			.type-heading-1 {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-bold);
+				font-size: var(--font-size-6);
+				line-height: var(--line-height-1);
+				letter-spacing: var(--letter-spacing-tight-3);
+			}
+
+			.type-heading-2 {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-semibold);
+				font-size: var(--font-size-5);
+				line-height: var(--line-height-2);
+				letter-spacing: var(--letter-spacing-tight-2);
+			}
+
+			.type-heading-3 {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-semibold);
+				font-size: var(--font-size-4);
+				line-height: var(--line-height-3);
+				letter-spacing: var(--letter-spacing-tight-2);
+			}
+
+			.type-heading-4 {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-bold);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-4);
+				letter-spacing: var(--letter-spacing-none);
+			}
+
+			.type-heading-5 {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-bold);
+				font-size: var(--font-size-1);
+				line-height: var(--line-height-4);
+				letter-spacing: var(--letter-spacing-none);
+			}
+
+			.type-heading-caps {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-semibold);
+				font-size: var(--font-size-1);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-loose-3);
+				text-transform: uppercase;
+			}
+
+			.type-body-small {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-1);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-loose-2);
+			}
+
+			.type-body-default {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-loose-2);
+			}
+
+			.type-body-large {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-4);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-loose-2);
+			}
+
+			.type-body-mono {
+				font-family: var(--font-family-monospace);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-none);
+			}
+
+			.type-body-mono-bold {
+				font-family: var(--font-family-monospace);
+				font-weight: var(--font-weight-bold);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-none);
+			}
+
+			.type-support-helper-text {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-1);
+				line-height: var(--line-height-5);
+				letter-spacing: var(--letter-spacing-loose-2);
+			}
+
+			.type-support-label-xs {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-0);
+				line-height: var(--line-height-0);
+				letter-spacing: var(--letter-spacing-loose-3);
+			}
+
+			.type-support-label-small {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-semibold);
+				font-size: var(--font-size-1);
+				line-height: var(--line-height-0);
+				letter-spacing: var(--letter-spacing-loose-1);
+			}
+
+			.type-support-label-default {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-semibold);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-0);
+				letter-spacing: var(--letter-spacing-loose-1);
+			}
+
+			.type-support-label-default-quiet {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-regular);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-0);
+				letter-spacing: var(--letter-spacing-loose-1);
+			}
+
+			.type-support-label-default-loud {
+				font-family: var(--font-family-default);
+				font-weight: var(--font-weight-bold);
+				font-size: var(--font-size-2);
+				line-height: var(--line-height-0);
+				letter-spacing: var(--letter-spacing-loose-1);
+			}
+
+			@layer reset {
+				*,
+				*::before,
+				*::after {
+					box-sizing: border-box;
+				}
+
+				* {
+					margin: 0;
+					padding: 0;
+				}
+
+				html {
+					-webkit-text-size-adjust: 100%;
+					tab-size: 4;
+				}
+
+				body {
+					min-height: 100vh;
+					line-height: inherit;
+					-webkit-font-smoothing: antialiased;
+				}
+
+				img,
+				picture,
+				video,
+				canvas,
+				svg {
+					display: block;
+					max-width: 100%;
+				}
+
+				input,
+				button,
+				textarea,
+				select {
+					font: inherit;
+				}
+
+				p,
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					overflow-wrap: break-word;
+				}
+
+				/* Remove list styles on ul/ol with a list role — these are intentionally unstyled */
+				ul[role='list'],
+				ol[role='list'] {
+					list-style: none;
+				}
+
+				@media (prefers-reduced-motion: reduce) {
+					*,
+					*::before,
+					*::after {
+						animation-duration: 0.01ms !important;
+						animation-iteration-count: 1 !important;
+						transition-duration: 0.01ms !important;
+						scroll-behavior: auto !important;
+					}
+				}
+			}
+
+			@layer global {
+				body {
+					font-family: var(--font-family-default);
+					font-size: var(--font-size-2);
+					font-weight: var(--font-weight-regular);
+					line-height: var(--line-height-5);
+					color: var(--color-text-secondary);
+					background-color: var(--color-background-primary);
+				}
+
+				/* ── Headings ─────────────────────────────────────────────────────────────── */
+
+				h1 {
+					font-family: var(--font-family-default);
+					font-weight: var(--font-weight-bold);
+					font-size: var(--font-size-6);
+					line-height: var(--line-height-1);
+					letter-spacing: var(--letter-spacing-tight-3);
+					color: var(--color-text-primary);
+				}
+
+				h2 {
+					font-family: var(--font-family-default);
+					font-weight: var(--font-weight-semibold);
+					font-size: var(--font-size-5);
+					line-height: var(--line-height-2);
+					letter-spacing: var(--letter-spacing-tight-2);
+					color: var(--color-text-primary);
+				}
+
+				h3 {
+					font-family: var(--font-family-default);
+					font-weight: var(--font-weight-semibold);
+					font-size: var(--font-size-4);
+					line-height: var(--line-height-3);
+					letter-spacing: var(--letter-spacing-tight-2);
+					color: var(--color-text-primary);
+				}
+
+				h4 {
+					font-family: var(--font-family-default);
+					font-weight: var(--font-weight-bold);
+					font-size: var(--font-size-2);
+					line-height: var(--line-height-4);
+					letter-spacing: var(--letter-spacing-none);
+					color: var(--color-text-primary);
+				}
+
+				h5 {
+					font-family: var(--font-family-default);
+					font-weight: var(--font-weight-bold);
+					font-size: var(--font-size-1);
+					line-height: var(--line-height-4);
+					letter-spacing: var(--letter-spacing-none);
+					color: var(--color-text-primary);
+				}
+
+				h6 {
+					font-family: var(--font-family-default);
+					font-weight: var(--font-weight-semibold);
+					font-size: var(--font-size-1);
+					line-height: var(--line-height-5);
+					letter-spacing: var(--letter-spacing-loose-3);
+					text-transform: uppercase;
+					color: var(--color-text-primary);
+				}
+
+				/* ── Body text ────────────────────────────────────────────────────────────── */
+
+				p {
+					font-size: var(--font-size-2);
+					line-height: var(--line-height-5);
+					letter-spacing: var(--letter-spacing-loose-2);
+				}
+
+				strong,
+				b {
+					font-weight: var(--font-weight-bold);
+				}
+
+				em,
+				i {
+					font-style: italic;
+				}
+
+				small {
+					font-size: var(--font-size-1);
+					line-height: var(--line-height-5);
+					letter-spacing: var(--letter-spacing-loose-2);
+				}
+
+				/* ── Links ────────────────────────────────────────────────────────────────── */
+
+				a {
+					color: var(--color-link-default);
+					text-decoration: underline;
+					text-underline-offset: 0.2em;
+				}
+
+				a:hover {
+					color: var(--color-link-hover);
+				}
+
+				a:active {
+					color: var(--color-link-active);
+				}
+
+				a:visited {
+					color: var(--color-link-visited);
+				}
+
+				a:focus-visible {
+					outline: 2px solid var(--color-focus-default);
+					outline-offset: 2px;
+					border-radius: var(--border-radius-0);
+				}
+
+				/* ── Code ─────────────────────────────────────────────────────────────────── */
+
+				code,
+				kbd,
+				samp {
+					font-family: var(--font-family-monospace);
+					font-size: var(--font-size-2);
+					letter-spacing: var(--letter-spacing-none);
+				}
+
+				pre {
+					font-family: var(--font-family-monospace);
+					font-size: var(--font-size-2);
+					line-height: var(--line-height-5);
+					letter-spacing: var(--letter-spacing-none);
+					overflow-x: auto;
+				}
+
+				pre code {
+					font-size: inherit;
+				}
+
+				/* ── Blockquote ───────────────────────────────────────────────────────────── */
+
+				blockquote {
+					padding-inline-start: var(--space-4);
+					border-inline-start: 3px solid var(--color-border-accent);
+					color: var(--color-text-helper);
+					font-style: italic;
+				}
+
+				/* ── Lists ────────────────────────────────────────────────────────────────── */
+
+				ul,
+				ol {
+					padding-inline-start: var(--space-5);
+				}
+
+				li {
+					line-height: var(--line-height-5);
+					letter-spacing: var(--letter-spacing-loose-2);
+				}
+
+				li + li {
+					margin-block-start: var(--space-1);
+				}
+
+				/* ── Horizontal rule ──────────────────────────────────────────────────────── */
+
+				hr {
+					border: none;
+					border-block-start: 1px solid var(--color-border-1);
+				}
+
+				/* ── Tables ───────────────────────────────────────────────────────────────── */
+
+				table {
+					width: 100%;
+					border-collapse: collapse;
+					font-size: var(--font-size-2);
+					line-height: var(--line-height-5);
+				}
+
+				th {
+					font-weight: var(--font-weight-semibold);
+					text-align: start;
+					padding: var(--space-2) var(--space-3);
+					border-block-end: 2px solid var(--color-border-2);
+					color: var(--color-text-primary);
+				}
+
+				td {
+					padding: var(--space-2) var(--space-3);
+					border-block-end: 1px solid var(--color-border-1);
+					color: var(--color-text-secondary);
+				}
+
+				/* ── Media ────────────────────────────────────────────────────────────────── */
+
+				img,
+				video {
+					height: auto;
+				}
+
+				figure {
+					display: flex;
+					flex-direction: column;
+					gap: var(--space-2);
+				}
+
+				figcaption {
+					font-size: var(--font-size-1);
+					line-height: var(--line-height-5);
+					letter-spacing: var(--letter-spacing-loose-2);
+					color: var(--color-text-helper);
+				}
+
+				/* ── Form elements ────────────────────────────────────────────────────────── */
+
+				button {
+					cursor: pointer;
+				}
+
+				input,
+				textarea,
+				select {
+					color: var(--color-text-primary);
+					background-color: var(--color-background-primary);
+					border: 1px solid var(--color-border-3);
+					border-radius: var(--border-radius-1);
+				}
+
+				input:focus-visible,
+				textarea:focus-visible,
+				select:focus-visible,
+				button:focus-visible {
+					outline: 2px solid var(--color-focus-default);
+					outline-offset: 2px;
+				}
+
+				textarea {
+					resize: vertical;
+				}
+
+				/* ── Details / Summary ────────────────────────────────────────────────────── */
+
+				details > summary {
+					cursor: pointer;
+					list-style: none;
+				}
+
+				details > summary::-webkit-details-marker {
+					display: none;
+				}
+
+				/* ── Typographic inline elements ──────────────────────────────────────────── */
+
+				abbr[title] {
+					text-decoration: underline dotted;
+					cursor: help;
+				}
+
+				mark {
+					background-color: var(--color-layer-accent);
+					color: var(--color-text-primary);
+					border-radius: var(--border-radius-0);
+					padding-inline: var(--space-0);
+				}
+
+				sub,
+				sup {
+					font-size: 75%;
+					line-height: 0;
+					position: relative;
+					vertical-align: baseline;
+				}
+
+				sub {
+					bottom: -0.25em;
+				}
+
+				sup {
+					top: -0.5em;
+				}
+			}
+
+			@layer compositions {
+				.stack {
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+				}
+
+				.stack > * + * {
+					margin-block-start: var(--stack-gap, var(--space-4));
+				}
+			}
+
+			@layer compositions {
+				.cluster {
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--cluster-gap, var(--space-3));
+					justify-content: var(--cluster-justify, flex-start);
+					align-items: var(--cluster-align, center);
+				}
+			}
+
+			@layer blocks {
+				.button {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					gap: var(--space-2);
+					padding: var(--space-2) var(--space-4);
+					border: 1px solid transparent;
+					border-radius: var(--border-radius-2);
+					font-family: var(--font-family-default);
+					font-size: var(--font-size-2);
+					font-weight: var(--font-weight-semibold);
+					line-height: var(--line-height-0);
+					letter-spacing: var(--letter-spacing-loose-1);
+					text-decoration: none;
+					white-space: nowrap;
+					cursor: pointer;
+					transition:
+						background-color 120ms ease,
+						color 120ms ease,
+						border-color 120ms ease;
+
+					/* Default variant: primary */
+					background-color: var(--button-primary-background-default);
+					color: var(--button-primary-label-default);
+				}
+
+				.button:hover {
+					background-color: var(--button-primary-background-hover);
+					color: var(--button-primary-label-hover);
+				}
+
+				.button:disabled,
+				.button[data-state='disabled'] {
+					background-color: var(--button-primary-background-disabled);
+					color: var(--button-primary-label-disabled);
+					cursor: not-allowed;
+					pointer-events: none;
+				}
+
+				.button:focus-visible {
+					outline: 2px solid var(--color-focus-default);
+					outline-offset: 2px;
+				}
+
+				/* ── Size variants ────────────────────────────────────────────────────────── */
+
+				.button[data-size='small'] {
+					padding: var(--space-1) var(--space-3);
+					font-size: var(--font-size-1);
+				}
+
+				.button[data-size='large'] {
+					padding: var(--space-3) var(--space-5);
+					font-size: var(--font-size-3);
+				}
+
+				/* ── Secondary ────────────────────────────────────────────────────────────── */
+
+				.button[data-variant='secondary'] {
+					background-color: var(--button-secondary-background-default);
+					color: var(--button-secondary-label-default);
+				}
+
+				.button[data-variant='secondary']:hover {
+					background-color: var(--button-secondary-background-hover);
+					color: var(--button-secondary-label-hover);
+				}
+
+				.button[data-variant='secondary']:disabled,
+				.button[data-variant='secondary'][data-state='disabled'] {
+					background-color: var(--button-secondary-background-disabled);
+					color: var(--button-secondary-label-disabled);
+				}
+
+				/* ── Tertiary ─────────────────────────────────────────────────────────────── */
+
+				.button[data-variant='tertiary'] {
+					background-color: var(--button-tertiary-background-default);
+					color: var(--button-tertiary-label-default);
+					border-color: var(--button-tertiary-border-default);
+				}
+
+				.button[data-variant='tertiary']:hover {
+					background-color: var(--button-tertiary-background-hover);
+					color: var(--button-tertiary-label-hover);
+					border-color: var(--button-tertiary-border-hover);
+				}
+
+				.button[data-variant='tertiary']:disabled,
+				.button[data-variant='tertiary'][data-state='disabled'] {
+					background-color: var(--button-tertiary-background-disabled);
+					color: var(--button-tertiary-label-disabled);
+					border-color: var(--button-tertiary-border-disabled);
+				}
+
+				/* ── Ghost ────────────────────────────────────────────────────────────────── */
+
+				.button[data-variant='ghost'] {
+					background-color: var(--button-ghost-background-default);
+					color: var(--button-ghost-label-default);
+				}
+
+				.button[data-variant='ghost']:hover {
+					background-color: var(--button-ghost-background-hover);
+					color: var(--button-ghost-label-hover);
+				}
+
+				.button[data-variant='ghost']:disabled,
+				.button[data-variant='ghost'][data-state='disabled'] {
+					background-color: var(--button-ghost-background-disabled);
+					color: var(--button-ghost-label-disabled);
+				}
+
+				/* ── Display ──────────────────────────────────────────────────────────────── */
+
+				.button[data-variant='display'] {
+					background-color: var(--button-display-background-default);
+					color: var(--button-display-label-default);
+				}
+
+				.button[data-variant='display']:hover {
+					background-color: var(--button-display-background-hover);
+					color: var(--button-display-label-hover);
+				}
+
+				.button[data-variant='display']:disabled,
+				.button[data-variant='display'][data-state='disabled'] {
+					background-color: var(--button-display-background-disabled);
+					color: var(--button-display-label-disabled);
+				}
+
+				/* ── Danger: primary ──────────────────────────────────────────────────────── */
+
+				.button[data-variant='danger'] {
+					background-color: var(--button-danger-primary-background-default);
+					color: var(--button-danger-primary-label-default);
+				}
+
+				.button[data-variant='danger']:hover {
+					background-color: var(--button-danger-primary-background-hover);
+					color: var(--button-danger-primary-label-hover);
+				}
+
+				.button[data-variant='danger']:disabled,
+				.button[data-variant='danger'][data-state='disabled'] {
+					background-color: var(--button-danger-primary-background-disabled);
+					color: var(--button-danger-primary-label-disabled);
+				}
+
+				/* ── Danger: secondary ────────────────────────────────────────────────────── */
+
+				.button[data-variant='danger-secondary'] {
+					background-color: var(--button-danger-secondary-background-default);
+					color: var(--button-danger-secondary-label-default);
+					border-color: var(--button-danger-secondary-border-default);
+				}
+
+				.button[data-variant='danger-secondary']:hover {
+					background-color: var(--button-danger-secondary-background-hover);
+					color: var(--button-danger-secondary-label-hover);
+					border-color: var(--button-danger-secondary-border-hover);
+				}
+
+				.button[data-variant='danger-secondary']:disabled,
+				.button[data-variant='danger-secondary'][data-state='disabled'] {
+					background-color: var(--button-danger-secondary-background-disabled);
+					color: var(--button-danger-secondary-label-disabled);
+					border-color: var(--button-danger-secondary-border-disabled);
+				}
+
+				/* ── Danger: ghost ────────────────────────────────────────────────────────── */
+
+				.button[data-variant='danger-ghost'] {
+					background-color: var(--button-danger-ghost-background-default);
+					color: var(--button-danger-ghost-label-default);
+				}
+
+				.button[data-variant='danger-ghost']:hover {
+					background-color: var(--button-danger-ghost-background-hover);
+					color: var(--button-danger-ghost-label-hover);
+				}
+
+				.button[data-variant='danger-ghost']:disabled,
+				.button[data-variant='danger-ghost'][data-state='disabled'] {
+					background-color: var(--button-danger-ghost-background-disabled);
+					color: var(--button-danger-ghost-label-disabled);
+				}
+			}
+
+			@layer utilities {
+				.gap-0 {
+					gap: var(--space-0);
+				}
+				.gap-1 {
+					gap: var(--space-1);
+				}
+				.gap-2 {
+					gap: var(--space-2);
+				}
+				.gap-3 {
+					gap: var(--space-3);
+				}
+				.gap-4 {
+					gap: var(--space-4);
+				}
+				.gap-5 {
+					gap: var(--space-5);
+				}
+				.gap-6 {
+					gap: var(--space-6);
+				}
+				.gap-7 {
+					gap: var(--space-7);
+				}
+				.gap-8 {
+					gap: var(--space-8);
+				}
+				.gap-9 {
+					gap: var(--space-9);
+				}
+				.gap-10 {
+					gap: var(--space-10);
+				}
+			}
+
+			/* Preview chrome — outside the design system */
+			.preview-section {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 3rem 2rem;
+				border-bottom: 2px dashed var(--color-border-1);
+			}
+			.preview-section:last-child {
+				border-bottom: none;
+			}
+			.preview-label {
+				font-family: ui-monospace, monospace;
+				font-size: 0.7rem;
+				font-weight: 600;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--color-focus-default);
+				margin-bottom: 1.5rem;
+				display: block;
+			}
+			.preview-row {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 1rem;
+				margin-bottom: 1rem;
+			}
+			.theme-toggle {
+				position: fixed;
+				top: 1rem;
+				right: 1rem;
+				font-family: ui-monospace, monospace;
+				font-size: 0.75rem;
+				padding: 0.4rem 0.8rem;
+				border: 1px solid var(--color-border-3);
+				border-radius: 4px;
+				background: var(--color-layer-2);
+				color: var(--color-text-primary);
+				cursor: pointer;
+				z-index: 100;
+			}
+		</style>
+	</head>
+	<body>
+		<button
+			class="theme-toggle"
+			onclick="
+				document.documentElement.classList.toggle('theme-dark');
+				this.textContent = document.documentElement.classList.contains('theme-dark')
+					? '☀ Light mode'
+					: '☾ Dark mode';
+			"
+		>
+			☾ Dark mode
+		</button>
+
+		<!-- ── Typography ─────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Headings</span>
+			<h1>Heading 1 — The quick brown fox</h1>
+			<h2>Heading 2 — The quick brown fox</h2>
+			<h3>Heading 3 — The quick brown fox</h3>
+			<h4>Heading 4 — The quick brown fox</h4>
+			<h5>Heading 5 — The quick brown fox</h5>
+			<h6>Heading 6 — The quick brown fox</h6>
+		</section>
+
+		<section class="preview-section">
+			<span class="preview-label">Body text</span>
+			<p>
+				This is a paragraph of body text. The design system uses a carefully considered typographic
+				scale with optical letter-spacing adjustments at each size. Good typography is invisible —
+				it communicates without calling attention to itself.
+			</p>
+			<p>
+				A second paragraph follows. Notice the <strong>bold weight</strong>, the
+				<em>italic style</em>, and the <small>small text size</small> all using token values. You
+				can also see <a href="#">a standard link</a> and
+				<a href="#" class="visited-demo">a visited link</a>.
+			</p>
+		</section>
+
+		<section class="preview-section">
+			<span class="preview-label">Type utility classes</span>
+			<p class="type-heading-1">type-heading-1</p>
+			<p class="type-heading-2">type-heading-2</p>
+			<p class="type-heading-3">type-heading-3</p>
+			<p class="type-heading-4">type-heading-4</p>
+			<p class="type-heading-5">type-heading-5</p>
+			<p class="type-heading-caps">type-heading-caps</p>
+			<p class="type-body-large">type-body-large</p>
+			<p class="type-body-default">type-body-default</p>
+			<p class="type-body-small">type-body-small</p>
+			<p class="type-body-mono">type-body-mono</p>
+			<p class="type-body-mono-bold">type-body-mono-bold</p>
+			<p class="type-support-label-default">type-support-label-default</p>
+			<p class="type-support-label-small">type-support-label-small</p>
+			<p class="type-support-label-xs">type-support-label-xs</p>
+			<p class="type-support-helper-text">type-support-helper-text</p>
+			<p class="type-support-label-default-quiet">type-support-label-default-quiet</p>
+			<p class="type-support-label-default-loud">type-support-label-default-loud</p>
+		</section>
+
+		<!-- ── Code ───────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Code &amp; pre</span>
+			<p>
+				Inline <code>code</code>, <kbd>keyboard input</kbd>, and <samp>sample output</samp> use the
+				monospace font family.
+			</p>
+			<pre>
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World')); // Hello, World!</pre
+			>
+		</section>
+
+		<!-- ── Blockquote ─────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Blockquote</span>
+			<blockquote>
+				<p>Design is not just what it looks like and feels like. Design is how it works.</p>
+			</blockquote>
+		</section>
+
+		<!-- ── Lists ──────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Lists</span>
+			<div class="cluster">
+				<ul>
+					<li>Unordered item one</li>
+					<li>Unordered item two</li>
+					<li>
+						Unordered item three
+						<ul>
+							<li>Nested item</li>
+							<li>Another nested item</li>
+						</ul>
+					</li>
+				</ul>
+				<ol>
+					<li>Ordered item one</li>
+					<li>Ordered item two</li>
+					<li>Ordered item three</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- ── Inline elements ────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Inline elements</span>
+			<p>
+				<strong>Bold text</strong> · <em>Italic text</em> · <small>Small text</small> ·
+				<mark>Highlighted text</mark> · Text with <sup>superscript</sup> · Text with
+				<sub>subscript</sub> · <abbr title="HyperText Markup Language">HTML</abbr> abbreviation
+			</p>
+		</section>
+
+		<!-- ── Horizontal rule ────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Horizontal rule</span>
+			<p>Content above the rule.</p>
+			<hr />
+			<p>Content below the rule.</p>
+		</section>
+
+		<!-- ── Table ──────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Table</span>
+			<table>
+				<thead>
+					<tr>
+						<th>Component</th>
+						<th>Status</th>
+						<th>Phase</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Button</td>
+						<td>Complete</td>
+						<td>Phase 4</td>
+						<td>All variants and states</td>
+					</tr>
+					<tr>
+						<td>Input</td>
+						<td>Complete</td>
+						<td>Phase 4</td>
+						<td>CSS only, React in Phase 5</td>
+					</tr>
+					<tr>
+						<td>Dialog</td>
+						<td>Planned</td>
+						<td>Phase 5</td>
+						<td>Requires Radix primitive</td>
+					</tr>
+					<tr>
+						<td>Tooltip</td>
+						<td>Planned</td>
+						<td>Phase 5</td>
+						<td>Requires Radix primitive</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<!-- ── Media ──────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Figure &amp; figcaption</span>
+			<figure>
+				<div
+					style="
+						background: var(--color-layer-3);
+						height: 200px;
+						border-radius: var(--border-radius-2);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						color: var(--color-text-helper);
+					"
+				>
+					[ image placeholder ]
+				</div>
+				<figcaption>
+					A figcaption below an image, using the helper text color and small font size.
+				</figcaption>
+			</figure>
+		</section>
+
+		<!-- ── Form elements ──────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Form elements (global baseline — no block CSS)</span>
+			<div class="stack" style="--stack-gap: var(--space-4); max-width: 480px">
+				<div>
+					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+						>Text input</label
+					>
+					<input
+						type="text"
+						placeholder="Placeholder text"
+						style="width: 100%; padding: var(--space-2) var(--space-3)"
+					/>
+				</div>
+				<div>
+					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+						>Textarea</label
+					>
+					<textarea
+						rows="3"
+						placeholder="Enter text…"
+						style="width: 100%; padding: var(--space-2) var(--space-3)"
+					></textarea>
+				</div>
+				<div>
+					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+						>Select</label
+					>
+					<select style="width: 100%; padding: var(--space-2) var(--space-3)">
+						<option>Option one</option>
+						<option>Option two</option>
+						<option>Option three</option>
+					</select>
+				</div>
+				<div>
+					<button>Default button (global baseline)</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── Button block ────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Button block (.button class)</span>
+			<div class="preview-row">
+				<button class="button">Primary</button>
+				<button class="button" data-variant="secondary">Secondary</button>
+				<button class="button" data-variant="tertiary">Tertiary</button>
+				<button class="button" data-variant="ghost">Ghost</button>
+				<button class="button" data-variant="display">Display</button>
+			</div>
+			<div class="preview-row">
+				<button class="button" data-variant="danger">Danger primary</button>
+				<button class="button" data-variant="danger-secondary">Danger secondary</button>
+				<button class="button" data-variant="danger-ghost">Danger ghost</button>
+			</div>
+			<div class="preview-row">
+				<button class="button" data-size="small">Small</button>
+				<button class="button">Medium (default)</button>
+				<button class="button" data-size="large">Large</button>
+			</div>
+			<div class="preview-row">
+				<button class="button" disabled>Primary disabled</button>
+				<button class="button" data-variant="secondary" disabled>Secondary disabled</button>
+				<button class="button" data-variant="tertiary" disabled>Tertiary disabled</button>
+			</div>
+		</section>
+
+		<!-- ── Details / Summary ──────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Details &amp; summary</span>
+			<details>
+				<summary>Click to expand</summary>
+				<p style="margin-top: var(--space-3)">
+					This content is revealed when the disclosure widget is opened. The summary element
+					receives cursor: pointer and the default marker is hidden via global styles.
+				</p>
+			</details>
+		</section>
+
+		<!-- ── Compositions ───────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Stack composition</span>
+			<div class="stack" style="border: 1px dashed var(--color-border-1); padding: var(--space-4)">
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Stack item 1
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Stack item 2
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Stack item 3
+				</div>
+			</div>
+		</section>
+
+		<section class="preview-section">
+			<span class="preview-label">Cluster composition</span>
+			<div
+				class="cluster"
+				style="border: 1px dashed var(--color-border-1); padding: var(--space-4)"
+			>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-2) var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-2) var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-2) var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-2) var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-2) var(--space-3);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

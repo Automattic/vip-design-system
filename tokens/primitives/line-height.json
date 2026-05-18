@@ -3,9 +3,21 @@
 		"0": { "$value": 1, "$type": "number", "$description": "Use for short text labels" },
 		"1": { "$value": 1.15, "$type": "number", "$description": "Use only for display." },
 		"2": { "$value": 1.25, "$type": "number", "$description": "Use for larger headings." },
-		"3": { "$value": 1.3, "$type": "number", "$description": "Use for small and medium sized headings." },
+		"3": {
+			"$value": 1.3,
+			"$type": "number",
+			"$description": "Use for small and medium sized headings."
+		},
 		"4": { "$value": 1.4, "$type": "number", "$description": "Use for body-sized text" },
-		"5": { "$value": 1.5, "$type": "number", "$description": "Use for body-sized text in long-form reading applications." },
-		"responsive": { "$value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)", "$type": "dimension", "$description": "Responsive line height for the responsive type sizes." }
+		"5": {
+			"$value": 1.5,
+			"$type": "number",
+			"$description": "Use for body-sized text in long-form reading applications."
+		},
+		"responsive": {
+			"$value": "clamp(1.1em, calc(1.25em + -0.4vw), 1.2em)",
+			"$type": "dimension",
+			"$description": "Responsive line height for the responsive type sizes."
+		}
 	}
 }
