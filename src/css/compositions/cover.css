@@ -3,7 +3,7 @@
 		display: flex;
 		flex-direction: column;
 		min-block-size: var(--cover-min-height, 100vh);
-		padding: var(--cover-padding, var(--space-4));
+		padding: var(--cover-padding, var(--space-5));
 	}
 
 	/* The centered element — receives equal space above and below */

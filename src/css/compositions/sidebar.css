@@ -2,7 +2,7 @@
 	.sidebar {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--sidebar-gap, var(--space-4));
+		gap: var(--sidebar-gap, var(--space-5));
 	}
 
 	/* The sidebar child — set --sidebar-width on the parent to control it */

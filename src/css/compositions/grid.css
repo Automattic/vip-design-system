@@ -5,6 +5,6 @@
 			var(--grid-columns, auto-fill),
 			minmax(var(--grid-min-item-size, 16rem), 1fr)
 		);
-		gap: var(--grid-gap, var(--space-4));
+		gap: var(--grid-gap, var(--space-5));
 	}
 }

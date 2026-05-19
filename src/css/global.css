@@ -140,7 +140,7 @@
 	/* ── Blockquote ───────────────────────────────────────────────────────────── */
 
 	blockquote {
-		padding-inline-start: var(--space-4);
+		padding-inline-start: var(--space-5);
 		border-inline-start: 3px solid var(--color-border-accent);
 		color: var(--color-text-helper);
 		font-style: italic;
@@ -150,7 +150,7 @@
 
 	ul,
 	ol {
-		padding-inline-start: var(--space-5);
+		padding-inline-start: var(--space-6);
 	}
 
 	li {
@@ -181,13 +181,13 @@
 	th {
 		font-weight: var(--font-weight-semibold);
 		text-align: start;
-		padding: var(--space-2) var(--space-3);
+		padding: var(--space-3) var(--space-4);
 		border-block-end: 2px solid var(--color-border-2);
 		color: var(--color-text-primary);
 	}
 
 	td {
-		padding: var(--space-2) var(--space-3);
+		padding: var(--space-3) var(--space-4);
 		border-block-end: 1px solid var(--color-border-1);
 		color: var(--color-text-secondary);
 	}
@@ -202,7 +202,7 @@
 	figure {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-2);
+		gap: var(--space-3);
 	}
 
 	figcaption {
