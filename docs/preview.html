@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VIP Design System — Live Preview</title>
+
+		<!-- Design system CSS — the browser follows the full @import chain automatically.
+		     Refresh this page after running `npm run build:tokens` to pick up token changes,
+		     or after editing any CSS source file to see the result immediately. -->
+		<link rel="stylesheet" href="../src/css/index.css" />
+
+		<style>
+			/* Preview chrome — not part of the design system */
+			.preview-section {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 3rem 2rem;
+				border-bottom: 2px dashed var(--color-border-1);
+			}
+			.preview-section:last-child {
+				border-bottom: none;
+			}
+			.preview-label {
+				font-family: ui-monospace, monospace;
+				font-size: 0.7rem;
+				font-weight: 600;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--color-focus-default);
+				margin-bottom: 1.5rem;
+				display: block;
+			}
+			.preview-row {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 1rem;
+				margin-bottom: 1rem;
+			}
+			.theme-toggle {
+				position: fixed;
+				top: 1rem;
+				right: 1rem;
+				font-family: ui-monospace, monospace;
+				font-size: 0.75rem;
+				padding: 0.4rem 0.8rem;
+				border: 1px solid var(--color-border-3);
+				border-radius: 4px;
+				background: var(--color-layer-2);
+				color: var(--color-text-primary);
+				cursor: pointer;
+				z-index: 100;
+			}
+		</style>
+	</head>
+	<body>
+		<button
+			class="theme-toggle"
+			onclick="
+				document.documentElement.classList.toggle('theme-dark');
+				this.textContent = document.documentElement.classList.contains('theme-dark')
+					? '☀ Light mode'
+					: '☾ Dark mode';
+			"
+		>
+			☾ Dark mode
+		</button>
+
+		<!-- ── Typography ─────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Headings</span>
+			<h1>Heading 1 — The quick brown fox</h1>
+			<h2>Heading 2 — The quick brown fox</h2>
+			<h3>Heading 3 — The quick brown fox</h3>
+			<h4>Heading 4 — The quick brown fox</h4>
+			<h5>Heading 5 — The quick brown fox</h5>
+			<h6>Heading 6 — The quick brown fox</h6>
+		</section>
+
+		<section class="preview-section">
+			<span class="preview-label">Body text</span>
+			<p>
+				This is a paragraph of body text. The design system uses a carefully considered typographic
+				scale with optical letter-spacing adjustments at each size. Good typography is invisible —
+				it communicates without calling attention to itself.
+			</p>
+			<p>
+				A second paragraph follows. Notice the <strong>bold weight</strong>, the
+				<em>italic style</em>, and the <small>small text size</small> all using token values. You
+				can also see <a href="#">a standard link</a> and
+				<a href="#visited-demo" class="visited-demo">a visited link</a>.
+			</p>
+		</section>
+
+		<section class="preview-section">
+			<span class="preview-label">Type utility classes</span>
+			<p class="type-heading-1">type-heading-1</p>
+			<p class="type-heading-2">type-heading-2</p>
+			<p class="type-heading-3">type-heading-3</p>
+			<p class="type-heading-4">type-heading-4</p>
+			<p class="type-heading-5">type-heading-5</p>
+			<p class="type-heading-caps">type-heading-caps</p>
+			<p class="type-body-large">type-body-large</p>
+			<p class="type-body-default">type-body-default</p>
+			<p class="type-body-small">type-body-small</p>
+			<p class="type-body-mono">type-body-mono</p>
+			<p class="type-body-mono-bold">type-body-mono-bold</p>
+			<p class="type-support-label-default">type-support-label-default</p>
+			<p class="type-support-label-small">type-support-label-small</p>
+			<p class="type-support-label-xs">type-support-label-xs</p>
+			<p class="type-support-helper-text">type-support-helper-text</p>
+			<p class="type-support-label-default-quiet">type-support-label-default-quiet</p>
+			<p class="type-support-label-default-loud">type-support-label-default-loud</p>
+		</section>
+
+		<!-- ── Code ───────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Code &amp; pre</span>
+			<p>
+				Inline <code>code</code>, <kbd>keyboard input</kbd>, and <samp>sample output</samp> use the
+				monospace font family.
+			</p>
+			<pre>
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World')); // Hello, World!</pre
+			>
+		</section>
+
+		<!-- ── Blockquote ─────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Blockquote</span>
+			<blockquote>
+				<p>Design is not just what it looks like and feels like. Design is how it works.</p>
+			</blockquote>
+		</section>
+
+		<!-- ── Lists ──────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Lists</span>
+			<div class="cluster">
+				<ul>
+					<li>Unordered item one</li>
+					<li>Unordered item two</li>
+					<li>
+						Unordered item three
+						<ul>
+							<li>Nested item</li>
+							<li>Another nested item</li>
+						</ul>
+					</li>
+				</ul>
+				<ol>
+					<li>Ordered item one</li>
+					<li>Ordered item two</li>
+					<li>Ordered item three</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- ── Inline elements ────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Inline elements</span>
+			<p>
+				<strong>Bold text</strong> · <em>Italic text</em> · <small>Small text</small> ·
+				<mark>Highlighted text</mark> · Text with <sup>superscript</sup> · Text with
+				<sub>subscript</sub> · <abbr title="HyperText Markup Language">HTML</abbr> abbreviation
+			</p>
+		</section>
+
+		<!-- ── Horizontal rule ────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Horizontal rule</span>
+			<p>Content above the rule.</p>
+			<hr />
+			<p>Content below the rule.</p>
+		</section>
+
+		<!-- ── Table ──────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Table</span>
+			<table>
+				<thead>
+					<tr>
+						<th>Component</th>
+						<th>Status</th>
+						<th>Phase</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Button</td>
+						<td>Complete</td>
+						<td>Phase 4</td>
+						<td>All variants and states</td>
+					</tr>
+					<tr>
+						<td>Input</td>
+						<td>Complete</td>
+						<td>Phase 4</td>
+						<td>CSS only, React in Phase 5</td>
+					</tr>
+					<tr>
+						<td>Dialog</td>
+						<td>Planned</td>
+						<td>Phase 5</td>
+						<td>Requires Radix primitive</td>
+					</tr>
+					<tr>
+						<td>Tooltip</td>
+						<td>Planned</td>
+						<td>Phase 5</td>
+						<td>Requires Radix primitive</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<!-- ── Media ──────────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Figure &amp; figcaption</span>
+			<figure>
+				<div
+					style="
+						background: var(--color-layer-3);
+						height: 200px;
+						border-radius: var(--border-radius-2);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						color: var(--color-text-helper);
+					"
+				>
+					[ image placeholder ]
+				</div>
+				<figcaption>
+					A figcaption below an image, using the helper text color and small font size.
+				</figcaption>
+			</figure>
+		</section>
+
+		<!-- ── Form elements ──────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Form elements (global baseline — no block CSS)</span>
+			<div class="stack" style="--stack-gap: var(--space-5); max-width: 480px">
+				<div>
+					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+						>Text input</label
+					>
+					<input
+						type="text"
+						placeholder="Placeholder text"
+						style="width: 100%; padding: var(--space-3) var(--space-4)"
+					/>
+				</div>
+				<div>
+					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+						>Textarea</label
+					>
+					<textarea
+						rows="3"
+						placeholder="Enter text…"
+						style="width: 100%; padding: var(--space-3) var(--space-4)"
+					></textarea>
+				</div>
+				<div>
+					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+						>Select</label
+					>
+					<select style="width: 100%; padding: var(--space-3) var(--space-4)">
+						<option>Option one</option>
+						<option>Option two</option>
+						<option>Option three</option>
+					</select>
+				</div>
+				<div>
+					<button>Default button (global baseline)</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── Button block ────────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Button block (.button class)</span>
+			<div class="preview-row">
+				<button class="button">Primary</button>
+				<button class="button" data-variant="secondary">Secondary</button>
+				<button class="button" data-variant="tertiary">Tertiary</button>
+				<button class="button" data-variant="ghost">Ghost</button>
+				<button class="button" data-variant="display">Display</button>
+			</div>
+			<div class="preview-row">
+				<button class="button" data-variant="danger">Danger primary</button>
+				<button class="button" data-variant="danger-secondary">Danger secondary</button>
+				<button class="button" data-variant="danger-ghost">Danger ghost</button>
+			</div>
+			<div class="preview-row">
+				<button class="button" data-size="small">Small</button>
+				<button class="button">Medium (default)</button>
+				<button class="button" data-size="large">Large</button>
+			</div>
+			<div class="preview-row">
+				<button class="button" disabled>Primary disabled</button>
+				<button class="button" data-variant="secondary" disabled>Secondary disabled</button>
+				<button class="button" data-variant="tertiary" disabled>Tertiary disabled</button>
+			</div>
+		</section>
+
+		<!-- ── Details / Summary ──────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Details &amp; summary</span>
+			<details>
+				<summary>Click to expand</summary>
+				<p style="margin-top: var(--space-4)">
+					This content is revealed when the disclosure widget is opened. The summary element
+					receives cursor: pointer and the default marker is hidden via global styles.
+				</p>
+			</details>
+		</section>
+
+		<!-- ── Compositions ───────────────────────────────────────────────────── -->
+		<section class="preview-section">
+			<span class="preview-label">Stack composition</span>
+			<div class="stack" style="border: 1px dashed var(--color-border-1); padding: var(--space-5)">
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Stack item 1
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Stack item 2
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Stack item 3
+				</div>
+			</div>
+		</section>
+
+		<section class="preview-section">
+			<span class="preview-label">Cluster composition</span>
+			<div
+				class="cluster"
+				style="border: 1px dashed var(--color-border-1); padding: var(--space-5)"
+			>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3) var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3) var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3) var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3) var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+				<div
+					style="
+						background: var(--color-layer-3);
+						padding: var(--space-3) var(--space-4);
+						border-radius: var(--border-radius-1);
+					"
+				>
+					Cluster item
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
