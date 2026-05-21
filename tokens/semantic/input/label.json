@@ -1,0 +1,15 @@
+{
+	"color": {
+		"input": {
+			"label": {
+				"default": {
+					"$value": "{black}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.10}"
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"color": {
+		"input": {
+			"text": {
+				"default": {
+					"$value": "{black}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.10}"
+					}
+				},
+				"placeholder": {
+					"$value": "{gray.55}",
+					"$type": "color",
+					"$description": "Use for placeholder text in fields",
+					"$extensions": {
+						"dark": "{gray.45}"
+					}
+				}
+			}
+		}
+	}
+}

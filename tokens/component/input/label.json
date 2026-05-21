@@ -1,0 +1,10 @@
+{
+	"input": {
+		"label": {
+			"default": {
+				"$value": "{color.input.label.default}",
+				"$type": "color"
+			}
+		}
+	}
+}

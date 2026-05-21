@@ -1,0 +1,16 @@
+{
+	"input": {
+		"toggle": {
+			"switch": {
+				"default": {
+					"$value": "{color.input.toggle.switch.default}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.input.toggle.switch.disabled}",
+					"$type": "color"
+				}
+			}
+		}
+	}
+}

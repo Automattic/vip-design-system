@@ -1,0 +1,45 @@
+{
+	"color": {
+		"input": {
+			"background": {
+				"default": {
+					"$value": "{color.background.transparent}",
+					"$type": "color"
+				},
+				"primary": {
+					"$value": "{black}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.70}"
+					}
+				},
+				"success": {
+					"$value": "{green.60}",
+					"$type": "color"
+				},
+				"brand": {
+					"$value": "{gold.60}",
+					"$type": "color"
+				},
+				"inactive": {
+					"$value": "{gray.50}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.80}"
+					}
+				},
+				"disabled": {
+					"$value": "{gray.20}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.80}"
+					}
+				},
+				"read-only": {
+					"$value": "{color.layer.1}",
+					"$type": "color"
+				}
+			}
+		}
+	}
+}

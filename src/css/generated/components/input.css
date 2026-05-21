@@ -7,15 +7,11 @@
 	--input-background-inactive: var(--color-input-background-inactive);
 	--input-background-disabled: var(--color-input-background-disabled);
 	--input-background-read-only: var(--color-input-background-read-only);
-	--input-label-default: var(--color-input-label-default);
-	--input-text-default: var(--color-input-text-default);
-	--input-text-placeholder: var(--color-input-text-placeholder);
 	--input-border-default: var(--color-input-border-default);
 	--input-border-disabled: var(--color-input-border-disabled);
 	--input-border-error: var(--color-input-border-error);
 	--input-border-read-only: var(--color-input-border-read-only);
-	--input-switcher-background-primary: var(--color-input-switcher-background-primary);
-	--input-switcher-background-secondary: var(--color-input-switcher-background-secondary);
+	--input-label-default: var(--color-input-label-default);
 	--input-radio-box-background-default: var(--color-input-radio-box-background-default);
 	--input-radio-box-background-hover: var(--color-input-radio-box-background-hover);
 	--input-radio-box-background-active: var(--color-input-radio-box-background-active);
@@ -32,6 +28,10 @@
 	--input-radio-box-border-hover: var(--color-input-radio-box-border-hover);
 	--input-radio-box-border-active: var(--color-input-radio-box-border-active);
 	--input-radio-box-border-disabled: var(--color-input-radio-box-border-disabled);
+	--input-switcher-background-primary: var(--color-input-switcher-background-primary);
+	--input-switcher-background-secondary: var(--color-input-switcher-background-secondary);
+	--input-text-default: var(--color-input-text-default);
+	--input-text-placeholder: var(--color-input-text-placeholder);
 	--input-toggle-switch-default: var(--color-input-toggle-switch-default);
 	--input-toggle-switch-disabled: var(--color-input-toggle-switch-disabled);
 }

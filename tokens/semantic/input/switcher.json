@@ -1,0 +1,18 @@
+{
+	"color": {
+		"input": {
+			"switcher": {
+				"background": {
+					"primary": {
+						"$value": "{green.60}",
+						"$type": "color"
+					},
+					"secondary": {
+						"$value": "{blue.60}",
+						"$type": "color"
+					}
+				}
+			}
+		}
+	}
+}

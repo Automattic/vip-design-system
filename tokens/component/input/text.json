@@ -1,0 +1,15 @@
+{
+	"input": {
+		"text": {
+			"default": {
+				"$value": "{color.input.text.default}",
+				"$type": "color"
+			},
+			"placeholder": {
+				"$value": "{color.input.text.placeholder}",
+				"$type": "color",
+				"$description": "Use for placeholder text in fields"
+			}
+		}
+	}
+}

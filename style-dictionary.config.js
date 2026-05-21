@@ -294,13 +294,13 @@ const components = [
 ];
 
 for (const { name, selector } of components) {
+	// Support either a single flat file or a subdirectory of split files
+	const compSource = [`tokens/component/${name}.json`, `tokens/component/${name}/**/*.json`];
+	const compFilter = (t) => t.filePath?.includes(`component/${name}`);
+
 	await new StyleDictionary(
 		{
-			source: [
-				'tokens/primitives/**/*.json',
-				'tokens/semantic/**/*.json',
-				`tokens/component/${name}.json`,
-			],
+			source: ['tokens/primitives/**/*.json', 'tokens/semantic/**/*.json', ...compSource],
 			platforms: {
 				css: {
 					transforms: nameTransform,
@@ -308,7 +308,7 @@ for (const { name, selector } of components) {
 						{
 							destination: `src/css/generated/components/${name}.css`,
 							format: 'css/component-vars',
-							filter: (t) => t.filePath?.endsWith(`component/${name}.json`),
+							filter: compFilter,
 							options: { outputReferences: true, selector },
 						},
 					],
