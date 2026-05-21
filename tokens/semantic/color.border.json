@@ -1,0 +1,45 @@
+{
+	"color": {
+		"border": {
+			"1": {
+				"$value": "{gray.25}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.73}"
+				}
+			},
+			"2": {
+				"$value": "{gray.10}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.75}"
+				}
+			},
+			"3": {
+				"$value": "{gray.45}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.65}"
+				}
+			},
+			"4": {
+				"$value": "{gray.10}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.75}"
+				}
+			},
+			"inverse": {
+				"$value": "{gray.50}",
+				"$type": "color"
+			},
+			"accent": {
+				"$value": "{gold.50}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.40}"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"color": {
+		"link": {
+			"default": {
+				"$value": "{gold.60}",
+				"$type": "color",
+				"$description": "Use for text links",
+				"$extensions": {
+					"dark": "{gold.35}"
+				}
+			},
+			"hover": {
+				"$value": "{gold.70}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.45}"
+				}
+			},
+			"active": {
+				"$value": "{gold.70}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.45}"
+				}
+			},
+			"visited": {
+				"$value": "{gold.60}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.35}"
+				}
+			}
+		}
+	}
+}

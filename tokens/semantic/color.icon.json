@@ -1,0 +1,55 @@
+{
+	"color": {
+		"icon": {
+			"primary": {
+				"$value": "{gray.85}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.15}"
+				}
+			},
+			"secondary": {
+				"$value": "{gray.50}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.40}"
+				}
+			},
+			"helper": {
+				"$value": "{gray.40}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.50}"
+				}
+			},
+			"inverse": {
+				"$value": "{pure-white}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.7}"
+				}
+			},
+			"disabled": {
+				"$value": "{gray.45}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.65}"
+				}
+			},
+			"brand": {
+				"$value": "{gold.60}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.45}"
+				}
+			},
+			"inverse-disabled": {
+				"$value": "{gray.10}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.60}"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"color": {
+		"layer": {
+			"1": {
+				"$value": "{gray.3}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.93}"
+				}
+			},
+			"2": {
+				"$value": "{pure-white}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.88}"
+				}
+			},
+			"3": {
+				"$value": "{gray.7}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.70}"
+				}
+			},
+			"4": {
+				"$value": "{pure-white}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.65}"
+				}
+			},
+			"inverse": {
+				"$value": "{black}",
+				"$type": "color",
+				"$description": "Use as component background in high-contrast situations.",
+				"$extensions": {
+					"dark": "{gray.15}"
+				}
+			},
+			"accent": {
+				"$value": "{gold.25}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.75}"
+				}
+			}
+		}
+	}
+}

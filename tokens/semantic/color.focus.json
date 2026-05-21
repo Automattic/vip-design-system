@@ -1,0 +1,14 @@
+{
+	"color": {
+		"focus": {
+			"default": {
+				"$value": "{focus}",
+				"$type": "color"
+			},
+			"inset": {
+				"$value": "{pure-white}",
+				"$type": "color"
+			}
+		}
+	}
+}

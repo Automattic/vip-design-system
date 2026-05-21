@@ -1,0 +1,73 @@
+{
+	"color": {
+		"text": {
+			"primary": {
+				"$value": "{black}",
+				"$type": "color",
+				"$description": "Use for headings",
+				"$extensions": {
+					"dark": "{gray.10}"
+				}
+			},
+			"secondary": {
+				"$value": "{gray.70}",
+				"$type": "color",
+				"$description": "Use for body text",
+				"$extensions": {
+					"dark": "{gray.35}"
+				}
+			},
+			"helper": {
+				"$value": "{gray.60}",
+				"$type": "color",
+				"$description": "Use for helper text",
+				"$extensions": {
+					"dark": "{gray.40}"
+				}
+			},
+			"disabled": {
+				"$value": "{gray.40}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.75}"
+				}
+			},
+			"inverse": {
+				"$value": "{gray.0}",
+				"$type": "color",
+				"$description": "Use for primary text on an inverse layer",
+				"$extensions": {
+					"dark": "{black}"
+				}
+			},
+			"inverse-secondary": {
+				"$value": "{gray.30}",
+				"$type": "color",
+				"$description": "Use for secondary text on an inverse layer."
+			},
+			"accent": {
+				"$value": "{gold.60}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gold.45}"
+				}
+			},
+			"error": {
+				"$value": "{red.60}",
+				"$type": "color",
+				"$description": "Use for error text/icons outside of a notice.",
+				"$extensions": {
+					"dark": "{red.40}"
+				}
+			},
+			"success": {
+				"$value": "{green.60}",
+				"$type": "color",
+				"$description": "Use for success text/icons outside of a notice.",
+				"$extensions": {
+					"dark": "{green.45}"
+				}
+			}
+		}
+	}
+}
