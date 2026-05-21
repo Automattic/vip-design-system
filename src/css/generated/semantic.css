@@ -1,5 +1,14 @@
 /* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
 :root {
+	--color-background-primary: var(--gray-0);
+	--color-background-transparent: var(--transparent);
+	--color-background-overlay: rgb(19 25 30 / 70%);
+	--color-border-1: var(--gray-25);
+	--color-border-2: var(--gray-10);
+	--color-border-3: var(--gray-45);
+	--color-border-4: var(--gray-10);
+	--color-border-inverse: var(--gray-50);
+	--color-border-accent: var(--gold-50);
 	--color-button-primary-background-default: var(--black);
 	--color-button-primary-background-hover: var(--gold-30);
 	--color-button-primary-background-disabled: var(--gray-25);
@@ -54,34 +63,8 @@
 	--color-button-danger-ghost-label-default: var(--red-55);
 	--color-button-danger-ghost-label-hover: var(--color-text-inverse);
 	--color-button-danger-ghost-label-disabled: var(--color-text-disabled);
-	--color-background-primary: var(--gray-0);
-	--color-background-transparent: var(--transparent);
-	--color-background-overlay: rgb(19 25 30 / 70%);
-	--color-layer-1: var(--gray-3);
-	--color-layer-2: var(--pure-white);
-	--color-layer-3: var(--gray-7);
-	--color-layer-4: var(--pure-white);
-	--color-layer-inverse: var(--black);
-	--color-layer-accent: var(--gold-25);
-	--color-border-1: var(--gray-25);
-	--color-border-2: var(--gray-10);
-	--color-border-3: var(--gray-45);
-	--color-border-4: var(--gray-10);
-	--color-border-inverse: var(--gray-50);
-	--color-border-accent: var(--gold-50);
-	--color-text-primary: var(--black);
-	--color-text-secondary: var(--gray-70);
-	--color-text-helper: var(--gray-60);
-	--color-text-disabled: var(--gray-40);
-	--color-text-inverse: var(--gray-0);
-	--color-text-inverse-secondary: var(--gray-30);
-	--color-text-accent: var(--gold-60);
-	--color-text-error: var(--red-60);
-	--color-text-success: var(--green-60);
-	--color-link-default: var(--gold-60);
-	--color-link-hover: var(--gold-70);
-	--color-link-active: var(--gold-70);
-	--color-link-visited: var(--gold-60);
+	--color-focus-default: var(--focus);
+	--color-focus-inset: var(--pure-white);
 	--color-icon-primary: var(--gray-85);
 	--color-icon-secondary: var(--gray-50);
 	--color-icon-helper: var(--gray-40);
@@ -89,8 +72,6 @@
 	--color-icon-disabled: var(--gray-45);
 	--color-icon-brand: var(--gold-60);
 	--color-icon-inverse-disabled: var(--gray-10);
-	--color-focus-default: var(--focus);
-	--color-focus-inset: var(--pure-white);
 	--color-input-background-default: var(--color-background-transparent);
 	--color-input-background-primary: var(--black);
 	--color-input-background-success: var(--green-60);
@@ -125,6 +106,16 @@
 	--color-input-radio-box-border-disabled: var(--gray-25);
 	--color-input-toggle-switch-default: var(--pure-white);
 	--color-input-toggle-switch-disabled: var(--gray-7);
+	--color-layer-1: var(--gray-3);
+	--color-layer-2: var(--pure-white);
+	--color-layer-3: var(--gray-7);
+	--color-layer-4: var(--pure-white);
+	--color-layer-inverse: var(--black);
+	--color-layer-accent: var(--gold-25);
+	--color-link-default: var(--gold-60);
+	--color-link-hover: var(--gold-70);
+	--color-link-active: var(--gold-70);
+	--color-link-visited: var(--gold-60);
 	--color-logs-text-primary: var(--gray-7);
 	--color-logs-text-secondary: var(--gray-30);
 	--color-logs-background: var(--black);
@@ -289,6 +280,15 @@
 	--color-tag-pink-icon: var(--pink-65);
 	--color-tag-pink-hover: var(--pink-15);
 	--color-tag-pink-active: var(--pink-20);
+	--color-text-primary: var(--black);
+	--color-text-secondary: var(--gray-70);
+	--color-text-helper: var(--gray-60);
+	--color-text-disabled: var(--gray-40);
+	--color-text-inverse: var(--gray-0);
+	--color-text-inverse-secondary: var(--gray-30);
+	--color-text-accent: var(--gold-60);
+	--color-text-error: var(--red-60);
+	--color-text-success: var(--green-60);
 	--color-toolbar-background: var(--black);
 	--color-toolbar-text-default: var(--gray-7);
 	--color-toolbar-text-hover: var(--gray-7);
@@ -298,12 +298,30 @@
 @supports (color: light-dark(red, blue)) {
 	:root {
 		color-scheme: light dark;
-		--color-button-primary-background-default: light-dark(var(--black), var(--gray-15));
-		--color-button-primary-background-hover: light-dark(var(--gold-30), var(--gold-40));
-		--color-button-primary-background-disabled: light-dark(var(--gray-25), var(--gray-80));
-		--color-button-primary-label-default: light-dark(var(--color-text-inverse), var(--black));
-		--color-button-primary-label-hover: light-dark(var(--color-text-primary), var(--black));
-		--color-button-primary-label-disabled: light-dark(var(--color-text-disabled), var(--gray-25));
+		--color-background-primary: light-dark(var(--gray-0), var(--gray-93));
+		--color-background-transparent: var(--transparent);
+		--color-background-overlay: light-dark(rgb(19 25 30 / 70%), rgba(var(--black), 0.7));
+		--color-border-1: light-dark(var(--gray-25), var(--gray-73));
+		--color-border-2: light-dark(var(--gray-10), var(--gray-75));
+		--color-border-3: light-dark(var(--gray-45), var(--gray-65));
+		--color-border-4: light-dark(var(--gray-10), var(--gray-75));
+		--color-border-inverse: var(--gray-50);
+		--color-border-accent: light-dark(var(--gold-50), var(--gold-40));
+		--color-button-primary-background-default: light-dark(var(--black), var(--gold-60));
+		--color-button-primary-background-hover: light-dark(var(--gold-30), var(--gold-70));
+		--color-button-primary-background-disabled: light-dark(var(--gray-25), var(--gray-85));
+		--color-button-primary-label-default: light-dark(
+			var(--color-text-inverse),
+			var(--color-text-primary)
+		);
+		--color-button-primary-label-hover: light-dark(
+			var(--color-text-primary),
+			var(--color-text-primary)
+		);
+		--color-button-primary-label-disabled: light-dark(
+			var(--color-text-disabled),
+			var(--color-text-disabled)
+		);
 		--color-button-secondary-background-default: light-dark(var(--gray-10), var(--gray-73));
 		--color-button-secondary-background-hover: light-dark(var(--gold-30), var(--gold-40));
 		--color-button-secondary-background-disabled: light-dark(var(--gray-25), var(--gray-80));
@@ -370,34 +388,8 @@
 			var(--color-text-primary)
 		);
 		--color-button-danger-ghost-label-disabled: var(--color-text-disabled);
-		--color-background-primary: light-dark(var(--gray-0), var(--gray-93));
-		--color-background-transparent: var(--transparent);
-		--color-background-overlay: light-dark(rgb(19 25 30 / 70%), rgba(var(--black), 0.7));
-		--color-layer-1: light-dark(var(--gray-3), var(--gray-93));
-		--color-layer-2: light-dark(var(--pure-white), var(--gray-88));
-		--color-layer-3: light-dark(var(--gray-7), var(--gray-70));
-		--color-layer-4: light-dark(var(--pure-white), var(--gray-65));
-		--color-layer-inverse: light-dark(var(--black), var(--gray-15));
-		--color-layer-accent: light-dark(var(--gold-25), var(--gold-75));
-		--color-border-1: light-dark(var(--gray-25), var(--gray-73));
-		--color-border-2: light-dark(var(--gray-10), var(--gray-75));
-		--color-border-3: light-dark(var(--gray-45), var(--gray-65));
-		--color-border-4: light-dark(var(--gray-10), var(--gray-75));
-		--color-border-inverse: var(--gray-50);
-		--color-border-accent: light-dark(var(--gold-50), var(--gold-40));
-		--color-text-primary: light-dark(var(--black), var(--gray-10));
-		--color-text-secondary: light-dark(var(--gray-70), var(--gray-35));
-		--color-text-helper: light-dark(var(--gray-60), var(--gray-40));
-		--color-text-disabled: light-dark(var(--gray-40), var(--gray-55));
-		--color-text-inverse: light-dark(var(--gray-0), var(--black));
-		--color-text-inverse-secondary: var(--gray-30);
-		--color-text-accent: light-dark(var(--gold-60), var(--gold-45));
-		--color-text-error: light-dark(var(--red-60), var(--red-40));
-		--color-text-success: light-dark(var(--green-60), var(--green-45));
-		--color-link-default: light-dark(var(--gold-60), var(--gold-35));
-		--color-link-hover: light-dark(var(--gold-70), var(--gold-45));
-		--color-link-active: light-dark(var(--gold-70), var(--gold-45));
-		--color-link-visited: light-dark(var(--gold-60), var(--gold-35));
+		--color-focus-default: var(--focus);
+		--color-focus-inset: var(--pure-white);
 		--color-icon-primary: light-dark(var(--gray-85), var(--gray-15));
 		--color-icon-secondary: light-dark(var(--gray-50), var(--gray-40));
 		--color-icon-helper: light-dark(var(--gray-40), var(--gray-50));
@@ -405,8 +397,6 @@
 		--color-icon-disabled: light-dark(var(--gray-45), var(--gray-65));
 		--color-icon-brand: light-dark(var(--gold-60), var(--gold-45));
 		--color-icon-inverse-disabled: light-dark(var(--gray-10), var(--gray-60));
-		--color-focus-default: var(--focus);
-		--color-focus-inset: var(--pure-white);
 		--color-input-background-default: var(--color-background-transparent);
 		--color-input-background-primary: light-dark(var(--black), var(--gray-70));
 		--color-input-background-success: var(--green-60);
@@ -441,6 +431,16 @@
 		--color-input-radio-box-border-disabled: light-dark(var(--gray-25), var(--gray-75));
 		--color-input-toggle-switch-default: light-dark(var(--pure-white), var(--gray-7));
 		--color-input-toggle-switch-disabled: light-dark(var(--gray-7), var(--gray-50));
+		--color-layer-1: light-dark(var(--gray-3), var(--gray-93));
+		--color-layer-2: light-dark(var(--pure-white), var(--gray-88));
+		--color-layer-3: light-dark(var(--gray-7), var(--gray-70));
+		--color-layer-4: light-dark(var(--pure-white), var(--gray-65));
+		--color-layer-inverse: light-dark(var(--black), var(--gray-15));
+		--color-layer-accent: light-dark(var(--gold-25), var(--gold-75));
+		--color-link-default: light-dark(var(--gold-60), var(--gold-35));
+		--color-link-hover: light-dark(var(--gold-70), var(--gold-45));
+		--color-link-active: light-dark(var(--gold-70), var(--gold-45));
+		--color-link-visited: light-dark(var(--gold-60), var(--gold-35));
 		--color-logs-text-primary: light-dark(var(--gray-7), var(--gray-10));
 		--color-logs-text-secondary: var(--gray-30);
 		--color-logs-background: light-dark(var(--black), var(--gray-90));
@@ -605,6 +605,15 @@
 		--color-tag-pink-icon: var(--pink-65);
 		--color-tag-pink-hover: var(--pink-15);
 		--color-tag-pink-active: var(--pink-20);
+		--color-text-primary: light-dark(var(--black), var(--gray-10));
+		--color-text-secondary: light-dark(var(--gray-70), var(--gray-35));
+		--color-text-helper: light-dark(var(--gray-60), var(--gray-40));
+		--color-text-disabled: light-dark(var(--gray-40), var(--gray-75));
+		--color-text-inverse: light-dark(var(--gray-0), var(--black));
+		--color-text-inverse-secondary: var(--gray-30);
+		--color-text-accent: light-dark(var(--gold-60), var(--gold-45));
+		--color-text-error: light-dark(var(--red-60), var(--red-40));
+		--color-text-success: light-dark(var(--green-60), var(--green-45));
 		--color-toolbar-background: light-dark(var(--black), var(--gray-100));
 		--color-toolbar-text-default: var(--gray-7);
 		--color-toolbar-text-hover: var(--gray-7);
