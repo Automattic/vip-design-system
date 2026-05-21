@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Token Map Audit</title>
+		<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+				margin: 0;
+				padding: 2rem;
+				background: #f8fafc;
+				color: #1e293b;
+			}
+			h1 {
+				font-size: 1.5rem;
+				margin-bottom: 0.25rem;
+			}
+			p.subtitle {
+				color: #64748b;
+				margin-top: 0;
+			}
+			h2 {
+				font-size: 1.1rem;
+				border-bottom: 1px solid #e2e8f0;
+				padding-bottom: 0.4rem;
+				margin-top: 2.5rem;
+			}
+			section {
+				background: white;
+				border: 1px solid #e2e8f0;
+				border-radius: 8px;
+				padding: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+			.mermaid {
+				overflow-x: auto;
+			}
+			nav {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-bottom: 1.5rem;
+			}
+			nav a {
+				font-size: 0.8rem;
+				padding: 0.25rem 0.6rem;
+				background: #e0f2fe;
+				border-radius: 4px;
+				text-decoration: none;
+				color: #0284c7;
+			}
+			nav a:hover {
+				background: #bae6fd;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Token Map — Audit</h1>
+		<p class="subtitle">Primitive → Semantic (light + dark) → Component</p>
+		<nav>
+			<a href="#arch">Architecture</a>
+			<a href="#color">color</a>
+			<a href="#button">button</a>
+			<a href="#input">input</a>
+			<a href="#slider">slider</a>
+			<a href="#toolbar">toolbar</a>
+			<a href="#logs">logs</a>
+			<a href="#option-row">option-row</a>
+			<a href="#tag">tag</a>
+			<a href="#sticker">sticker</a>
+			<a href="#support">support</a>
+		</nav>
+
+		<section id="arch">
+			<h2>Architecture overview</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef layer fill:#f1f5f9,stroke:#64748b,font-weight:bold
+  classDef file  fill:#e0f2fe,stroke:#0284c7
+  subgraph PRIM["① Primitives"]
+    prim_color["tokens/primitives/color.json\n(hex values)"]:::file
+  end
+  subgraph SEM["② Semantic  (light + dark co-located)"]
+    sem_button["tokens/semantic/button.json"]:::file
+    sem_color["tokens/semantic/color.json"]:::file
+    sem_input["tokens/semantic/input.json"]:::file
+    sem_logs["tokens/semantic/logs.json"]:::file
+    sem_option_row["tokens/semantic/option-row.json"]:::file
+    sem_slider["tokens/semantic/slider.json"]:::file
+    sem_sticker["tokens/semantic/sticker.json"]:::file
+    sem_support["tokens/semantic/support.json"]:::file
+    sem_tag["tokens/semantic/tag.json"]:::file
+    sem_toolbar["tokens/semantic/toolbar.json"]:::file
+  end
+  subgraph COMP["③ Component  (CSS var mapping)"]
+    comp_button["tokens/component/button.json"]:::file
+    comp_input["tokens/component/input.json"]:::file
+    comp_logs["tokens/component/logs.json"]:::file
+    comp_option_row["tokens/component/option-row.json"]:::file
+    comp_slider["tokens/component/slider.json"]:::file
+    comp_sticker["tokens/component/sticker.json"]:::file
+    comp_support["tokens/component/support.json"]:::file
+    comp_tag["tokens/component/tag.json"]:::file
+    comp_toolbar["tokens/component/toolbar.json"]:::file
+  end
+  subgraph CSS["④ Generated CSS"]
+    css_sem["semantic.css\n(:root — light-dark())"]:::file
+    css_button["components/button.css\n(.button { --button-* })"]:::file
+    css_input["components/input.css\n(.input { --input-* })"]:::file
+    css_logs["components/logs.css\n(.logs { --logs-* })"]:::file
+    css_option_row["components/option-row.css\n(.option-row { --option-row-* })"]:::file
+    css_slider["components/slider.css\n(.slider { --slider-* })"]:::file
+    css_sticker["components/sticker.css\n(.sticker { --sticker-* })"]:::file
+    css_support["components/support.css\n(.support { --support-* })"]:::file
+    css_tag["components/tag.css\n(.tag { --tag-* })"]:::file
+    css_toolbar["components/toolbar.css\n(.toolbar { --toolbar-* })"]:::file
+  end
+  prim_color --> sem_button
+  prim_color --> sem_color
+  prim_color --> sem_input
+  prim_color --> sem_logs
+  prim_color --> sem_option_row
+  prim_color --> sem_slider
+  prim_color --> sem_sticker
+  prim_color --> sem_support
+  prim_color --> sem_tag
+  prim_color --> sem_toolbar
+  sem_color --> comp_button
+  sem_button --> comp_button
+  sem_color --> comp_input
+  sem_input --> comp_input
+  sem_color --> comp_logs
+  sem_logs --> comp_logs
+  sem_color --> comp_option_row
+  sem_option_row --> comp_option_row
+  sem_color --> comp_slider
+  sem_slider --> comp_slider
+  sem_color --> comp_sticker
+  sem_sticker --> comp_sticker
+  sem_color --> comp_support
+  sem_support --> comp_support
+  sem_color --> comp_tag
+  sem_tag --> comp_tag
+  sem_color --> comp_toolbar
+  sem_toolbar --> comp_toolbar
+  css_sem --> css_button
+  comp_button --> css_button
+  css_sem --> css_input
+  comp_input --> css_input
+  css_sem --> css_logs
+  comp_logs --> css_logs
+  css_sem --> css_option_row
+  comp_option_row --> css_option_row
+  css_sem --> css_slider
+  comp_slider --> css_slider
+  css_sem --> css_sticker
+  comp_sticker --> css_sticker
+  css_sem --> css_support
+  comp_support --> css_support
+  css_sem --> css_tag
+  comp_tag --> css_tag
+  css_sem --> css_toolbar
+  comp_toolbar --> css_toolbar
+  </pre
+			>
+		</section>
+		<section id="color">
+			<h2>color</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["color — semantic"]
+    color_background_primary["background.primary\nL: gray.0\nD: gray.93"]:::sem
+    color_background_transparent["background.transparent\nL+D: transparent"]:::sem
+    color_background_overlay["background.overlay\nL: rgb(19 25 30 / 70%)\nD: rgba({black}, 0.7)"]:::sem
+    color_layer_1["layer.1\nL: gray.3\nD: gray.93"]:::sem
+    color_layer_2["layer.2\nL: pure-white\nD: gray.88"]:::sem
+    color_layer_3["layer.3\nL: gray.7\nD: gray.70"]:::sem
+    color_layer_4["layer.4\nL: pure-white\nD: gray.65"]:::sem
+    color_layer_inverse["layer.inverse\nL: black\nD: gray.15"]:::sem
+    color_layer_accent["layer.accent\nL: gold.25\nD: gold.75"]:::sem
+    color_border_1["border.1\nL: gray.25\nD: gray.73"]:::sem
+    color_border_2["border.2\nL: gray.10\nD: gray.75"]:::sem
+    color_border_3["border.3\nL: gray.45\nD: gray.65"]:::sem
+    color_border_4["border.4\nL: gray.10\nD: gray.75"]:::sem
+    color_border_inverse["border.inverse\nL+D: gray.50"]:::sem
+    color_border_accent["border.accent\nL: gold.50\nD: gold.40"]:::sem
+    color_text_primary["text.primary\nL: black\nD: gray.10"]:::sem
+    color_text_secondary["text.secondary\nL: gray.70\nD: gray.35"]:::sem
+    color_text_helper["text.helper\nL: gray.60\nD: gray.40"]:::sem
+    color_text_disabled["text.disabled\nL: gray.40\nD: gray.55"]:::sem
+    color_text_inverse["text.inverse\nL: gray.0\nD: black"]:::sem
+    color_text_inverse_secondary["text.inverse-secondary\nL+D: gray.30"]:::sem
+    color_text_accent["text.accent\nL: gold.60\nD: gold.45"]:::sem
+    color_text_error["text.error\nL: red.60\nD: red.40"]:::sem
+    color_text_success["text.success\nL: green.60\nD: green.45"]:::sem
+    color_link_default["link.default\nL: gold.60\nD: gold.35"]:::sem
+    color_link_hover["link.hover\nL: gold.70\nD: gold.45"]:::sem
+    color_link_active["link.active\nL: gold.70\nD: gold.45"]:::sem
+    color_link_visited["link.visited\nL: gold.60\nD: gold.35"]:::sem
+    color_icon_primary["icon.primary\nL: gray.85\nD: gray.15"]:::sem
+    color_icon_secondary["icon.secondary\nL: gray.50\nD: gray.40"]:::sem
+    color_icon_helper["icon.helper\nL: gray.40\nD: gray.50"]:::sem
+    color_icon_inverse["icon.inverse\nL: pure-white\nD: gray.7"]:::sem
+    color_icon_disabled["icon.disabled\nL: gray.45\nD: gray.65"]:::sem
+    color_icon_brand["icon.brand\nL: gold.60\nD: gold.45"]:::sem
+    color_icon_inverse_disabled["icon.inverse-disabled\nL: gray.10\nD: gray.60"]:::sem
+    color_focus_default["focus.default\nL+D: focus"]:::sem
+    color_focus_inset["focus.inset\nL+D: pure-white"]:::sem
+  end
+  subgraph COMP["color — component"]
+  end
+  </pre
+			>
+		</section>
+		<section id="button">
+			<h2>button</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["button — semantic"]
+    color_button_primary_background_default["primary.background.default\nL: black\nD: gray.15"]:::sem
+    color_button_primary_background_hover["primary.background.hover\nL: gold.30\nD: gold.40"]:::sem
+    color_button_primary_background_disabled["primary.background.disabled\nL: gray.25\nD: gray.80"]:::sem
+    color_button_primary_label_default["primary.label.default\nL: text.inverse\nD: black"]:::sem
+    color_button_primary_label_hover["primary.label.hover\nL: text.primary\nD: black"]:::sem
+    color_button_primary_label_disabled["primary.label.disabled\nL: text.disabled\nD: gray.25"]:::sem
+    color_button_secondary_background_default["secondary.background.default\nL: gray.10\nD: gray.73"]:::sem
+    color_button_secondary_background_hover["secondary.background.hover\nL: gold.30\nD: gold.40"]:::sem
+    color_button_secondary_background_disabled["secondary.background.disabled\nL: gray.25\nD: gray.80"]:::sem
+    color_button_secondary_label_default["secondary.label.default\nL: text.primary\nD: gray.25"]:::sem
+    color_button_secondary_label_hover["secondary.label.hover\nL: text.primary\nD: text.inverse"]:::sem
+    color_button_secondary_label_disabled["secondary.label.disabled\nL+D: text.disabled"]:::sem
+    color_button_tertiary_background_default["tertiary.background.default\nL+D: background.transparent"]:::sem
+    color_button_tertiary_background_hover["tertiary.background.hover\nL: gray.10\nD: gray.73"]:::sem
+    color_button_tertiary_background_disabled["tertiary.background.disabled\nL+D: background.transparent"]:::sem
+    color_button_tertiary_border_default["tertiary.border.default\nL: gray.45\nD: gray.60"]:::sem
+    color_button_tertiary_border_hover["tertiary.border.hover\nL: gray.10\nD: gray.73"]:::sem
+    color_button_tertiary_border_disabled["tertiary.border.disabled\nL: gray.25\nD: gray.75"]:::sem
+    color_button_tertiary_label_default["tertiary.label.default\nL+D: text.primary"]:::sem
+    color_button_tertiary_label_hover["tertiary.label.hover\nL+D: text.primary"]:::sem
+    color_button_tertiary_label_disabled["tertiary.label.disabled\nL+D: text.disabled"]:::sem
+    color_button_ghost_background_default["ghost.background.default\nL+D: background.transparent"]:::sem
+    color_button_ghost_background_hover["ghost.background.hover\nL: gray.10\nD: gray.73"]:::sem
+    color_button_ghost_background_disabled["ghost.background.disabled\nL+D: background.transparent"]:::sem
+    color_button_ghost_label_default["ghost.label.default\nL+D: text.accent"]:::sem
+    color_button_ghost_label_hover["ghost.label.hover\nL+D: text.primary"]:::sem
+    color_button_ghost_label_disabled["ghost.label.disabled\nL+D: text.disabled"]:::sem
+    color_button_display_background_default["display.background.default\nL: gold.30\nD: gold.40"]:::sem
+    color_button_display_background_hover["display.background.hover\nL+D: gold.60"]:::sem
+    color_button_display_background_disabled["display.background.disabled\nL: gray.25\nD: gray.80"]:::sem
+    color_button_display_label_default["display.label.default\nL: text.primary\nD: text.inverse"]:::sem
+    color_button_display_label_hover["display.label.hover\nL: text.inverse\nD: gray.3"]:::sem
+    color_button_display_label_disabled["display.label.disabled\nL+D: text.disabled"]:::sem
+    color_button_danger_primary_background_default["danger.primary.background.default\nL+D: red.55"]:::sem
+    color_button_danger_primary_background_hover["danger.primary.background.hover\nL+D: red.70"]:::sem
+    color_button_danger_primary_background_disabled["danger.primary.background.disabled\nL: gray.25\nD: gray.80"]:::sem
+    color_button_danger_primary_label_default["danger.primary.label.default\nL: text.inverse\nD: gray.0"]:::sem
+    color_button_danger_primary_label_hover["danger.primary.label.hover\nL: text.inverse\nD: text.primary"]:::sem
+    color_button_danger_primary_label_disabled["danger.primary.label.disabled\nL+D: text.disabled"]:::sem
+    color_button_danger_secondary_background_default["danger.secondary.background.default\nL+D: background.transparent"]:::sem
+    color_button_danger_secondary_background_hover["danger.secondary.background.hover\nL+D: red.70"]:::sem
+    color_button_danger_secondary_background_disabled["danger.secondary.background.disabled\nL+D: background.transparent"]:::sem
+    color_button_danger_secondary_label_default["danger.secondary.label.default\nL+D: red.55"]:::sem
+    color_button_danger_secondary_label_hover["danger.secondary.label.hover\nL: text.inverse\nD: text.primary"]:::sem
+    color_button_danger_secondary_label_disabled["danger.secondary.label.disabled\nL+D: text.disabled"]:::sem
+    color_button_danger_secondary_border_default["danger.secondary.border.default\nL+D: red.55"]:::sem
+    color_button_danger_secondary_border_hover["danger.secondary.border.hover\nL+D: red.70"]:::sem
+    color_button_danger_secondary_border_disabled["danger.secondary.border.disabled\nL: gray.25\nD: gray.75"]:::sem
+    color_button_danger_ghost_background_default["danger.ghost.background.default\nL+D: background.transparent"]:::sem
+    color_button_danger_ghost_background_hover["danger.ghost.background.hover\nL+D: red.70"]:::sem
+    color_button_danger_ghost_background_disabled["danger.ghost.background.disabled\nL+D: background.transparent"]:::sem
+    color_button_danger_ghost_label_default["danger.ghost.label.default\nL+D: red.55"]:::sem
+    color_button_danger_ghost_label_hover["danger.ghost.label.hover\nL: text.inverse\nD: text.primary"]:::sem
+    color_button_danger_ghost_label_disabled["danger.ghost.label.disabled\nL+D: text.disabled"]:::sem
+  end
+  subgraph COMP["button — component"]
+    button_primary_background_default["--button-primary-background-default"]:::comp
+    button_primary_background_hover["--button-primary-background-hover"]:::comp
+    button_primary_background_disabled["--button-primary-background-disabled"]:::comp
+    button_primary_label_default["--button-primary-label-default"]:::comp
+    button_primary_label_hover["--button-primary-label-hover"]:::comp
+    button_primary_label_disabled["--button-primary-label-disabled"]:::comp
+    button_secondary_background_default["--button-secondary-background-default"]:::comp
+    button_secondary_background_hover["--button-secondary-background-hover"]:::comp
+    button_secondary_background_disabled["--button-secondary-background-disabled"]:::comp
+    button_secondary_label_default["--button-secondary-label-default"]:::comp
+    button_secondary_label_hover["--button-secondary-label-hover"]:::comp
+    button_secondary_label_disabled["--button-secondary-label-disabled"]:::comp
+    button_tertiary_background_default["--button-tertiary-background-default"]:::comp
+    button_tertiary_background_hover["--button-tertiary-background-hover"]:::comp
+    button_tertiary_background_disabled["--button-tertiary-background-disabled"]:::comp
+    button_tertiary_border_default["--button-tertiary-border-default"]:::comp
+    button_tertiary_border_hover["--button-tertiary-border-hover"]:::comp
+    button_tertiary_border_disabled["--button-tertiary-border-disabled"]:::comp
+    button_tertiary_label_default["--button-tertiary-label-default"]:::comp
+    button_tertiary_label_hover["--button-tertiary-label-hover"]:::comp
+    button_tertiary_label_disabled["--button-tertiary-label-disabled"]:::comp
+    button_ghost_background_default["--button-ghost-background-default"]:::comp
+    button_ghost_background_hover["--button-ghost-background-hover"]:::comp
+    button_ghost_background_disabled["--button-ghost-background-disabled"]:::comp
+    button_ghost_label_default["--button-ghost-label-default"]:::comp
+    button_ghost_label_hover["--button-ghost-label-hover"]:::comp
+    button_ghost_label_disabled["--button-ghost-label-disabled"]:::comp
+    button_display_background_default["--button-display-background-default"]:::comp
+    button_display_background_hover["--button-display-background-hover"]:::comp
+    button_display_background_disabled["--button-display-background-disabled"]:::comp
+    button_display_label_default["--button-display-label-default"]:::comp
+    button_display_label_hover["--button-display-label-hover"]:::comp
+    button_display_label_disabled["--button-display-label-disabled"]:::comp
+    button_danger_primary_background_default["--button-danger-primary-background-default"]:::comp
+    button_danger_primary_background_hover["--button-danger-primary-background-hover"]:::comp
+    button_danger_primary_background_disabled["--button-danger-primary-background-disabled"]:::comp
+    button_danger_primary_label_default["--button-danger-primary-label-default"]:::comp
+    button_danger_primary_label_hover["--button-danger-primary-label-hover"]:::comp
+    button_danger_primary_label_disabled["--button-danger-primary-label-disabled"]:::comp
+    button_danger_secondary_background_default["--button-danger-secondary-background-default"]:::comp
+    button_danger_secondary_background_hover["--button-danger-secondary-background-hover"]:::comp
+    button_danger_secondary_background_disabled["--button-danger-secondary-background-disabled"]:::comp
+    button_danger_secondary_label_default["--button-danger-secondary-label-default"]:::comp
+    button_danger_secondary_label_hover["--button-danger-secondary-label-hover"]:::comp
+    button_danger_secondary_label_disabled["--button-danger-secondary-label-disabled"]:::comp
+    button_danger_secondary_border_default["--button-danger-secondary-border-default"]:::comp
+    button_danger_secondary_border_hover["--button-danger-secondary-border-hover"]:::comp
+    button_danger_secondary_border_disabled["--button-danger-secondary-border-disabled"]:::comp
+    button_danger_ghost_background_default["--button-danger-ghost-background-default"]:::comp
+    button_danger_ghost_background_hover["--button-danger-ghost-background-hover"]:::comp
+    button_danger_ghost_background_disabled["--button-danger-ghost-background-disabled"]:::comp
+    button_danger_ghost_label_default["--button-danger-ghost-label-default"]:::comp
+    button_danger_ghost_label_hover["--button-danger-ghost-label-hover"]:::comp
+    button_danger_ghost_label_disabled["--button-danger-ghost-label-disabled"]:::comp
+  end
+  color_button_primary_background_default --> button_primary_background_default
+  color_button_primary_background_hover --> button_primary_background_hover
+  color_button_primary_background_disabled --> button_primary_background_disabled
+  color_button_primary_label_default --> button_primary_label_default
+  color_button_primary_label_hover --> button_primary_label_hover
+  color_button_primary_label_disabled --> button_primary_label_disabled
+  color_button_secondary_background_default --> button_secondary_background_default
+  color_button_secondary_background_hover --> button_secondary_background_hover
+  color_button_secondary_background_disabled --> button_secondary_background_disabled
+  color_button_secondary_label_default --> button_secondary_label_default
+  color_button_secondary_label_hover --> button_secondary_label_hover
+  color_button_secondary_label_disabled --> button_secondary_label_disabled
+  color_button_tertiary_background_default --> button_tertiary_background_default
+  color_button_tertiary_background_hover --> button_tertiary_background_hover
+  color_button_tertiary_background_disabled --> button_tertiary_background_disabled
+  color_button_tertiary_border_default --> button_tertiary_border_default
+  color_button_tertiary_border_hover --> button_tertiary_border_hover
+  color_button_tertiary_border_disabled --> button_tertiary_border_disabled
+  color_button_tertiary_label_default --> button_tertiary_label_default
+  color_button_tertiary_label_hover --> button_tertiary_label_hover
+  color_button_tertiary_label_disabled --> button_tertiary_label_disabled
+  color_button_ghost_background_default --> button_ghost_background_default
+  color_button_ghost_background_hover --> button_ghost_background_hover
+  color_button_ghost_background_disabled --> button_ghost_background_disabled
+  color_button_ghost_label_default --> button_ghost_label_default
+  color_button_ghost_label_hover --> button_ghost_label_hover
+  color_button_ghost_label_disabled --> button_ghost_label_disabled
+  color_button_display_background_default --> button_display_background_default
+  color_button_display_background_hover --> button_display_background_hover
+  color_button_display_background_disabled --> button_display_background_disabled
+  color_button_display_label_default --> button_display_label_default
+  color_button_display_label_hover --> button_display_label_hover
+  color_button_display_label_disabled --> button_display_label_disabled
+  color_button_danger_primary_background_default --> button_danger_primary_background_default
+  color_button_danger_primary_background_hover --> button_danger_primary_background_hover
+  color_button_danger_primary_background_disabled --> button_danger_primary_background_disabled
+  color_button_danger_primary_label_default --> button_danger_primary_label_default
+  color_button_danger_primary_label_hover --> button_danger_primary_label_hover
+  color_button_danger_primary_label_disabled --> button_danger_primary_label_disabled
+  color_button_danger_secondary_background_default --> button_danger_secondary_background_default
+  color_button_danger_secondary_background_hover --> button_danger_secondary_background_hover
+  color_button_danger_secondary_background_disabled --> button_danger_secondary_background_disabled
+  color_button_danger_secondary_label_default --> button_danger_secondary_label_default
+  color_button_danger_secondary_label_hover --> button_danger_secondary_label_hover
+  color_button_danger_secondary_label_disabled --> button_danger_secondary_label_disabled
+  color_button_danger_secondary_border_default --> button_danger_secondary_border_default
+  color_button_danger_secondary_border_hover --> button_danger_secondary_border_hover
+  color_button_danger_secondary_border_disabled --> button_danger_secondary_border_disabled
+  color_button_danger_ghost_background_default --> button_danger_ghost_background_default
+  color_button_danger_ghost_background_hover --> button_danger_ghost_background_hover
+  color_button_danger_ghost_background_disabled --> button_danger_ghost_background_disabled
+  color_button_danger_ghost_label_default --> button_danger_ghost_label_default
+  color_button_danger_ghost_label_hover --> button_danger_ghost_label_hover
+  color_button_danger_ghost_label_disabled --> button_danger_ghost_label_disabled
+  </pre
+			>
+		</section>
+		<section id="input">
+			<h2>input</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["input — semantic"]
+    color_input_background_default["background.default\nL+D: background.transparent"]:::sem
+    color_input_background_primary["background.primary\nL: black\nD: gray.70"]:::sem
+    color_input_background_success["background.success\nL+D: green.60"]:::sem
+    color_input_background_brand["background.brand\nL+D: gold.60"]:::sem
+    color_input_background_inactive["background.inactive\nL: gray.50\nD: gray.80"]:::sem
+    color_input_background_disabled["background.disabled\nL: gray.20\nD: gray.80"]:::sem
+    color_input_background_read_only["background.read-only\nL+D: layer.1"]:::sem
+    color_input_label_default["label.default\nL: black\nD: gray.10"]:::sem
+    color_input_text_default["text.default\nL: black\nD: gray.10"]:::sem
+    color_input_text_placeholder["text.placeholder\nL: gray.55\nD: gray.45"]:::sem
+    color_input_border_default["border.default\nL: gray.45\nD: gray.60"]:::sem
+    color_input_border_disabled["border.disabled\nL: gray.25\nD: gray.75"]:::sem
+    color_input_border_error["border.error\nL: red.55\nD: red.40"]:::sem
+    color_input_border_read_only["border.read-only\nL+D: border.2"]:::sem
+    color_input_switcher_background_primary["switcher.background.primary\nL+D: green.60"]:::sem
+    color_input_switcher_background_secondary["switcher.background.secondary\nL+D: blue.60"]:::sem
+    color_input_radio_box_background_default["radio-box.background.default\nL+D: background.transparent"]:::sem
+    color_input_radio_box_background_hover["radio-box.background.hover\nL: gray.3\nD: gray.85"]:::sem
+    color_input_radio_box_background_active["radio-box.background.active\nL+D: background.transparent"]:::sem
+    color_input_radio_box_background_disabled["radio-box.background.disabled\nL+D: background.transparent"]:::sem
+    color_input_radio_box_label_primary_default["radio-box.label.primary.default\nL+D: text.primary"]:::sem
+    color_input_radio_box_label_primary_hover["radio-box.label.primary.hover\nL+D: text.primary"]:::sem
+    color_input_radio_box_label_primary_active["radio-box.label.primary.active\nL+D: text.primary"]:::sem
+    color_input_radio_box_label_primary_disabled["radio-box.label.primary.disabled\nL+D: text.disabled"]:::sem
+    color_input_radio_box_label_secondary_default["radio-box.label.secondary.default\nL+D: text.secondary"]:::sem
+    color_input_radio_box_label_secondary_hover["radio-box.label.secondary.hover\nL+D: text.secondary"]:::sem
+    color_input_radio_box_label_secondary_acive["radio-box.label.secondary.acive\nL+D: text.secondary"]:::sem
+    color_input_radio_box_label_secondary_disabled["radio-box.label.secondary.disabled\nL+D: text.disabled"]:::sem
+    color_input_radio_box_border_default["radio-box.border.default\nL: gray.45\nD: gray.60"]:::sem
+    color_input_radio_box_border_hover["radio-box.border.hover\nL: gray.45\nD: gray.55"]:::sem
+    color_input_radio_box_border_active["radio-box.border.active\nL+D: gold.60"]:::sem
+    color_input_radio_box_border_disabled["radio-box.border.disabled\nL: gray.25\nD: gray.75"]:::sem
+    color_input_toggle_switch_default["toggle.switch.default\nL: pure-white\nD: gray.7"]:::sem
+    color_input_toggle_switch_disabled["toggle.switch.disabled\nL: gray.7\nD: gray.50"]:::sem
+  end
+  subgraph COMP["input — component"]
+    input_background_default["--input-background-default"]:::comp
+    input_background_primary["--input-background-primary"]:::comp
+    input_background_success["--input-background-success"]:::comp
+    input_background_brand["--input-background-brand"]:::comp
+    input_background_inactive["--input-background-inactive"]:::comp
+    input_background_disabled["--input-background-disabled"]:::comp
+    input_background_read_only["--input-background-read-only"]:::comp
+    input_label_default["--input-label-default"]:::comp
+    input_text_default["--input-text-default"]:::comp
+    input_text_placeholder["--input-text-placeholder"]:::comp
+    input_border_default["--input-border-default"]:::comp
+    input_border_disabled["--input-border-disabled"]:::comp
+    input_border_error["--input-border-error"]:::comp
+    input_border_read_only["--input-border-read-only"]:::comp
+    input_switcher_background_primary["--input-switcher-background-primary"]:::comp
+    input_switcher_background_secondary["--input-switcher-background-secondary"]:::comp
+    input_radio_box_background_default["--input-radio-box-background-default"]:::comp
+    input_radio_box_background_hover["--input-radio-box-background-hover"]:::comp
+    input_radio_box_background_active["--input-radio-box-background-active"]:::comp
+    input_radio_box_background_disabled["--input-radio-box-background-disabled"]:::comp
+    input_radio_box_label_primary_default["--input-radio-box-label-primary-default"]:::comp
+    input_radio_box_label_primary_hover["--input-radio-box-label-primary-hover"]:::comp
+    input_radio_box_label_primary_active["--input-radio-box-label-primary-active"]:::comp
+    input_radio_box_label_primary_disabled["--input-radio-box-label-primary-disabled"]:::comp
+    input_radio_box_label_secondary_default["--input-radio-box-label-secondary-default"]:::comp
+    input_radio_box_label_secondary_hover["--input-radio-box-label-secondary-hover"]:::comp
+    input_radio_box_label_secondary_acive["--input-radio-box-label-secondary-acive"]:::comp
+    input_radio_box_label_secondary_disabled["--input-radio-box-label-secondary-disabled"]:::comp
+    input_radio_box_border_default["--input-radio-box-border-default"]:::comp
+    input_radio_box_border_hover["--input-radio-box-border-hover"]:::comp
+    input_radio_box_border_active["--input-radio-box-border-active"]:::comp
+    input_radio_box_border_disabled["--input-radio-box-border-disabled"]:::comp
+    input_toggle_switch_default["--input-toggle-switch-default"]:::comp
+    input_toggle_switch_disabled["--input-toggle-switch-disabled"]:::comp
+  end
+  color_input_background_default --> input_background_default
+  color_input_background_primary --> input_background_primary
+  color_input_background_success --> input_background_success
+  color_input_background_brand --> input_background_brand
+  color_input_background_inactive --> input_background_inactive
+  color_input_background_disabled --> input_background_disabled
+  color_input_background_read_only --> input_background_read_only
+  color_input_label_default --> input_label_default
+  color_input_text_default --> input_text_default
+  color_input_text_placeholder --> input_text_placeholder
+  color_input_border_default --> input_border_default
+  color_input_border_disabled --> input_border_disabled
+  color_input_border_error --> input_border_error
+  color_input_border_read_only --> input_border_read_only
+  color_input_switcher_background_primary --> input_switcher_background_primary
+  color_input_switcher_background_secondary --> input_switcher_background_secondary
+  color_input_radio_box_background_default --> input_radio_box_background_default
+  color_input_radio_box_background_hover --> input_radio_box_background_hover
+  color_input_radio_box_background_active --> input_radio_box_background_active
+  color_input_radio_box_background_disabled --> input_radio_box_background_disabled
+  color_input_radio_box_label_primary_default --> input_radio_box_label_primary_default
+  color_input_radio_box_label_primary_hover --> input_radio_box_label_primary_hover
+  color_input_radio_box_label_primary_active --> input_radio_box_label_primary_active
+  color_input_radio_box_label_primary_disabled --> input_radio_box_label_primary_disabled
+  color_input_radio_box_label_secondary_default --> input_radio_box_label_secondary_default
+  color_input_radio_box_label_secondary_hover --> input_radio_box_label_secondary_hover
+  color_input_radio_box_label_secondary_acive --> input_radio_box_label_secondary_acive
+  color_input_radio_box_label_secondary_disabled --> input_radio_box_label_secondary_disabled
+  color_input_radio_box_border_default --> input_radio_box_border_default
+  color_input_radio_box_border_hover --> input_radio_box_border_hover
+  color_input_radio_box_border_active --> input_radio_box_border_active
+  color_input_radio_box_border_disabled --> input_radio_box_border_disabled
+  color_input_toggle_switch_default --> input_toggle_switch_default
+  color_input_toggle_switch_disabled --> input_toggle_switch_disabled
+  </pre
+			>
+		</section>
+		<section id="slider">
+			<h2>slider</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["slider — semantic"]
+    color_slider_background_default["background.default\nL: gray.15\nD: gray.70"]:::sem
+    color_slider_background_disabled["background.disabled\nL: gray.15\nD: gray.70"]:::sem
+    color_slider_handle_default["handle.default\nL: black\nD: gray.15"]:::sem
+    color_slider_handle_disabled["handle.disabled\nL: gray.40\nD: gray.50"]:::sem
+  end
+  subgraph COMP["slider — component"]
+    slider_background_default["--slider-background-default"]:::comp
+    slider_background_disabled["--slider-background-disabled"]:::comp
+    slider_handle_default["--slider-handle-default"]:::comp
+    slider_handle_disabled["--slider-handle-disabled"]:::comp
+  end
+  color_slider_background_default --> slider_background_default
+  color_slider_background_disabled --> slider_background_disabled
+  color_slider_handle_default --> slider_handle_default
+  color_slider_handle_disabled --> slider_handle_disabled
+  </pre
+			>
+		</section>
+		<section id="toolbar">
+			<h2>toolbar</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["toolbar — semantic"]
+    color_toolbar_background["background\nL: black\nD: gray.100"]:::sem
+    color_toolbar_text_default["text.default\nL+D: gray.7"]:::sem
+    color_toolbar_text_hover["text.hover\nL+D: gray.7"]:::sem
+    color_toolbar_brand["brand\nL+D: pure-white"]:::sem
+  end
+  subgraph COMP["toolbar — component"]
+    toolbar_background["--toolbar-background"]:::comp
+    toolbar_text_default["--toolbar-text-default"]:::comp
+    toolbar_text_hover["--toolbar-text-hover"]:::comp
+    toolbar_brand["--toolbar-brand"]:::comp
+  end
+  color_toolbar_background --> toolbar_background
+  color_toolbar_text_default --> toolbar_text_default
+  color_toolbar_text_hover --> toolbar_text_hover
+  color_toolbar_brand --> toolbar_brand
+  </pre
+			>
+		</section>
+		<section id="logs">
+			<h2>logs</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["logs — semantic"]
+    color_logs_text_primary["text.primary\nL: gray.7\nD: gray.10"]:::sem
+    color_logs_text_secondary["text.secondary\nL+D: gray.30"]:::sem
+    color_logs_background["background\nL: black\nD: gray.90"]:::sem
+  end
+  subgraph COMP["logs — component"]
+    logs_text_primary["--logs-text-primary"]:::comp
+    logs_text_secondary["--logs-text-secondary"]:::comp
+    logs_background["--logs-background"]:::comp
+  end
+  color_logs_text_primary --> logs_text_primary
+  color_logs_text_secondary --> logs_text_secondary
+  color_logs_background --> logs_background
+  </pre
+			>
+		</section>
+		<section id="option-row">
+			<h2>option-row</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["option-row — semantic"]
+    color_option_row_default_background["default.background\nL+D: gold.40"]:::sem
+    color_option_row_default_icon["default.icon\nL+D: gray.93"]:::sem
+    color_option_row_alt_background["alt.background\nL+D: layer.inverse"]:::sem
+    color_option_row_alt_icon["alt.icon\nL+D: icon.inverse"]:::sem
+  end
+  subgraph COMP["option-row — component"]
+    option_row_default_background["--option-row-default-background"]:::comp
+    option_row_default_icon["--option-row-default-icon"]:::comp
+    option_row_alt_background["--option-row-alt-background"]:::comp
+    option_row_alt_icon["--option-row-alt-icon"]:::comp
+  end
+  color_option_row_default_background --> option_row_default_background
+  color_option_row_default_icon --> option_row_default_icon
+  color_option_row_alt_background --> option_row_alt_background
+  color_option_row_alt_icon --> option_row_alt_icon
+  </pre
+			>
+		</section>
+		<section id="tag">
+			<h2>tag</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["tag — semantic"]
+    color_tag_gray_background["gray.background\nL: gray.7\nD: gray.88"]:::sem
+    color_tag_gray_text["gray.text\nL: gray.85\nD: gray.40"]:::sem
+    color_tag_gray_icon["gray.icon\nL: gray.65\nD: gray.45"]:::sem
+    color_tag_gray_hover["gray.hover\nL: gray.15\nD: gray.85"]:::sem
+    color_tag_gray_active["gray.active\nL: gray.20\nD: gray.83"]:::sem
+    color_tag_blue_background["blue.background\nL+D: blue.7"]:::sem
+    color_tag_blue_text["blue.text\nL+D: blue.85"]:::sem
+    color_tag_blue_icon["blue.icon\nL+D: blue.65"]:::sem
+    color_tag_blue_hover["blue.hover\nL+D: blue.15"]:::sem
+    color_tag_blue_active["blue.active\nL+D: blue.20"]:::sem
+    color_tag_green_background["green.background\nL+D: green.7"]:::sem
+    color_tag_green_text["green.text\nL+D: green.85"]:::sem
+    color_tag_green_icon["green.icon\nL+D: green.65"]:::sem
+    color_tag_green_hover["green.hover\nL+D: green.15"]:::sem
+    color_tag_green_active["green.active\nL+D: green.20"]:::sem
+    color_tag_red_background["red.background\nL+D: red.7"]:::sem
+    color_tag_red_text["red.text\nL+D: red.85"]:::sem
+    color_tag_red_icon["red.icon\nL+D: red.65"]:::sem
+    color_tag_red_hover["red.hover\nL+D: red.15"]:::sem
+    color_tag_red_active["red.active\nL+D: red.20"]:::sem
+    color_tag_gold_background["gold.background\nL+D: gold.7"]:::sem
+    color_tag_gold_text["gold.text\nL+D: gold.85"]:::sem
+    color_tag_gold_icon["gold.icon\nL+D: gold.65"]:::sem
+    color_tag_gold_hover["gold.hover\nL+D: gold.15"]:::sem
+    color_tag_gold_active["gold.active\nL+D: gold.20"]:::sem
+    color_tag_yellow_background["yellow.background\nL+D: yellow.7"]:::sem
+    color_tag_yellow_text["yellow.text\nL+D: yellow.85"]:::sem
+    color_tag_yellow_icon["yellow.icon\nL+D: yellow.65"]:::sem
+    color_tag_yellow_hover["yellow.hover\nL+D: yellow.15"]:::sem
+    color_tag_yellow_active["yellow.active\nL+D: yellow.20"]:::sem
+    color_tag_orange_background["orange.background\nL+D: orange.7"]:::sem
+    color_tag_orange_text["orange.text\nL+D: orange.85"]:::sem
+    color_tag_orange_icon["orange.icon\nL+D: orange.65"]:::sem
+    color_tag_orange_hover["orange.hover\nL+D: orange.15"]:::sem
+    color_tag_orange_active["orange.active\nL+D: orange.20"]:::sem
+    color_tag_salmon_background["salmon.background\nL+D: salmon.7"]:::sem
+    color_tag_salmon_text["salmon.text\nL+D: salmon.85"]:::sem
+    color_tag_salmon_icon["salmon.icon\nL+D: salmon.65"]:::sem
+    color_tag_salmon_hover["salmon.hover\nL+D: salmon.15"]:::sem
+    color_tag_salmon_active["salmon.active\nL+D: salmon.20"]:::sem
+    color_tag_pink_background["pink.background\nL+D: pink.7"]:::sem
+    color_tag_pink_text["pink.text\nL+D: pink.85"]:::sem
+    color_tag_pink_icon["pink.icon\nL+D: pink.65"]:::sem
+    color_tag_pink_hover["pink.hover\nL+D: pink.15"]:::sem
+    color_tag_pink_active["pink.active\nL+D: pink.20"]:::sem
+  end
+  subgraph COMP["tag — component"]
+    tag_gray_background["--tag-gray-background"]:::comp
+    tag_gray_text["--tag-gray-text"]:::comp
+    tag_gray_icon["--tag-gray-icon"]:::comp
+    tag_gray_hover["--tag-gray-hover"]:::comp
+    tag_gray_active["--tag-gray-active"]:::comp
+    tag_blue_background["--tag-blue-background"]:::comp
+    tag_blue_text["--tag-blue-text"]:::comp
+    tag_blue_icon["--tag-blue-icon"]:::comp
+    tag_blue_hover["--tag-blue-hover"]:::comp
+    tag_blue_active["--tag-blue-active"]:::comp
+    tag_green_background["--tag-green-background"]:::comp
+    tag_green_text["--tag-green-text"]:::comp
+    tag_green_icon["--tag-green-icon"]:::comp
+    tag_green_hover["--tag-green-hover"]:::comp
+    tag_green_active["--tag-green-active"]:::comp
+    tag_red_background["--tag-red-background"]:::comp
+    tag_red_text["--tag-red-text"]:::comp
+    tag_red_icon["--tag-red-icon"]:::comp
+    tag_red_hover["--tag-red-hover"]:::comp
+    tag_red_active["--tag-red-active"]:::comp
+    tag_gold_background["--tag-gold-background"]:::comp
+    tag_gold_text["--tag-gold-text"]:::comp
+    tag_gold_icon["--tag-gold-icon"]:::comp
+    tag_gold_hover["--tag-gold-hover"]:::comp
+    tag_gold_active["--tag-gold-active"]:::comp
+    tag_yellow_background["--tag-yellow-background"]:::comp
+    tag_yellow_text["--tag-yellow-text"]:::comp
+    tag_yellow_icon["--tag-yellow-icon"]:::comp
+    tag_yellow_hover["--tag-yellow-hover"]:::comp
+    tag_yellow_active["--tag-yellow-active"]:::comp
+    tag_orange_background["--tag-orange-background"]:::comp
+    tag_orange_text["--tag-orange-text"]:::comp
+    tag_orange_icon["--tag-orange-icon"]:::comp
+    tag_orange_hover["--tag-orange-hover"]:::comp
+    tag_orange_active["--tag-orange-active"]:::comp
+    tag_salmon_background["--tag-salmon-background"]:::comp
+    tag_salmon_text["--tag-salmon-text"]:::comp
+    tag_salmon_icon["--tag-salmon-icon"]:::comp
+    tag_salmon_hover["--tag-salmon-hover"]:::comp
+    tag_salmon_active["--tag-salmon-active"]:::comp
+    tag_pink_background["--tag-pink-background"]:::comp
+    tag_pink_text["--tag-pink-text"]:::comp
+    tag_pink_icon["--tag-pink-icon"]:::comp
+    tag_pink_hover["--tag-pink-hover"]:::comp
+    tag_pink_active["--tag-pink-active"]:::comp
+  end
+  color_tag_gray_background --> tag_gray_background
+  color_tag_gray_text --> tag_gray_text
+  color_tag_gray_icon --> tag_gray_icon
+  color_tag_gray_hover --> tag_gray_hover
+  color_tag_gray_active --> tag_gray_active
+  color_tag_blue_background --> tag_blue_background
+  color_tag_blue_text --> tag_blue_text
+  color_tag_blue_icon --> tag_blue_icon
+  color_tag_blue_hover --> tag_blue_hover
+  color_tag_blue_active --> tag_blue_active
+  color_tag_green_background --> tag_green_background
+  color_tag_green_text --> tag_green_text
+  color_tag_green_icon --> tag_green_icon
+  color_tag_green_hover --> tag_green_hover
+  color_tag_green_active --> tag_green_active
+  color_tag_red_background --> tag_red_background
+  color_tag_red_text --> tag_red_text
+  color_tag_red_icon --> tag_red_icon
+  color_tag_red_hover --> tag_red_hover
+  color_tag_red_active --> tag_red_active
+  color_tag_gold_background --> tag_gold_background
+  color_tag_gold_text --> tag_gold_text
+  color_tag_gold_icon --> tag_gold_icon
+  color_tag_gold_hover --> tag_gold_hover
+  color_tag_gold_active --> tag_gold_active
+  color_tag_yellow_background --> tag_yellow_background
+  color_tag_yellow_text --> tag_yellow_text
+  color_tag_yellow_icon --> tag_yellow_icon
+  color_tag_yellow_hover --> tag_yellow_hover
+  color_tag_yellow_active --> tag_yellow_active
+  color_tag_orange_background --> tag_orange_background
+  color_tag_orange_text --> tag_orange_text
+  color_tag_orange_icon --> tag_orange_icon
+  color_tag_orange_hover --> tag_orange_hover
+  color_tag_orange_active --> tag_orange_active
+  color_tag_salmon_background --> tag_salmon_background
+  color_tag_salmon_text --> tag_salmon_text
+  color_tag_salmon_icon --> tag_salmon_icon
+  color_tag_salmon_hover --> tag_salmon_hover
+  color_tag_salmon_active --> tag_salmon_active
+  color_tag_pink_background --> tag_pink_background
+  color_tag_pink_text --> tag_pink_text
+  color_tag_pink_icon --> tag_pink_icon
+  color_tag_pink_hover --> tag_pink_hover
+  color_tag_pink_active --> tag_pink_active
+  </pre
+			>
+		</section>
+		<section id="sticker">
+			<h2>sticker</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["sticker — semantic"]
+    color_sticker_gray_background["gray.background\nL+D: gray.90"]:::sem
+    color_sticker_gray_background_secondary["gray.background-secondary\nL+D: gray.20"]:::sem
+    color_sticker_gray_text["gray.text\nL+D: pure-white"]:::sem
+    color_sticker_gray_text_secondary["gray.text-secondary\nL+D: black"]:::sem
+    color_sticker_gray_icon["gray.icon\nL+D: pure-white"]:::sem
+    color_sticker_gray_hover["gray.hover\nL+D: gray.80"]:::sem
+    color_sticker_gray_active["gray.active\nL+D: gray.75"]:::sem
+    color_sticker_blue_background["blue.background\nL: blue.30\nD: blue.80"]:::sem
+    color_sticker_blue_background_secondary["blue.background-secondary\nL: blue.7\nD: blue.30"]:::sem
+    color_sticker_blue_text["blue.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_blue_text_secondary["blue.text-secondary\nL+D: black"]:::sem
+    color_sticker_blue_icon["blue.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_blue_hover["blue.hover\nL: blue.40\nD: blue.70"]:::sem
+    color_sticker_blue_active["blue.active\nL: blue.45\nD: blue.65"]:::sem
+    color_sticker_green_background["green.background\nL: green.30\nD: green.80"]:::sem
+    color_sticker_green_background_secondary["green.background-secondary\nL: green.7\nD: green.30"]:::sem
+    color_sticker_green_text["green.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_green_text_secondary["green.text-secondary\nL+D: black"]:::sem
+    color_sticker_green_icon["green.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_green_hover["green.hover\nL: green.40\nD: green.70"]:::sem
+    color_sticker_green_active["green.active\nL: green.45\nD: green.65"]:::sem
+    color_sticker_red_background["red.background\nL: red.60\nD: red.80"]:::sem
+    color_sticker_red_background_secondary["red.background-secondary\nL: red.7\nD: red.30"]:::sem
+    color_sticker_red_text["red.text\nL+D: pure-white"]:::sem
+    color_sticker_red_text_secondary["red.text-secondary\nL+D: black"]:::sem
+    color_sticker_red_icon["red.icon\nL+D: pure-white"]:::sem
+    color_sticker_red_hover["red.hover\nL+D: red.70"]:::sem
+    color_sticker_red_active["red.active\nL: red.75\nD: red.65"]:::sem
+    color_sticker_gold_background["gold.background\nL: gold.30\nD: gold.80"]:::sem
+    color_sticker_gold_background_secondary["gold.background-secondary\nL: gold.7\nD: gold.30"]:::sem
+    color_sticker_gold_text["gold.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_gold_text_secondary["gold.text-secondary\nL+D: black"]:::sem
+    color_sticker_gold_icon["gold.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_gold_hover["gold.hover\nL: gold.40\nD: gold.70"]:::sem
+    color_sticker_gold_active["gold.active\nL: gold.45\nD: gold.65"]:::sem
+    color_sticker_yellow_background["yellow.background\nL: yellow.30\nD: yellow.80"]:::sem
+    color_sticker_yellow_background_secondary["yellow.background-secondary\nL: yellow.7\nD: yellow.30"]:::sem
+    color_sticker_yellow_text["yellow.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_yellow_text_secondary["yellow.text-secondary\nL+D: black"]:::sem
+    color_sticker_yellow_icon["yellow.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_yellow_hover["yellow.hover\nL: yellow.40\nD: yellow.70"]:::sem
+    color_sticker_yellow_active["yellow.active\nL: yellow.45\nD: yellow.65"]:::sem
+    color_sticker_orange_background["orange.background\nL: orange.35\nD: orange.80"]:::sem
+    color_sticker_orange_background_secondary["orange.background-secondary\nL: orange.7\nD: orange.30"]:::sem
+    color_sticker_orange_text["orange.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_orange_text_secondary["orange.text-secondary\nL+D: black"]:::sem
+    color_sticker_orange_icon["orange.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_orange_hover["orange.hover\nL: orange.45\nD: orange.70"]:::sem
+    color_sticker_orange_active["orange.active\nL: orange.50\nD: orange.65"]:::sem
+    color_sticker_salmon_background["salmon.background\nL: salmon.30\nD: salmon.80"]:::sem
+    color_sticker_salmon_background_secondary["salmon.background-secondary\nL: salmon.7\nD: salmon.30"]:::sem
+    color_sticker_salmon_text["salmon.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_salmon_text_secondary["salmon.text-secondary\nL+D: black"]:::sem
+    color_sticker_salmon_icon["salmon.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_salmon_hover["salmon.hover\nL: salmon.40\nD: salmon.70"]:::sem
+    color_sticker_salmon_active["salmon.active\nL: salmon.45\nD: salmon.65"]:::sem
+    color_sticker_pink_background["pink.background\nL: pink.30\nD: pink.80"]:::sem
+    color_sticker_pink_background_secondary["pink.background-secondary\nL: pink.7\nD: pink.30"]:::sem
+    color_sticker_pink_text["pink.text\nL: black\nD: pure-white"]:::sem
+    color_sticker_pink_text_secondary["pink.text-secondary\nL+D: black"]:::sem
+    color_sticker_pink_icon["pink.icon\nL: black\nD: pure-white"]:::sem
+    color_sticker_pink_hover["pink.hover\nL: pink.40\nD: pink.70"]:::sem
+    color_sticker_pink_active["pink.active\nL: pink.45\nD: pink.65"]:::sem
+  end
+  subgraph COMP["sticker — component"]
+    sticker_gray_background["--sticker-gray-background"]:::comp
+    sticker_gray_background_secondary["--sticker-gray-background-secondary"]:::comp
+    sticker_gray_text["--sticker-gray-text"]:::comp
+    sticker_gray_text_secondary["--sticker-gray-text-secondary"]:::comp
+    sticker_gray_icon["--sticker-gray-icon"]:::comp
+    sticker_gray_hover["--sticker-gray-hover"]:::comp
+    sticker_gray_active["--sticker-gray-active"]:::comp
+    sticker_blue_background["--sticker-blue-background"]:::comp
+    sticker_blue_background_secondary["--sticker-blue-background-secondary"]:::comp
+    sticker_blue_text["--sticker-blue-text"]:::comp
+    sticker_blue_text_secondary["--sticker-blue-text-secondary"]:::comp
+    sticker_blue_icon["--sticker-blue-icon"]:::comp
+    sticker_blue_hover["--sticker-blue-hover"]:::comp
+    sticker_blue_active["--sticker-blue-active"]:::comp
+    sticker_green_background["--sticker-green-background"]:::comp
+    sticker_green_background_secondary["--sticker-green-background-secondary"]:::comp
+    sticker_green_text["--sticker-green-text"]:::comp
+    sticker_green_text_secondary["--sticker-green-text-secondary"]:::comp
+    sticker_green_icon["--sticker-green-icon"]:::comp
+    sticker_green_hover["--sticker-green-hover"]:::comp
+    sticker_green_active["--sticker-green-active"]:::comp
+    sticker_red_background["--sticker-red-background"]:::comp
+    sticker_red_background_secondary["--sticker-red-background-secondary"]:::comp
+    sticker_red_text["--sticker-red-text"]:::comp
+    sticker_red_text_secondary["--sticker-red-text-secondary"]:::comp
+    sticker_red_icon["--sticker-red-icon"]:::comp
+    sticker_red_hover["--sticker-red-hover"]:::comp
+    sticker_red_active["--sticker-red-active"]:::comp
+    sticker_gold_background["--sticker-gold-background"]:::comp
+    sticker_gold_background_secondary["--sticker-gold-background-secondary"]:::comp
+    sticker_gold_text["--sticker-gold-text"]:::comp
+    sticker_gold_text_secondary["--sticker-gold-text-secondary"]:::comp
+    sticker_gold_icon["--sticker-gold-icon"]:::comp
+    sticker_gold_hover["--sticker-gold-hover"]:::comp
+    sticker_gold_active["--sticker-gold-active"]:::comp
+    sticker_yellow_background["--sticker-yellow-background"]:::comp
+    sticker_yellow_background_secondary["--sticker-yellow-background-secondary"]:::comp
+    sticker_yellow_text["--sticker-yellow-text"]:::comp
+    sticker_yellow_text_secondary["--sticker-yellow-text-secondary"]:::comp
+    sticker_yellow_icon["--sticker-yellow-icon"]:::comp
+    sticker_yellow_hover["--sticker-yellow-hover"]:::comp
+    sticker_yellow_active["--sticker-yellow-active"]:::comp
+    sticker_orange_background["--sticker-orange-background"]:::comp
+    sticker_orange_background_secondary["--sticker-orange-background-secondary"]:::comp
+    sticker_orange_text["--sticker-orange-text"]:::comp
+    sticker_orange_text_secondary["--sticker-orange-text-secondary"]:::comp
+    sticker_orange_icon["--sticker-orange-icon"]:::comp
+    sticker_orange_hover["--sticker-orange-hover"]:::comp
+    sticker_orange_active["--sticker-orange-active"]:::comp
+    sticker_salmon_background["--sticker-salmon-background"]:::comp
+    sticker_salmon_background_secondary["--sticker-salmon-background-secondary"]:::comp
+    sticker_salmon_text["--sticker-salmon-text"]:::comp
+    sticker_salmon_text_secondary["--sticker-salmon-text-secondary"]:::comp
+    sticker_salmon_icon["--sticker-salmon-icon"]:::comp
+    sticker_salmon_hover["--sticker-salmon-hover"]:::comp
+    sticker_salmon_active["--sticker-salmon-active"]:::comp
+    sticker_pink_background["--sticker-pink-background"]:::comp
+    sticker_pink_background_secondary["--sticker-pink-background-secondary"]:::comp
+    sticker_pink_text["--sticker-pink-text"]:::comp
+    sticker_pink_text_secondary["--sticker-pink-text-secondary"]:::comp
+    sticker_pink_icon["--sticker-pink-icon"]:::comp
+    sticker_pink_hover["--sticker-pink-hover"]:::comp
+    sticker_pink_active["--sticker-pink-active"]:::comp
+  end
+  color_sticker_gray_background --> sticker_gray_background
+  color_sticker_gray_background_secondary --> sticker_gray_background_secondary
+  color_sticker_gray_text --> sticker_gray_text
+  color_sticker_gray_text_secondary --> sticker_gray_text_secondary
+  color_sticker_gray_icon --> sticker_gray_icon
+  color_sticker_gray_hover --> sticker_gray_hover
+  color_sticker_gray_active --> sticker_gray_active
+  color_sticker_blue_background --> sticker_blue_background
+  color_sticker_blue_background_secondary --> sticker_blue_background_secondary
+  color_sticker_blue_text --> sticker_blue_text
+  color_sticker_blue_text_secondary --> sticker_blue_text_secondary
+  color_sticker_blue_icon --> sticker_blue_icon
+  color_sticker_blue_hover --> sticker_blue_hover
+  color_sticker_blue_active --> sticker_blue_active
+  color_sticker_green_background --> sticker_green_background
+  color_sticker_green_background_secondary --> sticker_green_background_secondary
+  color_sticker_green_text --> sticker_green_text
+  color_sticker_green_text_secondary --> sticker_green_text_secondary
+  color_sticker_green_icon --> sticker_green_icon
+  color_sticker_green_hover --> sticker_green_hover
+  color_sticker_green_active --> sticker_green_active
+  color_sticker_red_background --> sticker_red_background
+  color_sticker_red_background_secondary --> sticker_red_background_secondary
+  color_sticker_red_text --> sticker_red_text
+  color_sticker_red_text_secondary --> sticker_red_text_secondary
+  color_sticker_red_icon --> sticker_red_icon
+  color_sticker_red_hover --> sticker_red_hover
+  color_sticker_red_active --> sticker_red_active
+  color_sticker_gold_background --> sticker_gold_background
+  color_sticker_gold_background_secondary --> sticker_gold_background_secondary
+  color_sticker_gold_text --> sticker_gold_text
+  color_sticker_gold_text_secondary --> sticker_gold_text_secondary
+  color_sticker_gold_icon --> sticker_gold_icon
+  color_sticker_gold_hover --> sticker_gold_hover
+  color_sticker_gold_active --> sticker_gold_active
+  color_sticker_yellow_background --> sticker_yellow_background
+  color_sticker_yellow_background_secondary --> sticker_yellow_background_secondary
+  color_sticker_yellow_text --> sticker_yellow_text
+  color_sticker_yellow_text_secondary --> sticker_yellow_text_secondary
+  color_sticker_yellow_icon --> sticker_yellow_icon
+  color_sticker_yellow_hover --> sticker_yellow_hover
+  color_sticker_yellow_active --> sticker_yellow_active
+  color_sticker_orange_background --> sticker_orange_background
+  color_sticker_orange_background_secondary --> sticker_orange_background_secondary
+  color_sticker_orange_text --> sticker_orange_text
+  color_sticker_orange_text_secondary --> sticker_orange_text_secondary
+  color_sticker_orange_icon --> sticker_orange_icon
+  color_sticker_orange_hover --> sticker_orange_hover
+  color_sticker_orange_active --> sticker_orange_active
+  color_sticker_salmon_background --> sticker_salmon_background
+  color_sticker_salmon_background_secondary --> sticker_salmon_background_secondary
+  color_sticker_salmon_text --> sticker_salmon_text
+  color_sticker_salmon_text_secondary --> sticker_salmon_text_secondary
+  color_sticker_salmon_icon --> sticker_salmon_icon
+  color_sticker_salmon_hover --> sticker_salmon_hover
+  color_sticker_salmon_active --> sticker_salmon_active
+  color_sticker_pink_background --> sticker_pink_background
+  color_sticker_pink_background_secondary --> sticker_pink_background_secondary
+  color_sticker_pink_text --> sticker_pink_text
+  color_sticker_pink_text_secondary --> sticker_pink_text_secondary
+  color_sticker_pink_icon --> sticker_pink_icon
+  color_sticker_pink_hover --> sticker_pink_hover
+  color_sticker_pink_active --> sticker_pink_active
+  </pre
+			>
+		</section>
+		<section id="support">
+			<h2>support</h2>
+			<pre class="mermaid">
+flowchart LR
+  classDef sem fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+  classDef comp fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef prim fill:#fef9c3,stroke:#ca8a04,color:#713f12
+  subgraph SEM["support — semantic"]
+    color_support_background_error["background.error\nL: red.7\nD: red.75"]:::sem
+    color_support_background_warning["background.warning\nL: yellow.7\nD: yellow.70"]:::sem
+    color_support_background_info["background.info\nL: blue.7\nD: blue.70"]:::sem
+    color_support_background_success["background.success\nL: green.7\nD: green.70"]:::sem
+    color_support_background_neutral["background.neutral\nL: gray.7\nD: pure-white"]:::sem
+    color_support_background_feature["background.feature\nL: purple.7\nD: pure-white"]:::sem
+    color_support_text_error["text.error\nL: red.85\nD: red.7"]:::sem
+    color_support_text_warning["text.warning\nL: yellow.85\nD: yellow.7"]:::sem
+    color_support_text_info["text.info\nL: blue.85\nD: blue.7"]:::sem
+    color_support_text_success["text.success\nL: green.85\nD: green.7"]:::sem
+    color_support_text_neutral["text.neutral\nL: black\nD: gray.10"]:::sem
+    color_support_text_feature["text.feature\nL: purple.85\nD: pure-white"]:::sem
+    color_support_icon_error["icon.error\nL: red.50\nD: red.30"]:::sem
+    color_support_icon_warning["icon.warning\nL: yellow.50\nD: yellow.35"]:::sem
+    color_support_icon_strong_warning["icon.strong-warning\nL: orange.45\nD: orange.35"]:::sem
+    color_support_icon_info["icon.info\nL: blue.50\nD: blue.35"]:::sem
+    color_support_icon_success["icon.success\nL: green.40\nD: green.35"]:::sem
+    color_support_icon_neutral["icon.neutral\nL: gray.40\nD: gray.50"]:::sem
+    color_support_icon_feature["icon.feature\nL: purple.40\nD: purple.55"]:::sem
+    color_support_accent_error["accent.error\nL: red.35\nD: red.30"]:::sem
+    color_support_accent_warning["accent.warning\nL: yellow.30\nD: yellow.35"]:::sem
+    color_support_accent_info["accent.info\nL+D: blue.35"]:::sem
+    color_support_accent_success["accent.success\nL+D: green.35"]:::sem
+    color_support_accent_neutral["accent.neutral\nL+D: gray.50"]:::sem
+    color_support_accent_feature["accent.feature\nL: purple.60\nD: purple.55"]:::sem
+    color_support_link_error_default["link.error.default\nL: red.60\nD: red.20"]:::sem
+    color_support_link_error_hover["link.error.hover\nL: red.70\nD: red.7"]:::sem
+    color_support_link_error_active["link.error.active\nL: red.80\nD: red.7"]:::sem
+    color_support_link_error_visited["link.error.visited\nL: red.80\nD: red.20"]:::sem
+    color_support_link_warning_default["link.warning.default\nL: yellow.60\nD: yellow.20"]:::sem
+    color_support_link_warning_hover["link.warning.hover\nL: yellow.70\nD: yellow.7"]:::sem
+    color_support_link_warning_active["link.warning.active\nL: yellow.80\nD: yellow.7"]:::sem
+    color_support_link_warning_visited["link.warning.visited\nL: yellow.70\nD: yellow.20"]:::sem
+    color_support_link_info_default["link.info.default\nL: blue.65\nD: blue.20"]:::sem
+    color_support_link_info_hover["link.info.hover\nL: blue.70\nD: blue.7"]:::sem
+    color_support_link_info_active["link.info.active\nL: blue.80\nD: blue.7"]:::sem
+    color_support_link_info_visited["link.info.visited\nL: blue.70\nD: blue.20"]:::sem
+    color_support_link_success_default["link.success.default\nL: green.60\nD: green.20"]:::sem
+    color_support_link_success_hover["link.success.hover\nL: green.70\nD: green.7"]:::sem
+    color_support_link_success_active["link.success.active\nL: green.80\nD: green.7"]:::sem
+    color_support_link_success_visited["link.success.visited\nL: green.70\nD: green.20"]:::sem
+    color_support_link_neutral_default["link.neutral.default\nL: black\nD: gray.10"]:::sem
+    color_support_link_neutral_hover["link.neutral.hover\nL: gray.70\nD: gray.40"]:::sem
+    color_support_link_neutral_active["link.neutral.active\nL: gray.70\nD: gray.40"]:::sem
+    color_support_link_neutral_visited["link.neutral.visited\nL: gray.80\nD: gray.15"]:::sem
+  end
+  subgraph COMP["support — component"]
+    support_background_error["--support-background-error"]:::comp
+    support_background_warning["--support-background-warning"]:::comp
+    support_background_info["--support-background-info"]:::comp
+    support_background_success["--support-background-success"]:::comp
+    support_background_neutral["--support-background-neutral"]:::comp
+    support_background_feature["--support-background-feature"]:::comp
+    support_text_error["--support-text-error"]:::comp
+    support_text_warning["--support-text-warning"]:::comp
+    support_text_info["--support-text-info"]:::comp
+    support_text_success["--support-text-success"]:::comp
+    support_text_neutral["--support-text-neutral"]:::comp
+    support_text_feature["--support-text-feature"]:::comp
+    support_icon_error["--support-icon-error"]:::comp
+    support_icon_warning["--support-icon-warning"]:::comp
+    support_icon_strong_warning["--support-icon-strong-warning"]:::comp
+    support_icon_info["--support-icon-info"]:::comp
+    support_icon_success["--support-icon-success"]:::comp
+    support_icon_neutral["--support-icon-neutral"]:::comp
+    support_icon_feature["--support-icon-feature"]:::comp
+    support_accent_error["--support-accent-error"]:::comp
+    support_accent_warning["--support-accent-warning"]:::comp
+    support_accent_info["--support-accent-info"]:::comp
+    support_accent_success["--support-accent-success"]:::comp
+    support_accent_neutral["--support-accent-neutral"]:::comp
+    support_accent_feature["--support-accent-feature"]:::comp
+    support_link_error_default["--support-link-error-default"]:::comp
+    support_link_error_hover["--support-link-error-hover"]:::comp
+    support_link_error_active["--support-link-error-active"]:::comp
+    support_link_error_visited["--support-link-error-visited"]:::comp
+    support_link_warning_default["--support-link-warning-default"]:::comp
+    support_link_warning_hover["--support-link-warning-hover"]:::comp
+    support_link_warning_active["--support-link-warning-active"]:::comp
+    support_link_warning_visited["--support-link-warning-visited"]:::comp
+    support_link_info_default["--support-link-info-default"]:::comp
+    support_link_info_hover["--support-link-info-hover"]:::comp
+    support_link_info_active["--support-link-info-active"]:::comp
+    support_link_info_visited["--support-link-info-visited"]:::comp
+    support_link_success_default["--support-link-success-default"]:::comp
+    support_link_success_hover["--support-link-success-hover"]:::comp
+    support_link_success_active["--support-link-success-active"]:::comp
+    support_link_success_visited["--support-link-success-visited"]:::comp
+    support_link_neutral_default["--support-link-neutral-default"]:::comp
+    support_link_neutral_hover["--support-link-neutral-hover"]:::comp
+    support_link_neutral_active["--support-link-neutral-active"]:::comp
+    support_link_neutral_visited["--support-link-neutral-visited"]:::comp
+  end
+  color_support_background_error --> support_background_error
+  color_support_background_warning --> support_background_warning
+  color_support_background_info --> support_background_info
+  color_support_background_success --> support_background_success
+  color_support_background_neutral --> support_background_neutral
+  color_support_background_feature --> support_background_feature
+  color_support_text_error --> support_text_error
+  color_support_text_warning --> support_text_warning
+  color_support_text_info --> support_text_info
+  color_support_text_success --> support_text_success
+  color_support_text_neutral --> support_text_neutral
+  color_support_text_feature --> support_text_feature
+  color_support_icon_error --> support_icon_error
+  color_support_icon_warning --> support_icon_warning
+  color_support_icon_strong_warning --> support_icon_strong_warning
+  color_support_icon_info --> support_icon_info
+  color_support_icon_success --> support_icon_success
+  color_support_icon_neutral --> support_icon_neutral
+  color_support_icon_feature --> support_icon_feature
+  color_support_accent_error --> support_accent_error
+  color_support_accent_warning --> support_accent_warning
+  color_support_accent_info --> support_accent_info
+  color_support_accent_success --> support_accent_success
+  color_support_accent_neutral --> support_accent_neutral
+  color_support_accent_feature --> support_accent_feature
+  color_support_link_error_default --> support_link_error_default
+  color_support_link_error_hover --> support_link_error_hover
+  color_support_link_error_active --> support_link_error_active
+  color_support_link_error_visited --> support_link_error_visited
+  color_support_link_warning_default --> support_link_warning_default
+  color_support_link_warning_hover --> support_link_warning_hover
+  color_support_link_warning_active --> support_link_warning_active
+  color_support_link_warning_visited --> support_link_warning_visited
+  color_support_link_info_default --> support_link_info_default
+  color_support_link_info_hover --> support_link_info_hover
+  color_support_link_info_active --> support_link_info_active
+  color_support_link_info_visited --> support_link_info_visited
+  color_support_link_success_default --> support_link_success_default
+  color_support_link_success_hover --> support_link_success_hover
+  color_support_link_success_active --> support_link_success_active
+  color_support_link_success_visited --> support_link_success_visited
+  color_support_link_neutral_default --> support_link_neutral_default
+  color_support_link_neutral_hover --> support_link_neutral_hover
+  color_support_link_neutral_active --> support_link_neutral_active
+  color_support_link_neutral_visited --> support_link_neutral_visited
+  </pre
+			>
+		</section>
+		<script>
+			mermaid.initialize({
+				startOnLoad: true,
+				theme: 'neutral',
+				flowchart: { useMaxWidth: false },
+			});
+		</script>
+	</body>
+</html>

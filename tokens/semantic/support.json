@@ -1,0 +1,337 @@
+{
+	"color": {
+		"support": {
+			"background": {
+				"error": {
+					"$value": "{red.7}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{red.75}"
+					}
+				},
+				"warning": {
+					"$value": "{yellow.7}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{yellow.70}"
+					}
+				},
+				"info": {
+					"$value": "{blue.7}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{blue.70}"
+					}
+				},
+				"success": {
+					"$value": "{green.7}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{green.70}"
+					}
+				},
+				"neutral": {
+					"$value": "{gray.7}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{pure-white}"
+					}
+				},
+				"feature": {
+					"$value": "{purple.7}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{pure-white}"
+					}
+				}
+			},
+			"text": {
+				"error": {
+					"$value": "{red.85}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{red.7}"
+					}
+				},
+				"warning": {
+					"$value": "{yellow.85}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{yellow.7}"
+					}
+				},
+				"info": {
+					"$value": "{blue.85}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{blue.7}"
+					}
+				},
+				"success": {
+					"$value": "{green.85}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{green.7}"
+					}
+				},
+				"neutral": {
+					"$value": "{black}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.10}"
+					}
+				},
+				"feature": {
+					"$value": "{purple.85}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{pure-white}"
+					}
+				}
+			},
+			"icon": {
+				"error": {
+					"$value": "{red.50}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{red.30}"
+					}
+				},
+				"warning": {
+					"$value": "{yellow.50}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{yellow.35}"
+					}
+				},
+				"strong-warning": {
+					"$value": "{orange.45}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{orange.35}"
+					}
+				},
+				"info": {
+					"$value": "{blue.50}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{blue.35}"
+					}
+				},
+				"success": {
+					"$value": "{green.40}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{green.35}"
+					}
+				},
+				"neutral": {
+					"$value": "{gray.40}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.50}"
+					}
+				},
+				"feature": {
+					"$value": "{purple.40}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{purple.55}"
+					}
+				}
+			},
+			"accent": {
+				"error": {
+					"$value": "{red.35}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{red.30}"
+					}
+				},
+				"warning": {
+					"$value": "{yellow.30}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{yellow.35}"
+					}
+				},
+				"info": {
+					"$value": "{blue.35}",
+					"$type": "color"
+				},
+				"success": {
+					"$value": "{green.35}",
+					"$type": "color"
+				},
+				"neutral": {
+					"$value": "{gray.50}",
+					"$type": "color"
+				},
+				"feature": {
+					"$value": "{purple.60}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{purple.55}"
+					}
+				}
+			},
+			"link": {
+				"error": {
+					"default": {
+						"$value": "{red.60}",
+						"$type": "color",
+						"$description": "Use for text links",
+						"$extensions": {
+							"dark": "{red.20}"
+						}
+					},
+					"hover": {
+						"$value": "{red.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{red.7}"
+						}
+					},
+					"active": {
+						"$value": "{red.80}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{red.7}"
+						}
+					},
+					"visited": {
+						"$value": "{red.80}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{red.20}"
+						}
+					}
+				},
+				"warning": {
+					"default": {
+						"$value": "{yellow.60}",
+						"$type": "color",
+						"$description": "Use for text links",
+						"$extensions": {
+							"dark": "{yellow.20}"
+						}
+					},
+					"hover": {
+						"$value": "{yellow.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{yellow.7}"
+						}
+					},
+					"active": {
+						"$value": "{yellow.80}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{yellow.7}"
+						}
+					},
+					"visited": {
+						"$value": "{yellow.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{yellow.20}"
+						}
+					}
+				},
+				"info": {
+					"default": {
+						"$value": "{blue.65}",
+						"$type": "color",
+						"$description": "Use for text links",
+						"$extensions": {
+							"dark": "{blue.20}"
+						}
+					},
+					"hover": {
+						"$value": "{blue.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{blue.7}"
+						}
+					},
+					"active": {
+						"$value": "{blue.80}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{blue.7}"
+						}
+					},
+					"visited": {
+						"$value": "{blue.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{blue.20}"
+						}
+					}
+				},
+				"success": {
+					"default": {
+						"$value": "{green.60}",
+						"$type": "color",
+						"$description": "Use for text links",
+						"$extensions": {
+							"dark": "{green.20}"
+						}
+					},
+					"hover": {
+						"$value": "{green.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{green.7}"
+						}
+					},
+					"active": {
+						"$value": "{green.80}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{green.7}"
+						}
+					},
+					"visited": {
+						"$value": "{green.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{green.20}"
+						}
+					}
+				},
+				"neutral": {
+					"default": {
+						"$value": "{black}",
+						"$type": "color",
+						"$description": "Use for text links",
+						"$extensions": {
+							"dark": "{gray.10}"
+						}
+					},
+					"hover": {
+						"$value": "{gray.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{gray.40}"
+						}
+					},
+					"active": {
+						"$value": "{gray.70}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{gray.40}"
+						}
+					},
+					"visited": {
+						"$value": "{gray.80}",
+						"$type": "color",
+						"$extensions": {
+							"dark": "{gray.15}"
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,14 +1,10 @@
-import { readFileSync } from 'fs';
 import StyleDictionary from 'style-dictionary';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-const darkTokens = JSON.parse(readFileSync('./tokens/themes/dark.json', 'utf8'));
-
-/** Get a dark-theme token's raw $value by dot-path, e.g. 'color.background.primary' */
-function getDarkRaw(dotPath) {
-	const val = dotPath.split('.').reduce((o, k) => o?.[k], darkTokens);
-	return val?.$value ?? null;
+/** Get the dark-theme $value from a token's $extensions.dark field */
+function getDarkRaw(token) {
+	return token.original.$extensions?.dark ?? null;
 }
 
 /** Convert {path.to.token} references to CSS var(--path-to-token) */
@@ -62,7 +58,7 @@ StyleDictionary.registerFormat({
 			const lightVal = tokenDisplayValue(t, true);
 			fallback.push(`\t${name}: ${lightVal};`);
 
-			const darkRaw = getDarkRaw(t.path.join('.'));
+			const darkRaw = getDarkRaw(t);
 			if (darkRaw && t.$type === 'color') {
 				const darkVal = refToVar(darkRaw);
 				supported.push(`\t\t${name}: light-dark(${lightVal}, ${darkVal});`);
@@ -119,13 +115,49 @@ StyleDictionary.registerFormat({
 	},
 });
 
-/** Component tokens scoped to a CSS selector */
+/** Component tokens scoped to a CSS selector, with light-dark() for themed tokens */
 StyleDictionary.registerFormat({
 	name: 'css/component-vars',
 	format: ({ dictionary, options }) => {
 		const selector = options?.selector ?? '.component';
-		const lines = dictionary.allTokens.map((t) => `\t--${t.name}: ${tokenDisplayValue(t, true)};`);
-		return `/* Auto-generated — do not edit. Run \`npm run build:tokens\` to update. */\n${selector} {\n${lines.join('\n')}\n}\n`;
+		const fallback = [];
+		const supported = [];
+		let hasDark = false;
+
+		for (const t of dictionary.allTokens) {
+			const name = `--${t.name}`;
+			const lightVal = tokenDisplayValue(t, true);
+			fallback.push(`\t${name}: ${lightVal};`);
+
+			const darkRaw = getDarkRaw(t);
+			if (darkRaw && t.$type === 'color') {
+				supported.push(`\t\t${name}: light-dark(${lightVal}, ${refToVar(darkRaw)});`);
+				hasDark = true;
+			} else {
+				supported.push(`\t\t${name}: ${lightVal};`);
+			}
+		}
+
+		const out = [
+			`/* Auto-generated — do not edit. Run \`npm run build:tokens\` to update. */`,
+			`${selector} {`,
+			...fallback,
+			`}`,
+		];
+
+		if (hasDark) {
+			out.push(
+				``,
+				`@supports (color: light-dark(red, blue)) {`,
+				`\t${selector} {`,
+				...supported,
+				`\t}`,
+				`}`
+			);
+		}
+
+		out.push(``);
+		return out.join('\n');
 	},
 });
 
@@ -207,7 +239,7 @@ await new StyleDictionary(
 
 await new StyleDictionary(
 	{
-		source: ['tokens/primitives/**/*.json', 'tokens/semantic/color.json'],
+		source: ['tokens/primitives/**/*.json', 'tokens/semantic/**/*.json'],
 		platforms: {
 			css: {
 				transforms: nameTransform,
@@ -291,11 +323,7 @@ for (const { name, selector } of components) {
 
 await new StyleDictionary(
 	{
-		source: [
-			'tokens/primitives/**/*.json',
-			'tokens/semantic/color.json',
-			'tokens/semantic/typography.json',
-		],
+		source: ['tokens/primitives/**/*.json', 'tokens/semantic/**/*.json'],
 		platforms: {
 			ts: {
 				transforms: nameTransform,

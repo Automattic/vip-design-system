@@ -1,0 +1,29 @@
+{
+	"color": {
+		"logs": {
+			"text": {
+				"primary": {
+					"$value": "{gray.7}",
+					"$type": "color",
+					"$description": "Use for monotype output in an inverse layer.",
+					"$extensions": {
+						"dark": "{gray.10}"
+					}
+				},
+				"secondary": {
+					"$value": "{gray.30}",
+					"$type": "color",
+					"$description": "Use for timestamp or secondary monotype output in an inverse layer."
+				}
+			},
+			"background": {
+				"$value": "{black}",
+				"$type": "color",
+				"$description": "Use for the pseudo terminal window background color.",
+				"$extensions": {
+					"dark": "{gray.90}"
+				}
+			}
+		}
+	}
+}

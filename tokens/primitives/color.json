@@ -1,4 +1,5 @@
 {
+	"transparent": { "$value": "transparent", "$type": "color" },
 	"black": { "$value": "#13191e", "$type": "color" },
 	"pure-white": { "$value": "#ffffff", "$type": "color" },
 	"pure-black": { "$value": "#000000", "$type": "color" },

@@ -1,73 +1,169 @@
 {
 	"input": {
 		"background": {
-			"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-			"primary": { "$value": "{black}", "$type": "color" },
-			"success": { "$value": "{green.60}", "$type": "color" },
-			"brand": { "$value": "{gold.60}", "$type": "color" },
-			"inactive": { "$value": "{gray.50}", "$type": "color" },
-			"disabled": { "$value": "{gray.20}", "$type": "color" },
-			"read-only": { "$value": "{color.layer.1}", "$type": "color" }
+			"default": {
+				"$value": "{color.input.background.default}",
+				"$type": "color"
+			},
+			"primary": {
+				"$value": "{color.input.background.primary}",
+				"$type": "color"
+			},
+			"success": {
+				"$value": "{color.input.background.success}",
+				"$type": "color"
+			},
+			"brand": {
+				"$value": "{color.input.background.brand}",
+				"$type": "color"
+			},
+			"inactive": {
+				"$value": "{color.input.background.inactive}",
+				"$type": "color"
+			},
+			"disabled": {
+				"$value": "{color.input.background.disabled}",
+				"$type": "color"
+			},
+			"read-only": {
+				"$value": "{color.input.background.read-only}",
+				"$type": "color"
+			}
 		},
 		"label": {
-			"default": { "$value": "{black}", "$type": "color" }
+			"default": {
+				"$value": "{color.input.label.default}",
+				"$type": "color"
+			}
 		},
 		"text": {
-			"default": { "$value": "{black}", "$type": "color" },
+			"default": {
+				"$value": "{color.input.text.default}",
+				"$type": "color"
+			},
 			"placeholder": {
-				"$value": "{gray.55}",
+				"$value": "{color.input.text.placeholder}",
 				"$type": "color",
 				"$description": "Use for placeholder text in fields"
 			}
 		},
 		"border": {
-			"default": { "$value": "{gray.45}", "$type": "color" },
-			"disabled": { "$value": "{gray.25}", "$type": "color" },
+			"default": {
+				"$value": "{color.input.border.default}",
+				"$type": "color"
+			},
+			"disabled": {
+				"$value": "{color.input.border.disabled}",
+				"$type": "color"
+			},
 			"error": {
-				"$value": "{red.55}",
+				"$value": "{color.input.border.error}",
 				"$type": "color",
 				"$description": "Use for inputs which are in an error state."
 			},
-			"read-only": { "$value": "{color.border.2}", "$type": "color" }
+			"read-only": {
+				"$value": "{color.input.border.read-only}",
+				"$type": "color"
+			}
 		},
 		"switcher": {
 			"background": {
-				"primary": { "$value": "{green.60}", "$type": "color" },
-				"secondary": { "$value": "{blue.60}", "$type": "color" }
+				"primary": {
+					"$value": "{color.input.switcher.background.primary}",
+					"$type": "color"
+				},
+				"secondary": {
+					"$value": "{color.input.switcher.background.secondary}",
+					"$type": "color"
+				}
 			}
 		},
 		"radio-box": {
 			"background": {
-				"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-				"hover": { "$value": "{gray.3}", "$type": "color" },
-				"active": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-				"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+				"default": {
+					"$value": "{color.input.radio-box.background.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.input.radio-box.background.hover}",
+					"$type": "color"
+				},
+				"active": {
+					"$value": "{color.input.radio-box.background.active}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.input.radio-box.background.disabled}",
+					"$type": "color"
+				}
 			},
 			"label": {
 				"primary": {
-					"default": { "$value": "{color.text.primary}", "$type": "color" },
-					"hover": { "$value": "{color.text.primary}", "$type": "color" },
-					"active": { "$value": "{color.text.primary}", "$type": "color" },
-					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+					"default": {
+						"$value": "{color.input.radio-box.label.primary.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.input.radio-box.label.primary.hover}",
+						"$type": "color"
+					},
+					"active": {
+						"$value": "{color.input.radio-box.label.primary.active}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.input.radio-box.label.primary.disabled}",
+						"$type": "color"
+					}
 				},
 				"secondary": {
-					"default": { "$value": "{color.text.secondary}", "$type": "color" },
-					"hover": { "$value": "{color.text.secondary}", "$type": "color" },
-					"acive": { "$value": "{color.text.secondary}", "$type": "color" },
-					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+					"default": {
+						"$value": "{color.input.radio-box.label.secondary.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.input.radio-box.label.secondary.hover}",
+						"$type": "color"
+					},
+					"acive": {
+						"$value": "{color.input.radio-box.label.secondary.acive}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.input.radio-box.label.secondary.disabled}",
+						"$type": "color"
+					}
 				}
 			},
 			"border": {
-				"default": { "$value": "{gray.45}", "$type": "color" },
-				"hover": { "$value": "{gray.45}", "$type": "color" },
-				"active": { "$value": "{gold.60}", "$type": "color" },
-				"disabled": { "$value": "{gray.25}", "$type": "color" }
+				"default": {
+					"$value": "{color.input.radio-box.border.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.input.radio-box.border.hover}",
+					"$type": "color"
+				},
+				"active": {
+					"$value": "{color.input.radio-box.border.active}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.input.radio-box.border.disabled}",
+					"$type": "color"
+				}
 			}
 		},
 		"toggle": {
 			"switch": {
-				"default": { "$value": "{pure-white}", "$type": "color" },
-				"disabled": { "$value": "{gray.7}", "$type": "color" }
+				"default": {
+					"$value": "{color.input.toggle.switch.default}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.input.toggle.switch.disabled}",
+					"$type": "color"
+				}
 			}
 		}
 	}

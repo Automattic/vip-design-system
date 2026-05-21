@@ -1,12 +1,24 @@
 {
 	"slider": {
 		"background": {
-			"default": { "$value": "{gray.15}", "$type": "color" },
-			"disabled": { "$value": "{gray.15}", "$type": "color" }
+			"default": {
+				"$value": "{color.slider.background.default}",
+				"$type": "color"
+			},
+			"disabled": {
+				"$value": "{color.slider.background.disabled}",
+				"$type": "color"
+			}
 		},
 		"handle": {
-			"default": { "$value": "{black}", "$type": "color" },
-			"disabled": { "$value": "{gray.40}", "$type": "color" }
+			"default": {
+				"$value": "{color.slider.handle.default}",
+				"$type": "color"
+			},
+			"disabled": {
+				"$value": "{color.slider.handle.disabled}",
+				"$type": "color"
+			}
 		}
 	}
 }

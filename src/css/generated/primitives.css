@@ -1,5 +1,6 @@
 /* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
 :root {
+	--transparent: transparent;
 	--black: #13191e;
 	--pure-white: #ffffff;
 	--pure-black: #000000;

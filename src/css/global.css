@@ -70,12 +70,12 @@
 	p {
 		font-size: var(--font-size-2);
 		line-height: var(--line-height-5);
-		letter-spacing: var(--letter-spacing-loose-2);
+		letter-spacing: var(--letter-spacing-loose-1);
 	}
 
 	strong,
 	b {
-		font-weight: var(--font-weight-bold);
+		font-weight: var(--font-weight-semibold);
 	}
 
 	em,
@@ -143,7 +143,7 @@
 		padding-inline-start: var(--space-5);
 		border-inline-start: 3px solid var(--color-border-accent);
 		color: var(--color-text-helper);
-		font-style: italic;
+		font-style: normal;
 	}
 
 	/* ── Lists ────────────────────────────────────────────────────────────────── */
@@ -166,7 +166,7 @@
 
 	hr {
 		border: none;
-		border-block-start: 1px solid var(--color-border-1);
+		border-block-start: 1px solid var(--color-border-2);
 	}
 
 	/* ── Tables ───────────────────────────────────────────────────────────────── */
@@ -182,13 +182,13 @@
 		font-weight: var(--font-weight-semibold);
 		text-align: start;
 		padding: var(--space-3) var(--space-4);
-		border-block-end: 2px solid var(--color-border-2);
+		border-block-end: 1px solid var(--color-border-2);
 		color: var(--color-text-primary);
 	}
 
 	td {
 		padding: var(--space-3) var(--space-4);
-		border-block-end: 1px solid var(--color-border-1);
+		border-block-end: 1px solid var(--color-border-2);
 		color: var(--color-text-secondary);
 	}
 
@@ -202,7 +202,7 @@
 	figure {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-3);
+		gap: var(--space-4);
 	}
 
 	figcaption {
@@ -222,7 +222,7 @@
 	textarea,
 	select {
 		color: var(--color-text-primary);
-		background-color: var(--color-background-primary);
+		background-color: var(--color-background-transparent);
 		border: 1px solid var(--color-border-3);
 		border-radius: var(--border-radius-1);
 	}
@@ -243,11 +243,6 @@
 
 	details > summary {
 		cursor: pointer;
-		list-style: none;
-	}
-
-	details > summary::-webkit-details-marker {
-		display: none;
 	}
 
 	/* ── Typographic inline elements ──────────────────────────────────────────── */

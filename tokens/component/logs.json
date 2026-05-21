@@ -2,18 +2,18 @@
 	"logs": {
 		"text": {
 			"primary": {
-				"$value": "{gray.7}",
+				"$value": "{color.logs.text.primary}",
 				"$type": "color",
 				"$description": "Use for monotype output in an inverse layer."
 			},
 			"secondary": {
-				"$value": "{gray.30}",
+				"$value": "{color.logs.text.secondary}",
 				"$type": "color",
 				"$description": "Use for timestamp or secondary monotype output in an inverse layer."
 			}
 		},
 		"background": {
-			"$value": "{black}",
+			"$value": "{color.logs.background}",
 			"$type": "color",
 			"$description": "Use for the pseudo terminal window background color."
 		}

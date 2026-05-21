@@ -1,12 +1,24 @@
 {
 	"option-row": {
 		"default": {
-			"background": { "$value": "{gold.40}", "$type": "color" },
-			"icon": { "$value": "{gray.93}", "$type": "color" }
+			"background": {
+				"$value": "{color.option-row.default.background}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{color.option-row.default.icon}",
+				"$type": "color"
+			}
 		},
 		"alt": {
-			"background": { "$value": "{color.layer.inverse}", "$type": "color" },
-			"icon": { "$value": "{color.icon.inverse}", "$type": "color" }
+			"background": {
+				"$value": "{color.option-row.alt.background}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{color.option-row.alt.icon}",
+				"$type": "color"
+			}
 		}
 	}
 }

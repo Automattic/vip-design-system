@@ -2,109 +2,271 @@
 	"button": {
 		"primary": {
 			"background": {
-				"default": { "$value": "{black}", "$type": "color" },
-				"hover": { "$value": "{gold.30}", "$type": "color" },
-				"disabled": { "$value": "{gray.25}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.primary.background.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.primary.background.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.primary.background.disabled}",
+					"$type": "color"
+				}
 			},
 			"label": {
-				"default": { "$value": "{color.text.inverse}", "$type": "color" },
-				"hover": { "$value": "{color.text.primary}", "$type": "color" },
-				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.primary.label.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.primary.label.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.primary.label.disabled}",
+					"$type": "color"
+				}
 			}
 		},
 		"secondary": {
 			"background": {
-				"default": { "$value": "{gray.10}", "$type": "color" },
-				"hover": { "$value": "{gold.30}", "$type": "color" },
-				"disabled": { "$value": "{gray.25}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.secondary.background.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.secondary.background.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.secondary.background.disabled}",
+					"$type": "color"
+				}
 			},
 			"label": {
-				"default": { "$value": "{color.text.primary}", "$type": "color" },
-				"hover": { "$value": "{color.text.primary}", "$type": "color" },
-				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.secondary.label.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.secondary.label.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.secondary.label.disabled}",
+					"$type": "color"
+				}
 			}
 		},
 		"tertiary": {
 			"background": {
-				"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-				"hover": { "$value": "{gray.10}", "$type": "color" },
-				"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+				"default": {
+					"$value": "{color.button.tertiary.background.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.tertiary.background.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.tertiary.background.disabled}",
+					"$type": "color"
+				}
 			},
 			"border": {
-				"default": { "$value": "{gray.45}", "$type": "color" },
-				"hover": { "$value": "{gray.10}", "$type": "color" },
-				"disabled": { "$value": "{gray.25}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.tertiary.border.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.tertiary.border.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.tertiary.border.disabled}",
+					"$type": "color"
+				}
 			},
 			"label": {
-				"default": { "$value": "{color.text.primary}", "$type": "color" },
-				"hover": { "$value": "{color.text.primary}", "$type": "color" },
-				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.tertiary.label.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.tertiary.label.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.tertiary.label.disabled}",
+					"$type": "color"
+				}
 			}
 		},
 		"ghost": {
 			"background": {
-				"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-				"hover": { "$value": "{gray.10}", "$type": "color" },
-				"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+				"default": {
+					"$value": "{color.button.ghost.background.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.ghost.background.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.ghost.background.disabled}",
+					"$type": "color"
+				}
 			},
 			"label": {
-				"default": { "$value": "{color.text.accent}", "$type": "color" },
-				"hover": { "$value": "{color.text.primary}", "$type": "color" },
-				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.ghost.label.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.ghost.label.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.ghost.label.disabled}",
+					"$type": "color"
+				}
 			}
 		},
 		"display": {
 			"background": {
-				"default": { "$value": "{gold.30}", "$type": "color" },
-				"hover": { "$value": "{gold.60}", "$type": "color" },
-				"disabled": { "$value": "{gray.25}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.display.background.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.display.background.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.display.background.disabled}",
+					"$type": "color"
+				}
 			},
 			"label": {
-				"default": { "$value": "{color.text.primary}", "$type": "color" },
-				"hover": { "$value": "{color.text.inverse}", "$type": "color" },
-				"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+				"default": {
+					"$value": "{color.button.display.label.default}",
+					"$type": "color"
+				},
+				"hover": {
+					"$value": "{color.button.display.label.hover}",
+					"$type": "color"
+				},
+				"disabled": {
+					"$value": "{color.button.display.label.disabled}",
+					"$type": "color"
+				}
 			}
 		},
 		"danger": {
 			"primary": {
 				"background": {
-					"default": { "$value": "{red.55}", "$type": "color" },
-					"hover": { "$value": "{red.70}", "$type": "color" },
-					"disabled": { "$value": "{gray.25}", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.primary.background.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.primary.background.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.primary.background.disabled}",
+						"$type": "color"
+					}
 				},
 				"label": {
-					"default": { "$value": "{color.text.inverse}", "$type": "color" },
-					"hover": { "$value": "{color.text.inverse}", "$type": "color" },
-					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.primary.label.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.primary.label.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.primary.label.disabled}",
+						"$type": "color"
+					}
 				}
 			},
 			"secondary": {
 				"background": {
-					"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-					"hover": { "$value": "{red.70}", "$type": "color" },
-					"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.secondary.background.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.secondary.background.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.secondary.background.disabled}",
+						"$type": "color"
+					}
 				},
 				"label": {
-					"default": { "$value": "{red.55}", "$type": "color" },
-					"hover": { "$value": "{color.text.inverse}", "$type": "color" },
-					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.secondary.label.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.secondary.label.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.secondary.label.disabled}",
+						"$type": "color"
+					}
 				},
 				"border": {
-					"default": { "$value": "{red.55}", "$type": "color" },
-					"hover": { "$value": "{red.70}", "$type": "color" },
-					"disabled": { "$value": "{gray.25}", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.secondary.border.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.secondary.border.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.secondary.border.disabled}",
+						"$type": "color"
+					}
 				}
 			},
 			"ghost": {
 				"background": {
-					"default": { "$value": "rgba({gray.0}, 0)", "$type": "color" },
-					"hover": { "$value": "{red.70}", "$type": "color" },
-					"disabled": { "$value": "rgba({gray.0}, 0)", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.ghost.background.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.ghost.background.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.ghost.background.disabled}",
+						"$type": "color"
+					}
 				},
 				"label": {
-					"default": { "$value": "{red.55}", "$type": "color" },
-					"hover": { "$value": "{color.text.inverse}", "$type": "color" },
-					"disabled": { "$value": "{color.text.disabled}", "$type": "color" }
+					"default": {
+						"$value": "{color.button.danger.ghost.label.default}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.button.danger.ghost.label.hover}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.button.danger.ghost.label.disabled}",
+						"$type": "color"
+					}
 				}
 			}
 		}
