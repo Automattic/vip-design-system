@@ -8,10 +8,11 @@
 		"5": { "$value": "1rem", "$type": "dimension" },
 		"6": { "$value": "1.5rem", "$type": "dimension" },
 		"7": { "$value": "2rem", "$type": "dimension" },
-		"8": { "$value": "3.5rem", "$type": "dimension" },
-		"9": { "$value": "5rem", "$type": "dimension" },
-		"10": { "$value": "7rem", "$type": "dimension" },
-		"11": { "$value": "10rem", "$type": "dimension" },
+		"8": { "$value": "2.5rem", "$type": "dimension" },
+		"9": { "$value": "3.5rem", "$type": "dimension" },
+		"10": { "$value": "5rem", "$type": "dimension" },
+		"11": { "$value": "7rem", "$type": "dimension" },
+		"12": { "$value": "10rem", "$type": "dimension" },
 
 		"responsive": {
 			"0-1": { "$value": "clamp(0.13rem, calc(0.09rem + 0.15vw), 0.25rem)", "$type": "dimension" },

@@ -35,4 +35,7 @@
 	.gap-11 {
 		gap: var(--space-11);
 	}
+	.gap-12 {
+		gap: var(--space-12);
+	}
 }
