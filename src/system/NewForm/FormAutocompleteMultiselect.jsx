@@ -13,6 +13,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
  */
 import { FormAutocompleteMultiselectBadge } from './FormAutocompleteMultiselectBadge';
 import { FormAutocompleteMultiselectButton } from './FormAutocompleteMultiselectButton';
+import { FormAutocompleteMultiselectChip } from './FormAutocompleteMultiselectChip';
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
@@ -96,6 +97,24 @@ const searchIconStyles = {
 	},
 };
 
+const inlineChipsStyles = {
+	display: 'flex',
+	flexWrap: 'wrap',
+	alignItems: 'center',
+	gap: '2px',
+	py: '4px',
+	px: 2,
+	'& .autocomplete__wrapper': {
+		flex: '1 1 80px',
+		minWidth: '80px',
+	},
+	'& .autocomplete__input': {
+		paddingLeft: '4px',
+		minHeight: '28px',
+		lineHeight: '28px',
+	},
+};
+
 const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
 
 const AddSelectionStatus = ( { status } ) => {
@@ -156,6 +175,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			listType = 'button',
 			initialValue = [],
 			allowCustom = false,
+			variant = 'default',
 			...props
 		},
 		forwardRef
@@ -165,8 +185,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			REMOVE: 'remove',
 			NONE: 'none',
 		};
-		const ListComponent =
+		const isInlineVariant = variant === 'inline';
+		const defaultListComponent =
 			listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
+		const ListComponent = isInlineVariant ? FormAutocompleteMultiselectChip : defaultListComponent;
 		const [ isDirty, setIsDirty ] = useState( false );
 		const [ selectedOptions, setSelectedOptions ] = useState( initialValue );
 		const [ addStatus, setAddStatus ] = useState( '' );
@@ -357,8 +379,18 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						...defaultStyles,
 						...( isInline && inlineStyles ),
 						...( searchIcon && searchIconStyles ),
+						...( isInlineVariant && inlineChipsStyles ),
 					} }
 				>
+					{ isInlineVariant &&
+						selectedOptions.map( ( option, idx ) => (
+							<ListComponent
+								key={ idx }
+								index={ idx }
+								option={ option }
+								unselectValue={ unselectValue }
+							/>
+						) ) }
 					<FormSelectContent
 						isInline={ inlineLabel }
 						label={ inlineLabel ? <SelectLabel /> : null }
@@ -367,7 +399,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						<Autocomplete
 							id={ forLabel }
 							aria-busy={ loading }
-							showAllValues={ showAllValues }
+							showAllValues={ isInlineVariant || showAllValues }
 							ref={ forwardRef }
 							source={ source || suggest }
 							defaultValue={ value }
@@ -375,7 +407,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							onConfirm={ onValueChange }
 							tNoResults={ noOptionsMessage }
 							required={ required }
-							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+							dropdownArrow={ isInlineVariant || showAllValues ? dropdownArrow : () => '' }
 							confirmOnBlur={ false }
 							{ ...props }
 						/>
@@ -393,17 +425,19 @@ const FormAutocompleteMultiselect = React.forwardRef(
 						{ selectedOptions.length } item{ selectedOptions.length === 1 ? '' : 's' } selected
 					</div>
 				</Flex>
-				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
-					{ selectedOptions &&
-						selectedOptions.map( ( option, idx ) => (
-							<ListComponent
-								key={ idx }
-								index={ idx }
-								option={ option }
-								unselectValue={ unselectValue }
-							/>
-						) ) }
-				</div>
+				{ ! isInlineVariant && (
+					<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
+						{ selectedOptions &&
+							selectedOptions.map( ( option, idx ) => (
+								<ListComponent
+									key={ idx }
+									index={ idx }
+									option={ option }
+									unselectValue={ unselectValue }
+								/>
+							) ) }
+					</div>
+				) }
 			</div>
 		);
 	}
@@ -435,6 +469,7 @@ FormAutocompleteMultiselect.propTypes = {
 	dropdownArrow: PropTypes.node,
 	initialValue: PropTypes.array,
 	allowCustom: PropTypes.bool,
+	variant: PropTypes.oneOf( [ 'default', 'inline' ] ),
 };
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';

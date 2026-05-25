@@ -185,6 +185,68 @@ export const WithTitleAutoFocus: Story = {
 	},
 };
 
+export const WithSummaryFontWeight: Story = {
+	render: () => {
+		const steps: WizardStepProps[] = [
+			{
+				title: 'Choose Domain',
+				titleVariant: 'h3',
+				summary: [
+					{
+						label: 'Domain',
+						value: 'example.com',
+					},
+				],
+				onChange: () => {},
+			},
+			{
+				title: 'Configure DNS',
+				titleVariant: 'h3',
+				summary: [
+					{
+						label: 'Status',
+						value: 'Configured',
+					},
+				],
+				onChange: () => {},
+			},
+		];
+		return (
+			<Box mt={ 4 }>
+				<Wizard
+					activeStep={ undefined }
+					steps={ steps }
+					completed={ [ 0, 1 ] }
+					summaryAs="table"
+					summaryFontWeight="normal"
+				/>
+			</Box>
+		);
+	},
+};
+
+export const WithOverflow: Story = {
+	render: () => {
+		const steps: WizardStepProps[] = [
+			{
+				title: 'Step with tooltip',
+				titleVariant: 'h3',
+				subTitle: 'Hover over the text below to see the tooltip.',
+				children: (
+					<Box sx={ { position: 'relative' } }>
+						<Text>Content with a tooltip that needs visible overflow</Text>
+					</Box>
+				),
+			},
+		];
+		return (
+			<Box mt={ 4 }>
+				<Wizard activeStep={ 0 } steps={ steps } overflow="visible" />
+			</Box>
+		);
+	},
+};
+
 export const HideStepText: Story = {
 	render: () => {
 		const [ activeStep, setActiveStep ] = React.useState< number | undefined >( undefined );

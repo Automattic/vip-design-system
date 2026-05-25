@@ -31,9 +31,20 @@ export interface DescriptionListProps {
 	 * @default 'dl'
 	 */
 	as?: 'table' | 'dl';
+	/**
+	 * The font weight applied to values in the list.
+	 * @default 'bold'
+	 */
+	fontWeight?: string;
 }
 
-const TableComponent = ( { list, className, sx, title }: DescriptionListProps ) => (
+const TableComponent = ( {
+	list,
+	className,
+	sx,
+	title,
+	fontWeight = 'bold',
+}: DescriptionListProps ) => (
 	<Table
 		caption={ `Summary of ${ title?.toString() }` }
 		className={ className }
@@ -57,9 +68,7 @@ const TableComponent = ( { list, className, sx, title }: DescriptionListProps ) 
 						{ item.label }
 						{ item.value ? ':' : '' }
 					</TableCell>
-					<TableCell sx={ { color: 'text' } }>
-						<strong>{ item.value }</strong>
-					</TableCell>
+					<TableCell sx={ { color: 'text', fontWeight } }>{ item.value }</TableCell>
 				</TableRow>
 			) ) }
 		</tbody>
@@ -99,7 +108,15 @@ const DescriptionListComponent = ( {
  */
 const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
 	(
-		{ sx, className, list, labelWidth = '100px', as = 'dl', title }: DescriptionListProps,
+		{
+			sx,
+			className,
+			list,
+			labelWidth = '100px',
+			as = 'dl',
+			title,
+			fontWeight,
+		}: DescriptionListProps,
 		ref
 	) => {
 		const Component = as === 'table' ? TableComponent : DescriptionListComponent;
@@ -112,6 +129,7 @@ const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
 					sx={ sx }
 					labelWidth={ labelWidth }
 					title={ title }
+					fontWeight={ fontWeight }
 				/>
 			</Box>
 		);

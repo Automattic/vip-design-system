@@ -78,6 +78,16 @@ export interface WizardStepProps {
 	 * @default true
 	 */
 	showStepText?: boolean;
+	/**
+	 * The font weight applied to summary values.
+	 * @default 'bold'
+	 */
+	summaryFontWeight?: string;
+	/**
+	 * The CSS overflow property for the step container.
+	 * @default 'inherit'
+	 */
+	overflow?: string;
 }
 
 /**
@@ -105,6 +115,8 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			actionIcon,
 			actionDisabled = false,
 			showStepText = true,
+			summaryFontWeight,
+			overflow = 'inherit',
 		},
 		forwardRef
 	) => {
@@ -157,7 +169,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					},
 					borderColor: 'wizard.step.border.default',
 					borderLeftColor,
-					overflow: 'inherit',
+					overflow,
 					py: 1,
 				} }
 				data-step={ order }
@@ -223,6 +235,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						list={ summary || [] }
 						title={ summaryTitle }
 						sx={ { mt: 2 } }
+						fontWeight={ summaryFontWeight }
 					/>
 				) }
 

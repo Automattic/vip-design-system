@@ -120,6 +120,27 @@ export const Inline = {
 	},
 };
 
+export const InlineChips = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		variant: 'inline',
+		showAllValues: true,
+		placeholder: 'Type to filter...',
+	},
+};
+
+export const InlineChipsWithInitialValue = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		...args,
+		variant: 'inline',
+		showAllValues: true,
+		placeholder: 'Type to filter...',
+		initialValue: shortOptions.slice( 0, 3 ).map( option => option.label ),
+	},
+};
+
 export const WithStaticData = {
 	render: props => <DefaultComponent { ...props } />,
 	args: {

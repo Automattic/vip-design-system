@@ -44,6 +44,16 @@ export interface WizardProps {
 	 * @default 'table'
 	 */
 	summaryAs?: 'table' | 'dl';
+	/**
+	 * The font weight applied to summary values in all steps.
+	 * @default 'bold'
+	 */
+	summaryFontWeight?: string;
+	/**
+	 * The CSS overflow property for each step container.
+	 * @default 'inherit'
+	 */
+	overflow?: string;
 }
 
 /**
@@ -61,6 +71,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 			titleAutofocus = false,
 			showStepText = true,
 			summaryAs = 'table',
+			summaryFontWeight,
+			overflow,
 		},
 		forwardRef
 	) => {
@@ -88,6 +100,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							actionIcon,
 							actionDisabled,
 							summaryTitle,
+							summaryFontWeight: stepSummaryFontWeight,
+							overflow: stepOverflow,
 						},
 						index
 					) => (
@@ -110,6 +124,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							summaryAs={ summaryAs }
 							summaryTitle={ summaryTitle }
 							actionDisabled={ actionDisabled }
+							summaryFontWeight={ stepSummaryFontWeight || summaryFontWeight }
+							overflow={ stepOverflow || overflow }
 						>
 							{ children }
 						</WizardStep>
