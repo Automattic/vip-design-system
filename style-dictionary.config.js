@@ -30,7 +30,12 @@ function formatShadow(layers) {
  */
 function tokenDisplayValue(token, useRefs = false) {
 	const raw = useRefs ? token.original.$value : token.$value;
-	if (token.$type === 'shadow') return formatShadow(raw);
+	if (token.$type === 'shadow') {
+		// If the value is still a reference string (e.g. a semantic token pointing to a primitive),
+		// convert it to a var() rather than trying to format it as shadow layers.
+		if (useRefs && typeof raw === 'string') return refToVar(raw);
+		return formatShadow(raw);
+	}
 	if (useRefs && typeof raw === 'string') return refToVar(raw);
 	return String(raw ?? '');
 }

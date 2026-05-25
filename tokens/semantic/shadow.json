@@ -1,0 +1,19 @@
+{
+	"shadow": {
+		"low": {
+			"$value": "{shadow.1}",
+			"$type": "shadow",
+			"$description": "Subtle elevation for cards, dropdowns, and floating elements close to the surface."
+		},
+		"medium": {
+			"$value": "{shadow.2}",
+			"$type": "shadow",
+			"$description": "Moderate elevation for modals, popovers, and elements raised above the page."
+		},
+		"high": {
+			"$value": "{shadow.3}",
+			"$type": "shadow",
+			"$description": "Strong elevation for dialogs and elements that need to stand out prominently."
+		}
+	}
+}
