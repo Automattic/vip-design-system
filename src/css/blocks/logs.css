@@ -1,7 +1,7 @@
 @layer blocks {
 	.logs {
 		background-color: var(--logs-background);
-		border-radius: var(--border-radius-2);
+		border-radius: var(--radius-container);
 		padding: var(--space-5);
 		overflow: auto;
 	}

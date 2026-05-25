@@ -22,7 +22,7 @@
 		color: var(--input-text-default);
 		background-color: var(--input-background-default);
 		border: 1px solid var(--input-border-default);
-		border-radius: var(--border-radius-1);
+		border-radius: var(--radius-control);
 		padding: var(--space-3) var(--space-4);
 		width: 100%;
 		transition:

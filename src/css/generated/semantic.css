@@ -293,6 +293,10 @@
 	--color-toolbar-text-default: var(--gray-7);
 	--color-toolbar-text-hover: var(--gray-7);
 	--color-toolbar-brand: var(--pure-white);
+	--radius-subtle: var(--border-radius-0);
+	--radius-control: var(--border-radius-1);
+	--radius-container: var(--border-radius-2);
+	--radius-expressive: var(--border-radius-3);
 }
 
 @supports (color: light-dark(red, blue)) {
@@ -618,6 +622,10 @@
 		--color-toolbar-text-default: var(--gray-7);
 		--color-toolbar-text-hover: var(--gray-7);
 		--color-toolbar-brand: var(--pure-white);
+		--radius-subtle: var(--border-radius-0);
+		--radius-control: var(--border-radius-1);
+		--radius-container: var(--border-radius-2);
+		--radius-expressive: var(--border-radius-3);
 	}
 	:root.theme-dark {
 		color-scheme: dark;

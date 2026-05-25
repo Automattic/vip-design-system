@@ -1,0 +1,24 @@
+{
+	"radius": {
+		"subtle": {
+			"$value": "{border-radius.0}",
+			"$type": "dimension",
+			"$description": "2px. Hairline rounding for fine details and edge cases (focus rings, inline highlights)."
+		},
+		"control": {
+			"$value": "{border-radius.1}",
+			"$type": "dimension",
+			"$description": "4px. Standard rounding for interactive controls: buttons, inputs, tags."
+		},
+		"container": {
+			"$value": "{border-radius.2}",
+			"$type": "dimension",
+			"$description": "8px. Rounding for passive surfaces: cards, panels, notices, dialogs."
+		},
+		"expressive": {
+			"$value": "{border-radius.3}",
+			"$type": "dimension",
+			"$description": "16px. High-curvature for feature callouts and special moments."
+		}
+	}
+}

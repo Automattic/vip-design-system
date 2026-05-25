@@ -704,6 +704,10 @@ export const tokens = {
 	'color.toolbar.text.default': 'var(--color-toolbar-text-default)',
 	'color.toolbar.text.hover': 'var(--color-toolbar-text-hover)',
 	'color.toolbar.brand': 'var(--color-toolbar-brand)',
+	'radius.subtle': 'var(--radius-subtle)',
+	'radius.control': 'var(--radius-control)',
+	'radius.container': 'var(--radius-container)',
+	'radius.expressive': 'var(--radius-expressive)',
 } as const;
 
 export type TokenName = keyof typeof tokens;
