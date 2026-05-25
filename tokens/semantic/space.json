@@ -1,0 +1,54 @@
+{
+	"space": {
+		"hairline": {
+			"$value": "{space.0}",
+			"$type": "dimension",
+			"$description": "2px. Micro gaps, fine details, and hairline adjustments."
+		},
+		"micro": {
+			"$value": "{space.1}",
+			"$type": "dimension",
+			"$description": "4px. Minimal spacing for tightly packed elements."
+		},
+		"tight": {
+			"$value": "{space.2}",
+			"$type": "dimension",
+			"$description": "6px. Dense spacing for compact UI elements."
+		},
+		"close": {
+			"$value": "{space.3}",
+			"$type": "dimension",
+			"$description": "8px. Close proximity between related elements."
+		},
+		"modest": {
+			"$value": "{space.4}",
+			"$type": "dimension",
+			"$description": "12px. Restrained spacing for in-component gaps and padding."
+		},
+		"comfortable": {
+			"$value": "{space.5}",
+			"$type": "dimension",
+			"$description": "16px. Standard spacing — the base unit of the layout rhythm."
+		},
+		"relaxed": {
+			"$value": "{space.6}",
+			"$type": "dimension",
+			"$description": "24px. Generous spacing for breathing room between components."
+		},
+		"loose": {
+			"$value": "{space.7}",
+			"$type": "dimension",
+			"$description": "32px. Open spacing for section-level separation."
+		},
+		"open": {
+			"$value": "{space.8}",
+			"$type": "dimension",
+			"$description": "40px. Wide spacing for prominent layout gaps."
+		},
+		"spacious": {
+			"$value": "{space.9}",
+			"$type": "dimension",
+			"$description": "56px. Maximum spacing for large-scale layout separation."
+		}
+	}
+}
