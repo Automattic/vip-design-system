@@ -382,9 +382,9 @@
 	--border-radius-6: 3.5rem;
 	--border-radius-responsive-3-5: clamp(1rem, calc(0.64rem + 1.81vw), 2.5rem);
 	--border-radius-responsive-4-6: clamp(2rem, calc(1.64rem + 1.81vw), 3.5rem);
-	--shadow-low: 0 1px 1px 0 #00000026, 0 1px 5px 0 #0000000d;
-	--shadow-medium: 0 1px 2px 0 #00000008, 0 15px 30px 0 #00000012;
-	--shadow-high:
+	--shadow-1: 0 1px 1px 0 #00000026, 0 1px 5px 0 #0000000d;
+	--shadow-2: 0 1px 2px 0 #00000008, 0 15px 30px 0 #00000012;
+	--shadow-3:
 		0 2.767px 2.214px 0 #00000005, 0 6.65px 5.32px 0 #00000008, 0 12.522px 10.017px 0 #0000000a,
 		0 22.336px 17.869px 0 #0000000a, 0 41.778px 33.422px 0 #0000000d, 0 100px 80px 0 #00000012;
 	--font-family-default:
