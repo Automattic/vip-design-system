@@ -13,6 +13,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
  */
 import { FormAutocompleteMultiselectBadge } from './FormAutocompleteMultiselectBadge';
 import { FormAutocompleteMultiselectButton } from './FormAutocompleteMultiselectButton';
+import { FormAutocompleteMultiselectInlineChip } from './FormAutocompleteMultiselectInlineChip';
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
@@ -96,6 +97,72 @@ const searchIconStyles = {
 	},
 };
 
+const inlineChipsContainerStyles = {
+	...baseBorderTextColors,
+	width: '100%',
+	display: 'flex',
+	flexWrap: 'wrap',
+	alignItems: 'center',
+	p: 1,
+	position: 'relative',
+	minHeight: '36px',
+	'&:focus-within': theme => theme.outline,
+	'& .autocomplete__wrapper': {
+		position: 'static',
+		width: '100%',
+	},
+	'& .autocomplete__input': {
+		width: '100%',
+		paddingLeft: 2,
+		py: 0,
+		borderWidth: 0,
+		color: 'text',
+		bg: 'transparent',
+		minHeight: '28px',
+		lineHeight: '28px',
+		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
+		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
+		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
+		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
+		'&::placeholder': {
+			color: 'input.text.placeholder',
+			opacity: 1,
+		},
+	},
+	'& .autocomplete__menu': {
+		...baseBorderTextColors,
+		position: 'absolute',
+		left: '-1px',
+		right: '-1px',
+		top: '100%',
+		width: 'auto',
+		zIndex: 100,
+		boxShadow: 'rgba(0, 0, 0, 0.257) 0px 2px 6px',
+	},
+	'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
+		fontSize: 'inherit',
+	},
+	'& .autocomplete__option': {
+		borderColor: baseControlBorderStyle.borderColor,
+	},
+	'& .autocomplete__option--odd': {
+		bg: 'layer.1',
+	},
+	'& .autocomplete__option:hover, & .autocomplete__option--focused': {
+		bg: 'input.background.primary',
+		borderColor: 'input.background.primary',
+	},
+	'& .autocomplete__hint': {
+		border: 'none',
+		paddingLeft: 2,
+		minHeight: '27px',
+		lineHeight: '27px',
+	},
+	'& .autocomplete__input--show-all-values': {
+		paddingRight: 0,
+	},
+};
+
 const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
 
 const AddSelectionStatus = ( { status } ) => {
@@ -156,10 +223,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			listType = 'button',
 			initialValue = [],
 			allowCustom = false,
+			variant,
 			...props
 		},
 		forwardRef
 	) => {
+		const isInlineChips = variant === 'inline-chips';
 		const OPTION_ACTION = {
 			ADD: 'add',
 			REMOVE: 'remove',
@@ -283,11 +352,41 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					data = handleTypeChange( query );
 				}
 				const optionForDisplay = data?.map( option => optionLabel( option ) );
-				populateResults(
-					optionForDisplay.filter( option => ! selectedOptions.includes( option ) )
-				);
+				if ( isInlineChips ) {
+					populateResults( optionForDisplay );
+				} else {
+					populateResults(
+						optionForDisplay.filter( option => ! selectedOptions.includes( option ) )
+					);
+				}
 			},
-			[ autoFilter, isDirty, onInputChange, options, selectedOptions ]
+			[ autoFilter, isDirty, isInlineChips, onInputChange, options, selectedOptions ]
+		);
+
+		const onValueChangeInlineChips = useCallback(
+			inputValue => {
+				if ( ! inputValue ) {
+					return;
+				}
+				if ( selectedOptions.includes( inputValue ) ) {
+					unselectValue( inputValue, selectedOptions.indexOf( inputValue ) );
+				} else {
+					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
+					setSelectedOptions( [ ...selectedOptions, inputValue ] );
+				}
+			},
+			[ selectedOptions, unselectValue ]
+		);
+
+		const inlineChipsTemplates = useMemo(
+			() => ( {
+				suggestion: suggestion => {
+					const isSelected = selectedOptions.includes( suggestion );
+					const check = isSelected ? '&#10003;' : '';
+					return `<span style="display:flex;align-items:center;gap:8px"><span style="width:16px;flex-shrink:0">${ check }</span>${ suggestion }</span>`;
+				},
+			} ),
+			[ selectedOptions ]
 		);
 
 		useEffect( () => {
@@ -348,6 +447,51 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				global.document.querySelector( '.autocomplete__input' )?.focus();
 			}
 		}, [ currentOption ] );
+
+		if ( isInlineChips ) {
+			return (
+				<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+					{ label && <SelectLabel /> }
+					<div sx={ inlineChipsContainerStyles }>
+						{ selectedOptions.map( ( option, idx ) => (
+							<FormAutocompleteMultiselectInlineChip
+								key={ idx }
+								index={ idx }
+								option={ option }
+								unselectValue={ unselectValue }
+							/>
+						) ) }
+						<div sx={ { flex: '1 1 120px', minWidth: '120px' } }>
+							<Autocomplete
+								id={ forLabel }
+								aria-busy={ loading }
+								showAllValues={ true }
+								ref={ forwardRef }
+								source={ source || suggest }
+								defaultValue={ value }
+								displayMenu={ displayMenu }
+								onConfirm={ onValueChangeInlineChips }
+								tNoResults={ noOptionsMessage }
+								required={ required }
+								dropdownArrow={ dropdownArrow }
+								confirmOnBlur={ false }
+								templates={ inlineChipsTemplates }
+								{ ...props }
+							/>
+						</div>
+						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
+						{ loading && <FormSelectLoading sx={ { right: 7 } } /> }
+					</div>
+					{ hasError && errorMessage && (
+						<Flex sx={ { mt: 2 } }>
+							<Validation isValid={ false } describedId={ forLabel }>
+								{ errorMessage }
+							</Validation>
+						</Flex>
+					) }
+				</div>
+			);
+		}
 
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
@@ -435,6 +579,7 @@ FormAutocompleteMultiselect.propTypes = {
 	dropdownArrow: PropTypes.node,
 	initialValue: PropTypes.array,
 	allowCustom: PropTypes.bool,
+	variant: PropTypes.string,
 };
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';
