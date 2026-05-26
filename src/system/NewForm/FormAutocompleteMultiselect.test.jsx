@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 /**
@@ -68,5 +68,38 @@ describe( '<FormAutocompleteMultiselect variant="inline-chips" />', () => {
 		expect( screen.getByText( 'Vanilla' ) ).toBeInTheDocument();
 		expect( screen.getByRole( 'button', { name: 'Remove Chocolate' } ) ).toBeInTheDocument();
 		expect( screen.getByRole( 'button', { name: 'Remove Vanilla' } ) ).toBeInTheDocument();
+	} );
+
+	it( 'removes a chip when the close button is clicked', () => {
+		render(
+			<FormAutocompleteMultiselect
+				forLabel="my_inline_chips_remove"
+				label="Categories"
+				options={ options }
+				variant="inline-chips"
+				showAllValues
+				initialValue={ [ 'Chocolate', 'Vanilla' ] }
+			/>
+		);
+		expect( screen.getByText( 'Chocolate' ) ).toBeInTheDocument();
+		fireEvent.click( screen.getByRole( 'button', { name: 'Remove Chocolate' } ) );
+		expect( screen.queryByText( 'Chocolate' ) ).not.toBeInTheDocument();
+		expect( screen.getByText( 'Vanilla' ) ).toBeInTheDocument();
+	} );
+
+	it( 'announces removal to screen readers', () => {
+		const { container } = render(
+			<FormAutocompleteMultiselect
+				forLabel="my_inline_chips_a11y"
+				label="Categories"
+				options={ options }
+				variant="inline-chips"
+				showAllValues
+				initialValue={ [ 'Chocolate', 'Vanilla' ] }
+			/>
+		);
+		fireEvent.click( screen.getByRole( 'button', { name: 'Remove Chocolate' } ) );
+		const statusEl = container.querySelector( '#vip-autocompletemultiselect-status' );
+		expect( statusEl ).toHaveTextContent( 'Chocolate removed from the list.' );
 	} );
 } );

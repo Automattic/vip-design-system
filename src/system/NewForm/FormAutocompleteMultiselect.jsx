@@ -439,12 +439,16 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			if ( currentOption.action === OPTION_ACTION.ADD ) {
 				setAddStatus( `${ currentOption.option } added to the list.` );
 				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
-			} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
-				// Move focus to the first selected item, if the last element is removed and there are other elements in the list
-				global.document.querySelector( '.vip-button-component' )?.focus();
-			} else if ( selectedOptions.length === 0 ) {
-				// Move focus to the input field if the last element is removed and there are no other elements in the list
-				global.document.querySelector( '.autocomplete__input' )?.focus();
+			} else if ( currentOption.action === OPTION_ACTION.REMOVE ) {
+				setAddStatus( `${ currentOption.option } removed from the list.` );
+				if ( isInlineChips ) {
+					global.document.querySelector( `#${ forLabel }` )?.focus();
+				} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
+					global.document.querySelector( '.vip-button-component' )?.focus();
+				} else if ( selectedOptions.length === 0 ) {
+					global.document.querySelector( '.autocomplete__input' )?.focus();
+				}
+				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
 			}
 		}, [ currentOption ] );
 
@@ -455,7 +459,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					<div sx={ inlineChipsContainerStyles }>
 						{ selectedOptions.map( ( option, idx ) => (
 							<FormAutocompleteMultiselectInlineChip
-								key={ idx }
+								key={ option }
 								index={ idx }
 								option={ option }
 								unselectValue={ unselectValue }
