@@ -37,3 +37,36 @@ describe( '<FormAutocompleteMultiselect />', () => {
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
+
+describe( '<FormAutocompleteMultiselect variant="inline-chips" />', () => {
+	it( 'renders the inline-chips variant', async () => {
+		const { container } = render(
+			<FormAutocompleteMultiselect
+				forLabel="my_inline_chips"
+				label="Categories"
+				options={ options }
+				variant="inline-chips"
+				showAllValues
+			/>
+		);
+		expect( screen.getByLabelText( 'Categories' ) ).toBeInTheDocument();
+		await expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	it( 'renders initial values as inline chips', () => {
+		render(
+			<FormAutocompleteMultiselect
+				forLabel="my_inline_chips_init"
+				label="Categories"
+				options={ options }
+				variant="inline-chips"
+				showAllValues
+				initialValue={ [ 'Chocolate', 'Vanilla' ] }
+			/>
+		);
+		expect( screen.getByText( 'Chocolate' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Vanilla' ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Remove Chocolate' } ) ).toBeInTheDocument();
+		expect( screen.getByRole( 'button', { name: 'Remove Vanilla' } ) ).toBeInTheDocument();
+	} );
+} );
