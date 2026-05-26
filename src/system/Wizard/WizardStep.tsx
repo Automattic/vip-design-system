@@ -82,12 +82,12 @@ export interface WizardStepProps {
 	 * The font weight applied to summary values.
 	 * @default 'bold'
 	 */
-	summaryFontWeight?: string;
+	summaryFontWeight?: React.CSSProperties[ 'fontWeight' ];
 	/**
 	 * The CSS overflow property for the step container.
 	 * @default 'inherit'
 	 */
-	overflow?: string;
+	overflow?: React.CSSProperties[ 'overflow' ];
 }
 
 /**

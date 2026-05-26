@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { forwardRef } from 'react';
+import { type CSSProperties, forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
@@ -35,7 +35,7 @@ export interface DescriptionListProps {
 	 * The font weight applied to values in the list.
 	 * @default 'bold'
 	 */
-	fontWeight?: string;
+	fontWeight?: CSSProperties[ 'fontWeight' ];
 }
 
 const TableComponent = ( {
@@ -81,6 +81,7 @@ const DescriptionListComponent = ( {
 	sx,
 	title,
 	labelWidth = '100px',
+	fontWeight,
 }: DescriptionListProps ) => (
 	<Box className={ className } sx={ sx }>
 		{ title && <Text sx={ { fontSize: 2 } }>{ title }</Text> }
@@ -94,6 +95,7 @@ const DescriptionListComponent = ( {
 					gap: 2,
 					alignItems: 'flex-start',
 					color: 'texts.helper',
+					...( fontWeight ? { '& > dd': { fontWeight } } : {} ),
 				} }
 			>
 				<dt>{ item.label }:</dt>
