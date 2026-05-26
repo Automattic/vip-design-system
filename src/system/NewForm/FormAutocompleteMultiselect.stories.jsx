@@ -161,17 +161,6 @@ export const InlineChips = {
 	},
 };
 
-export const InlineChipsEmpty = {
-	render: props => <DefaultComponent { ...props } width={ 500 } />,
-	args: {
-		label: 'Tags',
-		options: shortOptions,
-		variant: 'inline-chips',
-		showAllValues: true,
-		placeholder: 'Select tags...',
-	},
-};
-
 export const WithDynamicData = {
 	render: () => {
 		const [ selectedValues, setSelectedValues ] = useState( [] );

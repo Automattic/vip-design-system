@@ -104,6 +104,7 @@ const inlineChipsContainerStyles = {
 	flexWrap: 'wrap',
 	alignItems: 'center',
 	p: 1,
+	pr: 7,
 	position: 'relative',
 	minHeight: '36px',
 	'&:focus-within': theme => theme.outline,
@@ -481,6 +482,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 								confirmOnBlur={ false }
 								templates={ inlineChipsTemplates }
 								{ ...props }
+								placeholder={ selectedOptions.length > 0 ? '' : props.placeholder || '' }
 							/>
 						</div>
 						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
