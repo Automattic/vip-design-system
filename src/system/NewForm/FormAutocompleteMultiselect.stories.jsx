@@ -151,13 +151,7 @@ export const InlineChips = {
 		variant: 'inline-chips',
 		showAllValues: true,
 		placeholder: 'Search categories...',
-		initialValue: [
-			'Breaking News',
-			'World News',
-			'U.S. News',
-			'Climate & Environment',
-			'Obituaries',
-		],
+		initialValue: [ 'Breaking News' ],
 	},
 };
 

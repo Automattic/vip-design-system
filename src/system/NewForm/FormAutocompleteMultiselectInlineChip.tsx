@@ -24,7 +24,7 @@ const FormAutocompleteMultiselectInlineChip = ( {
 				py: '2px',
 				m: '2px',
 				bg: 'layer.1',
-				borderRadius: '12px',
+				borderRadius: 1,
 				fontSize: 1,
 				lineHeight: '20px',
 				whiteSpace: 'nowrap',
