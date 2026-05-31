@@ -7,6 +7,7 @@ import React from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { inlineStyles } from './FormSelectInline';
+import { baseControlBorderStyle } from '../Form/Input.styles';
 
 /**
  * Internal dependencies
@@ -24,16 +25,27 @@ interface FormSelectContentProps {
 	isInline?: boolean;
 	label?: React.ReactNode;
 	children?: React.ReactNode;
+	hasError?: boolean;
+	size?: string;
 }
 
 const FormSelectContent = React.forwardRef< HTMLDivElement, FormSelectContentProps >(
-	( { isInline, label, children }, forwardRef ) => (
-		<div sx={ isInline ? inlineStyles : {} } className="vip-select-component" ref={ forwardRef }>
-			{ isInline && label }
+	( { isInline, label, children, hasError }, forwardRef ) => {
+		const inlineStylesWithError: ThemeUIStyleObject = isInline
+			? {
+					...inlineStyles,
+					borderColor: hasError ? 'input.border.error' : baseControlBorderStyle.borderColor,
+			  }
+			: {};
 
-			<div sx={ defaultStyles }>{ children }</div>
-		</div>
-	)
+		return (
+			<div sx={ inlineStylesWithError } className="vip-select-component" ref={ forwardRef }>
+				{ isInline && label }
+
+				<div sx={ defaultStyles }>{ children }</div>
+			</div>
+		);
+	}
 );
 
 FormSelectContent.displayName = 'FormSelectContent';

@@ -78,6 +78,27 @@ export const Default = {
 	},
 };
 
+export const ReadOnly = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		readOnly: true,
+		value: 'chocolate',
+		options,
+	},
+};
+
+export const WithHelperText = {
+	render: props => <DefaultComponent { ...props } />,
+	args: {
+		placeholder: '- Select -',
+		required: true,
+		helperText: 'Helper text',
+		options,
+	},
+};
+
 export const Disabled = {
 	render: props => <DefaultComponent { ...props } />,
 	args: {
@@ -95,6 +116,7 @@ export const WithErrors = {
 		required: true,
 		hasError: true,
 		errorMessage: 'This is an error message',
+		helperText: 'Helper text',
 		options,
 	},
 };
@@ -155,4 +177,41 @@ export const WithOnChange = {
 			</>
 		);
 	},
+};
+
+export const SizeVariants = {
+	render: () => (
+		<div>
+			<h3>Size Variants</h3>
+			<p>FormSelect supports two sizes: large (40px, default) and small (32px, compact)</p>
+
+			<h4>Large (Default - 40px)</h4>
+			<div sx={ { maxWidth: 400, mb: 4 } }>
+				<Form.Select
+					size="large"
+					label="Large Select"
+					forLabel="select-large"
+					options={ options }
+					placeholder="Select an option..."
+				/>
+			</div>
+
+			<h4>Small (Compact - 32px)</h4>
+			<div sx={ { maxWidth: 400, mb: 4 } }>
+				<Form.Select
+					size="small"
+					label="Small Select"
+					forLabel="select-small"
+					options={ options }
+					placeholder="Select an option..."
+				/>
+			</div>
+
+			<h4>Side by Side Comparison</h4>
+			<div sx={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3, maxWidth: 800 } }>
+				<Form.Select size="large" label="Large" forLabel="select-large-2" options={ options } />
+				<Form.Select size="small" label="Small" forLabel="select-small-2" options={ options } />
+			</div>
+		</div>
+	),
 };

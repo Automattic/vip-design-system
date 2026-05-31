@@ -13,18 +13,15 @@ import { Input as ThemeInput } from 'theme-ui';
  */
 import { baseControlStyle } from './Input.styles';
 import { Button, Validation, Label } from '..';
+import { controlSizeStyles } from '../types/controlSize';
 
-const inputStyles = {
+const getInputStyles = ( size = 'large' ) => ( {
 	unset: 'all',
 	...baseControlStyle,
-	lineHeight: 'inherit',
-	minHeight: '36px',
-	px: 3,
-	py: 2,
-	fontSize: 2,
+	...controlSizeStyles[ size ],
 	mb: 2,
 	variant: 'inputs.default',
-};
+} );
 
 const InputWithCopyButton = React.forwardRef(
 	(
@@ -37,6 +34,7 @@ const InputWithCopyButton = React.forwardRef(
 			sx = {},
 			errorMessage,
 			copyHandler,
+			size = 'large',
 			...props
 		},
 		ref
@@ -68,7 +66,7 @@ const InputWithCopyButton = React.forwardRef(
 						aria-required={ required }
 						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
 						sx={ {
-							...inputStyles,
+							...getInputStyles( size ),
 							...sx,
 							...( hasError ? { borderColor: 'input.border.error' } : {} ),
 						} }
@@ -76,7 +74,7 @@ const InputWithCopyButton = React.forwardRef(
 					/>
 					<div sx={ { ml: 2 } }>
 						<Button
-							sx={ { height: '40px' } }
+							size={ size }
 							aria-label={ `Copy ${ label }` }
 							onClick={ handleCopy }
 							variant="ghost"
@@ -105,6 +103,7 @@ InputWithCopyButton.propTypes = {
 	errorMessage: PropTypes.string,
 	sx: PropTypes.object,
 	copyHandler: PropTypes.func,
+	size: PropTypes.oneOf( [ 'small', 'large' ] ),
 };
 
 InputWithCopyButton.displayName = 'InputWithCopyButton';

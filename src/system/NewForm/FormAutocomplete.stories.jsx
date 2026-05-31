@@ -191,3 +191,49 @@ export const WithCustomArrow = {
 		),
 	},
 };
+export const SizeVariants = {
+	render: () => (
+		<div>
+			<h3>Size Variants</h3>
+			<p>FormAutocomplete supports two sizes: large (40px, default) and small (32px, compact)</p>
+
+			<h4>Large (Default - 40px)</h4>
+			<div sx={ { maxWidth: 400, mb: 4 } }>
+				<Form.Autocomplete
+					size="large"
+					label="Large Autocomplete"
+					forLabel="autocomplete-large"
+					options={ options }
+					placeholder="Type to search..."
+				/>
+			</div>
+
+			<h4>Small (Compact - 32px)</h4>
+			<div sx={ { maxWidth: 400, mb: 4 } }>
+				<Form.Autocomplete
+					size="small"
+					label="Small Autocomplete"
+					forLabel="autocomplete-small"
+					options={ options }
+					placeholder="Type to search..."
+				/>
+			</div>
+
+			<h4>Side by Side Comparison</h4>
+			<div sx={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3, maxWidth: 800 } }>
+				<Form.Autocomplete
+					size="large"
+					label="Large"
+					forLabel="autocomplete-large-2"
+					options={ options }
+				/>
+				<Form.Autocomplete
+					size="small"
+					label="Small"
+					forLabel="autocomplete-small-2"
+					options={ options }
+				/>
+			</div>
+		</div>
+	),
+};

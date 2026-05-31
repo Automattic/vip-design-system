@@ -21,6 +21,7 @@ import { Flex } from '../';
 import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { getControlHeight } from '../types/controlSize';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -29,61 +30,69 @@ const baseBorderTextColors = {
 	borderRadius: 1,
 };
 
-const defaultStyles = {
-	width: '100%',
-	...baseBorderTextColors,
+const getDefaultStyles = ( size = 'large' ) => {
+	const height = getControlHeight( size );
+	const paddingLeft = size === 'small' ? 3 : 4;
+	const paddingRight = size === 'small' ? 6 : 7;
 
-	py: 0,
-	minHeight: '36px',
-	lineHeight: '36px',
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
-	'&.autocomplete__input--focused': theme => theme.outline,
-	'& .autocomplete__input': {
+	return {
 		width: '100%',
-		paddingLeft: 4,
-		py: 0,
-		borderWidth: 0,
-		color: 'text',
-		minHeight: '36px',
-		lineHeight: '36px',
-		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
-		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
-		'&::placeholder': {
-			color: 'input.text.placeholder',
-			opacity: 1,
-		},
-	},
-	'& .autocomplete__menu': {
 		...baseBorderTextColors,
-	},
-	'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
-		fontSize: 'inherit',
-	},
-	'& .autocomplete__wrapper': {
-		width: '100%',
-	},
-	'& .autocomplete__option': {
-		borderColor: baseControlBorderStyle.borderColor,
-	},
-	'& .autocomplete__option--odd': {
-		bg: 'layer.1',
-	},
-	'& .autocomplete__option:hover, & .autocomplete__option--focused': {
-		bg: 'input.background.primary',
-		borderColor: 'input.background.primary',
-	},
-	'& .autocomplete__input--show-all-values': {
-		paddingRight: 0,
-	},
-	'& .autocomplete__hint': {
-		border: 'none',
-		paddingLeft: 4,
-		minHeight: '27px',
-		lineHeight: '27px',
-	},
+
+		py: 0,
+		minHeight: height,
+		lineHeight: height,
+		fontSize: 2,
+		'&:focus-visible': theme => theme.outline,
+		'&:focus-within': theme => theme.outline,
+		'&.autocomplete__input--focused': theme => theme.outline,
+		'& .autocomplete__input': {
+			width: '100%',
+			paddingLeft,
+			py: 0,
+			borderWidth: 0,
+			color: 'text',
+			minHeight: height,
+			lineHeight: height,
+			fontSize: 2,
+			'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
+			'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
+			'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
+			'&.autocomplete__input--show-all-values': { paddingRight },
+			'&::placeholder': {
+				color: 'input.text.placeholder',
+				opacity: 1,
+			},
+		},
+		'& .autocomplete__menu': {
+			...baseBorderTextColors,
+		},
+		'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
+			fontSize: 2,
+		},
+		'& .autocomplete__wrapper': {
+			width: '100%',
+		},
+		'& .autocomplete__option': {
+			borderColor: baseControlBorderStyle.borderColor,
+		},
+		'& .autocomplete__option--odd': {
+			bg: 'layer.1',
+		},
+		'& .autocomplete__option:hover, & .autocomplete__option--focused': {
+			bg: 'input.background.primary',
+			borderColor: 'input.background.primary',
+		},
+		'& .autocomplete__input--show-all-values': {
+			paddingRight: 0,
+		},
+		'& .autocomplete__hint': {
+			border: 'none',
+			paddingLeft,
+			minHeight: '27px',
+			lineHeight: '27px',
+		},
+	};
 };
 
 const inlineStyles = {
@@ -156,6 +165,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			listType = 'button',
 			initialValue = [],
 			allowCustom = false,
+			size = 'large',
 			...props
 		},
 		forwardRef
@@ -354,7 +364,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				{ label && ! isInline && <SelectLabel /> }
 				<div
 					sx={ {
-						...defaultStyles,
+						...getDefaultStyles( size ),
 						...( isInline && inlineStyles ),
 						...( searchIcon && searchIconStyles ),
 					} }
@@ -435,6 +445,7 @@ FormAutocompleteMultiselect.propTypes = {
 	dropdownArrow: PropTypes.node,
 	initialValue: PropTypes.array,
 	allowCustom: PropTypes.bool,
+	size: PropTypes.oneOf( [ 'small', 'large' ] ),
 };
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';

@@ -21,9 +21,13 @@ export const FormSelectArrow = React.forwardRef< SVGSVGElement, FormSelectArrowP
 	( { iconSize = 24, separator = true, ...props }, forwardRef ) => {
 		const arrowStyles: ThemeUIStyleObject = {
 			position: 'absolute',
-			right: 3,
-			top: '7px',
+			right: 2,
+			top: '50%',
+			transform: 'translateY(-50%)',
 			pointerEvents: 'none',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
 			svg: {
 				fill: borderStyle.borderColor,
 			},

@@ -11,26 +11,24 @@ import { Input as ThemeInput, InputProps as ThemeInputProps, ThemeUIStyleObject 
  */
 import { baseControlStyle } from './Input.styles';
 import { Validation, Label, Box } from '../';
+import { ControlSize, controlSizeStyles } from '../types/controlSize';
 
-const inputStyles = {
+const getInputStyles = ( size: ControlSize = 'large' ) => ( {
 	unset: 'all',
 	...baseControlStyle,
-	lineHeight: 'inherit',
-	minHeight: '36px',
-	px: 3,
-	py: 2,
+	...controlSizeStyles[ size ],
 	mb: 0,
-	fontSize: 2,
 	variant: 'inputs.default',
-};
+} );
 
-export interface InputProps extends ThemeInputProps {
+export interface InputProps extends Omit< ThemeInputProps, 'size' > {
 	label?: string;
 	hasError?: boolean;
 	required?: boolean;
 	forLabel?: string;
 	errorMessage?: string;
 	wrapperSx?: ThemeUIStyleObject;
+	size?: ControlSize;
 }
 export const Input = React.forwardRef< HTMLInputElement, InputProps >(
 	(
@@ -42,6 +40,7 @@ export const Input = React.forwardRef< HTMLInputElement, InputProps >(
 			sx = {},
 			wrapperSx = {},
 			errorMessage,
+			size = 'large',
 			...props
 		},
 		ref
@@ -60,7 +59,7 @@ export const Input = React.forwardRef< HTMLInputElement, InputProps >(
 					aria-required={ required }
 					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
 					sx={ {
-						...inputStyles,
+						...getInputStyles( size ),
 						...sx,
 						...( hasError ? { borderColor: 'input.border.error' } : {} ),
 					} }

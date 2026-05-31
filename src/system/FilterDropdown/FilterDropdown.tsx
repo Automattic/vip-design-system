@@ -10,6 +10,7 @@ import * as Dropdown from '../Dropdown';
 import { DropdownContentProps } from '../Dropdown/DropdownContent';
 import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';
 import ScreenReaderText from '../ScreenReaderText';
+import { ControlSize } from '../types/controlSize';
 
 export type FilterDropdownCheckItemProps = DropdownCheckboxItemProps & {
 	/** Whether this filter option is currently selected. */
@@ -58,6 +59,7 @@ export type FilterDropdownProps = {
 	defaultValue?: string | null;
 	/** Props forwarded to the underlying Dropdown content container. */
 	contentProps?: DropdownContentProps;
+	size?: ControlSize;
 };
 
 /** Dropdown menu for selecting a single filter from a set of options. */
@@ -68,6 +70,7 @@ export const FilterDropdown = ( {
 	onSelect,
 	defaultValue = null,
 	contentProps = {},
+	size = 'large',
 }: FilterDropdownProps ) => {
 	const translate = useTranslate();
 	const filterKeys = Object.keys( filters );
@@ -81,6 +84,7 @@ export const FilterDropdown = ( {
 				<Button
 					className={ classNames( 'vip-filter-dropdown-trigger', className ) }
 					variant="secondary"
+					size={ size }
 				>
 					<ScreenReaderText>{ translate( 'Filter:' ) } </ScreenReaderText>
 

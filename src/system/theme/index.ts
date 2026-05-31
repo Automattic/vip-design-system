@@ -235,6 +235,10 @@ export default {
 	lineHeights: getVariants( 'lineHeight' ),
 	sizes: {
 		sidebar: 260,
+		control: {
+			small: 32, // Total height including borders
+			large: 40, // Total height including borders
+		},
 	},
 	radii: getVariants( 'borderRadius.static' ),
 	config: {
@@ -350,6 +354,7 @@ export default {
 			py: 0,
 			px: 5,
 			minHeight: '38px',
+			fontSize: 2,
 			display: 'inline-flex',
 			cursor: 'pointer',
 			boxShadow: 'none',
@@ -368,6 +373,11 @@ export default {
 				'&:hover': {
 					fill: 'inherit',
 				},
+			},
+			'&[data-size="small"]': {
+				minHeight: '30px',
+				px: 3,
+				fontSize: 2,
 			},
 			'&[data-danger="true"]': {
 				color: 'button.danger.primary.label.default',
@@ -527,8 +537,17 @@ export default {
 			display: 'inline-flex',
 			alignItems: 'center',
 			color: 'text',
+			minHeight: '38px',
+			px: 5,
+			py: 0,
+			fontSize: 2,
 			'&:hover': {
 				bg: 'hover',
+			},
+			'&[data-size="small"]': {
+				minHeight: '30px',
+				px: 3,
+				fontSize: 2,
 			},
 		},
 
@@ -541,9 +560,15 @@ export default {
 			variant: 'buttons.ghost',
 			color: 'text',
 			padding: 1,
+			minHeight: '38px',
+			px: 1,
 
 			'&:hover': {
 				backgroundColor: 'borders.2',
+			},
+			'&[data-size="small"]': {
+				minHeight: '30px',
+				padding: 1,
 			},
 		},
 	},

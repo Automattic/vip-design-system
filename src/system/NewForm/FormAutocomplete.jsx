@@ -19,6 +19,7 @@ import { FormSelectSearch } from './FormSelectSearch';
 import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { getControlHeight } from '../types/controlSize';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -27,58 +28,67 @@ const baseBorderTextColors = {
 	borderRadius: 1,
 };
 
-const defaultStyles = {
-	width: '100%',
-	mb: 2,
-	...baseBorderTextColors,
+const getDefaultStyles = ( size = 'large' ) => {
+	const height = getControlHeight( size );
+	const paddingLeft = size === 'small' ? 3 : 3;
+	const paddingRight = size === 'small' ? 6 : 7;
+	const hintHeight = size === 'small' ? '23px' : '27px';
 
-	py: 0,
-	minHeight: '36px',
-	lineHeight: '36px',
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
-	'&.autocomplete__input--focused': theme => theme.outline,
-	'& .autocomplete__input': {
+	return {
 		width: '100%',
-		paddingLeft: 3,
-		py: 0,
-		borderWidth: 0,
-		color: 'text',
-		minHeight: '36px',
-		lineHeight: '36px',
-		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
-		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
-	},
-	'& .autocomplete__menu': {
+		mb: 2,
 		...baseBorderTextColors,
-	},
-	'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
-		fontSize: 'inherit',
-	},
-	'& .autocomplete__wrapper': {
-		width: '100%',
-	},
-	'& .autocomplete__option': {
-		borderColor: baseControlBorderStyle.borderColor,
-	},
-	'& .autocomplete__option--odd': {
-		bg: 'layer.1',
-	},
-	'& .autocomplete__option:hover, & .autocomplete__option--focused': {
-		bg: 'input.background.primary',
-		borderColor: 'input.background.primary',
-	},
-	'& .autocomplete__input--show-all-values': {
-		paddingRight: 0,
-	},
-	'& .autocomplete__hint': {
-		border: 'none',
-		paddingLeft: 3,
-		minHeight: '27px',
-		lineHeight: '27px',
-	},
+
+		py: 0,
+		minHeight: height,
+		lineHeight: height,
+		fontSize: 2,
+		'&:focus-visible': theme => theme.outline,
+		'&:focus-within': theme => theme.outline,
+		'&.autocomplete__input--focused': theme => theme.outline,
+		'& .autocomplete__input': {
+			width: '100%',
+			paddingLeft,
+			py: 0,
+			borderWidth: 0,
+			color: 'text',
+			minHeight: height,
+			lineHeight: height,
+			fontSize: 2,
+			'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
+			'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
+			'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
+			'&.autocomplete__input--show-all-values': { paddingRight },
+		},
+		'& .autocomplete__menu': {
+			...baseBorderTextColors,
+		},
+		'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
+			fontSize: 2,
+		},
+		'& .autocomplete__wrapper': {
+			width: '100%',
+		},
+		'& .autocomplete__option': {
+			borderColor: baseControlBorderStyle.borderColor,
+		},
+		'& .autocomplete__option--odd': {
+			bg: 'layer.1',
+		},
+		'& .autocomplete__option:hover, & .autocomplete__option--focused': {
+			bg: 'input.background.primary',
+			borderColor: 'input.background.primary',
+		},
+		'& .autocomplete__input--show-all-values': {
+			paddingRight: 0,
+		},
+		'& .autocomplete__hint': {
+			border: 'none',
+			paddingLeft,
+			minHeight: hintHeight,
+			lineHeight: hintHeight,
+		},
+	};
 };
 
 const inlineStyles = {
@@ -127,6 +137,7 @@ const FormAutocomplete = React.forwardRef(
 			source,
 			value,
 			allowCustom = false,
+			size = 'large',
 			...props
 		},
 		forwardRef
@@ -327,7 +338,7 @@ const FormAutocomplete = React.forwardRef(
 
 				<div
 					sx={ {
-						...defaultStyles,
+						...getDefaultStyles( size ),
 						...( isInline && inlineStyles ),
 						...( searchIcon && searchIconStyles ),
 						...( allowCustom && allowCustomStyles ),
@@ -395,6 +406,7 @@ FormAutocomplete.propTypes = {
 	value: PropTypes.string,
 	dropdownArrow: PropTypes.node,
 	allowCustom: PropTypes.bool,
+	size: PropTypes.oneOf( [ 'small', 'large' ] ),
 };
 
 FormAutocomplete.displayName = 'FormAutocomplete';
