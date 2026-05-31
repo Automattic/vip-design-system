@@ -50,7 +50,7 @@ import * as Form from './NewForm';
 import { NewTooltip } from './NewTooltip';
 import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
-import { Pagination } from './Pagination';
+import { SimplePagination, Pagination } from './Pagination';
 import { Progress } from './Progress';
 import { ScreenReaderText } from './ScreenReaderText';
 import { Skeleton } from './Skeleton';
@@ -99,6 +99,7 @@ export {
 	Flex,
 	Notice,
 	OptionRow,
+	SimplePagination,
 	Pagination,
 	Heading,
 	Hr,

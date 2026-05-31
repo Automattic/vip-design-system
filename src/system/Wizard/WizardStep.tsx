@@ -171,8 +171,6 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						sx={ {
 							mb: 0,
 							color: headingColor,
-							fontSize: 2,
-							fontWeight: 'heading',
 							flexGrow: 1,
 						} }
 						ref={ titleRef }

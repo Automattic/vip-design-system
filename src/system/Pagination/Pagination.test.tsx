@@ -109,7 +109,7 @@ describe( '<Pagination />', () => {
 	} );
 
 	it( 'renders compact variant with Page text', () => {
-		render( <Pagination { ...defaultProps } variant="compact" currentPage={ 3 } /> );
+		render( <Pagination { ...defaultProps } compact currentPage={ 3 } /> );
 
 		expect( screen.getByText( 'Page' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'of 10' ) ).toBeInTheDocument();
@@ -136,9 +136,7 @@ describe( '<Pagination />', () => {
 	} );
 
 	it( 'has no accessibility violations (compact variant)', async () => {
-		const { container } = render(
-			<Pagination { ...defaultProps } variant="compact" currentPage={ 5 } />
-		);
+		const { container } = render( <Pagination { ...defaultProps } compact currentPage={ 5 } /> );
 
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
@@ -304,7 +302,7 @@ describe( '<Pagination /> open-ended mode', () => {
 	} );
 
 	it( 'renders compact variant with "Page" but without "of Y"', () => {
-		render( <Pagination { ...openEndedProps } variant="compact" /> );
+		render( <Pagination { ...openEndedProps } compact /> );
 
 		expect( screen.getByText( 'Page' ) ).toBeInTheDocument();
 		expect( screen.queryByText( /of \d+/ ) ).not.toBeInTheDocument();
@@ -317,7 +315,7 @@ describe( '<Pagination /> open-ended mode', () => {
 	} );
 
 	it( 'has no accessibility violations (open-ended compact)', async () => {
-		const { container } = render( <Pagination { ...openEndedProps } variant="compact" /> );
+		const { container } = render( <Pagination { ...openEndedProps } compact /> );
 
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );

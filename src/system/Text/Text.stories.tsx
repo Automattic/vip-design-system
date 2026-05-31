@@ -33,16 +33,19 @@ export const Default: Story = {
 				with silver.{ ' ' }
 			</Text>
 
-			<Text sx={ { color: 'texts.accent' } }>Text Accent</Text>
+			<Text variant="default">Body Default</Text>
+			<Text variant="small">Body Small</Text>
+			<Text variant="large">Body Large</Text>
+			<Text variant="mono">Body Mono</Text>
+			<Text variant="mono-bold">Body Mono Bold</Text>
 
+			<Text sx={ { color: 'texts.accent' } }>Text Accent</Text>
 			<Text sx={ { color: 'texts.helper' } }>Text Helper</Text>
 
-			<Text sx={ { color: 'texts.helper', fontWeight: 'body' } }>Text Helper</Text>
-			<Text sx={ { color: 'texts.helper', fontWeight: 'heading' } }>Text Helper</Text>
+			<Text sx={ { color: 'texts.helper', fontWeight: 'light' } }>Text Helper</Text>
 			<Text sx={ { color: 'texts.helper', fontWeight: 'regular' } }>Text Helper</Text>
 			<Text sx={ { color: 'texts.helper', fontWeight: 'medium' } }>Text Helper</Text>
 			<Text sx={ { color: 'texts.helper', fontWeight: 'bold' } }>Text Helper</Text>
-			<Text sx={ { color: 'texts.helper', fontWeight: 'light' } }>Text Helper</Text>
 
 			<Text sx={ { color: 'texts.secondary' } }>Text Secondary</Text>
 

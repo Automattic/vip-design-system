@@ -30,18 +30,18 @@ export const Primary: Story = {
 		steps: [
 			{
 				title: 'Step One',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				subTitle: 'First step description.',
 				children: 'Step one content',
 			},
 			{
 				title: 'Step Two',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				subTitle: 'Second step description.',
 			},
 			{
 				title: 'Step Three',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 			},
 		],
 	},
@@ -52,7 +52,7 @@ export const Default: Story = {
 		const steps: WizardStepProps[] = [
 			{
 				title: 'Choose Domain',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				subTitle: 'You can bring a domain name you already own, or buy a new one.',
 				children: (
 					<Box>
@@ -64,16 +64,16 @@ export const Default: Story = {
 			},
 			{
 				title: 'Configure DNS',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				summaryTitle: 'Summary of Configure DNS',
 			},
 			{
 				title: 'Configure Certificate',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 			},
 			{
 				title: 'Verify Domain',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 			},
 		];
 		return (
@@ -99,7 +99,7 @@ export const WithTitleAutoFocus: Story = {
 		const steps: WizardStepProps[] = [
 			{
 				title: 'Choose Domain',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				summary: [
 					{
 						label: 'Demo Label',
@@ -119,7 +119,7 @@ export const WithTitleAutoFocus: Story = {
 			},
 			{
 				title: 'Configure DNS',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				onChange: () => setActiveStep( 1 ),
 				actionLabel: 'Edit',
 				actionDisabled: true,
@@ -136,7 +136,7 @@ export const WithTitleAutoFocus: Story = {
 
 			{
 				title: 'Certificate',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				summary: [
 					{
 						label: 'Certificate status',
@@ -192,7 +192,7 @@ export const HideStepText: Story = {
 		const steps: WizardStepProps[] = [
 			{
 				title: 'Included Logs',
-				titleVariant: 'h2',
+				titleVariant: 'h3',
 				subTitle: '',
 				children: <Text sx={ { mb: 0 } }>Error Logs</Text>,
 				onChange: () => {

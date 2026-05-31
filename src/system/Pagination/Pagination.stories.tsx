@@ -21,10 +21,12 @@ const meta: Meta< typeof Pagination > = {
 				component: `
 A Pagination component for navigating paged data.
 
-## Variants
+## Modes
 
-- **full** (default): Shows individual page number buttons with ellipsis for large page counts.
-- **compact**: Shows a dropdown page selector instead of individual page numbers.
+- **Default**: Shows individual page number buttons with ellipsis for large page counts.
+- **Compact** (\`compact\` prop): Shows a dropdown page selector instead of individual page numbers.
+
+For cursor-based pagination with only prev/next arrows, see \`SimplePagination\`.
 
 ## Component Properties
 `,
@@ -42,12 +44,13 @@ const PaginationWithState = ( {
 	totalItems = 200,
 	initialItemsPerPage = 20,
 	displayItemsPerPageSelector = false,
+	compact = false,
 	...props
 }: {
 	initialPage?: number;
 	totalItems?: number;
 	initialItemsPerPage?: number;
-	variant?: 'full' | 'compact';
+	compact?: boolean;
 	pageSizeOptions?: number[];
 	displayItemsPerPageSelector?: boolean;
 } ) => {
@@ -62,6 +65,7 @@ const PaginationWithState = ( {
 			itemsPerPage={ itemsPerPage }
 			onPageChange={ setCurrentPage }
 			displayItemsPerPageSelector={ displayItemsPerPageSelector }
+			compact={ compact }
 			onItemsPerPageChange={ size => {
 				setItemsPerPage( size );
 				setCurrentPage( 1 );
@@ -84,12 +88,12 @@ const OpenEndedPaginationWithState = ( {
 	initialPage = 1,
 	initialItemsPerPage = 20,
 	hasNextPage,
-	...props
+	compact = false,
 }: {
 	initialPage?: number;
 	initialItemsPerPage?: number;
 	hasNextPage?: boolean;
-	variant?: 'full' | 'compact';
+	compact?: boolean;
 } ) => {
 	const [ currentPage, setCurrentPage ] = useState( initialPage );
 	const [ itemsPerPage, setItemsPerPage ] = useState( initialItemsPerPage );
@@ -104,7 +108,7 @@ const OpenEndedPaginationWithState = ( {
 				setCurrentPage( 1 );
 			} }
 			hasNextPage={ hasNextPage }
-			{ ...props }
+			compact={ compact }
 		>
 			<Flex sx={ { justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle' } }>
 				<Badge variant="gold" sx={ { mr: 2 } }>
@@ -121,7 +125,6 @@ export const Primary: Story = {
 		currentPage: 1,
 		totalItems: 200,
 		itemsPerPage: 20,
-		variant: 'full',
 		displayItemsPerPageSelector: false,
 	},
 };
@@ -131,7 +134,7 @@ export const Default: Story = {
 };
 
 export const Compact: Story = {
-	render: () => <PaginationWithState variant="compact" />,
+	render: () => <PaginationWithState compact />,
 };
 
 export const FewPages: Story = {
@@ -212,7 +215,7 @@ export const OpenEnded: Story = {
 };
 
 export const OpenEndedCompact: Story = {
-	render: () => <OpenEndedPaginationWithState variant="compact" />,
+	render: () => <OpenEndedPaginationWithState compact />,
 };
 
 export const OpenEndedLastPage: Story = {
