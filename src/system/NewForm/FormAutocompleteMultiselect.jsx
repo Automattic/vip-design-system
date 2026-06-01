@@ -106,73 +106,32 @@ const searchIconStyles = {
 };
 
 const inlineChipsContainerStyles = {
-	...baseBorderTextColors,
-	width: '100%',
+	...defaultStyles,
 	display: 'flex',
 	flexWrap: 'wrap',
 	alignItems: 'center',
 	p: 1,
-	pr: 7,
+	pr: 0,
 	position: 'relative',
-	minHeight: '36px',
+	'& .autocomplete__input': {
+		...defaultStyles[ '& .autocomplete__input' ],
+		lineHeight: '24px',
+		minHeight: '24px',
+	},
 	'&:focus-within': theme => theme.outline,
 	'& .autocomplete__wrapper': {
 		position: 'static',
 		width: '100%',
-	},
-	'& .autocomplete__input': {
-		width: '100%',
-		paddingLeft: 2,
-		py: 0,
-		borderWidth: 0,
-		color: 'text',
-		bg: 'transparent',
-		minHeight: '28px',
-		lineHeight: '28px',
-		'&:focus-visible': { outlineWidth: 0, boxShadow: 'none' },
-		'&:focus-within': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--focused': { outlineWidth: 0, boxShadow: 'none' },
-		'&.autocomplete__input--show-all-values': { paddingRight: 7 },
-		'&::placeholder': {
-			color: 'input.text.placeholder',
-			opacity: 1,
+		lineHeight: '24px',
+		minHeight: '24px',
+		'& .autocomplete__dropdown-arrow-down': {
+			top: 'unset',
+			bottom: '6px',
 		},
-	},
-	'& .autocomplete__menu': {
-		...baseBorderTextColors,
-		position: 'absolute',
-		left: '-1px',
-		right: '-1px',
-		top: '100%',
-		width: 'auto',
-		zIndex: 100,
-		boxShadow: 'rgba(0, 0, 0, 0.257) 0px 2px 6px',
-	},
-	'& .autocomplete__hint, & .autocomplete__input, & .autocomplete__option': {
-		fontSize: 'inherit',
-	},
-	'& .autocomplete__option': {
-		borderColor: baseControlBorderStyle.borderColor,
-	},
-	'& .autocomplete__option--odd': {
-		bg: 'layer.1',
-	},
-	'& .autocomplete__option:hover, & .autocomplete__option--focused': {
-		bg: 'input.background.primary',
-		borderColor: 'input.background.primary',
-	},
-	'& .autocomplete__hint': {
-		border: 'none',
-		paddingLeft: 2,
-		minHeight: '27px',
-		lineHeight: '27px',
-	},
-	'& .autocomplete__input--show-all-values': {
-		paddingRight: 0,
 	},
 };
 
-const DefaultArrow = config => <FormSelectArrow classNames={ config.className } />;
+const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
 
 const AddSelectionStatus = ( { status } ) => {
 	return (
