@@ -134,6 +134,27 @@ export const WithStaticData = {
 	},
 };
 
+export const InlineChips = {
+	render: props => <DefaultComponent { ...props } width={ 500 } />,
+	args: {
+		label: 'Post Categories',
+		options: [
+			{ value: 'breaking-news', label: 'Breaking News' },
+			{ value: 'world-news', label: 'World News' },
+			{ value: 'us-news', label: 'U.S. News' },
+			{ value: 'climate-environment', label: 'Climate & Environment' },
+			{ value: 'obituaries', label: 'Obituaries' },
+			{ value: 'technology', label: 'Technology' },
+			{ value: 'entertainment', label: 'Entertainment' },
+			{ value: 'real-estate', label: 'Real Estate' },
+		],
+		variant: 'inline-chips',
+		showAllValues: true,
+		placeholder: 'Search categories...',
+		initialValue: [ 'Breaking News' ],
+	},
+};
+
 export const WithDynamicData = {
 	render: () => {
 		const [ selectedValues, setSelectedValues ] = useState( [] );
