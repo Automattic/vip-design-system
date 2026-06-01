@@ -23,6 +23,14 @@ import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
 
+const escapeHtml = str =>
+	String( str )
+		.replace( /&/g, '&amp;' )
+		.replace( /</g, '&lt;' )
+		.replace( />/g, '&gt;' )
+		.replace( /"/g, '&quot;' )
+		.replace( /'/g, '&#039;' );
+
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
 	backgroundColor: 'layer.2',
@@ -386,7 +394,9 @@ const FormAutocompleteMultiselect = React.forwardRef(
 				suggestion: suggestion => {
 					const isSelected = selectedOptions.includes( suggestion );
 					const check = isSelected ? '&#10003;' : '';
-					return `<span style="display:flex;align-items:center;gap:8px"><span style="width:16px;flex-shrink:0">${ check }</span>${ suggestion }</span>`;
+					return `<span style="display:flex;align-items:center;gap:8px"><span style="width:16px;flex-shrink:0">${ check }</span>${ escapeHtml(
+						suggestion
+					) }</span>`;
 				},
 			} ),
 			[ selectedOptions ]
