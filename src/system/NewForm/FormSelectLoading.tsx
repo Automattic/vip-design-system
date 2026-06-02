@@ -25,6 +25,7 @@ interface FormSelectLoadingProps {
 const loadingStyles: ThemeUIStyleObject = {
 	position: 'absolute',
 	right: 3,
+	top: '9px',
 	pointerEvents: 'none',
 	animation: `${ kf } 1s infinite linear`,
 	opacity: 0.5,

@@ -466,7 +466,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							/>
 						</div>
 						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
-						{ loading && <FormSelectLoading sx={ { right: 7, top: '9px' } } /> }
+						{ loading && <FormSelectLoading sx={ { right: 7 } } /> }
 					</div>
 					{ hasError && errorMessage && (
 						<Flex sx={ { mt: 2 } }>
