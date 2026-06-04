@@ -111,7 +111,7 @@ const inlineChipsContainerStyles = {
 	flexWrap: 'wrap',
 	alignItems: 'center',
 	p: 1,
-	pr: 0,
+	pr: 5,
 	position: 'relative',
 	'& .autocomplete__input': {
 		...defaultStyles[ '& .autocomplete__input' ],
@@ -125,13 +125,15 @@ const inlineChipsContainerStyles = {
 		lineHeight: '24px',
 		minHeight: '24px',
 		'& .autocomplete__dropdown-arrow-down': {
-			top: 'unset',
-			bottom: '6px',
+			top: '6px',
+			bottom: 'unset',
 		},
 	},
 };
 
-const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
+const DefaultArrow = config => (
+	<FormSelectArrow className={ config.className } separator={ false } />
+);
 
 const AddSelectionStatus = ( { status } ) => {
 	return (
@@ -446,7 +448,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 								unselectValue={ unselectValue }
 							/>
 						) ) }
-						<div sx={ { flex: '1 1 120px', minWidth: '120px' } }>
+						<div sx={ { flex: '1 1 120px', minWidth: '120px', mr: -5 } }>
 							<Autocomplete
 								id={ forLabel }
 								aria-busy={ loading }
