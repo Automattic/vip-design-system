@@ -125,8 +125,8 @@ const inlineChipsContainerStyles = {
 		lineHeight: '24px',
 		minHeight: '24px',
 		'& .autocomplete__dropdown-arrow-down': {
-			top: 'unset',
-			bottom: '6px',
+			top: '6px',
+			bottom: 'unset',
 		},
 	},
 };
