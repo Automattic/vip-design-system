@@ -111,7 +111,7 @@ const inlineChipsContainerStyles = {
 	flexWrap: 'wrap',
 	alignItems: 'center',
 	p: 1,
-	pr: 0,
+	pr: 5,
 	position: 'relative',
 	'& .autocomplete__input': {
 		...defaultStyles[ '& .autocomplete__input' ],
@@ -448,7 +448,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 								unselectValue={ unselectValue }
 							/>
 						) ) }
-						<div sx={ { flex: '1 1 120px', minWidth: '120px' } }>
+						<div sx={ { flex: '1 1 120px', minWidth: '120px', mr: -5 } }>
 							<Autocomplete
 								id={ forLabel }
 								aria-busy={ loading }
