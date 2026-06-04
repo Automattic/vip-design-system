@@ -131,7 +131,9 @@ const inlineChipsContainerStyles = {
 	},
 };
 
-const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
+const DefaultArrow = config => (
+	<FormSelectArrow className={ config.className } separator={ false } />
+);
 
 const AddSelectionStatus = ( { status } ) => {
 	return (
