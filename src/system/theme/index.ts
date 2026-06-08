@@ -135,12 +135,14 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 				active: theme.heading,
 				inactive: theme.text.helper,
 				skipped: theme.text.helper,
+				error: theme.support.text.error,
 			},
 			icon: {
 				complete: theme.support.icon.success,
 				active: theme.link.default,
 				inactive: theme.input.border.disabled,
 				skipped: theme.input.border.disabled,
+				error: theme.support.icon.error,
 			},
 			border: {
 				default: theme.border[ '2' ],
@@ -148,6 +150,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 				active: theme.border.accent,
 				inactive: theme.input.border.disabled,
 				skipped: theme.input.border.disabled,
+				error: theme.support.accent.error,
 			},
 		},
 	},

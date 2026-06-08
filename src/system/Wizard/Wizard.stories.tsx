@@ -47,6 +47,38 @@ export const Primary: Story = {
 	},
 };
 
+export const Error: Story = {
+	render: () => {
+		const steps: WizardStepProps[] = [
+			{
+				title: 'Salesforce Domain',
+				titleVariant: 'h3',
+				children: (
+					<Box>
+						<Text sx={ { display: 'block', mb: 3, color: 'text.secondary' } }>
+							DNS not configured. Please check that your DNS is configured properly, then try again.
+						</Text>
+						<Button>Retry</Button>
+					</Box>
+				),
+			},
+			{
+				title: 'Install Packages',
+				titleVariant: 'h3',
+			},
+			{
+				title: 'Connect to Salesforce',
+				titleVariant: 'h3',
+			},
+		];
+		return (
+			<Box mt={ 4 }>
+				<Wizard activeStep={ 0 } steps={ steps } errored={ [ 0 ] } />
+			</Box>
+		);
+	},
+};
+
 export const Default: Story = {
 	render: () => {
 		const steps: WizardStepProps[] = [
