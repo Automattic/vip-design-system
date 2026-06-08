@@ -51,8 +51,8 @@ export interface WizardStepProps {
 	/**
 	 * Whether this step is in an error state. Takes visual precedence over the
 	 * active/complete/skipped status: renders a red error icon, title, and left
-	 * border. Content (children/subtitle) still follows the `active` flag, so an
-	 * active step in error keeps showing its content.
+	 * border. The subtitle is hidden so the step shows only its error content
+	 * (children); children continue to render for the active step.
 	 * @default false
 	 */
 	error?: boolean;
@@ -242,7 +242,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					/>
 				) }
 
-				{ subTitle && active && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
+				{ subTitle && active && ! error && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
 
 				{ active && Boolean( children ) && <Box sx={ { pt: 2 } }>{ children }</Box> }
 			</Card>

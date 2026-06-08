@@ -57,4 +57,23 @@ describe( '<Wizard /> error state', () => {
 
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'hides the subtitle of an errored step, showing only its error content', () => {
+		const errorSteps = [
+			{ title: 'Step One', subTitle: 'Step instructions', children: <div>Error body</div> },
+		];
+		renderWithTheme( <Wizard activeStep={ 0 } steps={ errorSteps } errored={ [ 0 ] } /> );
+
+		expect( screen.queryByText( 'Step instructions' ) ).not.toBeInTheDocument();
+		expect( screen.getByText( 'Error body' ) ).toBeInTheDocument();
+	} );
+
+	it( 'shows the subtitle of an active step that is not errored', () => {
+		const okSteps = [
+			{ title: 'Step One', subTitle: 'Step instructions', children: <div>Body</div> },
+		];
+		renderWithTheme( <Wizard activeStep={ 0 } steps={ okSteps } /> );
+
+		expect( screen.getByText( 'Step instructions' ) ).toBeInTheDocument();
+	} );
 } );
