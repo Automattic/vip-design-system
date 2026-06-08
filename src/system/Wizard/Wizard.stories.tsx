@@ -51,23 +51,23 @@ export const Error: Story = {
 	render: () => {
 		const steps: WizardStepProps[] = [
 			{
-				title: 'Salesforce Domain',
+				title: 'Step One',
 				titleVariant: 'h3',
 				children: (
 					<Box>
 						<Text sx={ { display: 'block', mb: 3, color: 'text.secondary' } }>
-							DNS not configured. Please check that your DNS is configured properly, then try again.
+							Something went wrong. Please try again.
 						</Text>
 						<Button>Retry</Button>
 					</Box>
 				),
 			},
 			{
-				title: 'Install Packages',
+				title: 'Step Two',
 				titleVariant: 'h3',
 			},
 			{
-				title: 'Connect to Salesforce',
+				title: 'Step Three',
 				titleVariant: 'h3',
 			},
 		];
