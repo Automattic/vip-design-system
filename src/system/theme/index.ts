@@ -130,6 +130,10 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 			number: {
 				color: theme.text.helper,
 			},
+			// The `error` status (heading/icon/border below) intentionally uses
+			// `theme.text.error` (#bf2a23) for all three, per the Figma error design —
+			// not the `support.*.error` palette used by other statuses, whose reds are
+			// different shades (icon #e74135, accent #ff745f) and would not match.
 			heading: {
 				complete: theme.text.success,
 				active: theme.heading,
