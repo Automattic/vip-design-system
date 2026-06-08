@@ -55,7 +55,7 @@ export const Error: Story = {
 				titleVariant: 'h3',
 				children: (
 					<Box>
-						<Text sx={ { display: 'block', mb: 3, color: 'text.secondary' } }>
+						<Text sx={ { display: 'block', mb: 3, color: 'texts.secondary' } }>
 							Something went wrong. Please try again.
 						</Text>
 						<Button>Retry</Button>
