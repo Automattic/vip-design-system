@@ -27,6 +27,12 @@ export interface WizardProps {
 	 * @default []
 	 */
 	skipped?: number[];
+	/**
+	 * Array of zero-based indices for steps that are in an error state. An errored
+	 * step shows a red error icon, title, and left border (see WizardStep `error`).
+	 * @default []
+	 */
+	errored?: number[];
 	/** Additional CSS class name for the wizard container. */
 	className?: string;
 	/**
@@ -57,6 +63,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 			activeStep,
 			completed = [],
 			skipped = [],
+			errored = [],
 			className = null,
 			titleAutofocus = false,
 			showStepText = true,
@@ -95,6 +102,7 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							active={ index === activeStep }
 							complete={ completed.includes( index ) }
 							skipped={ skipped.includes( index ) }
+							error={ errored.includes( index ) }
 							key={ index }
 							order={ index + 1 }
 							totalSteps={ steps.length }

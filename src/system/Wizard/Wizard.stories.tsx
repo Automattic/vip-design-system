@@ -47,6 +47,38 @@ export const Primary: Story = {
 	},
 };
 
+export const Error: Story = {
+	render: () => {
+		const steps: WizardStepProps[] = [
+			{
+				title: 'Step One',
+				titleVariant: 'h3',
+				children: (
+					<Box>
+						<Text sx={ { display: 'block', mb: 3, color: 'texts.secondary' } }>
+							Something went wrong. Please try again.
+						</Text>
+						<Button>Retry</Button>
+					</Box>
+				),
+			},
+			{
+				title: 'Step Two',
+				titleVariant: 'h3',
+			},
+			{
+				title: 'Step Three',
+				titleVariant: 'h3',
+			},
+		];
+		return (
+			<Box mt={ 4 }>
+				<Wizard activeStep={ 0 } steps={ steps } errored={ [ 0 ] } />
+			</Box>
+		);
+	},
+};
+
 export const Default: Story = {
 	render: () => {
 		const steps: WizardStepProps[] = [

@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React, { useLayoutEffect } from 'react';
-import { BsCircleFill, BsFillCheckCircleFill } from 'react-icons/bs';
+import { BsCircleFill, BsFillCheckCircleFill, BsXCircleFill } from 'react-icons/bs';
 
 /**
  * Internal dependencies
@@ -48,6 +48,14 @@ export interface WizardStepProps {
 	 * @default false
 	 */
 	skipped?: boolean;
+	/**
+	 * Whether this step is in an error state. Takes visual precedence over the
+	 * active/complete/skipped status: renders a red error icon, title, and left
+	 * border. The subtitle is hidden so the step shows only its error content
+	 * (children); children continue to render for the active step.
+	 * @default false
+	 */
+	error?: boolean;
 	/** Callback invoked when the user clicks the change action on a completed or skipped step. */
 	onChange?: () => void;
 	/** An array of label-value pairs displayed as a summary when the step is completed or skipped. */
@@ -91,6 +99,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			subTitle,
 			skipped = false,
 			complete = false,
+			error = false,
 			children,
 			active,
 			order,
@@ -111,7 +120,11 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 		const titleRef = React.useRef< HTMLHeadingElement >( null );
 		let status = 'inactive';
 		let statusText = 'Step not completed';
-		if ( active && ! ( complete && totalSteps === 1 ) ) {
+		if ( error ) {
+			// Error takes visual precedence over every other status.
+			status = 'error';
+			statusText = 'Step has an error';
+		} else if ( active && ! ( complete && totalSteps === 1 ) ) {
 			// if the step is active but is an unique step, we don't want to show as active status
 			status = 'active';
 			statusText = ''; // not adding the status text for active step since it's announced by aria-current
@@ -126,6 +139,13 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			statusText = `Status: ${ statusText }`;
 		}
 		const stepText = `STEP ${ order } OF ${ totalSteps }`;
+
+		let StatusIcon = BsCircleFill;
+		if ( error ) {
+			StatusIcon = BsXCircleFill;
+		} else if ( complete ) {
+			StatusIcon = BsFillCheckCircleFill;
+		}
 
 		const borderLeftColor = `wizard.step.border.${ status }`;
 		const statusIconColor = `wizard.step.icon.${ status }`;
@@ -187,11 +207,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 						) }
 
 						<Flex as="span" sx={ { alignItems: 'center' } } aria-hidden="true">
-							{ complete ? (
-								<BsFillCheckCircleFill sx={ statusIconStyles } />
-							) : (
-								<BsCircleFill sx={ statusIconStyles } />
-							) }
+							<StatusIcon sx={ statusIconStyles } />
 							{ title }
 						</Flex>
 
@@ -226,9 +242,13 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 					/>
 				) }
 
-				{ subTitle && active && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
+				{ subTitle && active && ! error && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
 
-				{ active && Boolean( children ) && <Box sx={ { pt: 2 } }>{ children }</Box> }
+				{ active && Boolean( children ) && (
+					// In the error state there's no subtitle, so the content sits directly
+					// under the heading and needs a bit more breathing room (12px vs 8px).
+					<Box sx={ { pt: error ? 3 : 2 } }>{ children }</Box>
+				) }
 			</Card>
 		);
 	}
