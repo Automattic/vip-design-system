@@ -244,7 +244,11 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 
 				{ subTitle && active && ! error && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
 
-				{ active && Boolean( children ) && <Box sx={ { pt: 2 } }>{ children }</Box> }
+				{ active && Boolean( children ) && (
+					// In the error state there's no subtitle, so the content sits directly
+					// under the heading and needs a bit more breathing room (12px vs 8px).
+					<Box sx={ { pt: error ? 3 : 2 } }>{ children }</Box>
+				) }
 			</Card>
 		);
 	}
