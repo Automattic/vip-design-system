@@ -14,7 +14,6 @@ export const inputBaseText = 'input.text.default';
 export const inputBaseBackground = 'input.background.default';
 export const baseControlFocusStyle = {
 	'&:focus-visible': ( theme: InputTheme ) => theme.outline,
-	'&:focus-within': ( theme: InputTheme ) => theme.outline,
 };
 
 export const baseControlStyle = {
