@@ -92,7 +92,6 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 				borderBottomLeftRadius: 1,
 				borderBottomRightRadius: 1,
 			},
-			'&:focus-within': ( theme: AccordionTheme ) => theme.outline,
 		} }
 	>
 		{ children }
@@ -136,6 +135,21 @@ export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
 						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
 					},
 					'&:hover': { backgroundColor: 'accordion.background.hover' },
+					// Keyboard-only focus ring on the header (the trigger button
+					// fills the header). Rendered inset, reusing the shared
+					// focus-ring colors, because the parent Item has overflow:hidden
+					// for its rounded corners which would clip an outset ring.
+					'&:focus-visible': ( theme: AccordionTheme ) => {
+						const ring = theme.outline?.boxShadow;
+						return ring
+							? {
+									boxShadow: ring
+										.split( /,(?![^(]*\))/ )
+										.map( layer => `inset ${ layer.trim() }` )
+										.join( ', ' ),
+							  }
+							: {};
+					},
 					...sx,
 				} }
 				{ ...props }
