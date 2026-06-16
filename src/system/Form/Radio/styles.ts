@@ -13,7 +13,7 @@ export const inputStyle = ( variant: string ): ThemeUIStyleObject => ( {
 	clipPath: 'inset(50%)',
 	width: RADIO_SIZE,
 	height: RADIO_SIZE,
-	'&:focus ~ label:before': {
+	'&:focus-visible ~ label:before': {
 		variant: 'outline',
 		content: '""',
 		border: '1px solid',
