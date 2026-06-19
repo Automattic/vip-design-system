@@ -35,7 +35,7 @@ export const DialogTitle: React.FC< DialogTitleProps > = ( { title, hidden = fal
 
 	return (
 		<DialogPrimitive.Title
-			sx={ { margin: 0, fontSize: 3, fontWeight: 'medium', color: 'heading' } }
+			sx={ { margin: 0, variant: 'text.h3', color: 'heading' } }
 		>
 			{ titleNode }
 		</DialogPrimitive.Title>
