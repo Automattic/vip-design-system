@@ -1,0 +1,15 @@
+{
+  "$schema": "https://react.doctor/schema/config.json",
+  "rules": {
+    // theme-ui `sx` prop is flagged as an unknown DOM attribute everywhere — pure noise
+    "react-doctor/no-unknown-property": "off"
+  },
+  "ignore": {
+    // Glob patterns excluded from ALL rules.
+    "files": [
+      // Design-token source + Figma tooling: generated/build-time code (incl. the intentional
+      // `eval()` in the responsive-type calculator), never shipped in the component bundle.
+      "tokens/**"
+    ]
+  }
+}
