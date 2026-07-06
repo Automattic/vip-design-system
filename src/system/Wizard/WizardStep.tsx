@@ -35,10 +35,16 @@ export interface WizardStepProps {
 	/** The title content displayed in the step header. */
 	title: React.ReactNode;
 	/**
-	 * The heading variant used for the step title.
+	 * The heading variant used for the step title. Controls the typographic style.
 	 * @default 'h3'
 	 */
 	titleVariant?: HeadingProps[ 'variant' ];
+	/**
+	 * The HTML heading element used to render the step title, independent of its
+	 * visual style. Use this to keep a correct document outline (e.g. render an
+	 * `h2` while keeping `h3` styling). Defaults to the value of `titleVariant`.
+	 */
+	titleAs?: HeadingProps[ 'variant' ];
 	/** A subtitle displayed below the title when the step is active. */
 	subTitle?: React.ReactNode;
 	/** The content rendered inside the step when it is active. */
@@ -106,6 +112,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 			totalSteps,
 			shouldFocusTitle,
 			titleVariant = 'h3',
+			titleAs,
 			summary,
 			summaryTitle,
 			summaryAs = 'table',
@@ -188,6 +195,7 @@ export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
 				<Flex sx={ { alignItems: 'center' } }>
 					<Heading
 						variant={ titleVariant }
+						as={ titleAs ?? titleVariant }
 						sx={ {
 							mb: 0,
 							color: headingColor,

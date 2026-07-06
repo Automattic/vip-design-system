@@ -47,6 +47,36 @@ export const Primary: Story = {
 	},
 };
 
+/**
+ * `titleVariant` (visual style) and `titleAs` (semantic HTML element) can be set
+ * once at the Wizard level so they apply to every step, avoiding repetition. Here
+ * all titles render as `h2` elements while keeping `h3` styling, and the last step
+ * overrides `titleAs` to `h4` to demonstrate per-step precedence.
+ */
+export const WizardTitleLevels: Story = {
+	args: {
+		activeStep: 0,
+		completed: [],
+		titleVariant: 'h3',
+		titleAs: 'h2',
+		steps: [
+			{
+				title: 'Step One',
+				subTitle: 'Rendered as an h2 element with h3 styling.',
+				children: 'Step one content',
+			},
+			{
+				title: 'Step Two',
+				subTitle: 'Also an h2 element, inheriting the Wizard-level titleAs.',
+			},
+			{
+				title: 'Step Three (overrides titleAs)',
+				titleAs: 'h4',
+			},
+		],
+	},
+};
+
 export const Error: Story = {
 	render: () => {
 		const steps: WizardStepProps[] = [

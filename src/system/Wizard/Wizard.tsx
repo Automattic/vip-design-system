@@ -11,6 +11,7 @@ import React, { useLayoutEffect, useState } from 'react';
  */
 import { WizardStepProps } from './WizardStep';
 import { Box, WizardStep } from '..';
+import { HeadingProps } from '../Heading/Heading';
 
 export interface WizardProps {
 	/** The array of step configurations to render. */
@@ -50,6 +51,18 @@ export interface WizardProps {
 	 * @default 'table'
 	 */
 	summaryAs?: 'table' | 'dl';
+	/**
+	 * The heading variant (typographic style) applied to every step title. A step
+	 * can override this with its own `titleVariant`.
+	 * @default 'h3'
+	 */
+	titleVariant?: HeadingProps[ 'variant' ];
+	/**
+	 * The HTML heading element used for every step title, independent of its
+	 * visual style — useful for keeping a correct document outline. A step can
+	 * override this with its own `titleAs`. Defaults to the value of `titleVariant`.
+	 */
+	titleAs?: HeadingProps[ 'variant' ];
 }
 
 /**
@@ -68,6 +81,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 			titleAutofocus = false,
 			showStepText = true,
 			summaryAs = 'table',
+			titleVariant,
+			titleAs,
 		},
 		forwardRef
 	) => {
@@ -88,7 +103,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							title,
 							subTitle,
 							children,
-							titleVariant,
+							titleVariant: stepTitleVariant,
+							titleAs: stepTitleAs,
 							summary,
 							onChange,
 							actionLabel,
@@ -108,7 +124,8 @@ export const Wizard = React.forwardRef< HTMLDivElement, WizardProps >(
 							totalSteps={ steps.length }
 							subTitle={ subTitle }
 							title={ title }
-							titleVariant={ titleVariant }
+							titleVariant={ stepTitleVariant ?? titleVariant }
+							titleAs={ stepTitleAs ?? titleAs }
 							summary={ summary }
 							onChange={ onChange }
 							shouldFocusTitle={ titleAutofocus && didMount }
