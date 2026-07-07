@@ -7,7 +7,7 @@ import { translate } from 'i18n-calypso';
  * Internal dependencies
  */
 import { LinkExternal } from '../LinkExternal/LinkExternal';
-import { Text } from '../Text';
+import { Text } from '../Text/Text';
 
 export const a8cLogo = (
 	<Text as="span" sx={ { display: 'inline-flex', alignItems: 'center', gap: 2, mb: 0 } }>

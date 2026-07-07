@@ -9,9 +9,14 @@ import { BsCircleFill, BsFillCheckCircleFill, BsXCircleFill } from 'react-icons/
 /**
  * Internal dependencies
  */
-import { Card, Heading, Text, Flex, Button, Box, DescriptionList } from '..';
-import { HeadingProps } from '../Heading/Heading';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { Card } from '../Card/Card';
+import { DescriptionList } from '../DescriptionList/DescriptionList';
+import { Flex } from '../Flex/Flex';
+import { Heading, HeadingProps } from '../Heading/Heading';
 import { ScreenReaderText } from '../ScreenReaderText';
+import { Text } from '../Text/Text';
 
 export interface WizardStepSummary {
 	/** The label for the summary item. */

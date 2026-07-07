@@ -10,7 +10,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box } from '../Box';
+import { Box } from '../Box/Box';
 
 interface FormSelectSearchProps {
 	sx?: ThemeUIStyleObject;

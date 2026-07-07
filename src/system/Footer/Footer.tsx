@@ -37,6 +37,10 @@ type FooterProps = {
 	maxWidth?: string | number;
 };
 
+const FooterLinks = ( { children, ...props } ) => {
+	return <li { ...props }>{ children }</li>;
+};
+
 export const Footer = ( {
 	hasTrailingSeparator = false,
 	hasUnderlinedLinks = false,
@@ -44,10 +48,6 @@ export const Footer = ( {
 	customLogo,
 	maxWidth = '100%',
 }: FooterProps ) => {
-	const FooterLinks = ( { children, ...props } ) => {
-		return <li { ...props }>{ children }</li>;
-	};
-
 	const trailingSeparator = {
 		'&:last-of-type::after': {
 			display: 'inline-block',

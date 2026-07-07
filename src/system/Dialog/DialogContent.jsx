@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
@@ -29,6 +29,7 @@ const DialogContent = ( { position = 'left', variant = 'dropdown', onClose, ...p
 	return (
 		<React.Fragment>
 			{ [ 'modal', 'sidebar' ].includes( variant ) && (
+				// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- decorative backdrop; clicking closes the dialog as a mouse convenience, keyboard users close via the Escape handler above
 				<div
 					onClick={ onClose }
 					sx={ {
@@ -65,35 +66,36 @@ const DialogContent = ( { position = 'left', variant = 'dropdown', onClose, ...p
 	);
 };
 
-const SidebarMotion = props => (
-	<motion.div
-		{ ...props }
-		initial={ {
-			x: -20,
-			opacity: 0,
-		} }
-		animate={ {
-			x: 0,
-			opacity: 1,
-		} }
-		exit={ { x: -20, opacity: 0 } }
-		transition={ { duration: 0.15 } }
-		sx={ {
-			marginTop: 2,
-			borderRadius: 2,
-			backgroundColor: 'dialog',
-			boxShadow: 'medium',
-			position: 'absolute',
-			top: '100%',
-			zIndex: 100,
-			padding: 0,
-			display: 'block',
-			variant: 'dialog.sidebar',
-		} }
-	/>
-);
+const SidebarMotion = props => {
+	// Honor the OS "reduce motion" setting (WCAG 2.3.3): drop the sliding
+	// transform and use an instant transition, keeping only a calm opacity fade.
+	const shouldReduceMotion = useReducedMotion();
+
+	return (
+		<motion.div
+			{ ...props }
+			initial={ shouldReduceMotion ? { opacity: 0 } : { x: -20, opacity: 0 } }
+			animate={ shouldReduceMotion ? { opacity: 1 } : { x: 0, opacity: 1 } }
+			exit={ shouldReduceMotion ? { opacity: 0 } : { x: -20, opacity: 0 } }
+			transition={ { duration: shouldReduceMotion ? 0 : 0.15 } }
+			sx={ {
+				marginTop: 2,
+				borderRadius: 2,
+				backgroundColor: 'dialog',
+				boxShadow: 'medium',
+				position: 'absolute',
+				top: '100%',
+				zIndex: 100,
+				padding: 0,
+				display: 'block',
+				variant: 'dialog.sidebar',
+			} }
+		/>
+	);
+};
 
 const DialogMotion = ( { variant, position, ...props } ) => {
+	const shouldReduceMotion = useReducedMotion();
 	let transformOrigin = 'center';
 
 	if ( variant === 'dropdown' ) {
@@ -108,7 +110,7 @@ const DialogMotion = ( { variant, position, ...props } ) => {
 		<motion.div
 			{ ...props }
 			initial={ {
-				scale: 0.9,
+				scale: shouldReduceMotion ? 1 : 0.9,
 				x: variant === 'dropdown' ? 0 : '-50%',
 				opacity: 0,
 			} }
@@ -117,8 +119,8 @@ const DialogMotion = ( { variant, position, ...props } ) => {
 				x: variant === 'dropdown' ? 0 : '-50%',
 				opacity: 1,
 			} }
-			exit={ { scale: 0.9, opacity: 0 } }
-			transition={ { duration: 0.15 } }
+			exit={ { scale: shouldReduceMotion ? 1 : 0.9, opacity: 0 } }
+			transition={ { duration: shouldReduceMotion ? 0 : 0.15 } }
 			sx={ {
 				marginTop: 2,
 				transformOrigin,

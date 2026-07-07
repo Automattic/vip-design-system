@@ -10,7 +10,10 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { NewDialog, Box, Flex, Button } from '..';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import * as NewDialog from '../NewDialog';
 
 const NewConfirmationDialogContent = ( {
 	label = 'Confirm',

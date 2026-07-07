@@ -13,8 +13,7 @@ import { Theme, ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Heading } from '../Heading';
-import { HeadingProps } from '../Heading/Heading';
+import { Heading, HeadingProps } from '../Heading/Heading';
 
 const slideDown = keyframes( {
 	from: { height: 0 },

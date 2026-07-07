@@ -9,7 +9,8 @@ import { useEffect, useRef } from 'react';
 /**
  * Internal dependencies
  */
-import { Box, Spinner } from '../';
+import { Box } from '../Box/Box';
+import { Spinner } from '../Spinner/Spinner';
 
 const DialogMenuItem = ( { loading = false, children, ...props } ) => {
 	const itemRef = useRef( null );

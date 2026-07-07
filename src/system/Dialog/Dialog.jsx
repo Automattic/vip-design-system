@@ -10,7 +10,8 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * Internal dependencies
  */
-import { DialogContent, DialogTrigger } from '.';
+import { DialogContent } from './DialogContent';
+import { DialogTrigger } from './DialogTrigger';
 
 const Dialog = ( {
 	trigger,
@@ -53,6 +54,7 @@ const Dialog = ( {
 	};
 
 	return (
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- wrapper only stops click propagation so the click-outside handler ignores inner clicks; it is not an interactive control (keyboard interaction lives on DialogTrigger)
 		<div
 			onClick={ e => e.stopPropagation() }
 			sx={ { position: 'relative' } }

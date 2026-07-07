@@ -13,10 +13,10 @@ import {
 	arrowButtonStyles,
 	compactTextStyles,
 } from './styles';
-import { Box } from '../Box';
-import { Button } from '../Button';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
 import { Select } from '../NewForm';
-import { Text } from '../Text';
+import { Text } from '../Text/Text';
 
 export interface PaginationProps extends PaginationLayoutProps {
 	/** The currently active page number (1-based). */

@@ -10,7 +10,7 @@ import { ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box } from '../';
+import { Box } from '../Box/Box';
 
 export interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
 	/** The content to display inside the cell. */

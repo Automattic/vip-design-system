@@ -47,6 +47,7 @@ const ChipOption = ( {
 	const describedById = `input-radio-box-${ forLabel }-description`;
 
 	return (
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- forwards to the nested native radio <input>, which is keyboard-operable via its associated <label> and focus-visible outline
 		<div
 			id={ `o${ forLabel }` }
 			onClick={ () => {

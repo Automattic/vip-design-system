@@ -9,8 +9,10 @@ import { ProgressProps, Progress as ThemeProgress } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box, Text, Flex } from '..';
-import { Spinner } from '../Spinner';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Spinner } from '../Spinner/Spinner';
+import { Text } from '../Text/Text';
 
 const prefix = 'vip-progress-component';
 const uniqueID = () => Math.random().toString( 36 ).substring( 7 );
