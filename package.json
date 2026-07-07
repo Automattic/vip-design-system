@@ -1,6 +1,6 @@
 {
   "name": "@automattic/vip-design-system",
-  "version": "2.20.5-dev.0",
+  "version": "2.20.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/Automattic/vip-design-system"
