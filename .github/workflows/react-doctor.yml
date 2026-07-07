@@ -1,0 +1,38 @@
+---
+name: React Doctor
+on:
+  pull_request:
+    branches: [trunk]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: react-doctor-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  react-doctor:
+    name: React Doctor
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # Full history so the PR can be diffed against the trunk base.
+          fetch-depth: 0
+
+      - uses: millionco/react-doctor@547e1e4ecdb70315d81a91ec3605701d58616ee2 # v2.1.0
+        with:
+          # Advisory only: report findings but never fail the run / block merge.
+          blocking: none
+          # Only report issues this PR introduces versus the trunk base.
+          scope: changed
+          # Keep a single sticky summary comment that updates in place.
+          comment: true
+          # Avoid flooding the PR with inline comments / hitting comment limits.
+          review-comments: false
+          # No commit status (also keeps permissions to contents:read + PR write).
+          commit-status: false
