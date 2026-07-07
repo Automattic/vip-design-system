@@ -2,7 +2,22 @@
   "$schema": "https://react.doctor/schema/config.json",
   "rules": {
     // theme-ui `sx` prop is flagged as an unknown DOM attribute everywhere — pure noise
-    "react-doctor/no-unknown-property": "off"
+    "react-doctor/no-unknown-property": "off",
+
+    // This is a *published* component library: its public API is consumed by external
+    // packages via `@automattic/vip-design-system`, and the entry (`src/system/index.ts`)
+    // re-exports whole modules with namespace imports (`import * as Form from './NewForm'`).
+    // deslop only sees the internal module graph and cannot trace namespace re-exports or
+    // external consumers, so it reports intentionally-public exports as "unused". deslop's
+    // own guidance says to suppress these. (Genuinely-dead *internal* helpers should be
+    // deleted at the source instead of relying on this rule.)
+    "deslop/unused-export": "off",
+
+    // React Fast Refresh rule: wants component files to export *only* components so HMR can
+    // preserve state during local dev. This library ships to npm — Fast Refresh is not its
+    // build target — and exporting a component alongside its prop types / variant enums
+    // (`ButtonVariant`, `CardVariant`) / style objects is idiomatic here. Not applicable.
+    "react-doctor/only-export-components": "off"
   },
   "ignore": {
     // Glob patterns excluded from ALL rules.

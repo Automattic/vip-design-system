@@ -99,6 +99,10 @@ const searchIconStyles = {
 
 const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
 
+// Module-scope no-op so the default `onChange` keeps a stable reference across
+// renders (an inline `() => {}` default reallocates every render and defeats memoization).
+const noop = () => {};
+
 const FormAutocomplete = React.forwardRef(
 	(
 		{
@@ -117,7 +121,7 @@ const FormAutocomplete = React.forwardRef(
 			loading,
 			minLength = 0,
 			noOptionsMessage = () => 'No results found. Type to search.',
-			onChange = () => {},
+			onChange = noop,
 			onInputChange,
 			options = [],
 			required,
@@ -204,7 +208,7 @@ const FormAutocomplete = React.forwardRef(
 					}
 				}
 			},
-			[ onChange, getOptionByLabel, setAutocompleteState ]
+			[ setAutocompleteState, resetOnBlur, inputQuery, selectedValue ]
 		);
 
 		const handleTypeChange = useCallback(

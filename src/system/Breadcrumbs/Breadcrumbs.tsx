@@ -173,6 +173,7 @@ export const Breadcrumbs = forwardRef< HTMLElement, BreacrumbsProps >(
 								} }
 							>
 								<button
+									type="button"
 									sx={ collapsibleSeparatorStyles }
 									aria-label={ translate( 'Press to show more breadcrumbs' ) }
 									onClick={ () => setShowAllItems( true ) }
