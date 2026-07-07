@@ -77,3 +77,55 @@ describe( '<Wizard /> error state', () => {
 		expect( screen.getByText( 'Step instructions' ) ).toBeInTheDocument();
 	} );
 } );
+
+describe( '<Wizard /> title element and style', () => {
+	it( 'renders step titles as h3 elements by default', () => {
+		const { container } = renderWithTheme( <Wizard activeStep={ 0 } steps={ steps } /> );
+
+		expect( container.querySelectorAll( 'h3' ) ).toHaveLength( steps.length );
+	} );
+
+	it( 'applies a Wizard-level titleAs element to every step', () => {
+		const { container } = renderWithTheme(
+			<Wizard activeStep={ 0 } steps={ steps } titleAs="h2" />
+		);
+
+		expect( container.querySelectorAll( 'h2' ) ).toHaveLength( steps.length );
+		expect( container.querySelectorAll( 'h3' ) ).toHaveLength( 0 );
+	} );
+
+	it( 'lets a step override the Wizard-level titleAs', () => {
+		const overrideSteps = [ { title: 'Step One' }, { title: 'Step Two', titleAs: 'h4' as const } ];
+		const { container } = renderWithTheme(
+			<Wizard activeStep={ 0 } steps={ overrideSteps } titleAs="h2" />
+		);
+
+		// One inherits the Wizard default (h2), the other overrides to h4.
+		expect( container.querySelectorAll( 'h2' ) ).toHaveLength( 1 );
+		expect( container.querySelectorAll( 'h4' ) ).toHaveLength( 1 );
+	} );
+
+	it( 'keeps titleVariant styling while titleAs changes the element', () => {
+		const { container } = renderWithTheme(
+			<Wizard
+				activeStep={ 0 }
+				steps={ [ { title: 'Only Step' } ] }
+				titleVariant="h3"
+				titleAs="h2"
+			/>
+		);
+
+		// The rendered element is an h2 that still carries the shared heading class
+		// (typographic variant is driven by titleVariant, not the element).
+		const heading = container.querySelector( 'h2.vip-heading-component' );
+		expect( heading ).toBeInTheDocument();
+	} );
+
+	it( 'has no accessibility violations when using a custom title element', async () => {
+		const { container } = renderWithTheme(
+			<Wizard activeStep={ 0 } steps={ steps } titleAs="h2" />
+		);
+
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+} );
