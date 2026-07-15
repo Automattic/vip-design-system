@@ -10,7 +10,12 @@ import { MdArrowForward } from 'react-icons/md';
 /**
  * Internal dependencies
  */
-import { Badge, Box, Grid, Heading, Text, Link } from '..';
+import { Badge } from '../Badge/Badge';
+import { Box } from '../Box/Box';
+import { Grid } from '../Grid/Grid';
+import { Heading } from '../Heading/Heading';
+import { Link } from '../Link/Link';
+import { Text } from '../Text/Text';
 
 const disabledStyles = {
 	border: '1px solid',

@@ -11,7 +11,9 @@ import { Input as ThemeInput } from 'theme-ui';
  * Internal dependencies
  */
 import { baseControlStyle } from './Input.styles';
-import { Button, Validation, Label } from '..';
+import { Label } from './Label';
+import { Validation } from './Validation';
+import { Button } from '../Button/Button';
 
 const inputStyles = {
 	unset: 'all',

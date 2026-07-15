@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React, { Ref, forwardRef } from 'react';
 
-import { Flex } from '..';
+import { Flex } from '../Flex/Flex';
 
 export type ToolbarUtilNavProps = {
 	/** Navigation items rendered inside the utility nav. */

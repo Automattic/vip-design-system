@@ -5,7 +5,7 @@
 /**
  * Internal dependencies
  */
-import { Box } from '../Box';
+import { Box } from '../Box/Box';
 
 export interface SkeletonProps {
 	/**
@@ -44,7 +44,6 @@ export const Skeleton = ( {
 	<>
 		{ Array.from( { length: times } ).map( ( i, index ) => (
 			<Box
-				key={ index }
 				sx={ {
 					borderRadius: variant === 'circle' ? '50%' : borderRadius,
 					width,
@@ -67,6 +66,7 @@ export const Skeleton = ( {
 				} }
 				aria-hidden
 				{ ...props }
+				key={ index }
 			></Box>
 		) ) }
 	</>

@@ -15,9 +15,9 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
 import { FormSelectSearch } from './FormSelectSearch';
-import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { Validation } from '../Form/Validation';
 
 const baseBorderTextColors = {
 	...baseControlBorderStyle,
@@ -98,6 +98,10 @@ const searchIconStyles = {
 
 const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
 
+// Module-scope no-op so the default `onChange` keeps a stable reference across
+// renders (an inline `() => {}` default reallocates every render and defeats memoization).
+const noop = () => {};
+
 const FormAutocomplete = React.forwardRef(
 	(
 		{
@@ -116,7 +120,7 @@ const FormAutocomplete = React.forwardRef(
 			loading,
 			minLength = 0,
 			noOptionsMessage = () => 'No results found. Type to search.',
-			onChange = () => {},
+			onChange = noop,
 			onInputChange,
 			options = [],
 			required,
@@ -179,12 +183,15 @@ const FormAutocomplete = React.forwardRef(
 			}
 		}, [ forwardRef ] );
 		// sets the internal state variables and calls the onChange callback
-		const setAutocompleteState = inputValue => {
-			setInputQuery( inputValue );
-			setSelectedValue( inputValue );
-			onChange( getOptionByLabel( inputValue ), inputValue );
-			setIsDirty( false );
-		};
+		const setAutocompleteState = useCallback(
+			inputValue => {
+				setInputQuery( inputValue );
+				setSelectedValue( inputValue );
+				onChange( getOptionByLabel( inputValue ), inputValue );
+				setIsDirty( false );
+			},
+			[ onChange, getOptionByLabel ]
+		);
 		// this method gets called when we confirm the selection via click/enter
 		const onValueChange = useCallback(
 			inputValue => {
@@ -200,7 +207,7 @@ const FormAutocomplete = React.forwardRef(
 					}
 				}
 			},
-			[ onChange, getOptionByLabel, setAutocompleteState ]
+			[ setAutocompleteState, resetOnBlur, inputQuery, selectedValue ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -294,14 +301,24 @@ const FormAutocomplete = React.forwardRef(
 		}, [ required ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', e => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			if ( ! input ) {
+				return;
+			}
+
+			const onKeyDown = e => {
 				// pressed escape, we want to reset the status
 				if ( e.keyCode === 27 && resetOnBlur ) {
 					resetInputState();
 				} else {
 					setIsDirty( true );
 				}
-			} );
+			};
+
+			input.addEventListener( 'keydown', onKeyDown );
+
+			return () => input.removeEventListener( 'keydown', onKeyDown );
 		}, [ setIsDirty ] );
 
 		// For accessibility, we need to add the error message to the aria-describedby attribute
@@ -315,10 +332,20 @@ const FormAutocomplete = React.forwardRef(
 		}, [] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'blur', () => {
-				setInputQuery( global.document.querySelector( `#${ forLabel }` ).value );
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			if ( ! input ) {
+				return;
+			}
+
+			const onBlur = () => {
+				setInputQuery( input.value );
 				resetInputState();
-			} );
+			};
+
+			input.addEventListener( 'blur', onBlur );
+
+			return () => input.removeEventListener( 'blur', onBlur );
 		}, [ forwardRef ] );
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>

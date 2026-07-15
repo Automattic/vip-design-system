@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import { Button, ButtonProps } from './Button';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../Spinner/Spinner';
 
 interface DefaultSpinnerProps {
 	color?: string;

@@ -8,7 +8,8 @@ import { Image, ImageProps, ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box, Text } from '..';
+import { Box } from '../Box/Box';
+import { Text } from '../Text/Text';
 
 export interface AvatarProps {
 	/**

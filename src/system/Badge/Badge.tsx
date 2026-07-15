@@ -8,7 +8,7 @@ import { TextProps as ThemeTextProps } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Text } from '..';
+import { Text } from '../Text/Text';
 
 export interface BadgeProps extends ThemeTextProps {
 	/** The color variant of the badge.

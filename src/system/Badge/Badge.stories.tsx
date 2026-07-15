@@ -57,5 +57,9 @@ export const Variants: Story = {
 
 export const WithLink: Story = {
 	args: {},
-	render: args => <Badge children={ <Link href="https://google.com">Google</Link> } { ...args } />,
+	render: args => (
+		<Badge { ...args }>
+			<Link href="https://google.com">Google</Link>
+		</Badge>
+	),
 };

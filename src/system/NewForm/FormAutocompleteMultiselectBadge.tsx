@@ -5,7 +5,7 @@
  */
 import { MdClose } from 'react-icons/md';
 
-import { Badge } from '..';
+import { Badge } from '../Badge/Badge';
 
 const FormAutocompleteMultiselectBadge = ( {
 	index,

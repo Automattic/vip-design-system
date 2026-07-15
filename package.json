@@ -64,6 +64,14 @@
       "json",
       "html"
     ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 70,
+        "branches": 50,
+        "functions": 57,
+        "lines": 70
+      }
+    },
     "testEnvironmentOptions": {
       "url": "http://localhost"
     },
@@ -83,7 +91,6 @@
   },
   "devDependencies": {
     "@automattic/eslint-plugin-wpvip": "0.8.0",
-    "@axe-core/react": "4.7.3",
     "@babel/cli": "7.23.0",
     "@babel/core": "7.23.0",
     "@babel/preset-env": "7.22.20",

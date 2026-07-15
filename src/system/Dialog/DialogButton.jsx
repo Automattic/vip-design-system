@@ -8,7 +8,8 @@ import { MdExpandMore } from 'react-icons/md';
 /**
  * Internal dependencies
  */
-import { Button, Text } from '../';
+import { Button } from '../Button/Button';
+import { Text } from '../Text/Text';
 
 const DialogButton = ( { label, variant = 'secondary', value, children, ...props } ) => (
 	<Button
