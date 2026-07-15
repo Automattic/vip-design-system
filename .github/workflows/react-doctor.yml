@@ -24,7 +24,7 @@ jobs:
           # Full history so the PR can be diffed against the trunk base.
           fetch-depth: 0
 
-      - uses: millionco/react-doctor@547e1e4ecdb70315d81a91ec3605701d58616ee2 # v2.1.0
+      - uses: millionco/react-doctor@938008119a288f2fb47c66a69cd9279a21f31784 # v2.2.7
         with:
           # Advisory only: report findings but never fail the run / block merge.
           blocking: none
