@@ -4,12 +4,30 @@
  * External dependencies
  */
 import { AnimatePresence } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /**
  * Internal dependencies
  */
 import { DialogContent, DialogTrigger } from '.';
+import { DialogContentProps } from './DialogContent';
+
+export interface DialogProps extends Omit< DialogContentProps, 'onClose' | 'children' > {
+	/** The element that toggles the dialog when clicked. */
+	trigger?: React.ReactNode;
+	/**
+	 * Whether the dialog is open on initial render.
+	 * @default false
+	 */
+	startOpen?: boolean;
+	/** The dialog content, or a render function receiving an `onClose` callback. */
+	content?: React.ReactNode | ( ( args: { onClose: () => void } ) => React.ReactNode );
+	/**
+	 * Whether the dialog trigger is disabled.
+	 * @default false
+	 */
+	disabled?: boolean;
+}
 
 const Dialog = ( {
 	trigger,
@@ -18,12 +36,12 @@ const Dialog = ( {
 	content,
 	disabled = false,
 	...props
-} ) => {
+}: DialogProps ) => {
 	const [ isOpen, setIsOpen ] = useState( startOpen );
-	const dialogRef = useRef( null );
+	const dialogRef = useRef< HTMLDivElement >( null );
 
-	const closeDialog = e => {
-		if ( ! dialogRef.current.contains( e.target ) ) {
+	const closeDialog = ( e: MouseEvent ) => {
+		if ( ! dialogRef.current?.contains( e.target as Node ) ) {
 			setIsOpen( false );
 		}
 	};
@@ -37,14 +55,16 @@ const Dialog = ( {
 	// if content is a function, pass in onClose
 	const isFunction = typeof content === 'function';
 
-	const handleOpen = ( event = null ) => {
+	const handleOpen = ( event: React.KeyboardEvent | React.MouseEvent | null = null ) => {
 		const open = ! isOpen;
 
 		if ( disabled ) {
 			return;
 		}
 
-		if ( event?.key && event?.key !== 13 && event?.key !== 'Enter' ) {
+		const key = event && 'key' in event ? event.key : undefined;
+
+		if ( key && key !== 'Enter' ) {
 			return;
 		}
 

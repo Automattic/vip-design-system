@@ -5,15 +5,46 @@
  */
 import { motion } from 'framer-motion';
 import React, { useEffect } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 
-const DialogContent = ( { position = 'left', variant = 'dropdown', onClose, ...props } ) => {
-	const closeDialog = e => {
-		if ( e.key === 27 || e.key === 'Escape' ) {
-			onClose();
+export type DialogVariant = 'dropdown' | 'modal' | 'sidebar';
+export type DialogPosition = 'left' | 'right';
+
+interface DialogMotionForwardedProps {
+	/** Content rendered inside the animated dialog panel. */
+	children?: React.ReactNode;
+	/** Theme UI style overrides applied to the dialog panel. */
+	sx?: ThemeUIStyleObject;
+}
+
+export interface DialogContentProps extends DialogMotionForwardedProps {
+	/**
+	 * The horizontal alignment of the dialog relative to its trigger.
+	 * @default 'left'
+	 */
+	position?: DialogPosition;
+	/**
+	 * The visual style of the dialog.
+	 * @default 'dropdown'
+	 */
+	variant?: DialogVariant;
+	/** Callback invoked when the dialog requests to close. */
+	onClose?: () => void;
+}
+
+const DialogContent = ( {
+	position = 'left',
+	variant = 'dropdown',
+	onClose,
+	...props
+}: DialogContentProps ) => {
+	const closeDialog = ( e: KeyboardEvent ) => {
+		if ( e.key === 'Escape' ) {
+			onClose?.();
 		}
 	};
 
@@ -64,7 +95,7 @@ const DialogContent = ( { position = 'left', variant = 'dropdown', onClose, ...p
 	);
 };
 
-const SidebarMotion = props => (
+const SidebarMotion = ( props: DialogMotionForwardedProps ) => (
 	<motion.div
 		{ ...props }
 		initial={ {
@@ -92,7 +123,12 @@ const SidebarMotion = props => (
 	/>
 );
 
-const DialogMotion = ( { variant, position, ...props } ) => {
+interface DialogMotionProps extends DialogMotionForwardedProps {
+	variant?: DialogVariant;
+	position?: DialogPosition;
+}
+
+const DialogMotion = ( { variant, position, ...props }: DialogMotionProps ) => {
 	let transformOrigin = 'center';
 
 	if ( variant === 'dropdown' ) {

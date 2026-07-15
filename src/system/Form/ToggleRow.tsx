@@ -3,13 +3,41 @@
 /**
  * External dependencies
  */
+import React from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Badge, Box, Card, Flex, Heading, Text, Toggle } from '..';
 
-const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } ) => (
+export interface ToggleRowProps extends Omit< React.ComponentProps< typeof Toggle >, 'title' > {
+	/** Image URL shown in a card to the left of the row. */
+	image?: string;
+	/** Badge content rendered next to the title. */
+	badge?: React.ReactNode;
+	/** The row title. */
+	title?: React.ReactNode;
+	/** Secondary text shown below the title. */
+	subTitle?: React.ReactNode;
+	/** Body text shown below the subtitle. */
+	body?: React.ReactNode;
+	/** Additional meta content rendered below the body. */
+	meta?: React.ReactNode;
+	/** Style overrides applied to the row container. */
+	sx?: ThemeUIStyleObject;
+}
+
+const ToggleRow = ( {
+	image,
+	badge,
+	title,
+	subTitle,
+	body,
+	meta,
+	sx,
+	...props
+}: ToggleRowProps ) => (
 	<Flex
 		sx={ {
 			alignItems: 'center',

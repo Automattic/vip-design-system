@@ -3,14 +3,61 @@
 /**
  * External dependencies
  */
-import classNames from 'classnames';
-import React from 'react';
+import classNames, { Argument } from 'classnames';
+import React, { ReactElement, ReactNode } from 'react';
 import { MdArrowForward } from 'react-icons/md';
 
 /**
  * Internal dependencies
  */
 import { Badge, Box, Grid, Heading, Text, Link } from '..';
+
+export type OptionRowVariant = 'default' | 'alt';
+
+export interface OptionRowProps
+	extends Omit< React.ComponentProps< typeof Link >, 'variant' | 'className' > {
+	/** Image URL or a React element rendered in the leading icon slot. */
+	image?: ReactElement | string;
+	/** Badge content rendered next to the label. */
+	badge?: ReactNode;
+	/** The primary label, rendered as a link. */
+	label?: ReactNode;
+	/**
+	 * Whether to render with reduced inline spacing.
+	 * @default false
+	 */
+	inline?: boolean;
+	/** Secondary text shown below the label. */
+	subTitle?: ReactNode;
+	/** Body text shown below the subtitle. */
+	body?: ReactNode;
+	/** Trailing meta content; when omitted a forward arrow is shown. */
+	meta?: ReactNode;
+	/**
+	 * Whether to render a smaller variant.
+	 * @default false
+	 */
+	small?: boolean;
+	/**
+	 * Whether the row is disabled.
+	 * @default false
+	 */
+	disabled?: boolean;
+	/** Optional ordering value applied as a `data-order` attribute. */
+	order?: number | null;
+	/** Additional CSS class name(s) applied to the row. */
+	className?: Argument;
+	/**
+	 * Heading variant used for the label.
+	 * @default 'h3'
+	 */
+	titleVariant?: React.ComponentProps< typeof Heading >[ 'variant' ];
+	/**
+	 * Color variant of the row.
+	 * @default 'default'
+	 */
+	variant?: OptionRowVariant;
+}
 
 const disabledStyles = {
 	border: '1px solid',
@@ -32,7 +79,7 @@ const regularGridStyle = () => ( {
 	borderColor: 'optionRow.border',
 } );
 
-const OptionRow = React.forwardRef(
+const OptionRow = React.forwardRef< HTMLDivElement, OptionRowProps >(
 	(
 		{
 			image,
@@ -53,7 +100,7 @@ const OptionRow = React.forwardRef(
 		forwardRef
 	) => {
 		const mergedCard = disabled ? disabledStyles : {};
-		const inlineStyles = inline ? gridInlineStyle : regularGridStyle( small );
+		const inlineStyles = inline ? gridInlineStyle : regularGridStyle();
 
 		return (
 			<Grid
@@ -87,7 +134,12 @@ const OptionRow = React.forwardRef(
 							{ React.isValidElement( image ) ? (
 								image
 							) : (
-								<img src={ image } width={ small ? 32 : 48 } sx={ { display: 'block' } } alt="" />
+								<img
+									src={ image as string }
+									width={ small ? 32 : 48 }
+									sx={ { display: 'block' } }
+									alt=""
+								/>
 							) }
 						</Box>
 					) }

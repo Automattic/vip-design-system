@@ -3,22 +3,29 @@
 /**
  * External dependencies
  */
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 /**
  * Internal dependencies
  */
 import { Box, Spinner } from '../';
 
-const DialogMenuItem = ( { loading = false, children, ...props } ) => {
-	const itemRef = useRef( null );
+export interface DialogMenuItemProps extends React.ComponentProps< typeof Box > {
+	/**
+	 * Whether to show a loading spinner at the end of the item.
+	 * @default false
+	 */
+	loading?: boolean;
+	/** The item label content. */
+	children?: React.ReactNode;
+}
 
-	const triggerClick = e => {
-		if (
-			itemRef.current === window.document.activeElement &&
-			( e.key === 13 || e.key === 'Enter' )
-		) {
-			props.onClick();
+const DialogMenuItem = ( { loading = false, children, ...props }: DialogMenuItemProps ) => {
+	const itemRef = useRef< HTMLDivElement >( null );
+
+	const triggerClick = ( e: KeyboardEvent ) => {
+		if ( itemRef.current === window.document.activeElement && e.key === 'Enter' ) {
+			props.onClick?.( e as unknown as React.MouseEvent< HTMLDivElement > );
 		}
 	};
 
@@ -37,7 +44,7 @@ const DialogMenuItem = ( { loading = false, children, ...props } ) => {
 			<Box
 				ref={ itemRef }
 				role="menuitem"
-				tabIndex="0"
+				tabIndex={ 0 }
 				sx={ {
 					listStyleType: 'none',
 					display: 'flex',

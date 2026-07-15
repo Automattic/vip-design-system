@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 
 import { RequiredLabel } from './RequiredLabel';
 import { Validation } from './Validation';
@@ -13,6 +13,24 @@ import ScreenReaderText from '../ScreenReaderText';
  * Internal dependencies
  */
 
+export interface RadioBoxOption extends React.InputHTMLAttributes< HTMLInputElement > {
+	/** The visible label for the option. */
+	label?: ReactNode;
+	/** Optional descriptive text shown below the label. */
+	description?: ReactNode;
+	/** Additional props forwarded to the `<label>` element. */
+	labelProps?: React.LabelHTMLAttributes< HTMLLabelElement >;
+}
+
+interface RadioOptionProps {
+	width?: string | number;
+	disabled?: boolean;
+	defaultValue?: string | number;
+	option: RadioBoxOption;
+	name?: string;
+	onChangeHandler?: React.ChangeEventHandler< HTMLInputElement >;
+}
+
 const RadioOption = ( {
 	width,
 	disabled,
@@ -20,10 +38,10 @@ const RadioOption = ( {
 	option: { id, value, className, label, description, labelProps = {}, ...restOption },
 	name,
 	onChangeHandler,
-} ) => {
-	const forLabel = id || value;
-	const checked = `${ defaultValue }` === `${ value }`;
-	const ref = React.useRef( null );
+}: RadioOptionProps ) => {
+	const forLabel = id || String( value );
+	const checked = String( defaultValue ) === String( value );
+	const ref = React.useRef< HTMLInputElement >( null );
 	const describedById = `input-radio-box-${ forLabel }-description`;
 
 	return (
@@ -65,7 +83,7 @@ const RadioOption = ( {
 				name={ name }
 				id={ forLabel }
 				onChange={ onChangeHandler }
-				value={ `${ value }` }
+				value={ String( value ) }
 				sx={ { mr: 5, mt: 3 } }
 				aria-describedby={ describedById }
 				{ ...restOption }
@@ -105,7 +123,34 @@ const RadioOption = ( {
 	);
 };
 
-const RadioBoxGroup = React.forwardRef(
+export interface RadioBoxGroupProps
+	extends Omit< React.FieldsetHTMLAttributes< HTMLFieldSetElement >, 'onChange' > {
+	/**
+	 * Width applied to each option.
+	 * @default 'auto'
+	 */
+	optionWidth?: string | number;
+	/** The `name` shared by the radio inputs. */
+	name?: string;
+	/** Callback invoked when the selection changes; receives the event and the matched option. */
+	onChange?: ( e: React.ChangeEvent< HTMLInputElement >, option?: RadioBoxOption ) => void;
+	/** Accessible label for the group, rendered in a legend. */
+	groupLabel?: ReactNode;
+	/** The value of the option selected by default. */
+	defaultValue?: string | number;
+	/** The list of options to render. */
+	options: RadioBoxOption[];
+	/** Whether all options are disabled. */
+	disabled?: boolean;
+	/** Validation message shown when `hasError` is true. */
+	errorMessage?: ReactNode;
+	/** Whether the group is in an error state. */
+	hasError?: boolean;
+	/** Whether a selection is required. */
+	required?: boolean;
+}
+
+const RadioBoxGroup = React.forwardRef< HTMLFieldSetElement, RadioBoxGroupProps >(
 	(
 		{
 			optionWidth = 'auto',
@@ -123,11 +168,9 @@ const RadioBoxGroup = React.forwardRef(
 		forwardRef
 	) => {
 		const onChangeHandler = useCallback(
-			e => {
-				const optionTriggered = options.find(
-					option => `${ option.value }` === `${ e.target.value }`
-				);
-				onChange( e, optionTriggered );
+			( e: React.ChangeEvent< HTMLInputElement > ) => {
+				const optionTriggered = options.find( option => String( option.value ) === e.target.value );
+				onChange?.( e, optionTriggered );
 			},
 			[ onChange ]
 		);
@@ -136,7 +179,7 @@ const RadioBoxGroup = React.forwardRef(
 			<RadioOption
 				defaultValue={ defaultValue }
 				disabled={ disabled }
-				key={ option?.id || option?.value }
+				key={ option?.id || String( option?.value ) }
 				name={ name }
 				option={ option }
 				onChangeHandler={ onChangeHandler }
@@ -181,7 +224,10 @@ const RadioBoxGroup = React.forwardRef(
 				</fieldset>
 
 				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ groupLabel }>
+					<Validation
+						isValid={ false }
+						describedId={ typeof groupLabel === 'string' ? groupLabel : undefined }
+					>
 						{ errorMessage }
 					</Validation>
 				) }
