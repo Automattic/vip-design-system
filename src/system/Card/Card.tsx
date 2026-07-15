@@ -9,7 +9,7 @@ import { BoxProps, ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box } from '..';
+import { Box } from '../Box/Box';
 
 export enum CardVariant {
 	'primary',

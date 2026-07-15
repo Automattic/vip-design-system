@@ -9,7 +9,8 @@ import { MdExpandMore } from 'react-icons/md';
 /**
  * Internal dependencies
  */
-import { Button, Text } from '../';
+import { Button } from '../Button/Button';
+import { Text } from '../Text/Text';
 
 export interface DialogButtonProps extends React.ComponentProps< typeof Button > {
 	/** Label text rendered before the value. */

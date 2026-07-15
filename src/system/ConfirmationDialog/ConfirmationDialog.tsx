@@ -9,7 +9,12 @@ import React, { ReactElement, ReactNode } from 'react';
 /**
  * Internal dependencies
  */
-import { Dialog, Box, Heading, Text, Flex, Button } from '../';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { Dialog } from '../Dialog/Dialog';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { Text } from '../Text/Text';
 
 export interface ConfirmationDialogContentProps {
 	/** The dialog title. */

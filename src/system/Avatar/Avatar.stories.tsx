@@ -25,7 +25,7 @@ export const Default: Story = {
 	render: args => (
 		<>
 			{ COMMON_SIZES.map( size => (
-				<Avatar key={ size } { ...args } size={ size } />
+				<Avatar { ...args } size={ size } key={ size } />
 			) ) }
 		</>
 	),

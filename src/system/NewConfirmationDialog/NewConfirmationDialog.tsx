@@ -9,7 +9,10 @@ import React, { ReactElement, ReactNode } from 'react';
 /**
  * Internal dependencies
  */
-import { NewDialog, Box, Flex, Button } from '..';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import * as NewDialog from '../NewDialog';
 
 export interface NewConfirmationDialogContentProps {
 	/**

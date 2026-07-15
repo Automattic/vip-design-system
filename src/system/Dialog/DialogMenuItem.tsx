@@ -8,7 +8,8 @@ import React, { useEffect, useRef } from 'react';
 /**
  * Internal dependencies
  */
-import { Box, Spinner } from '../';
+import { Box } from '../Box/Box';
+import { Spinner } from '../Spinner/Spinner';
 
 export interface DialogMenuItemProps extends React.ComponentProps< typeof Box > {
 	/**

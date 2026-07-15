@@ -5,7 +5,7 @@ import { useTranslate } from 'i18n-calypso';
 import React, { useState } from 'react';
 import { MdCheck, MdKeyboardArrowDown } from 'react-icons/md';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
 import * as Dropdown from '../Dropdown';
 import { DropdownContentProps } from '../Dropdown/DropdownContent';
 import { DropdownCheckboxItemProps } from '../Dropdown/DropdownItem';

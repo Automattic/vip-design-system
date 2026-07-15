@@ -10,7 +10,7 @@ import { forwardRef, ReactNode, Ref, useId } from 'react';
 /**
  * Internal dependencies
  */
-import { Box } from '../';
+import { Box } from '../Box/Box';
 import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 
 import type { ThemeUIStyleObject } from 'theme-ui';

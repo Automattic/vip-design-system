@@ -11,7 +11,9 @@ import { Input as ThemeInput, ThemeUIStyleObject } from 'theme-ui';
  * Internal dependencies
  */
 import { baseControlStyle } from './Input.styles';
-import { Button, Validation, Label } from '..';
+import { Label } from './Label';
+import { Validation } from './Validation';
+import { Button } from '../Button/Button';
 
 export interface InputWithCopyButtonProps extends React.InputHTMLAttributes< HTMLInputElement > {
 	/** Visual variant (excluded from the props forwarded to the input). */

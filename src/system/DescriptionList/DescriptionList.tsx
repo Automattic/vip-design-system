@@ -7,7 +7,12 @@ import { ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Table, TableRow, TableCell, Grid, Box, Text } from '..';
+import { Box } from '../Box/Box';
+import { Grid } from '../Grid/Grid';
+import { Table } from '../Table/Table';
+import { TableCell } from '../Table/TableCell';
+import { TableRow } from '../Table/TableRow';
+import { Text } from '../Text/Text';
 
 export interface DescriptionListProps {
 	/** The array of label-value pairs to display. */

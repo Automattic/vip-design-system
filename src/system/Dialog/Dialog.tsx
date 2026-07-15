@@ -9,8 +9,8 @@ import React, { useEffect, useRef, useState } from 'react';
 /**
  * Internal dependencies
  */
-import { DialogContent, DialogTrigger } from '.';
-import { DialogContentProps } from './DialogContent';
+import { DialogContent, DialogContentProps } from './DialogContent';
+import { DialogTrigger } from './DialogTrigger';
 
 export interface DialogProps extends Omit< DialogContentProps, 'onClose' | 'children' > {
 	/** The element that toggles the dialog when clicked. */
@@ -72,6 +72,7 @@ const Dialog = ( {
 	};
 
 	return (
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- wrapper only stops click propagation so the click-outside handler ignores inner clicks; it is not an interactive control (keyboard interaction lives on DialogTrigger)
 		<div
 			onClick={ e => e.stopPropagation() }
 			sx={ { position: 'relative' } }

@@ -45,6 +45,7 @@ const RadioOption = ( {
 	const describedById = `input-radio-box-${ forLabel }-description`;
 
 	return (
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- enlarges the click target by forwarding to the nested native radio <input>, which is itself keyboard-operable
 		<div
 			id={ `o${ forLabel }` }
 			sx={ {

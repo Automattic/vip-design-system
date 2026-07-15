@@ -5,7 +5,7 @@
  */
 import { MdClose } from 'react-icons/md';
 
-import { Button } from '..';
+import { Button } from '../Button/Button';
 
 const FormAutocompleteMultiselectButton = ( {
 	index,

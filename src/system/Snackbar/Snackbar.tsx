@@ -11,7 +11,10 @@ import { Grid, ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box, Flex, Heading, Spinner } from '..';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { Spinner } from '../Spinner/Spinner';
 
 interface SnackbarIconProps {
 	color: string;

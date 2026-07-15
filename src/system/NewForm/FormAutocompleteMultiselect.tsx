@@ -18,10 +18,10 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
 import { FormSelectSearch } from './FormSelectSearch';
-import { Flex } from '../';
-import { Validation } from '../Form';
+import { Flex } from '../Flex/Flex';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { Validation } from '../Form/Validation';
 
 interface ThemeProps extends Theme {
 	outline?: Record< string, string >;
@@ -496,9 +496,19 @@ const FormAutocompleteMultiselect = React.forwardRef<
 		}, [ required ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` )?.addEventListener( 'keydown', () => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			if ( ! input ) {
+				return;
+			}
+
+			const onKeyDown = () => {
 				setIsDirty( true );
-			} );
+			};
+
+			input.addEventListener( 'keydown', onKeyDown );
+
+			return () => input.removeEventListener( 'keydown', onKeyDown );
 		}, [ setIsDirty ] );
 
 		// For accessibility, we need to add the error message to the aria-describedby attribute

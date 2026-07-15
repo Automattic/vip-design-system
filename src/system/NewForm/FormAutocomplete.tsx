@@ -16,9 +16,9 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
 import { FormSelectSearch } from './FormSelectSearch';
-import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { Validation } from '../Form/Validation';
 
 interface ThemeProps extends Theme {
 	outline?: Record< string, string >;
@@ -195,6 +195,10 @@ const DefaultArrow = ( config: { className?: string } ) => (
 	<FormSelectArrow className={ config.className } />
 );
 
+// Module-scope no-op so the default `onChange` keeps a stable reference across
+// renders (an inline `() => {}` default reallocates every render and defeats memoization).
+const noop = () => {};
+
 const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocompleteProps >(
 	(
 		{
@@ -213,7 +217,7 @@ const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocomplet
 			loading,
 			minLength = 0,
 			noOptionsMessage = () => 'No results found. Type to search.',
-			onChange = () => {},
+			onChange = noop,
 			onInputChange,
 			options = [],
 			required,
@@ -276,12 +280,15 @@ const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocomplet
 			}
 		}, [ acRef ] );
 		// sets the internal state variables and calls the onChange callback
-		const setAutocompleteState = ( inputValue: string | null ) => {
-			setInputQuery( inputValue ?? '' );
-			setSelectedValue( inputValue ?? '' );
-			onChange( getOptionByLabel( inputValue ?? '' ), inputValue );
-			setIsDirty( false );
-		};
+		const setAutocompleteState = useCallback(
+			( inputValue: string | null ) => {
+				setInputQuery( inputValue ?? '' );
+				setSelectedValue( inputValue ?? '' );
+				onChange( getOptionByLabel( inputValue ?? '' ), inputValue );
+				setIsDirty( false );
+			},
+			[ onChange, getOptionByLabel ]
+		);
 		// this method gets called when we confirm the selection via click/enter
 		const onValueChange = useCallback(
 			( inputValue: string | null ) => {
@@ -297,7 +304,7 @@ const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocomplet
 					}
 				}
 			},
-			[ onChange, getOptionByLabel, setAutocompleteState ]
+			[ setAutocompleteState, resetOnBlur, inputQuery, selectedValue ]
 		);
 
 		const handleTypeChange = useCallback(
@@ -392,14 +399,24 @@ const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocomplet
 		}, [ required ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` )?.addEventListener( 'keydown', e => {
+			const input = global.document.querySelector( `#${ forLabel }` );
+
+			if ( ! input ) {
+				return;
+			}
+
+			const onKeyDown = e => {
 				// pressed escape, we want to reset the status
 				if ( ( e as KeyboardEvent ).keyCode === 27 && resetOnBlur ) {
 					resetInputState();
 				} else {
 					setIsDirty( true );
 				}
-			} );
+			};
+
+			input.addEventListener( 'keydown', onKeyDown );
+
+			return () => input.removeEventListener( 'keydown', onKeyDown );
 		}, [ setIsDirty ] );
 
 		// For accessibility, we need to add the error message to the aria-describedby attribute
@@ -415,12 +432,20 @@ const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocomplet
 		}, [] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` )?.addEventListener( 'blur', () => {
-				setInputQuery(
-					global.document.querySelector< HTMLInputElement >( `#${ forLabel }` )?.value ?? ''
-				);
+			const input = global.document.querySelector< HTMLInputElement >( `#${ forLabel }` );
+
+			if ( ! input ) {
+				return;
+			}
+
+			const onBlur = () => {
+				setInputQuery( input.value );
 				resetInputState();
-			} );
+			};
+
+			input.addEventListener( 'blur', onBlur );
+
+			return () => input.removeEventListener( 'blur', onBlur );
 		}, [ acRef ] );
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>

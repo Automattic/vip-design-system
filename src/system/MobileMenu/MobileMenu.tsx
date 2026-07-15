@@ -3,10 +3,13 @@
 import React, { forwardRef } from 'react';
 import { BiMenu } from 'react-icons/bi';
 
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
 import * as Drawer from '../Drawer/Drawer';
+import { Flex } from '../Flex/Flex';
+import { Nav } from '../Nav/Nav';
 import { DialogCloseDefault } from '../NewDialog/DialogClose';
 import { Logo } from '../Toolbar/Logo';
-import { Button, Flex, Nav, Box } from '../index';
 
 export interface MobileMenuProps {
 	/** The main navigation content displayed below the toolbar items. */

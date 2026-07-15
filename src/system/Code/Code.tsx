@@ -88,6 +88,7 @@ const Code = React.forwardRef< HTMLDivElement, CodeProps >(
 				{ codeDom }
 				{
 					<button
+						type="button"
 						aria-label="Copy code"
 						sx={ {
 							bg: 'notice.background.warning',

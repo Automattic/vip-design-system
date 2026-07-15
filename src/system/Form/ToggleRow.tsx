@@ -9,7 +9,13 @@ import { ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Badge, Box, Card, Flex, Heading, Text, Toggle } from '..';
+import { Toggle } from './Toggle';
+import { Badge } from '../Badge/Badge';
+import { Box } from '../Box/Box';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { Text } from '../Text/Text';
 
 export interface ToggleRowProps extends Omit< React.ComponentProps< typeof Toggle >, 'title' > {
 	/** Image URL shown in a card to the left of the row. */
