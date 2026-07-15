@@ -5,7 +5,6 @@
  */
 import Autocomplete from 'accessible-autocomplete/react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 /**
@@ -368,34 +367,6 @@ const FormAutocomplete = React.forwardRef(
 		);
 	}
 );
-
-FormAutocomplete.propTypes = {
-	autoFilter: PropTypes.bool,
-	className: PropTypes.any,
-	debounce: PropTypes.number,
-	displayMenu: PropTypes.string,
-	errorMessage: PropTypes.string,
-	forLabel: PropTypes.string,
-	getOptionLabel: PropTypes.func,
-	getOptionValue: PropTypes.func,
-	hasError: PropTypes.bool,
-	isInline: PropTypes.bool,
-	label: PropTypes.node,
-	loading: PropTypes.bool,
-	minLength: PropTypes.number,
-	noOptionsMessage: PropTypes.func,
-	onChange: PropTypes.func,
-	onInputChange: PropTypes.func,
-	options: PropTypes.array,
-	required: PropTypes.bool,
-	searchIcon: PropTypes.bool,
-	showAllValues: PropTypes.bool,
-	resetOnBlur: PropTypes.bool,
-	source: PropTypes.func,
-	value: PropTypes.string,
-	dropdownArrow: PropTypes.node,
-	allowCustom: PropTypes.bool,
-};
 
 FormAutocomplete.displayName = 'FormAutocomplete';
 

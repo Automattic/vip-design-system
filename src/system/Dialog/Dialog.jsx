@@ -4,7 +4,6 @@
  * External dependencies
  */
 import { AnimatePresence } from 'framer-motion';
-import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 
 /**
@@ -78,14 +77,6 @@ const Dialog = ( {
 			</AnimatePresence>
 		</div>
 	);
-};
-
-Dialog.propTypes = {
-	trigger: PropTypes.node,
-	disabled: PropTypes.bool,
-	position: PropTypes.string,
-	startOpen: PropTypes.bool,
-	content: PropTypes.oneOfType( [ PropTypes.node, PropTypes.func ] ),
 };
 
 export { Dialog };

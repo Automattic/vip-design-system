@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -62,12 +61,6 @@ const DialogMenuItem = ( { loading = false, children, ...props } ) => {
 			</Box>
 		</li>
 	);
-};
-
-DialogMenuItem.propTypes = {
-	onClick: PropTypes.func,
-	loading: PropTypes.bool,
-	children: PropTypes.node,
 };
 
 export { DialogMenuItem };

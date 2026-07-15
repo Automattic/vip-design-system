@@ -5,7 +5,6 @@
  */
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
@@ -40,19 +39,6 @@ const Tabs = React.forwardRef(
 		);
 	}
 );
-
-Tabs.propTypes = {
-	/** Additional CSS class name(s) to apply to the root element. */
-	className: PropTypes.any,
-	/** The value of the tab that should be active when initially rendered. Use when you do not need to control the active tab. */
-	defaultValue: PropTypes.node,
-	/** The controlled value of the currently active tab. Use together with `onValueChange`. */
-	value: PropTypes.node,
-	/** Callback invoked when the active tab changes. Receives the new value as an argument. */
-	onValueChange: PropTypes.func,
-	/** The tab sub-components (TabsList, TabsTrigger, TabsContent). */
-	children: PropTypes.node.isRequired,
-};
 
 Tabs.displayName = 'Tabs';
 

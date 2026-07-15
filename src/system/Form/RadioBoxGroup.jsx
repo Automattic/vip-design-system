@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
 import { RequiredLabel } from './RequiredLabel';
@@ -192,19 +191,5 @@ const RadioBoxGroup = React.forwardRef(
 );
 
 RadioBoxGroup.displayName = 'RadioBoxGroup';
-
-RadioBoxGroup.propTypes = {
-	onChange: PropTypes.func,
-	options: PropTypes.array,
-	defaultValue: PropTypes.string,
-	name: PropTypes.string,
-	disabled: PropTypes.bool,
-	groupLabel: PropTypes.string,
-	id: PropTypes.string,
-	optionWidth: PropTypes.string,
-	errorMessage: PropTypes.string,
-	hasError: PropTypes.bool,
-	required: PropTypes.bool,
-};
 
 export { RadioBoxGroup };

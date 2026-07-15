@@ -4,7 +4,6 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { MdArrowForward } from 'react-icons/md';
 
@@ -137,21 +136,5 @@ const OptionRow = React.forwardRef(
 );
 
 OptionRow.displayName = 'OptionRow';
-
-OptionRow.propTypes = {
-	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
-	badge: PropTypes.string,
-	label: PropTypes.node,
-	inline: PropTypes.bool,
-	subTitle: PropTypes.node,
-	body: PropTypes.node,
-	meta: PropTypes.node,
-	small: PropTypes.bool,
-	disabled: PropTypes.bool,
-	order: PropTypes.number,
-	className: PropTypes.any,
-	titleVariant: PropTypes.string,
-	variant: PropTypes.oneOf( [ 'default', 'alt' ] ),
-};
 
 export { OptionRow };

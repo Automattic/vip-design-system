@@ -4,7 +4,6 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
@@ -42,15 +41,6 @@ const ConfirmationDialogContent = ( {
 	</Box>
 );
 
-ConfirmationDialogContent.propTypes = {
-	title: PropTypes.node,
-	body: PropTypes.node,
-	label: PropTypes.string,
-	onClose: PropTypes.func,
-	onConfirm: PropTypes.func,
-	className: PropTypes.any,
-};
-
 const ConfirmationDialog = ( { trigger, onConfirm, needsConfirm = true, ...props } ) => {
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
 
@@ -68,12 +58,6 @@ const ConfirmationDialog = ( { trigger, onConfirm, needsConfirm = true, ...props
 			trigger={ trigger }
 		/>
 	);
-};
-
-ConfirmationDialog.propTypes = {
-	needsConfirm: PropTypes.bool,
-	trigger: PropTypes.node,
-	onConfirm: PropTypes.func,
 };
 
 export { ConfirmationDialog, ConfirmationDialogContent };

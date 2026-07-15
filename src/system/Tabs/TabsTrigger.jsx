@@ -5,7 +5,6 @@
  */
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
@@ -60,17 +59,6 @@ const TabsTrigger = React.forwardRef(
 		</TabsPrimitive.TabsTrigger>
 	)
 );
-
-TabsTrigger.propTypes = {
-	/** Additional CSS class name(s) to apply to the trigger button. */
-	className: PropTypes.string,
-	/** Unique identifier that associates this trigger with a TabsContent panel. */
-	value: PropTypes.string,
-	/** Whether the tab trigger is disabled and cannot be activated. */
-	disabled: PropTypes.bool,
-	/** The label content rendered inside the trigger button. */
-	children: PropTypes.node.isRequired,
-};
 
 TabsTrigger.displayName = 'TabsTrigger';
 export { TabsTrigger };

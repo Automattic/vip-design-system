@@ -82,7 +82,7 @@ const NavMenu = forwardRef< HTMLElement, NavProps >(
 	)
 );
 
-export type NavItemRenderIconProp = ( size: number ) => JSX.Element | null;
+export type NavItemRenderIconProp = ( size: number ) => React.JSX.Element | null;
 
 /**
  * Navigation component with multiple style variants built on Radix UI NavigationMenu.

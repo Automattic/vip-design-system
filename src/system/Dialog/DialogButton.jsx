@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import { MdExpandMore } from 'react-icons/md';
 
 /**
@@ -48,12 +47,5 @@ const DialogButton = ( { label, variant = 'secondary', value, children, ...props
 		<MdExpandMore sx={ { ml: 2, top: 0, display: 'block', flex: '0 0 auto' } } />
 	</Button>
 );
-
-DialogButton.propTypes = {
-	children: PropTypes.node,
-	label: PropTypes.string,
-	value: PropTypes.string,
-	variant: PropTypes.string,
-};
 
 export { DialogButton };

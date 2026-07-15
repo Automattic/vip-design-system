@@ -16,7 +16,8 @@ export interface TooltipProps {
 	/** The text content displayed inside the tooltip. */
 	title?: string;
 	/** The element that triggers the tooltip on hover. */
-	trigger?: ReactElement;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- trigger accepts any element; cloneElement injects data-* attributes.
+	trigger?: ReactElement< any >;
 	/**
 	 * The position of the tooltip relative to the trigger.
 	 * @default 'top'
