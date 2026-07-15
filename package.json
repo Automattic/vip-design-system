@@ -121,6 +121,10 @@
     "vite": "^8.0.3"
   },
   "overrides": {
-    "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0"
+    "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0",
+    "i18n-calypso": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }
