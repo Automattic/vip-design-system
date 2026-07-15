@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
@@ -66,15 +65,5 @@ const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } 
 		</Box>
 	</Flex>
 );
-
-ToggleRow.propTypes = {
-	image: PropTypes.oneOfType( [ PropTypes.object, PropTypes.string ] ),
-	badge: PropTypes.string,
-	title: PropTypes.node,
-	subTitle: PropTypes.node,
-	body: PropTypes.node,
-	meta: PropTypes.node,
-	sx: PropTypes.object,
-};
 
 export { ToggleRow };

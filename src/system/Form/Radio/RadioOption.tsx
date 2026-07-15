@@ -20,7 +20,7 @@ export type RadioOptionOptionProps = {
 	/** The text label displayed next to the radio input. */
 	label?: string;
 	/** A custom render function for the label, receiving label props and styles. */
-	renderLabel?: ( props, labelStyles: ThemeUIStyleObject ) => JSX.Element;
+	renderLabel?: ( props, labelStyles: ThemeUIStyleObject ) => React.JSX.Element;
 	/** Additional props forwarded to the label element. */
 	labelProps?: object;
 	/** Additional props forwarded to the native input element. */

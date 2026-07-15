@@ -17,7 +17,7 @@ interface FormSelectArrowProps {
 	separator?: boolean;
 }
 
-export const FormSelectArrow = React.forwardRef< SVGSVGElement, FormSelectArrowProps >(
+export const FormSelectArrow = React.forwardRef< HTMLDivElement, FormSelectArrowProps >(
 	( { iconSize = 24, separator = true, ...props }, forwardRef ) => {
 		const arrowStyles: ThemeUIStyleObject = {
 			position: 'absolute',
@@ -36,7 +36,7 @@ export const FormSelectArrow = React.forwardRef< SVGSVGElement, FormSelectArrowP
 		};
 
 		return (
-			<div ref={ forwardRef as React.RefObject< HTMLDivElement > }>
+			<div ref={ forwardRef }>
 				<MdExpandMore aria-hidden="true" size={ iconSize } sx={ arrowStyles } { ...props } />
 			</div>
 		);

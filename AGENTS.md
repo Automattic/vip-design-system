@@ -8,7 +8,7 @@ This is `@automattic/vip-design-system`, a React component library and design to
 
 ## Tech Stack
 
-- **React 18.3** with **TypeScript 5.8**
+- **React 18.3 / 19** (peer range `^18.0.0 || ^19.0.0`; developed and tested against React 19) with **TypeScript 5.8**
 - **Node.js >= 22**
 - **Theme UI 0.16** for styling (CSS-in-JS via Emotion)
 - **Radix UI** for accessible primitive components (accordion, checkbox, dialog, dropdown, switch, tabs, tooltip)

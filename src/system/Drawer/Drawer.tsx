@@ -45,7 +45,7 @@ export interface DrawerProps extends DialogPrimitive.DialogProps {
 	/** Responsive width/height dimensions for the drawer panel. */
 	dimensions?: responsiveDimensionsProp;
 	/** Custom render function for the close button. Returns null to hide it. */
-	renderClose?: () => JSX.Element | null;
+	renderClose?: () => React.JSX.Element | null;
 }
 
 /** The panel content area of the Drawer, rendered inside a portal with an overlay. */

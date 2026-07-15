@@ -5,7 +5,6 @@
  */
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
@@ -25,14 +24,5 @@ const TabsContent = ( { value, children, className = null } ) => (
 		{ children }
 	</TabsPrimitive.Content>
 );
-
-TabsContent.propTypes = {
-	/** Additional CSS class name(s) to apply to the content panel. */
-	className: PropTypes.string,
-	/** Unique identifier that associates this content panel with a TabsTrigger. */
-	value: PropTypes.string,
-	/** The content to display when this tab is active. */
-	children: PropTypes.node.isRequired,
-};
 
 export { TabsContent };

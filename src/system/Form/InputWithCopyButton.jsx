@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import React from 'react';
 import { MdContentCopy } from 'react-icons/md';
 import { Input as ThemeInput } from 'theme-ui';
@@ -97,17 +96,6 @@ const InputWithCopyButton = React.forwardRef(
 		);
 	}
 );
-
-InputWithCopyButton.propTypes = {
-	variant: PropTypes.string,
-	label: PropTypes.string,
-	hasError: PropTypes.bool,
-	required: PropTypes.bool,
-	forLabel: PropTypes.string,
-	errorMessage: PropTypes.string,
-	sx: PropTypes.object,
-	copyHandler: PropTypes.func,
-};
 
 InputWithCopyButton.displayName = 'InputWithCopyButton';
 

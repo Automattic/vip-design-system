@@ -4,7 +4,6 @@
  * External dependencies
  */
 import { motion, useReducedMotion } from 'framer-motion';
-import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
 /**
@@ -140,17 +139,6 @@ const DialogMotion = ( { variant, position, ...props } ) => {
 			} }
 		/>
 	);
-};
-
-DialogMotion.propTypes = {
-	variant: PropTypes.string,
-	position: PropTypes.string,
-};
-
-DialogContent.propTypes = {
-	position: PropTypes.string,
-	variant: PropTypes.string,
-	onClose: PropTypes.func,
 };
 
 export { DialogContent };

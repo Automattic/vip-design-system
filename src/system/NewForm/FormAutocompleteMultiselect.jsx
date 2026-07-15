@@ -5,7 +5,6 @@
  */
 import Autocomplete from 'accessible-autocomplete/react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 /**
@@ -158,10 +157,6 @@ const AddSelectionStatus = ( { status } ) => {
 			{ status }
 		</div>
 	);
-};
-
-AddSelectionStatus.propTypes = {
-	status: PropTypes.string.isRequired,
 };
 
 const FormAutocompleteMultiselect = React.forwardRef(
@@ -550,35 +545,6 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 	}
 );
-
-FormAutocompleteMultiselect.propTypes = {
-	autoFilter: PropTypes.bool,
-	className: PropTypes.any,
-	debounce: PropTypes.number,
-	displayMenu: PropTypes.string,
-	errorMessage: PropTypes.string,
-	forLabel: PropTypes.string,
-	getOptionLabel: PropTypes.func,
-	getOptionValue: PropTypes.func,
-	hasError: PropTypes.bool,
-	isInline: PropTypes.bool,
-	label: PropTypes.string,
-	loading: PropTypes.bool,
-	minLength: PropTypes.number,
-	noOptionsMessage: PropTypes.func,
-	onChange: PropTypes.func,
-	onInputChange: PropTypes.func,
-	options: PropTypes.array,
-	required: PropTypes.bool,
-	searchIcon: PropTypes.bool,
-	showAllValues: PropTypes.bool,
-	source: PropTypes.func,
-	value: PropTypes.string,
-	dropdownArrow: PropTypes.node,
-	initialValue: PropTypes.array,
-	allowCustom: PropTypes.bool,
-	variant: PropTypes.string,
-};
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';
 

@@ -26,9 +26,9 @@ const searchStyles: ThemeUIStyleObject = {
 	pointerEvents: 'none',
 };
 
-export const FormSelectSearch = React.forwardRef< SVGSVGElement, FormSelectSearchProps >(
+export const FormSelectSearch = React.forwardRef< HTMLDivElement, FormSelectSearchProps >(
 	( props, forwardRef ) => (
-		<Box ref={ forwardRef as React.RefObject< HTMLDivElement > } sx={ wrapperStyles }>
+		<Box ref={ forwardRef } sx={ wrapperStyles }>
 			<MdSearch aria-hidden="true" size={ 24 } sx={ searchStyles } { ...props } />
 		</Box>
 	)

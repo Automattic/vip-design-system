@@ -4,7 +4,6 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
@@ -44,16 +43,6 @@ const NewConfirmationDialogContent = ( {
 	</Box>
 );
 
-NewConfirmationDialogContent.propTypes = {
-	body: PropTypes.node,
-	label: PropTypes.string,
-	buttonVariant: PropTypes.string,
-	onClose: PropTypes.func,
-	onConfirm: PropTypes.func,
-	className: PropTypes.any,
-	buttonDisabled: PropTypes.bool,
-};
-
 const NewConfirmationDialog = ( {
 	trigger,
 	onConfirm,
@@ -90,17 +79,6 @@ const NewConfirmationDialog = ( {
 			{ ...props }
 		/>
 	);
-};
-
-NewConfirmationDialog.propTypes = {
-	needsConfirm: PropTypes.bool,
-	trigger: PropTypes.node,
-	onConfirm: PropTypes.func,
-	title: PropTypes.node.isRequired,
-	body: PropTypes.node,
-	label: PropTypes.node,
-	buttonVariant: PropTypes.string,
-	buttonDisabled: PropTypes.bool,
 };
 
 export { NewConfirmationDialog };

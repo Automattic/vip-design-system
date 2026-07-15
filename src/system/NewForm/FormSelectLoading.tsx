@@ -34,9 +34,9 @@ const loadingStyles: ThemeUIStyleObject = {
 	},
 };
 
-export const FormSelectLoading = React.forwardRef< SVGSVGElement, FormSelectLoadingProps >(
+export const FormSelectLoading = React.forwardRef< HTMLDivElement, FormSelectLoadingProps >(
 	( { sx = {}, ...rest }, forwardRef ) => (
-		<div ref={ forwardRef as React.RefObject< HTMLDivElement > }>
+		<div ref={ forwardRef }>
 			<AiOutlineLoading3Quarters
 				aria-hidden="true"
 				size={ 18 }

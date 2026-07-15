@@ -30,7 +30,7 @@ export interface ButtonSubmitProps extends ButtonProps {
 	 * Custom loading icon component rendered when `loading` is true.
 	 * @default DefaultSpinner
 	 */
-	loadingIcon?: ( props: DefaultSpinnerProps ) => JSX.Element;
+	loadingIcon?: ( props: DefaultSpinnerProps ) => React.JSX.Element;
 	/**
 	 * Size (in pixels) of the loading icon.
 	 * @default 20

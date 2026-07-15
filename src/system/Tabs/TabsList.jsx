@@ -4,7 +4,6 @@
  * External dependencies
  */
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
@@ -26,12 +25,5 @@ const TabsList = ( { children, title, ...props } ) => (
 		{ children }
 	</TabsPrimitive.List>
 );
-
-TabsList.propTypes = {
-	/** Accessible label for the tab list, used as the `aria-label` attribute. */
-	title: PropTypes.string.isRequired,
-	/** The TabsTrigger elements to render inside the list. */
-	children: PropTypes.node.isRequired,
-};
 
 export { TabsList };
