@@ -4,8 +4,9 @@
  * External dependencies
  */
 import Autocomplete from 'accessible-autocomplete/react';
-import classNames from 'classnames';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import classNames, { Argument } from 'classnames';
+import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -22,7 +23,111 @@ import { Validation } from '../Form';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
 
-const escapeHtml = str =>
+interface ThemeProps extends Theme {
+	outline?: Record< string, string >;
+}
+
+export interface AutocompleteOption {
+	label?: string;
+	value?: string;
+	options?: AutocompleteOption[];
+	[ key: string ]: unknown;
+}
+
+/** An option represented either as a plain string or an option object. */
+export type MultiselectValue = string | AutocompleteOption;
+
+// `accessible-autocomplete/react` ships no types; we hold a ref to its class instance to call its imperative API.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AutocompleteInstance = any;
+
+export interface FormAutocompleteMultiselectProps {
+	/**
+	 * Whether to filter the options client-side as the user types.
+	 * @default true
+	 */
+	autoFilter?: boolean;
+	/** Additional CSS class name(s) applied to the wrapper. */
+	className?: Argument;
+	/**
+	 * Debounce (ms) applied to input/source callbacks.
+	 * @default 0
+	 */
+	debounce?: number;
+	/**
+	 * How the options menu is displayed.
+	 * @default 'overlay'
+	 */
+	displayMenu?: 'inline' | 'overlay';
+	/** Render function for the dropdown arrow. */
+	dropdownArrow?: ( config: { className?: string } ) => ReactNode;
+	/** Validation message shown when `hasError` is true. */
+	errorMessage?: ReactNode;
+	/**
+	 * `id`/`htmlFor` value for the input and label.
+	 * @default 'vip-autocompletemultiselect'
+	 */
+	forLabel?: string;
+	/** Returns the display label for an option. */
+	getOptionLabel?: ( option: AutocompleteOption ) => string;
+	/** Returns the value for an option. */
+	getOptionValue?: ( option: AutocompleteOption ) => string;
+	/** Whether the field is in an error state. */
+	hasError?: boolean;
+	/** Whether to render the label inline with the input. */
+	isInline?: boolean;
+	/** The field label. */
+	label?: ReactNode;
+	/** Whether the field is in a loading state. */
+	loading?: boolean;
+	/**
+	 * Minimum query length before the source callback fires.
+	 * @default 0
+	 */
+	minLength?: number;
+	/** Returns the message shown when there are no results. */
+	noOptionsMessage?: () => string;
+	/** Called when the selection changes; receives the selected options and their labels. */
+	onChange?: ( selected: MultiselectValue[], labels: unknown[] ) => void;
+	/** Called when the input value changes. */
+	onInputChange?: ( query: string ) => void;
+	/** The list of options. */
+	options?: AutocompleteOption[];
+	/** Whether a selection is required. */
+	required?: boolean;
+	/** Whether to render a leading search icon. */
+	searchIcon?: boolean;
+	/**
+	 * Whether to show all values (dropdown-style) and render the arrow.
+	 * @default false
+	 */
+	showAllValues?: boolean;
+	/** Custom source function for fetching results. */
+	source?: ( query: string, populateResults: ( results: string[] ) => void ) => void;
+	/** The current input value. */
+	value?: string;
+	/**
+	 * How selected items are rendered.
+	 * @default 'button'
+	 */
+	listType?: 'button' | 'badge';
+	/**
+	 * The initial set of selected options.
+	 * @default []
+	 */
+	initialValue?: MultiselectValue[];
+	/**
+	 * Whether to allow arbitrary (custom) values not in the options.
+	 * @default false
+	 */
+	allowCustom?: boolean;
+	/** Layout variant; the value `'inline-chips'` renders selected items as inline chips. */
+	variant?: string;
+	/** Placeholder text forwarded to the underlying autocomplete input. */
+	placeholder?: string;
+}
+
+const escapeHtml = ( str: unknown ) =>
 	String( str )
 		.replace( /&/g, '&amp;' )
 		.replace( /</g, '&lt;' )
@@ -30,23 +135,23 @@ const escapeHtml = str =>
 		.replace( /"/g, '&quot;' )
 		.replace( /'/g, '&#039;' );
 
-const baseBorderTextColors = {
+const baseBorderTextColors: ThemeUIStyleObject = {
 	...baseControlBorderStyle,
 	backgroundColor: 'layer.2',
 	color: inputBaseText,
 	borderRadius: 1,
 };
 
-const defaultStyles = {
+const defaultStyles: ThemeUIStyleObject = {
 	width: '100%',
 	...baseBorderTextColors,
 
 	py: 0,
 	minHeight: '36px',
 	lineHeight: '36px',
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
-	'&.autocomplete__input--focused': theme => theme.outline,
+	'&:focus-visible': ( theme: ThemeProps ) => theme.outline,
+	'&:focus-within': ( theme: ThemeProps ) => theme.outline,
+	'&.autocomplete__input--focused': ( theme: ThemeProps ) => theme.outline,
 	'& .autocomplete__input': {
 		width: '100%',
 		paddingLeft: 4,
@@ -94,17 +199,17 @@ const defaultStyles = {
 	},
 };
 
-const inlineStyles = {
+const inlineStyles: ThemeUIStyleObject = {
 	borderWidth: 0,
 };
 
-const searchIconStyles = {
+const searchIconStyles: ThemeUIStyleObject = {
 	'& .autocomplete__input.autocomplete__input': {
 		paddingLeft: 6,
 	},
 };
 
-const inlineChipsContainerStyles = {
+const inlineChipsContainerStyles: ThemeUIStyleObject = {
 	...defaultStyles,
 	display: 'flex',
 	flexWrap: 'wrap',
@@ -113,11 +218,11 @@ const inlineChipsContainerStyles = {
 	pr: 5,
 	position: 'relative',
 	'& .autocomplete__input': {
-		...defaultStyles[ '& .autocomplete__input' ],
+		...( defaultStyles[ '& .autocomplete__input' ] as ThemeUIStyleObject ),
 		lineHeight: '24px',
 		minHeight: '24px',
 	},
-	'&:focus-within': theme => theme.outline,
+	'&:focus-within': ( theme: ThemeProps ) => theme.outline,
 	'& .autocomplete__wrapper': {
 		position: 'static',
 		width: '100%',
@@ -130,11 +235,11 @@ const inlineChipsContainerStyles = {
 	},
 };
 
-const DefaultArrow = config => (
+const DefaultArrow = ( config: { className?: string } ) => (
 	<FormSelectArrow className={ config.className } separator={ false } />
 );
 
-const AddSelectionStatus = ( { status } ) => {
+const AddSelectionStatus = ( { status }: { status?: ReactNode } ) => {
 	return (
 		<div
 			sx={ {
@@ -159,7 +264,10 @@ const AddSelectionStatus = ( { status } ) => {
 	);
 };
 
-const FormAutocompleteMultiselect = React.forwardRef(
+const FormAutocompleteMultiselect = React.forwardRef<
+	AutocompleteInstance,
+	FormAutocompleteMultiselectProps
+>(
 	(
 		{
 			autoFilter = true,
@@ -191,7 +299,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			variant,
 			...props
 		},
-		forwardRef
+		forwardedRef
 	) => {
 		const isInlineChips = variant === 'inline-chips';
 		const OPTION_ACTION = {
@@ -202,29 +310,36 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const ListComponent =
 			listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
 		const [ isDirty, setIsDirty ] = useState( false );
-		const [ selectedOptions, setSelectedOptions ] = useState( initialValue );
-		const [ addStatus, setAddStatus ] = useState( '' );
-		const [ currentOption, setCurrentOption ] = useState( {
+		const [ selectedOptions, setSelectedOptions ] = useState< MultiselectValue[] >( initialValue );
+		const [ addStatus, setAddStatus ] = useState< ReactNode >( '' );
+		const [ currentOption, setCurrentOption ] = useState< {
+			action: string;
+			option: MultiselectValue | null;
+			index?: number;
+		} >( {
 			action: OPTION_ACTION.NONE,
 			option: null,
 			index: -1,
 		} );
 		const justSelectedRef = React.useRef( false );
-		let debounceTimeout;
-		forwardRef = forwardRef || React.createRef();
+		let debounceTimeout: ReturnType< typeof setTimeout >;
+		const fallbackRef = React.useRef< AutocompleteInstance >( null );
+		const acRef = (
+			forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : fallbackRef
+		) as React.MutableRefObject< AutocompleteInstance >;
 
 		/**
 		 * Reset the underlying component state to show the selected value
 		 */
 		const resetInputState = useCallback( () => {
-			if ( forwardRef?.current ) {
+			if ( acRef?.current ) {
 				// resets the input field to the selected value or the empty string
-				forwardRef.current.setState( {
-					...forwardRef.current.state,
+				acRef.current.setState( {
+					...acRef.current.state,
 					query: '', // selected value should not be null or the component will crash
 				} );
 			}
-		}, [ forwardRef ] );
+		}, [ acRef ] );
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
@@ -235,27 +350,24 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		const inlineLabel = Boolean( isInline && label );
 
 		const optionLabel = useCallback(
-			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+			( option: AutocompleteOption ) =>
+				getOptionLabel ? getOptionLabel( option ) : option.label,
 			[ getOptionLabel ]
 		);
 
-		const getAllOptions = useMemo(
-			() =>
-				[
-					...options.filter( option => ! option.options ),
-					...options.filter( option => option.options ).map( option => option.options ),
-				].reduce( ( a, b ) => a.concat( b ), [] ),
+		const getAllOptions = useMemo< AutocompleteOption[] >(
+			() => options.flatMap( option => option.options ?? [ option ] ),
 			[ options ]
 		);
 
 		const getOptionByLabel = useCallback(
-			inputValue =>
-				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
+			( inputValue: string ) =>
+				getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
 			[ getAllOptions, optionLabel ]
 		);
 
 		const onValueChange = useCallback(
-			inputValue => {
+			( inputValue: MultiselectValue ) => {
 				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
 					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
 					setSelectedOptions( [ ...selectedOptions, inputValue ] );
@@ -265,10 +377,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 
 		const unselectValue = useCallback(
-			( inputValue, index ) => {
+			( inputValue: MultiselectValue, index?: number ) => {
 				if ( inputValue ) {
 					setSelectedOptions(
-						selectedOptions.filter( option => ( option?.label || option ) !== inputValue )
+						selectedOptions.filter(
+							option => ( ( option as AutocompleteOption )?.label || option ) !== inputValue
+						)
 					);
 					setCurrentOption( {
 						action: OPTION_ACTION.REMOVE,
@@ -281,9 +395,10 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 
 		const handleTypeChange = useCallback(
-			query => {
+			( query: string ) => {
 				const filteredOptions = options.filter(
-					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
+					option =>
+						String( optionLabel( option ) ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
 				);
 				if ( allowCustom && filteredOptions.length === 0 ) {
 					return [ { label: query, value: query } ];
@@ -294,14 +409,14 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 
 		const handleInputChange = useCallback(
-			query => {
+			( query: string ) => {
 				if ( ! debounce ) {
-					return onInputChange( query );
+					return onInputChange?.( query );
 				}
 				clearTimeout( debounceTimeout );
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
-						onInputChange( query );
+						onInputChange?.( query );
 					}, debounce );
 				}
 			},
@@ -309,7 +424,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 
 		const suggest = useCallback(
-			( query, populateResults ) => {
+			( query: string, populateResults: ( results: unknown[] ) => void ) => {
 				let data = options;
 				if ( isDirty && onInputChange ) {
 					handleInputChange( query );
@@ -322,7 +437,9 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					populateResults( optionForDisplay );
 				} else {
 					populateResults(
-						optionForDisplay.filter( option => ! selectedOptions.includes( option ) )
+						optionForDisplay.filter(
+							option => ! selectedOptions.includes( option as MultiselectValue )
+						)
 					);
 				}
 			},
@@ -330,7 +447,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		);
 
 		const onValueChangeInlineChips = useCallback(
-			inputValue => {
+			( inputValue: MultiselectValue ) => {
 				if ( ! inputValue ) {
 					return;
 				}
@@ -347,7 +464,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 
 		const inlineChipsTemplates = useMemo(
 			() => ( {
-				suggestion: suggestion => {
+				suggestion: ( suggestion: MultiselectValue ) => {
 					const isSelected = selectedOptions.includes( suggestion );
 					const check = isSelected ? '&#10003;' : '';
 					return `<span style="display:flex;align-items:center;gap:8px"><span style="width:16px;flex-shrink:0">${ check }</span>${ escapeHtml(
@@ -361,13 +478,13 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__input' )
-				.removeAttribute( 'aria-activedescendant' );
+				?.removeAttribute( 'aria-activedescendant' );
 		}, [] );
 
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__menu' )
-				.setAttribute( 'aria-label', `${ label } list` );
+				?.setAttribute( 'aria-label', `${ String( label ) } list` );
 		}, [ label ] );
 
 		useEffect( () => {
@@ -375,11 +492,11 @@ const FormAutocompleteMultiselect = React.forwardRef(
 			if ( ! input || required === undefined ) {
 				return;
 			}
-			input.setAttribute( 'aria-required', required );
+			input.setAttribute( 'aria-required', String( required ) );
 		}, [ required ] );
 
 		useEffect( () => {
-			global.document.querySelector( `#${ forLabel }` ).addEventListener( 'keydown', () => {
+			global.document.querySelector( `#${ forLabel }` )?.addEventListener( 'keydown', () => {
 				setIsDirty( true );
 			} );
 		}, [ setIsDirty ] );
@@ -387,10 +504,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		// For accessibility, we need to add the error message to the aria-describedby attribute
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
-			input?.setAttribute(
-				'aria-describedby',
-				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
-			);
+			if ( input ) {
+				input.setAttribute(
+					'aria-describedby',
+					`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) ?? '' }`
+				);
+			}
 		}, [] );
 
 		// Update selectedOption and reset the input state on select input change
@@ -398,12 +517,12 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		useEffect( () => {
 			onChange(
 				selectedOptions,
-				selectedOptions.map( option => option?.label || option )
+				selectedOptions.map( option => ( option as AutocompleteOption )?.label || option )
 			);
-			if ( isInlineChips && justSelectedRef.current && forwardRef?.current ) {
+			if ( isInlineChips && justSelectedRef.current && acRef?.current ) {
 				justSelectedRef.current = false;
-				forwardRef.current.setState( {
-					...forwardRef.current.state,
+				acRef.current.setState( {
+					...acRef.current.state,
 					query: '',
 					menuOpen: true,
 				} );
@@ -415,16 +534,16 @@ const FormAutocompleteMultiselect = React.forwardRef(
 		// Update the select status for screen readers
 		useEffect( () => {
 			if ( currentOption.action === OPTION_ACTION.ADD ) {
-				setAddStatus( `${ currentOption.option } added to the list.` );
+				setAddStatus( `${ String( currentOption.option ) } added to the list.` );
 				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
 			} else if ( currentOption.action === OPTION_ACTION.REMOVE ) {
-				setAddStatus( `${ currentOption.option } removed from the list.` );
+				setAddStatus( `${ String( currentOption.option ) } removed from the list.` );
 				if ( isInlineChips ) {
-					global.document.querySelector( `#${ forLabel }` )?.focus();
+					global.document.querySelector< HTMLElement >( `#${ forLabel }` )?.focus();
 				} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
-					global.document.querySelector( '.vip-button-component' )?.focus();
+					global.document.querySelector< HTMLElement >( '.vip-button-component' )?.focus();
 				} else if ( selectedOptions.length === 0 ) {
-					global.document.querySelector( '.autocomplete__input' )?.focus();
+					global.document.querySelector< HTMLElement >( '.autocomplete__input' )?.focus();
 				}
 				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
 			}
@@ -437,9 +556,9 @@ const FormAutocompleteMultiselect = React.forwardRef(
 					<div sx={ inlineChipsContainerStyles }>
 						{ selectedOptions.map( ( option, idx ) => (
 							<FormAutocompleteMultiselectInlineChip
-								key={ option }
+								key={ idx }
 								index={ idx }
-								option={ option }
+								option={ option as string }
 								unselectValue={ unselectValue }
 							/>
 						) ) }
@@ -448,7 +567,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 								id={ forLabel }
 								aria-busy={ loading }
 								showAllValues={ true }
-								ref={ forwardRef }
+								ref={ acRef }
 								source={ source || suggest }
 								defaultValue={ value }
 								displayMenu={ displayMenu }
@@ -459,7 +578,9 @@ const FormAutocompleteMultiselect = React.forwardRef(
 								confirmOnBlur={ false }
 								templates={ inlineChipsTemplates }
 								{ ...props }
-								placeholder={ selectedOptions.length > 0 ? '' : props.placeholder || '' }
+								placeholder={
+									selectedOptions.length > 0 ? '' : ( props.placeholder as string ) || ''
+								}
 							/>
 						</div>
 						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
@@ -495,7 +616,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							id={ forLabel }
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
-							ref={ forwardRef }
+							ref={ acRef }
 							source={ source || suggest }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
@@ -526,7 +647,7 @@ const FormAutocompleteMultiselect = React.forwardRef(
 							<ListComponent
 								key={ idx }
 								index={ idx }
-								option={ option }
+								option={ option as string }
 								unselectValue={ unselectValue }
 							/>
 						) ) }
