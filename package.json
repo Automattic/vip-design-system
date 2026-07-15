@@ -121,7 +121,7 @@
     "prettier": "npm:wp-prettier@2.8.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "storybook": "10.3.3",
+    "storybook": "10.5.0",
     "theme-ui": "0.16.0",
     "token-transformer": "0.0.33",
     "typescript": "5.8.3",
