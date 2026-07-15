@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { containerStyles } from './styles';
-import { Box } from '../Box';
+import { Box } from '../Box/Box';
 import { Select } from '../NewForm';
 
 export interface PaginationLayoutProps {

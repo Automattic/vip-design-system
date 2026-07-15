@@ -10,7 +10,9 @@ import { Input as ThemeInput, InputProps as ThemeInputProps, ThemeUIStyleObject 
  * Internal dependencies
  */
 import { baseControlStyle } from './Input.styles';
-import { Validation, Label, Box } from '../';
+import { Label } from './Label';
+import { Validation } from './Validation';
+import { Box } from '../Box/Box';
 
 const inputStyles = {
 	unset: 'all',

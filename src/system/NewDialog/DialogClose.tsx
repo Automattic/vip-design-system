@@ -5,7 +5,7 @@ import React, { forwardRef } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { ThemeUIStyleObject } from 'theme-ui';
 
-import { Button } from '..';
+import { Button } from '../Button/Button';
 
 export interface DialogCloseProps {
 	/** The custom close trigger element to render inside the dialog. */

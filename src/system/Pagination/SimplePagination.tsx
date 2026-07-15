@@ -6,8 +6,8 @@ import { Flex } from 'theme-ui';
 
 import { PaginationLayout, PaginationLayoutProps } from './PaginationLayout';
 import { navigationStyles, arrowButtonStyles } from './styles';
-import { Box } from '../Box';
-import { Button } from '../Button';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
 
 /** A navigation parameter for SimplePagination. */
 export interface SimpleNavigationParam {

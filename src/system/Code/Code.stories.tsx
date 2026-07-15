@@ -28,16 +28,12 @@ export const Primary: Story = {
 
 export const DefaultWithTime: Story = {
 	render: () => (
-		<Code
-			children={
-				<>
-					<time sx={ { color: 'logs.text.secondary' } } dateTime="2022-01-01 15:15:15">
-						15:16
-					</time>{ ' ' }
-					Code
-				</>
-			}
-		/>
+		<Code>
+			<time sx={ { color: 'logs.text.secondary' } } dateTime="2022-01-01 15:15:15">
+				15:16
+			</time>{ ' ' }
+			Code
+		</Code>
 	),
 };
 

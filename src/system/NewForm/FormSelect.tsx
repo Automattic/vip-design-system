@@ -11,10 +11,10 @@ import { ThemeUIStyleObject } from 'theme-ui';
  */
 import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
-import { Box } from '../Box';
-import { Validation } from '../Form';
+import { Box } from '../Box/Box';
 import { baseControlStyle } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
+import { Validation } from '../Form/Validation';
 
 const MAX_SUGGESTED_OPTIONS = 15;
 const ICON_SIZE = 24;

@@ -6,7 +6,7 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { Link } from '../Link';
+import { Link } from '../Link/Link';
 import ScreenReaderText from '../ScreenReaderText';
 
 import type { LinkProps } from '../Link/Link';

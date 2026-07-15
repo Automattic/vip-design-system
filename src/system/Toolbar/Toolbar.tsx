@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React, { Ref, forwardRef } from 'react';
 
 import { VIP_TOOLBAR } from './index';
-import { Flex } from '..';
+import { Flex } from '../Flex/Flex';
 
 export type ToolbarVariant = 'primary';
 

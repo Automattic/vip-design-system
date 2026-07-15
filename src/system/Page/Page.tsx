@@ -1,3 +1,3 @@
-import { Box } from '../Box';
+import { Box } from '../Box/Box';
 
 export const Page = props => <Box { ...props } />;

@@ -9,8 +9,8 @@ import React, { useLayoutEffect, useState } from 'react';
 /**
  * Internal dependencies
  */
-import { WizardStepProps } from './WizardStep';
-import { Box, WizardStep } from '..';
+import { WizardStep, WizardStepProps } from './WizardStep';
+import { Box } from '../Box/Box';
 import { HeadingProps } from '../Heading/Heading';
 
 export interface WizardProps {

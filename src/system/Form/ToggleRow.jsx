@@ -8,7 +8,13 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { Badge, Box, Card, Flex, Heading, Text, Toggle } from '..';
+import { Toggle } from './Toggle';
+import { Badge } from '../Badge/Badge';
+import { Box } from '../Box/Box';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { Text } from '../Text/Text';
 
 const ToggleRow = ( { image, badge, title, subTitle, body, meta, sx, ...props } ) => (
 	<Flex

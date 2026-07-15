@@ -13,7 +13,11 @@ import { ThemeUIStyleObject } from 'theme-ui';
 /**
  * Internal dependencies
  */
-import { Box, Flex, Heading, Card, Button } from '../';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
 
 type ColorVariants = 'warning' | 'error' | 'alert' | 'success' | 'info';
 
