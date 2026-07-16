@@ -3,8 +3,8 @@
 /**
  * External dependencies
  */
-import classNames from 'classnames';
-import React from 'react';
+import classNames, { Argument } from 'classnames';
+import React, { ReactElement, ReactNode } from 'react';
 
 /**
  * Internal dependencies
@@ -16,6 +16,24 @@ import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
 import { Text } from '../Text/Text';
 
+export interface ConfirmationDialogContentProps {
+	/** The dialog title. */
+	title?: ReactNode;
+	/** The dialog body content. */
+	body?: ReactNode;
+	/** Callback invoked when the dialog closes. */
+	onClose?: () => void;
+	/**
+	 * Text for the confirm button.
+	 * @default 'Confirm'
+	 */
+	label?: string;
+	/** Callback invoked when the user confirms. */
+	onConfirm?: () => void;
+	/** Additional CSS class name(s) applied to the content wrapper. */
+	className?: Argument;
+}
+
 const ConfirmationDialogContent = ( {
 	title,
 	body,
@@ -23,7 +41,7 @@ const ConfirmationDialogContent = ( {
 	label = 'Confirm',
 	onConfirm,
 	className = null,
-} ) => (
+}: ConfirmationDialogContentProps ) => (
 	<Box p={ 4 } className={ classNames( 'vip-confirmation-dialog-component', className ) }>
 		<Heading variant="h3" sx={ { mb: 2 } }>
 			{ title }
@@ -36,8 +54,8 @@ const ConfirmationDialogContent = ( {
 			<Button
 				variant="danger"
 				onClick={ () => {
-					onConfirm();
-					onClose();
+					onConfirm?.();
+					onClose?.();
 				} }
 			>
 				{ label }
@@ -46,7 +64,23 @@ const ConfirmationDialogContent = ( {
 	</Box>
 );
 
-const ConfirmationDialog = ( { trigger, onConfirm, needsConfirm = true, ...props } ) => {
+export interface ConfirmationDialogProps extends Omit< ConfirmationDialogContentProps, 'onClose' > {
+	/** The element that triggers the dialog; cloned to attach the confirm handler. */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- trigger accepts any element; cloneElement injects an onClick handler.
+	trigger: ReactElement< any >;
+	/**
+	 * Whether to show a confirmation step. When false, the trigger confirms directly.
+	 * @default true
+	 */
+	needsConfirm?: boolean;
+}
+
+const ConfirmationDialog = ( {
+	trigger,
+	onConfirm,
+	needsConfirm = true,
+	...props
+}: ConfirmationDialogProps ) => {
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
 
 	if ( ! needsConfirm ) {

@@ -3,9 +3,9 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { MdContentCopy } from 'react-icons/md';
-import { Input as ThemeInput } from 'theme-ui';
+import { Input as ThemeInput, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -15,7 +15,29 @@ import { Label } from './Label';
 import { Validation } from './Validation';
 import { Button } from '../Button/Button';
 
-const inputStyles = {
+export interface InputWithCopyButtonProps extends React.InputHTMLAttributes< HTMLInputElement > {
+	/** Visual variant (excluded from the props forwarded to the input). */
+	variant?: string;
+	/** Label rendered above the input. */
+	label?: ReactNode;
+	/** `htmlFor`/`id` value tying the label to the input. */
+	forLabel?: string;
+	/**
+	 * Whether the field is in an error state.
+	 * @default false
+	 */
+	hasError?: boolean;
+	/** Whether the field is required. */
+	required?: boolean;
+	/** Theme UI style overrides applied to the input. */
+	sx?: ThemeUIStyleObject;
+	/** Validation message shown when `hasError` is true. */
+	errorMessage?: ReactNode;
+	/** Callback invoked with the copied value after a successful copy. */
+	copyHandler?: ( value?: string ) => void;
+}
+
+const inputStyles: ThemeUIStyleObject = {
 	unset: 'all',
 	...baseControlStyle,
 	lineHeight: 'inherit',
@@ -27,7 +49,7 @@ const inputStyles = {
 	variant: 'inputs.default',
 };
 
-const InputWithCopyButton = React.forwardRef(
+const InputWithCopyButton = React.forwardRef< HTMLInputElement, InputWithCopyButtonProps >(
 	(
 		{
 			variant,
@@ -42,16 +64,18 @@ const InputWithCopyButton = React.forwardRef(
 		},
 		ref
 	) => {
-		if ( ! ref ) {
-			ref = React.createRef();
-		}
+		const fallbackRef = useRef< HTMLInputElement >( null );
+		const inputRef = (
+			ref && typeof ref !== 'function' ? ref : fallbackRef
+		) as React.RefObject< HTMLInputElement >;
 
-		const handleCopy = e => {
+		const handleCopy = ( e: React.MouseEvent< HTMLButtonElement > ) => {
 			e.preventDefault();
 			const clipboard = navigator.clipboard; // eslint-disable-line no-undef
-			clipboard.writeText( ref.current.value );
+			const value = inputRef.current?.value ?? '';
+			void clipboard.writeText( value );
 			if ( copyHandler ) {
-				copyHandler( ref.current.value );
+				copyHandler( value );
 			}
 		};
 		return (
@@ -63,7 +87,7 @@ const InputWithCopyButton = React.forwardRef(
 				) }
 				<div sx={ { display: 'flex' } }>
 					<ThemeInput
-						ref={ ref }
+						ref={ inputRef }
 						id={ forLabel }
 						required={ required }
 						aria-required={ required }
@@ -78,7 +102,7 @@ const InputWithCopyButton = React.forwardRef(
 					<div sx={ { ml: 2 } }>
 						<Button
 							sx={ { height: '40px' } }
-							aria-label={ `Copy ${ label }` }
+							aria-label={ `Copy ${ String( label ) }` }
 							onClick={ handleCopy }
 							variant="ghost"
 						>

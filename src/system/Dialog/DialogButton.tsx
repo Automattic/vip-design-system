@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
 
 /**
@@ -11,7 +12,20 @@ import { MdExpandMore } from 'react-icons/md';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
 
-const DialogButton = ( { label, variant = 'secondary', value, children, ...props } ) => (
+export interface DialogButtonProps extends React.ComponentProps< typeof Button > {
+	/** Label text rendered before the value. */
+	label?: string;
+	/** Value text rendered after the label, truncated with an ellipsis when it overflows. */
+	value?: string;
+}
+
+const DialogButton = ( {
+	label,
+	variant = 'secondary',
+	value,
+	children,
+	...props
+}: DialogButtonProps ) => (
 	<Button
 		variant={ variant }
 		sx={ {

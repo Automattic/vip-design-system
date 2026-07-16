@@ -4,8 +4,9 @@
  * External dependencies
  */
 import Autocomplete from 'accessible-autocomplete/react';
-import classNames from 'classnames';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import classNames, { Argument } from 'classnames';
+import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
@@ -19,14 +20,108 @@ import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
 import { Validation } from '../Form/Validation';
 
-const baseBorderTextColors = {
+interface ThemeProps extends Theme {
+	outline?: Record< string, string >;
+}
+
+export interface AutocompleteOption {
+	label?: string;
+	value?: string;
+	options?: AutocompleteOption[];
+	[ key: string ]: unknown;
+}
+
+// `accessible-autocomplete/react` ships no types; we hold a ref to its class instance to call its imperative API.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AutocompleteInstance = any;
+
+export interface FormAutocompleteProps {
+	/**
+	 * Whether to filter the options client-side as the user types.
+	 * @default true
+	 */
+	autoFilter?: boolean;
+	/** Additional CSS class name(s) applied to the wrapper. */
+	className?: Argument;
+	/**
+	 * Debounce (ms) applied to input/source callbacks.
+	 * @default 0
+	 */
+	debounce?: number;
+	/**
+	 * How the options menu is displayed.
+	 * @default 'overlay'
+	 */
+	displayMenu?: 'inline' | 'overlay';
+	/** Render function for the dropdown arrow. */
+	dropdownArrow?: ( config: { className?: string } ) => ReactNode;
+	/**
+	 * `id`/`htmlFor` value for the input and label.
+	 * @default 'vip-autocomplete'
+	 */
+	forLabel?: string;
+	/** Returns the display label for an option. */
+	getOptionLabel?: ( option: AutocompleteOption ) => string;
+	/** Returns the value for an option. */
+	getOptionValue?: ( option: AutocompleteOption ) => string;
+	/** Validation message shown when `hasError` is true. */
+	errorMessage?: ReactNode;
+	/** Whether the field is in an error state. */
+	hasError?: boolean;
+	/** Whether to render the label inline with the input. */
+	isInline?: boolean;
+	/** The field label. */
+	label?: ReactNode;
+	/** Whether the field is in a loading state. */
+	loading?: boolean;
+	/**
+	 * Minimum query length before the source callback fires.
+	 * @default 0
+	 */
+	minLength?: number;
+	/** Returns the message shown when there are no results. */
+	noOptionsMessage?: () => string;
+	/** Called when a value is confirmed; receives the matched option and the input value. */
+	onChange?: ( option: AutocompleteOption | undefined, inputValue: string | null ) => void;
+	/** Called when the input value changes. */
+	onInputChange?: ( query: string ) => void;
+	/** The list of options. */
+	options?: AutocompleteOption[];
+	/** Whether a selection is required. */
+	required?: boolean;
+	/** Whether to render a leading search icon. */
+	searchIcon?: boolean;
+	/**
+	 * Whether to show all values (dropdown-style) and render the arrow.
+	 * @default false
+	 */
+	showAllValues?: boolean;
+	/**
+	 * Resets the input to the selection on blur; returns null if the selection is empty.
+	 * @default false
+	 */
+	resetOnBlur?: boolean;
+	/** Custom source function for fetching results. */
+	source?: ( query: string, populateResults: ( results: string[] ) => void ) => void;
+	/** The current value. */
+	value?: string;
+	/**
+	 * Whether to allow arbitrary (custom) values not in the options.
+	 * @default false
+	 */
+	allowCustom?: boolean;
+	/** Placeholder text forwarded to the underlying autocomplete input. */
+	placeholder?: string;
+}
+
+const baseBorderTextColors: ThemeUIStyleObject = {
 	...baseControlBorderStyle,
 	backgroundColor: 'layer.2',
 	color: inputBaseText,
 	borderRadius: 1,
 };
 
-const defaultStyles = {
+const defaultStyles: ThemeUIStyleObject = {
 	width: '100%',
 	mb: 2,
 	...baseBorderTextColors,
@@ -34,9 +129,9 @@ const defaultStyles = {
 	py: 0,
 	minHeight: '36px',
 	lineHeight: '36px',
-	'&:focus-visible': theme => theme.outline,
-	'&:focus-within': theme => theme.outline,
-	'&.autocomplete__input--focused': theme => theme.outline,
+	'&:focus-visible': ( theme: ThemeProps ) => theme.outline,
+	'&:focus-within': ( theme: ThemeProps ) => theme.outline,
+	'&.autocomplete__input--focused': ( theme: ThemeProps ) => theme.outline,
 	'& .autocomplete__input': {
 		width: '100%',
 		paddingLeft: 3,
@@ -80,29 +175,31 @@ const defaultStyles = {
 	},
 };
 
-const inlineStyles = {
+const inlineStyles: ThemeUIStyleObject = {
 	borderWidth: 0,
 };
 
-const allowCustomStyles = {
+const allowCustomStyles: ThemeUIStyleObject = {
 	'& .autocomplete__option--no-results': {
 		cursor: 'pointer',
 	},
 };
 
-const searchIconStyles = {
+const searchIconStyles: ThemeUIStyleObject = {
 	'& .autocomplete__input.autocomplete__input': {
 		paddingLeft: 6,
 	},
 };
 
-const DefaultArrow = config => <FormSelectArrow className={ config.className } />;
+const DefaultArrow = ( config: { className?: string } ) => (
+	<FormSelectArrow className={ config.className } />
+);
 
 // Module-scope no-op so the default `onChange` keeps a stable reference across
 // renders (an inline `() => {}` default reallocates every render and defeats memoization).
 const noop = () => {};
 
-const FormAutocomplete = React.forwardRef(
+const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocompleteProps >(
 	(
 		{
 			autoFilter = true,
@@ -132,16 +229,19 @@ const FormAutocomplete = React.forwardRef(
 			allowCustom = false,
 			...props
 		},
-		forwardRef
+		forwardedRef
 	) => {
 		const [ isDirty, setIsDirty ] = useState( false );
-		const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState( null );
+		const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState< ReturnType<
+			typeof setTimeout
+		> | null >( null );
 		const [ selectedValue, setSelectedValue ] = useState( value || '' );
 		const [ inputQuery, setInputQuery ] = useState( value );
-		let debounceTimeout;
-		if ( ! forwardRef ) {
-			forwardRef = React.createRef();
-		}
+		let debounceTimeout: ReturnType< typeof setTimeout >;
+		const fallbackRef = React.useRef< AutocompleteInstance >( null );
+		const acRef = (
+			forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : fallbackRef
+		) as React.MutableRefObject< AutocompleteInstance >;
 
 		const SelectLabel = () => (
 			<Label required={ required } htmlFor={ forLabel }>
@@ -152,49 +252,46 @@ const FormAutocomplete = React.forwardRef(
 		const inlineLabel = Boolean( isInline && label );
 
 		const optionLabel = useCallback(
-			option => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+			( option: AutocompleteOption ) =>
+				getOptionLabel ? getOptionLabel( option ) : option.label,
 			[ getOptionLabel ]
 		);
 
-		const getAllOptions = useMemo(
-			() =>
-				[
-					...options.filter( option => ! option.options ),
-					...options.filter( option => option.options ).map( option => option.options ),
-				].reduce( ( a, b ) => a.concat( b ), [] ),
+		const getAllOptions = useMemo< AutocompleteOption[] >(
+			() => options.flatMap( option => option.options ?? [ option ] ),
 			[ options ]
 		);
 
 		const getOptionByLabel = useCallback(
-			inputValue =>
-				getAllOptions.find( option => `${ optionLabel( option ) }` === `${ inputValue }` ),
+			( inputValue: string ) =>
+				getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
 			[ getAllOptions, optionLabel ]
 		);
 		/**
 		 * Reset the underlying component state to show the selected value
 		 */
 		const resetInputState = useCallback( () => {
-			if ( resetOnBlur && forwardRef?.current && inputQuery !== selectedValue ) {
+			if ( resetOnBlur && acRef?.current && inputQuery !== selectedValue ) {
 				// resets the input field to the selected value or the empty string
-				forwardRef.current.setState( {
-					...forwardRef.current.state,
+				acRef.current.setState( {
+					...acRef.current.state,
 					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
 				} );
 			}
-		}, [ forwardRef ] );
+		}, [ acRef ] );
 		// sets the internal state variables and calls the onChange callback
 		const setAutocompleteState = useCallback(
-			inputValue => {
-				setInputQuery( inputValue );
-				setSelectedValue( inputValue );
-				onChange( getOptionByLabel( inputValue ), inputValue );
+			( inputValue: string | null ) => {
+				setInputQuery( inputValue ?? '' );
+				setSelectedValue( inputValue ?? '' );
+				onChange( getOptionByLabel( inputValue ?? '' ), inputValue );
 				setIsDirty( false );
 			},
 			[ onChange, getOptionByLabel ]
 		);
 		// this method gets called when we confirm the selection via click/enter
 		const onValueChange = useCallback(
-			inputValue => {
+			( inputValue: string | null ) => {
 				if ( inputValue ) {
 					setAutocompleteState( inputValue );
 				} else if ( resetOnBlur && inputQuery !== selectedValue ) {
@@ -211,9 +308,10 @@ const FormAutocomplete = React.forwardRef(
 		);
 
 		const handleTypeChange = useCallback(
-			query => {
+			( query: string ) => {
 				const filteredOptions = options.filter(
-					option => optionLabel( option ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
+					option =>
+						String( optionLabel( option ) ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
 				);
 				if ( allowCustom && filteredOptions.length === 0 ) {
 					return [ { label: query, value: query } ];
@@ -224,15 +322,15 @@ const FormAutocomplete = React.forwardRef(
 		);
 
 		const handleInputChange = useCallback(
-			query => {
+			( query: string ) => {
 				if ( ! debounce ) {
-					return onInputChange( query );
+					return onInputChange?.( query );
 				}
 				clearTimeout( debounceTimeout );
 
 				if ( ! query.length || query.length >= minLength ) {
 					debounceTimeout = setTimeout( () => {
-						onInputChange( query );
+						onInputChange?.( query );
 					}, debounce );
 				}
 			},
@@ -240,7 +338,7 @@ const FormAutocomplete = React.forwardRef(
 		);
 
 		const suggest = useCallback(
-			( query, populateResults ) => {
+			( query: string, populateResults: ( results: unknown[] ) => void ) => {
 				let data = options;
 				if ( isDirty && onInputChange ) {
 					handleInputChange( query );
@@ -253,12 +351,12 @@ const FormAutocomplete = React.forwardRef(
 			[ autoFilter, isDirty, onInputChange, options ]
 		);
 		// internal function to save the inputQuery
-		const handleSource = ( query, populateResults ) => {
+		const handleSource = ( query: string, populateResults: ( results: unknown[] ) => void ) => {
 			setInputQuery( query );
 			// user function to fetch the results has the precedence
 			if ( source ) {
 				if ( ! debounce ) {
-					source( query, populateResults );
+					source( query, populateResults as ( results: string[] ) => void );
 					return;
 				}
 				if ( sourceDebounceTimeout ) {
@@ -269,7 +367,7 @@ const FormAutocomplete = React.forwardRef(
 				if ( ! query.length || query.length >= minLength ) {
 					setSourceDebounceTimeout(
 						setTimeout( () => {
-							source( query, populateResults );
+							source( query, populateResults as ( results: string[] ) => void );
 							setSourceDebounceTimeout( null );
 						}, debounce )
 					);
@@ -281,13 +379,13 @@ const FormAutocomplete = React.forwardRef(
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__input' )
-				.setAttribute( 'aria-activedescendant', '' );
+				?.setAttribute( 'aria-activedescendant', '' );
 		}, [] );
 
 		useEffect( () => {
 			global.document
 				.querySelector( '.autocomplete__menu' )
-				.setAttribute( 'aria-label', `${ label } list` );
+				?.setAttribute( 'aria-label', `${ String( label ) } list` );
 		}, [ label ] );
 
 		useEffect( () => {
@@ -297,7 +395,7 @@ const FormAutocomplete = React.forwardRef(
 				return;
 			}
 
-			input.setAttribute( 'aria-required', required );
+			input.setAttribute( 'aria-required', String( required ) );
 		}, [ required ] );
 
 		useEffect( () => {
@@ -309,7 +407,7 @@ const FormAutocomplete = React.forwardRef(
 
 			const onKeyDown = e => {
 				// pressed escape, we want to reset the status
-				if ( e.keyCode === 27 && resetOnBlur ) {
+				if ( ( e as KeyboardEvent ).keyCode === 27 && resetOnBlur ) {
 					resetInputState();
 				} else {
 					setIsDirty( true );
@@ -325,14 +423,16 @@ const FormAutocomplete = React.forwardRef(
 		useEffect( () => {
 			const input = global.document.querySelector( `#${ forLabel }` );
 
-			input?.setAttribute(
-				'aria-describedby',
-				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) }`
-			);
+			if ( input ) {
+				input.setAttribute(
+					'aria-describedby',
+					`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) ?? '' }`
+				);
+			}
 		}, [] );
 
 		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
+			const input = global.document.querySelector< HTMLInputElement >( `#${ forLabel }` );
 
 			if ( ! input ) {
 				return;
@@ -346,7 +446,7 @@ const FormAutocomplete = React.forwardRef(
 			input.addEventListener( 'blur', onBlur );
 
 			return () => input.removeEventListener( 'blur', onBlur );
-		}, [ forwardRef ] );
+		}, [ acRef ] );
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 				{ label && ! isInline && <SelectLabel /> }
@@ -370,7 +470,7 @@ const FormAutocomplete = React.forwardRef(
 							id={ forLabel }
 							aria-busy={ loading }
 							showAllValues={ showAllValues }
-							ref={ forwardRef }
+							ref={ acRef }
 							source={ handleSource }
 							defaultValue={ value }
 							displayMenu={ displayMenu }

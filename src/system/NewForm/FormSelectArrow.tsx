@@ -15,6 +15,7 @@ import { baseControlBorderStyle as borderStyle } from '../Form/Input.styles';
 interface FormSelectArrowProps {
 	iconSize?: number;
 	separator?: boolean;
+	className?: string;
 }
 
 export const FormSelectArrow = React.forwardRef< HTMLDivElement, FormSelectArrowProps >(
