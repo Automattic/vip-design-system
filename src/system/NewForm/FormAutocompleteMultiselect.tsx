@@ -566,7 +566,7 @@ const FormAutocompleteMultiselect = React.forwardRef<
 					<div sx={ inlineChipsContainerStyles }>
 						{ selectedOptions.map( ( option, idx ) => (
 							<FormAutocompleteMultiselectInlineChip
-								key={ idx }
+								key={ option as string }
 								index={ idx }
 								option={ option as string }
 								unselectValue={ unselectValue }
