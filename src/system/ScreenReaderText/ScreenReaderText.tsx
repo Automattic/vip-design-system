@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames';
-import { forwardRef, ReactNode, Ref } from 'react';
+import { ReactNode, Ref } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
@@ -34,18 +34,17 @@ export interface ScreenReaderTextProps {
 /**
  * A utility component that visually hides content while keeping it accessible to screen readers.
  */
-export const ScreenReaderText = forwardRef< HTMLSpanElement, ScreenReaderTextProps >(
-	(
-		{ className, ...props }: ScreenReaderTextProps & { className?: string },
-		ref: Ref< HTMLSpanElement >
-	) => (
-		<span
-			className={ classNames( 'screen-reader-text', className ) }
-			sx={ screenReaderTextClass }
-			{ ...props }
-			ref={ ref }
-		>
-			{ props.children }
-		</span>
-	)
+export const ScreenReaderText = ( {
+	className,
+	ref,
+	...props
+}: ScreenReaderTextProps & { className?: string; ref?: Ref< HTMLSpanElement > } ) => (
+	<span
+		className={ classNames( 'screen-reader-text', className ) }
+		sx={ screenReaderTextClass }
+		{ ...props }
+		ref={ ref }
+	>
+		{ props.children }
+	</span>
 );

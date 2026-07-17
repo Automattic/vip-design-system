@@ -12,6 +12,8 @@ export interface DropdownContentProps {
 	 * @default 'center'
 	 */
 	align?: 'start' | 'center' | 'end';
+	/** Forwarded ref to the underlying content element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export const styles = {
@@ -26,16 +28,19 @@ export const styles = {
 /**
  * The styled content container for the Dropdown menu.
  */
-export const DropdownContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
-	( { className, align = 'center', ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.DropdownMenuContent
-			className={ classNames( 'vip-dropdown-menu-content', className ) }
-			ref={ forwardRef }
-			sx={ styles }
-			align={ align }
-			{ ...props }
-		/>
-	)
+export const DropdownContent = ( {
+	className,
+	align = 'center',
+	ref,
+	...props
+}: DropdownContentProps ) => (
+	<DropdownMenuPrimitive.DropdownMenuContent
+		className={ classNames( 'vip-dropdown-menu-content', className ) }
+		ref={ ref }
+		sx={ styles }
+		align={ align }
+		{ ...props }
+	/>
 );
 
 DropdownContent.displayName = 'DropdownContent';
@@ -43,17 +48,15 @@ DropdownContent.displayName = 'DropdownContent';
 /**
  * The styled content container for a nested sub-menu within a Dropdown.
  */
-export const DropdownSubContent = React.forwardRef< HTMLDivElement, DropdownContentProps >(
-	( { className, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.Portal>
-			<DropdownMenuPrimitive.DropdownMenuSubContent
-				className={ classNames( 'vip-dropdown-menu-sub-content', className ) }
-				ref={ forwardRef }
-				sx={ styles }
-				{ ...props }
-			/>
-		</DropdownMenuPrimitive.Portal>
-	)
+export const DropdownSubContent = ( { className, ref, ...props }: DropdownContentProps ) => (
+	<DropdownMenuPrimitive.Portal>
+		<DropdownMenuPrimitive.DropdownMenuSubContent
+			className={ classNames( 'vip-dropdown-menu-sub-content', className ) }
+			ref={ ref }
+			sx={ styles }
+			{ ...props }
+		/>
+	</DropdownMenuPrimitive.Portal>
 );
 
 DropdownSubContent.displayName = 'DropdownSubContent';

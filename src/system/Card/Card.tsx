@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import { forwardRef, Ref } from 'react';
+import { Ref } from 'react';
 import { BoxProps, ThemeUIStyleObject } from 'theme-ui';
 
 /**
@@ -39,6 +39,8 @@ export interface CardProps {
 	 * @default false
 	 */
 	hideBody?: boolean;
+	/** Forwarded ref to the underlying container element. */
+	ref?: Ref< HTMLElement >;
 }
 
 type CardBoxProps = CardProps & BoxProps;
@@ -46,56 +48,52 @@ type CardBoxProps = CardProps & BoxProps;
 /**
  * A container component with optional header and body sections, supporting multiple visual variants.
  */
-export const Card = forwardRef< HTMLElement, CardBoxProps >(
-	(
-		{
-			variant = 'primary',
-			title,
-			renderHeader,
-			bodyStyles,
-			headerStyles,
-			children,
-			hideBody = false,
-			...rest
-		}: CardProps,
-		ref: Ref< HTMLElement >
-	) => {
-		return (
-			<Box
-				ref={ ref }
-				sx={ {
-					variant: `cards.${ variant }`,
-				} }
-				className="vip-card-component"
-				{ ...rest }
-			>
-				{ renderHeader ? renderHeader( title ) : '' }
-				{ title && ! renderHeader && (
-					<Box
-						className="vip-card-header-component"
-						sx={ {
-							variant: `cards.${ variant }.header`,
-							...headerStyles,
-						} }
-					>
-						{ title }
-					</Box>
-				) }
+export const Card = ( {
+	variant = 'primary',
+	title,
+	renderHeader,
+	bodyStyles,
+	headerStyles,
+	children,
+	hideBody = false,
+	ref,
+	...rest
+}: CardBoxProps ) => {
+	return (
+		<Box
+			ref={ ref }
+			sx={ {
+				variant: `cards.${ variant }`,
+			} }
+			className="vip-card-component"
+			{ ...rest }
+		>
+			{ renderHeader ? renderHeader( title ) : '' }
+			{ title && ! renderHeader && (
+				<Box
+					className="vip-card-header-component"
+					sx={ {
+						variant: `cards.${ variant }.header`,
+						...headerStyles,
+					} }
+				>
+					{ title }
+				</Box>
+			) }
 
-				{ ! hideBody && (
-					<Box
-						className="vip-card-body-component"
-						sx={ {
-							variant: `cards.${ variant }.children`,
-							...bodyStyles,
-						} }
-					>
-						{ children }
-					</Box>
-				) }
-			</Box>
-		);
-	}
-);
+			{ ! hideBody && (
+				<Box
+					className="vip-card-body-component"
+					sx={ {
+						variant: `cards.${ variant }.children`,
+						...bodyStyles,
+					} }
+				>
+					{ children }
+				</Box>
+			) }
+		</Box>
+	);
+};
 
 Card.displayName = 'Card';

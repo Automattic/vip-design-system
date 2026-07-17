@@ -7,6 +7,8 @@ import React from 'react';
 export interface DropdownLabelProps {
 	/** Additional CSS class name applied to the label. */
 	className?: string;
+	/** Forwarded ref to the underlying label element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export const styles = {
@@ -19,15 +21,13 @@ export const styles = {
 /**
  * A non-interactive label used to describe a group of items within a Dropdown menu.
  */
-export const DropdownLabel = React.forwardRef< HTMLDivElement, DropdownLabelProps >(
-	( { className, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.DropdownMenuLabel
-			className={ classNames( 'vip-dropdown-menu-label', className ) }
-			ref={ forwardRef }
-			sx={ styles }
-			{ ...props }
-		/>
-	)
+export const DropdownLabel = ( { className, ref, ...props }: DropdownLabelProps ) => (
+	<DropdownMenuPrimitive.DropdownMenuLabel
+		className={ classNames( 'vip-dropdown-menu-label', className ) }
+		ref={ ref }
+		sx={ styles }
+		{ ...props }
+	/>
 );
 
 DropdownLabel.displayName = 'DropdownLabel';

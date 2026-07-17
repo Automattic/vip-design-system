@@ -46,40 +46,36 @@ export interface ButtonSubmitProps extends ButtonProps {
 /**
  * A button designed for form submissions with built-in loading state and spinner indicator.
  */
-export const ButtonSubmit = React.forwardRef< HTMLButtonElement, ButtonSubmitProps >(
-	(
-		{
-			show = true,
-			variant = 'secondary',
-			label,
-			loading = false,
-			disabled = false,
-			loadingIcon = DefaultSpinner,
-			loadingIconSize = 20,
-			...rest
-		}: ButtonSubmitProps,
-		ref: React.Ref< HTMLButtonElement >
-	) => {
-		if ( ! show ) {
-			return null;
-		}
-
-		return (
-			<Button
-				ref={ ref }
-				className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
-				disabled={ disabled || loading }
-				preferAriaDisabled={ true }
-				variant={ variant }
-				aria-busy={ loading }
-				{ ...rest }
-			>
-				{ label }{ ' ' }
-				{ Boolean( loading ) &&
-					loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
-			</Button>
-		);
+export const ButtonSubmit = ( {
+	show = true,
+	variant = 'secondary',
+	label,
+	loading = false,
+	disabled = false,
+	loadingIcon = DefaultSpinner,
+	loadingIconSize = 20,
+	ref,
+	...rest
+}: ButtonSubmitProps ) => {
+	if ( ! show ) {
+		return null;
 	}
-);
+
+	return (
+		<Button
+			ref={ ref }
+			className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
+			disabled={ disabled || loading }
+			preferAriaDisabled={ true }
+			variant={ variant }
+			aria-busy={ loading }
+			{ ...rest }
+		>
+			{ label }{ ' ' }
+			{ Boolean( loading ) &&
+				loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
+		</Button>
+	);
+};
 
 ButtonSubmit.displayName = 'ButtonSubmit';

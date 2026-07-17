@@ -149,93 +149,91 @@ export interface RadioBoxGroupProps
 	hasError?: boolean;
 	/** Whether a selection is required. */
 	required?: boolean;
+	/** Ref forwarded to the underlying fieldset element. */
+	ref?: React.Ref< HTMLFieldSetElement >;
 }
 
-const RadioBoxGroup = React.forwardRef< HTMLFieldSetElement, RadioBoxGroupProps >(
-	(
-		{
-			optionWidth = 'auto',
-			name = '',
-			onChange,
-			groupLabel,
-			defaultValue,
-			options,
-			disabled,
-			errorMessage,
-			hasError,
-			required,
-			...props
+const RadioBoxGroup = ( {
+	optionWidth = 'auto',
+	name = '',
+	onChange,
+	groupLabel,
+	defaultValue,
+	options,
+	disabled,
+	errorMessage,
+	hasError,
+	required,
+	ref,
+	...props
+}: RadioBoxGroupProps ) => {
+	const onChangeHandler = useCallback(
+		( e: React.ChangeEvent< HTMLInputElement > ) => {
+			const optionTriggered = options.find( option => String( option.value ) === e.target.value );
+			onChange?.( e, optionTriggered );
 		},
-		forwardRef
-	) => {
-		const onChangeHandler = useCallback(
-			( e: React.ChangeEvent< HTMLInputElement > ) => {
-				const optionTriggered = options.find( option => String( option.value ) === e.target.value );
-				onChange?.( e, optionTriggered );
-			},
-			[ onChange ]
-		);
+		[ onChange ]
+	);
 
-		const renderedOptions = options.map( option => (
-			<RadioOption
-				defaultValue={ defaultValue }
-				disabled={ disabled }
-				key={ option?.id || String( option?.value ) }
-				name={ name }
-				option={ option }
-				onChangeHandler={ onChangeHandler }
-				width={ optionWidth }
-			/>
-		) );
+	const renderedOptions = options.map( option => (
+		<RadioOption
+			defaultValue={ defaultValue }
+			disabled={ disabled }
+			key={ option?.id || String( option?.value ) }
+			name={ name }
+			option={ option }
+			onChangeHandler={ onChangeHandler }
+			width={ optionWidth }
+		/>
+	) );
 
-		return (
-			<div>
-				<fieldset
-					sx={ {
-						border: 0,
-						display: 'inline-block',
-						mb: 2,
-						p: 0,
-						...( hasError
-							? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
-							: {} ),
-					} }
-					ref={ forwardRef }
-					aria-required={ required }
-					role="radiogroup"
-					{ ...props }
-				>
-					{ groupLabel ? (
-						<legend sx={ { mb: 2 } }>
-							{ groupLabel }
-							{ required ? <RequiredLabel /> : null }
-						</legend>
-					) : (
-						<ScreenReaderText>Choose an option</ScreenReaderText>
-					) }
-					<div
-						sx={ {
-							display: 'flex',
-							flexWrap: 'wrap',
-							gap: 2,
-						} }
-					>
-						{ renderedOptions }
-					</div>
-				</fieldset>
-
-				{ hasError && errorMessage && (
-					<Validation
-						isValid={ false }
-						describedId={ typeof groupLabel === 'string' ? groupLabel : undefined }
-					>
-						{ errorMessage }
-					</Validation>
+	return (
+		<div>
+			<fieldset
+				sx={ {
+					border: 0,
+					display: 'inline-block',
+					mb: 2,
+					p: 0,
+					...( hasError
+						? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
+						: {} ),
+				} }
+				ref={ ref }
+				aria-required={ required }
+				role="radiogroup"
+				{ ...props }
+			>
+				{ groupLabel ? (
+					<legend sx={ { mb: 2 } }>
+						{ groupLabel }
+						{ required ? <RequiredLabel /> : null }
+					</legend>
+				) : (
+					<ScreenReaderText>Choose an option</ScreenReaderText>
 				) }
-			</div>
-		);
-	}
-);
+				<div
+					sx={ {
+						display: 'flex',
+						flexWrap: 'wrap',
+						gap: 2,
+					} }
+				>
+					{ renderedOptions }
+				</div>
+			</fieldset>
+
+			{ hasError && errorMessage && (
+				<Validation
+					isValid={ false }
+					describedId={ typeof groupLabel === 'string' ? groupLabel : undefined }
+				>
+					{ errorMessage }
+				</Validation>
+			) }
+		</div>
+	);
+};
 
 RadioBoxGroup.displayName = 'RadioBoxGroup';
 

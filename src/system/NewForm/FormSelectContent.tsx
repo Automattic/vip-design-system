@@ -24,16 +24,15 @@ interface FormSelectContentProps {
 	isInline?: boolean;
 	label?: React.ReactNode;
 	children?: React.ReactNode;
+	ref?: React.Ref< HTMLDivElement >;
 }
 
-const FormSelectContent = React.forwardRef< HTMLDivElement, FormSelectContentProps >(
-	( { isInline, label, children }, forwardRef ) => (
-		<div sx={ isInline ? inlineStyles : {} } className="vip-select-component" ref={ forwardRef }>
-			{ isInline && label }
+const FormSelectContent = ( { isInline, label, children, ref }: FormSelectContentProps ) => (
+	<div sx={ isInline ? inlineStyles : {} } className="vip-select-component" ref={ ref }>
+		{ isInline && label }
 
-			<div sx={ defaultStyles }>{ children }</div>
-		</div>
-	)
+		<div sx={ defaultStyles }>{ children }</div>
+	</div>
 );
 
 FormSelectContent.displayName = 'FormSelectContent';

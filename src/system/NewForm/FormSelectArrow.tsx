@@ -16,32 +16,36 @@ interface FormSelectArrowProps {
 	iconSize?: number;
 	separator?: boolean;
 	className?: string;
+	ref?: React.Ref< HTMLDivElement >;
 }
 
-export const FormSelectArrow = React.forwardRef< HTMLDivElement, FormSelectArrowProps >(
-	( { iconSize = 24, separator = true, ...props }, forwardRef ) => {
-		const arrowStyles: ThemeUIStyleObject = {
-			position: 'absolute',
-			right: 3,
-			top: '7px',
-			pointerEvents: 'none',
-			svg: {
-				fill: borderStyle.borderColor,
-			},
-			...( separator && {
-				paddingLeft: 2,
-				borderLeftWidth: borderStyle.borderWidth,
-				borderLeftStyle: borderStyle.borderStyle,
-				borderLeftColor: borderStyle.borderColor,
-			} ),
-		};
+export const FormSelectArrow = ( {
+	iconSize = 24,
+	separator = true,
+	ref,
+	...props
+}: FormSelectArrowProps ) => {
+	const arrowStyles: ThemeUIStyleObject = {
+		position: 'absolute',
+		right: 3,
+		top: '7px',
+		pointerEvents: 'none',
+		svg: {
+			fill: borderStyle.borderColor,
+		},
+		...( separator && {
+			paddingLeft: 2,
+			borderLeftWidth: borderStyle.borderWidth,
+			borderLeftStyle: borderStyle.borderStyle,
+			borderLeftColor: borderStyle.borderColor,
+		} ),
+	};
 
-		return (
-			<div ref={ forwardRef }>
-				<MdExpandMore aria-hidden="true" size={ iconSize } sx={ arrowStyles } { ...props } />
-			</div>
-		);
-	}
-);
+	return (
+		<div ref={ ref }>
+			<MdExpandMore aria-hidden="true" size={ iconSize } sx={ arrowStyles } { ...props } />
+		</div>
+	);
+};
 
 FormSelectArrow.displayName = 'FormSelectArrow';

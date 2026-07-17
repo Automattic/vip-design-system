@@ -33,49 +33,46 @@ export interface InputProps extends ThemeInputProps {
 	forLabel?: string;
 	errorMessage?: string;
 	wrapperSx?: ThemeUIStyleObject;
+	ref?: React.Ref< HTMLInputElement >;
 }
-export const Input = React.forwardRef< HTMLInputElement, InputProps >(
-	(
-		{
-			label,
-			forLabel,
-			hasError = false,
-			required,
-			sx = {},
-			wrapperSx = {},
-			errorMessage,
-			...props
-		},
-		ref
-	) => (
-		<Box sx={ { ...wrapperSx } }>
-			{ label && (
-				<Label required={ required } htmlFor={ forLabel }>
-					{ label }
-				</Label>
+export const Input = ( {
+	label,
+	forLabel,
+	hasError = false,
+	required,
+	sx = {},
+	wrapperSx = {},
+	errorMessage,
+	ref,
+	...props
+}: InputProps ) => (
+	<Box sx={ { ...wrapperSx } }>
+		{ label && (
+			<Label required={ required } htmlFor={ forLabel }>
+				{ label }
+			</Label>
+		) }
+		<Box sx={ { mb: 2 } }>
+			<ThemeInput
+				ref={ ref }
+				id={ forLabel }
+				required={ required }
+				aria-required={ required }
+				aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+				sx={ {
+					...inputStyles,
+					...sx,
+					...( hasError ? { borderColor: 'input.border.error' } : {} ),
+				} }
+				{ ...props }
+			/>
+			{ hasError && errorMessage && (
+				<Validation isValid={ false } describedId={ forLabel }>
+					{ errorMessage }
+				</Validation>
 			) }
-			<Box sx={ { mb: 2 } }>
-				<ThemeInput
-					ref={ ref }
-					id={ forLabel }
-					required={ required }
-					aria-required={ required }
-					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-					sx={ {
-						...inputStyles,
-						...sx,
-						...( hasError ? { borderColor: 'input.border.error' } : {} ),
-					} }
-					{ ...props }
-				/>
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
-						{ errorMessage }
-					</Validation>
-				) }
-			</Box>
 		</Box>
-	)
+	</Box>
 );
 
 Input.displayName = 'Input';

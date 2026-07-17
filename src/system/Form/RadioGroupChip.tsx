@@ -122,95 +122,90 @@ type RadioGroupChipProps = {
 	hasError?: boolean;
 	required?: boolean;
 	size?: 'small' | 'medium';
+	ref?: React.Ref< HTMLFieldSetElement >;
 };
 
-const RadioGroupChip = React.forwardRef(
-	(
-		{
-			name = '',
-			onChange,
-			groupLabel,
-			defaultValue,
-			options,
-			disabled,
-			errorMessage,
-			hasError,
-			required,
-			size = 'medium',
-			...props
-		}: RadioGroupChipProps,
-		forwardRef
-	) => {
-		const onChangeHandler = useCallback(
-			( e: React.ChangeEvent< HTMLInputElement > ) => {
-				const optionTriggered = options.find(
-					option => `${ option.value }` === `${ e.target.value }`
-				);
-				onChange( e, optionTriggered );
-			},
-			[ onChange ]
-		);
+const RadioGroupChip = ( {
+	name = '',
+	onChange,
+	groupLabel,
+	defaultValue,
+	options,
+	disabled,
+	errorMessage,
+	hasError,
+	required,
+	size = 'medium',
+	ref,
+	...props
+}: RadioGroupChipProps ) => {
+	const onChangeHandler = useCallback(
+		( e: React.ChangeEvent< HTMLInputElement > ) => {
+			const optionTriggered = options.find(
+				option => `${ option.value }` === `${ e.target.value }`
+			);
+			onChange( e, optionTriggered );
+		},
+		[ onChange ]
+	);
 
-		const renderedOptions = options.map( option => (
-			<ChipOption
-				defaultValue={ defaultValue }
-				disabled={ disabled }
-				key={ option?.id || option?.value }
-				name={ name }
-				option={ option }
-				onChangeHandler={ onChangeHandler }
-				size={ size }
-			/>
-		) );
+	const renderedOptions = options.map( option => (
+		<ChipOption
+			defaultValue={ defaultValue }
+			disabled={ disabled }
+			key={ option?.id || option?.value }
+			name={ name }
+			option={ option }
+			onChangeHandler={ onChangeHandler }
+			size={ size }
+		/>
+	) );
 
-		return (
-			<div>
-				<fieldset
-					sx={ {
-						border: 0,
-						background: 'layer.3',
-						p: size === 'small' ? '2px' : 1,
-						display: 'inline-flex',
-						gap: 1,
-						borderRadius: 1,
-						...( hasError
-							? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
-							: {} ),
-					} }
-					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-					// @ts-expect-error
-					ref={ forwardRef }
-					aria-required={ required }
-					role="radiogroup"
-					{ ...props }
-				>
-					{ groupLabel ? (
-						<legend sx={ { mb: 2 } }>
-							{ groupLabel }
-							{ required ? <RequiredLabel /> : null }
-						</legend>
-					) : (
-						<ScreenReaderText>Choose an option</ScreenReaderText>
-					) }
-					<div
-						sx={ {
-							display: 'flex',
-							gap: 1,
-						} }
-					>
-						{ renderedOptions }
-					</div>
-				</fieldset>
-
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ groupLabel }>
-						{ errorMessage }
-					</Validation>
+	return (
+		<div>
+			<fieldset
+				sx={ {
+					border: 0,
+					background: 'layer.3',
+					p: size === 'small' ? '2px' : 1,
+					display: 'inline-flex',
+					gap: 1,
+					borderRadius: 1,
+					...( hasError
+						? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
+						: {} ),
+				} }
+				ref={ ref }
+				aria-required={ required }
+				role="radiogroup"
+				{ ...props }
+			>
+				{ groupLabel ? (
+					<legend sx={ { mb: 2 } }>
+						{ groupLabel }
+						{ required ? <RequiredLabel /> : null }
+					</legend>
+				) : (
+					<ScreenReaderText>Choose an option</ScreenReaderText>
 				) }
-			</div>
-		);
-	}
-);
+				<div
+					sx={ {
+						display: 'flex',
+						gap: 1,
+					} }
+				>
+					{ renderedOptions }
+				</div>
+			</fieldset>
+
+			{ hasError && errorMessage && (
+				<Validation isValid={ false } describedId={ groupLabel }>
+					{ errorMessage }
+				</Validation>
+			) }
+		</div>
+	);
+};
 
 RadioGroupChip.displayName = 'RadioGroupChip';
 
