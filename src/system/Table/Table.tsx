@@ -5,7 +5,7 @@
  * External dependencies
  */
 import classNames, { Argument } from 'classnames';
-import { ReactNode, Ref, useId } from 'react';
+import { ReactNode, Ref, TableHTMLAttributes, useId } from 'react';
 
 /**
  * Internal dependencies
@@ -15,7 +15,7 @@ import { screenReaderTextClass } from '../ScreenReaderText/ScreenReaderText';
 
 import type { ThemeUIStyleObject } from 'theme-ui';
 
-export interface TableProps {
+export interface TableProps extends Omit< TableHTMLAttributes< HTMLTableElement >, 'className' > {
 	/** Accessible caption describing the table contents. A console warning is shown if omitted. */
 	caption?: string;
 	/** Table content (thead, tbody, tr elements, etc.). */

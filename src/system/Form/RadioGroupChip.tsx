@@ -4,7 +4,7 @@
  * External dependencies
  */
 import React, { useCallback } from 'react';
-import { Theme } from 'theme-ui';
+import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { RequiredLabel } from './RequiredLabel';
 import { Validation } from './Validation';
@@ -18,19 +18,20 @@ interface InputTheme extends Theme {
 	outline?: Record< string, string >;
 }
 
-type Option = {
+export type RadioGroupChipOption = {
 	id?: string;
-	value: string;
-	label: React.ReactNode | string;
+	value: string | number;
+	label: React.ReactNode;
 };
 
 type ChipOptionProps = {
-	defaultValue?: string;
-	option: Option;
+	defaultValue?: string | number;
+	option: RadioGroupChipOption;
 	name: string;
 	disabled?: boolean;
-	onChangeHandler: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
+	onChangeHandler?: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
 	size: 'small' | 'medium';
+	width?: string | number;
 };
 
 const ChipOption = ( {
@@ -40,10 +41,11 @@ const ChipOption = ( {
 	disabled,
 	onChangeHandler,
 	size = 'medium',
+	width,
 }: ChipOptionProps ) => {
 	const checked = `${ defaultValue }` === `${ value }`;
-	const forLabel = id || value;
-	const ref = React.useRef( null );
+	const forLabel = id || String( value );
+	const ref = React.useRef< HTMLInputElement >( null );
 	const describedById = `input-radio-box-${ forLabel }-description`;
 
 	return (
@@ -52,10 +54,11 @@ const ChipOption = ( {
 			id={ `o${ forLabel }` }
 			onClick={ () => {
 				if ( ref.current ) {
-					( ref.current as HTMLInputElement ).click();
+					ref.current.click();
 				}
 			} }
 			sx={ {
+				width,
 				display: 'inline-flex',
 				position: 'relative',
 				background: checked ? 'layer.4' : undefined,
@@ -76,7 +79,7 @@ const ChipOption = ( {
 				name={ name }
 				checked={ checked }
 				aria-checked={ checked }
-				value={ value }
+				value={ String( value ) }
 				onChange={ onChangeHandler }
 				aria-labelledby={ describedById }
 				sx={ {
@@ -110,22 +113,27 @@ const ChipOption = ( {
 	);
 };
 
-type RadioGroupChipProps = {
-	optionWidth?: string;
+export interface RadioGroupChipProps
+	extends Omit< React.FieldsetHTMLAttributes< HTMLFieldSetElement >, 'onChange' > {
+	optionWidth?: string | number;
 	name?: string;
-	onChange: ( e: React.ChangeEvent< HTMLInputElement >, option?: Option ) => void;
-	groupLabel?: string;
-	defaultValue?: string;
-	options: Option[];
+	onChange?: ( e: React.ChangeEvent< HTMLInputElement >, option?: RadioGroupChipOption ) => void;
+	groupLabel?: React.ReactNode;
+	defaultValue?: string | number;
+	options: RadioGroupChipOption[];
 	disabled?: boolean;
-	errorMessage?: string;
+	errorMessage?: React.ReactNode;
 	hasError?: boolean;
 	required?: boolean;
 	size?: 'small' | 'medium';
+	/** Theme UI style overrides applied to the fieldset. */
+	sx?: ThemeUIStyleObject;
+	/** Ref forwarded to the underlying fieldset element. */
 	ref?: React.Ref< HTMLFieldSetElement >;
-};
+}
 
 const RadioGroupChip = ( {
+	optionWidth,
 	name = '',
 	onChange,
 	groupLabel,
@@ -136,6 +144,7 @@ const RadioGroupChip = ( {
 	hasError,
 	required,
 	size = 'medium',
+	sx = {},
 	ref,
 	...props
 }: RadioGroupChipProps ) => {
@@ -144,9 +153,9 @@ const RadioGroupChip = ( {
 			const optionTriggered = options.find(
 				option => `${ option.value }` === `${ e.target.value }`
 			);
-			onChange( e, optionTriggered );
+			onChange?.( e, optionTriggered );
 		},
-		[ onChange ]
+		[ onChange, options ]
 	);
 
 	const renderedOptions = options.map( option => (
@@ -154,6 +163,7 @@ const RadioGroupChip = ( {
 			defaultValue={ defaultValue }
 			disabled={ disabled }
 			key={ option?.id || option?.value }
+			width={ optionWidth }
 			name={ name }
 			option={ option }
 			onChangeHandler={ onChangeHandler }
@@ -174,6 +184,7 @@ const RadioGroupChip = ( {
 					...( hasError
 						? { border: '1px solid', borderColor: 'input.border.error', borderRadius: 2, p: 2 }
 						: {} ),
+					...sx,
 				} }
 				ref={ ref }
 				aria-required={ required }
@@ -199,7 +210,7 @@ const RadioGroupChip = ( {
 			</fieldset>
 
 			{ hasError && errorMessage && (
-				<Validation isValid={ false } describedId={ groupLabel }>
+				<Validation isValid={ false } describedId={ props.id }>
 					{ errorMessage }
 				</Validation>
 			) }

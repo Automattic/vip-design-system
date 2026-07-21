@@ -3,15 +3,20 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import React from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
-export interface DropdownLabelProps {
+export interface DropdownLabelProps extends DropdownMenuPrimitive.DropdownMenuLabelProps {
 	/** Additional CSS class name applied to the label. */
 	className?: string;
 	/** Forwarded ref to the underlying label element. */
 	ref?: React.Ref< HTMLDivElement >;
+	/** The content rendered inside the label. */
+	children?: React.ReactNode;
+	/** Theme UI style overrides applied to the label. */
+	sx?: ThemeUIStyleObject;
 }
 
-export const styles = {
+export const styles: ThemeUIStyleObject = {
 	paddingLeft: 3,
 	fontSize: 12,
 	lineHeight: '25px',
@@ -21,11 +26,11 @@ export const styles = {
 /**
  * A non-interactive label used to describe a group of items within a Dropdown menu.
  */
-export const DropdownLabel = ( { className, ref, ...props }: DropdownLabelProps ) => (
+export const DropdownLabel = ( { className, ref, sx = {}, ...props }: DropdownLabelProps ) => (
 	<DropdownMenuPrimitive.DropdownMenuLabel
 		className={ classNames( 'vip-dropdown-menu-label', className ) }
 		ref={ ref }
-		sx={ styles }
+		sx={ { ...styles, ...sx } }
 		{ ...props }
 	/>
 );

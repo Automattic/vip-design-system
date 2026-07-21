@@ -89,7 +89,9 @@ export interface NewConfirmationDialogProps
 	/** The dialog title. */
 	title?: ReactNode;
 	/** The dialog body, rendered as the dialog description. */
-	body?: string;
+	body?: ReactNode;
+	/** The dialog description. Takes precedence over `body` when provided. */
+	description?: ReactNode;
 	/** Whether the confirm button is disabled. */
 	buttonDisabled?: boolean;
 }
@@ -102,6 +104,7 @@ const NewConfirmationDialog = ( {
 	buttonVariant,
 	title,
 	body = '',
+	description = body,
 	buttonDisabled = false,
 	...props
 }: NewConfirmationDialogProps ) => {
@@ -115,7 +118,7 @@ const NewConfirmationDialog = ( {
 		<NewDialog.Root
 			sx={ { maxWidth: 680 } }
 			title={ title }
-			description={ body }
+			description={ description }
 			content={ ( { onClose } ) => (
 				<NewConfirmationDialogContent
 					onClose={ onClose }

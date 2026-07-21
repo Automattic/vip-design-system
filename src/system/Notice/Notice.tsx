@@ -30,7 +30,7 @@ type CollapsibleProps = {
 	ariaContentId?: string;
 };
 
-export type NoticeProps = React.HTMLAttributes< HTMLDivElement > & {
+export type NoticeProps = Omit< React.HTMLAttributes< HTMLDivElement >, 'title' > & {
 	/** Content rendered inside the notice body. */
 	children: React.ReactNode;
 	/** When true, renders the notice with a transparent background. @default false */
