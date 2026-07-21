@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import React, { useCallback } from 'react';
+import React, { useCallback, useId } from 'react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { RequiredLabel } from './RequiredLabel';
@@ -146,8 +146,11 @@ const RadioGroupChip = ( {
 	size = 'medium',
 	sx = {},
 	ref,
+	'aria-describedby': ariaDescribedBy,
 	...props
 }: RadioGroupChipProps ) => {
+	const generatedValidationId = useId();
+	const validationId = props.id ?? generatedValidationId;
 	const onChangeHandler = useCallback(
 		( e: React.ChangeEvent< HTMLInputElement > ) => {
 			const optionTriggered = options.find(
@@ -171,6 +174,11 @@ const RadioGroupChip = ( {
 		/>
 	) );
 
+	const describedBy =
+		[ ariaDescribedBy, hasError && errorMessage ? `describe-${ validationId }-validation` : null ]
+			.filter( Boolean )
+			.join( ' ' ) || undefined;
+
 	return (
 		<div>
 			<fieldset
@@ -188,6 +196,7 @@ const RadioGroupChip = ( {
 				} }
 				ref={ ref }
 				aria-required={ required }
+				aria-describedby={ describedBy }
 				role="radiogroup"
 				{ ...props }
 			>
@@ -210,7 +219,7 @@ const RadioGroupChip = ( {
 			</fieldset>
 
 			{ hasError && errorMessage && (
-				<Validation isValid={ false } describedId={ props.id }>
+				<Validation isValid={ false } describedId={ validationId }>
 					{ errorMessage }
 				</Validation>
 			) }

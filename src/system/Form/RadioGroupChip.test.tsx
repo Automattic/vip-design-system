@@ -62,4 +62,23 @@ describe( '<RadioGroupChip />', () => {
 		expect( fieldset ).toHaveAttribute( 'id', 'health-display-toggle' );
 		expect( ref.current ).toBe( fieldset );
 	} );
+
+	it( 'links the validation message even when no fieldset id is provided', () => {
+		render(
+			<RadioGroupChip
+				{ ...defaultProps }
+				aria-label="Plan size"
+				hasError
+				errorMessage="Choose a plan"
+			/>
+		);
+
+		const fieldset = screen.getByRole( 'radiogroup', { name: 'Plan size' } );
+
+		expect( fieldset ).toHaveAttribute( 'aria-describedby' );
+		expect( screen.getByText( 'Choose a plan' ) ).toHaveAttribute(
+			'id',
+			fieldset.getAttribute( 'aria-describedby' )
+		);
+	} );
 } );

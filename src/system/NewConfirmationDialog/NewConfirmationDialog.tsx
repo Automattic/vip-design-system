@@ -88,9 +88,9 @@ export interface NewConfirmationDialogProps
 	buttonVariant?: React.ComponentProps< typeof Button >[ 'variant' ];
 	/** The dialog title. */
 	title?: ReactNode;
-	/** The dialog body, rendered as the dialog description. */
+	/** @deprecated Use `description` instead. The body is rendered as the dialog description. */
 	body?: ReactNode;
-	/** The dialog description. Takes precedence over `body` when provided. */
+	/** The dialog description. Takes precedence over the deprecated `body` prop when provided. */
 	description?: ReactNode;
 	/** Whether the confirm button is disabled. */
 	buttonDisabled?: boolean;
