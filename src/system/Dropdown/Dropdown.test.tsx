@@ -36,7 +36,8 @@ describe( '<Dropdown />', () => {
 
 		expect( getButton() ).toBeInTheDocument();
 
-		fireEvent.pointerDown( getButton(), { button: 0, ctrlKey: false } );
+		// Radix dropdowns open on pointer down rather than click.
+		fireEvent.pointerDown( getButton() );
 
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();

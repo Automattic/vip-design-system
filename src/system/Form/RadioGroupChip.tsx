@@ -174,10 +174,11 @@ const RadioGroupChip = ( {
 		/>
 	) );
 
-	const describedBy =
-		[ ariaDescribedBy, hasError && errorMessage ? `describe-${ validationId }-validation` : null ]
-			.filter( Boolean )
-			.join( ' ' ) || undefined;
+	const describedByParts = [
+		ariaDescribedBy,
+		hasError && errorMessage ? `describe-${ validationId }-validation` : null,
+	].filter( ( value ): value is string => Boolean( value ) );
+	const describedBy = describedByParts.length > 0 ? describedByParts.join( ' ' ) : undefined;
 
 	return (
 		<div>
