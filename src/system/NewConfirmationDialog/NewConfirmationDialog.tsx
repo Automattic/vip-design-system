@@ -103,12 +103,13 @@ const NewConfirmationDialog = ( {
 	label,
 	buttonVariant,
 	title,
-	body = '',
-	description = body,
+	body,
+	description,
 	buttonDisabled = false,
 	...props
 }: NewConfirmationDialogProps ) => {
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
+	const dialogDescription = description ?? body ?? '';
 
 	if ( ! needsConfirm ) {
 		return directTrigger;
@@ -118,7 +119,7 @@ const NewConfirmationDialog = ( {
 		<NewDialog.Root
 			sx={ { maxWidth: 680 } }
 			title={ title }
-			description={ description }
+			description={ dialogDescription }
 			content={ ( { onClose } ) => (
 				<NewConfirmationDialogContent
 					onClose={ onClose }

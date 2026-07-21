@@ -29,7 +29,7 @@ type ChipOptionProps = {
 	option: RadioGroupChipOption;
 	name: string;
 	disabled?: boolean;
-	onChangeHandler?: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
+	onChangeHandler: ( e: React.ChangeEvent< HTMLInputElement > ) => void;
 	size: 'small' | 'medium';
 	width?: string | number;
 };
@@ -149,8 +149,8 @@ const RadioGroupChip = ( {
 	'aria-describedby': ariaDescribedBy,
 	...props
 }: RadioGroupChipProps ) => {
-	const generatedValidationId = useId();
-	const validationId = props.id ?? generatedValidationId;
+	const generatedFieldsetId = useId();
+	const fieldsetId = props.id ?? generatedFieldsetId;
 	const onChangeHandler = useCallback(
 		( e: React.ChangeEvent< HTMLInputElement > ) => {
 			const optionTriggered = options.find(
@@ -176,7 +176,7 @@ const RadioGroupChip = ( {
 
 	const describedByParts = [
 		ariaDescribedBy,
-		hasError && errorMessage ? `describe-${ validationId }-validation` : null,
+		hasError && errorMessage ? `describe-${ fieldsetId }-validation` : null,
 	].filter( ( value ): value is string => Boolean( value ) );
 	const describedBy = describedByParts.length > 0 ? describedByParts.join( ' ' ) : undefined;
 
@@ -220,7 +220,7 @@ const RadioGroupChip = ( {
 			</fieldset>
 
 			{ hasError && errorMessage && (
-				<Validation isValid={ false } describedId={ validationId }>
+				<Validation isValid={ false } describedId={ fieldsetId }>
 					{ errorMessage }
 				</Validation>
 			) }
