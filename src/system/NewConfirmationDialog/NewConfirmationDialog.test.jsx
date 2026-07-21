@@ -43,4 +43,36 @@ describe( '<NewConfirmationDialog />', () => {
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'renders rich body content as the dialog description', () => {
+		render(
+			<NewConfirmationDialog
+				{ ...defaultProps }
+				body={
+					<span>
+						Confirm <strong>permanent deletion</strong>
+					</span>
+				}
+			/>
+		);
+
+		fireEvent.click( getButton() );
+
+		expect( screen.getByText( 'permanent deletion' ) ).toBeInTheDocument();
+	} );
+
+	it( 'uses description instead of body when both are provided', () => {
+		render(
+			<NewConfirmationDialog
+				{ ...defaultProps }
+				body="Fallback body"
+				description={ <span>Preferred description</span> }
+			/>
+		);
+
+		fireEvent.click( getButton() );
+
+		expect( screen.getByText( 'Preferred description' ) ).toBeInTheDocument();
+		expect( screen.queryByText( 'Fallback body' ) ).not.toBeInTheDocument();
+	} );
 } );
