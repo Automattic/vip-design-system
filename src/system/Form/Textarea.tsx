@@ -67,11 +67,7 @@ export const Textarea = React.forwardRef< HTMLTextAreaElement, TextareaProps >(
 			<Box sx={ { mb: 2 } }>
 				<textarea
 					ref={ ref }
-					id={ forLabel }
-					required={ required }
-					aria-required={ required }
-					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-					sx={ {
+					aria-describedby={ hasError && forLabel ? `describe-${ forLabel }-validation` : undefined }
 						...textareaStyles,
 						...sx,
 						...( hasError ? { borderColor: 'input.border.error' } : {} ),

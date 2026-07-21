@@ -17,11 +17,13 @@ const defaultProps = {
 const getButton = () => screen.getByRole( 'button', { name: 'Trigger' } );
 
 beforeAll( () => {
-	global.ResizeObserver = class ResizeObserver {
-		observe() {}
-		unobserve() {}
-		disconnect() {}
-	} as typeof ResizeObserver;
+	if ( ! global.ResizeObserver ) {
+		global.ResizeObserver = class ResizeObserver {
+			observe() {}
+			unobserve() {}
+			disconnect() {}
+		} as typeof ResizeObserver;
+	}
 } );
 
 describe( '<Dropdown />', () => {

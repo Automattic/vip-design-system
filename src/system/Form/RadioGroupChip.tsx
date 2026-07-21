@@ -211,10 +211,7 @@ const RadioGroupChip = React.forwardRef< HTMLFieldSetElement, RadioGroupChipProp
 				</fieldset>
 
 				{ hasError && errorMessage && (
-					<Validation
-						isValid={ false }
-						describedId={ typeof groupLabel === 'string' ? groupLabel : undefined }
-					>
+					<Validation isValid={ false } describedId={ props.id }>
 						{ errorMessage }
 					</Validation>
 				) }
