@@ -58,6 +58,7 @@ interface FormSelectProps {
 	'aria-describedby'?: string;
 	'aria-required'?: boolean;
 	id?: string;
+	name?: string;
 	ref?: React.Ref< HTMLSelectElement >;
 }
 

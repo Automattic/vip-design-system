@@ -29,13 +29,18 @@ const slideUp = keyframes( {
 interface AccordionTheme extends Theme {
 	outline?: Record< string, string >;
 }
-export interface AccordionItemProps {
+export interface AccordionItemProps
+	extends Omit< AccordionPrimitive.AccordionItemProps, 'children' | 'className' > {
 	/** Content to render inside the accordion item. */
 	children: ReactNode;
-	/** Unique value that identifies this item within the accordion. */
-	value: string;
+	/** Additional CSS class names. */
+	className?: Argument;
+	/** Theme UI style overrides for the accordion item. */
+	sx?: ThemeUIStyleObject;
+	/** Ref forwarded to the item element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
-export interface TriggerProps {
+export interface TriggerProps extends Omit< AccordionPrimitive.AccordionTriggerProps, 'children' > {
 	/** Label content for the trigger button. */
 	children: ReactNode;
 	/** Heading level used to wrap the trigger. @default 'h3' */
@@ -45,16 +50,14 @@ export interface TriggerProps {
 	/** Ref forwarded to the trigger button. */
 	ref?: React.Ref< HTMLButtonElement >;
 }
-export interface TriggerWithIconProps {
+export interface TriggerWithIconProps extends Omit< TriggerProps, 'children' > {
 	/** Label content displayed next to the icon. */
 	children: ReactNode;
 	/** Icon element rendered before the label. */
 	icon: ReactNode;
-	/** Ref forwarded to the trigger button. */
-	ref?: React.Ref< HTMLButtonElement >;
 }
 
-export interface ContentProps {
+export interface ContentProps extends Omit< AccordionPrimitive.AccordionContentProps, 'children' > {
 	/** Content revealed when the accordion item is expanded. */
 	children: ReactNode;
 	/** Theme UI style overrides for the content area. */
@@ -79,9 +82,10 @@ export interface RootProps
 	ref?: React.Ref< HTMLDivElement >;
 }
 /** A single collapsible section within the Accordion. */
-export const Item = ( { children, ...props }: AccordionItemProps ) => (
+export const Item = ( { children, className, sx = {}, ref, ...props }: AccordionItemProps ) => (
 	<AccordionPrimitive.Item
-		{ ...props }
+		className={ classNames( className ) }
+		ref={ ref }
 		sx={ {
 			overflow: 'hidden',
 			borderWidth: '0 1px 1px 1px',
@@ -97,7 +101,9 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 				borderBottomLeftRadius: 1,
 				borderBottomRightRadius: 1,
 			},
+			...sx,
 		} }
+		{ ...props }
 	>
 		{ children }
 	</AccordionPrimitive.Item>
