@@ -3,13 +3,15 @@
 /**
  * External dependencies
  */
-import { Ref } from 'react';
-import { BoxProps, ThemeUIStyleObject } from 'theme-ui';
+import React, { Ref } from 'react';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Box } from '../Box/Box';
+
+import type { BoxProps } from '../Box/Box';
 
 export enum CardVariant {
 	'primary',
@@ -43,7 +45,7 @@ export interface CardProps {
 	ref?: Ref< HTMLElement >;
 }
 
-type CardBoxProps = CardProps & BoxProps;
+type CardBoxProps = CardProps & BoxProps< React.ElementType >;
 
 /**
  * A container component with optional header and body sections, supporting multiple visual variants.
