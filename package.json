@@ -1,6 +1,6 @@
 {
   "name": "@automattic/vip-design-system",
-  "version": "2.21.1-dev.0",
+  "version": "2.21.2-dev.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Automattic/vip-design-system"
@@ -119,8 +119,8 @@
     "jest-axe": "8.0.0",
     "jest-environment-jsdom": "29.7.0",
     "prettier": "npm:wp-prettier@2.8.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "storybook": "10.5.2",
     "theme-ui": "0.17.4",
     "token-transformer": "0.0.33",
