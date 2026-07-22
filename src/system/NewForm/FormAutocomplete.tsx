@@ -60,6 +60,12 @@ export interface FormAutocompleteProps {
 	 * @default 'vip-autocomplete'
 	 */
 	forLabel?: string;
+	/** ID forwarded to the underlying autocomplete input. Defaults to `forLabel`. */
+	id?: string;
+	/** Name forwarded to the underlying autocomplete input. */
+	name?: string;
+	/** IDs of elements that describe the underlying autocomplete input. */
+	'aria-describedby'?: string;
 	/** Returns the display label for an option. */
 	getOptionLabel?: ( option: AutocompleteOption ) => string;
 	/** Returns the value for an option. */
@@ -208,6 +214,9 @@ const FormAutocomplete = ( {
 	displayMenu = 'overlay',
 	dropdownArrow = DefaultArrow,
 	forLabel = 'vip-autocomplete',
+	id,
+	name,
+	'aria-describedby': ariaDescribedBy,
 	getOptionLabel,
 	getOptionValue,
 	errorMessage,
@@ -230,6 +239,7 @@ const FormAutocomplete = ( {
 	ref,
 	...props
 }: FormAutocompleteProps ) => {
+	const inputId = id ?? forLabel;
 	const [ isDirty, setIsDirty ] = useState( false );
 	const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState< ReturnType<
 		typeof setTimeout
@@ -243,7 +253,7 @@ const FormAutocomplete = ( {
 	) as React.MutableRefObject< AutocompleteInstance >;
 
 	const SelectLabel = () => (
-		<Label required={ required } htmlFor={ forLabel }>
+		<Label required={ required } htmlFor={ inputId }>
 			{ label }
 		</Label>
 	);
@@ -386,17 +396,17 @@ const FormAutocomplete = ( {
 	}, [ label ] );
 
 	useEffect( () => {
-		const input = global.document.querySelector( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId );
 
 		if ( ! input || required === undefined ) {
 			return;
 		}
 
 		input.setAttribute( 'aria-required', String( required ) );
-	}, [ required ] );
+	}, [ inputId, required ] );
 
 	useEffect( () => {
-		const input = global.document.querySelector( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId );
 
 		if ( ! input ) {
 			return;
@@ -414,22 +424,30 @@ const FormAutocomplete = ( {
 		input.addEventListener( 'keydown', onKeyDown );
 
 		return () => input.removeEventListener( 'keydown', onKeyDown );
-	}, [ setIsDirty ] );
+	}, [ inputId, resetOnBlur, setIsDirty ] );
 
 	// For accessibility, we need to add the error message to the aria-describedby attribute
 	useEffect( () => {
-		const input = global.document.querySelector( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId );
 
 		if ( input ) {
+			const describedBy = [
+				ariaDescribedBy,
+				`describe-${ inputId }-validation`,
+				input.getAttribute( 'aria-describedby' ),
+			]
+				.filter( Boolean )
+				.join( ' ' );
+
 			input.setAttribute(
 				'aria-describedby',
-				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) ?? '' }`
+				Array.from( new Set( describedBy.split( ' ' ).filter( Boolean ) ) ).join( ' ' )
 			);
 		}
-	}, [] );
+	}, [ ariaDescribedBy, inputId ] );
 
 	useEffect( () => {
-		const input = global.document.querySelector< HTMLInputElement >( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId ) as HTMLInputElement | null;
 
 		if ( ! input ) {
 			return;
@@ -443,7 +461,7 @@ const FormAutocomplete = ( {
 		input.addEventListener( 'blur', onBlur );
 
 		return () => input.removeEventListener( 'blur', onBlur );
-	}, [ acRef ] );
+	}, [ inputId ] );
 	return (
 		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 			{ label && ! isInline && <SelectLabel /> }
@@ -461,7 +479,9 @@ const FormAutocomplete = ( {
 					{ searchIcon && <FormSelectSearch /> }
 
 					<Autocomplete
-						id={ forLabel }
+						id={ inputId }
+						name={ name }
+						aria-describedby={ ariaDescribedBy }
 						aria-busy={ loading }
 						showAllValues={ showAllValues }
 						ref={ acRef }
@@ -480,7 +500,7 @@ const FormAutocomplete = ( {
 			</div>
 
 			{ hasError && errorMessage && (
-				<Validation isValid={ false } describedId={ forLabel }>
+				<Validation isValid={ false } describedId={ inputId }>
 					{ errorMessage }
 				</Validation>
 			) }

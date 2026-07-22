@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 /**
@@ -24,13 +24,18 @@ describe( '<ButtonSubmit />', () => {
 	} );
 
 	it( 'renders the ButtonSubmit loading', () => {
-		render( <ButtonSubmit { ...defaultProps } loading={ true } /> );
+		const onClick = jest.fn( () => {} );
+		render( <ButtonSubmit { ...defaultProps } loading={ true } onClick={ onClick } /> );
 		const button = screen.getByRole( 'button', { name: 'Load more items Loading' } );
 
 		// Button
 		expect( button ).toHaveAttribute( 'aria-disabled', 'true' );
+		expect( button ).toHaveAttribute( 'aria-busy', 'true' );
+
+		fireEvent.click( button );
+		expect( onClick ).toHaveBeenCalledTimes( 0 );
 
 		// Spinner
-		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
+		expect( screen.getAllByTitle( 'Loading' ) ).toHaveLength( 1 );
 	} );
 } );

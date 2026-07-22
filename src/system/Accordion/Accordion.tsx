@@ -62,7 +62,11 @@ export interface ContentProps {
 	/** Ref forwarded to the content element. */
 	ref?: React.Ref< HTMLDivElement >;
 }
-export interface RootProps {
+export interface RootProps
+	extends Omit<
+		AccordionPrimitive.AccordionSingleProps,
+		'type' | 'collapsible' | 'children' | 'className'
+	> {
 	/** Optional caption for the accordion. */
 	caption?: string;
 	/** Accordion items to render. */
@@ -71,12 +75,6 @@ export interface RootProps {
 	className?: Argument;
 	/** Theme UI style overrides for the root container. */
 	sx?: ThemeUIStyleObject;
-	/** Value of the item expanded by default. */
-	defaultValue?: string;
-	/** Controlled value of the currently expanded item. */
-	value?: string;
-	/** Callback fired when the expanded item changes. */
-	onValueChange?: ( value: string ) => void;
 	/** Ref forwarded to the root element. */
 	ref?: React.Ref< HTMLDivElement >;
 }

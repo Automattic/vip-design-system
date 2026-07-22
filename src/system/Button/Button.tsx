@@ -2,6 +2,8 @@ import classNames from 'classnames';
 import React, { useCallback } from 'react';
 import { Theme, Button as ThemeButton, ButtonProps as ThemeButtonProps } from 'theme-ui';
 
+import { Spinner } from '../Spinner/Spinner';
+
 type PolymorphicProps< E extends React.ElementType, OwnProps > = OwnProps & { as?: E } & Omit<
 		React.ComponentPropsWithRef< E >,
 		keyof OwnProps | 'as'
@@ -34,6 +36,17 @@ export enum ButtonVariant {
 	'text',
 }
 
+export interface ButtonLoadingIconProps {
+	color?: string;
+	size: number;
+}
+
+function DefaultButtonLoadingIcon( { size, color = 'link' }: ButtonLoadingIconProps ) {
+	return <Spinner size={ size } sx={ { ml: 2, color } } className="vip-button-submit-spinner" />;
+}
+
+DefaultButtonLoadingIcon.displayName = 'DefaultButtonLoadingIcon';
+
 export type ButtonOwnProps< E extends React.ElementType = 'button' > = ButtonStyleProps &
 	React.AriaAttributes & {
 		/** The content displayed inside the button. */
@@ -57,6 +70,21 @@ export type ButtonOwnProps< E extends React.ElementType = 'button' > = ButtonSty
 		variant?: keyof typeof ButtonVariant; // converts the enum to a string union type
 		/** Applies danger/destructive styling to the button. */
 		danger?: boolean;
+		/**
+		 * Whether the button is in a loading state, showing a spinner.
+		 * @default false
+		 */
+		loading?: boolean;
+		/**
+		 * Custom loading icon component rendered when `loading` is true.
+		 * @default DefaultButtonLoadingIcon
+		 */
+		loadingIcon?: ( props: ButtonLoadingIconProps ) => React.JSX.Element;
+		/**
+		 * Size (in pixels) of the loading icon.
+		 * @default 20
+		 */
+		loadingIconSize?: number;
 	};
 
 export type ButtonProps< E extends React.ElementType = 'button' > = PolymorphicProps<
@@ -82,25 +110,33 @@ const ThemeButtonComponent = ThemeButton as React.ElementType< ThemeButtonRender
  * A versatile button component with multiple style variants, danger state, and accessible disabled support.
  */
 const Button = ( < E extends React.ElementType = 'button' >( {
+	children,
 	className,
 	disabled,
 	preferAriaDisabled,
+	'aria-busy': ariaBusy,
 	onClick,
 	sx,
 	full,
 	grow,
 	variant = 'primary',
 	danger = variant === 'danger', // fallback for danger variant used before the prop was added
+	loading = false,
+	loadingIcon = DefaultButtonLoadingIcon,
+	loadingIconSize = 20,
 	ref,
 	...rest
 }: ButtonProps< E > & { ref?: PolymorphicRef< E > } ) => {
+	const isDisabled = Boolean( disabled || loading );
 	const disabledAttributes =
-		disabled && preferAriaDisabled === true ? { 'aria-disabled': true } : { disabled };
+		isDisabled && preferAriaDisabled === true
+			? { 'aria-disabled': true }
+			: { disabled: isDisabled };
 	let disabledStyles = {};
 
 	const handleOnClick = useCallback< React.MouseEventHandler< globalThis.Element > >(
 		event => {
-			if ( preferAriaDisabled && disabled ) {
+			if ( isDisabled ) {
 				return event.preventDefault();
 			}
 
@@ -110,11 +146,11 @@ const Button = ( < E extends React.ElementType = 'button' >( {
 				return onClickHandler( event );
 			}
 		},
-		[ disabled, onClick, preferAriaDisabled ]
+		[ isDisabled, onClick ]
 	);
 
 	if (
-		disabled &&
+		isDisabled &&
 		! danger &&
 		variant !== 'text' &&
 		variant !== 'ghost' &&
@@ -145,6 +181,7 @@ const Button = ( < E extends React.ElementType = 'button' >( {
 		},
 		...rest,
 		...disabledAttributes,
+		'aria-busy': loading || ariaBusy,
 		variant: variant === 'danger' ? 'primary' : variant, // fallback for danger variant used before the prop was added
 		onClick: handleOnClick,
 		className: classNames( 'vip-button-component', className ),
@@ -152,7 +189,13 @@ const Button = ( < E extends React.ElementType = 'button' >( {
 		ref,
 	} as ThemeButtonRenderProps;
 
-	return <ThemeButtonComponent { ...themeButtonProps } />;
+	return (
+		<ThemeButtonComponent { ...themeButtonProps }>
+			{ children }
+			{ Boolean( loading ) &&
+				loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
+		</ThemeButtonComponent>
+	);
 } ) as ButtonComponent;
 
 Button.displayName = 'Button';

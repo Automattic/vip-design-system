@@ -157,4 +157,26 @@ describe( '<Button />', () => {
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'renders the Button with loading state', async () => {
+		const onClick = jest.fn( () => {} );
+		const { container } = render(
+			<Button loading preferAriaDisabled onClick={ onClick }>
+				{ BUTTON_TEXT }
+			</Button>
+		);
+
+		const button = screen.getByRole( 'button', { name: 'Button Text Loading' } );
+
+		expect( button ).toHaveAttribute( 'aria-busy', 'true' );
+		expect( button ).toHaveAttribute( 'aria-disabled', 'true' );
+		expect( button ).not.toHaveAttribute( 'disabled' );
+		expect( screen.getByTitle( 'Loading' ) ).toBeInTheDocument();
+
+		fireEvent.click( button );
+		expect( onClick ).toHaveBeenCalledTimes( 0 );
+
+		// Check for accessibility issues
+		expect( await axe( container ) ).toHaveNoViolations();
+	} );
 } );

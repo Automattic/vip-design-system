@@ -4,19 +4,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { Button, ButtonProps } from './Button';
-import { Spinner } from '../Spinner/Spinner';
-
-interface DefaultSpinnerProps {
-	color?: string;
-	size: number;
-}
-
-function DefaultSpinner( { size, color = 'link' }: DefaultSpinnerProps ) {
-	return <Spinner size={ size } sx={ { ml: 2, color } } className="vip-button-submit-spinner" />;
-}
-
-DefaultSpinner.displayName = 'DefaultSpinner';
+import { Button, ButtonLoadingIconProps, ButtonProps } from './Button';
 
 export interface ButtonSubmitProps extends ButtonProps {
 	/** The content displayed inside the button. */
@@ -28,9 +16,9 @@ export interface ButtonSubmitProps extends ButtonProps {
 	loading?: boolean;
 	/**
 	 * Custom loading icon component rendered when `loading` is true.
-	 * @default DefaultSpinner
+	 * @default DefaultButtonLoadingIcon
 	 */
-	loadingIcon?: ( props: DefaultSpinnerProps ) => React.JSX.Element;
+	loadingIcon?: ( props: ButtonLoadingIconProps ) => React.JSX.Element;
 	/**
 	 * Size (in pixels) of the loading icon.
 	 * @default 20
@@ -52,7 +40,7 @@ export const ButtonSubmit = ( {
 	label,
 	loading = false,
 	disabled = false,
-	loadingIcon = DefaultSpinner,
+	loadingIcon,
 	loadingIconSize = 20,
 	ref,
 	...rest
@@ -65,15 +53,15 @@ export const ButtonSubmit = ( {
 		<Button
 			ref={ ref }
 			className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
-			disabled={ disabled || loading }
+			disabled={ disabled }
 			preferAriaDisabled={ true }
 			variant={ variant }
-			aria-busy={ loading }
+			loading={ loading }
+			loadingIcon={ loadingIcon }
+			loadingIconSize={ loadingIconSize }
 			{ ...rest }
 		>
-			{ label }{ ' ' }
-			{ Boolean( loading ) &&
-				loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
+			{ label }
 		</Button>
 	);
 };

@@ -68,6 +68,12 @@ export interface FormAutocompleteMultiselectProps {
 	 * @default 'vip-autocompletemultiselect'
 	 */
 	forLabel?: string;
+	/** ID forwarded to the underlying autocomplete input. Defaults to `forLabel`. */
+	id?: string;
+	/** Name forwarded to the underlying autocomplete input. */
+	name?: string;
+	/** IDs of elements that describe the underlying autocomplete input. */
+	'aria-describedby'?: string;
 	/** Returns the display label for an option. */
 	getOptionLabel?: ( option: AutocompleteOption ) => string;
 	/** Returns the value for an option. */
@@ -274,6 +280,9 @@ const FormAutocompleteMultiselect = ( {
 	dropdownArrow = DefaultArrow,
 	errorMessage,
 	forLabel = 'vip-autocompletemultiselect',
+	id,
+	name,
+	'aria-describedby': ariaDescribedBy,
 	getOptionLabel,
 	getOptionValue,
 	hasError,
@@ -297,6 +306,7 @@ const FormAutocompleteMultiselect = ( {
 	ref,
 	...props
 }: FormAutocompleteMultiselectProps ) => {
+	const inputId = id ?? forLabel;
 	const isInlineChips = variant === 'inline-chips';
 	const OPTION_ACTION = {
 		ADD: 'add',
@@ -338,7 +348,7 @@ const FormAutocompleteMultiselect = ( {
 	}, [ acRef ] );
 
 	const SelectLabel = () => (
-		<Label required={ required } htmlFor={ forLabel }>
+		<Label required={ required } htmlFor={ inputId }>
 			{ label }
 		</Label>
 	);
@@ -482,15 +492,15 @@ const FormAutocompleteMultiselect = ( {
 	}, [ label ] );
 
 	useEffect( () => {
-		const input = global.document.querySelector( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId );
 		if ( ! input || required === undefined ) {
 			return;
 		}
 		input.setAttribute( 'aria-required', String( required ) );
-	}, [ required ] );
+	}, [ inputId, required ] );
 
 	useEffect( () => {
-		const input = global.document.querySelector( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId );
 
 		if ( ! input ) {
 			return;
@@ -503,18 +513,26 @@ const FormAutocompleteMultiselect = ( {
 		input.addEventListener( 'keydown', onKeyDown );
 
 		return () => input.removeEventListener( 'keydown', onKeyDown );
-	}, [ setIsDirty ] );
+	}, [ inputId, setIsDirty ] );
 
 	// For accessibility, we need to add the error message to the aria-describedby attribute
 	useEffect( () => {
-		const input = global.document.querySelector( `#${ forLabel }` );
+		const input = global.document.getElementById( inputId );
 		if ( input ) {
+			const describedBy = [
+				ariaDescribedBy,
+				`describe-${ inputId }-validation`,
+				input.getAttribute( 'aria-describedby' ),
+			]
+				.filter( Boolean )
+				.join( ' ' );
+
 			input.setAttribute(
 				'aria-describedby',
-				`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) ?? '' }`
+				Array.from( new Set( describedBy.split( ' ' ).filter( Boolean ) ) ).join( ' ' )
 			);
 		}
-	}, [] );
+	}, [ ariaDescribedBy, inputId ] );
 
 	// Update selectedOption and reset the input state on select input change
 
@@ -543,7 +561,7 @@ const FormAutocompleteMultiselect = ( {
 		} else if ( currentOption.action === OPTION_ACTION.REMOVE ) {
 			setAddStatus( `${ String( currentOption.option ) } removed from the list.` );
 			if ( isInlineChips ) {
-				global.document.querySelector< HTMLElement >( `#${ forLabel }` )?.focus();
+				global.document.getElementById( inputId )?.focus();
 			} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
 				global.document.querySelector< HTMLElement >( '.vip-button-component' )?.focus();
 			} else if ( selectedOptions.length === 0 ) {
@@ -568,7 +586,9 @@ const FormAutocompleteMultiselect = ( {
 					) ) }
 					<div sx={ { flex: '1 1 120px', minWidth: '120px', mr: -5 } }>
 						<Autocomplete
-							id={ forLabel }
+							id={ inputId }
+							name={ name }
+							aria-describedby={ ariaDescribedBy }
 							aria-busy={ loading }
 							showAllValues={ true }
 							ref={ acRef }
@@ -592,7 +612,7 @@ const FormAutocompleteMultiselect = ( {
 				</div>
 				{ hasError && errorMessage && (
 					<Flex sx={ { mt: 2 } }>
-						<Validation isValid={ false } describedId={ forLabel }>
+						<Validation isValid={ false } describedId={ inputId }>
 							{ errorMessage }
 						</Validation>
 					</Flex>
@@ -614,7 +634,9 @@ const FormAutocompleteMultiselect = ( {
 				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
 					{ searchIcon && <FormSelectSearch /> }
 					<Autocomplete
-						id={ forLabel }
+						id={ inputId }
+						name={ name }
+						aria-describedby={ ariaDescribedBy }
 						aria-busy={ loading }
 						showAllValues={ showAllValues }
 						ref={ acRef }
@@ -634,7 +656,7 @@ const FormAutocompleteMultiselect = ( {
 			</div>
 			<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
 				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
+					<Validation isValid={ false } describedId={ inputId }>
 						{ errorMessage }
 					</Validation>
 				) }
