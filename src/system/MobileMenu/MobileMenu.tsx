@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { BiMenu } from 'react-icons/bi';
 
 import { Box } from '../Box/Box';
@@ -16,82 +16,82 @@ export interface MobileMenuProps {
 	children: React.ReactNode;
 	/** Optional toolbar links rendered at the top of the mobile menu in an inverse nav. */
 	toolbarItems?: React.ReactNode;
+	/** Ref forwarded to the underlying drawer content element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 /**
  * A full-screen mobile navigation drawer with a logo header and navigation items.
  * Designed to be used inside a MobileMenuWrapper with a MobileMenuTrigger.
  */
-export const MobileMenu = forwardRef< HTMLDivElement, MobileMenuProps >(
-	( { children, toolbarItems }, ref ) => (
-		<Drawer.Content
-			variant="left"
-			label="Main Navigation Items"
-			ref={ ref }
-			renderClose={ () => <DialogCloseDefault variant="inverse" /> }
+export const MobileMenu = ( { children, toolbarItems, ref }: MobileMenuProps ) => (
+	<Drawer.Content
+		variant="left"
+		label="Main Navigation Items"
+		ref={ ref }
+		renderClose={ () => <DialogCloseDefault variant="inverse" /> }
+	>
+		<Box
+			sx={ {
+				backgroundColor: 'toolbar.background',
+				boxShadow: 'none',
+				gap: 4,
+			} }
 		>
-			<Box
+			<Flex
 				sx={ {
-					backgroundColor: 'toolbar.background',
-					boxShadow: 'none',
-					gap: 4,
+					flexWrap: 'wrap',
+					height: 64,
+					width: '100%',
+					py: 0,
+					px: 5,
+					gap: 7,
+					alignItems: 'center',
+				} }
+			>
+				<Logo />
+			</Flex>
+
+			<div
+				sx={ {
+					height: '100vh',
+					display: 'flex',
+					flex: 1,
 				} }
 			>
 				<Flex
 					sx={ {
-						flexWrap: 'wrap',
-						height: 64,
 						width: '100%',
-						py: 0,
-						px: 5,
-						gap: 7,
-						alignItems: 'center',
+						flexDirection: 'column',
+						height: 'calc(100vh - 64px)',
+						overflowX: 'hidden',
+						overflowY: 'auto',
 					} }
 				>
-					<Logo />
-				</Flex>
+					{ toolbarItems && (
+						<Nav.PrimaryInverse label="Main Links" orientation="vertical">
+							{ toolbarItems }
+						</Nav.PrimaryInverse>
+					) }
 
-				<div
-					sx={ {
-						height: '100vh',
-						display: 'flex',
-						flex: 1,
-					} }
-				>
-					<Flex
+					<Box
 						sx={ {
+							alignSelf: 'stretch',
+							backgroundColor: 'layer.1',
+							height: '100%',
+							gap: 4,
 							width: '100%',
-							flexDirection: 'column',
-							height: 'calc(100vh - 64px)',
-							overflowX: 'hidden',
-							overflowY: 'auto',
+							a: {
+								border: 'none',
+							},
 						} }
 					>
-						{ toolbarItems && (
-							<Nav.PrimaryInverse label="Main Links" orientation="vertical">
-								{ toolbarItems }
-							</Nav.PrimaryInverse>
-						) }
-
-						<Box
-							sx={ {
-								alignSelf: 'stretch',
-								backgroundColor: 'layer.1',
-								height: '100%',
-								gap: 4,
-								width: '100%',
-								a: {
-									border: 'none',
-								},
-							} }
-						>
-							{ children }
-						</Box>
-					</Flex>
-				</div>
-			</Box>
-		</Drawer.Content>
-	)
+						{ children }
+					</Box>
+				</Flex>
+			</div>
+		</Box>
+	</Drawer.Content>
 );
 
 export const MobileMenuWrapper = ( { children }: MobileMenuProps ) => (

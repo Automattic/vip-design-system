@@ -4,19 +4,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { Button, ButtonProps } from './Button';
-import { Spinner } from '../Spinner/Spinner';
-
-interface DefaultSpinnerProps {
-	color?: string;
-	size: number;
-}
-
-function DefaultSpinner( { size, color = 'link' }: DefaultSpinnerProps ) {
-	return <Spinner size={ size } sx={ { ml: 2, color } } className="vip-button-submit-spinner" />;
-}
-
-DefaultSpinner.displayName = 'DefaultSpinner';
+import { Button, ButtonLoadingIconProps, ButtonProps } from './Button';
 
 export interface ButtonSubmitProps extends ButtonProps {
 	/** The content displayed inside the button. */
@@ -28,9 +16,9 @@ export interface ButtonSubmitProps extends ButtonProps {
 	loading?: boolean;
 	/**
 	 * Custom loading icon component rendered when `loading` is true.
-	 * @default DefaultSpinner
+	 * @default DefaultButtonLoadingIcon
 	 */
-	loadingIcon?: ( props: DefaultSpinnerProps ) => React.JSX.Element;
+	loadingIcon?: ( props: ButtonLoadingIconProps ) => React.JSX.Element;
 	/**
 	 * Size (in pixels) of the loading icon.
 	 * @default 20
@@ -46,40 +34,36 @@ export interface ButtonSubmitProps extends ButtonProps {
 /**
  * A button designed for form submissions with built-in loading state and spinner indicator.
  */
-export const ButtonSubmit = React.forwardRef< HTMLButtonElement, ButtonSubmitProps >(
-	(
-		{
-			show = true,
-			variant = 'secondary',
-			label,
-			loading = false,
-			disabled = false,
-			loadingIcon = DefaultSpinner,
-			loadingIconSize = 20,
-			...rest
-		}: ButtonSubmitProps,
-		ref: React.Ref< HTMLButtonElement >
-	) => {
-		if ( ! show ) {
-			return null;
-		}
-
-		return (
-			<Button
-				ref={ ref }
-				className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
-				disabled={ disabled || loading }
-				preferAriaDisabled={ true }
-				variant={ variant }
-				aria-busy={ loading }
-				{ ...rest }
-			>
-				{ label }{ ' ' }
-				{ Boolean( loading ) &&
-					loadingIcon( { size: loadingIconSize, color: `button.${ variant }.label.default` } ) }
-			</Button>
-		);
+export const ButtonSubmit = ( {
+	show = true,
+	variant = 'secondary',
+	label,
+	loading = false,
+	disabled = false,
+	loadingIcon,
+	loadingIconSize = 20,
+	ref,
+	...rest
+}: ButtonSubmitProps ) => {
+	if ( ! show ) {
+		return null;
 	}
-);
+
+	return (
+		<Button
+			ref={ ref }
+			className={ classNames( 'vip-button-submit-component', `vip-button-submit-${ variant }` ) }
+			disabled={ disabled }
+			preferAriaDisabled={ true }
+			variant={ variant }
+			loading={ loading }
+			loadingIcon={ loadingIcon }
+			loadingIconSize={ loadingIconSize }
+			{ ...rest }
+		>
+			{ label }
+		</Button>
+	);
+};
 
 ButtonSubmit.displayName = 'ButtonSubmit';

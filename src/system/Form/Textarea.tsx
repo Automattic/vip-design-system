@@ -42,52 +42,48 @@ export interface TextareaProps extends React.TextareaHTMLAttributes< HTMLTextAre
 	sx?: ThemeUIStyleObject;
 	/** Theme UI style overrides applied to the outer wrapper. */
 	wrapperSx?: ThemeUIStyleObject;
+	/** Ref forwarded to the underlying textarea element. */
+	ref?: React.Ref< HTMLTextAreaElement >;
 }
 
-export const Textarea = React.forwardRef< HTMLTextAreaElement, TextareaProps >(
-	(
-		{
-			label,
-			forLabel,
-			hasError = false,
-			required,
-			sx = {},
-			wrapperSx = {},
-			errorMessage,
-			...props
-		},
-		ref
-	) => (
-		<Box sx={ { ...wrapperSx } }>
-			{ label && (
-				<Label required={ required } htmlFor={ forLabel }>
-					{ label }
-				</Label>
+export const Textarea = ( {
+	label,
+	forLabel,
+	hasError = false,
+	required,
+	sx = {},
+	wrapperSx = {},
+	errorMessage,
+	ref,
+	...props
+}: TextareaProps ) => (
+	<Box sx={ { ...wrapperSx } }>
+		{ label && (
+			<Label required={ required } htmlFor={ forLabel }>
+				{ label }
+			</Label>
+		) }
+		<Box sx={ { mb: 2 } }>
+			<textarea
+				ref={ ref }
+				id={ forLabel }
+				required={ required }
+				aria-required={ required }
+				aria-describedby={ hasError && forLabel ? `describe-${ forLabel }-validation` : undefined }
+				sx={ {
+					...textareaStyles,
+					...sx,
+					...( hasError ? { borderColor: 'input.border.error' } : {} ),
+				} }
+				{ ...props }
+			/>
+			{ hasError && errorMessage && (
+				<Validation isValid={ false } describedId={ forLabel }>
+					{ errorMessage }
+				</Validation>
 			) }
-			<Box sx={ { mb: 2 } }>
-				<textarea
-					ref={ ref }
-					id={ forLabel }
-					required={ required }
-					aria-required={ required }
-					aria-describedby={
-						hasError && forLabel ? `describe-${ forLabel }-validation` : undefined
-					}
-					sx={ {
-						...textareaStyles,
-						...sx,
-						...( hasError ? { borderColor: 'input.border.error' } : {} ),
-					} }
-					{ ...props }
-				/>
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
-						{ errorMessage }
-					</Validation>
-				) }
-			</Box>
 		</Box>
-	)
+	</Box>
 );
 
 Textarea.displayName = 'Textarea';

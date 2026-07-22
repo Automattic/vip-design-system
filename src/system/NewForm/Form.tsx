@@ -8,19 +8,18 @@ export type FormProps = React.ComponentPropsWithoutRef< 'form' > & {
 	children?: React.ReactNode;
 	/** Additional CSS class name(s) appended to the root element. */
 	className?: string;
+	ref?: React.Ref< HTMLFormElement >;
 };
 /** Form wrapper that disables native validation and forwards a ref to the underlying `<form>` element. */
-export const Form = React.forwardRef< HTMLFormElement, FormProps >(
-	( { children, className, ...props }, forwardRef ) => (
-		<form
-			ref={ forwardRef }
-			className={ classNames( 'vip-form-component', className ) }
-			noValidate
-			{ ...props }
-		>
-			{ children }
-		</form>
-	)
+export const Form = ( { children, className, ref, ...props }: FormProps ) => (
+	<form
+		ref={ ref }
+		className={ classNames( 'vip-form-component', className ) }
+		noValidate
+		{ ...props }
+	>
+		{ children }
+	</form>
 );
 
 Form.displayName = 'Form';

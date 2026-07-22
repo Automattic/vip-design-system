@@ -61,7 +61,7 @@ build/                   # Compiled output (generated, do not edit)
 - Follow the WPVIP ESLint configuration defined in `.eslintrc.js`.
 - Use Prettier formatting (`wp-prettier`). Run `npm run format` before committing.
 - Use TypeScript for all new code. Define prop interfaces with explicit types.
-- Use `forwardRef` when wrapping HTML elements or Theme UI components.
+- Accept `ref` as a regular prop when wrapping HTML elements or Theme UI components (React 19 pattern). Add `ref?: React.Ref<T>` to the component's props type. Do not use `forwardRef` — it is no longer used in this codebase. **Note:** this pattern requires React 19; React 18 consumers cannot use forwarded refs on these components.
 
 ### Styling
 

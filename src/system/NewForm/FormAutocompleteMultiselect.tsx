@@ -68,6 +68,12 @@ export interface FormAutocompleteMultiselectProps {
 	 * @default 'vip-autocompletemultiselect'
 	 */
 	forLabel?: string;
+	/** ID forwarded to the underlying autocomplete input. Defaults to `forLabel`. */
+	id?: string;
+	/** Name forwarded to the underlying autocomplete input. */
+	name?: string;
+	/** IDs of elements that describe the underlying autocomplete input. */
+	'aria-describedby'?: string;
 	/** Returns the display label for an option. */
 	getOptionLabel?: ( option: AutocompleteOption ) => string;
 	/** Returns the value for an option. */
@@ -125,6 +131,8 @@ export interface FormAutocompleteMultiselectProps {
 	variant?: string;
 	/** Placeholder text forwarded to the underlying autocomplete input. */
 	placeholder?: string;
+	/** Ref forwarded to the underlying autocomplete instance. */
+	ref?: React.Ref< AutocompleteInstance >;
 }
 
 const escapeHtml = ( str: unknown ) =>
@@ -264,408 +272,412 @@ const AddSelectionStatus = ( { status }: { status?: ReactNode } ) => {
 	);
 };
 
-const FormAutocompleteMultiselect = React.forwardRef<
-	AutocompleteInstance,
-	FormAutocompleteMultiselectProps
->(
-	(
-		{
-			autoFilter = true,
-			className,
-			debounce = 0,
-			displayMenu = 'overlay',
-			dropdownArrow = DefaultArrow,
-			errorMessage,
-			forLabel = 'vip-autocompletemultiselect',
-			getOptionLabel,
-			getOptionValue,
-			hasError,
-			isInline,
-			label,
-			loading,
-			minLength = 0,
-			noOptionsMessage = () => 'No results found. Type to search.',
-			onChange = () => {},
-			onInputChange,
-			options = [],
-			required,
-			searchIcon,
-			showAllValues = false,
-			source,
-			value,
-			listType = 'button',
-			initialValue = [],
-			allowCustom = false,
-			variant,
-			...props
+const FormAutocompleteMultiselect = ( {
+	autoFilter = true,
+	className,
+	debounce = 0,
+	displayMenu = 'overlay',
+	dropdownArrow = DefaultArrow,
+	errorMessage,
+	forLabel = 'vip-autocompletemultiselect',
+	id,
+	name,
+	'aria-describedby': ariaDescribedBy,
+	getOptionLabel,
+	getOptionValue,
+	hasError,
+	isInline,
+	label,
+	loading,
+	minLength = 0,
+	noOptionsMessage = () => 'No results found. Type to search.',
+	onChange = () => {},
+	onInputChange,
+	options = [],
+	required,
+	searchIcon,
+	showAllValues = false,
+	source,
+	value,
+	listType = 'button',
+	initialValue = [],
+	allowCustom = false,
+	variant,
+	ref,
+	...props
+}: FormAutocompleteMultiselectProps ) => {
+	const inputId = id ?? forLabel;
+	const isInlineChips = variant === 'inline-chips';
+	const OPTION_ACTION = {
+		ADD: 'add',
+		REMOVE: 'remove',
+		NONE: 'none',
+	};
+	const ListComponent =
+		listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
+	const [ isDirty, setIsDirty ] = useState( false );
+	const [ selectedOptions, setSelectedOptions ] = useState< MultiselectValue[] >( initialValue );
+	const [ addStatus, setAddStatus ] = useState< ReactNode >( '' );
+	const [ currentOption, setCurrentOption ] = useState< {
+		action: string;
+		option: MultiselectValue | null;
+		index?: number;
+	} >( {
+		action: OPTION_ACTION.NONE,
+		option: null,
+		index: -1,
+	} );
+	const justSelectedRef = React.useRef( false );
+	let debounceTimeout: ReturnType< typeof setTimeout >;
+	const fallbackRef = React.useRef< AutocompleteInstance >( null );
+	const acRef = (
+		ref && typeof ref !== 'function' ? ref : fallbackRef
+	) as React.MutableRefObject< AutocompleteInstance >;
+
+	/**
+	 * Reset the underlying component state to show the selected value
+	 */
+	const resetInputState = useCallback( () => {
+		if ( acRef?.current ) {
+			// resets the input field to the selected value or the empty string
+			acRef.current.setState( {
+				...acRef.current.state,
+				query: '', // selected value should not be null or the component will crash
+			} );
+		}
+	}, [ acRef ] );
+
+	const SelectLabel = () => (
+		<Label required={ required } htmlFor={ inputId }>
+			{ label }
+		</Label>
+	);
+
+	const inlineLabel = Boolean( isInline && label );
+
+	const optionLabel = useCallback(
+		( option: AutocompleteOption ) => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+		[ getOptionLabel ]
+	);
+
+	const getAllOptions = useMemo< AutocompleteOption[] >(
+		() => options.flatMap( option => option.options ?? [ option ] ),
+		[ options ]
+	);
+
+	const getOptionByLabel = useCallback(
+		( inputValue: string ) =>
+			getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
+		[ getAllOptions, optionLabel ]
+	);
+
+	const onValueChange = useCallback(
+		( inputValue: MultiselectValue ) => {
+			if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
+				setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
+				setSelectedOptions( [ ...selectedOptions, inputValue ] );
+			}
 		},
-		forwardedRef
-	) => {
-		const isInlineChips = variant === 'inline-chips';
-		const OPTION_ACTION = {
-			ADD: 'add',
-			REMOVE: 'remove',
-			NONE: 'none',
-		};
-		const ListComponent =
-			listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
-		const [ isDirty, setIsDirty ] = useState( false );
-		const [ selectedOptions, setSelectedOptions ] = useState< MultiselectValue[] >( initialValue );
-		const [ addStatus, setAddStatus ] = useState< ReactNode >( '' );
-		const [ currentOption, setCurrentOption ] = useState< {
-			action: string;
-			option: MultiselectValue | null;
-			index?: number;
-		} >( {
-			action: OPTION_ACTION.NONE,
-			option: null,
-			index: -1,
-		} );
-		const justSelectedRef = React.useRef( false );
-		let debounceTimeout: ReturnType< typeof setTimeout >;
-		const fallbackRef = React.useRef< AutocompleteInstance >( null );
-		const acRef = (
-			forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : fallbackRef
-		) as React.MutableRefObject< AutocompleteInstance >;
+		[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
+	);
 
-		/**
-		 * Reset the underlying component state to show the selected value
-		 */
-		const resetInputState = useCallback( () => {
-			if ( acRef?.current ) {
-				// resets the input field to the selected value or the empty string
-				acRef.current.setState( {
-					...acRef.current.state,
-					query: '', // selected value should not be null or the component will crash
+	const unselectValue = useCallback(
+		( inputValue: MultiselectValue, index?: number ) => {
+			if ( inputValue ) {
+				setSelectedOptions(
+					selectedOptions.filter(
+						option => ( ( option as AutocompleteOption )?.label || option ) !== inputValue
+					)
+				);
+				setCurrentOption( {
+					action: OPTION_ACTION.REMOVE,
+					option: inputValue,
+					index,
 				} );
 			}
-		}, [ acRef ] );
+		},
+		[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
+	);
 
-		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel }>
-				{ label }
-			</Label>
-		);
-
-		const inlineLabel = Boolean( isInline && label );
-
-		const optionLabel = useCallback(
-			( option: AutocompleteOption ) =>
-				getOptionLabel ? getOptionLabel( option ) : option.label,
-			[ getOptionLabel ]
-		);
-
-		const getAllOptions = useMemo< AutocompleteOption[] >(
-			() => options.flatMap( option => option.options ?? [ option ] ),
-			[ options ]
-		);
-
-		const getOptionByLabel = useCallback(
-			( inputValue: string ) =>
-				getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
-			[ getAllOptions, optionLabel ]
-		);
-
-		const onValueChange = useCallback(
-			( inputValue: MultiselectValue ) => {
-				if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
-					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
-					setSelectedOptions( [ ...selectedOptions, inputValue ] );
-				}
-			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
-		);
-
-		const unselectValue = useCallback(
-			( inputValue: MultiselectValue, index?: number ) => {
-				if ( inputValue ) {
-					setSelectedOptions(
-						selectedOptions.filter(
-							option => ( ( option as AutocompleteOption )?.label || option ) !== inputValue
-						)
-					);
-					setCurrentOption( {
-						action: OPTION_ACTION.REMOVE,
-						option: inputValue,
-						index,
-					} );
-				}
-			},
-			[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
-		);
-
-		const handleTypeChange = useCallback(
-			( query: string ) => {
-				const filteredOptions = options.filter(
-					option =>
-						String( optionLabel( option ) ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
-				);
-				if ( allowCustom && filteredOptions.length === 0 ) {
-					return [ { label: query, value: query } ];
-				}
-				return filteredOptions;
-			},
-			[ options, allowCustom ]
-		);
-
-		const handleInputChange = useCallback(
-			( query: string ) => {
-				if ( ! debounce ) {
-					return onInputChange?.( query );
-				}
-				clearTimeout( debounceTimeout );
-				if ( ! query.length || query.length >= minLength ) {
-					debounceTimeout = setTimeout( () => {
-						onInputChange?.( query );
-					}, debounce );
-				}
-			},
-			[ onInputChange, debounce, minLength ]
-		);
-
-		const suggest = useCallback(
-			( query: string, populateResults: ( results: unknown[] ) => void ) => {
-				let data = options;
-				if ( isDirty && onInputChange ) {
-					handleInputChange( query );
-				}
-				if ( isDirty && autoFilter ) {
-					data = handleTypeChange( query );
-				}
-				const optionForDisplay = data?.map( option => optionLabel( option ) );
-				if ( isInlineChips ) {
-					populateResults( optionForDisplay );
-				} else {
-					populateResults(
-						optionForDisplay.filter(
-							option => ! selectedOptions.includes( option as MultiselectValue )
-						)
-					);
-				}
-			},
-			[ autoFilter, isDirty, isInlineChips, onInputChange, options, selectedOptions ]
-		);
-
-		const onValueChangeInlineChips = useCallback(
-			( inputValue: MultiselectValue ) => {
-				if ( ! inputValue ) {
-					return;
-				}
-				justSelectedRef.current = true;
-				if ( selectedOptions.includes( inputValue ) ) {
-					unselectValue( inputValue, selectedOptions.indexOf( inputValue ) );
-				} else {
-					setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
-					setSelectedOptions( [ ...selectedOptions, inputValue ] );
-				}
-			},
-			[ selectedOptions, unselectValue ]
-		);
-
-		const inlineChipsTemplates = useMemo(
-			() => ( {
-				suggestion: ( suggestion: MultiselectValue ) => {
-					const isSelected = selectedOptions.includes( suggestion );
-					const check = isSelected ? '&#10003;' : '';
-					return `<span style="display:flex;align-items:center;gap:8px"><span style="width:16px;flex-shrink:0">${ check }</span>${ escapeHtml(
-						suggestion
-					) }</span>`;
-				},
-			} ),
-			[ selectedOptions ]
-		);
-
-		useEffect( () => {
-			global.document
-				.querySelector( '.autocomplete__input' )
-				?.removeAttribute( 'aria-activedescendant' );
-		}, [] );
-
-		useEffect( () => {
-			global.document
-				.querySelector( '.autocomplete__menu' )
-				?.setAttribute( 'aria-label', `${ String( label ) } list` );
-		}, [ label ] );
-
-		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
-			if ( ! input || required === undefined ) {
-				return;
-			}
-			input.setAttribute( 'aria-required', String( required ) );
-		}, [ required ] );
-
-		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
-
-			if ( ! input ) {
-				return;
-			}
-
-			const onKeyDown = () => {
-				setIsDirty( true );
-			};
-
-			input.addEventListener( 'keydown', onKeyDown );
-
-			return () => input.removeEventListener( 'keydown', onKeyDown );
-		}, [ setIsDirty ] );
-
-		// For accessibility, we need to add the error message to the aria-describedby attribute
-		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
-			if ( input ) {
-				input.setAttribute(
-					'aria-describedby',
-					`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) ?? '' }`
-				);
-			}
-		}, [] );
-
-		// Update selectedOption and reset the input state on select input change
-
-		useEffect( () => {
-			onChange(
-				selectedOptions,
-				selectedOptions.map( option => ( option as AutocompleteOption )?.label || option )
+	const handleTypeChange = useCallback(
+		( query: string ) => {
+			const filteredOptions = options.filter(
+				option => String( optionLabel( option ) ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
 			);
-			if ( isInlineChips && justSelectedRef.current && acRef?.current ) {
-				justSelectedRef.current = false;
-				acRef.current.setState( {
-					...acRef.current.state,
-					query: '',
-					menuOpen: true,
-				} );
+			if ( allowCustom && filteredOptions.length === 0 ) {
+				return [ { label: query, value: query } ];
+			}
+			return filteredOptions;
+		},
+		[ options, allowCustom ]
+	);
+
+	const handleInputChange = useCallback(
+		( query: string ) => {
+			if ( ! debounce ) {
+				return onInputChange?.( query );
+			}
+			clearTimeout( debounceTimeout );
+			if ( ! query.length || query.length >= minLength ) {
+				debounceTimeout = setTimeout( () => {
+					onInputChange?.( query );
+				}, debounce );
+			}
+		},
+		[ onInputChange, debounce, minLength ]
+	);
+
+	const suggest = useCallback(
+		( query: string, populateResults: ( results: unknown[] ) => void ) => {
+			let data = options;
+			if ( isDirty && onInputChange ) {
+				handleInputChange( query );
+			}
+			if ( isDirty && autoFilter ) {
+				data = handleTypeChange( query );
+			}
+			const optionForDisplay = data?.map( option => optionLabel( option ) );
+			if ( isInlineChips ) {
+				populateResults( optionForDisplay );
 			} else {
-				resetInputState();
+				populateResults(
+					optionForDisplay.filter(
+						option => ! selectedOptions.includes( option as MultiselectValue )
+					)
+				);
 			}
-		}, [ selectedOptions ] );
+		},
+		[ autoFilter, isDirty, isInlineChips, onInputChange, options, selectedOptions ]
+	);
 
-		// Update the select status for screen readers
-		useEffect( () => {
-			if ( currentOption.action === OPTION_ACTION.ADD ) {
-				setAddStatus( `${ String( currentOption.option ) } added to the list.` );
-				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
-			} else if ( currentOption.action === OPTION_ACTION.REMOVE ) {
-				setAddStatus( `${ String( currentOption.option ) } removed from the list.` );
-				if ( isInlineChips ) {
-					global.document.querySelector< HTMLElement >( `#${ forLabel }` )?.focus();
-				} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
-					global.document.querySelector< HTMLElement >( '.vip-button-component' )?.focus();
-				} else if ( selectedOptions.length === 0 ) {
-					global.document.querySelector< HTMLElement >( '.autocomplete__input' )?.focus();
-				}
-				setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
+	const onValueChangeInlineChips = useCallback(
+		( inputValue: MultiselectValue ) => {
+			if ( ! inputValue ) {
+				return;
 			}
-		}, [ currentOption ] );
+			justSelectedRef.current = true;
+			if ( selectedOptions.includes( inputValue ) ) {
+				unselectValue( inputValue, selectedOptions.indexOf( inputValue ) );
+			} else {
+				setCurrentOption( { action: OPTION_ACTION.ADD, option: inputValue } );
+				setSelectedOptions( [ ...selectedOptions, inputValue ] );
+			}
+		},
+		[ selectedOptions, unselectValue ]
+	);
 
-		if ( isInlineChips ) {
-			return (
-				<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
-					{ label && <SelectLabel /> }
-					<div sx={ inlineChipsContainerStyles }>
-						{ selectedOptions.map( ( option, idx ) => (
-							<FormAutocompleteMultiselectInlineChip
-								key={ option as string }
-								index={ idx }
-								option={ option as string }
-								unselectValue={ unselectValue }
-							/>
-						) ) }
-						<div sx={ { flex: '1 1 120px', minWidth: '120px', mr: -5 } }>
-							<Autocomplete
-								id={ forLabel }
-								aria-busy={ loading }
-								showAllValues={ true }
-								ref={ acRef }
-								source={ source || suggest }
-								defaultValue={ value }
-								displayMenu={ displayMenu }
-								onConfirm={ onValueChangeInlineChips }
-								tNoResults={ noOptionsMessage }
-								required={ required }
-								dropdownArrow={ dropdownArrow }
-								confirmOnBlur={ false }
-								templates={ inlineChipsTemplates }
-								{ ...props }
-								placeholder={
-									selectedOptions.length > 0 ? '' : ( props.placeholder as string ) || ''
-								}
-							/>
-						</div>
-						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
-						{ loading && <FormSelectLoading sx={ { right: 7 } } /> }
-					</div>
-					{ hasError && errorMessage && (
-						<Flex sx={ { mt: 2 } }>
-							<Validation isValid={ false } describedId={ forLabel }>
-								{ errorMessage }
-							</Validation>
-						</Flex>
-					) }
-				</div>
-			);
+	const inlineChipsTemplates = useMemo(
+		() => ( {
+			suggestion: ( suggestion: MultiselectValue ) => {
+				const isSelected = selectedOptions.includes( suggestion );
+				const check = isSelected ? '&#10003;' : '';
+				return `<span style="display:flex;align-items:center;gap:8px"><span style="width:16px;flex-shrink:0">${ check }</span>${ escapeHtml(
+					suggestion
+				) }</span>`;
+			},
+		} ),
+		[ selectedOptions ]
+	);
+
+	useEffect( () => {
+		global.document
+			.querySelector( '.autocomplete__input' )
+			?.removeAttribute( 'aria-activedescendant' );
+	}, [] );
+
+	useEffect( () => {
+		global.document
+			.querySelector( '.autocomplete__menu' )
+			?.setAttribute( 'aria-label', `${ String( label ) } list` );
+	}, [ label ] );
+
+	useEffect( () => {
+		const input = global.document.getElementById( inputId );
+		if ( ! input || required === undefined ) {
+			return;
+		}
+		input.setAttribute( 'aria-required', String( required ) );
+	}, [ inputId, required ] );
+
+	useEffect( () => {
+		const input = global.document.getElementById( inputId );
+
+		if ( ! input ) {
+			return;
 		}
 
+		const onKeyDown = () => {
+			setIsDirty( true );
+		};
+
+		input.addEventListener( 'keydown', onKeyDown );
+
+		return () => input.removeEventListener( 'keydown', onKeyDown );
+	}, [ inputId, setIsDirty ] );
+
+	// For accessibility, we need to add the error message to the aria-describedby attribute
+	useEffect( () => {
+		const input = global.document.getElementById( inputId );
+		if ( input ) {
+			const describedBy = [
+				ariaDescribedBy,
+				`describe-${ inputId }-validation`,
+				input.getAttribute( 'aria-describedby' ),
+			]
+				.filter( Boolean )
+				.join( ' ' );
+
+			input.setAttribute(
+				'aria-describedby',
+				Array.from( new Set( describedBy.split( ' ' ).filter( Boolean ) ) ).join( ' ' )
+			);
+		}
+	}, [ ariaDescribedBy, inputId ] );
+
+	// Update selectedOption and reset the input state on select input change
+
+	useEffect( () => {
+		onChange(
+			selectedOptions,
+			selectedOptions.map( option => ( option as AutocompleteOption )?.label || option )
+		);
+		if ( isInlineChips && justSelectedRef.current && acRef?.current ) {
+			justSelectedRef.current = false;
+			acRef.current.setState( {
+				...acRef.current.state,
+				query: '',
+				menuOpen: true,
+			} );
+		} else {
+			resetInputState();
+		}
+	}, [ selectedOptions ] );
+
+	// Update the select status for screen readers
+	useEffect( () => {
+		if ( currentOption.action === OPTION_ACTION.ADD ) {
+			setAddStatus( `${ String( currentOption.option ) } added to the list.` );
+			setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
+		} else if ( currentOption.action === OPTION_ACTION.REMOVE ) {
+			setAddStatus( `${ String( currentOption.option ) } removed from the list.` );
+			if ( isInlineChips ) {
+				global.document.getElementById( inputId )?.focus();
+			} else if ( currentOption.index === selectedOptions.length && selectedOptions.length > 0 ) {
+				global.document.querySelector< HTMLElement >( '.vip-button-component' )?.focus();
+			} else if ( selectedOptions.length === 0 ) {
+				global.document.querySelector< HTMLElement >( '.autocomplete__input' )?.focus();
+			}
+			setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
+		}
+	}, [ currentOption ] );
+
+	if ( isInlineChips ) {
 		return (
 			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
-				{ label && ! isInline && <SelectLabel /> }
-				<div
-					sx={ {
-						...defaultStyles,
-						...( isInline && inlineStyles ),
-						...( searchIcon && searchIconStyles ),
-					} }
-				>
-					<FormSelectContent
-						isInline={ inlineLabel }
-						label={ inlineLabel ? <SelectLabel /> : null }
-					>
-						{ searchIcon && <FormSelectSearch /> }
+				{ label && <SelectLabel /> }
+				<div sx={ inlineChipsContainerStyles }>
+					{ selectedOptions.map( ( option, idx ) => (
+						<FormAutocompleteMultiselectInlineChip
+							key={ option as string }
+							index={ idx }
+							option={ option as string }
+							unselectValue={ unselectValue }
+						/>
+					) ) }
+					<div sx={ { flex: '1 1 120px', minWidth: '120px', mr: -5 } }>
 						<Autocomplete
-							id={ forLabel }
+							id={ inputId }
+							name={ name }
+							aria-describedby={ ariaDescribedBy }
 							aria-busy={ loading }
-							showAllValues={ showAllValues }
+							showAllValues={ true }
 							ref={ acRef }
 							source={ source || suggest }
 							defaultValue={ value }
 							displayMenu={ displayMenu }
-							onConfirm={ onValueChange }
+							onConfirm={ onValueChangeInlineChips }
 							tNoResults={ noOptionsMessage }
 							required={ required }
-							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+							dropdownArrow={ dropdownArrow }
 							confirmOnBlur={ false }
+							templates={ inlineChipsTemplates }
 							{ ...props }
+							placeholder={
+								selectedOptions.length > 0 ? '' : ( props.placeholder as string ) || ''
+							}
 						/>
-						{ addStatus && <AddSelectionStatus status={ addStatus } /> }
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
-					</FormSelectContent>
+					</div>
+					{ addStatus && <AddSelectionStatus status={ addStatus } /> }
+					{ loading && <FormSelectLoading sx={ { right: 7 } } /> }
 				</div>
-				<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
-					{ hasError && errorMessage && (
-						<Validation isValid={ false } describedId={ forLabel }>
+				{ hasError && errorMessage && (
+					<Flex sx={ { mt: 2 } }>
+						<Validation isValid={ false } describedId={ inputId }>
 							{ errorMessage }
 						</Validation>
-					) }
-					<div sx={ { fontSize: 1 } }>
-						{ selectedOptions.length } item{ selectedOptions.length === 1 ? '' : 's' } selected
-					</div>
-				</Flex>
-				<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
-					{ selectedOptions &&
-						selectedOptions.map( ( option, idx ) => (
-							<ListComponent
-								key={ idx }
-								index={ idx }
-								option={ option as string }
-								unselectValue={ unselectValue }
-							/>
-						) ) }
-				</div>
+					</Flex>
+				) }
 			</div>
 		);
 	}
-);
+
+	return (
+		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+			{ label && ! isInline && <SelectLabel /> }
+			<div
+				sx={ {
+					...defaultStyles,
+					...( isInline && inlineStyles ),
+					...( searchIcon && searchIconStyles ),
+				} }
+			>
+				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
+					{ searchIcon && <FormSelectSearch /> }
+					<Autocomplete
+						id={ inputId }
+						name={ name }
+						aria-describedby={ ariaDescribedBy }
+						aria-busy={ loading }
+						showAllValues={ showAllValues }
+						ref={ acRef }
+						source={ source || suggest }
+						defaultValue={ value }
+						displayMenu={ displayMenu }
+						onConfirm={ onValueChange }
+						tNoResults={ noOptionsMessage }
+						required={ required }
+						dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+						confirmOnBlur={ false }
+						{ ...props }
+					/>
+					{ addStatus && <AddSelectionStatus status={ addStatus } /> }
+					{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
+				</FormSelectContent>
+			</div>
+			<Flex sx={ { mt: 2, justifyContent: 'space-between' } }>
+				{ hasError && errorMessage && (
+					<Validation isValid={ false } describedId={ inputId }>
+						{ errorMessage }
+					</Validation>
+				) }
+				<div sx={ { fontSize: 1 } }>
+					{ selectedOptions.length } item{ selectedOptions.length === 1 ? '' : 's' } selected
+				</div>
+			</Flex>
+			<div sx={ { display: 'inline-flex', flexWrap: 'wrap', maxWidth: '100%' } }>
+				{ selectedOptions &&
+					selectedOptions.map( ( option, idx ) => (
+						<ListComponent
+							key={ idx }
+							index={ idx }
+							option={ option as string }
+							unselectValue={ unselectValue }
+						/>
+					) ) }
+			</div>
+		</div>
+	);
+};
 
 FormAutocompleteMultiselect.displayName = 'FormAutocompleteMultiselect';
 

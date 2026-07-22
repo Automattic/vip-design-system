@@ -8,6 +8,8 @@ import { ThemeUIStyleObject } from 'theme-ui';
 export interface DropdownLabelProps extends DropdownMenuPrimitive.DropdownMenuLabelProps {
 	/** Additional CSS class name applied to the label. */
 	className?: string;
+	/** Forwarded ref to the underlying label element. */
+	ref?: React.Ref< HTMLDivElement >;
 	/** The content rendered inside the label. */
 	children?: React.ReactNode;
 	/** Theme UI style overrides applied to the label. */
@@ -24,15 +26,13 @@ export const styles: ThemeUIStyleObject = {
 /**
  * A non-interactive label used to describe a group of items within a Dropdown menu.
  */
-export const DropdownLabel = React.forwardRef< HTMLDivElement, DropdownLabelProps >(
-	( { className, sx = {}, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.DropdownMenuLabel
-			className={ classNames( 'vip-dropdown-menu-label', className ) }
-			ref={ forwardRef }
-			sx={ { ...styles, ...sx } }
-			{ ...props }
-		/>
-	)
+export const DropdownLabel = ( { className, ref, sx = {}, ...props }: DropdownLabelProps ) => (
+	<DropdownMenuPrimitive.DropdownMenuLabel
+		className={ classNames( 'vip-dropdown-menu-label', className ) }
+		ref={ ref }
+		sx={ { ...styles, ...sx } }
+		{ ...props }
+	/>
 );
 
 DropdownLabel.displayName = 'DropdownLabel';

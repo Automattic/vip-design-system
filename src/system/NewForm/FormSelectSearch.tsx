@@ -14,6 +14,7 @@ import { Box } from '../Box/Box';
 
 interface FormSelectSearchProps {
 	sx?: ThemeUIStyleObject;
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 const wrapperStyles: ThemeUIStyleObject = {
@@ -26,12 +27,10 @@ const searchStyles: ThemeUIStyleObject = {
 	pointerEvents: 'none',
 };
 
-export const FormSelectSearch = React.forwardRef< HTMLDivElement, FormSelectSearchProps >(
-	( props, forwardRef ) => (
-		<Box ref={ forwardRef } sx={ wrapperStyles }>
-			<MdSearch aria-hidden="true" size={ 24 } sx={ searchStyles } { ...props } />
-		</Box>
-	)
+export const FormSelectSearch = ( { ref, ...props }: FormSelectSearchProps ) => (
+	<Box ref={ ref } sx={ wrapperStyles }>
+		<MdSearch aria-hidden="true" size={ 24 } sx={ searchStyles } { ...props } />
+	</Box>
 );
 
 FormSelectSearch.displayName = 'FormSelectSearch';

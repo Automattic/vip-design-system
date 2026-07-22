@@ -40,4 +40,24 @@ describe( '<FormAutocomplete />', () => {
 		// Check for accessibility issues
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
+
+	it( 'forwards input attributes', () => {
+		render(
+			<FormAutocomplete
+				{ ...defaultProps }
+				id="dessert-search"
+				name="dessert"
+				aria-describedby="dessert-help"
+			/>
+		);
+
+		const input = screen.getByLabelText( defaultProps.label );
+
+		expect( input ).toHaveAttribute( 'id', 'dessert-search' );
+		expect( input ).toHaveAttribute( 'name', 'dessert' );
+		expect( input ).toHaveAttribute(
+			'aria-describedby',
+			expect.stringContaining( 'dessert-help' )
+		);
+	} );
 } );

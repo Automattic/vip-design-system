@@ -20,7 +20,7 @@ import { Text } from '../Text/Text';
 export type OptionRowVariant = 'default' | 'alt';
 
 export interface OptionRowProps
-	extends Omit< React.ComponentProps< typeof Link >, 'variant' | 'className' > {
+	extends Omit< React.ComponentProps< typeof Link >, 'variant' | 'className' | 'ref' > {
 	/** Image URL or a React element rendered in the leading icon slot. */
 	image?: ReactElement | string;
 	/** Badge content rendered next to the label. */
@@ -62,6 +62,8 @@ export interface OptionRowProps
 	 * @default 'default'
 	 */
 	variant?: OptionRowVariant;
+	/** Ref forwarded to the row's root element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 const disabledStyles = {
@@ -84,113 +86,109 @@ const regularGridStyle = () => ( {
 	borderColor: 'optionRow.border',
 } );
 
-const OptionRow = React.forwardRef< HTMLDivElement, OptionRowProps >(
-	(
-		{
-			image,
-			badge,
-			label,
-			inline = false,
-			subTitle,
-			body,
-			meta,
-			small = false,
-			disabled = false,
-			order = null,
-			className = null,
-			titleVariant = 'h3',
-			variant = 'default',
-			...rest
-		},
-		forwardRef
-	) => {
-		const mergedCard = disabled ? disabledStyles : {};
-		const inlineStyles = inline ? gridInlineStyle : regularGridStyle();
+const OptionRow = ( {
+	image,
+	badge,
+	label,
+	inline = false,
+	subTitle,
+	body,
+	meta,
+	small = false,
+	disabled = false,
+	order = null,
+	className = null,
+	titleVariant = 'h3',
+	variant = 'default',
+	ref,
+	...rest
+}: OptionRowProps ) => {
+	const mergedCard = disabled ? disabledStyles : {};
+	const inlineStyles = inline ? gridInlineStyle : regularGridStyle();
 
-		return (
-			<Grid
-				columns={ [ 'auto 1fr auto' ] }
-				gap={ [ 3, 3, `${ small ? 3 : 4 }` ] }
-				data-order={ order || undefined }
-				className={ classNames( 'vip-option-row-component', className ) }
-				ref={ forwardRef }
-				sx={ {
-					position: 'relative',
-					alignItems: 'center',
-					'&:hover': ! disabled && {
-						backgroundColor: 'optionRow.hover',
-					},
-					...inlineStyles,
-				} }
-			>
-				<Box>
-					{ Boolean( image ) && (
-						<Box
-							sx={ {
-								display: [ 'inline-block', 'inline-block', 'block' ],
-								p: small ? 3 : 4,
-								flex: '0 0 auto',
-								bg: `optionRow.${ variant }.background`,
-								color: `optionRow.${ variant }.icon`,
-								borderRadius: 1,
-								...mergedCard,
-							} }
-						>
-							{ React.isValidElement( image ) ? (
-								image
-							) : (
-								<img
-									src={ image as string }
-									width={ small ? 32 : 48 }
-									sx={ { display: 'block' } }
-									alt=""
-								/>
-							) }
-						</Box>
-					) }
-				</Box>
-
-				<Box sx={ { flex: '1 1 auto', overflowWrap: 'break-word' } }>
-					<Heading
-						variant={ titleVariant }
-						sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
+	return (
+		<Grid
+			columns={ [ 'auto 1fr auto' ] }
+			gap={ [ 3, 3, `${ small ? 3 : 4 }` ] }
+			data-order={ order || undefined }
+			className={ classNames( 'vip-option-row-component', className ) }
+			ref={ ref }
+			sx={ {
+				position: 'relative',
+				alignItems: 'center',
+				'&:hover': ! disabled && {
+					backgroundColor: 'optionRow.hover',
+				},
+				...inlineStyles,
+			} }
+		>
+			<Box>
+				{ Boolean( image ) && (
+					<Box
+						sx={ {
+							display: [ 'inline-block', 'inline-block', 'block' ],
+							p: small ? 3 : 4,
+							flex: '0 0 auto',
+							bg: `optionRow.${ variant }.background`,
+							color: `optionRow.${ variant }.icon`,
+							borderRadius: 1,
+							...mergedCard,
+						} }
 					>
-						<Link
-							as={ 'a' }
-							sx={ {
-								cursor: disabled ? 'auto' : 'pointer',
-								color: disabled ? 'optionRow.text' : 'optionRow.textAccent',
-								'&:after': {
-									content: '""',
-									position: 'absolute',
-									top: 0,
-									right: 0,
-									bottom: 0,
-									left: 0,
-								},
-							} }
-							{ ...rest }
-						>
-							{ label }
-							{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
-						</Link>
-					</Heading>
-					{ subTitle && <Text sx={ { mb: 1, color: 'optionRow.text' } }>{ subTitle }</Text> }
-					{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
-				</Box>
-				{ false !== meta && '' !== meta && (
-					<Box data-testid="meta">
-						{ meta ? (
-							meta
+						{ React.isValidElement( image ) ? (
+							image
 						) : (
-							<MdArrowForward size={ 24 } sx={ { color: 'optionRow.text' } } aria-hidden="true" />
+							<img
+								src={ image as string }
+								width={ small ? 32 : 48 }
+								sx={ { display: 'block' } }
+								alt=""
+							/>
 						) }
 					</Box>
 				) }
-			</Grid>
-		);
-	}
-);
+			</Box>
+
+			<Box sx={ { flex: '1 1 auto', overflowWrap: 'break-word' } }>
+				<Heading
+					variant={ titleVariant }
+					sx={ { mb: subTitle || body ? 1 : 0, fontSize: 2, fontWeight: 'bold' } }
+				>
+					<Link
+						as={ 'a' }
+						sx={ {
+							cursor: disabled ? 'auto' : 'pointer',
+							color: disabled ? 'optionRow.text' : 'optionRow.textAccent',
+							'&:after': {
+								content: '""',
+								position: 'absolute',
+								top: 0,
+								right: 0,
+								bottom: 0,
+								left: 0,
+							},
+						} }
+						{ ...rest }
+					>
+						{ label }
+						{ badge && <Badge sx={ { marginLeft: 2 } }>{ badge }</Badge> }
+					</Link>
+				</Heading>
+				{ subTitle && <Text sx={ { mb: 1, color: 'optionRow.text' } }>{ subTitle }</Text> }
+				{ body && <Text sx={ { mb: 0 } }>{ body }</Text> }
+			</Box>
+			{ false !== meta && '' !== meta && (
+				<Box data-testid="meta">
+					{ meta ? (
+						meta
+					) : (
+						<MdArrowForward size={ 24 } sx={ { color: 'optionRow.text' } } aria-hidden="true" />
+					) }
+				</Box>
+			) }
+		</Grid>
+	);
+};
 
 OptionRow.displayName = 'OptionRow';
 

@@ -35,6 +35,8 @@ export interface InputWithCopyButtonProps extends React.InputHTMLAttributes< HTM
 	errorMessage?: ReactNode;
 	/** Callback invoked with the copied value after a successful copy. */
 	copyHandler?: ( value?: string ) => void;
+	/** Ref forwarded to the underlying input element. */
+	ref?: React.Ref< HTMLInputElement >;
 }
 
 const inputStyles: ThemeUIStyleObject = {
@@ -49,77 +51,73 @@ const inputStyles: ThemeUIStyleObject = {
 	variant: 'inputs.default',
 };
 
-const InputWithCopyButton = React.forwardRef< HTMLInputElement, InputWithCopyButtonProps >(
-	(
-		{
-			variant,
-			label,
-			forLabel,
-			hasError = false,
-			required,
-			sx = {},
-			errorMessage,
-			copyHandler,
-			...props
-		},
-		ref
-	) => {
-		const fallbackRef = useRef< HTMLInputElement >( null );
-		const inputRef = (
-			ref && typeof ref !== 'function' ? ref : fallbackRef
-		) as React.RefObject< HTMLInputElement >;
+const InputWithCopyButton = ( {
+	variant,
+	label,
+	forLabel,
+	hasError = false,
+	required,
+	sx = {},
+	errorMessage,
+	copyHandler,
+	ref,
+	...props
+}: InputWithCopyButtonProps ) => {
+	const fallbackRef = useRef< HTMLInputElement >( null );
+	const inputRef = (
+		ref && typeof ref !== 'function' ? ref : fallbackRef
+	) as React.RefObject< HTMLInputElement >;
 
-		const handleCopy = ( e: React.MouseEvent< HTMLButtonElement > ) => {
-			e.preventDefault();
-			const clipboard = navigator.clipboard; // eslint-disable-line no-undef
-			const value = inputRef.current?.value ?? '';
-			void clipboard.writeText( value );
-			if ( copyHandler ) {
-				copyHandler( value );
-			}
-		};
-		return (
-			<React.Fragment>
-				{ label && (
-					<Label required={ required } htmlFor={ forLabel }>
-						{ label }
-					</Label>
-				) }
-				<div sx={ { display: 'flex' } }>
-					<ThemeInput
-						ref={ inputRef }
-						id={ forLabel }
-						required={ required }
-						aria-required={ required }
-						aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
-						sx={ {
-							...inputStyles,
-							...sx,
-							...( hasError ? { borderColor: 'input.border.error' } : {} ),
-						} }
-						{ ...props }
-					/>
-					<div sx={ { ml: 2 } }>
-						<Button
-							sx={ { height: '40px' } }
-							aria-label={ `Copy ${ String( label ) }` }
-							onClick={ handleCopy }
-							variant="ghost"
-						>
-							<MdContentCopy sx={ { mr: 2 } } />
-							Copy
-						</Button>
-					</div>
+	const handleCopy = ( e: React.MouseEvent< HTMLButtonElement > ) => {
+		e.preventDefault();
+		const clipboard = navigator.clipboard; // eslint-disable-line no-undef
+		const value = inputRef.current?.value ?? '';
+		void clipboard.writeText( value );
+		if ( copyHandler ) {
+			copyHandler( value );
+		}
+	};
+	return (
+		<React.Fragment>
+			{ label && (
+				<Label required={ required } htmlFor={ forLabel }>
+					{ label }
+				</Label>
+			) }
+			<div sx={ { display: 'flex' } }>
+				<ThemeInput
+					ref={ inputRef }
+					id={ forLabel }
+					required={ required }
+					aria-required={ required }
+					aria-describedby={ hasError ? `describe-${ forLabel }-validation` : undefined }
+					sx={ {
+						...inputStyles,
+						...sx,
+						...( hasError ? { borderColor: 'input.border.error' } : {} ),
+					} }
+					{ ...props }
+				/>
+				<div sx={ { ml: 2 } }>
+					<Button
+						sx={ { height: '40px' } }
+						aria-label={ `Copy ${ String( label ) }` }
+						onClick={ handleCopy }
+						variant="ghost"
+					>
+						<MdContentCopy sx={ { mr: 2 } } />
+						Copy
+					</Button>
 				</div>
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
-						{ errorMessage }
-					</Validation>
-				) }
-			</React.Fragment>
-		);
-	}
-);
+			</div>
+			{ hasError && errorMessage && (
+				<Validation isValid={ false } describedId={ forLabel }>
+					{ errorMessage }
+				</Validation>
+			) }
+		</React.Fragment>
+	);
+};
 
 InputWithCopyButton.displayName = 'InputWithCopyButton';
 

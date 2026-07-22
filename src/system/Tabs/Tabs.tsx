@@ -22,36 +22,34 @@ export interface TabsProps {
 	onValueChange?: ( value: string ) => void;
 	/** The tab sub-components (TabsList, TabsTrigger, TabsContent). */
 	children: React.ReactNode;
+	/** Forwarded ref to the underlying root element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 /**
  * Tabs — Root container for the tabbed interface.
  * Wraps Radix UI Tabs.Root and manages active tab state.
  */
-const Tabs = React.forwardRef< HTMLDivElement, TabsProps >(
-	(
-		{
-			children,
-			onValueChange = undefined,
-			defaultValue = undefined,
-			value = undefined,
-			className = null,
-		},
-		ref
-	) => {
-		return (
-			<TabsPrimitive.Root
-				ref={ ref }
-				value={ value }
-				defaultValue={ defaultValue }
-				onValueChange={ onValueChange }
-				className={ classNames( 'vip-tabs-component', className ) }
-			>
-				{ children }
-			</TabsPrimitive.Root>
-		);
-	}
-);
+const Tabs = ( {
+	children,
+	onValueChange = undefined,
+	defaultValue = undefined,
+	value = undefined,
+	className = null,
+	ref,
+}: TabsProps ) => {
+	return (
+		<TabsPrimitive.Root
+			ref={ ref }
+			value={ value }
+			defaultValue={ defaultValue }
+			onValueChange={ onValueChange }
+			className={ classNames( 'vip-tabs-component', className ) }
+		>
+			{ children }
+		</TabsPrimitive.Root>
+	);
+};
 
 Tabs.displayName = 'Tabs';
 

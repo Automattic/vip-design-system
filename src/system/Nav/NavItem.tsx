@@ -2,7 +2,7 @@
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { Ref, forwardRef } from 'react';
+import { Ref } from 'react';
 import { Theme, ThemeUIStyleObject } from 'theme-ui';
 
 import { NavItemRenderIconProp, NavProps, NavVariant, VIP_NAV } from './Nav';
@@ -26,26 +26,31 @@ export interface NavItemBaseProps extends NavigationMenu.NavigationMenuItemProps
 	orientation?: NavProps[ 'orientation' ];
 	/** Whether this nav item is currently active/selected. */
 	active?: boolean;
+	ref?: Ref< HTMLLIElement >;
 }
 
-const NavItemBase = forwardRef< HTMLLIElement, NavItemBaseProps >(
-	(
-		{ children, sx = {}, active, orientation, variant, className, ...rest }: NavItemBaseProps,
-		ref: Ref< HTMLLIElement >
-	) => (
-		<NavigationMenu.Item
-			className={ classNames( `${ VIP_NAV }-item`, className ) }
-			{ ...rest }
-			data-active={ active || undefined }
-			sx={ {
-				...navItemStyles( orientation, variant ),
-				...sx,
-			} }
-			ref={ ref }
-		>
-			{ children }
-		</NavigationMenu.Item>
-	)
+const NavItemBase = ( {
+	children,
+	sx = {},
+	active,
+	orientation,
+	variant,
+	className,
+	ref,
+	...rest
+}: NavItemBaseProps ) => (
+	<NavigationMenu.Item
+		className={ classNames( `${ VIP_NAV }-item`, className ) }
+		{ ...rest }
+		data-active={ active || undefined }
+		sx={ {
+			...navItemStyles( orientation, variant ),
+			...sx,
+		} }
+		ref={ ref }
+	>
+		{ children }
+	</NavigationMenu.Item>
 );
 
 export type NavItemAsProp = React.ElementType;
@@ -69,105 +74,93 @@ export interface NavItemProps extends NavigationMenu.NavigationMenuLinkProps {
 	as?: NavItemAsProp;
 	/** The layout direction inherited from the parent Nav. */
 	orientation?: NavProps[ 'orientation' ];
+	ref?: Ref< HTMLAnchorElement >;
 }
 
-const NavItemRoot = forwardRef< HTMLAnchorElement, NavItemProps >(
-	(
-		{ className, children, active, variant = 'primary', orientation, ...rest }: NavItemProps,
-		ref: Ref< HTMLAnchorElement >
-	) => (
-		<NavItemBase
-			className={ className }
-			orientation={ orientation }
-			active={ active }
-			variant={ variant }
-		>
-			<NavLink variant={ variant } ref={ ref } active={ active } { ...rest }>
-				{ children }
-			</NavLink>
-		</NavItemBase>
-	)
+const NavItemRoot = ( {
+	className,
+	children,
+	active,
+	variant = 'primary',
+	orientation,
+	ref,
+	...rest
+}: NavItemProps ) => (
+	<NavItemBase
+		className={ className }
+		orientation={ orientation }
+		active={ active }
+		variant={ variant }
+	>
+		<NavLink variant={ variant } ref={ ref } active={ active } { ...rest }>
+			{ children }
+		</NavLink>
+	</NavItemBase>
 );
 
-export const NavRawLink = forwardRef<
-	HTMLAnchorElement,
-	React.AnchorHTMLAttributes< HTMLAnchorElement >
->(
+export const NavRawLink = ( {
+	ref,
+	...props
+}: React.AnchorHTMLAttributes< HTMLAnchorElement > & { ref?: Ref< HTMLAnchorElement > } ) => (
 	// eslint-disable-next-line jsx-a11y/anchor-has-content
-	( props, ref: Ref< HTMLAnchorElement > ) => <a { ...props } ref={ ref } />
+	<a { ...props } ref={ ref } />
 );
 
-const NavLink = forwardRef< HTMLAnchorElement, NavItemProps >(
-	(
-		{
-			children,
-			as: LinkComponent = NavRawLink,
-			renderIcon,
-			href,
-			active,
-			disabled,
-			variant = 'primary',
-			sx = {},
-			...rest
-		}: NavItemProps,
-		ref: Ref< HTMLAnchorElement >
-	) => (
-		<NavigationMenu.Link
-			className={ classNames( `${ VIP_NAV }-item-link` ) }
-			ref={ ref }
-			sx={ {
-				...navItemLinkStyles( variant ),
-				...sx,
-			} }
-			href={ href }
-			data-active={ active || undefined }
-			aria-current={ active ? 'page' : undefined }
-			aria-disabled={ disabled }
-			asChild
-			{ ...rest }
-		>
-			<LinkComponent>
-				{ renderIcon ? <IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer> : null }
-				{ children }
-			</LinkComponent>
-		</NavigationMenu.Link>
-	)
+const NavLink = ( {
+	children,
+	as: LinkComponent = NavRawLink,
+	renderIcon,
+	href,
+	active,
+	disabled,
+	variant = 'primary',
+	sx = {},
+	ref,
+	...rest
+}: NavItemProps ) => (
+	<NavigationMenu.Link
+		className={ classNames( `${ VIP_NAV }-item-link` ) }
+		ref={ ref }
+		sx={ {
+			...navItemLinkStyles( variant ),
+			...sx,
+		} }
+		href={ href }
+		data-active={ active || undefined }
+		aria-current={ active ? 'page' : undefined }
+		aria-disabled={ disabled }
+		asChild
+		{ ...rest }
+	>
+		<LinkComponent>
+			{ renderIcon ? <IconContainer>{ renderIcon( NAV_ITEM_ICON_SIZE ) }</IconContainer> : null }
+			{ children }
+		</LinkComponent>
+	</NavigationMenu.Link>
 );
 
-export const ItemPrimary = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItemRoot variant="primary" ref={ ref } { ...props } />
-	)
+export const ItemPrimary = ( { ref, ...props }: NavItemProps ) => (
+	<NavItemRoot variant="primary" ref={ ref } { ...props } />
 );
 
-export const ItemBreadcrumb = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItemRoot variant="breadcrumbs" ref={ ref } { ...props } />
-	)
+export const ItemBreadcrumb = ( { ref, ...props }: NavItemProps ) => (
+	<NavItemRoot variant="breadcrumbs" ref={ ref } { ...props } />
 );
 
-export const ItemTab = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItemRoot variant="tabs" ref={ ref } { ...props } />
-	)
+export const ItemTab = ( { ref, ...props }: NavItemProps ) => (
+	<NavItemRoot variant="tabs" ref={ ref } { ...props } />
 );
 
-export const ItemToolbar = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItemRoot variant="toolbar" ref={ ref } { ...props } />
-	)
+export const ItemToolbar = ( { ref, ...props }: NavItemProps ) => (
+	<NavItemRoot variant="toolbar" ref={ ref } { ...props } />
 );
 
-export const ItemMenu = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItemRoot variant="menu" ref={ ref } { ...props } />
-	)
+export const ItemMenu = ( { ref, ...props }: NavItemProps ) => (
+	<NavItemRoot variant="menu" ref={ ref } { ...props } />
 );
 
-export const ItemMenuInverse = forwardRef< HTMLAnchorElement, NavItemProps >(
-	( props: NavItemProps, ref: Ref< HTMLAnchorElement > ) => (
-		<NavItemRoot variant="menu-inverse" ref={ ref } { ...props } />
-	)
+export const ItemMenuInverse = ( { ref, ...props }: NavItemProps ) => (
+	<NavItemRoot variant="menu-inverse" ref={ ref } { ...props } />
 );
 
 /**

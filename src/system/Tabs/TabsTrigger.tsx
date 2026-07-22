@@ -28,6 +28,8 @@ export interface TabsTriggerProps {
 	disabled?: boolean;
 	/** The label content rendered inside the trigger button. */
 	children: React.ReactNode;
+	/** Forwarded ref to the underlying trigger button element. */
+	ref?: React.Ref< HTMLButtonElement >;
 }
 
 const styles: ThemeUIStyleObject = {
@@ -63,20 +65,24 @@ const styles: ThemeUIStyleObject = {
 /**
  * TabsTrigger — A button that activates its associated TabsContent panel.
  */
-const TabsTrigger = React.forwardRef< HTMLButtonElement, TabsTriggerProps >(
-	( { value, disabled = false, children, className = null }, forwardRef ) => (
-		<TabsPrimitive.TabsTrigger
-			className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }`, className ) }
-			value={ value }
-			disabled={ disabled }
-			sx={ {
-				...styles,
-			} }
-			ref={ forwardRef }
-		>
-			{ children }
-		</TabsPrimitive.TabsTrigger>
-	)
+const TabsTrigger = ( {
+	value,
+	disabled = false,
+	children,
+	className = null,
+	ref,
+}: TabsTriggerProps ) => (
+	<TabsPrimitive.TabsTrigger
+		className={ classNames( 'vip-tabs-trigger', `vip-tabs-trigger-${ value }`, className ) }
+		value={ value }
+		disabled={ disabled }
+		sx={ {
+			...styles,
+		} }
+		ref={ ref }
+	>
+		{ children }
+	</TabsPrimitive.TabsTrigger>
 );
 
 TabsTrigger.displayName = 'TabsTrigger';

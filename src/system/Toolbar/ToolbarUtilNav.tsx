@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { Ref, forwardRef } from 'react';
+import React, { Ref } from 'react';
 
 import { Flex } from '../Flex/Flex';
 
@@ -11,25 +11,25 @@ export type ToolbarUtilNavProps = {
 	 * @default 'Utility'
 	 */
 	label?: string;
+	/** Ref forwarded to the underlying `<nav>` element. */
+	ref?: Ref< HTMLElement >;
 };
 
 /** Right-aligned utility navigation area within the Toolbar. */
-export const ToolbarUtilNav = forwardRef< HTMLElement, ToolbarUtilNavProps >(
-	( { label = 'Utility', children }: ToolbarUtilNavProps, ref: Ref< HTMLElement > ) => (
-		<nav
-			aria-label={ label }
-			ref={ ref }
-			sx={ {
-				marginLeft: 'auto',
-				alignItems: 'center',
-				flexDirection: 'row',
-				display: 'flex',
-				gap: 4,
-			} }
-		>
-			{ children }
-		</nav>
-	)
+export const ToolbarUtilNav = ( { label = 'Utility', children, ref }: ToolbarUtilNavProps ) => (
+	<nav
+		aria-label={ label }
+		ref={ ref }
+		sx={ {
+			marginLeft: 'auto',
+			alignItems: 'center',
+			flexDirection: 'row',
+			display: 'flex',
+			gap: 4,
+		} }
+	>
+		{ children }
+	</nav>
 );
 
 export const ToolbarIconHolder = ( { children } ) => (

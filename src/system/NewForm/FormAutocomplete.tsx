@@ -60,6 +60,12 @@ export interface FormAutocompleteProps {
 	 * @default 'vip-autocomplete'
 	 */
 	forLabel?: string;
+	/** ID forwarded to the underlying autocomplete input. Defaults to `forLabel`. */
+	id?: string;
+	/** Name forwarded to the underlying autocomplete input. */
+	name?: string;
+	/** IDs of elements that describe the underlying autocomplete input. */
+	'aria-describedby'?: string;
 	/** Returns the display label for an option. */
 	getOptionLabel?: ( option: AutocompleteOption ) => string;
 	/** Returns the value for an option. */
@@ -112,6 +118,8 @@ export interface FormAutocompleteProps {
 	allowCustom?: boolean;
 	/** Placeholder text forwarded to the underlying autocomplete input. */
 	placeholder?: string;
+	/** Ref forwarded to the underlying autocomplete instance. */
+	ref?: React.Ref< AutocompleteInstance >;
 }
 
 const baseBorderTextColors: ThemeUIStyleObject = {
@@ -199,301 +207,306 @@ const DefaultArrow = ( config: { className?: string } ) => (
 // renders (an inline `() => {}` default reallocates every render and defeats memoization).
 const noop = () => {};
 
-const FormAutocomplete = React.forwardRef< AutocompleteInstance, FormAutocompleteProps >(
-	(
-		{
-			autoFilter = true,
-			className,
-			debounce = 0,
-			displayMenu = 'overlay',
-			dropdownArrow = DefaultArrow,
-			forLabel = 'vip-autocomplete',
-			getOptionLabel,
-			getOptionValue,
-			errorMessage,
-			hasError,
-			isInline,
-			label,
-			loading,
-			minLength = 0,
-			noOptionsMessage = () => 'No results found. Type to search.',
-			onChange = noop,
-			onInputChange,
-			options = [],
-			required,
-			searchIcon,
-			showAllValues = false,
-			resetOnBlur = false, // resets the input value to the selection if the input is blurred. Returns null if selection is empty
-			source,
-			value,
-			allowCustom = false,
-			...props
+const FormAutocomplete = ( {
+	autoFilter = true,
+	className,
+	debounce = 0,
+	displayMenu = 'overlay',
+	dropdownArrow = DefaultArrow,
+	forLabel = 'vip-autocomplete',
+	id,
+	name,
+	'aria-describedby': ariaDescribedBy,
+	getOptionLabel,
+	getOptionValue,
+	errorMessage,
+	hasError,
+	isInline,
+	label,
+	loading,
+	minLength = 0,
+	noOptionsMessage = () => 'No results found. Type to search.',
+	onChange = noop,
+	onInputChange,
+	options = [],
+	required,
+	searchIcon,
+	showAllValues = false,
+	resetOnBlur = false, // resets the input value to the selection if the input is blurred. Returns null if selection is empty
+	source,
+	value,
+	allowCustom = false,
+	ref,
+	...props
+}: FormAutocompleteProps ) => {
+	const inputId = id ?? forLabel;
+	const [ isDirty, setIsDirty ] = useState( false );
+	const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState< ReturnType<
+		typeof setTimeout
+	> | null >( null );
+	const [ selectedValue, setSelectedValue ] = useState( value || '' );
+	const [ inputQuery, setInputQuery ] = useState( value );
+	let debounceTimeout: ReturnType< typeof setTimeout >;
+	const fallbackRef = React.useRef< AutocompleteInstance >( null );
+	const acRef = (
+		ref && typeof ref !== 'function' ? ref : fallbackRef
+	) as React.MutableRefObject< AutocompleteInstance >;
+
+	const SelectLabel = () => (
+		<Label required={ required } htmlFor={ inputId }>
+			{ label }
+		</Label>
+	);
+
+	const inlineLabel = Boolean( isInline && label );
+
+	const optionLabel = useCallback(
+		( option: AutocompleteOption ) => ( getOptionLabel ? getOptionLabel( option ) : option.label ),
+		[ getOptionLabel ]
+	);
+
+	const getAllOptions = useMemo< AutocompleteOption[] >(
+		() => options.flatMap( option => option.options ?? [ option ] ),
+		[ options ]
+	);
+
+	const getOptionByLabel = useCallback(
+		( inputValue: string ) =>
+			getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
+		[ getAllOptions, optionLabel ]
+	);
+	/**
+	 * Reset the underlying component state to show the selected value
+	 */
+	const resetInputState = useCallback( () => {
+		if ( resetOnBlur && acRef?.current && inputQuery !== selectedValue ) {
+			// resets the input field to the selected value or the empty string
+			acRef.current.setState( {
+				...acRef.current.state,
+				query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
+			} );
+		}
+	}, [ acRef ] );
+	// sets the internal state variables and calls the onChange callback
+	const setAutocompleteState = useCallback(
+		( inputValue: string | null ) => {
+			setInputQuery( inputValue ?? '' );
+			setSelectedValue( inputValue ?? '' );
+			onChange( getOptionByLabel( inputValue ?? '' ), inputValue );
+			setIsDirty( false );
 		},
-		forwardedRef
-	) => {
-		const [ isDirty, setIsDirty ] = useState( false );
-		const [ sourceDebounceTimeout, setSourceDebounceTimeout ] = useState< ReturnType<
-			typeof setTimeout
-		> | null >( null );
-		const [ selectedValue, setSelectedValue ] = useState( value || '' );
-		const [ inputQuery, setInputQuery ] = useState( value );
-		let debounceTimeout: ReturnType< typeof setTimeout >;
-		const fallbackRef = React.useRef< AutocompleteInstance >( null );
-		const acRef = (
-			forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : fallbackRef
-		) as React.MutableRefObject< AutocompleteInstance >;
-
-		const SelectLabel = () => (
-			<Label required={ required } htmlFor={ forLabel }>
-				{ label }
-			</Label>
-		);
-
-		const inlineLabel = Boolean( isInline && label );
-
-		const optionLabel = useCallback(
-			( option: AutocompleteOption ) =>
-				getOptionLabel ? getOptionLabel( option ) : option.label,
-			[ getOptionLabel ]
-		);
-
-		const getAllOptions = useMemo< AutocompleteOption[] >(
-			() => options.flatMap( option => option.options ?? [ option ] ),
-			[ options ]
-		);
-
-		const getOptionByLabel = useCallback(
-			( inputValue: string ) =>
-				getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
-			[ getAllOptions, optionLabel ]
-		);
-		/**
-		 * Reset the underlying component state to show the selected value
-		 */
-		const resetInputState = useCallback( () => {
-			if ( resetOnBlur && acRef?.current && inputQuery !== selectedValue ) {
-				// resets the input field to the selected value or the empty string
-				acRef.current.setState( {
-					...acRef.current.state,
-					query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
-				} );
+		[ onChange, getOptionByLabel ]
+	);
+	// this method gets called when we confirm the selection via click/enter
+	const onValueChange = useCallback(
+		( inputValue: string | null ) => {
+			if ( inputValue ) {
+				setAutocompleteState( inputValue );
+			} else if ( resetOnBlur && inputQuery !== selectedValue ) {
+				if ( inputQuery && inputQuery !== '' ) {
+					// reset the content to the selected value
+					setAutocompleteState( selectedValue );
+				} else {
+					// reset the content to empty if there's no match
+					setAutocompleteState( null );
+				}
 			}
-		}, [ acRef ] );
-		// sets the internal state variables and calls the onChange callback
-		const setAutocompleteState = useCallback(
-			( inputValue: string | null ) => {
-				setInputQuery( inputValue ?? '' );
-				setSelectedValue( inputValue ?? '' );
-				onChange( getOptionByLabel( inputValue ?? '' ), inputValue );
-				setIsDirty( false );
-			},
-			[ onChange, getOptionByLabel ]
-		);
-		// this method gets called when we confirm the selection via click/enter
-		const onValueChange = useCallback(
-			( inputValue: string | null ) => {
-				if ( inputValue ) {
-					setAutocompleteState( inputValue );
-				} else if ( resetOnBlur && inputQuery !== selectedValue ) {
-					if ( inputQuery && inputQuery !== '' ) {
-						// reset the content to the selected value
-						setAutocompleteState( selectedValue );
-					} else {
-						// reset the content to empty if there's no match
-						setAutocompleteState( null );
-					}
-				}
-			},
-			[ setAutocompleteState, resetOnBlur, inputQuery, selectedValue ]
-		);
+		},
+		[ setAutocompleteState, resetOnBlur, inputQuery, selectedValue ]
+	);
 
-		const handleTypeChange = useCallback(
-			( query: string ) => {
-				const filteredOptions = options.filter(
-					option =>
-						String( optionLabel( option ) ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
+	const handleTypeChange = useCallback(
+		( query: string ) => {
+			const filteredOptions = options.filter(
+				option => String( optionLabel( option ) ).toLowerCase().indexOf( query.toLowerCase() ) >= 0
+			);
+			if ( allowCustom && filteredOptions.length === 0 ) {
+				return [ { label: query, value: query } ];
+			}
+			return filteredOptions;
+		},
+		[ options ]
+	);
+
+	const handleInputChange = useCallback(
+		( query: string ) => {
+			if ( ! debounce ) {
+				return onInputChange?.( query );
+			}
+			clearTimeout( debounceTimeout );
+
+			if ( ! query.length || query.length >= minLength ) {
+				debounceTimeout = setTimeout( () => {
+					onInputChange?.( query );
+				}, debounce );
+			}
+		},
+		[ onInputChange, debounce, minLength ]
+	);
+
+	const suggest = useCallback(
+		( query: string, populateResults: ( results: unknown[] ) => void ) => {
+			let data = options;
+			if ( isDirty && onInputChange ) {
+				handleInputChange( query );
+			}
+			if ( isDirty && autoFilter ) {
+				data = handleTypeChange( query );
+			}
+			populateResults( data?.map( option => optionLabel( option ) ) );
+		},
+		[ autoFilter, isDirty, onInputChange, options ]
+	);
+	// internal function to save the inputQuery
+	const handleSource = ( query: string, populateResults: ( results: unknown[] ) => void ) => {
+		setInputQuery( query );
+		// user function to fetch the results has the precedence
+		if ( source ) {
+			if ( ! debounce ) {
+				source( query, populateResults as ( results: string[] ) => void );
+				return;
+			}
+			if ( sourceDebounceTimeout ) {
+				clearTimeout( sourceDebounceTimeout );
+				setSourceDebounceTimeout( null );
+			}
+
+			if ( ! query.length || query.length >= minLength ) {
+				setSourceDebounceTimeout(
+					setTimeout( () => {
+						source( query, populateResults as ( results: string[] ) => void );
+						setSourceDebounceTimeout( null );
+					}, debounce )
 				);
-				if ( allowCustom && filteredOptions.length === 0 ) {
-					return [ { label: query, value: query } ];
-				}
-				return filteredOptions;
-			},
-			[ options ]
-		);
+			}
+		} else {
+			suggest( query, populateResults );
+		}
+	};
+	useEffect( () => {
+		global.document
+			.querySelector( '.autocomplete__input' )
+			?.setAttribute( 'aria-activedescendant', '' );
+	}, [] );
 
-		const handleInputChange = useCallback(
-			( query: string ) => {
-				if ( ! debounce ) {
-					return onInputChange?.( query );
-				}
-				clearTimeout( debounceTimeout );
+	useEffect( () => {
+		global.document
+			.querySelector( '.autocomplete__menu' )
+			?.setAttribute( 'aria-label', `${ String( label ) } list` );
+	}, [ label ] );
 
-				if ( ! query.length || query.length >= minLength ) {
-					debounceTimeout = setTimeout( () => {
-						onInputChange?.( query );
-					}, debounce );
-				}
-			},
-			[ onInputChange, debounce, minLength ]
-		);
+	useEffect( () => {
+		const input = global.document.getElementById( inputId );
 
-		const suggest = useCallback(
-			( query: string, populateResults: ( results: unknown[] ) => void ) => {
-				let data = options;
-				if ( isDirty && onInputChange ) {
-					handleInputChange( query );
-				}
-				if ( isDirty && autoFilter ) {
-					data = handleTypeChange( query );
-				}
-				populateResults( data?.map( option => optionLabel( option ) ) );
-			},
-			[ autoFilter, isDirty, onInputChange, options ]
-		);
-		// internal function to save the inputQuery
-		const handleSource = ( query: string, populateResults: ( results: unknown[] ) => void ) => {
-			setInputQuery( query );
-			// user function to fetch the results has the precedence
-			if ( source ) {
-				if ( ! debounce ) {
-					source( query, populateResults as ( results: string[] ) => void );
-					return;
-				}
-				if ( sourceDebounceTimeout ) {
-					clearTimeout( sourceDebounceTimeout );
-					setSourceDebounceTimeout( null );
-				}
+		if ( ! input || required === undefined ) {
+			return;
+		}
 
-				if ( ! query.length || query.length >= minLength ) {
-					setSourceDebounceTimeout(
-						setTimeout( () => {
-							source( query, populateResults as ( results: string[] ) => void );
-							setSourceDebounceTimeout( null );
-						}, debounce )
-					);
-				}
+		input.setAttribute( 'aria-required', String( required ) );
+	}, [ inputId, required ] );
+
+	useEffect( () => {
+		const input = global.document.getElementById( inputId );
+
+		if ( ! input ) {
+			return;
+		}
+
+		const onKeyDown = e => {
+			// pressed escape, we want to reset the status
+			if ( ( e as KeyboardEvent ).keyCode === 27 && resetOnBlur ) {
+				resetInputState();
 			} else {
-				suggest( query, populateResults );
+				setIsDirty( true );
 			}
 		};
-		useEffect( () => {
-			global.document
-				.querySelector( '.autocomplete__input' )
-				?.setAttribute( 'aria-activedescendant', '' );
-		}, [] );
 
-		useEffect( () => {
-			global.document
-				.querySelector( '.autocomplete__menu' )
-				?.setAttribute( 'aria-label', `${ String( label ) } list` );
-		}, [ label ] );
+		input.addEventListener( 'keydown', onKeyDown );
 
-		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
+		return () => input.removeEventListener( 'keydown', onKeyDown );
+	}, [ inputId, resetOnBlur, setIsDirty ] );
 
-			if ( ! input || required === undefined ) {
-				return;
-			}
+	// For accessibility, we need to add the error message to the aria-describedby attribute
+	useEffect( () => {
+		const input = global.document.getElementById( inputId );
 
-			input.setAttribute( 'aria-required', String( required ) );
-		}, [ required ] );
+		if ( input ) {
+			const describedBy = [
+				ariaDescribedBy,
+				`describe-${ inputId }-validation`,
+				input.getAttribute( 'aria-describedby' ),
+			]
+				.filter( Boolean )
+				.join( ' ' );
 
-		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
+			input.setAttribute(
+				'aria-describedby',
+				Array.from( new Set( describedBy.split( ' ' ).filter( Boolean ) ) ).join( ' ' )
+			);
+		}
+	}, [ ariaDescribedBy, inputId ] );
 
-			if ( ! input ) {
-				return;
-			}
+	useEffect( () => {
+		const input = global.document.getElementById( inputId ) as HTMLInputElement | null;
 
-			const onKeyDown = e => {
-				// pressed escape, we want to reset the status
-				if ( ( e as KeyboardEvent ).keyCode === 27 && resetOnBlur ) {
-					resetInputState();
-				} else {
-					setIsDirty( true );
-				}
-			};
+		if ( ! input ) {
+			return;
+		}
 
-			input.addEventListener( 'keydown', onKeyDown );
+		const onBlur = () => {
+			setInputQuery( input.value );
+			resetInputState();
+		};
 
-			return () => input.removeEventListener( 'keydown', onKeyDown );
-		}, [ setIsDirty ] );
+		input.addEventListener( 'blur', onBlur );
 
-		// For accessibility, we need to add the error message to the aria-describedby attribute
-		useEffect( () => {
-			const input = global.document.querySelector( `#${ forLabel }` );
+		return () => input.removeEventListener( 'blur', onBlur );
+	}, [ inputId ] );
+	return (
+		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+			{ label && ! isInline && <SelectLabel /> }
 
-			if ( input ) {
-				input.setAttribute(
-					'aria-describedby',
-					`describe-${ forLabel }-validation ${ input.getAttribute( 'aria-describedby' ) ?? '' }`
-				);
-			}
-		}, [] );
+			<div
+				sx={ {
+					...defaultStyles,
+					...( isInline && inlineStyles ),
+					...( searchIcon && searchIconStyles ),
+					...( allowCustom && allowCustomStyles ),
+					...( hasError ? { borderColor: 'input.border.error' } : {} ),
+				} }
+			>
+				<FormSelectContent isInline={ inlineLabel } label={ inlineLabel ? <SelectLabel /> : null }>
+					{ searchIcon && <FormSelectSearch /> }
 
-		useEffect( () => {
-			const input = global.document.querySelector< HTMLInputElement >( `#${ forLabel }` );
+					<Autocomplete
+						id={ inputId }
+						name={ name }
+						aria-describedby={ ariaDescribedBy }
+						aria-busy={ loading }
+						showAllValues={ showAllValues }
+						ref={ acRef }
+						source={ handleSource }
+						defaultValue={ value }
+						displayMenu={ displayMenu }
+						onConfirm={ onValueChange }
+						tNoResults={ noOptionsMessage }
+						required={ required }
+						dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
+						{ ...props }
+					/>
 
-			if ( ! input ) {
-				return;
-			}
-
-			const onBlur = () => {
-				setInputQuery( input.value );
-				resetInputState();
-			};
-
-			input.addEventListener( 'blur', onBlur );
-
-			return () => input.removeEventListener( 'blur', onBlur );
-		}, [ acRef ] );
-		return (
-			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
-				{ label && ! isInline && <SelectLabel /> }
-
-				<div
-					sx={ {
-						...defaultStyles,
-						...( isInline && inlineStyles ),
-						...( searchIcon && searchIconStyles ),
-						...( allowCustom && allowCustomStyles ),
-						...( hasError ? { borderColor: 'input.border.error' } : {} ),
-					} }
-				>
-					<FormSelectContent
-						isInline={ inlineLabel }
-						label={ inlineLabel ? <SelectLabel /> : null }
-					>
-						{ searchIcon && <FormSelectSearch /> }
-
-						<Autocomplete
-							id={ forLabel }
-							aria-busy={ loading }
-							showAllValues={ showAllValues }
-							ref={ acRef }
-							source={ handleSource }
-							defaultValue={ value }
-							displayMenu={ displayMenu }
-							onConfirm={ onValueChange }
-							tNoResults={ noOptionsMessage }
-							required={ required }
-							dropdownArrow={ showAllValues ? dropdownArrow : () => '' }
-							{ ...props }
-						/>
-
-						{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
-					</FormSelectContent>
-				</div>
-
-				{ hasError && errorMessage && (
-					<Validation isValid={ false } describedId={ forLabel }>
-						{ errorMessage }
-					</Validation>
-				) }
+					{ loading && <FormSelectLoading sx={ { right: showAllValues ? 7 : 3 } } /> }
+				</FormSelectContent>
 			</div>
-		);
-	}
-);
+
+			{ hasError && errorMessage && (
+				<Validation isValid={ false } describedId={ inputId }>
+					{ errorMessage }
+				</Validation>
+			) }
+		</div>
+	);
+};
 
 FormAutocomplete.displayName = 'FormAutocomplete';
 

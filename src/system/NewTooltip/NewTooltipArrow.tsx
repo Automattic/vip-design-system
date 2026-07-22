@@ -9,15 +9,15 @@ import { arrowStyles } from './styles';
 export interface NewTooltipArrowProps extends TooltipPrimitive.TooltipArrowProps {
 	/** Theme UI style overrides for the tooltip arrow. */
 	sx?: ThemeUIStyleObject;
+	/** Forwarded ref to the underlying arrow element. */
+	ref?: React.Ref< SVGSVGElement >;
 }
 
 /**
  * A directional arrow element rendered inside the NewTooltip.
  */
-export const NewTooltipArrow = React.forwardRef< SVGSVGElement, NewTooltipArrowProps >(
-	( { sx, ...props }, ref ) => (
-		<TooltipPrimitive.Arrow ref={ ref } sx={ { ...arrowStyles, ...sx } } { ...props } />
-	)
+export const NewTooltipArrow = ( { sx, ref, ...props }: NewTooltipArrowProps ) => (
+	<TooltipPrimitive.Arrow ref={ ref } sx={ { ...arrowStyles, ...sx } } { ...props } />
 );
 
 NewTooltipArrow.displayName = 'NewTooltipArrow';
