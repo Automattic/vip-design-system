@@ -13,7 +13,7 @@ export const Text = ( {
 	className,
 	ref,
 	...props
-}: ThemeTextProps & { ref?: Ref< HTMLDivElement > } ) => (
+}: ThemeTextProps & { ref?: Ref< HTMLParagraphElement > } ) => (
 	<ThemeText
 		as="p"
 		sx={ {

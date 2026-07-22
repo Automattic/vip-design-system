@@ -98,7 +98,7 @@ export interface WizardStepProps {
 	 */
 	showStepText?: boolean;
 	/** Ref forwarded to the step container element. */
-	ref?: React.Ref< HTMLDivElement >;
+	ref?: React.Ref< HTMLElement >;
 }
 
 /**

@@ -16,7 +16,7 @@ export interface BadgeProps extends ThemeTextProps {
 	 */
 	variant?: 'blue' | 'gold' | 'gray' | 'green' | 'orange' | 'red' | 'salmon' | 'yellow';
 	/** Forwarded ref to the underlying element. */
-	ref?: Ref< HTMLDivElement >;
+	ref?: Ref< HTMLSpanElement >;
 }
 
 /**
