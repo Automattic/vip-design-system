@@ -4,12 +4,14 @@
  * External dependencies
  */
 import { forwardRef, Ref } from 'react';
-import { BoxProps, ThemeUIStyleObject } from 'theme-ui';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Box } from '../Box/Box';
+
+import type { BoxProps } from '../Box/Box';
 
 export enum CardVariant {
 	'primary',
@@ -41,12 +43,12 @@ export interface CardProps {
 	hideBody?: boolean;
 }
 
-type CardBoxProps = CardProps & BoxProps;
+type CardBoxProps = CardProps & BoxProps< React.ElementType >;
 
 /**
  * A container component with optional header and body sections, supporting multiple visual variants.
  */
-export const Card = forwardRef< HTMLElement, CardBoxProps >(
+export const Card = forwardRef< HTMLDivElement, CardBoxProps >(
 	(
 		{
 			variant = 'primary',
@@ -57,8 +59,8 @@ export const Card = forwardRef< HTMLElement, CardBoxProps >(
 			children,
 			hideBody = false,
 			...rest
-		}: CardProps,
-		ref: Ref< HTMLElement >
+		}: CardBoxProps,
+		ref: Ref< HTMLDivElement >
 	) => {
 		return (
 			<Box
