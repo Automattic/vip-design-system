@@ -125,7 +125,7 @@
     "theme-ui": "0.17.4",
     "token-transformer": "0.0.33",
     "typescript": "5.8.3",
-    "vite": "^8.0.3"
+    "vite": "^8.2.1"
   },
   "overrides": {
     "eslint-plugin-react-hooks": "^5.0.0",
