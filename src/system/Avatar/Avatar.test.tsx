@@ -3,11 +3,36 @@
  */
 import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import { ThemeUIProvider, type Theme } from 'theme-ui';
 
 /**
  * Internal dependencies
  */
 import { Avatar } from './Avatar';
+import { theme } from '../';
+
+const renderWithTheme = ( children: React.ReactNode ) =>
+	render( <ThemeUIProvider theme={ theme as Theme }>{ children }</ThemeUIProvider> );
+
+// jsdom here does not resolve class-based rules through getComputedStyle, so
+// read the CSS that Emotion emitted for the element's own class instead.
+const cssFor = ( el: HTMLElement ) => {
+	const emotionClass = Array.from( el.classList ).find( c => c.startsWith( 'css-' ) );
+	let css = '';
+
+	for ( const sheet of Array.from( document.styleSheets ) ) {
+		for ( const rule of Array.from( sheet.cssRules ) ) {
+			if ( ( rule as CSSStyleRule ).selectorText === `.${ emotionClass }` ) {
+				css += ( rule as CSSStyleRule ).cssText;
+			}
+		}
+	}
+
+	return css;
+};
+
+// Theme UI emits custom properties rather than rgb values.
+const AVATAR_FALLBACK_BG = 'background-color: var(--theme-ui-colors-gray-65)';
 
 describe( '<Avatar />', () => {
 	it( 'renders the Avatar without an image', async () => {
@@ -38,6 +63,55 @@ describe( '<Avatar />', () => {
 
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	describe( 'fallback contrast', () => {
+		it( 'gives the initial fallback a background so it is not white on white', () => {
+			// The fallback renders in `icon.inverse` (#ffffff light, #ebe9e8 dark), so
+			// without a background of its own it is invisible on a light surface.
+			renderWithTheme( <Avatar name="John Doe" /> );
+
+			const circle = screen.getByText( 'J' ).parentElement as HTMLElement;
+
+			expect( cssFor( circle ) ).toContain( AVATAR_FALLBACK_BG );
+		} );
+
+		it( 'gives the icon fallback the same background', () => {
+			renderWithTheme( <Avatar /> );
+
+			const circle = screen.getByTestId( 'avatar-fallback-icon' ).parentElement as HTMLElement;
+
+			expect( cssFor( circle ) ).toContain( AVATAR_FALLBACK_BG );
+		} );
+
+		it( 'applies the background once an image fails to load', () => {
+			renderWithTheme( <Avatar name="John Doe" src="path/to/broken/image" /> );
+
+			fireEvent.error( screen.getByAltText( 'Avatar image from John Doe' ) );
+
+			const circle = screen.getByText( 'J' ).parentElement as HTMLElement;
+
+			expect( cssFor( circle ) ).toContain( AVATAR_FALLBACK_BG );
+		} );
+
+		it( 'leaves the background alone while a working image is showing', () => {
+			// Consumers pass transparent marks as `src`; a filled circle behind them
+			// would show through.
+			renderWithTheme( <Avatar name="John Doe" src="path/to/image" /> );
+
+			const circle = screen.getByAltText( 'Avatar image from John Doe' )
+				.parentElement as HTMLElement;
+
+			expect( cssFor( circle ) ).not.toContain( AVATAR_FALLBACK_BG );
+		} );
+
+		it( 'still lets a consumer override the background', () => {
+			renderWithTheme( <Avatar name="John Doe" sx={ { backgroundColor: '#ff0000' } } /> );
+
+			const circle = screen.getByText( 'J' ).parentElement as HTMLElement;
+
+			expect( cssFor( circle ) ).toContain( 'background-color: #ff0000' );
+		} );
 	} );
 
 	it( 'falls back to the abbreviation when the image fails to load', () => {

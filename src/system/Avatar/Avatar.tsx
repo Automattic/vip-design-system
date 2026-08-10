@@ -113,6 +113,7 @@ export const Avatar = ( {
 				justifyContent: 'center',
 				color: 'inverse',
 				textAlign: 'center',
+				...( showImage ? {} : { backgroundColor: 'gray.65' } ),
 				...sx,
 			} }
 			className={ classNames( 'vip-avatar-component', className ) }
