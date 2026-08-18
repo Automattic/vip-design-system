@@ -53,6 +53,7 @@ import { OptionRow } from './OptionRow';
 import { SimplePagination, Pagination } from './Pagination';
 import { Progress } from './Progress';
 import { ScreenReaderText } from './ScreenReaderText';
+import { ServiceHeader } from './ServiceHeader';
 import { Skeleton } from './Skeleton';
 import { Snackbar } from './Snackbar';
 import { Spinner } from './Spinner';
@@ -130,6 +131,7 @@ export {
 	ToggleRow,
 	Toolbar,
 	Snackbar,
+	ServiceHeader,
 	Validation,
 	Wizard,
 	WizardStep,
