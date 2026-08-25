@@ -169,8 +169,13 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 		},
 		background: {
 			open: gColor( 'layer', '3' ),
+			// Transparent so the closed header shows the item surface below, which
+			// leaves this token free to express open/hover contrast against it.
 			closed: 'transparent',
 			hover: gColor( 'layer', '3' ),
+		},
+		item: {
+			background: gColor( 'layer', '2' ),
 		},
 	},
 

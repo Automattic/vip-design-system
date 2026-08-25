@@ -3,6 +3,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import React, { Ref } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
@@ -37,6 +38,11 @@ export interface CardProps {
 	/** Additional Theme UI styles applied to the card header. */
 	headerStyles?: ThemeUIStyleObject;
 	/**
+	 * Additional Theme UI styles applied to the card container. Merged over the
+	 * `variant` styles, so it overrides only the properties it sets.
+	 */
+	sx?: ThemeUIStyleObject;
+	/**
 	 * Hides the card body when true.
 	 * @default false
 	 */
@@ -58,16 +64,22 @@ export const Card = ( {
 	headerStyles,
 	children,
 	hideBody = false,
+	className,
+	sx,
 	ref,
 	...rest
 }: CardBoxProps ) => {
 	return (
 		<Box
 			ref={ ref }
+			// `variant` is listed first so the consumer `sx` merges over it rather
+			// than replacing it: Theme UI expands `variant` in place as it walks the
+			// object, so later keys win.
 			sx={ {
 				variant: `cards.${ variant }`,
+				...sx,
 			} }
-			className="vip-card-component"
+			className={ classNames( 'vip-card-component', className ) }
 			{ ...rest }
 		>
 			{ renderHeader ? renderHeader( title ) : '' }

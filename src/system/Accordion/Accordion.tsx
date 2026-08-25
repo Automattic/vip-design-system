@@ -87,6 +87,9 @@ export const Item = ( { children, className, sx = {}, ref, ...props }: Accordion
 		className={ classNames( className ) }
 		ref={ ref }
 		sx={ {
+			// The item owns the surface so a closed accordion is self-contained
+			// rather than showing whatever the page sits on.
+			backgroundColor: 'accordion.item.background',
 			overflow: 'hidden',
 			borderWidth: '0 1px 1px 1px',
 			borderStyle: 'solid',
