@@ -27,9 +27,9 @@ const searchStyles: ThemeUIStyleObject = {
 	pointerEvents: 'none',
 };
 
-export const FormSelectSearch = ( { ref, ...props }: FormSelectSearchProps ) => (
+export const FormSelectSearch = ( { ref, sx, ...props }: FormSelectSearchProps ) => (
 	<Box ref={ ref } sx={ wrapperStyles }>
-		<MdSearch aria-hidden="true" size={ 24 } sx={ searchStyles } { ...props } />
+		<MdSearch aria-hidden="true" size={ 24 } sx={ { ...searchStyles, ...sx } } { ...props } />
 	</Box>
 );
 

@@ -62,6 +62,7 @@ build/                   # Compiled output (generated, do not edit)
 - Use Prettier formatting (`wp-prettier`). Run `npm run format` before committing.
 - Use TypeScript for all new code. Define prop interfaces with explicit types.
 - Accept `ref` as a regular prop when wrapping HTML elements or Theme UI components (React 19 pattern). Add `ref?: React.Ref<T>` to the component's props type. Do not use `forwardRef` — it is no longer used in this codebase. **Note:** this pattern requires React 19; React 18 consumers cannot use forwarded refs on these components.
+- A component that sets a literal `sx` must destructure `sx` (and `className`) from its props and merge them explicitly — `sx={ { ...ownStyles, ...sx } }`, or `sx={ { variant: 'foo.bar', ...sx } }` for variant-based components, and `className={ classNames( 'vip-x-component', className ) }`. Never let either ride along in `...rest`: spread after the component's own value, they replace it silently instead of merging.
 
 ### Styling
 

@@ -121,3 +121,28 @@ describe.each( [
 		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
+
+describe( '<Accordion />, surface', () => {
+	// Theme UI emits colours as CSS custom properties by default, which jsdom
+	// cannot resolve. Turning them off makes the theme emit literal values.
+	const testTheme = { ...theme, config: { ...theme.config, useCustomProperties: false } };
+
+	it( 'paints its own background on a closed item', () => {
+		const { container } = render(
+			<ThemeUIProvider theme={ testTheme }>
+				<Accordion.Root>
+					<Accordion.Item className="test-item" value="one">
+						<Accordion.Trigger>trigger one</Accordion.Trigger>
+						<Accordion.Content>content one</Accordion.Content>
+					</Accordion.Item>
+				</Accordion.Root>
+			</ThemeUIProvider>
+		);
+
+		const item = container.querySelector( '.test-item' );
+
+		expect( item ).toHaveAttribute( 'data-state', 'closed' );
+		// A closed accordion must not fall through to whatever the page sits on.
+		expect( item ).toHaveStyle( { backgroundColor: theme.colors.layer[ '2' ] } );
+	} );
+} );

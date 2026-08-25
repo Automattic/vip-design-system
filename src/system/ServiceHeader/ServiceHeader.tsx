@@ -91,9 +91,10 @@ export const ServiceHeader = ( {
 			className={ classNames( 'vip-service-header-component', className ) }
 			bodyStyles={ { p: 0 } }
 			sx={ {
-				backgroundColor: 'layer.2',
+				// Background and shadow come from the `cards.primary` variant. The
+				// radius is a deliberate departure: the header sits tighter than a
+				// standalone card, so it keeps the 4px step rather than the card's 8px.
 				borderRadius: 1,
-				boxShadow: 'low',
 				overflow: 'hidden',
 				...sx,
 			} }
@@ -149,7 +150,7 @@ export const ServiceHeader = ( {
 					} }
 				>
 					<BiInfoCircle size={ 14 } sx={ { fill: 'texts.helper' } } />
-					<Text sx={ { m: 0, fontSize: 'small', color: 'texts.helper' } }>{ message }</Text>
+					<Text sx={ { m: 0, fontSize: 1, color: 'texts.helper' } }>{ message }</Text>
 				</Flex>
 			) }
 		</Card>

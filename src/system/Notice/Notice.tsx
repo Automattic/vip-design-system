@@ -126,12 +126,10 @@ export const Notice = ( {
 		</Button>
 	);
 
+	// `boxShadow`, `borderRadius` and `fontSize` come from the `cards.notice` variant.
 	const baseCardSx: ThemeUIStyleObject = {
-		boxShadow: 'none',
-		borderRadius: 2,
 		bg: inline || collapsible ? 'transparent' : `notice.background.${ variant }`,
 		color: textColor,
-		fontSize: 2,
 		p: {
 			color: textColor,
 			fontSize: 2,
