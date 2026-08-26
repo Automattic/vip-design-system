@@ -8,7 +8,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Tabs, TabsTrigger, TabsList, TabsContent, Text, Link, Button } from '..';
+import { Tabs, TabsTrigger, TabsList, TabsContent, Text, Link, Button, Box } from '..';
 
 export default {
 	title: 'Navigation/Tabs',
@@ -75,4 +75,37 @@ export const SetActiveTab = {
 			</Tabs>
 		);
 	},
+};
+
+/**
+ * When the triggers no longer fit, the list scrolls sideways and fades whichever
+ * edge still has tabs beyond it. The active tab is scrolled into view on mount,
+ * which is why this story opens on a tab near the end.
+ */
+export const Scrollable = {
+	render: () => (
+		<Box sx={ { maxWidth: 380 } }>
+			<Tabs defaultValue="cache">
+				<TabsList title="Insights">
+					<TabsTrigger value="overview">Overview</TabsTrigger>
+					<TabsTrigger value="requests">Requests (1.2M)</TabsTrigger>
+					<TabsTrigger value="bandwidth">Bandwidth</TabsTrigger>
+					<TabsTrigger value="cache">Cache Hit Ratio</TabsTrigger>
+					<TabsTrigger value="errors">Errors (12)</TabsTrigger>
+					<TabsTrigger value="edge">Edge Locations</TabsTrigger>
+					<TabsTrigger value="firewall">Firewall</TabsTrigger>
+					<TabsTrigger value="uptime" disabled>
+						Uptime
+					</TabsTrigger>
+				</TabsList>
+				<TabsContent value="overview">Overview content</TabsContent>
+				<TabsContent value="requests">Requests content</TabsContent>
+				<TabsContent value="bandwidth">Bandwidth content</TabsContent>
+				<TabsContent value="cache">Cache hit ratio content</TabsContent>
+				<TabsContent value="errors">Errors content</TabsContent>
+				<TabsContent value="edge">Edge locations content</TabsContent>
+				<TabsContent value="firewall">Firewall content</TabsContent>
+			</Tabs>
+		</Box>
+	),
 };

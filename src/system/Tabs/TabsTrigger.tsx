@@ -36,11 +36,16 @@ const styles: ThemeUIStyleObject = {
 	cursor: 'pointer',
 	background: 'none',
 	mr: 3,
+	'&:last-of-type': { mr: 0 },
 	fontSize: 2,
 	px: 0,
 	pb: 3,
 	border: 'none',
 	color: 'heading',
+	// Keep every trigger at its natural width so a narrow TabsList overflows and
+	// scrolls sideways instead of squashing the labels onto two lines.
+	flexShrink: 0,
+	whiteSpace: 'nowrap',
 	'&[data-state="active"]': {
 		color: 'link',
 		fontWeight: 'regular',
