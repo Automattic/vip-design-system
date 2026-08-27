@@ -88,14 +88,15 @@ export const navItemStyles = (
 
 export const navStyles = (
 	variant: NavVariant,
-	orientation: NavProps[ 'orientation' ]
+	orientation: NavProps[ 'orientation' ],
+	fadeStyles: ThemeUIStyleObject = {}
 ): ThemeUIStyleObject => {
 	let navStyle: ThemeUIStyleObject = {};
 
 	switch ( variant ) {
 		case 'tabs':
 			{
-				navStyle = tabRootStyles( orientation );
+				navStyle = tabRootStyles( orientation, fadeStyles );
 			}
 
 			break;
