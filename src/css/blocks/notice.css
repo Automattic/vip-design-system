@@ -29,10 +29,7 @@
 	}
 
 	.notice__action {
-		/* Typography: semibold body text — pending new type token (see decisions log) */
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-semibold);
-		line-height: var(--line-height-5);
+		/* Typography via .type-body-default-bold — add that class to .notice__action */
 		color: var(--notice-info-link);
 		text-decoration: underline;
 		cursor: pointer;

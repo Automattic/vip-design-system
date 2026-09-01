@@ -83,6 +83,16 @@
 			},
 			"$type": "typography"
 		},
+		"default-bold": {
+			"$value": {
+				"fontFamily": "{font-family.default}",
+				"fontWeight": "{font-weight.semibold}",
+				"lineHeight": "{line-height.5}",
+				"fontSize": "{font-size.2}",
+				"letterSpacing": "{letter-spacing.loose-2}"
+			},
+			"$type": "typography"
+		},
 		"large": {
 			"$value": {
 				"fontFamily": "{font-family.default}",
