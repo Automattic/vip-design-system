@@ -1,37 +1,12 @@
 /* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
 .input {
-	--input-background-default: var(--color-input-background-default);
-	--input-background-primary: var(--color-input-background-primary);
-	--input-background-success: var(--color-input-background-success);
-	--input-background-brand: var(--color-input-background-brand);
-	--input-background-inactive: var(--color-input-background-inactive);
-	--input-background-disabled: var(--color-input-background-disabled);
-	--input-background-read-only: var(--color-input-background-read-only);
-	--input-border-default: var(--color-input-border-default);
-	--input-border-disabled: var(--color-input-border-disabled);
-	--input-border-error: var(--color-input-border-error);
-	--input-border-read-only: var(--color-input-border-read-only);
-	--input-label-default: var(--color-input-label-default);
-	--input-radio-box-background-default: var(--color-input-radio-box-background-default);
-	--input-radio-box-background-hover: var(--color-input-radio-box-background-hover);
-	--input-radio-box-background-active: var(--color-input-radio-box-background-active);
-	--input-radio-box-background-disabled: var(--color-input-radio-box-background-disabled);
-	--input-radio-box-label-primary-default: var(--color-input-radio-box-label-primary-default);
-	--input-radio-box-label-primary-hover: var(--color-input-radio-box-label-primary-hover);
-	--input-radio-box-label-primary-active: var(--color-input-radio-box-label-primary-active);
-	--input-radio-box-label-primary-disabled: var(--color-input-radio-box-label-primary-disabled);
-	--input-radio-box-label-secondary-default: var(--color-input-radio-box-label-secondary-default);
-	--input-radio-box-label-secondary-hover: var(--color-input-radio-box-label-secondary-hover);
-	--input-radio-box-label-secondary-acive: var(--color-input-radio-box-label-secondary-acive);
-	--input-radio-box-label-secondary-disabled: var(--color-input-radio-box-label-secondary-disabled);
-	--input-radio-box-border-default: var(--color-input-radio-box-border-default);
-	--input-radio-box-border-hover: var(--color-input-radio-box-border-hover);
-	--input-radio-box-border-active: var(--color-input-radio-box-border-active);
-	--input-radio-box-border-disabled: var(--color-input-radio-box-border-disabled);
-	--input-switcher-background-primary: var(--color-input-switcher-background-primary);
-	--input-switcher-background-secondary: var(--color-input-switcher-background-secondary);
-	--input-text-default: var(--color-input-text-default);
-	--input-text-placeholder: var(--color-input-text-placeholder);
-	--input-toggle-switch-default: var(--color-input-toggle-switch-default);
-	--input-toggle-switch-disabled: var(--color-input-toggle-switch-disabled);
+	--input-background: var(--color-control-background-transparent);
+	--input-background-read-only: var(--color-control-background-read-only);
+	--input-border: var(--color-border-control);
+	--input-border-error: var(--color-support-error-symbol);
+	--input-border-read-only: var(--color-border-default);
+	--input-border-disabled: var(--color-border-disabled);
+	--input-label: var(--color-text-primary);
+	--input-text: var(--color-text-primary);
+	--input-text-placeholder: var(--color-text-placeholder);
 }

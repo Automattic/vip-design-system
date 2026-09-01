@@ -1,25 +1,34 @@
 {
 	"toolbar": {
 		"background": {
-			"$value": "{color.toolbar.background}",
+			"$value": "{color.layer.inverse}",
 			"$type": "color",
-			"$description": "The background color for the top toolbar"
-		},
-		"text": {
-			"default": {
-				"$value": "{color.toolbar.text.default}",
-				"$type": "color",
-				"$description": "Default text color for the top toolbar's contents"
-			},
-			"hover": {
-				"$value": "{color.toolbar.text.hover}",
-				"$type": "color"
+			"$description": "Toolbar background — dark on light, page-level on dark.",
+			"$extensions": {
+				"dark": "{color.layer.4}"
 			}
 		},
 		"brand": {
-			"$value": "{color.toolbar.brand}",
+			"$value": "{color.icon.inverse-primary}",
 			"$type": "color",
-			"$description": "Use for the logo"
+			"$description": "Logo / wordmark color."
+		},
+		"text": {
+			"default": {
+				"$value": "{color.text.inverse-primary}",
+				"$type": "color",
+				"$description": "Default toolbar text and icon color.",
+				"$extensions": {
+					"dark": "{color.text.primary}"
+				}
+			},
+			"hover": {
+				"$value": "{color.text.inverse-primary}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.text.primary}"
+				}
+			}
 		}
 	}
 }

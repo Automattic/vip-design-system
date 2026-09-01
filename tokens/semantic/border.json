@@ -1,44 +1,39 @@
 {
 	"color": {
 		"border": {
-			"1": {
+			"default": {
+				"$value": "{gray.10}",
+				"$type": "color",
+				"$description": "Subtle separator — table rows, form sections, default HR.",
+				"$extensions": {
+					"dark": "{gray.75}"
+				}
+			},
+			"disabled": {
 				"$value": "{gray.25}",
 				"$type": "color",
+				"$description": "Border for disabled form controls.",
 				"$extensions": {
 					"dark": "{gray.73}"
 				}
 			},
-			"2": {
-				"$value": "{gray.10}",
-				"$type": "color",
-				"$extensions": {
-					"dark": "{gray.75}"
-				}
-			},
-			"3": {
+			"control": {
 				"$value": "{gray.45}",
 				"$type": "color",
+				"$description": "Default border for interactive form controls — inputs, checkboxes, radios.",
 				"$extensions": {
 					"dark": "{gray.65}"
 				}
 			},
-			"4": {
-				"$value": "{gray.10}",
-				"$type": "color",
-				"$extensions": {
-					"dark": "{gray.75}"
-				}
-			},
 			"inverse": {
 				"$value": "{gray.50}",
-				"$type": "color"
-			},
-			"accent": {
-				"$value": "{gold.50}",
 				"$type": "color",
-				"$extensions": {
-					"dark": "{gold.40}"
-				}
+				"$description": "Border on inverse (dark) surfaces."
+			},
+			"transparent": {
+				"$value": "{transparent}",
+				"$type": "color",
+				"$description": "Invisible border — used as placeholder for layout stability."
 			}
 		}
 	}

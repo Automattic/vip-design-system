@@ -1,0 +1,14 @@
+{
+	"environment-switcher": {
+		"primary": {
+			"$value": "{color.environment.production}",
+			"$type": "color",
+			"$description": "Production environment indicator."
+		},
+		"secondary": {
+			"$value": "{color.environment.non-prod}",
+			"$type": "color",
+			"$description": "Non-production environment indicator."
+		}
+	}
+}

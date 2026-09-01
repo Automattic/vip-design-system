@@ -3,29 +3,29 @@
 		"primary": {
 			"background": {
 				"default": {
-					"$value": "{color.button.primary.background.default}",
+					"$value": "{color.button-background.primary}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.primary.background.hover}",
+					"$value": "{color.button-background.hover-1}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.primary.background.disabled}",
+					"$value": "{color.button-background.disabled}",
 					"$type": "color"
 				}
 			},
 			"label": {
 				"default": {
-					"$value": "{color.button.primary.label.default}",
+					"$value": "{color.text.inverse-primary}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.primary.label.hover}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.primary.label.disabled}",
+					"$value": "{color.text.disabled}",
 					"$type": "color"
 				}
 			}
@@ -33,29 +33,29 @@
 		"secondary": {
 			"background": {
 				"default": {
-					"$value": "{color.button.secondary.background.default}",
+					"$value": "{color.button-background.secondary}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.secondary.background.hover}",
+					"$value": "{color.button-background.hover-1}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.secondary.background.disabled}",
+					"$value": "{color.button-background.disabled}",
 					"$type": "color"
 				}
 			},
 			"label": {
 				"default": {
-					"$value": "{color.button.secondary.label.default}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.secondary.label.hover}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.secondary.label.disabled}",
+					"$value": "{color.text.disabled}",
 					"$type": "color"
 				}
 			}
@@ -63,43 +63,43 @@
 		"tertiary": {
 			"background": {
 				"default": {
-					"$value": "{color.button.tertiary.background.default}",
+					"$value": "{color.button-background.transparent}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.tertiary.background.hover}",
+					"$value": "{color.button-background.hover-2}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.tertiary.background.disabled}",
+					"$value": "{color.button-background.transparent}",
 					"$type": "color"
 				}
 			},
 			"border": {
 				"default": {
-					"$value": "{color.button.tertiary.border.default}",
+					"$value": "{color.border.control}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.tertiary.border.hover}",
+					"$value": "{color.border.default}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.tertiary.border.disabled}",
+					"$value": "{color.border.disabled}",
 					"$type": "color"
 				}
 			},
 			"label": {
 				"default": {
-					"$value": "{color.button.tertiary.label.default}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.tertiary.label.hover}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.tertiary.label.disabled}",
+					"$value": "{color.text.disabled}",
 					"$type": "color"
 				}
 			}
@@ -107,29 +107,29 @@
 		"ghost": {
 			"background": {
 				"default": {
-					"$value": "{color.button.ghost.background.default}",
+					"$value": "{color.control.background.transparent}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.ghost.background.hover}",
+					"$value": "{color.button-background.hover-2}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.ghost.background.disabled}",
+					"$value": "{color.button-background.transparent}",
 					"$type": "color"
 				}
 			},
 			"label": {
 				"default": {
-					"$value": "{color.button.ghost.label.default}",
+					"$value": "{color.support.accent.symbol}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.ghost.label.hover}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.ghost.label.disabled}",
+					"$value": "{color.text.disabled}",
 					"$type": "color"
 				}
 			}
@@ -137,29 +137,29 @@
 		"display": {
 			"background": {
 				"default": {
-					"$value": "{color.button.display.background.default}",
+					"$value": "{color.button-background.display}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.display.background.hover}",
+					"$value": "{color.button-background.hover-3}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.display.background.disabled}",
+					"$value": "{color.button-background.disabled}",
 					"$type": "color"
 				}
 			},
 			"label": {
 				"default": {
-					"$value": "{color.button.display.label.default}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button.display.label.hover}",
+					"$value": "{color.text.primary}",
 					"$type": "color"
 				},
 				"disabled": {
-					"$value": "{color.button.display.label.disabled}",
+					"$value": "{color.text.disabled}",
 					"$type": "color"
 				}
 			}
@@ -168,29 +168,29 @@
 			"primary": {
 				"background": {
 					"default": {
-						"$value": "{color.button.danger.primary.background.default}",
+						"$value": "{color.support.error.accent}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button.danger.primary.background.hover}",
+						"$value": "{color.support.error.hover}",
 						"$type": "color"
 					},
 					"disabled": {
-						"$value": "{color.button.danger.primary.background.disabled}",
+						"$value": "{color.button-background.disabled}",
 						"$type": "color"
 					}
 				},
 				"label": {
 					"default": {
-						"$value": "{color.button.danger.primary.label.default}",
+						"$value": "{color.text.inverse-primary}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button.danger.primary.label.hover}",
+						"$value": "{color.text.inverse-primary}",
 						"$type": "color"
 					},
 					"disabled": {
-						"$value": "{color.button.danger.primary.label.disabled}",
+						"$value": "{color.text.disabled}",
 						"$type": "color"
 					}
 				}
@@ -198,43 +198,43 @@
 			"secondary": {
 				"background": {
 					"default": {
-						"$value": "{color.button.danger.secondary.background.default}",
+						"$value": "{color.button-background.transparent}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button.danger.secondary.background.hover}",
+						"$value": "{color.support.error.hover}",
 						"$type": "color"
 					},
 					"disabled": {
-						"$value": "{color.button.danger.secondary.background.disabled}",
-						"$type": "color"
-					}
-				},
-				"label": {
-					"default": {
-						"$value": "{color.button.danger.secondary.label.default}",
-						"$type": "color"
-					},
-					"hover": {
-						"$value": "{color.button.danger.secondary.label.hover}",
-						"$type": "color"
-					},
-					"disabled": {
-						"$value": "{color.button.danger.secondary.label.disabled}",
+						"$value": "{color.button-background.transparent}",
 						"$type": "color"
 					}
 				},
 				"border": {
 					"default": {
-						"$value": "{color.button.danger.secondary.border.default}",
+						"$value": "{color.support.error.symbol}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button.danger.secondary.border.hover}",
+						"$value": "{color.support.error.hover}",
 						"$type": "color"
 					},
 					"disabled": {
-						"$value": "{color.button.danger.secondary.border.disabled}",
+						"$value": "{color.border.disabled}",
+						"$type": "color"
+					}
+				},
+				"label": {
+					"default": {
+						"$value": "{color.support.error.symbol}",
+						"$type": "color"
+					},
+					"hover": {
+						"$value": "{color.text.inverse-primary}",
+						"$type": "color"
+					},
+					"disabled": {
+						"$value": "{color.text.disabled}",
 						"$type": "color"
 					}
 				}
@@ -242,29 +242,29 @@
 			"ghost": {
 				"background": {
 					"default": {
-						"$value": "{color.button.danger.ghost.background.default}",
+						"$value": "{color.button-background.transparent}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button.danger.ghost.background.hover}",
+						"$value": "{color.support.error.hover}",
 						"$type": "color"
 					},
 					"disabled": {
-						"$value": "{color.button.danger.ghost.background.disabled}",
+						"$value": "{color.button-background.transparent}",
 						"$type": "color"
 					}
 				},
 				"label": {
 					"default": {
-						"$value": "{color.button.danger.ghost.label.default}",
+						"$value": "{color.support.error.symbol}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button.danger.ghost.label.hover}",
+						"$value": "{color.text.inverse-primary}",
 						"$type": "color"
 					},
 					"disabled": {
-						"$value": "{color.button.danger.ghost.label.disabled}",
+						"$value": "{color.text.disabled}",
 						"$type": "color"
 					}
 				}

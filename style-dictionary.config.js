@@ -293,9 +293,17 @@ const components = [
 	{ name: 'sticker', selector: '.sticker' },
 	{ name: 'support', selector: '.support' },
 	{ name: 'toolbar', selector: '.toolbar' },
-	{ name: 'logs', selector: '.logs' },
+	{ name: 'console', selector: '.console' },
 	{ name: 'option-row', selector: '.option-row' },
 	{ name: 'slider', selector: '.slider' },
+	{ name: 'radio', selector: '.radio' },
+	{ name: 'checkbox', selector: '.checkbox' },
+	{ name: 'toggle', selector: '.toggle' },
+	{ name: 'radio-box', selector: '.radio-box' },
+	{ name: 'badge', selector: '.badge' },
+	{ name: 'notice', selector: '.notice' },
+	{ name: 'code', selector: '.code' },
+	{ name: 'environment-switcher', selector: '.environment-switcher' },
 ];
 
 for (const { name, selector } of components) {

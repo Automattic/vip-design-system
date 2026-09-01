@@ -13,9 +13,17 @@
 @import './generated/components/sticker.css';
 @import './generated/components/support.css';
 @import './generated/components/toolbar.css';
-@import './generated/components/logs.css';
+@import './generated/components/console.css';
 @import './generated/components/option-row.css';
 @import './generated/components/slider.css';
+@import './generated/components/radio.css';
+@import './generated/components/checkbox.css';
+@import './generated/components/toggle.css';
+@import './generated/components/radio-box.css';
+@import './generated/components/badge.css';
+@import './generated/components/notice.css';
+@import './generated/components/code.css';
+@import './generated/components/environment-switcher.css';
 
 /* Typography utility classes (.type-heading-1, .type-body-default, etc.) */
 @import './generated/typography.css';
@@ -42,7 +50,7 @@
 @import './blocks/sticker.css';
 @import './blocks/support.css';
 @import './blocks/toolbar.css';
-@import './blocks/logs.css';
+@import './blocks/console.css';
 @import './blocks/option-row.css';
 @import './blocks/slider.css';
 

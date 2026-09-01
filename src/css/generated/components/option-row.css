@@ -1,7 +1,16 @@
 /* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
 .option-row {
-	--option-row-default-background: var(--color-option-row-default-background);
-	--option-row-default-icon: var(--color-option-row-default-icon);
-	--option-row-alt-background: var(--color-option-row-alt-background);
-	--option-row-alt-icon: var(--color-option-row-alt-icon);
+	--option-row-default-background: var(--color-layer-accent);
+	--option-row-default-icon: var(--color-icon-primary);
+	--option-row-alt-background: var(--color-layer-inverse);
+	--option-row-alt-icon: var(--color-icon-inverse);
+}
+
+@supports (color: light-dark(red, blue)) {
+	.option-row {
+		--option-row-default-background: var(--color-layer-accent);
+		--option-row-default-icon: light-dark(var(--color-icon-primary), var(--color-icon-inverse));
+		--option-row-alt-background: var(--color-layer-inverse);
+		--option-row-alt-icon: var(--color-icon-inverse);
+	}
 }

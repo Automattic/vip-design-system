@@ -1,0 +1,63 @@
+{
+	"color": {
+		"control": {
+			"background": {
+				"primary": {
+					"$value": "{black}",
+					"$type": "color",
+					"$description": "Primary control fill — checkboxes, radios, toggles when active.",
+					"$extensions": {
+						"dark": "{gold.60}"
+					}
+				},
+				"transparent": {
+					"$value": "{transparent}",
+					"$type": "color",
+					"$description": "Unfilled control background — default state for checkboxes, radios."
+				},
+				"read-only": {
+					"$value": "{gray.3}",
+					"$type": "color",
+					"$description": "Background for read-only form controls.",
+					"$extensions": {
+						"dark": "{gray.90}"
+					}
+				},
+				"disabled": {
+					"$value": "{gray.20}",
+					"$type": "color",
+					"$description": "Background for disabled form controls.",
+					"$extensions": {
+						"dark": "{gray.80}"
+					}
+				},
+				"inactive": {
+					"$value": "{gray.50}",
+					"$type": "color",
+					"$description": "Background for inactive/off state controls — toggle off.",
+					"$extensions": {
+						"dark": "{gray.70}"
+					}
+				}
+			},
+			"foreground": {
+				"primary": {
+					"$value": "{pure-white}",
+					"$type": "color",
+					"$description": "Foreground color on filled controls — checkmark, toggle knob.",
+					"$extensions": {
+						"dark": "{gray.7}"
+					}
+				},
+				"disabled": {
+					"$value": "{gray.7}",
+					"$type": "color",
+					"$description": "Foreground color on disabled controls.",
+					"$extensions": {
+						"dark": "{gray.50}"
+					}
+				}
+			}
+		}
+	}
+}

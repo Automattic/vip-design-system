@@ -1,7 +1,19 @@
 /* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
 .slider {
-	--slider-background-default: var(--color-slider-background-default);
-	--slider-background-disabled: var(--color-slider-background-disabled);
-	--slider-handle-default: var(--color-slider-handle-default);
-	--slider-handle-disabled: var(--color-slider-handle-disabled);
+	--slider-background-default: var(--color-control-background-disabled);
+	--slider-background-disabled: var(--color-control-background-disabled);
+	--slider-handle-default: var(--color-control-background-primary);
+	--slider-handle-disabled: var(--color-control-background-inactive);
+}
+
+@supports (color: light-dark(red, blue)) {
+	.slider {
+		--slider-background-default: var(--color-control-background-disabled);
+		--slider-background-disabled: var(--color-control-background-disabled);
+		--slider-handle-default: light-dark(
+			var(--color-control-background-primary),
+			var(--color-control-foreground-primary)
+		);
+		--slider-handle-disabled: var(--color-control-background-inactive);
+	}
 }

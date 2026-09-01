@@ -1,0 +1,25 @@
+{
+	"code": {
+		"background": {
+			"$value": "{color.layer.inverse}",
+			"$type": "color",
+			"$description": "Code block background — always uses the inverse layer."
+		},
+		"text-primary": {
+			"$value": "{color.text.inverse-primary}",
+			"$type": "color",
+			"$description": "Primary code text color.",
+			"$extensions": {
+				"dark": "{color.text.primary}"
+			}
+		},
+		"text-secondary": {
+			"$value": "{color.text.inverse-secondary}",
+			"$type": "color",
+			"$description": "Secondary code text — comments, line numbers.",
+			"$extensions": {
+				"dark": "{color.text.secondary}"
+			}
+		}
+	}
+}

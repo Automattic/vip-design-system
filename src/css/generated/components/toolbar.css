@@ -1,7 +1,19 @@
 /* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
 .toolbar {
-	--toolbar-background: var(--color-toolbar-background);
-	--toolbar-text-default: var(--color-toolbar-text-default);
-	--toolbar-text-hover: var(--color-toolbar-text-hover);
-	--toolbar-brand: var(--color-toolbar-brand);
+	--toolbar-background: var(--color-layer-inverse);
+	--toolbar-brand: var(--color-icon-inverse-primary);
+	--toolbar-text-default: var(--color-text-inverse-primary);
+	--toolbar-text-hover: var(--color-text-inverse-primary);
+}
+
+@supports (color: light-dark(red, blue)) {
+	.toolbar {
+		--toolbar-background: light-dark(var(--color-layer-inverse), var(--color-layer-4));
+		--toolbar-brand: var(--color-icon-inverse-primary);
+		--toolbar-text-default: light-dark(
+			var(--color-text-inverse-primary),
+			var(--color-text-primary)
+		);
+		--toolbar-text-hover: light-dark(var(--color-text-inverse-primary), var(--color-text-primary));
+	}
 }

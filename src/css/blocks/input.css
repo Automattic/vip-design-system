@@ -11,7 +11,7 @@
 		font-weight: var(--font-weight-semibold);
 		line-height: var(--line-height-0);
 		letter-spacing: var(--letter-spacing-loose-1);
-		color: var(--input-label-default);
+		color: var(--input-label);
 	}
 
 	.input__field {
@@ -19,9 +19,9 @@
 		font-size: var(--font-size-2);
 		font-weight: var(--font-weight-regular);
 		line-height: var(--line-height-5);
-		color: var(--input-text-default);
-		background-color: var(--input-background-default);
-		border: 1px solid var(--input-border-default);
+		color: var(--input-text);
+		background-color: var(--input-background);
+		border: 1px solid var(--input-border);
 		border-radius: var(--radius-control);
 		padding: var(--space-3) var(--space-4);
 		width: 100%;
@@ -35,9 +35,9 @@
 	}
 
 	.input__field:focus-visible {
-		outline: 2px solid var(--color-focus-default);
+		outline: 2px solid var(--color-focus-outline);
 		outline-offset: 2px;
-		border-color: var(--input-background-primary);
+		border-color: var(--color-control-background-primary);
 	}
 
 	/* ── Error state ──────────────────────────────────────────────────────────── */
@@ -50,7 +50,7 @@
 
 	.input[data-state='disabled'] .input__field,
 	.input__field:disabled {
-		background-color: var(--input-background-disabled);
+		background-color: var(--color-control-background-disabled);
 		border-color: var(--input-border-disabled);
 		cursor: not-allowed;
 	}
@@ -72,6 +72,6 @@
 	}
 
 	.input[data-state='error'] .input__helper {
-		color: var(--color-text-error);
+		color: var(--color-support-error-symbol);
 	}
 }

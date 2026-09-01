@@ -1,0 +1,20 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.console {
+	--console-background: var(--color-layer-inverse);
+	--console-text-primary: var(--color-text-inverse-primary);
+	--console-text-secondary: var(--color-text-inverse-secondary);
+}
+
+@supports (color: light-dark(red, blue)) {
+	.console {
+		--console-background: var(--color-layer-inverse);
+		--console-text-primary: light-dark(
+			var(--color-text-inverse-primary),
+			var(--color-text-primary)
+		);
+		--console-text-secondary: light-dark(
+			var(--color-text-inverse-secondary),
+			var(--color-text-secondary)
+		);
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"radio-box": {
+		"background": {
+			"$value": "{color.control.background.transparent}",
+			"$type": "color"
+		},
+		"background-hover": {
+			"$value": "{color.control.background.read-only}",
+			"$type": "color"
+		},
+		"label": {
+			"$value": "{color.text.primary}",
+			"$type": "color"
+		},
+		"description": {
+			"$value": "{color.text.secondary}",
+			"$type": "color"
+		},
+		"border": {
+			"$value": "{color.border.control}",
+			"$type": "color"
+		},
+		"border-selected": {
+			"$value": "{color.control.background.primary}",
+			"$type": "color"
+		}
+	}
+}

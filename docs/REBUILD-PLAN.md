@@ -549,3 +549,11 @@ The new system ships as v3.0.0 (major version bump signals breaking changes). Wi
 26. Storybook: stories and autodocs for all components
 27. `/docs`: reference docs, contributing guide, migration guide
 28. `/docs/tutorials`: at least one worked example walking through building a component with CUBE CSS
+
+### Phase 7 — Patterns
+
+Patterns document how to combine components and CSS primitives to solve common UI problems consistently. Unlike components, patterns are guidance rather than code — they live in `/docs/patterns` as Markdown pages with HTML + class name examples.
+
+29. Identify all pattern candidates (flagged in `docs/component-inventory.csv`)
+30. Document each pattern: when to use it, what elements to combine, a reference example
+31. Surface patterns in Storybook alongside components

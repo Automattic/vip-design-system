@@ -1,0 +1,28 @@
+{
+	"checkbox": {
+		"foreground": {
+			"$value": "{color.control.foreground.primary}",
+			"$type": "color"
+		},
+		"foreground-disabled": {
+			"$value": "{color.control.foreground.disabled}",
+			"$type": "color"
+		},
+		"border": {
+			"$value": "{color.border.control}",
+			"$type": "color"
+		},
+		"background": {
+			"$value": "{color.control.background.transparent}",
+			"$type": "color"
+		},
+		"background-selected": {
+			"$value": "{color.control.background.primary}",
+			"$type": "color"
+		},
+		"background-disabled": {
+			"$value": "{color.control.background.disabled}",
+			"$type": "color"
+		}
+	}
+}

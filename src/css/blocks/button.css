@@ -1,76 +1,79 @@
 @layer blocks {
 	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-3);
-		padding: var(--space-3) var(--space-5);
-		border: 1px solid transparent;
-		border-radius: var(--radius-control);
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-semibold);
-		line-height: var(--line-height-0);
-		letter-spacing: var(--letter-spacing-loose-1);
-		text-decoration: none;
-		white-space: nowrap;
-		cursor: pointer;
+		display: var(--button-display, inline-flex);
+		align-items: var(--button-align-items, center);
+		justify-content: var(--button-justify-content, center);
+		gap: var(--button-gap, var(--space-3));
+		padding: var(--button-padding, var(--space-3) var(--space-5));
+		border: var(--button-border, 1px solid transparent);
+		border-radius: var(--button-border-radius, var(--radius-control));
+		font-family: var(--button-font-family, var(--font-family-default));
+		font-size: var(--button-font-size, var(--font-size-2));
+		font-weight: var(--button-font-weight, var(--font-weight-semibold));
+		line-height: var(--button-line-height, var(--line-height-0));
+		letter-spacing: var(--button-letter-spacing, var(--letter-spacing-loose-1));
+		text-decoration: var(--button-text-decoration, none);
+		white-space: var(--button-white-space, nowrap);
+		cursor: var(--button-cursor, pointer);
 		transition:
-			background-color 120ms ease,
-			color 120ms ease,
-			border-color 120ms ease;
+			var(--button-transition-background-color, background-color 120ms ease),
+			var(--button-transition-color, color 120ms ease),
+			var(--button-transition-border-color, border-color 120ms ease);
 
 		/* Default variant: primary */
-		background-color: var(--button-primary-background-default);
-		color: var(--button-primary-label-default);
+		background-color: var(--button-background-color, var(--button-primary-background-default));
+		color: var(--button-color, var(--button-primary-label-default));
 	}
 
 	.button:hover {
-		background-color: var(--button-primary-background-hover);
-		color: var(--button-primary-label-hover);
+		background-color: var(--button-background-color-hover, var(--button-primary-background-hover));
+		color: var(--button-color-hover, var(--button-primary-label-hover));
 	}
 
 	.button:disabled,
 	.button[data-state='disabled'] {
-		background-color: var(--button-primary-background-disabled);
-		color: var(--button-primary-label-disabled);
-		cursor: not-allowed;
-		pointer-events: none;
+		background-color: var(
+			--button-background-color-disabled,
+			var(--button-primary-background-disabled)
+		);
+		color: var(--button-color-disabled, var(--button-primary-label-disabled));
+		cursor: var(--button-cursor-disabled, not-allowed);
+		pointer-events: var(--button-pointer-events-disabled, none);
 	}
 
 	.button:focus-visible {
-		outline: 2px solid var(--color-focus-default);
-		outline-offset: 2px;
+		outline: var(--button-focus-outline, 2px solid var(--color-focus-outline));
+		outline-offset: var(--button-focus-outline-offset, 2px);
 	}
 
 	/* ── Size variants ────────────────────────────────────────────────────────── */
 
 	.button[data-size='small'] {
-		padding: var(--space-1) var(--space-4);
-		font-size: var(--font-size-1);
+		--button-padding: var(--space-1) var(--space-4);
+		--button-font-size: var(--font-size-1);
 	}
 
 	.button[data-size='large'] {
-		padding: var(--space-4) var(--space-6);
-		font-size: var(--font-size-3);
+		--button-padding: var(--space-4) var(--space-6);
+		--button-font-size: var(--font-size-3);
 	}
 
 	/* ── Secondary ────────────────────────────────────────────────────────────── */
 
 	.button[data-variant='secondary'] {
-		background-color: var(--button-secondary-background-default);
-		color: var(--button-secondary-label-default);
+		--button-background-color: var(--button-secondary-background-default);
+		--button-color: var(--button-secondary-label-default);
 	}
 
 	.button[data-variant='secondary']:hover {
-		background-color: var(--button-secondary-background-hover);
-		color: var(--button-secondary-label-hover);
+		--button-background-color: var(--button-secondary-background-hover);
+		--button-color: var(--button-secondary-label-hover);
 	}
 
 	.button[data-variant='secondary']:disabled,
 	.button[data-variant='secondary'][data-state='disabled'] {
-		background-color: var(--button-secondary-background-disabled);
-		color: var(--button-secondary-label-disabled);
+		--button-background-color: var(--button-secondary-background-disabled);
+		--button-color: var(--button-secondary-label-disabled);
 	}
 
 	/* ── Tertiary ─────────────────────────────────────────────────────────────── */

@@ -4,42 +4,47 @@
 			"1": {
 				"$value": "{gray.3}",
 				"$type": "color",
+				"$description": "Subtle tint — sidebar backgrounds, alternating rows.",
 				"$extensions": {
-					"dark": "{gray.93}"
+					"dark": "{gray.90}"
 				}
 			},
 			"2": {
 				"$value": "{pure-white}",
 				"$type": "color",
+				"$description": "Default card and panel surface.",
 				"$extensions": {
-					"dark": "{gray.88}"
+					"dark": "{gray.85}"
 				}
 			},
 			"3": {
 				"$value": "{gray.7}",
 				"$type": "color",
+				"$description": "Raised surface — nested panels, popovers.",
 				"$extensions": {
 					"dark": "{gray.70}"
 				}
 			},
 			"4": {
-				"$value": "{pure-white}",
+				"$value": "{gray.0}",
 				"$type": "color",
+				"$description": "Page-level background layer.",
 				"$extensions": {
-					"dark": "{gray.65}"
+					"dark": "{gray.83}"
 				}
 			},
 			"inverse": {
 				"$value": "{black}",
 				"$type": "color",
-				"$description": "Use as component background in high-contrast situations.",
+				"$description": "High-contrast inverse surface — dark toolbars, snackbars, code blocks.",
 				"$extensions": {
-					"dark": "{gray.15}"
+					"dark": "{gray.100}"
 				}
 			},
 			"accent": {
 				"$value": "{gold.25}",
 				"$type": "color",
+				"$description": "Branded accent surface — highlighted marks, callouts.",
 				"$extensions": {
 					"dark": "{gold.75}"
 				}

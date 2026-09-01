@@ -110,7 +110,7 @@
 	}
 
 	a:focus-visible {
-		outline: 2px solid var(--color-focus-default);
+		outline: 2px solid var(--color-focus-outline);
 		outline-offset: 2px;
 		border-radius: var(--radius-subtle);
 	}
@@ -166,7 +166,7 @@
 
 	hr {
 		border: none;
-		border-block-start: 1px solid var(--color-border-2);
+		border-block-start: 1px solid var(--color-border-default);
 	}
 
 	/* ── Tables ───────────────────────────────────────────────────────────────── */
@@ -182,13 +182,13 @@
 		font-weight: var(--font-weight-semibold);
 		text-align: start;
 		padding: var(--space-3) var(--space-4);
-		border-block-end: 1px solid var(--color-border-2);
+		border-block-end: 1px solid var(--color-border-default);
 		color: var(--color-text-primary);
 	}
 
 	td {
 		padding: var(--space-3) var(--space-4);
-		border-block-end: 1px solid var(--color-border-2);
+		border-block-end: 1px solid var(--color-border-default);
 		color: var(--color-text-secondary);
 	}
 
@@ -222,8 +222,8 @@
 	textarea,
 	select {
 		color: var(--color-text-primary);
-		background-color: var(--color-background-transparent);
-		border: 1px solid var(--color-border-3);
+		background-color: var(--color-control-background-transparent);
+		border: 1px solid var(--color-border-strong);
 		border-radius: var(--radius-control);
 	}
 
@@ -231,7 +231,7 @@
 	textarea:focus-visible,
 	select:focus-visible,
 	button:focus-visible {
-		outline: 2px solid var(--color-focus-default);
+		outline: 2px solid var(--color-focus-outline);
 		outline-offset: 2px;
 	}
 

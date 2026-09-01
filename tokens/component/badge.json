@@ -1,0 +1,290 @@
+{
+	"badge": {
+		"gray": {
+			"background": {
+				"$value": "{color.support.neutral.container-background}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.background.transparent}"
+				}
+			},
+			"border": {
+				"$value": "{color.border.transparent}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.neutral.symbol}"
+				}
+			},
+			"text": {
+				"$value": "{color.support.neutral.container-text}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.neutral.symbol}"
+				}
+			},
+			"icon": {
+				"$value": "{color.support.neutral.symbol}",
+				"$type": "color"
+			},
+			"dismiss-icon": {
+				"$value": "{color.icon.helper}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{gray.15}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.85}"
+				}
+			},
+			"active": {
+				"$value": "{gray.20}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{gray.83}"
+				}
+			}
+		},
+		"blue": {
+			"background": {
+				"$value": "{color.support.info.container-background}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.background.transparent}"
+				}
+			},
+			"border": {
+				"$value": "{color.border.transparent}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.info.symbol}"
+				}
+			},
+			"text": {
+				"$value": "{color.support.info.container-text}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.info.symbol}"
+				}
+			},
+			"icon": {
+				"$value": "{color.support.info.symbol}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{blue.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{blue.20}",
+				"$type": "color"
+			}
+		},
+		"green": {
+			"background": {
+				"$value": "{color.support.success.container-background}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.background.transparent}"
+				}
+			},
+			"border": {
+				"$value": "{color.border.transparent}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.success.symbol}"
+				}
+			},
+			"text": {
+				"$value": "{color.support.success.container-text}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.success.symbol}"
+				}
+			},
+			"icon": {
+				"$value": "{color.support.success.symbol}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{green.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{green.20}",
+				"$type": "color"
+			}
+		},
+		"red": {
+			"background": {
+				"$value": "{color.support.error.container-background}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.background.transparent}"
+				}
+			},
+			"border": {
+				"$value": "{color.border.transparent}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.error.symbol}"
+				}
+			},
+			"text": {
+				"$value": "{color.support.error.container-text}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.error.symbol}"
+				}
+			},
+			"icon": {
+				"$value": "{color.support.error.symbol}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{red.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{red.20}",
+				"$type": "color"
+			}
+		},
+		"gold": {
+			"background": {
+				"$value": "{color.support.accent.container-background}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.background.transparent}"
+				}
+			},
+			"border": {
+				"$value": "{color.border.transparent}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.accent.symbol}"
+				}
+			},
+			"text": {
+				"$value": "{color.support.accent.container-text}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.accent.symbol}"
+				}
+			},
+			"icon": {
+				"$value": "{color.support.accent.symbol}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{gold.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{gold.20}",
+				"$type": "color"
+			}
+		},
+		"yellow": {
+			"background": {
+				"$value": "{color.support.warning.container-background}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.background.transparent}"
+				}
+			},
+			"border": {
+				"$value": "{color.border.transparent}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.warning.symbol}"
+				}
+			},
+			"text": {
+				"$value": "{color.support.warning.container-text}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.support.warning.symbol}"
+				}
+			},
+			"icon": {
+				"$value": "{color.support.warning.symbol}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{yellow.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{yellow.20}",
+				"$type": "color"
+			}
+		},
+		"orange": {
+			"background": {
+				"$value": "{orange.7}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{orange.85}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{orange.65}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{orange.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{orange.20}",
+				"$type": "color"
+			}
+		},
+		"salmon": {
+			"background": {
+				"$value": "{salmon.7}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{salmon.85}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{salmon.65}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{salmon.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{salmon.20}",
+				"$type": "color"
+			}
+		},
+		"pink": {
+			"background": {
+				"$value": "{pink.7}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{pink.85}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{pink.65}",
+				"$type": "color"
+			},
+			"hover": {
+				"$value": "{pink.15}",
+				"$type": "color"
+			},
+			"active": {
+				"$value": "{pink.20}",
+				"$type": "color"
+			}
+		}
+	}
+}

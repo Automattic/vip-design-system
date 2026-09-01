@@ -1,0 +1,68 @@
+{
+	"color": {
+		"support": {
+			"neutral": {
+				"recede": {
+					"$value": "{gray.25}",
+					"$type": "color",
+					"$extensions": {
+						"dark": "{gray.70}"
+					}
+				},
+				"inverse": {
+					"$value": "{gray.45}",
+					"$type": "color",
+					"$description": "Snackbar icon, text or icon over dark background."
+				},
+				"accent": {
+					"$value": "{gray.50}",
+					"$type": "color",
+					"$description": "Button background, key color.",
+					"$extensions": {
+						"dark": "{gray.40}"
+					}
+				},
+				"symbol": {
+					"$value": "{gray.60}",
+					"$type": "color",
+					"$description": "Text, icon, or borders on default background (including input & dark badge).",
+					"$extensions": {
+						"dark": "{gray.35}"
+					}
+				},
+				"hover": {
+					"$value": "{gray.70}",
+					"$type": "color",
+					"$description": "Button or link hover color.",
+					"$extensions": {
+						"dark": "{gray.50}"
+					}
+				},
+				"container-background": {
+					"$value": "{gray.7}",
+					"$type": "color",
+					"$description": "Notice background; light badge background.",
+					"$extensions": {
+						"dark": "{gray.75}"
+					}
+				},
+				"container-text": {
+					"$value": "{gray.85}",
+					"$type": "color",
+					"$description": "Notice text; light badge text.",
+					"$extensions": {
+						"dark": "{gray.3}"
+					}
+				},
+				"container-accent": {
+					"$value": "{gray.50}",
+					"$type": "color",
+					"$description": "Notice link & icon.",
+					"$extensions": {
+						"dark": "{gray.40}"
+					}
+				}
+			}
+		}
+	}
+}

@@ -2,50 +2,51 @@
 	"color": {
 		"icon": {
 			"primary": {
-				"$value": "{gray.85}",
+				"$value": "{black}",
 				"$type": "color",
+				"$description": "Default icon color.",
 				"$extensions": {
-					"dark": "{gray.15}"
+					"dark": "{gray.10}"
 				}
 			},
 			"secondary": {
-				"$value": "{gray.50}",
+				"$value": "{gray.70}",
 				"$type": "color",
+				"$description": "Subdued supporting icon.",
+				"$extensions": {
+					"dark": "{gray.35}"
+				}
+			},
+			"helper": {
+				"$value": "{gray.55}",
+				"$type": "color",
+				"$description": "Helper icon — minor affordances, optional actions.",
 				"$extensions": {
 					"dark": "{gray.40}"
 				}
 			},
-			"helper": {
+			"disabled": {
 				"$value": "{gray.40}",
 				"$type": "color",
+				"$description": "Icon color for disabled elements.",
 				"$extensions": {
-					"dark": "{gray.50}"
+					"dark": "{gray.75}"
 				}
 			},
 			"inverse": {
+				"$value": "{gray.0}",
+				"$type": "color",
+				"$description": "Icon on inverse (dark) surfaces."
+			},
+			"inverse-primary": {
 				"$value": "{pure-white}",
 				"$type": "color",
-				"$extensions": {
-					"dark": "{gray.7}"
-				}
-			},
-			"disabled": {
-				"$value": "{gray.45}",
-				"$type": "color",
-				"$extensions": {
-					"dark": "{gray.65}"
-				}
-			},
-			"brand": {
-				"$value": "{gold.60}",
-				"$type": "color",
-				"$extensions": {
-					"dark": "{gold.45}"
-				}
+				"$description": "Primary icon color on inverse (dark) surfaces."
 			},
 			"inverse-disabled": {
 				"$value": "{gray.10}",
 				"$type": "color",
+				"$description": "Disabled icon on inverse surfaces.",
 				"$extensions": {
 					"dark": "{gray.60}"
 				}

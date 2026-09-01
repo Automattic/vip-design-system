@@ -1,0 +1,92 @@
+{
+	"notice": {
+		"error": {
+			"background": {
+				"$value": "{color.support.error.container-background}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{color.support.error.container-text}",
+				"$type": "color"
+			},
+			"link": {
+				"$value": "{color.support.error.container-accent}",
+				"$type": "color"
+			},
+			"link-hover": {
+				"$value": "{color.support.error.hover}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{color.support.error.container-accent}",
+				"$type": "color"
+			}
+		},
+		"warning": {
+			"background": {
+				"$value": "{color.support.warning.container-background}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{color.support.warning.container-text}",
+				"$type": "color"
+			},
+			"link": {
+				"$value": "{color.support.warning.container-accent}",
+				"$type": "color"
+			},
+			"link-hover": {
+				"$value": "{color.support.warning.hover}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{color.support.warning.container-accent}",
+				"$type": "color"
+			}
+		},
+		"success": {
+			"background": {
+				"$value": "{color.support.success.container-background}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{color.support.success.container-text}",
+				"$type": "color"
+			},
+			"link": {
+				"$value": "{color.support.success.container-accent}",
+				"$type": "color"
+			},
+			"link-hover": {
+				"$value": "{color.support.success.hover}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{color.support.success.container-accent}",
+				"$type": "color"
+			}
+		},
+		"info": {
+			"background": {
+				"$value": "{color.support.info.container-background}",
+				"$type": "color"
+			},
+			"text": {
+				"$value": "{color.support.info.container-text}",
+				"$type": "color"
+			},
+			"link": {
+				"$value": "{color.support.info.container-accent}",
+				"$type": "color"
+			},
+			"link-hover": {
+				"$value": "{color.support.info.hover}",
+				"$type": "color"
+			},
+			"icon": {
+				"$value": "{color.support.info.container-accent}",
+				"$type": "color"
+			}
+		}
+	}
+}

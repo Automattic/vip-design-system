@@ -2,21 +2,24 @@
 	"slider": {
 		"background": {
 			"default": {
-				"$value": "{color.slider.background.default}",
+				"$value": "{color.control.background.disabled}",
 				"$type": "color"
 			},
 			"disabled": {
-				"$value": "{color.slider.background.disabled}",
+				"$value": "{color.control.background.disabled}",
 				"$type": "color"
 			}
 		},
 		"handle": {
 			"default": {
-				"$value": "{color.slider.handle.default}",
-				"$type": "color"
+				"$value": "{color.control.background.primary}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.control.foreground.primary}"
+				}
 			},
 			"disabled": {
-				"$value": "{color.slider.handle.disabled}",
+				"$value": "{color.control.background.inactive}",
 				"$type": "color"
 			}
 		}

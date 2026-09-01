@@ -1,0 +1,9 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.radio-box {
+	--radio-box-background: var(--color-control-background-transparent);
+	--radio-box-background-hover: var(--color-control-background-read-only);
+	--radio-box-label: var(--color-text-primary);
+	--radio-box-description: var(--color-text-secondary);
+	--radio-box-border: var(--color-border-control);
+	--radio-box-border-selected: var(--color-control-background-primary);
+}

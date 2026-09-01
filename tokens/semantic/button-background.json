@@ -1,0 +1,67 @@
+{
+	"color": {
+		"button-background": {
+			"primary": {
+				"$value": "{black}",
+				"$type": "color",
+				"$description": "Primary button fill — used for the default/primary variant.",
+				"$extensions": {
+					"dark": "{gold.60}"
+				}
+			},
+			"secondary": {
+				"$value": "{gray.10}",
+				"$type": "color",
+				"$description": "Secondary button fill.",
+				"$extensions": {
+					"dark": "{gray.73}"
+				}
+			},
+			"transparent": {
+				"$value": "{transparent}",
+				"$type": "color",
+				"$description": "Ghost/tertiary button — no fill."
+			},
+			"display": {
+				"$value": "{gold.30}",
+				"$type": "color",
+				"$description": "Display/hero button fill.",
+				"$extensions": {
+					"dark": "{gold.40}"
+				}
+			},
+			"hover-1": {
+				"$value": "{gold.30}",
+				"$type": "color",
+				"$description": "Hover state for primary & secondary buttons.",
+				"$extensions": {
+					"dark": "{gold.70}"
+				}
+			},
+			"hover-2": {
+				"$value": "{gray.10}",
+				"$type": "color",
+				"$description": "Hover state for tertiary & ghost buttons.",
+				"$extensions": {
+					"dark": "{gray.73}"
+				}
+			},
+			"hover-3": {
+				"$value": "{gold.45}",
+				"$type": "color",
+				"$description": "Hover state for display button.",
+				"$extensions": {
+					"dark": "{gold.50}"
+				}
+			},
+			"disabled": {
+				"$value": "{gray.25}",
+				"$type": "color",
+				"$description": "Disabled button fill.",
+				"$extensions": {
+					"dark": "{gray.85}"
+				}
+			}
+		}
+	}
+}

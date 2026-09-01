@@ -1,0 +1,16 @@
+{
+	"color": {
+		"environment": {
+			"production": {
+				"$value": "{parsely-green.45}",
+				"$type": "color",
+				"$description": "Indicator color for production environments."
+			},
+			"non-prod": {
+				"$value": "{blue.45}",
+				"$type": "color",
+				"$description": "Indicator color for non-production environments (staging, dev, etc.)."
+			}
+		}
+	}
+}

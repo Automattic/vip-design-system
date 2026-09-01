@@ -1,0 +1,40 @@
+{
+	"input": {
+		"background": {
+			"$value": "{color.control.background.transparent}",
+			"$type": "color"
+		},
+		"background-read-only": {
+			"$value": "{color.control.background.read-only}",
+			"$type": "color"
+		},
+		"border": {
+			"$value": "{color.border.control}",
+			"$type": "color"
+		},
+		"border-error": {
+			"$value": "{color.support.error.symbol}",
+			"$type": "color"
+		},
+		"border-read-only": {
+			"$value": "{color.border.default}",
+			"$type": "color"
+		},
+		"border-disabled": {
+			"$value": "{color.border.disabled}",
+			"$type": "color"
+		},
+		"label": {
+			"$value": "{color.text.primary}",
+			"$type": "color"
+		},
+		"text": {
+			"$value": "{color.text.primary}",
+			"$type": "color"
+		},
+		"text-placeholder": {
+			"$value": "{color.text.placeholder}",
+			"$type": "color"
+		}
+	}
+}

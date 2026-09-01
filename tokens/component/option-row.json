@@ -2,21 +2,24 @@
 	"option-row": {
 		"default": {
 			"background": {
-				"$value": "{color.option-row.default.background}",
+				"$value": "{color.layer.accent}",
 				"$type": "color"
 			},
 			"icon": {
-				"$value": "{color.option-row.default.icon}",
-				"$type": "color"
+				"$value": "{color.icon.primary}",
+				"$type": "color",
+				"$extensions": {
+					"dark": "{color.icon.inverse}"
+				}
 			}
 		},
 		"alt": {
 			"background": {
-				"$value": "{color.option-row.alt.background}",
+				"$value": "{color.layer.inverse}",
 				"$type": "color"
 			},
 			"icon": {
-				"$value": "{color.option-row.alt.icon}",
+				"$value": "{color.icon.inverse}",
 				"$type": "color"
 			}
 		}

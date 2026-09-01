@@ -4,68 +4,54 @@
 			"primary": {
 				"$value": "{black}",
 				"$type": "color",
-				"$description": "Use for headings",
+				"$description": "Default text color for headings and body copy.",
 				"$extensions": {
-					"dark": "{gray.10}"
+					"dark": "{gray.7}"
 				}
 			},
 			"secondary": {
 				"$value": "{gray.70}",
 				"$type": "color",
-				"$description": "Use for body text",
+				"$description": "Subdued body text and descriptions.",
 				"$extensions": {
-					"dark": "{gray.35}"
+					"dark": "{gray.30}"
 				}
 			},
 			"helper": {
 				"$value": "{gray.60}",
 				"$type": "color",
-				"$description": "Use for helper text",
+				"$description": "Helper text, captions, and subtle labels.",
 				"$extensions": {
 					"dark": "{gray.40}"
+				}
+			},
+			"placeholder": {
+				"$value": "{gray.55}",
+				"$type": "color",
+				"$description": "Input placeholder text.",
+				"$extensions": {
+					"dark": "{gray.45}"
 				}
 			},
 			"disabled": {
 				"$value": "{gray.40}",
 				"$type": "color",
+				"$description": "Text color for disabled elements.",
 				"$extensions": {
 					"dark": "{gray.75}"
 				}
 			},
-			"inverse": {
-				"$value": "{gray.0}",
+			"inverse-primary": {
+				"$value": "{pure-white}",
 				"$type": "color",
-				"$description": "Use for primary text on an inverse layer",
-				"$extensions": {
-					"dark": "{black}"
-				}
+				"$description": "Primary text on inverse (dark) surfaces."
 			},
 			"inverse-secondary": {
 				"$value": "{gray.30}",
 				"$type": "color",
-				"$description": "Use for secondary text on an inverse layer."
-			},
-			"accent": {
-				"$value": "{gold.60}",
-				"$type": "color",
+				"$description": "Secondary text on inverse (dark) surfaces.",
 				"$extensions": {
-					"dark": "{gold.45}"
-				}
-			},
-			"error": {
-				"$value": "{red.60}",
-				"$type": "color",
-				"$description": "Use for error text/icons outside of a notice.",
-				"$extensions": {
-					"dark": "{red.40}"
-				}
-			},
-			"success": {
-				"$value": "{green.60}",
-				"$type": "color",
-				"$description": "Use for success text/icons outside of a notice.",
-				"$extensions": {
-					"dark": "{green.45}"
+					"dark": "{gray.70}"
 				}
 			}
 		}

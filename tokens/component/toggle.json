@@ -1,0 +1,32 @@
+{
+	"toggle": {
+		"switch": {
+			"$value": "{color.control.foreground.primary}",
+			"$type": "color"
+		},
+		"switch-disabled": {
+			"$value": "{color.control.foreground.disabled}",
+			"$type": "color"
+		},
+		"icon": {
+			"$value": "{color.icon.inverse}",
+			"$type": "color"
+		},
+		"icon-disabled": {
+			"$value": "{color.control.foreground.disabled}",
+			"$type": "color"
+		},
+		"background-primary": {
+			"$value": "{color.control.background.primary}",
+			"$type": "color"
+		},
+		"background-inactive": {
+			"$value": "{color.control.background.inactive}",
+			"$type": "color"
+		},
+		"background-disabled": {
+			"$value": "{color.control.background.disabled}",
+			"$type": "color"
+		}
+	}
+}

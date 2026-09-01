@@ -1,9 +1,10 @@
 {
 	"color": {
 		"focus": {
-			"default": {
+			"outline": {
 				"$value": "{focus}",
-				"$type": "color"
+				"$type": "color",
+				"$description": "Keyboard focus ring color."
 			},
 			"inset": {
 				"$value": "{pure-white}",

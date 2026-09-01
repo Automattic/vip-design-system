@@ -1,0 +1,23 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.notice {
+	--notice-error-background: var(--color-support-error-container-background);
+	--notice-error-text: var(--color-support-error-container-text);
+	--notice-error-link: var(--color-support-error-container-accent);
+	--notice-error-link-hover: var(--color-support-error-hover);
+	--notice-error-icon: var(--color-support-error-container-accent);
+	--notice-warning-background: var(--color-support-warning-container-background);
+	--notice-warning-text: var(--color-support-warning-container-text);
+	--notice-warning-link: var(--color-support-warning-container-accent);
+	--notice-warning-link-hover: var(--color-support-warning-hover);
+	--notice-warning-icon: var(--color-support-warning-container-accent);
+	--notice-success-background: var(--color-support-success-container-background);
+	--notice-success-text: var(--color-support-success-container-text);
+	--notice-success-link: var(--color-support-success-container-accent);
+	--notice-success-link-hover: var(--color-support-success-hover);
+	--notice-success-icon: var(--color-support-success-container-accent);
+	--notice-info-background: var(--color-support-info-container-background);
+	--notice-info-text: var(--color-support-info-container-text);
+	--notice-info-link: var(--color-support-info-container-accent);
+	--notice-info-link-hover: var(--color-support-info-hover);
+	--notice-info-icon: var(--color-support-info-container-accent);
+}

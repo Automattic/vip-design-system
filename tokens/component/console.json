@@ -1,0 +1,25 @@
+{
+	"console": {
+		"background": {
+			"$value": "{color.layer.inverse}",
+			"$type": "color",
+			"$description": "Console window background color."
+		},
+		"text-primary": {
+			"$value": "{color.text.inverse-primary}",
+			"$type": "color",
+			"$description": "Primary monospace output text.",
+			"$extensions": {
+				"dark": "{color.text.primary}"
+			}
+		},
+		"text-secondary": {
+			"$value": "{color.text.inverse-secondary}",
+			"$type": "color",
+			"$description": "Secondary monospace output text — timestamps and subdued content.",
+			"$extensions": {
+				"dark": "{color.text.secondary}"
+			}
+		}
+	}
+}

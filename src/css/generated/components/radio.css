@@ -1,0 +1,9 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.radio {
+	--radio-foreground: var(--color-control-foreground-primary);
+	--radio-foreground-disabled: var(--color-control-foreground-disabled);
+	--radio-border: var(--color-border-control);
+	--radio-background: var(--color-control-background-transparent);
+	--radio-background-selected: var(--color-control-background-primary);
+	--radio-background-disabled: var(--color-control-background-disabled);
+}

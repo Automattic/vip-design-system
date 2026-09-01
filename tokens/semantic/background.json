@@ -9,11 +9,6 @@
 					"dark": "{gray.93}"
 				}
 			},
-			"transparent": {
-				"$value": "{transparent}",
-				"$type": "color",
-				"$description": "Use for transparent backgrounds"
-			},
 			"overlay": {
 				"$value": "rgb(19 25 30 / 70%)",
 				"$type": "color",

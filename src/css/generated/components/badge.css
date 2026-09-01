@@ -1,0 +1,166 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.badge {
+	--badge-gray-background: var(--color-support-neutral-container-background);
+	--badge-gray-border: var(--color-border-transparent);
+	--badge-gray-text: var(--color-support-neutral-container-text);
+	--badge-gray-icon: var(--color-support-neutral-symbol);
+	--badge-gray-dismiss-icon: var(--color-icon-helper);
+	--badge-gray-hover: var(--gray-15);
+	--badge-gray-active: var(--gray-20);
+	--badge-blue-background: var(--color-support-info-container-background);
+	--badge-blue-border: var(--color-border-transparent);
+	--badge-blue-text: var(--color-support-info-container-text);
+	--badge-blue-icon: var(--color-support-info-symbol);
+	--badge-blue-hover: var(--blue-15);
+	--badge-blue-active: var(--blue-20);
+	--badge-green-background: var(--color-support-success-container-background);
+	--badge-green-border: var(--color-border-transparent);
+	--badge-green-text: var(--color-support-success-container-text);
+	--badge-green-icon: var(--color-support-success-symbol);
+	--badge-green-hover: var(--green-15);
+	--badge-green-active: var(--green-20);
+	--badge-red-background: var(--color-support-error-container-background);
+	--badge-red-border: var(--color-border-transparent);
+	--badge-red-text: var(--color-support-error-container-text);
+	--badge-red-icon: var(--color-support-error-symbol);
+	--badge-red-hover: var(--red-15);
+	--badge-red-active: var(--red-20);
+	--badge-gold-background: var(--color-support-accent-container-background);
+	--badge-gold-border: var(--color-border-transparent);
+	--badge-gold-text: var(--color-support-accent-container-text);
+	--badge-gold-icon: var(--color-support-accent-symbol);
+	--badge-gold-hover: var(--gold-15);
+	--badge-gold-active: var(--gold-20);
+	--badge-yellow-background: var(--color-support-warning-container-background);
+	--badge-yellow-border: var(--color-border-transparent);
+	--badge-yellow-text: var(--color-support-warning-container-text);
+	--badge-yellow-icon: var(--color-support-warning-symbol);
+	--badge-yellow-hover: var(--yellow-15);
+	--badge-yellow-active: var(--yellow-20);
+	--badge-orange-background: var(--orange-7);
+	--badge-orange-text: var(--orange-85);
+	--badge-orange-icon: var(--orange-65);
+	--badge-orange-hover: var(--orange-15);
+	--badge-orange-active: var(--orange-20);
+	--badge-salmon-background: var(--salmon-7);
+	--badge-salmon-text: var(--salmon-85);
+	--badge-salmon-icon: var(--salmon-65);
+	--badge-salmon-hover: var(--salmon-15);
+	--badge-salmon-active: var(--salmon-20);
+	--badge-pink-background: var(--pink-7);
+	--badge-pink-text: var(--pink-85);
+	--badge-pink-icon: var(--pink-65);
+	--badge-pink-hover: var(--pink-15);
+	--badge-pink-active: var(--pink-20);
+}
+
+@supports (color: light-dark(red, blue)) {
+	.badge {
+		--badge-gray-background: light-dark(
+			var(--color-support-neutral-container-background),
+			var(--color-control-background-transparent)
+		);
+		--badge-gray-border: light-dark(
+			var(--color-border-transparent),
+			var(--color-support-neutral-symbol)
+		);
+		--badge-gray-text: light-dark(
+			var(--color-support-neutral-container-text),
+			var(--color-support-neutral-symbol)
+		);
+		--badge-gray-icon: var(--color-support-neutral-symbol);
+		--badge-gray-dismiss-icon: var(--color-icon-helper);
+		--badge-gray-hover: light-dark(var(--gray-15), var(--gray-85));
+		--badge-gray-active: light-dark(var(--gray-20), var(--gray-83));
+		--badge-blue-background: light-dark(
+			var(--color-support-info-container-background),
+			var(--color-control-background-transparent)
+		);
+		--badge-blue-border: light-dark(
+			var(--color-border-transparent),
+			var(--color-support-info-symbol)
+		);
+		--badge-blue-text: light-dark(
+			var(--color-support-info-container-text),
+			var(--color-support-info-symbol)
+		);
+		--badge-blue-icon: var(--color-support-info-symbol);
+		--badge-blue-hover: var(--blue-15);
+		--badge-blue-active: var(--blue-20);
+		--badge-green-background: light-dark(
+			var(--color-support-success-container-background),
+			var(--color-control-background-transparent)
+		);
+		--badge-green-border: light-dark(
+			var(--color-border-transparent),
+			var(--color-support-success-symbol)
+		);
+		--badge-green-text: light-dark(
+			var(--color-support-success-container-text),
+			var(--color-support-success-symbol)
+		);
+		--badge-green-icon: var(--color-support-success-symbol);
+		--badge-green-hover: var(--green-15);
+		--badge-green-active: var(--green-20);
+		--badge-red-background: light-dark(
+			var(--color-support-error-container-background),
+			var(--color-control-background-transparent)
+		);
+		--badge-red-border: light-dark(
+			var(--color-border-transparent),
+			var(--color-support-error-symbol)
+		);
+		--badge-red-text: light-dark(
+			var(--color-support-error-container-text),
+			var(--color-support-error-symbol)
+		);
+		--badge-red-icon: var(--color-support-error-symbol);
+		--badge-red-hover: var(--red-15);
+		--badge-red-active: var(--red-20);
+		--badge-gold-background: light-dark(
+			var(--color-support-accent-container-background),
+			var(--color-control-background-transparent)
+		);
+		--badge-gold-border: light-dark(
+			var(--color-border-transparent),
+			var(--color-support-accent-symbol)
+		);
+		--badge-gold-text: light-dark(
+			var(--color-support-accent-container-text),
+			var(--color-support-accent-symbol)
+		);
+		--badge-gold-icon: var(--color-support-accent-symbol);
+		--badge-gold-hover: var(--gold-15);
+		--badge-gold-active: var(--gold-20);
+		--badge-yellow-background: light-dark(
+			var(--color-support-warning-container-background),
+			var(--color-control-background-transparent)
+		);
+		--badge-yellow-border: light-dark(
+			var(--color-border-transparent),
+			var(--color-support-warning-symbol)
+		);
+		--badge-yellow-text: light-dark(
+			var(--color-support-warning-container-text),
+			var(--color-support-warning-symbol)
+		);
+		--badge-yellow-icon: var(--color-support-warning-symbol);
+		--badge-yellow-hover: var(--yellow-15);
+		--badge-yellow-active: var(--yellow-20);
+		--badge-orange-background: var(--orange-7);
+		--badge-orange-text: var(--orange-85);
+		--badge-orange-icon: var(--orange-65);
+		--badge-orange-hover: var(--orange-15);
+		--badge-orange-active: var(--orange-20);
+		--badge-salmon-background: var(--salmon-7);
+		--badge-salmon-text: var(--salmon-85);
+		--badge-salmon-icon: var(--salmon-65);
+		--badge-salmon-hover: var(--salmon-15);
+		--badge-salmon-active: var(--salmon-20);
+		--badge-pink-background: var(--pink-7);
+		--badge-pink-text: var(--pink-85);
+		--badge-pink-icon: var(--pink-65);
+		--badge-pink-hover: var(--pink-15);
+		--badge-pink-active: var(--pink-20);
+	}
+}

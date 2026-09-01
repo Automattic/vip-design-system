@@ -1,0 +1,10 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.toggle {
+	--toggle-switch: var(--color-control-foreground-primary);
+	--toggle-switch-disabled: var(--color-control-foreground-disabled);
+	--toggle-icon: var(--color-icon-inverse);
+	--toggle-icon-disabled: var(--color-control-foreground-disabled);
+	--toggle-background-primary: var(--color-control-background-primary);
+	--toggle-background-inactive: var(--color-control-background-inactive);
+	--toggle-background-disabled: var(--color-control-background-disabled);
+}

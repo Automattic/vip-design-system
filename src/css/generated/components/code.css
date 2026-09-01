@@ -1,0 +1,17 @@
+/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
+.code {
+	--code-background: var(--color-layer-inverse);
+	--code-text-primary: var(--color-text-inverse-primary);
+	--code-text-secondary: var(--color-text-inverse-secondary);
+}
+
+@supports (color: light-dark(red, blue)) {
+	.code {
+		--code-background: var(--color-layer-inverse);
+		--code-text-primary: light-dark(var(--color-text-inverse-primary), var(--color-text-primary));
+		--code-text-secondary: light-dark(
+			var(--color-text-inverse-secondary),
+			var(--color-text-secondary)
+		);
+	}
+}
