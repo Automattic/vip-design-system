@@ -1,0 +1,99 @@
+@layer blocks {
+	.notice {
+		display: flex;
+		gap: var(--space-3);
+		padding: var(--space-4);
+		border-radius: var(--radius-container);
+
+		/* Default variant: info */
+		background-color: var(--notice-info-background);
+		color: var(--notice-info-text);
+	}
+
+	.notice__icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: flex-start;
+		padding-top: 2px;
+		color: var(--notice-info-icon);
+	}
+
+	.notice__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.notice__message {
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-2);
+		line-height: var(--line-height-5);
+	}
+
+	.notice__action {
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-semibold);
+		line-height: var(--line-height-5);
+		color: var(--notice-info-link);
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	.notice__action:hover {
+		color: var(--notice-info-link-hover);
+	}
+
+	/* ── Variants ─────────────────────────────────────────────────────────────── */
+
+	.notice[data-variant='error'] {
+		background-color: var(--notice-error-background);
+		color: var(--notice-error-text);
+	}
+
+	.notice[data-variant='error'] .notice__icon {
+		color: var(--notice-error-icon);
+	}
+
+	.notice[data-variant='error'] .notice__action {
+		color: var(--notice-error-link);
+	}
+
+	.notice[data-variant='error'] .notice__action:hover {
+		color: var(--notice-error-link-hover);
+	}
+
+	.notice[data-variant='warning'] {
+		background-color: var(--notice-warning-background);
+		color: var(--notice-warning-text);
+	}
+
+	.notice[data-variant='warning'] .notice__icon {
+		color: var(--notice-warning-icon);
+	}
+
+	.notice[data-variant='warning'] .notice__action {
+		color: var(--notice-warning-link);
+	}
+
+	.notice[data-variant='warning'] .notice__action:hover {
+		color: var(--notice-warning-link-hover);
+	}
+
+	.notice[data-variant='success'] {
+		background-color: var(--notice-success-background);
+		color: var(--notice-success-text);
+	}
+
+	.notice[data-variant='success'] .notice__icon {
+		color: var(--notice-success-icon);
+	}
+
+	.notice[data-variant='success'] .notice__action {
+		color: var(--notice-success-link);
+	}
+
+	.notice[data-variant='success'] .notice__action:hover {
+		color: var(--notice-success-link-hover);
+	}
+}

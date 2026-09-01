@@ -1,0 +1,54 @@
+@layer blocks {
+	.checkbox {
+		appearance: none;
+		width: 1rem;
+		height: 1rem;
+		flex-shrink: 0;
+		border: 1.5px solid var(--checkbox-border);
+		border-radius: var(--radius-subtle);
+		background-color: var(--checkbox-background);
+		cursor: pointer;
+		transition:
+			background-color 120ms ease,
+			border-color 120ms ease;
+	}
+
+	.checkbox:hover {
+		border-color: var(--color-control-background-primary);
+	}
+
+	.checkbox:focus-visible {
+		outline: 2px solid var(--color-focus-outline);
+		outline-offset: 2px;
+	}
+
+	.checkbox:checked {
+		background-color: var(--checkbox-background-selected);
+		border-color: var(--checkbox-background-selected);
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 10px 10px;
+	}
+
+	.checkbox:indeterminate {
+		background-color: var(--checkbox-background-selected);
+		border-color: var(--checkbox-background-selected);
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 6h7' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 10px 10px;
+	}
+
+	.checkbox:disabled {
+		background-color: var(--checkbox-background-disabled);
+		border-color: transparent;
+		cursor: not-allowed;
+	}
+
+	.checkbox:checked:disabled,
+	.checkbox:indeterminate:disabled {
+		background-color: var(--checkbox-background-disabled);
+		border-color: transparent;
+	}
+}

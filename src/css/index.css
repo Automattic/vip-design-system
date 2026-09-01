@@ -11,7 +11,6 @@
 @import './generated/components/input.css';
 @import './generated/components/tag.css';
 @import './generated/components/sticker.css';
-@import './generated/components/support.css';
 @import './generated/components/toolbar.css';
 @import './generated/components/console.css';
 @import './generated/components/option-row.css';
@@ -44,15 +43,21 @@
 @import './compositions/frame.css';
 
 /* Blocks */
+@import './blocks/badge.css';
 @import './blocks/button.css';
-@import './blocks/input.css';
-@import './blocks/tag.css';
-@import './blocks/sticker.css';
-@import './blocks/support.css';
-@import './blocks/toolbar.css';
+@import './blocks/checkbox.css';
 @import './blocks/console.css';
+@import './blocks/environment-switcher.css';
+@import './blocks/input.css';
+@import './blocks/notice.css';
 @import './blocks/option-row.css';
+@import './blocks/radio.css';
+@import './blocks/radio-box.css';
 @import './blocks/slider.css';
+@import './blocks/sticker.css';
+@import './blocks/tag.css';
+@import './blocks/toggle.css';
+@import './blocks/toolbar.css';
 
 /* Utilities */
 @import './utilities/gap.css';

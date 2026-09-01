@@ -297,16 +297,7 @@ State and variant modifiers using `data-*` attributes:
 
 ## React Components
 
-React components are included only for patterns where interactive behavior requires JS. The full list is determined during implementation, but candidates from the existing system include:
-
-- Dialog / Confirmation Dialog
-- Dropdown
-- Tooltip
-- Tabs
-- Accordion
-- Checkbox
-- Switch (currently Toggle)
-- Mobile Menu
+React components are included only for patterns where interactive behavior requires JS. The full component list — including build method, atomic level, and status — is tracked in [`docs/component-inventory.csv`](component-inventory.csv).
 
 Each React component:
 
@@ -540,7 +531,7 @@ The new system ships as v3.0.0 (major version bump signals breaking changes). Wi
 
 ### Phase 5 — React components
 
-23. Implement complex interactive components (Dialog, Dropdown, Tooltip, Tabs, Accordion, Checkbox, Switch, and others as identified)
+23. Implement all React components listed in `docs/component-inventory.csv` with status "Not started" and build method "React"
 24. Each component: Radix primitive or hand-rolled as appropriate, CSS classes only, `labels` prop, Vitest tests, jest-axe test, Storybook stories
 25. Export all components from `src/index.ts`
 
