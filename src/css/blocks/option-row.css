@@ -27,14 +27,11 @@
 	}
 
 	.option-row__label {
-		font-weight: var(--font-weight-semibold);
-		font-size: var(--font-size-2);
-		line-height: var(--line-height-4);
+		/* Typography via .type-support-label-default — add that class to .option-row__label */
 	}
 
 	.option-row__description {
-		font-size: var(--font-size-1);
-		line-height: var(--line-height-5);
+		/* Typography via .type-support-helper-text — add that class to .option-row__description */
 		color: var(--color-text-helper);
 	}
 

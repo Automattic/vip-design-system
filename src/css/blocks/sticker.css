@@ -5,11 +5,7 @@
 		gap: var(--space-3);
 		padding: var(--space-3) var(--space-4);
 		border-radius: var(--border-radius-5);
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-semibold);
-		line-height: var(--line-height-0);
-		letter-spacing: var(--letter-spacing-loose-1);
+		/* Typography via .type-support-label-xs — add that class to .sticker */
 
 		/* Default color: gray */
 		background-color: var(--sticker-gray-background);

@@ -6,10 +6,7 @@
 	}
 
 	.slider__label {
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-semibold);
-		line-height: var(--line-height-0);
-		letter-spacing: var(--letter-spacing-loose-1);
+		/* Typography via .type-support-label-default — add that class to .slider__label */
 		color: var(--color-text-primary);
 	}
 

@@ -9,10 +9,7 @@
 		align-items: center;
 		gap: var(--space-3);
 		padding: var(--space-3) var(--space-4);
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-regular);
-		line-height: var(--line-height-4);
+		/* Typography via .type-support-label-default-quiet — add that class to .environment-switcher__item */
 		color: var(--color-text-primary);
 		text-decoration: none;
 		border-radius: var(--radius-control);
@@ -25,6 +22,13 @@
 
 	.environment-switcher__item[data-state='active'] {
 		background-color: var(--color-control-background-read-only);
+	}
+}
+
+/* Active state font-weight override must be in @layer exceptions so it outranks
+   the .type-support-label-default-quiet utility class (utilities > blocks). */
+@layer exceptions {
+	.environment-switcher__item[data-state='active'] {
 		font-weight: var(--font-weight-semibold);
 	}
 

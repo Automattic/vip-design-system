@@ -6,19 +6,12 @@
 	}
 
 	.input__label {
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-semibold);
-		line-height: var(--line-height-0);
-		letter-spacing: var(--letter-spacing-loose-1);
+		/* Typography via .type-support-label-default — add that class to .input__label */
 		color: var(--input-label);
 	}
 
 	.input__field {
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-2);
-		font-weight: var(--font-weight-regular);
-		line-height: var(--line-height-5);
+		/* Typography via .type-body-default — add that class to .input__field */
 		color: var(--input-text);
 		background-color: var(--input-background);
 		border: 1px solid var(--input-border);
@@ -66,8 +59,7 @@
 	/* ── Helper / error text ──────────────────────────────────────────────────── */
 
 	.input__helper {
-		font-size: var(--font-size-1);
-		line-height: var(--line-height-5);
+		/* Typography via .type-support-helper-text — add that class to .input__helper */
 		color: var(--color-text-helper);
 	}
 

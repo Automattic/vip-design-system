@@ -25,13 +25,11 @@
 	}
 
 	.notice__message {
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-2);
-		line-height: var(--line-height-5);
+		/* Typography via .type-body-default — add that class to .notice__message */
 	}
 
 	.notice__action {
-		font-family: var(--font-family-default);
+		/* Typography: semibold body text — pending new type token (see decisions log) */
 		font-size: var(--font-size-2);
 		font-weight: var(--font-weight-semibold);
 		line-height: var(--line-height-5);

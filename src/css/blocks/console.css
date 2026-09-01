@@ -7,10 +7,7 @@
 	}
 
 	.console__output {
-		font-family: var(--font-family-monospace);
-		font-size: var(--font-size-2);
-		line-height: var(--line-height-5);
-		letter-spacing: var(--letter-spacing-none);
+		/* Typography via .type-body-mono — add that class to .console__output */
 		color: var(--console-text-primary);
 		white-space: pre-wrap;
 		word-break: break-all;
