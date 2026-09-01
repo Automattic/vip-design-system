@@ -3,14 +3,10 @@
 		display: inline-flex;
 		align-items: center;
 		gap: var(--space-1);
-		padding: var(--space-0) var(--space-2);
+		padding: var(--space-1) var(--space-2);
 		border: 1px solid var(--badge-gray-border);
-		border-radius: var(--border-radius-5);
-		font-family: var(--font-family-default);
-		font-size: var(--font-size-1);
-		font-weight: var(--font-weight-semibold);
-		line-height: var(--line-height-0);
-		letter-spacing: var(--letter-spacing-loose-1);
+		border-radius: var(--radius-control);
+		/* Typography via .type-support-label-xs — add that class to the element */
 		white-space: nowrap;
 
 		/* Default color: gray */

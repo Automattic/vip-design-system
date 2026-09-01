@@ -7,11 +7,7 @@
 		padding: var(--button-padding, var(--space-3) var(--space-5));
 		border: var(--button-border, 1px solid transparent);
 		border-radius: var(--button-border-radius, var(--radius-control));
-		font-family: var(--button-font-family, var(--font-family-default));
-		font-size: var(--button-font-size, var(--font-size-2));
-		font-weight: var(--button-font-weight, var(--font-weight-semibold));
-		line-height: var(--button-line-height, var(--line-height-0));
-		letter-spacing: var(--button-letter-spacing, var(--letter-spacing-loose-1));
+		/* Typography via .type-support-label-default — add that class to the element */
 		text-decoration: var(--button-text-decoration, none);
 		white-space: var(--button-white-space, nowrap);
 		cursor: var(--button-cursor, pointer);
@@ -47,15 +43,17 @@
 	}
 
 	/* ── Size variants ────────────────────────────────────────────────────────── */
+	/* Default (no data-size): L — 38px. Space tokens don't have a clean match
+	   for 11px vertical, so we pin height with min-height and let flexbox center. */
 
-	.button[data-size='small'] {
-		--button-padding: var(--space-1) var(--space-4);
-		--button-font-size: var(--font-size-1);
+	.button {
+		min-height: 2.375rem;
 	}
 
-	.button[data-size='large'] {
-		--button-padding: var(--space-4) var(--space-6);
-		--button-font-size: var(--font-size-3);
+	.button[data-size='medium'] {
+		/* M — 32px = border(1) + padding(8) + text(14) + padding(8) + border(1) */
+		min-height: unset;
+		--button-padding: var(--space-3) var(--space-5);
 	}
 
 	/* ── Secondary ────────────────────────────────────────────────────────────── */

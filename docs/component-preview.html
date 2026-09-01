@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VIP Design System — Component Preview</title>
+		<link rel="stylesheet" href="../src/css/index.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+		/>
+		<style>
+			/* ── Preview chrome — not part of the design system ──────────────────── */
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			:root {
+				--chrome-sidebar-width: 200px;
+				--chrome-label-font: 'IBM Plex Mono', ui-monospace, monospace;
+				--chrome-topbar-height: 48px;
+			}
+
+			html {
+				font-family: var(--font-family-default);
+				color: var(--color-text-primary);
+				background: var(--color-layer-1);
+			}
+
+			/* ── Layout ───────────────────────────────────────────────────────────── */
+
+			.chrome-topbar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: var(--chrome-topbar-height);
+				background: var(--color-layer-inverse);
+				color: var(--color-text-inverse-primary);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0 1.5rem;
+				z-index: 100;
+			}
+
+			.chrome-topbar__title {
+				font-family: var(--chrome-label-font);
+				font-size: 0.75rem;
+				font-weight: 500;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				opacity: 0.9;
+			}
+
+			.chrome-topbar__meta {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				font-family: var(--chrome-label-font);
+				font-size: 0.7rem;
+				opacity: 0.6;
+			}
+
+			.chrome-theme-toggle {
+				background: transparent;
+				border: 1px solid rgba(255, 255, 255, 0.25);
+				color: var(--color-text-inverse-primary);
+				font-family: var(--chrome-label-font);
+				font-size: 0.7rem;
+				padding: 0.25rem 0.6rem;
+				border-radius: 3px;
+				cursor: pointer;
+				letter-spacing: 0.04em;
+			}
+
+			.chrome-theme-toggle:hover {
+				background: rgba(255, 255, 255, 0.1);
+			}
+
+			.chrome-layout {
+				display: flex;
+				min-height: 100vh;
+				padding-top: var(--chrome-topbar-height);
+			}
+
+			.chrome-sidebar {
+				width: var(--chrome-sidebar-width);
+				flex-shrink: 0;
+				position: fixed;
+				top: var(--chrome-topbar-height);
+				bottom: 0;
+				overflow-y: auto;
+				background: var(--color-layer-1);
+				border-right: 1px solid var(--color-border-default);
+				padding: 1.5rem 0;
+			}
+
+			.chrome-sidebar__group {
+				margin-bottom: 1.5rem;
+			}
+
+			.chrome-sidebar__heading {
+				font-family: var(--chrome-label-font);
+				font-size: 0.6rem;
+				font-weight: 500;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--color-text-helper);
+				padding: 0 1rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.chrome-sidebar__link {
+				display: block;
+				padding: 0.3rem 1rem;
+				font-size: 0.8125rem;
+				color: var(--color-text-secondary);
+				text-decoration: none;
+				border-left: 2px solid transparent;
+				transition:
+					color 100ms ease,
+					border-color 100ms ease,
+					background-color 100ms ease;
+			}
+
+			.chrome-sidebar__link:hover {
+				color: var(--color-text-primary);
+				background: var(--color-layer-3);
+				border-left-color: var(--color-border-control);
+			}
+
+			.chrome-main {
+				flex: 1;
+				margin-left: var(--chrome-sidebar-width);
+				padding: 3rem 3.5rem;
+				max-width: 900px;
+			}
+
+			/* ── Section structure ────────────────────────────────────────────────── */
+
+			.preview-section {
+				margin-bottom: 4rem;
+				scroll-margin-top: calc(var(--chrome-topbar-height) + 1.5rem);
+			}
+
+			.preview-section__header {
+				display: flex;
+				align-items: baseline;
+				gap: 0.75rem;
+				margin-bottom: 1.5rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border-default);
+			}
+
+			.preview-section__name {
+				font-family: var(--chrome-label-font);
+				font-size: 0.875rem;
+				font-weight: 500;
+				color: var(--color-text-primary);
+			}
+
+			.preview-section__type {
+				font-family: var(--chrome-label-font);
+				font-size: 0.65rem;
+				color: var(--color-text-helper);
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+			}
+
+			.preview-subsection {
+				margin-bottom: 1.5rem;
+			}
+
+			.preview-label {
+				font-family: var(--chrome-label-font);
+				font-size: 0.65rem;
+				font-weight: 500;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+				color: var(--color-text-helper);
+				margin-bottom: 0.75rem;
+				display: block;
+			}
+
+			.preview-row {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.75rem;
+			}
+
+			.preview-row--column {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.preview-canvas {
+				background: var(--color-layer-2);
+				border: 1px solid var(--color-border-default);
+				border-radius: 6px;
+				padding: 1.25rem 1.5rem;
+			}
+
+			.preview-canvas--dark {
+				background: var(--color-layer-inverse);
+			}
+
+			/* ── Utility demo helpers ─────────────────────────────────────────────── */
+
+			.swatch-group {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+			}
+
+			.swatch {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.375rem;
+			}
+
+			.swatch__block {
+				width: 4rem;
+				height: 4rem;
+				border-radius: 4px;
+				border: 1px solid var(--color-border-default);
+			}
+
+			.swatch__label {
+				font-family: var(--chrome-label-font);
+				font-size: 0.6rem;
+				color: var(--color-text-helper);
+				white-space: nowrap;
+				text-align: center;
+			}
+
+			.color-row {
+				display: grid;
+				grid-template-columns: 1.5rem 1fr;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 0.375rem 0;
+			}
+
+			.color-row__dot {
+				width: 1.5rem;
+				height: 1.5rem;
+				border-radius: 50%;
+				border: 1px solid var(--color-border-default);
+				flex-shrink: 0;
+			}
+
+			.spacing-demo {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				font-family: var(--chrome-label-font);
+				font-size: 0.65rem;
+				color: var(--color-text-helper);
+			}
+
+			.spacing-demo__box {
+				background: var(--color-control-background-primary);
+				opacity: 0.3;
+				height: 0.5rem;
+			}
+
+			/* ── Icon placeholder ─────────────────────────────────────────────────── */
+
+			.icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 1rem;
+				height: 1rem;
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Top bar -->
+		<header class="chrome-topbar">
+			<span class="chrome-topbar__title">VIP Design System — Phase 4 Preview</span>
+			<div class="chrome-topbar__meta">
+				<span>em/system-rebuild-v3</span>
+				<button
+					class="chrome-theme-toggle"
+					onclick="
+						const h = document.documentElement;
+						const t = h.getAttribute('data-theme');
+						if (!t || t === 'light') h.setAttribute('data-theme', 'dark');
+						else h.setAttribute('data-theme', 'light');
+						this.textContent = h.getAttribute('data-theme') === 'dark' ? 'Light mode' : 'Dark mode';
+					"
+				>
+					Dark mode
+				</button>
+			</div>
+		</header>
+
+		<div class="chrome-layout">
+			<!-- Sidebar -->
+			<nav class="chrome-sidebar">
+				<div class="chrome-sidebar__group">
+					<div class="chrome-sidebar__heading">Utilities</div>
+					<a href="#colors" class="chrome-sidebar__link">Colors</a>
+					<a href="#spacing" class="chrome-sidebar__link">Spacing</a>
+				</div>
+				<div class="chrome-sidebar__group">
+					<div class="chrome-sidebar__heading">Blocks</div>
+					<a href="#badge" class="chrome-sidebar__link">Badge</a>
+					<a href="#button" class="chrome-sidebar__link">Button</a>
+					<a href="#checkbox" class="chrome-sidebar__link">Checkbox</a>
+					<a href="#console" class="chrome-sidebar__link">Console</a>
+					<a href="#environment-switcher" class="chrome-sidebar__link">Env Switcher</a>
+					<a href="#input" class="chrome-sidebar__link">Input</a>
+					<a href="#notice" class="chrome-sidebar__link">Notice</a>
+					<a href="#option-row" class="chrome-sidebar__link">Option Row</a>
+					<a href="#radio" class="chrome-sidebar__link">Radio</a>
+					<a href="#radio-box" class="chrome-sidebar__link">Radio Box</a>
+					<a href="#slider" class="chrome-sidebar__link">Slider</a>
+					<a href="#sticker" class="chrome-sidebar__link">Sticker</a>
+					<a href="#tag" class="chrome-sidebar__link">Tag</a>
+					<a href="#toggle" class="chrome-sidebar__link">Toggle</a>
+					<a href="#toolbar" class="chrome-sidebar__link">Toolbar</a>
+				</div>
+			</nav>
+
+			<!-- Main content -->
+			<main class="chrome-main">
+				<!-- ── UTILITIES ───────────────────────────────────────────────────── -->
+
+				<section id="colors" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Colors</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+
+					<div class="preview-subsection">
+						<span class="preview-label">Text colors — light surface</span>
+						<div class="preview-canvas">
+							<div class="color-row">
+								<div class="color-row__dot" style="background: var(--color-text-primary)"></div>
+								<span class="text-primary" style="font-size: var(--font-size-2)"
+									>text-primary — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row">
+								<div class="color-row__dot" style="background: var(--color-text-secondary)"></div>
+								<span class="text-secondary" style="font-size: var(--font-size-2)"
+									>text-secondary — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row">
+								<div class="color-row__dot" style="background: var(--color-text-helper)"></div>
+								<span class="text-helper" style="font-size: var(--font-size-2)"
+									>text-helper — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row">
+								<div class="color-row__dot" style="background: var(--color-text-disabled)"></div>
+								<span class="text-disabled" style="font-size: var(--font-size-2)"
+									>text-disabled — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row">
+								<div class="color-row__dot" style="background: var(--color-text-placeholder)"></div>
+								<span class="text-placeholder" style="font-size: var(--font-size-2)"
+									>text-placeholder — The quick brown fox</span
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="preview-subsection">
+						<span class="preview-label">Text colors — inverse surface</span>
+						<div class="preview-canvas preview-canvas--dark">
+							<div class="color-row">
+								<div
+									class="color-row__dot"
+									style="background: var(--color-text-inverse-primary)"
+								></div>
+								<span class="text-inverse-primary" style="font-size: var(--font-size-2)"
+									>text-inverse-primary — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row">
+								<div
+									class="color-row__dot"
+									style="background: var(--color-text-inverse-secondary)"
+								></div>
+								<span class="text-inverse-secondary" style="font-size: var(--font-size-2)"
+									>text-inverse-secondary — The quick brown fox</span
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="preview-subsection">
+						<span class="preview-label">Background colors</span>
+						<div class="swatch-group">
+							<div class="swatch">
+								<div class="swatch__block bg-primary"></div>
+								<span class="swatch__label">bg-primary</span>
+							</div>
+							<div class="swatch">
+								<div class="swatch__block bg-layer-1"></div>
+								<span class="swatch__label">bg-layer-1</span>
+							</div>
+							<div class="swatch">
+								<div class="swatch__block bg-layer-2"></div>
+								<span class="swatch__label">bg-layer-2</span>
+							</div>
+							<div class="swatch">
+								<div class="swatch__block bg-layer-3"></div>
+								<span class="swatch__label">bg-layer-3</span>
+							</div>
+							<div class="swatch">
+								<div class="swatch__block bg-layer-4"></div>
+								<span class="swatch__label">bg-layer-4</span>
+							</div>
+							<div class="swatch">
+								<div class="swatch__block bg-layer-inverse"></div>
+								<span class="swatch__label">bg-layer-inverse</span>
+							</div>
+							<div class="swatch">
+								<div class="swatch__block bg-layer-accent"></div>
+								<span class="swatch__label">bg-layer-accent</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="spacing" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Spacing</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-3)">
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-0)"></div>
+								<span>space-0 / 2px — .gap-0 .p-0 .m-0</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-1)"></div>
+								<span>space-1 / 4px — .gap-1 .p-1 .m-1</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-2)"></div>
+								<span>space-2 / 6px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-3)"></div>
+								<span>space-3 / 8px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-4)"></div>
+								<span>space-4 / 12px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-5)"></div>
+								<span>space-5 / 16px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-6)"></div>
+								<span>space-6 / 24px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-7)"></div>
+								<span>space-7 / 32px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-8)"></div>
+								<span>space-8 / 40px</span>
+							</div>
+							<div class="spacing-demo">
+								<div class="spacing-demo__box" style="width: var(--space-9)"></div>
+								<span>space-9 / 56px</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- ── BLOCKS ──────────────────────────────────────────────────────── -->
+
+				<!-- Badge -->
+				<section id="badge" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Badge</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Color variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row">
+								<span class="badge type-support-label-xs">Gray</span>
+								<span class="badge type-support-label-xs" data-color="blue">Blue</span>
+								<span class="badge type-support-label-xs" data-color="green">Green</span>
+								<span class="badge type-support-label-xs" data-color="red">Red</span>
+								<span class="badge type-support-label-xs" data-color="gold">Gold</span>
+								<span class="badge type-support-label-xs" data-color="yellow">Yellow</span>
+								<span class="badge type-support-label-xs" data-color="orange">Orange</span>
+								<span class="badge type-support-label-xs" data-color="salmon">Salmon</span>
+								<span class="badge type-support-label-xs" data-color="pink">Pink</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Button -->
+				<section id="button" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Button</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row">
+								<button class="button type-support-label-default">Primary</button>
+								<button class="button type-support-label-default" data-variant="secondary">
+									Secondary
+								</button>
+								<button class="button type-support-label-default" data-variant="tertiary">
+									Tertiary
+								</button>
+								<button class="button type-support-label-default" data-variant="ghost">
+									Ghost
+								</button>
+								<button class="button type-support-label-default" data-variant="display">
+									Display
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Danger variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row">
+								<button class="button type-support-label-default" data-variant="danger">
+									Danger
+								</button>
+								<button class="button type-support-label-default" data-variant="danger-secondary">
+									Danger secondary
+								</button>
+								<button class="button type-support-label-default" data-variant="danger-ghost">
+									Danger ghost
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Sizes</span>
+						<div class="preview-canvas">
+							<div class="preview-row" style="align-items: center">
+								<button class="button type-support-label-default">Large Button (default)</button>
+								<button class="button type-support-label-default" data-size="medium">
+									Medium Button
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Disabled</span>
+						<div class="preview-canvas">
+							<div class="preview-row">
+								<button class="button type-support-label-default" disabled>Primary</button>
+								<button class="button type-support-label-default" data-variant="secondary" disabled>
+									Secondary
+								</button>
+								<button class="button type-support-label-default" data-variant="tertiary" disabled>
+									Tertiary
+								</button>
+								<button class="button type-support-label-default" data-variant="ghost" disabled>
+									Ghost
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Checkbox -->
+				<section id="checkbox" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Checkbox</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row">
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" />
+								<span>Unchecked</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" checked />
+								<span>Checked</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" id="indeterminate-demo" />
+								<span>Indeterminate</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" disabled />
+								<span class="text-disabled">Disabled</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" checked disabled />
+								<span class="text-disabled">Checked + disabled</span>
+							</label>
+						</div>
+					</div>
+				</section>
+
+				<!-- Console -->
+				<section id="console" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Console</span>
+						<span class="preview-section__type">Organism · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="console">
+							<div class="console__output">
+								<span class="console__timestamp">2024-03-15 14:32:01 UTC</span> INFO Application
+								started successfully<br />
+								<span class="console__timestamp">2024-03-15 14:32:02 UTC</span> INFO Listening on
+								port 8080<br />
+								<span class="console__timestamp">2024-03-15 14:32:15 UTC</span> INFO GET
+								/api/v1/sites 200 42ms<br />
+								<span class="console__timestamp">2024-03-15 14:32:16 UTC</span> WARN Rate limit
+								threshold reached for client 192.168.1.1<br />
+								<span class="console__timestamp">2024-03-15 14:32:17 UTC</span> ERROR Failed to
+								connect to upstream: connection refused
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Environment Switcher -->
+				<section id="environment-switcher" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Environment Switcher</span>
+						<span class="preview-section__type">Molecule · React</span>
+					</div>
+					<div class="preview-canvas" style="max-width: 280px">
+						<nav class="environment-switcher">
+							<a class="environment-switcher__item" data-env="production" data-state="active">
+								<span class="environment-switcher__indicator"></span>
+								production.wpvip.com
+							</a>
+							<a class="environment-switcher__item" data-env="non-prod">
+								<span class="environment-switcher__indicator"></span>
+								staging.wpvip.com
+							</a>
+							<a class="environment-switcher__item" data-env="non-prod">
+								<span class="environment-switcher__indicator"></span>
+								develop.wpvip.com
+							</a>
+						</nav>
+					</div>
+				</section>
+
+				<!-- Input -->
+				<section id="input" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Input</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-5); max-width: 360px">
+							<div class="input">
+								<label class="input__label">Default</label>
+								<input class="input__field" type="text" placeholder="Placeholder text" />
+								<span class="input__helper">Helper text for this field</span>
+							</div>
+							<div class="input" data-state="error">
+								<label class="input__label">Error state</label>
+								<input class="input__field" type="text" value="Invalid value" />
+								<span class="input__helper">This field has an error</span>
+							</div>
+							<div class="input" data-state="disabled">
+								<label class="input__label">Disabled</label>
+								<input class="input__field" type="text" placeholder="Disabled" disabled />
+							</div>
+							<div class="input" data-state="read-only">
+								<label class="input__label">Read-only</label>
+								<input class="input__field" type="text" value="Read-only value" readonly />
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Notice -->
+				<section id="notice" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Notice</span>
+						<span class="preview-section__type">Molecule · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-4)">
+							<div class="notice">
+								<span class="notice__icon">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+										<path
+											d="M8 5v4M8 11v.5"
+											stroke="currentColor"
+											stroke-width="1.5"
+											stroke-linecap="round"
+										/>
+									</svg>
+								</span>
+								<div class="notice__body">
+									<p class="notice__message">
+										This is an informational message with context about what's happening.
+									</p>
+									<a class="notice__action">Learn more</a>
+								</div>
+							</div>
+							<div class="notice" data-variant="success">
+								<span class="notice__icon">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+										<path
+											d="M5 8l2 2 4-4"
+											stroke="currentColor"
+											stroke-width="1.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</span>
+								<div class="notice__body">
+									<p class="notice__message">Your changes have been saved successfully.</p>
+								</div>
+							</div>
+							<div class="notice" data-variant="warning">
+								<span class="notice__icon">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path
+											d="M8 2L14.5 13.5H1.5L8 2Z"
+											stroke="currentColor"
+											stroke-width="1.5"
+											stroke-linejoin="round"
+										/>
+										<path
+											d="M8 7v3M8 11.5v.5"
+											stroke="currentColor"
+											stroke-width="1.5"
+											stroke-linecap="round"
+										/>
+									</svg>
+								</span>
+								<div class="notice__body">
+									<p class="notice__message">
+										Your plan will expire in 3 days. Renew now to avoid interruption.
+									</p>
+									<a class="notice__action">Renew plan</a>
+								</div>
+							</div>
+							<div class="notice" data-variant="error">
+								<span class="notice__icon">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+										<path
+											d="M6 6l4 4M10 6l-4 4"
+											stroke="currentColor"
+											stroke-width="1.5"
+											stroke-linecap="round"
+										/>
+									</svg>
+								</span>
+								<div class="notice__body">
+									<p class="notice__message">Deployment failed. Check the logs for more details.</p>
+									<a class="notice__action">View logs</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Option Row -->
+				<section id="option-row" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Option Row</span>
+						<span class="preview-section__type">Molecule · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-2)">
+							<div class="option-row">
+								<span class="option-row__icon">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<rect
+											x="2"
+											y="2"
+											width="12"
+											height="12"
+											rx="2"
+											stroke="currentColor"
+											stroke-width="1.5"
+										/>
+									</svg>
+								</span>
+								<div class="option-row__content">
+									<span class="option-row__label">Default option row</span>
+									<span class="option-row__description">Description with supporting detail</span>
+								</div>
+							</div>
+							<div class="option-row" data-variant="alt">
+								<span class="option-row__icon">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+									</svg>
+								</span>
+								<div class="option-row__content">
+									<span class="option-row__label">Alt variant</span>
+									<span class="option-row__description">Alternative background style</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Radio -->
+				<section id="radio" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Radio</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row">
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="radio" type="radio" name="radio-demo" />
+								<span>Option A</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="radio" type="radio" name="radio-demo" checked />
+								<span>Option B (selected)</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="radio" type="radio" name="radio-demo" disabled />
+								<span class="text-disabled">Disabled</span>
+							</label>
+						</div>
+					</div>
+				</section>
+
+				<!-- Radio Box -->
+				<section id="radio-box" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Radio Box</span>
+						<span class="preview-section__type">Molecule · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div
+							class="preview-row"
+							style="align-items: stretch; flex-wrap: wrap; max-width: 600px"
+						>
+							<label class="radio-box" style="flex: 1; min-width: 160px">
+								<input class="radio-box__input radio" type="radio" name="radiobox-demo" />
+								<span class="radio-box__content">
+									<span class="radio-box__label">Starter</span>
+									<span class="radio-box__description">Best for small teams</span>
+								</span>
+							</label>
+							<label class="radio-box" style="flex: 1; min-width: 160px">
+								<input class="radio-box__input radio" type="radio" name="radiobox-demo" checked />
+								<span class="radio-box__content">
+									<span class="radio-box__label">Professional</span>
+									<span class="radio-box__description">Most popular option</span>
+								</span>
+							</label>
+							<label class="radio-box" style="flex: 1; min-width: 160px">
+								<input class="radio-box__input radio" type="radio" name="radiobox-demo" />
+								<span class="radio-box__content">
+									<span class="radio-box__label">Enterprise</span>
+									<span class="radio-box__description">Unlimited everything</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slider -->
+				<section id="slider" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Slider</span>
+						<span class="preview-section__type">Atom · React (Radix Slider)</span>
+					</div>
+					<div class="preview-canvas">
+						<p class="text-helper" style="font-size: var(--font-size-2)">
+							The Slider is a React component built on Radix Slider. The filled track requires JS to
+							stay in sync with the handle position. Preview renders in Storybook.
+						</p>
+					</div>
+				</section>
+
+				<!-- Sticker -->
+				<section id="sticker" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Sticker</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row">
+							<div class="sticker" data-color="gray">
+								<span class="sticker__primary">Featured</span>
+								<span class="sticker__secondary">New</span>
+							</div>
+							<div class="sticker" data-color="blue">
+								<span class="sticker__primary">Enterprise</span>
+								<span class="sticker__secondary">Plan</span>
+							</div>
+							<div class="sticker" data-color="green">
+								<span class="sticker__primary">Popular</span>
+								<span class="sticker__secondary">Choice</span>
+							</div>
+							<div class="sticker" data-color="gold">
+								<span class="sticker__primary">Gold</span>
+								<span class="sticker__secondary">Tier</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Tag -->
+				<section id="tag" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Tag</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Color variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row">
+								<span class="tag">Gray</span>
+								<span class="tag" data-color="blue">Blue</span>
+								<span class="tag" data-color="green">Green</span>
+								<span class="tag" data-color="red">Red</span>
+								<span class="tag" data-color="gold">Gold</span>
+								<span class="tag" data-color="yellow">Yellow</span>
+								<span class="tag" data-color="orange">Orange</span>
+								<span class="tag" data-color="salmon">Salmon</span>
+								<span class="tag" data-color="pink">Pink</span>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection">
+						<span class="preview-label">Interactive (dismissable)</span>
+						<div class="preview-canvas">
+							<div class="preview-row">
+								<span class="tag" data-interactive>
+									Interactive gray
+									<button
+										class="tag__icon"
+										style="
+											background: none;
+											border: none;
+											cursor: pointer;
+											line-height: 0;
+											padding: 0;
+										"
+									>
+										<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+											<path
+												d="M2 2l6 6M8 2l-6 6"
+												stroke="currentColor"
+												stroke-width="1.5"
+												stroke-linecap="round"
+											/>
+										</svg>
+									</button>
+								</span>
+								<span class="tag" data-color="blue" data-interactive>
+									Interactive blue
+									<button
+										class="tag__icon"
+										style="
+											background: none;
+											border: none;
+											cursor: pointer;
+											line-height: 0;
+											padding: 0;
+										"
+									>
+										<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+											<path
+												d="M2 2l6 6M8 2l-6 6"
+												stroke="currentColor"
+												stroke-width="1.5"
+												stroke-linecap="round"
+											/>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Toggle -->
+				<section id="toggle" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Toggle</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row">
+							<label class="toggle">
+								<input class="toggle__input" type="checkbox" />
+								<span class="toggle__track"></span>
+								<span>Off</span>
+							</label>
+							<label class="toggle">
+								<input class="toggle__input" type="checkbox" checked />
+								<span class="toggle__track"></span>
+								<span>On</span>
+							</label>
+							<label class="toggle" data-state="disabled">
+								<input class="toggle__input" type="checkbox" disabled />
+								<span class="toggle__track"></span>
+								<span class="text-disabled">Disabled off</span>
+							</label>
+							<label class="toggle" data-state="disabled">
+								<input class="toggle__input" type="checkbox" checked disabled />
+								<span class="toggle__track"></span>
+								<span class="text-disabled">Disabled on</span>
+							</label>
+						</div>
+					</div>
+				</section>
+
+				<!-- Toolbar -->
+				<section id="toolbar" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Toolbar</span>
+						<span class="preview-section__type">Organism · React</span>
+					</div>
+					<div class="preview-canvas">
+						<p class="text-helper" style="font-size: var(--font-size-2)">
+							The Toolbar is a React component containing the VIP logo, environment context, global
+							search, help menu, and user actions. It references component tokens from toolbar.css.
+							Preview renders in Storybook.
+						</p>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script>
+			// Set indeterminate state on the demo checkbox — can only be done via JS
+			const el = document.getElementById('indeterminate-demo');
+			if (el) el.indeterminate = true;
+		</script>
+	</body>
+</html>
