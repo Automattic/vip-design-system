@@ -1,0 +1,256 @@
+@layer utilities {
+	/* ── Padding (all sides) ──────────────────────────────────────────────────── */
+
+	.p-0 {
+		padding: var(--space-0);
+	}
+	.p-1 {
+		padding: var(--space-1);
+	}
+	.p-2 {
+		padding: var(--space-2);
+	}
+	.p-3 {
+		padding: var(--space-3);
+	}
+	.p-4 {
+		padding: var(--space-4);
+	}
+	.p-5 {
+		padding: var(--space-5);
+	}
+	.p-6 {
+		padding: var(--space-6);
+	}
+	.p-7 {
+		padding: var(--space-7);
+	}
+	.p-8 {
+		padding: var(--space-8);
+	}
+	.p-9 {
+		padding: var(--space-9);
+	}
+	.p-10 {
+		padding: var(--space-10);
+	}
+	.p-11 {
+		padding: var(--space-11);
+	}
+	.p-12 {
+		padding: var(--space-12);
+	}
+
+	/* ── Padding inline (left + right) ───────────────────────────────────────── */
+
+	.px-0 {
+		padding-inline: var(--space-0);
+	}
+	.px-1 {
+		padding-inline: var(--space-1);
+	}
+	.px-2 {
+		padding-inline: var(--space-2);
+	}
+	.px-3 {
+		padding-inline: var(--space-3);
+	}
+	.px-4 {
+		padding-inline: var(--space-4);
+	}
+	.px-5 {
+		padding-inline: var(--space-5);
+	}
+	.px-6 {
+		padding-inline: var(--space-6);
+	}
+	.px-7 {
+		padding-inline: var(--space-7);
+	}
+	.px-8 {
+		padding-inline: var(--space-8);
+	}
+	.px-9 {
+		padding-inline: var(--space-9);
+	}
+	.px-10 {
+		padding-inline: var(--space-10);
+	}
+	.px-11 {
+		padding-inline: var(--space-11);
+	}
+	.px-12 {
+		padding-inline: var(--space-12);
+	}
+
+	/* ── Padding block (top + bottom) ────────────────────────────────────────── */
+
+	.py-0 {
+		padding-block: var(--space-0);
+	}
+	.py-1 {
+		padding-block: var(--space-1);
+	}
+	.py-2 {
+		padding-block: var(--space-2);
+	}
+	.py-3 {
+		padding-block: var(--space-3);
+	}
+	.py-4 {
+		padding-block: var(--space-4);
+	}
+	.py-5 {
+		padding-block: var(--space-5);
+	}
+	.py-6 {
+		padding-block: var(--space-6);
+	}
+	.py-7 {
+		padding-block: var(--space-7);
+	}
+	.py-8 {
+		padding-block: var(--space-8);
+	}
+	.py-9 {
+		padding-block: var(--space-9);
+	}
+	.py-10 {
+		padding-block: var(--space-10);
+	}
+	.py-11 {
+		padding-block: var(--space-11);
+	}
+	.py-12 {
+		padding-block: var(--space-12);
+	}
+
+	/* ── Margin (all sides) ───────────────────────────────────────────────────── */
+
+	.m-0 {
+		margin: var(--space-0);
+	}
+	.m-1 {
+		margin: var(--space-1);
+	}
+	.m-2 {
+		margin: var(--space-2);
+	}
+	.m-3 {
+		margin: var(--space-3);
+	}
+	.m-4 {
+		margin: var(--space-4);
+	}
+	.m-5 {
+		margin: var(--space-5);
+	}
+	.m-6 {
+		margin: var(--space-6);
+	}
+	.m-7 {
+		margin: var(--space-7);
+	}
+	.m-8 {
+		margin: var(--space-8);
+	}
+	.m-9 {
+		margin: var(--space-9);
+	}
+	.m-10 {
+		margin: var(--space-10);
+	}
+	.m-11 {
+		margin: var(--space-11);
+	}
+	.m-12 {
+		margin: var(--space-12);
+	}
+
+	/* ── Margin inline (left + right) ────────────────────────────────────────── */
+
+	.mx-0 {
+		margin-inline: var(--space-0);
+	}
+	.mx-1 {
+		margin-inline: var(--space-1);
+	}
+	.mx-2 {
+		margin-inline: var(--space-2);
+	}
+	.mx-3 {
+		margin-inline: var(--space-3);
+	}
+	.mx-4 {
+		margin-inline: var(--space-4);
+	}
+	.mx-5 {
+		margin-inline: var(--space-5);
+	}
+	.mx-6 {
+		margin-inline: var(--space-6);
+	}
+	.mx-7 {
+		margin-inline: var(--space-7);
+	}
+	.mx-8 {
+		margin-inline: var(--space-8);
+	}
+	.mx-9 {
+		margin-inline: var(--space-9);
+	}
+	.mx-10 {
+		margin-inline: var(--space-10);
+	}
+	.mx-11 {
+		margin-inline: var(--space-11);
+	}
+	.mx-12 {
+		margin-inline: var(--space-12);
+	}
+	.mx-auto {
+		margin-inline: auto;
+	}
+
+	/* ── Margin block (top + bottom) ─────────────────────────────────────────── */
+
+	.my-0 {
+		margin-block: var(--space-0);
+	}
+	.my-1 {
+		margin-block: var(--space-1);
+	}
+	.my-2 {
+		margin-block: var(--space-2);
+	}
+	.my-3 {
+		margin-block: var(--space-3);
+	}
+	.my-4 {
+		margin-block: var(--space-4);
+	}
+	.my-5 {
+		margin-block: var(--space-5);
+	}
+	.my-6 {
+		margin-block: var(--space-6);
+	}
+	.my-7 {
+		margin-block: var(--space-7);
+	}
+	.my-8 {
+		margin-block: var(--space-8);
+	}
+	.my-9 {
+		margin-block: var(--space-9);
+	}
+	.my-10 {
+		margin-block: var(--space-10);
+	}
+	.my-11 {
+		margin-block: var(--space-11);
+	}
+	.my-12 {
+		margin-block: var(--space-12);
+	}
+}

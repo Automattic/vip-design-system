@@ -1,0 +1,49 @@
+@layer utilities {
+	/* ── Text color ───────────────────────────────────────────────────────────── */
+
+	.text-primary {
+		color: var(--color-text-primary);
+	}
+	.text-secondary {
+		color: var(--color-text-secondary);
+	}
+	.text-helper {
+		color: var(--color-text-helper);
+	}
+	.text-disabled {
+		color: var(--color-text-disabled);
+	}
+	.text-placeholder {
+		color: var(--color-text-placeholder);
+	}
+	.text-inverse-primary {
+		color: var(--color-text-inverse-primary);
+	}
+	.text-inverse-secondary {
+		color: var(--color-text-inverse-secondary);
+	}
+
+	/* ── Background color ────────────────────────────────────────────────────── */
+
+	.bg-primary {
+		background-color: var(--color-background-primary);
+	}
+	.bg-layer-1 {
+		background-color: var(--color-layer-1);
+	}
+	.bg-layer-2 {
+		background-color: var(--color-layer-2);
+	}
+	.bg-layer-3 {
+		background-color: var(--color-layer-3);
+	}
+	.bg-layer-4 {
+		background-color: var(--color-layer-4);
+	}
+	.bg-layer-inverse {
+		background-color: var(--color-layer-inverse);
+	}
+	.bg-layer-accent {
+		background-color: var(--color-layer-accent);
+	}
+}
