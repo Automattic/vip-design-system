@@ -1,5 +1,6 @@
 node_modules/
 dist/
+dist/sprite.svg
 storybook-static/
 coverage/
 .DS_Store

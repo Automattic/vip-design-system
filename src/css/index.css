@@ -60,4 +60,5 @@
 /* Utilities */
 @import './utilities/color.css';
 @import './utilities/gap.css';
+@import './utilities/icon.css';
 @import './utilities/spacing.css';
