@@ -9,8 +9,7 @@
 	.console__output {
 		/* Typography via .type-body-mono — add that class to .console__output */
 		color: var(--console-text-primary);
-		white-space: pre-wrap;
-		word-break: break-all;
+		white-space: pre;
 	}
 
 	.console__timestamp {
