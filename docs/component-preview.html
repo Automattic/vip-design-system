@@ -317,7 +317,6 @@
 					<a href="#button" class="chrome-sidebar__link">Button</a>
 					<a href="#checkbox" class="chrome-sidebar__link">Checkbox</a>
 					<a href="#console" class="chrome-sidebar__link">Console</a>
-					<a href="#environment-switcher" class="chrome-sidebar__link">Env Switcher</a>
 					<a href="#input" class="chrome-sidebar__link">Input</a>
 					<a href="#notice" class="chrome-sidebar__link">Notice</a>
 					<a href="#option-row" class="chrome-sidebar__link">Option Row</a>
@@ -640,30 +639,6 @@
 					</div>
 				</section>
 
-				<!-- Environment Switcher -->
-				<section id="environment-switcher" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Environment Switcher</span>
-						<span class="preview-section__type">Molecule · React</span>
-					</div>
-					<div class="preview-canvas" style="max-width: 280px">
-						<nav class="environment-switcher">
-							<a class="environment-switcher__item" data-env="production" data-state="active">
-								<span class="environment-switcher__indicator"></span>
-								production.wpvip.com
-							</a>
-							<a class="environment-switcher__item" data-env="non-prod">
-								<span class="environment-switcher__indicator"></span>
-								staging.wpvip.com
-							</a>
-							<a class="environment-switcher__item" data-env="non-prod">
-								<span class="environment-switcher__indicator"></span>
-								develop.wpvip.com
-							</a>
-						</nav>
-					</div>
-				</section>
-
 				<!-- Input -->
 				<section id="input" class="preview-section">
 					<div class="preview-section__header">
@@ -675,12 +650,14 @@
 							<div class="input">
 								<label class="input__label">Default</label>
 								<input class="input__field" type="text" placeholder="Placeholder text" />
-								<span class="input__helper">Helper text for this field</span>
+								<span class="input__helper type-support-helper-text"
+									>Helper text for this field</span
+								>
 							</div>
 							<div class="input" data-state="error">
 								<label class="input__label">Error state</label>
 								<input class="input__field" type="text" value="Invalid value" />
-								<span class="input__helper">This field has an error</span>
+								<span class="input__helper type-support-helper-text">This field has an error</span>
 							</div>
 							<div class="input" data-state="disabled">
 								<label class="input__label">Disabled</label>

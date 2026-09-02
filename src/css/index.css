@@ -22,7 +22,6 @@
 @import './generated/components/badge.css';
 @import './generated/components/notice.css';
 @import './generated/components/code.css';
-@import './generated/components/environment-switcher.css';
 
 /* Typography utility classes (.type-heading-1, .type-body-default, etc.) */
 @import './generated/typography.css';
@@ -47,7 +46,6 @@
 @import './blocks/button.css';
 @import './blocks/checkbox.css';
 @import './blocks/console.css';
-@import './blocks/environment-switcher.css';
 @import './blocks/input.css';
 @import './blocks/notice.css';
 @import './blocks/option-row.css';

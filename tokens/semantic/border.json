@@ -25,6 +25,14 @@
 					"dark": "{gray.65}"
 				}
 			},
+			"control-hover": {
+				"$value": "{black}",
+				"$type": "color",
+				"$description": "Hover border for interactive form controls.",
+				"$extensions": {
+					"dark": "{gray.7}"
+				}
+			},
 			"inverse": {
 				"$value": "{gray.50}",
 				"$type": "color",

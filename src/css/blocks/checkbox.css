@@ -14,7 +14,7 @@
 	}
 
 	.checkbox:hover {
-		border-color: var(--color-control-background-primary);
+		border-color: var(--checkbox-border-hover);
 	}
 
 	.checkbox:focus-visible {
@@ -25,19 +25,19 @@
 	.checkbox:checked {
 		background-color: var(--checkbox-background-selected);
 		border-color: var(--checkbox-background-selected);
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.4999 4.99953L5.7254 12.4008L2.5 9.33026L3.83307 7.92997L5.7254 9.73147L12.1668 3.59924L13.4999 4.99953Z' fill='%23FBFBFB'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 10px 10px;
+		background-size: 100%;
 	}
 
 	.checkbox:indeterminate {
 		background-color: var(--checkbox-background-selected);
 		border-color: var(--checkbox-background-selected);
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 6h7' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='4' y='7' width='8' height='2' fill='%23FBFBFB'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 10px 10px;
+		background-size: 100%;
 	}
 
 	.checkbox:disabled {

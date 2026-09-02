@@ -529,6 +529,14 @@ The new system ships as v3.0.0 (major version bump signals breaking changes). Wi
 21. Block styles (per-component CSS with scoped component tokens)
 22. Exception styles (`data-*` attribute selectors for states and variants)
 
+### Phase 4.5 — Icon system
+
+32. Install `@boxicons/core` as a dependency
+33. Write a build script that reads `node_modules/@boxicons/core/svg/basic/` and `filled/` and compiles a `dist/sprite.svg` containing all icons as `<symbol>` elements with `id` attributes matching the original filenames (e.g. `bx-error-circle`, `bxf-error-circle`)
+34. Add the sprite build as a step in `npm run build`
+35. Add an `.icon` utility class: `display: inline-block; width: 1em; height: 1em; fill: currentColor; vertical-align: middle; flex-shrink: 0`
+36. Document icon usage pattern in Storybook: `<svg class="icon" aria-hidden="true"><use href="#bx-{name}"/></svg>` with a visible label, or `<svg class="icon" role="img" aria-label="..."><use href="#bx-{name}"/></svg>` for standalone icons
+
 ### Phase 5 — React components
 
 23. Implement all React components listed in `docs/component-inventory.csv` with status "Not started" and build method "React"

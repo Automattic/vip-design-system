@@ -1,5 +1,0 @@
-/* Auto-generated — do not edit. Run `npm run build:tokens` to update. */
-.environment-switcher {
-	--environment-switcher-primary: var(--color-environment-production);
-	--environment-switcher-secondary: var(--color-environment-non-prod);
-}

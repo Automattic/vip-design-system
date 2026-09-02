@@ -18,6 +18,7 @@
 	--color-border-default: var(--gray-10);
 	--color-border-disabled: var(--gray-25);
 	--color-border-control: var(--gray-45);
+	--color-border-control-hover: var(--black);
 	--color-border-inverse: var(--gray-50);
 	--color-border-transparent: var(--transparent);
 	--color-button-background-primary: var(--black);
@@ -247,6 +248,7 @@
 		--color-border-default: light-dark(var(--gray-10), var(--gray-75));
 		--color-border-disabled: light-dark(var(--gray-25), var(--gray-73));
 		--color-border-control: light-dark(var(--gray-45), var(--gray-65));
+		--color-border-control-hover: light-dark(var(--black), var(--gray-7));
 		--color-border-inverse: var(--gray-50);
 		--color-border-transparent: var(--transparent);
 		--color-button-background-primary: light-dark(var(--black), var(--gold-60));

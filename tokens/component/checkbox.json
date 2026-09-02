@@ -12,6 +12,10 @@
 			"$value": "{color.border.control}",
 			"$type": "color"
 		},
+		"border-hover": {
+			"$value": "{color.border.control-hover}",
+			"$type": "color"
+		},
 		"background": {
 			"$value": "{color.control.background.transparent}",
 			"$type": "color"

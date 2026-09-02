@@ -3,6 +3,7 @@
 	--checkbox-foreground: var(--color-control-foreground-primary);
 	--checkbox-foreground-disabled: var(--color-control-foreground-disabled);
 	--checkbox-border: var(--color-border-control);
+	--checkbox-border-hover: var(--color-border-control-hover);
 	--checkbox-background: var(--color-control-background-transparent);
 	--checkbox-background-selected: var(--color-control-background-primary);
 	--checkbox-background-disabled: var(--color-control-background-disabled);
