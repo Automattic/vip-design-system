@@ -286,7 +286,7 @@ const FormAutocomplete = ( {
 				query: inputQuery && inputQuery !== '' ? selectedValue ?? '' : '', // selected value should not be null or the component will crash
 			} );
 		}
-	}, [ acRef ] );
+	}, [ acRef, resetOnBlur, inputQuery, selectedValue ] );
 	// sets the internal state variables and calls the onChange callback
 	const setAutocompleteState = useCallback(
 		( inputValue: string | null ) => {
@@ -424,7 +424,7 @@ const FormAutocomplete = ( {
 		input.addEventListener( 'keydown', onKeyDown );
 
 		return () => input.removeEventListener( 'keydown', onKeyDown );
-	}, [ inputId, resetOnBlur, setIsDirty ] );
+	}, [ inputId, resetOnBlur, setIsDirty, resetInputState ] );
 
 	// For accessibility, we need to add the error message to the aria-describedby attribute
 	useEffect( () => {
@@ -461,7 +461,7 @@ const FormAutocomplete = ( {
 		input.addEventListener( 'blur', onBlur );
 
 		return () => input.removeEventListener( 'blur', onBlur );
-	}, [ inputId ] );
+	}, [ inputId, resetInputState ] );
 	return (
 		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
 			{ label && ! isInline && <SelectLabel /> }
