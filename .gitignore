@@ -5,6 +5,7 @@ coverage/
 .DS_Store
 *.local
 .env
+build/
 
 # Claude Code local settings (machine-specific)
 .claude/settings.local.json
