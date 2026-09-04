@@ -1,0 +1,69 @@
+@layer utilities {
+	/*
+	 * Flow — spaces children in normal document flow.
+	 *
+	 * A utility, not a composition: it establishes no layout context of its own,
+	 * it only inserts space between siblings. Children keep normal block
+	 * behaviour (margin collapsing, floats, `display` values authored on them),
+	 * which is what makes it suitable for prose and long-form content. Reach for
+	 * the .stack composition when you want a flex column with alignment control.
+	 *
+	 * Living in the utilities layer means it also overrides margins set by a
+	 * block, so it can be applied to block internals to respace them.
+	 *
+	 * Because the margin sits on the child, `var(--flow-space)` resolves in the
+	 * child's context. Set the value with `data-flow-space`, which declares it
+	 * on the children rather than on the container — that way a nested .flow
+	 * takes its own margin from its parent while still setting a different
+	 * space for its own children.
+	 *
+	 * The attribute is prefixed because .region carries a parallel scale and
+	 * both can land on one element; see region.css for the naming rule.
+	 *
+	 * Setting --flow-space directly on a .flow is safe only at the top level:
+	 * on a nested one it shadows the value its parent set on it.
+	 */
+	.flow > * + * {
+		margin-block-start: var(--flow-space, var(--space-5));
+	}
+
+	.flow[data-flow-space='0'] > * {
+		--flow-space: var(--space-0);
+	}
+	.flow[data-flow-space='1'] > * {
+		--flow-space: var(--space-1);
+	}
+	.flow[data-flow-space='2'] > * {
+		--flow-space: var(--space-2);
+	}
+	.flow[data-flow-space='3'] > * {
+		--flow-space: var(--space-3);
+	}
+	.flow[data-flow-space='4'] > * {
+		--flow-space: var(--space-4);
+	}
+	.flow[data-flow-space='5'] > * {
+		--flow-space: var(--space-5);
+	}
+	.flow[data-flow-space='6'] > * {
+		--flow-space: var(--space-6);
+	}
+	.flow[data-flow-space='7'] > * {
+		--flow-space: var(--space-7);
+	}
+	.flow[data-flow-space='8'] > * {
+		--flow-space: var(--space-8);
+	}
+	.flow[data-flow-space='9'] > * {
+		--flow-space: var(--space-9);
+	}
+	.flow[data-flow-space='10'] > * {
+		--flow-space: var(--space-10);
+	}
+	.flow[data-flow-space='11'] > * {
+		--flow-space: var(--space-11);
+	}
+	.flow[data-flow-space='12'] > * {
+		--flow-space: var(--space-12);
+	}
+}

@@ -1,0 +1,23 @@
+@layer compositions {
+	/*
+	 * Repel — pushes children to opposite ends of the inline axis.
+	 *
+	 * The inline alignment is deliberately fixed at space-between: that
+	 * separation is the composition. For a row whose inline alignment varies,
+	 * use .cluster with --cluster-inline-alignment instead.
+	 *
+	 * Wraps by default so a narrow container stacks the children rather than
+	 * crushing them; set data-nowrap to keep them on one line.
+	 */
+	.repel {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: var(--repel-block-alignment, center);
+		gap: var(--repel-gap, var(--space-5));
+	}
+
+	.repel[data-nowrap] {
+		flex-wrap: nowrap;
+	}
+}

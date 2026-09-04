@@ -1,0 +1,23 @@
+@layer compositions {
+	/*
+	 * Wrapper — a horizontally centred column with a maximum measure.
+	 *
+	 * A composition rather than a utility: it combines three properties into
+	 * the measure-and-centre layout pattern, where a utility does one job.
+	 * (.flow is the utility by that test — a single margin between siblings.)
+	 *
+	 * It arranges content in space but sets no layout context for its own
+	 * children — pair it with .stack or .grid for that.
+	 *
+	 * Every Layout calls the equivalent primitive "Center".
+	 *
+	 * The reset sets box-sizing: border-box globally, so --wrapper-max-inline-size
+	 * is the OUTER width and the inline padding sits inside it. Every Layout's
+	 * Center uses content-box, where the measure excludes padding.
+	 */
+	.wrapper {
+		max-inline-size: var(--wrapper-max-inline-size, 70rem);
+		margin-inline: auto;
+		padding-inline: var(--wrapper-padding-inline, var(--space-5));
+	}
+}

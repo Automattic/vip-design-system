@@ -1,0 +1,38 @@
+@layer utilities {
+	/*
+	 * Visually hidden — removes content from view while leaving it in the
+	 * accessibility tree, for text that screen readers need but sighted users
+	 * don't: a skip link, an icon-only button's label, a table caption.
+	 *
+	 * Not interchangeable with display:none or visibility:hidden — those remove
+	 * the element from the accessibility tree too, which defeats the purpose.
+	 *
+	 * The :not(:focus):not(:active) guard makes one class serve both cases: the
+	 * element stays hidden until it receives focus, so a skip link reveals
+	 * itself when tabbed to. Put the class on the focusable element itself —
+	 * :focus does not match an ancestor of the focused node.
+	 *
+	 * TESTING IN SAFARI — use plain Tab, not Option+Tab.
+	 *
+	 * Whether Tab visits links depends on Safari's keyboard navigation setting,
+	 * and Option+Tab applies the OPPOSITE of whatever that setting is. So with
+	 * the setting on, Option+Tab is precisely the combination that skips links,
+	 * and the skip link appears broken when it is working. Verified in Safari
+	 * that once focus arrives — by any route — the element reveals correctly.
+	 *
+	 * Buttons are visited either way; only links depend on the setting.
+	 *
+	 * clip-path: inset(50%) replaces the deprecated clip: rect(). The 1px box
+	 * (rather than zero) and white-space: nowrap keep the content from being
+	 * collapsed or wrapped into a tall strip, both of which have historically
+	 * caused screen readers to skip or garble it.
+	 */
+	.visually-hidden:not(:focus):not(:active) {
+		position: absolute;
+		inline-size: 1px;
+		block-size: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+}

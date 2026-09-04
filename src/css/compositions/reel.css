@@ -1,0 +1,53 @@
+@layer compositions {
+	/*
+	 * Reel — a horizontally scrolling row.
+	 *
+	 * Children keep their size and overflow into a horizontal scroll area
+	 * instead of wrapping. Use it where wrapping would break a comparison —
+	 * a run of cards, a long swatch scale — and .cluster (which wraps) is
+	 * therefore wrong.
+	 *
+	 * scrollbar-gutter reserves the track so content doesn't shift when the
+	 * scrollbar appears. Every Layout adds a class via JS for this; the
+	 * property does it in CSS alone.
+	 */
+	.reel {
+		display: flex;
+		gap: var(--reel-gap, var(--space-5));
+		align-items: var(--reel-block-alignment, stretch);
+		block-size: var(--reel-block-size, auto);
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-gutter: stable;
+	}
+
+	/* Items hold their width — no shrinking, no wrapping */
+	.reel > * {
+		flex: 0 0 var(--reel-item-inline-size, auto);
+	}
+
+	/* Images fill the reel's height and keep their aspect ratio */
+	.reel > img {
+		block-size: 100%;
+		inline-size: auto;
+		flex-basis: auto;
+	}
+
+	/*
+	 * Hides the scrollbar. The reel still scrolls by wheel, trackpad, touch and
+	 * keyboard, but the visual affordance is gone — so pair this with another
+	 * cue (an edge fade, arrows, a peeking next item) wherever it isn't already
+	 * obvious the content continues.
+	 *
+	 * scrollbar-gutter returns to auto: there's no bar left to reserve space
+	 * for, and keeping it stable would leave a dead strip along the edge.
+	 */
+	.reel[data-scrollbar='hidden'] {
+		scrollbar-width: none;
+		scrollbar-gutter: auto;
+	}
+
+	.reel[data-scrollbar='hidden']::-webkit-scrollbar {
+		display: none;
+	}
+}

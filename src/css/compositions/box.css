@@ -1,0 +1,45 @@
+@layer compositions {
+	/*
+	 * Box — a padded surface with a boundary.
+	 *
+	 * The primitive under card-like things: a padded area, a border, and a
+	 * foreground/background pair. Unlike the other compositions it arranges
+	 * nothing — it has no children to lay out — so pair it with .stack or
+	 * .cluster for the contents.
+	 *
+	 * Colour and background are set TOGETHER and always as a pair. That is the
+	 * point of the primitive: override one without the other and you get text
+	 * on a surface it was never checked against. Both are exposed as custom
+	 * properties so a variant swaps them in one place, as data-variant does.
+	 *
+	 * Every Layout's Box leaves the border colour unset so it falls back to
+	 * currentColor, which keeps the boundary visible in forced-colours mode
+	 * where backgrounds are stripped. This defaults to --color-border-default
+	 * instead, to sit correctly beside the system's other surfaces; the
+	 * forced-colours case is handled explicitly at the bottom.
+	 */
+	.box {
+		padding: var(--box-padding, var(--space-5));
+		border: var(--box-border-width, 1px) solid var(--box-border-color, var(--color-border-default));
+		border-radius: var(--box-radius, var(--radius-container));
+		color: var(--box-color, var(--color-text-primary));
+		background-color: var(--box-background, var(--color-layer-2));
+	}
+
+	.box[data-variant='inverse'] {
+		--box-color: var(--box-color-inverse, var(--color-layer-2));
+		--box-background: var(--box-background-inverse, var(--color-text-primary));
+		--box-border-color: var(--box-border-color-inverse, var(--color-text-primary));
+	}
+
+	/*
+	 * Backgrounds are dropped in forced-colours mode, so a box defined only by
+	 * its fill would lose its boundary. currentColor is substituted with the
+	 * user's own text colour there, keeping the edge visible.
+	 */
+	@media (forced-colors: active) {
+		.box {
+			border-color: currentColor;
+		}
+	}
+}

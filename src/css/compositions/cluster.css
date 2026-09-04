@@ -3,7 +3,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--cluster-gap, var(--space-4));
-		justify-content: var(--cluster-justify, flex-start);
-		align-items: var(--cluster-align, center);
+
+		/* Row direction, so justify-content runs the INLINE axis and
+		   align-items the BLOCK axis. */
+		justify-content: var(--cluster-inline-alignment, flex-start);
+		align-items: var(--cluster-block-alignment, center);
 	}
 }

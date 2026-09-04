@@ -1,0 +1,90 @@
+@layer utilities {
+	/*
+	 * Region — consistent vertical rhythm for a chunk of a page.
+	 *
+	 * One job: block padding on a page section, so successive regions are
+	 * separated by a predictable amount without each one inventing its own
+	 * value.
+	 *
+	 * Three separate concerns: region owns the block padding, wrapper owns the
+	 * inline measure, flow owns the space between children. The canonical page
+	 * composition looks like this:
+	 *
+	 *   <section class="region" data-region-space="10">
+	 *     <div class="wrapper flow" data-flow-space="5">
+	 *       …
+	 *     </div>
+	 *   </section>
+	 *
+	 * region and wrapper want to be on SEPARATE elements. The region's padded
+	 * band — and any background it carries — should span the full width while
+	 * the content inside stays capped at the measure. Collapse them onto one
+	 * element and the band is capped too: at a 1200px container with a 40rem
+	 * measure, separated gives a 1200px band around 640px of content, combined
+	 * gives a 640px band and no full-bleed.
+	 *
+	 * flow has no such constraint — it only sets margins between children — so
+	 * it can ride on whichever element holds the content, as above.
+	 *
+	 * Set the size with data-region-space, --region-space, or the .p-b-* scale.
+	 * The attribute assigns the custom property rather than padding directly,
+	 * so an inline --region-space still overrides it and .p-b-* (imported after
+	 * this file) still wins over both.
+	 *
+	 * The attribute is prefixed because .flow carries a parallel scale. Both
+	 * can land on one element — <section class="region flow"> — and a shared
+	 * `data-space` would drive the region's padding and the children's flow
+	 * spacing from a single value, with no way to set them apart. Prefixing
+	 * keeps them independent:
+	 *
+	 *   <section class="region flow" data-region-space="10" data-flow-space="5">
+	 *
+	 * That is the rule for this system: prefix a data-* scale when its name
+	 * would otherwise be shared across classes, leave it unprefixed when it
+	 * belongs to exactly one (data-position, data-order, data-scrollbar,
+	 * data-nowrap, data-sticky).
+	 */
+	.region {
+		padding-block: var(--region-space, var(--space-10));
+	}
+
+	.region[data-region-space='0'] {
+		--region-space: var(--space-0);
+	}
+	.region[data-region-space='1'] {
+		--region-space: var(--space-1);
+	}
+	.region[data-region-space='2'] {
+		--region-space: var(--space-2);
+	}
+	.region[data-region-space='3'] {
+		--region-space: var(--space-3);
+	}
+	.region[data-region-space='4'] {
+		--region-space: var(--space-4);
+	}
+	.region[data-region-space='5'] {
+		--region-space: var(--space-5);
+	}
+	.region[data-region-space='6'] {
+		--region-space: var(--space-6);
+	}
+	.region[data-region-space='7'] {
+		--region-space: var(--space-7);
+	}
+	.region[data-region-space='8'] {
+		--region-space: var(--space-8);
+	}
+	.region[data-region-space='9'] {
+		--region-space: var(--space-9);
+	}
+	.region[data-region-space='10'] {
+		--region-space: var(--space-10);
+	}
+	.region[data-region-space='11'] {
+		--region-space: var(--space-11);
+	}
+	.region[data-region-space='12'] {
+		--region-space: var(--space-12);
+	}
+}

@@ -121,20 +121,21 @@
 	kbd,
 	samp {
 		font-family: var(--font-family-monospace);
-		font-size: var(--font-size-2);
+		/* inherit, not an absolute token — inline code has to track whatever
+		   text it sits in (helper text, a label, a heading), and a fixed size
+		   renders identically in all of them. */
+		font-size: inherit;
 		letter-spacing: var(--letter-spacing-none);
 	}
 
+	/* Code inside a pre needs no rule of its own — code inherits, so it always
+	   takes the size set here. */
 	pre {
 		font-family: var(--font-family-monospace);
 		font-size: var(--font-size-2);
 		line-height: var(--line-height-5);
 		letter-spacing: var(--letter-spacing-none);
 		overflow-x: auto;
-	}
-
-	pre code {
-		font-size: inherit;
 	}
 
 	/* ── Blockquote ───────────────────────────────────────────────────────────── */

@@ -3,9 +3,16 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--sidebar-gap, var(--space-5));
+
+		/* Row direction, so justify-content runs the INLINE axis and
+		   align-items the BLOCK axis. */
+		justify-content: var(--sidebar-inline-alignment, flex-start);
+		align-items: var(--sidebar-block-alignment, stretch);
 	}
 
-	/* The sidebar child — set --sidebar-width on the parent to control it */
+	/* The sidebar child — set --sidebar-width on the parent to control it.
+	   flex-grow:1 here against flex-grow:999 on the content child means this
+	   child takes 1/1000th of any free space, so it holds its flex-basis. */
 	.sidebar > :first-child {
 		flex-basis: var(--sidebar-width, 20rem);
 		flex-grow: 1;
@@ -16,5 +23,74 @@
 		flex-basis: 0;
 		flex-grow: 999;
 		min-inline-size: var(--sidebar-content-min, 50%);
+	}
+
+	/*
+	 * data-position="end" swaps the two roles, so the sidebar trails the content
+	 * on the inline axis. Source order is unchanged — the sidebar is still
+	 * written last — which keeps the reading order sensible and means that on
+	 * wrap it stacks BELOW the content rather than above it.
+	 *
+	 * "start"/"end" rather than "left"/"right" to stay flow-relative, matching
+	 * --sidebar-inline-alignment. Omit the attribute for the default (start).
+	 */
+	.sidebar[data-position='end'] > :first-child {
+		flex-basis: 0;
+		flex-grow: 999;
+		min-inline-size: var(--sidebar-content-min, 50%);
+	}
+
+	.sidebar[data-position='end'] > :last-child {
+		flex-basis: var(--sidebar-width, 20rem);
+		flex-grow: 1;
+		min-inline-size: auto;
+	}
+
+	/*
+	 * data-order="reverse" flips the two children VISUALLY, leaving source order
+	 * untouched. data-position says which child IS the sidebar; this says where
+	 * it's drawn. They're orthogonal:
+	 *
+	 *   sidebar first in source, drawn first   (default, no attributes)
+	 *   sidebar last  in source, drawn last    data-position="end"
+	 *   sidebar first in source, drawn last    data-order="reverse"
+	 *   sidebar last  in source, drawn first   data-position="end" data-order="reverse"
+	 *
+	 * Setting order on the first child is enough: with two children, moving the
+	 * first one to the end swaps them whichever role each is playing.
+	 *
+	 * ACCESSIBILITY: this deliberately desyncs DOM order from visual order.
+	 * Keyboard focus and screen readers follow the DOM, so a sidebar drawn first
+	 * but written last is reached AFTER the content it appears before — a WCAG
+	 * 2.4.3 (Focus Order) failure once the sidebar holds links. Reorder the
+	 * markup and use data-position alone wherever you can; reach for this only
+	 * when the source order is genuinely fixed.
+	 */
+	.sidebar[data-order='reverse'] > :first-child {
+		order: 1;
+	}
+
+	/*
+	 * data-sticky pins the sidebar child while the content scrolls past it.
+	 * Applies to whichever child is currently the sidebar.
+	 *
+	 * --sidebar-sticky-offset is the distance from the viewport top to pin at
+	 * (e.g. the height of a fixed header). It feeds the block-size too, so the
+	 * rail fills the viewport below that offset; set --sidebar-sticky-block-size
+	 * to `auto` for a content-height sidebar instead.
+	 *
+	 * NOT handled here: unsticking when the composition wraps. Once wrapped the
+	 * sidebar is full-width, and a pinned full-width rail covers the viewport
+	 * for the whole scroll. The wrap point depends on --sidebar-width and
+	 * --sidebar-content-min, and neither media nor container queries can read a
+	 * custom property, so the consumer has to restate that breakpoint and reset
+	 * `position` there. See .chrome-sidebar in docs/component-preview-v2.html.
+	 */
+	.sidebar[data-sticky]:not([data-position='end']) > :first-child,
+	.sidebar[data-sticky][data-position='end'] > :last-child {
+		position: sticky;
+		inset-block-start: var(--sidebar-sticky-offset, 0px);
+		block-size: var(--sidebar-sticky-block-size, calc(100vh - var(--sidebar-sticky-offset, 0px)));
+		overflow-y: auto;
 	}
 }

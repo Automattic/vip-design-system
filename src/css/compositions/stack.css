@@ -1,11 +1,23 @@
 @layer compositions {
+	/*
+	 * Stack — a vertical flex column.
+	 *
+	 * Spacing uses `gap`, so the value is consumed by the container that owns
+	 * it. Nested stacks each keep their own gap without interfering, and the
+	 * `.gap-*` utilities work on a stack as-is.
+	 *
+	 * For spacing content in normal document flow (prose, long-form copy),
+	 * use .flow instead — it sets no flex context.
+	 */
 	.stack {
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-start;
-	}
+		gap: var(--stack-gap, var(--space-5));
 
-	.stack > * + * {
-		margin-block-start: var(--stack-gap, var(--space-5));
+		/* Column direction, so justify-content runs the BLOCK axis and
+		   align-items the INLINE axis — the inverse of the row-direction
+		   compositions (.cluster, .sidebar). */
+		justify-content: var(--stack-block-alignment, flex-start);
+		align-items: var(--stack-inline-alignment, stretch);
 	}
 }

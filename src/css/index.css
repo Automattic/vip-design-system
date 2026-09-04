@@ -33,13 +33,18 @@
 @import './global.css';
 
 /* Compositions */
+@import './compositions/box.css';
 @import './compositions/stack.css';
 @import './compositions/cluster.css';
+@import './compositions/repel.css';
 @import './compositions/grid.css';
 @import './compositions/sidebar.css';
 @import './compositions/switcher.css';
+@import './compositions/reel.css';
 @import './compositions/cover.css';
 @import './compositions/frame.css';
+@import './compositions/wrapper.css';
+@import './compositions/with-icon.css';
 
 /* Blocks */
 @import './blocks/badge.css';
@@ -59,5 +64,9 @@
 
 /* Utilities */
 @import './utilities/color.css';
+@import './utilities/flow.css';
 @import './utilities/gap.css';
+@import './utilities/icon.css';
+@import './utilities/region.css';
 @import './utilities/spacing.css';
+@import './utilities/visually-hidden.css';

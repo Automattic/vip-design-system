@@ -1,0 +1,24 @@
+@layer compositions {
+	/*
+	 * With icon — places an icon alongside text on a shared baseline.
+	 *
+	 * align-items: baseline, not center. Paired with .icon's 1cap sizing, the
+	 * icon sits on the text baseline and rises to cap height, so it reads as
+	 * another capital letter in the line rather than a graphic floated next to
+	 * one. Centring instead would leave it optically low against ascenders.
+	 *
+	 * The gap is em-relative, not a --space-* token: it has to scale with the
+	 * text it accompanies, and a fixed 8px that suits body copy is wrong beside
+	 * a heading. This is the one place in the system where spacing is deliberately
+	 * off the space scale.
+	 *
+	 * NOT for controls that centre their own contents. .button and .toolbar are
+	 * padded boxes, not running text — they already set align-items: center and
+	 * their own gap, and need only .icon on the svg itself.
+	 */
+	.with-icon {
+		display: inline-flex;
+		align-items: baseline;
+		gap: var(--with-icon-gap, 0.5em);
+	}
+}

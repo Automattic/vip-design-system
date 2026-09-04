@@ -1,4 +1,21 @@
 @layer utilities {
+	/*
+	 * Gap utilities, named for the axis they space, matching the spacing scale:
+	 *
+	 *   .gap-5     gap          both axes
+	 *   .gap-i-5   column-gap   inline axis
+	 *   .gap-b-5   row-gap      block axis
+	 *
+	 * The mapping is exact: column-gap always spaces along the inline axis and
+	 * row-gap along the block axis, regardless of flex-direction. (In a flex
+	 * column the space between items is row-gap, not column-gap.) That is unlike
+	 * justify-content / align-items, which swap axes with the direction — hence
+	 * --stack-block-alignment meaning something different from
+	 * --cluster-block-alignment. Gap needs no such care.
+	 */
+
+	/* ── Gap (both axes) ───────────────────────────────────────────────────────── */
+
 	.gap-0 {
 		gap: var(--space-0);
 	}
@@ -37,5 +54,89 @@
 	}
 	.gap-12 {
 		gap: var(--space-12);
+	}
+
+	/* ── Gap inline (column-gap) ───────────────────────────────────────────────── */
+
+	.gap-i-0 {
+		column-gap: var(--space-0);
+	}
+	.gap-i-1 {
+		column-gap: var(--space-1);
+	}
+	.gap-i-2 {
+		column-gap: var(--space-2);
+	}
+	.gap-i-3 {
+		column-gap: var(--space-3);
+	}
+	.gap-i-4 {
+		column-gap: var(--space-4);
+	}
+	.gap-i-5 {
+		column-gap: var(--space-5);
+	}
+	.gap-i-6 {
+		column-gap: var(--space-6);
+	}
+	.gap-i-7 {
+		column-gap: var(--space-7);
+	}
+	.gap-i-8 {
+		column-gap: var(--space-8);
+	}
+	.gap-i-9 {
+		column-gap: var(--space-9);
+	}
+	.gap-i-10 {
+		column-gap: var(--space-10);
+	}
+	.gap-i-11 {
+		column-gap: var(--space-11);
+	}
+	.gap-i-12 {
+		column-gap: var(--space-12);
+	}
+
+	/* ── Gap block (row-gap) ───────────────────────────────────────────────────── */
+
+	.gap-b-0 {
+		row-gap: var(--space-0);
+	}
+	.gap-b-1 {
+		row-gap: var(--space-1);
+	}
+	.gap-b-2 {
+		row-gap: var(--space-2);
+	}
+	.gap-b-3 {
+		row-gap: var(--space-3);
+	}
+	.gap-b-4 {
+		row-gap: var(--space-4);
+	}
+	.gap-b-5 {
+		row-gap: var(--space-5);
+	}
+	.gap-b-6 {
+		row-gap: var(--space-6);
+	}
+	.gap-b-7 {
+		row-gap: var(--space-7);
+	}
+	.gap-b-8 {
+		row-gap: var(--space-8);
+	}
+	.gap-b-9 {
+		row-gap: var(--space-9);
+	}
+	.gap-b-10 {
+		row-gap: var(--space-10);
+	}
+	.gap-b-11 {
+		row-gap: var(--space-11);
+	}
+	.gap-b-12 {
+		row-gap: var(--space-12);
 	}
 }

@@ -1,0 +1,30 @@
+@layer utilities {
+	/*
+	 * Icon — sizes an SVG to match the text it sits beside.
+	 *
+	 * 1cap is the font's cap height, so the icon is exactly as tall as a
+	 * capital letter. 1em would be the font SIZE, which includes ascender and
+	 * descender space: at 16px that is 16px against a cap height of ~11.3px, so
+	 * an em-sized icon stands 42% taller than the capitals next to it.
+	 *
+	 * The 0.75em fallback is declared first — browsers without cap support drop
+	 * the second declaration and keep it. It lands within about 6.5% of true
+	 * cap height, which is close enough to pass unnoticed.
+	 *
+	 * No vertical-align: an inline-block's baseline is its bottom margin edge,
+	 * so a 1cap icon already spans baseline to cap height and aligns with
+	 * capitals unaided. Use .with-icon to place one alongside text.
+	 *
+	 * fill: currentColor means the icon takes the colour of surrounding text
+	 * and themes for free — the sprite build strips hardcoded fills for this.
+	 */
+	.icon {
+		display: inline-block;
+		block-size: 0.75em;
+		block-size: 1cap;
+		inline-size: 0.75em;
+		inline-size: 1cap;
+		fill: currentColor;
+		flex-shrink: 0;
+	}
+}
