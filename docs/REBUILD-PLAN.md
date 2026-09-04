@@ -534,7 +534,38 @@ The new system ships as v3.0.0 (major version bump signals breaking changes). Wi
 32. Install `@boxicons/core` as a dependency
 33. Write a build script that reads `node_modules/@boxicons/core/svg/basic/` and `filled/` and compiles a `dist/sprite.svg` containing all icons as `<symbol>` elements with `id` attributes matching the original filenames (e.g. `bx-error-circle`, `bxf-error-circle`)
 34. Add the sprite build as a step in `npm run build`
-35. Add an `.icon` utility class: `display: inline-block; width: 1em; height: 1em; fill: currentColor; vertical-align: middle; flex-shrink: 0`
+35. Add an `.icon` utility sized in `cap` units, following Every Layout's Icon:
+
+    ```css
+    .icon {
+    	display: inline-block;
+    	block-size: 0.75em; /* fallback for no cap support */
+    	block-size: 1cap;
+    	inline-size: 0.75em;
+    	inline-size: 1cap;
+    	fill: currentColor;
+    	flex-shrink: 0;
+    }
+    ```
+
+    `1cap` is the font's cap height, so the icon matches the capital letters beside it. `1em` is the font size — at 16px that is 16px against a cap height of 11.27px, making an `em`-sized icon 42% too tall. Declare the `em` fallback first; browsers without `cap` discard the second declaration.
+
+    No `vertical-align` — an inline-block's baseline is its bottom edge, so a `1cap` icon spans baseline to cap height and aligns with capitals on its own.
+
+35a. Add a `.with-icon` composition for placing an icon alongside text:
+
+    ```css
+    .with-icon {
+    	display: inline-flex;
+    	align-items: baseline;
+    	gap: var(--with-icon-gap, 0.5em);
+    }
+    ```
+
+    `baseline`, not `center`: the icon sits on the text baseline like a capital letter. The gap is `em`-relative rather than a `--space-*` token so it scales with the text it accompanies — the one deliberate exception to the space scale.
+
+    Controls that centre their contents (`.button`, `.toolbar`) keep `align-items: center`; they are boxes with padding, not running text. They need the `.icon` sizing but not `.with-icon`.
+
 36. Document icon usage pattern in Storybook: `<svg class="icon" aria-hidden="true"><use href="#bx-{name}"/></svg>` with a visible label, or `<svg class="icon" role="img" aria-label="..."><use href="#bx-{name}"/></svg>` for standalone icons
 
 ### Phase 5 — React components

@@ -70,9 +70,9 @@ dist/                  # Compiled output (generated — do not edit)
 
 Styles follow four layers in this strict order (enforced via `@layer`):
 
-1. **Compositions** — layout patterns, no appearance (`.stack`, `.cluster`, etc.)
+1. **Compositions** — content-agnostic structural patterns. They arrange elements (`.stack`, `.cluster`, `.grid`), constrain them (`.wrapper`, `.frame`), or define a surface (`.box`). A composition combines several properties into one pattern; if it does a single job, it belongs in utilities instead.
 2. **Blocks** — component-specific styles (`.button`, `.dialog`, etc.)
-3. **Utilities** — single-purpose classes (`.type-heading-1`, `.bg-interactive`, etc.)
+3. **Utilities** — single-purpose classes (`.type-heading-1`, `.bg-layer-2`, `.flow`, `.p-b-4`, etc.)
 4. **Exceptions** — states and variants via `data-*` attributes (`[data-variant="danger"]`, `[data-state="open"]`)
 
 **Class names are reserved for compositions, utilities, and blocks. Never use class names for exceptions/states — always use `data-*` attributes.**
