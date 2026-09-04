@@ -43,7 +43,16 @@ function extractInnerSvg(svgContent) {
  */
 function buildSymbol(id, svgContent) {
 	const inner = extractInnerSvg(svgContent);
-	return `\t<symbol id="${id}" viewBox="0 0 24 24">\n\t\t${inner}\n\t</symbol>`;
+	// Crop to the 20x20 design grid inside the 24x24 canvas, the same thing the
+	// "padding" toggle on boxicons.com does. Sized to 1cap the artwork would
+	// otherwise render at 20/24 of cap height and read small beside text; this
+	// puts the grid on cap height while keeping the box exactly 1cap, so the
+	// glyph still seats on the baseline.
+	//
+	// Measured across all 3,768 symbols: 2,667 draw entirely inside the grid,
+	// 898 overhang it by 0.5 units (~2% of the icon, not perceptible) and 203
+	// by 1-2 units. Those last are clipped; see docs/decisions-log.csv.
+	return `\t<symbol id="${id}" viewBox="2 2 20 20">\n\t\t${inner}\n\t</symbol>`;
 }
 
 /**

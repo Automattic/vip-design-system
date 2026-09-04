@@ -18,6 +18,13 @@
 	 * fill: currentColor means the icon takes the colour of surrounding text
 	 * and themes for free — the sprite build strips hardcoded fills for this.
 	 */
+	/*
+	 * The sprite build crops each symbol to the 20x20 design grid
+	 * (viewBox="2 2 20 20"), so the artwork's own margin is already removed and
+	 * the box can be exactly 1cap. Artwork that still carries padding will read
+	 * small here — crop it at build time rather than scaling this box, which
+	 * would lift the glyph off the baseline.
+	 */
 	.icon {
 		display: inline-block;
 		block-size: 0.75em;
