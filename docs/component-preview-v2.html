@@ -1,0 +1,2095 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VIP Design System — Component Preview</title>
+		<link rel="stylesheet" href="../src/css/index.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+		/>
+		<style>
+			/* ── Preview chrome — not part of the design system ──────────────────── */
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			:root {
+				--chrome-sidebar-width: 200px;
+				--chrome-label-font: 'IBM Plex Mono', ui-monospace, monospace;
+				--chrome-topbar-height: 48px;
+			}
+
+			html {
+				font-family: var(--font-family-default);
+				color: var(--color-text-primary);
+				background: var(--color-layer-1);
+			}
+
+			/* ── Layout ───────────────────────────────────────────────────────────── */
+
+			/*
+			 * The page layout uses the .sidebar composition; the nav is
+			 * position: sticky rather than fixed, so it stays in normal flow and the
+			 * composition can size it — no margin-left offset needed on the content.
+			 * The topbar uses .repel for its title/meta split. Only the fixed
+			 * positioning is bespoke now.
+			 */
+
+			/* .repel handles display:flex + space-between + align-items */
+			.chrome-topbar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: var(--chrome-topbar-height);
+				background: var(--color-layer-inverse);
+				color: var(--color-text-inverse-primary);
+				padding: 0 1.5rem;
+				z-index: 100;
+			}
+
+			.chrome-topbar__title {
+				font-family: var(--chrome-label-font);
+				font-size: 0.75rem;
+				font-weight: 500;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				opacity: 0.9;
+			}
+
+			/* .cluster handles display:flex + align-items + gap */
+			.chrome-topbar__meta {
+				--cluster-gap: 1rem;
+
+				font-family: var(--chrome-label-font);
+				font-size: 0.7rem;
+				opacity: 0.6;
+			}
+
+			.chrome-theme-toggle {
+				background: transparent;
+				border: 1px solid rgba(255, 255, 255, 0.25);
+				color: var(--color-text-inverse-primary);
+				font-family: var(--chrome-label-font);
+				font-size: 0.7rem;
+				padding: 0.25rem 0.6rem;
+				border-radius: 3px;
+				cursor: pointer;
+				letter-spacing: 0.04em;
+			}
+
+			.chrome-theme-toggle:hover {
+				background: rgba(255, 255, 255, 0.1);
+			}
+
+			/* .sidebar composition handles display, sizing and wrapping */
+			.chrome-layout {
+				/* .sidebar configuration */
+				--sidebar-width: var(--chrome-sidebar-width);
+				--sidebar-gap: 0;
+				/* data-sticky pins the nav below the fixed topbar and fills from there */
+				--sidebar-sticky-offset: var(--chrome-topbar-height);
+				/* Inert while .chrome-sidebar sets an explicit height — align-items
+				   doesn't apply to an item with a definite cross-size — but keeps the
+				   intent on record if that height is ever removed. */
+				--sidebar-block-alignment: flex-start;
+
+				min-height: 100vh;
+				padding-top: var(--chrome-topbar-height);
+			}
+
+			/*
+			 * position: sticky, the viewport-fill height and overflow all come from
+			 * .sidebar's data-sticky variant, driven by --sidebar-sticky-offset on
+			 * .chrome-layout. Only appearance is left here.
+			 */
+			.chrome-sidebar {
+				/* .stack: spacing between nav groups */
+				--stack-gap: 1.5rem;
+
+				background: var(--color-layer-1);
+				border-right: 1px solid var(--color-border-default);
+				padding: 1.5rem 0;
+			}
+
+			/*
+			 * .sidebar wraps the nav above the content once the content child can no
+			 * longer hold --sidebar-content-min (50%) — that is, below 2 ×
+			 * --chrome-sidebar-width. Sticky has to be dropped there: a full-width
+			 * nav would otherwise stay pinned over most of the viewport for the whole
+			 * scroll. Media queries can't read custom properties, so 400px is
+			 * restated here and must track --chrome-sidebar-width.
+			 */
+			@media (max-width: 400px) {
+				.chrome-sidebar {
+					position: static;
+					height: auto;
+					border-right: none;
+					border-bottom: 1px solid var(--color-border-default);
+				}
+			}
+
+			.chrome-sidebar__heading {
+				font-family: var(--chrome-label-font);
+				font-size: 0.6rem;
+				font-weight: 500;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--color-text-helper);
+				padding: 0 1rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.chrome-sidebar__link {
+				display: block;
+				padding: 0.3rem 1rem;
+				font-size: 0.8125rem;
+				color: var(--color-text-secondary);
+				text-decoration: none;
+				border-left: 2px solid transparent;
+				transition:
+					color 100ms ease,
+					border-color 100ms ease,
+					background-color 100ms ease;
+			}
+
+			.chrome-sidebar__link:hover {
+				color: var(--color-text-primary);
+				background: var(--color-layer-3);
+				border-left-color: var(--color-border-control);
+			}
+
+			/* Sizing comes from .sidebar's content child (flex-grow + min-inline-size) */
+			.chrome-main {
+				/* .stack: spacing between sections */
+				--stack-gap: 4rem;
+
+				padding: 3rem 3.5rem;
+			}
+
+			/* ── Section structure ────────────────────────────────────────────────── */
+
+			/* .stack on .chrome-main → section gap; .stack on .preview-section → inner gap */
+
+			.preview-section {
+				/* .stack: header → content, and between subsections */
+				--stack-gap: 1.5rem;
+
+				scroll-margin-top: calc(var(--chrome-topbar-height) + 1.5rem);
+			}
+
+			/* .cluster handles display:flex + align-items:baseline + gap */
+			.preview-section__header {
+				--cluster-gap: 0.75rem;
+				--cluster-block-alignment: baseline;
+
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border-default);
+			}
+
+			.preview-section__name {
+				font-family: var(--chrome-label-font);
+				font-size: 0.875rem;
+				font-weight: 500;
+				color: var(--color-text-primary);
+			}
+
+			.preview-section__type {
+				font-family: var(--chrome-label-font);
+				font-size: 0.65rem;
+				color: var(--color-text-helper);
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+			}
+
+			/*
+			 * .preview-subsection is both a .stack child (gap from .preview-section's
+			 * stack) and a .stack itself — its own gap spaces the label from the canvas.
+			 */
+			.preview-subsection {
+				--stack-gap: 0.75rem;
+			}
+
+			/* A .cluster of component examples inside a canvas */
+			.preview-row {
+				--cluster-gap: 0.75rem;
+			}
+
+			.preview-label {
+				font-family: var(--chrome-label-font);
+				font-size: 0.65rem;
+				font-weight: 500;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+				color: var(--color-text-helper);
+				display: block;
+			}
+
+			/*
+			 * Size and letter-spacing come from global.css — code now inherits, so
+			 * it tracks whatever text it sits in. Only the chip is chrome here: the
+			 * labels are already monospace, so font-family can't differentiate.
+			 */
+			code {
+				font-family: var(--chrome-label-font);
+				color: var(--color-text-primary);
+				/*
+				 * Explicit light-dark() off the primitive scale rather than a layer
+				 * token. Code appears on two different grounds — labels on body
+				 * (--color-background-primary), prose inside a .preview-canvas
+				 * (--color-layer-2) — and those grounds diverge between themes, so
+				 * no single layer token holds an even tint across all four cases.
+				 * These two land the chip in a 1.2–1.5 band everywhere.
+				 */
+				background: light-dark(var(--gray-7), var(--gray-80));
+				border-radius: 3px;
+				padding: 0.1em 0.35em;
+			}
+
+			/* Labels are uppercase; code is case-sensitive, so opt out. The chip
+			   itself is the same in both contexts now. */
+			.preview-label code {
+				text-transform: none;
+			}
+
+			.preview-canvas {
+				background: var(--color-layer-2);
+				border: 1px solid var(--color-border-default);
+				border-radius: 6px;
+				padding: 1.25rem 1.5rem;
+			}
+
+			.preview-canvas--dark {
+				background: var(--color-layer-inverse);
+			}
+
+			/* ── Utility demo helpers ─────────────────────────────────────────────── */
+
+			/* .cluster on .swatch-group handles display:flex + flex-wrap + gap */
+			.swatch-group {
+				--cluster-gap: 0.75rem;
+			}
+
+			/* .stack on .swatch handles direction, gap and alignment */
+			.swatch {
+				--stack-gap: 0.375rem;
+				--stack-inline-alignment: center;
+			}
+
+			.swatch__block {
+				width: 4rem;
+				height: 4rem;
+				border-radius: 4px;
+				border: 1px solid var(--color-border-default);
+			}
+
+			.swatch__label {
+				font-family: var(--chrome-label-font);
+				font-size: 0.6rem;
+				color: var(--color-text-helper);
+				white-space: nowrap;
+				text-align: center;
+			}
+
+			/*
+			 * .sidebar handles the two-column layout: the dot is pinned at
+			 * --sidebar-width and the label fills the rest. The first child carries
+			 * flex-grow:1 against the content child's flex-grow:999, so it takes
+			 * 1/1000th of free space — sub-pixel at any realistic width.
+			 *
+			 * Alignment comes from --sidebar-block-alignment on the element itself.
+			 */
+			.color-row {
+				--sidebar-width: 1.5rem;
+				--sidebar-gap: 0.75rem;
+				--sidebar-block-alignment: center;
+
+				padding: 0.375rem 0;
+			}
+
+			/* aspect-ratio (not height) keeps the dot circular, since flex-basis
+			   drives the used width rather than the `width` declaration */
+			.color-row__dot {
+				width: 1.5rem;
+				aspect-ratio: 1;
+				border-radius: 50%;
+				border: 1px solid var(--color-border-default);
+				flex-shrink: 0;
+			}
+
+			/* .cluster on .spacing-demo handles display:flex + align-items + gap */
+			.spacing-demo {
+				--cluster-gap: 0.5rem;
+
+				font-family: var(--chrome-label-font);
+				font-size: 0.65rem;
+				color: var(--color-text-helper);
+			}
+
+			.spacing-demo__box {
+				background: var(--color-control-background-primary);
+				opacity: 0.3;
+				height: 0.5rem;
+			}
+
+			/* .icon now comes from the design system (utilities/icon.css). The old
+			   1rem placeholder that lived here was unlayered, so it silently beat
+			   the layered rule and pinned every icon to 16px. */
+		</style>
+	</head>
+	<body>
+		<!-- Top bar -->
+		<header class="chrome-topbar repel" data-nowrap>
+			<span class="chrome-topbar__title">VIP Design System — Phase 4 Preview</span>
+			<div class="chrome-topbar__meta cluster">
+				<span>em/system-rebuild-v3</span>
+				<button class="chrome-theme-toggle" type="button" id="chrome-theme-toggle">
+					Dark mode
+				</button>
+			</div>
+		</header>
+
+		<div class="chrome-layout sidebar" data-sticky>
+			<!-- Sidebar -->
+			<nav class="chrome-sidebar stack">
+				<div class="chrome-sidebar__group">
+					<div class="chrome-sidebar__heading">Compositions</div>
+					<a href="#box" class="chrome-sidebar__link">Box</a>
+					<a href="#stack" class="chrome-sidebar__link">Stack</a>
+					<a href="#cluster" class="chrome-sidebar__link">Cluster</a>
+					<a href="#grid" class="chrome-sidebar__link">Grid</a>
+					<a href="#sidebar" class="chrome-sidebar__link">Sidebar</a>
+					<a href="#switcher" class="chrome-sidebar__link">Switcher</a>
+					<a href="#repel" class="chrome-sidebar__link">Repel</a>
+					<a href="#reel" class="chrome-sidebar__link">Reel</a>
+					<a href="#cover" class="chrome-sidebar__link">Cover</a>
+					<a href="#frame" class="chrome-sidebar__link">Frame</a>
+					<a href="#wrapper" class="chrome-sidebar__link">Wrapper</a>
+					<a href="#with-icon" class="chrome-sidebar__link">With Icon</a>
+				</div>
+				<div class="chrome-sidebar__group">
+					<div class="chrome-sidebar__heading">Utilities</div>
+					<a href="#colors" class="chrome-sidebar__link">Colors</a>
+					<a href="#spacing" class="chrome-sidebar__link">Spacing</a>
+					<a href="#icon" class="chrome-sidebar__link">Icon</a>
+					<a href="#flow" class="chrome-sidebar__link">Flow</a>
+					<a href="#region" class="chrome-sidebar__link">Region</a>
+					<a href="#visually-hidden" class="chrome-sidebar__link">Visually Hidden</a>
+				</div>
+				<div class="chrome-sidebar__group">
+					<div class="chrome-sidebar__heading">Blocks</div>
+					<a href="#badge" class="chrome-sidebar__link">Badge</a>
+					<a href="#button" class="chrome-sidebar__link">Button</a>
+					<a href="#checkbox" class="chrome-sidebar__link">Checkbox</a>
+					<a href="#input" class="chrome-sidebar__link">Input</a>
+					<a href="#radio" class="chrome-sidebar__link">Radio</a>
+					<a href="#sticker" class="chrome-sidebar__link">Sticker</a>
+					<a href="#tag" class="chrome-sidebar__link">Tag</a>
+					<a href="#toggle" class="chrome-sidebar__link">Toggle</a>
+				</div>
+			</nav>
+
+			<!-- Main content -->
+			<main class="chrome-main stack">
+				<!-- ── COMPOSITIONS ────────────────────────────────────────────────── -->
+
+				<!-- Box -->
+				<section id="box" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Box</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Padded surface with a boundary — set <code>--box-padding</code>,
+							<code>--box-radius</code>, <code>--box-border-color</code>, or the
+							<code>--box-color</code> / <code>--box-background</code> pair
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="cluster"
+								style="--cluster-gap: var(--space-4); --cluster-block-alignment: stretch"
+							>
+								<div
+									class="box stack"
+									style="--stack-gap: var(--space-2); flex: 1; min-width: 12rem"
+								>
+									<strong style="font-size: 0.85rem">Default box</strong>
+									<span style="font-size: 0.8rem"
+										>Pairs with .stack for its contents — Box arranges nothing itself.</span
+									>
+								</div>
+								<div
+									class="box stack"
+									data-variant="inverse"
+									style="--stack-gap: var(--space-2); flex: 1; min-width: 12rem"
+								>
+									<strong style="font-size: 0.85rem">Inverse</strong>
+									<span style="font-size: 0.8rem"
+										>Foreground and background swap together, never one alone.</span
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Nested — a box inside a box, with its own padding and surface
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="box stack"
+								style="--stack-gap: var(--space-3); --box-padding: var(--space-6)"
+							>
+								<span style="font-size: 0.8rem"
+									>Outer box, <code>--box-padding: var(--space-6)</code></span
+								>
+								<div
+									class="box"
+									style="--box-padding: var(--space-3); --box-background: var(--color-layer-3)"
+								>
+									<span style="font-size: 0.8rem"
+										>Inner box, tighter padding and a different surface</span
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Stack -->
+				<section id="stack" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Stack</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Vertical stack with gap between children — set <code>--stack-gap</code> to override
+						</p>
+						<div class="preview-canvas">
+							<div class="stack" style="--stack-gap: var(--space-3)">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Item 1
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Item 2
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Item 3
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Cluster -->
+				<section id="cluster" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Cluster</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Horizontal flex wrap with gap — set <code>--cluster-gap</code>,
+							<code>--cluster-inline-alignment</code>, <code>--cluster-block-alignment</code> to
+							override
+						</p>
+						<div class="preview-canvas">
+							<div class="cluster" style="--cluster-gap: var(--space-3)">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-2) var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Alpha
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-2) var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Beta
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-2) var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Gamma
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-2) var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Delta
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-2) var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Epsilon
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Grid -->
+				<section id="grid" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Grid</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Auto-filling grid — set <code>--grid-min-item-size</code> and
+							<code>--grid-gap</code> to override
+						</p>
+						<div class="preview-canvas">
+							<div class="grid" style="--grid-min-item-size: 8rem; --grid-gap: var(--space-3)">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Cell 1
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Cell 2
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Cell 3
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Cell 4
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Cell 5
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Sidebar -->
+				<section id="sidebar" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Sidebar</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Fixed-width sidebar + fluid content — set <code>--sidebar-width</code> and
+							<code>--sidebar-content-min</code> to override
+						</p>
+						<div class="preview-canvas">
+							<div class="sidebar" style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Sidebar
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Main content — grows to fill remaining space
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Flipped — <code>data-position="end"</code> puts the sidebar after the content. Source
+							order is unchanged, so it stacks below on wrap
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="sidebar"
+								data-position="end"
+								style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)"
+							>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Main content — grows to fill remaining space
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Sidebar
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Visual flip only — <code>data-order="reverse"</code>. The sidebar is still written
+							<em>first</em> in the markup but drawn last, so DOM order and visual order differ
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="sidebar"
+								data-order="reverse"
+								style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)"
+							>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Sidebar (1st in source)
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Main content (2nd in source) — grows to fill remaining space
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Switcher -->
+				<section id="switcher" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Switcher</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Row that collapses to column when combined width exceeds
+							<code>--switcher-threshold</code>
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="switcher"
+								style="--switcher-threshold: 30rem; --switcher-gap: var(--space-3)"
+							>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Panel A
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Panel B
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-4);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Panel C
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Repel -->
+				<section id="repel" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Repel</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Pushes children to opposite ends — set <code>--repel-gap</code>,
+							<code>--repel-block-alignment</code>; <code>data-nowrap</code> keeps one line
+						</p>
+						<div class="preview-canvas">
+							<div class="repel" style="--repel-gap: var(--space-3)">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Start
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									End
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Reel -->
+				<section id="reel" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Reel</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Horizontally scrolling row — set <code>--reel-gap</code>,
+							<code>--reel-item-inline-size</code>, <code>--reel-block-size</code>
+						</p>
+						<div class="preview-canvas">
+							<div class="reel" style="--reel-gap: var(--space-3); --reel-item-inline-size: 9rem">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 1
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 2
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 3
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 4
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 5
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 6
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 7
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 8
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Scrollbar hidden — <code>data-scrollbar="hidden"</code> (still scrolls by wheel,
+							trackpad and keyboard)
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="reel"
+								data-scrollbar="hidden"
+								style="--reel-gap: var(--space-3); --reel-item-inline-size: 9rem"
+							>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 1
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 2
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 3
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 4
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 5
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 6
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 7
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Card 8
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Cover -->
+				<section id="cover" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Cover</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Vertically centers content with a minimum height — set
+							<code>--cover-min-height</code> to override
+						</p>
+						<div class="preview-canvas" style="padding: 0">
+							<div class="cover" style="--cover-min-height: 12rem; --cover-padding: var(--space-4)">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+										text-align: center;
+									"
+								>
+									Header (pinned top)
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+										text-align: center;
+									"
+								>
+									Centered content
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+										text-align: center;
+									"
+								>
+									Footer (pinned bottom)
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Frame -->
+				<section id="frame" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Frame</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Aspect-ratio container for media — set <code>--frame-ratio</code> to override (default
+							16/9)
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="frame"
+								style="
+									--frame-ratio: 16/9;
+									max-width: 24rem;
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+								"
+							>
+								<span style="font-size: 0.8rem; color: var(--color-text-helper)">16 / 9 frame</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Wrapper -->
+				<section id="wrapper" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Wrapper</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Centred column with a max measure — set <code>--wrapper-max-inline-size</code>,
+							<code>--wrapper-padding-inline</code>
+						</p>
+						<div class="preview-canvas">
+							<div
+								class="wrapper"
+								style="--wrapper-max-inline-size: 24rem; --wrapper-padding-inline: var(--space-4)"
+							>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Centred, capped at --wrapper-max-inline-size
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- With Icon -->
+				<section id="with-icon" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">With Icon</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Icon and text share a baseline — set <code>--with-icon-gap</code> to override the
+							<code>0.5em</code> default
+						</p>
+						<div class="preview-canvas stack" style="--stack-gap: var(--space-4)">
+							<span class="with-icon" style="font-size: 0.9rem"
+								><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+									/>
+								</svg>
+								Baseline aligned</span
+							>
+							<span class="with-icon" style="font-size: 0.9rem; --with-icon-gap: 1em"
+								><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+									/>
+								</svg>
+								Wider gap</span
+							>
+							<span class="with-icon" style="font-size: 1.5rem"
+								><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+									/>
+								</svg>
+								Gap scales with text</span
+							>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Controls centre their contents instead — <code>.button</code> needs
+							<code>.icon</code> but not <code>.with-icon</code>
+						</p>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<button class="button type-support-label-default">
+									<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+										<path
+											d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+										/>
+									</svg>
+									Leading icon
+								</button>
+								<button class="button type-support-label-default" data-variant="secondary">
+									Trailing icon
+									<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+										<path
+											d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+										/>
+									</svg>
+								</button>
+								<button
+									class="button type-support-label-default"
+									data-variant="ghost"
+									aria-label="Confirm"
+								>
+									<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+										<path
+											d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+										/>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- ── UTILITIES ───────────────────────────────────────────────────── -->
+
+				<section id="colors" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Colors</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+
+					<div class="preview-subsection stack">
+						<span class="preview-label">Text colors — light surface</span>
+						<div class="preview-canvas">
+							<div class="color-row sidebar">
+								<div class="color-row__dot" style="background: var(--color-text-primary)"></div>
+								<span class="text-primary" style="font-size: var(--font-size-2)"
+									>text-primary — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row sidebar">
+								<div class="color-row__dot" style="background: var(--color-text-secondary)"></div>
+								<span class="text-secondary" style="font-size: var(--font-size-2)"
+									>text-secondary — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row sidebar">
+								<div class="color-row__dot" style="background: var(--color-text-helper)"></div>
+								<span class="text-helper" style="font-size: var(--font-size-2)"
+									>text-helper — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row sidebar">
+								<div class="color-row__dot" style="background: var(--color-text-disabled)"></div>
+								<span class="text-disabled" style="font-size: var(--font-size-2)"
+									>text-disabled — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row sidebar">
+								<div class="color-row__dot" style="background: var(--color-text-placeholder)"></div>
+								<span class="text-placeholder" style="font-size: var(--font-size-2)"
+									>text-placeholder — The quick brown fox</span
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="preview-subsection stack">
+						<span class="preview-label">Text colors — inverse surface</span>
+						<div class="preview-canvas preview-canvas--dark">
+							<div class="color-row sidebar">
+								<div
+									class="color-row__dot"
+									style="background: var(--color-text-inverse-primary)"
+								></div>
+								<span class="text-inverse-primary" style="font-size: var(--font-size-2)"
+									>text-inverse-primary — The quick brown fox</span
+								>
+							</div>
+							<div class="color-row sidebar">
+								<div
+									class="color-row__dot"
+									style="background: var(--color-text-inverse-secondary)"
+								></div>
+								<span class="text-inverse-secondary" style="font-size: var(--font-size-2)"
+									>text-inverse-secondary — The quick brown fox</span
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="preview-subsection stack">
+						<span class="preview-label">Background colors</span>
+						<div class="swatch-group cluster">
+							<div class="swatch stack">
+								<div class="swatch__block bg-primary"></div>
+								<span class="swatch__label">bg-primary</span>
+							</div>
+							<div class="swatch stack">
+								<div class="swatch__block bg-layer-1"></div>
+								<span class="swatch__label">bg-layer-1</span>
+							</div>
+							<div class="swatch stack">
+								<div class="swatch__block bg-layer-2"></div>
+								<span class="swatch__label">bg-layer-2</span>
+							</div>
+							<div class="swatch stack">
+								<div class="swatch__block bg-layer-3"></div>
+								<span class="swatch__label">bg-layer-3</span>
+							</div>
+							<div class="swatch stack">
+								<div class="swatch__block bg-layer-4"></div>
+								<span class="swatch__label">bg-layer-4</span>
+							</div>
+							<div class="swatch stack">
+								<div class="swatch__block bg-layer-inverse"></div>
+								<span class="swatch__label">bg-layer-inverse</span>
+							</div>
+							<div class="swatch stack">
+								<div class="swatch__block bg-layer-accent"></div>
+								<span class="swatch__label">bg-layer-accent</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="spacing" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Spacing</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-3)">
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-0)"></div>
+								<span>space-0 / 2px — .gap-0 .p-0 .m-0</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-1)"></div>
+								<span>space-1 / 4px — .gap-1 .p-1 .m-1</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-2)"></div>
+								<span>space-2 / 6px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-3)"></div>
+								<span>space-3 / 8px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-4)"></div>
+								<span>space-4 / 12px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-5)"></div>
+								<span>space-5 / 16px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-6)"></div>
+								<span>space-6 / 24px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-7)"></div>
+								<span>space-7 / 32px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-8)"></div>
+								<span>space-8 / 40px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-9)"></div>
+								<span>space-9 / 56px</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Icon -->
+				<section id="icon" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Icon</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Sized in <code>1cap</code> — matches the height of a capital letter. Compare against
+							<code>1em</code>, which is the font size and stands 42% taller
+						</p>
+						<div class="preview-canvas stack" style="--stack-gap: var(--space-4)">
+							<p style="font-size: 1rem; margin: 0">
+								<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+									/>
+								</svg>
+								HANDLED &mdash; <code>1cap</code>, aligns with the capitals
+							</p>
+							<p style="font-size: 1rem; margin: 0">
+								<svg
+									class="icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									style="block-size: 1em; inline-size: 1em"
+								>
+									<path
+										d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+									/>
+								</svg>
+								HANDLED &mdash; <code>1em</code>, overshoots
+							</p>
+							<p style="font-size: 2rem; margin: 0">
+								<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M10 15.586 6.707 12.293 5.293 13.707 10 18.414l9.707-9.707-1.414-1.414z"
+									/>
+								</svg>
+								HANDLED &mdash; scales with the text
+							</p>
+						</div>
+					</div>
+				</section>
+				<!-- Flow -->
+				<section id="flow" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Flow</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Spaces children in normal document flow — no flex context. Set the space with
+							<code>data-flow-space="0"</code>–<code>"12"</code>
+						</p>
+						<div class="preview-canvas">
+							<div class="flow" data-flow-space="5">
+								<h3 style="color: var(--color-text-primary); font-size: 0.95rem; font-weight: 600">
+									Flow spaces siblings
+								</h3>
+								<p style="color: var(--color-text-secondary); font-size: 0.85rem; line-height: 1.5">
+									Children keep normal block behaviour — margins collapse, floats work, and any
+									<code>display</code> set on a child is left alone.
+								</p>
+								<p style="color: var(--color-text-secondary); font-size: 0.85rem; line-height: 1.5">
+									Reach for <code>.stack</code> instead when you want a flex column with alignment
+									control.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Nesting — outer <code>data-flow-space="8"</code>, inner
+							<code>data-flow-space="2"</code>. The inner flow takes its own spacing from the outer
+							while setting a tighter one for its children
+						</p>
+						<div class="preview-canvas">
+							<div class="flow" data-flow-space="8">
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Outer child
+								</div>
+								<div class="flow" data-flow-space="2">
+									<div
+										style="
+											background: var(--color-layer-3);
+											border: 1px solid var(--color-border-default);
+											border-radius: 4px;
+											padding: var(--space-3);
+											font-size: 0.8rem;
+											color: var(--color-text-secondary);
+										"
+									>
+										Inner child
+									</div>
+									<div
+										style="
+											background: var(--color-layer-3);
+											border: 1px solid var(--color-border-default);
+											border-radius: 4px;
+											padding: var(--space-3);
+											font-size: 0.8rem;
+											color: var(--color-text-secondary);
+										"
+									>
+										Inner child
+									</div>
+								</div>
+								<div
+									style="
+										background: var(--color-layer-3);
+										border: 1px solid var(--color-border-default);
+										border-radius: 4px;
+										padding: var(--space-3);
+										font-size: 0.8rem;
+										color: var(--color-text-secondary);
+									"
+								>
+									Outer child
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Region -->
+				<section id="region" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Region</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Block padding for a page section — set with
+							<code>data-region-space="0"</code>–<code>"12"</code>, <code>--region-space</code>, or
+							<code>.p-b-*</code>
+						</p>
+						<div class="preview-canvas" style="padding: 0">
+							<div
+								class="region"
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+									text-align: center;
+								"
+							>
+								<div
+									style="color: var(--color-text-secondary); font-size: 0.8rem; text-align: center"
+								>
+									Default region — <code>--space-10</code> above and below
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Paired with <code>.wrapper</code>, which handles the inline axis
+						</p>
+						<div class="preview-canvas" style="padding: 0">
+							<div
+								class="region"
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+									text-align: center;
+									--region-space: var(--space-7);
+								"
+							>
+								<div class="wrapper" style="--wrapper-max-inline-size: 20rem">
+									<div
+										style="
+											color: var(--color-text-secondary);
+											font-size: 0.8rem;
+											text-align: center;
+										"
+									>
+										Region sets the block padding, wrapper caps and centres the measure
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Both scales on one element — the prefixes keep them independent:
+							<code>data-region-space="8"</code> pads the section,
+							<code>data-flow-space="2"</code> spaces its children
+						</p>
+						<div class="preview-canvas" style="padding: 0">
+							<section
+								class="region flow"
+								data-region-space="8"
+								data-flow-space="2"
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+									text-align: center;
+								"
+							>
+								<div
+									style="color: var(--color-text-secondary); font-size: 0.8rem; text-align: center"
+								>
+									First child
+								</div>
+								<div
+									style="color: var(--color-text-secondary); font-size: 0.8rem; text-align: center"
+								>
+									Second child — tight flow spacing inside generous region padding
+								</div>
+							</section>
+						</div>
+					</div>
+				</section>
+
+				<!-- Visually Hidden -->
+				<section id="visually-hidden" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Visually Hidden</span>
+						<span class="preview-section__type">Utility</span>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Hidden from view, kept in the accessibility tree. The sentence below contains a
+							visually hidden word between &ldquo;a&rdquo; and &ldquo;word&rdquo;
+						</p>
+						<div class="preview-canvas">
+							<p style="font-size: 0.85rem; color: var(--color-text-secondary)">
+								There is a <span class="visually-hidden">completely hidden</span> word in this
+								sentence that only a screen reader announces.
+							</p>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<p class="preview-label">
+							Revealed on focus — tab into the canvas to surface the skip link. In Safari use plain
+							Tab: Option+Tab applies the opposite of the keyboard navigation setting and can skip
+							links entirely
+						</p>
+						<div class="preview-canvas">
+							<a class="visually-hidden button type-support-label-default" href="#visually-hidden"
+								>Skip to content</a
+							>
+							<span style="font-size: 0.85rem; color: var(--color-text-secondary)"
+								>A skip link precedes this text. It is hidden until focused.</span
+							>
+						</div>
+					</div>
+				</section>
+				<!-- ── BLOCKS ──────────────────────────────────────────────────────── -->
+
+				<!-- Badge -->
+				<section id="badge" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Badge</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Color variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<span class="badge type-support-label-xs">Gray</span>
+								<span class="badge type-support-label-xs" data-color="blue">Blue</span>
+								<span class="badge type-support-label-xs" data-color="green">Green</span>
+								<span class="badge type-support-label-xs" data-color="red">Red</span>
+								<span class="badge type-support-label-xs" data-color="gold">Gold</span>
+								<span class="badge type-support-label-xs" data-color="yellow">Yellow</span>
+								<span class="badge type-support-label-xs" data-color="orange">Orange</span>
+								<span class="badge type-support-label-xs" data-color="salmon">Salmon</span>
+								<span class="badge type-support-label-xs" data-color="pink">Pink</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Button -->
+				<section id="button" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Button</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<button class="button type-support-label-default">Primary</button>
+								<button class="button type-support-label-default" data-variant="secondary">
+									Secondary
+								</button>
+								<button class="button type-support-label-default" data-variant="tertiary">
+									Tertiary
+								</button>
+								<button class="button type-support-label-default" data-variant="ghost">
+									Ghost
+								</button>
+								<button class="button type-support-label-default" data-variant="display">
+									Display
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Danger variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<button class="button type-support-label-default" data-variant="danger">
+									Danger
+								</button>
+								<button class="button type-support-label-default" data-variant="danger-secondary">
+									Danger secondary
+								</button>
+								<button class="button type-support-label-default" data-variant="danger-ghost">
+									Danger ghost
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Sizes</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<button class="button type-support-label-default">Large Button (default)</button>
+								<button class="button type-support-label-default" data-size="medium">
+									Medium Button
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Disabled</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<button class="button type-support-label-default" disabled>Primary</button>
+								<button class="button type-support-label-default" data-variant="secondary" disabled>
+									Secondary
+								</button>
+								<button class="button type-support-label-default" data-variant="tertiary" disabled>
+									Tertiary
+								</button>
+								<button class="button type-support-label-default" data-variant="ghost" disabled>
+									Ghost
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Checkbox -->
+				<section id="checkbox" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Checkbox</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row cluster">
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" />
+								<span>Unchecked</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" checked />
+								<span>Checked</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" id="indeterminate-demo" />
+								<span>Indeterminate</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" disabled />
+								<span class="text-disabled">Disabled</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" checked disabled />
+								<span class="text-disabled">Checked + disabled</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" disabled id="indeterminate-disabled-demo" />
+								<span class="text-disabled">Indeterminate + disabled</span>
+							</label>
+						</div>
+					</div>
+				</section>
+
+				<!-- Input -->
+				<section id="input" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Input</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-5); max-width: 360px">
+							<div class="input">
+								<label class="input__label">Default</label>
+								<input class="input__field" type="text" placeholder="Placeholder text" />
+								<span class="input__helper type-support-helper-text"
+									>Helper text for this field</span
+								>
+							</div>
+							<div class="input" data-state="error">
+								<label class="input__label">Error state</label>
+								<input class="input__field" type="text" value="Invalid value" />
+								<span class="input__helper type-support-helper-text">This field has an error</span>
+							</div>
+							<div class="input" data-state="disabled">
+								<label class="input__label">Disabled</label>
+								<input class="input__field" type="text" placeholder="Disabled" disabled />
+							</div>
+							<div class="input" data-state="read-only">
+								<label class="input__label">Read-only</label>
+								<input class="input__field" type="text" value="Read-only value" readonly />
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Radio -->
+				<section id="radio" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Radio</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row cluster">
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="radio" type="radio" name="radio-demo" />
+								<span>Option A</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="radio" type="radio" name="radio-demo" checked />
+								<span>Option B (selected)</span>
+							</label>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="radio" type="radio" name="radio-demo" disabled />
+								<span class="text-disabled">Disabled</span>
+							</label>
+						</div>
+					</div>
+				</section>
+
+				<!-- Sticker -->
+				<section id="sticker" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Sticker</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row cluster">
+							<div class="sticker" data-color="gray">
+								<span class="sticker__primary">Featured</span>
+								<span class="sticker__secondary">New</span>
+							</div>
+							<div class="sticker" data-color="blue">
+								<span class="sticker__primary">Enterprise</span>
+								<span class="sticker__secondary">Plan</span>
+							</div>
+							<div class="sticker" data-color="green">
+								<span class="sticker__primary">Popular</span>
+								<span class="sticker__secondary">Choice</span>
+							</div>
+							<div class="sticker" data-color="gold">
+								<span class="sticker__primary">Gold</span>
+								<span class="sticker__secondary">Tier</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Tag -->
+				<section id="tag" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Tag</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Color variants</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<span class="tag">Gray</span>
+								<span class="tag" data-color="blue">Blue</span>
+								<span class="tag" data-color="green">Green</span>
+								<span class="tag" data-color="red">Red</span>
+								<span class="tag" data-color="gold">Gold</span>
+								<span class="tag" data-color="yellow">Yellow</span>
+								<span class="tag" data-color="orange">Orange</span>
+								<span class="tag" data-color="salmon">Salmon</span>
+								<span class="tag" data-color="pink">Pink</span>
+							</div>
+						</div>
+					</div>
+					<div class="preview-subsection stack">
+						<span class="preview-label">Interactive (dismissable)</span>
+						<div class="preview-canvas">
+							<div class="preview-row cluster">
+								<span class="tag" data-interactive>
+									Interactive gray
+									<button
+										class="tag__icon"
+										style="
+											background: none;
+											border: none;
+											cursor: pointer;
+											line-height: 0;
+											padding: 0;
+										"
+									>
+										<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+											<path
+												d="M2 2l6 6M8 2l-6 6"
+												stroke="currentColor"
+												stroke-width="1.5"
+												stroke-linecap="round"
+											/>
+										</svg>
+									</button>
+								</span>
+								<span class="tag" data-color="blue" data-interactive>
+									Interactive blue
+									<button
+										class="tag__icon"
+										style="
+											background: none;
+											border: none;
+											cursor: pointer;
+											line-height: 0;
+											padding: 0;
+										"
+									>
+										<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+											<path
+												d="M2 2l6 6M8 2l-6 6"
+												stroke="currentColor"
+												stroke-width="1.5"
+												stroke-linecap="round"
+											/>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Toggle -->
+				<section id="toggle" class="preview-section stack">
+					<div class="preview-section__header cluster">
+						<span class="preview-section__name">Toggle</span>
+						<span class="preview-section__type">Atom · CSS-only</span>
+					</div>
+					<div class="preview-canvas">
+						<div class="preview-row cluster">
+							<label class="toggle">
+								<input class="toggle__input" type="checkbox" />
+								<span class="toggle__track"></span>
+								<span>Off</span>
+							</label>
+							<label class="toggle">
+								<input class="toggle__input" type="checkbox" checked />
+								<span class="toggle__track"></span>
+								<span>On</span>
+							</label>
+							<label class="toggle" data-state="disabled">
+								<input class="toggle__input" type="checkbox" disabled />
+								<span class="toggle__track"></span>
+								<span class="text-disabled">Disabled off</span>
+							</label>
+							<label class="toggle" data-state="disabled">
+								<input class="toggle__input" type="checkbox" checked disabled />
+								<span class="toggle__track"></span>
+								<span class="text-disabled">Disabled on</span>
+							</label>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script>
+			// Set indeterminate state on the demo checkbox — can only be done via JS
+			const el = document.getElementById('indeterminate-demo');
+			const el2 = document.getElementById('indeterminate-disabled-demo');
+			if (el) el.indeterminate = true;
+			if (el2) el2.indeterminate = true;
+
+			// Theme toggle. The design system switches themes with .theme-dark /
+			// .theme-light on <html>, which flip color-scheme so the light-dark()
+			// semantic tokens resolve to the other side. With neither class set,
+			// color-scheme is `light dark` and the OS preference wins.
+			const root = document.documentElement;
+			const themeToggle = document.getElementById('chrome-theme-toggle');
+			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+			function currentTheme() {
+				if (root.classList.contains('theme-dark')) return 'dark';
+				if (root.classList.contains('theme-light')) return 'light';
+				return prefersDark.matches ? 'dark' : 'light';
+			}
+
+			function syncThemeLabel() {
+				themeToggle.textContent = currentTheme() === 'dark' ? 'Light mode' : 'Dark mode';
+			}
+
+			themeToggle.addEventListener('click', () => {
+				const next = currentTheme() === 'dark' ? 'light' : 'dark';
+				root.classList.toggle('theme-dark', next === 'dark');
+				root.classList.toggle('theme-light', next === 'light');
+				syncThemeLabel();
+			});
+
+			// Keep the label honest while still following the OS (no explicit choice yet)
+			prefersDark.addEventListener('change', syncThemeLabel);
+
+			syncThemeLabel();
+		</script>
+	</body>
+</html>

@@ -135,9 +135,9 @@
 
 			.chrome-main {
 				flex: 1;
+				min-width: 0;
 				margin-left: var(--chrome-sidebar-width);
 				padding: 3rem 3.5rem;
-				max-width: 900px;
 			}
 
 			/* ── Section structure ────────────────────────────────────────────────── */
@@ -307,6 +307,16 @@
 			<!-- Sidebar -->
 			<nav class="chrome-sidebar">
 				<div class="chrome-sidebar__group">
+					<div class="chrome-sidebar__heading">Compositions</div>
+					<a href="#stack" class="chrome-sidebar__link">Stack</a>
+					<a href="#cluster" class="chrome-sidebar__link">Cluster</a>
+					<a href="#grid" class="chrome-sidebar__link">Grid</a>
+					<a href="#sidebar" class="chrome-sidebar__link">Sidebar</a>
+					<a href="#switcher" class="chrome-sidebar__link">Switcher</a>
+					<a href="#cover" class="chrome-sidebar__link">Cover</a>
+					<a href="#frame" class="chrome-sidebar__link">Frame</a>
+				</div>
+				<div class="chrome-sidebar__group">
 					<div class="chrome-sidebar__heading">Utilities</div>
 					<a href="#colors" class="chrome-sidebar__link">Colors</a>
 					<a href="#spacing" class="chrome-sidebar__link">Spacing</a>
@@ -316,22 +326,398 @@
 					<a href="#badge" class="chrome-sidebar__link">Badge</a>
 					<a href="#button" class="chrome-sidebar__link">Button</a>
 					<a href="#checkbox" class="chrome-sidebar__link">Checkbox</a>
-					<a href="#console" class="chrome-sidebar__link">Console</a>
 					<a href="#input" class="chrome-sidebar__link">Input</a>
-					<a href="#notice" class="chrome-sidebar__link">Notice</a>
-					<a href="#option-row" class="chrome-sidebar__link">Option Row</a>
 					<a href="#radio" class="chrome-sidebar__link">Radio</a>
-					<a href="#radio-box" class="chrome-sidebar__link">Radio Box</a>
-					<a href="#slider" class="chrome-sidebar__link">Slider</a>
 					<a href="#sticker" class="chrome-sidebar__link">Sticker</a>
 					<a href="#tag" class="chrome-sidebar__link">Tag</a>
 					<a href="#toggle" class="chrome-sidebar__link">Toggle</a>
-					<a href="#toolbar" class="chrome-sidebar__link">Toolbar</a>
 				</div>
 			</nav>
 
 			<!-- Main content -->
 			<main class="chrome-main">
+				<!-- ── COMPOSITIONS ────────────────────────────────────────────────── -->
+
+				<!-- Stack -->
+				<section id="stack" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Stack</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Vertical stack with gap between children — set <code>--stack-gap</code> to override
+					</p>
+					<div class="preview-canvas">
+						<div class="stack" style="--stack-gap: var(--space-3)">
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-3);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Item 1
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-3);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Item 2
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-3);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Item 3
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Cluster -->
+				<section id="cluster" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Cluster</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Horizontal flex wrap with gap — set <code>--cluster-gap</code>,
+						<code>--cluster-inline-alignment</code>, <code>--cluster-block-alignment</code> to
+						override
+					</p>
+					<div class="preview-canvas">
+						<div class="cluster" style="--cluster-gap: var(--space-3)">
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-2) var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Alpha
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-2) var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Beta
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-2) var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Gamma
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-2) var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Delta
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-2) var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Epsilon
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Grid -->
+				<section id="grid" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Grid</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Auto-filling grid — set <code>--grid-min-item-size</code> and <code>--grid-gap</code> to
+						override
+					</p>
+					<div class="preview-canvas">
+						<div class="grid" style="--grid-min-item-size: 8rem; --grid-gap: var(--space-3)">
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Cell 1
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Cell 2
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Cell 3
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Cell 4
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Cell 5
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Sidebar -->
+				<section id="sidebar" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Sidebar</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Fixed-width sidebar + fluid content — set <code>--sidebar-width</code> and
+						<code>--sidebar-content-min</code> to override
+					</p>
+					<div class="preview-canvas">
+						<div class="sidebar" style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)">
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Sidebar
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Main content — grows to fill remaining space
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Switcher -->
+				<section id="switcher" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Switcher</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Row that collapses to column when combined width exceeds
+						<code>--switcher-threshold</code>
+					</p>
+					<div class="preview-canvas">
+						<div
+							class="switcher"
+							style="--switcher-threshold: 30rem; --switcher-gap: var(--space-3)"
+						>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Panel A
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Panel B
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-4);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+								"
+							>
+								Panel C
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Cover -->
+				<section id="cover" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Cover</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Vertically centers content with a minimum height — set
+						<code>--cover-min-height</code> to override
+					</p>
+					<div class="preview-canvas" style="padding: 0">
+						<div class="cover" style="--cover-min-height: 12rem; --cover-padding: var(--space-4)">
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-3);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+									text-align: center;
+								"
+							>
+								Header (pinned top)
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-3);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+									text-align: center;
+								"
+							>
+								Centered content
+							</div>
+							<div
+								style="
+									background: var(--color-layer-3);
+									border: 1px solid var(--color-border-default);
+									border-radius: 4px;
+									padding: var(--space-3);
+									font-size: 0.8rem;
+									color: var(--color-text-secondary);
+									text-align: center;
+								"
+							>
+								Footer (pinned bottom)
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Frame -->
+				<section id="frame" class="preview-section">
+					<div class="preview-section__header">
+						<span class="preview-section__name">Frame</span>
+						<span class="preview-section__type">Composition</span>
+					</div>
+					<p class="preview-label">
+						Aspect-ratio container for media — set <code>--frame-ratio</code> to override (default
+						16/9)
+					</p>
+					<div class="preview-canvas">
+						<div
+							class="frame"
+							style="
+								--frame-ratio: 16/9;
+								max-width: 24rem;
+								background: var(--color-layer-3);
+								border: 1px solid var(--color-border-default);
+								border-radius: 4px;
+							"
+						>
+							<span style="font-size: 0.8rem; color: var(--color-text-helper)">16 / 9 frame</span>
+						</div>
+					</div>
+				</section>
+
 				<!-- ── UTILITIES ───────────────────────────────────────────────────── -->
 
 				<section id="colors" class="preview-section">
@@ -612,29 +998,10 @@
 								<input class="checkbox" type="checkbox" checked disabled />
 								<span class="text-disabled">Checked + disabled</span>
 							</label>
-						</div>
-					</div>
-				</section>
-
-				<!-- Console -->
-				<section id="console" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Console</span>
-						<span class="preview-section__type">Organism · CSS-only</span>
-					</div>
-					<div class="preview-canvas">
-						<div class="console">
-							<div class="console__output type-body-mono">
-								<span class="console__timestamp">2024-03-15 14:32:01 UTC</span> INFO Application
-								started successfully
-								<span class="console__timestamp">2024-03-15 14:32:02 UTC</span> INFO Listening on
-								port 8080 <span class="console__timestamp">2024-03-15 14:32:15 UTC</span> INFO GET
-								/api/v1/sites 200 42ms
-								<span class="console__timestamp">2024-03-15 14:32:16 UTC</span> WARN Rate limit
-								threshold reached for client 192.168.1.1
-								<span class="console__timestamp">2024-03-15 14:32:17 UTC</span> ERROR Failed to
-								connect to upstream: connection refused
-							</div>
+							<label style="display: flex; align-items: center; gap: var(--space-3)">
+								<input class="checkbox" type="checkbox" disabled id="indeterminate-disabled-demo" />
+								<span class="text-disabled">Indeterminate + disabled</span>
+							</label>
 						</div>
 					</div>
 				</section>
@@ -671,137 +1038,6 @@
 					</div>
 				</section>
 
-				<!-- Notice -->
-				<section id="notice" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Notice</span>
-						<span class="preview-section__type">Molecule · CSS-only</span>
-					</div>
-					<div class="preview-canvas">
-						<div class="stack" style="--stack-gap: var(--space-4)">
-							<div class="notice">
-								<span class="notice__icon">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-										<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
-										<path
-											d="M8 5v4M8 11v.5"
-											stroke="currentColor"
-											stroke-width="1.5"
-											stroke-linecap="round"
-										/>
-									</svg>
-								</span>
-								<div class="notice__body">
-									<p class="notice__message">
-										This is an informational message with context about what's happening.
-									</p>
-									<a class="notice__action">Learn more</a>
-								</div>
-							</div>
-							<div class="notice" data-variant="success">
-								<span class="notice__icon">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-										<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
-										<path
-											d="M5 8l2 2 4-4"
-											stroke="currentColor"
-											stroke-width="1.5"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
-								</span>
-								<div class="notice__body">
-									<p class="notice__message">Your changes have been saved successfully.</p>
-								</div>
-							</div>
-							<div class="notice" data-variant="warning">
-								<span class="notice__icon">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-										<path
-											d="M8 2L14.5 13.5H1.5L8 2Z"
-											stroke="currentColor"
-											stroke-width="1.5"
-											stroke-linejoin="round"
-										/>
-										<path
-											d="M8 7v3M8 11.5v.5"
-											stroke="currentColor"
-											stroke-width="1.5"
-											stroke-linecap="round"
-										/>
-									</svg>
-								</span>
-								<div class="notice__body">
-									<p class="notice__message">
-										Your plan will expire in 3 days. Renew now to avoid interruption.
-									</p>
-									<a class="notice__action">Renew plan</a>
-								</div>
-							</div>
-							<div class="notice" data-variant="error">
-								<span class="notice__icon">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-										<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
-										<path
-											d="M6 6l4 4M10 6l-4 4"
-											stroke="currentColor"
-											stroke-width="1.5"
-											stroke-linecap="round"
-										/>
-									</svg>
-								</span>
-								<div class="notice__body">
-									<p class="notice__message">Deployment failed. Check the logs for more details.</p>
-									<a class="notice__action">View logs</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Option Row -->
-				<section id="option-row" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Option Row</span>
-						<span class="preview-section__type">Molecule · CSS-only</span>
-					</div>
-					<div class="preview-canvas">
-						<div class="stack" style="--stack-gap: var(--space-2)">
-							<div class="option-row">
-								<span class="option-row__icon">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-										<rect
-											x="2"
-											y="2"
-											width="12"
-											height="12"
-											rx="2"
-											stroke="currentColor"
-											stroke-width="1.5"
-										/>
-									</svg>
-								</span>
-								<div class="option-row__content">
-									<span class="option-row__label">Default option row</span>
-									<span class="option-row__description">Description with supporting detail</span>
-								</div>
-							</div>
-							<div class="option-row" data-variant="alt">
-								<span class="option-row__icon">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-										<circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
-									</svg>
-								</span>
-								<div class="option-row__content">
-									<span class="option-row__label">Alt variant</span>
-									<span class="option-row__description">Alternative background style</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
 				<!-- Radio -->
 				<section id="radio" class="preview-section">
 					<div class="preview-section__header">
@@ -823,56 +1059,6 @@
 								<span class="text-disabled">Disabled</span>
 							</label>
 						</div>
-					</div>
-				</section>
-
-				<!-- Radio Box -->
-				<section id="radio-box" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Radio Box</span>
-						<span class="preview-section__type">Molecule · CSS-only</span>
-					</div>
-					<div class="preview-canvas">
-						<div
-							class="preview-row"
-							style="align-items: stretch; flex-wrap: wrap; max-width: 600px"
-						>
-							<label class="radio-box" style="flex: 1; min-width: 160px">
-								<input class="radio-box__input radio" type="radio" name="radiobox-demo" />
-								<span class="radio-box__content">
-									<span class="radio-box__label">Starter</span>
-									<span class="radio-box__description">Best for small teams</span>
-								</span>
-							</label>
-							<label class="radio-box" style="flex: 1; min-width: 160px">
-								<input class="radio-box__input radio" type="radio" name="radiobox-demo" checked />
-								<span class="radio-box__content">
-									<span class="radio-box__label">Professional</span>
-									<span class="radio-box__description">Most popular option</span>
-								</span>
-							</label>
-							<label class="radio-box" style="flex: 1; min-width: 160px">
-								<input class="radio-box__input radio" type="radio" name="radiobox-demo" />
-								<span class="radio-box__content">
-									<span class="radio-box__label">Enterprise</span>
-									<span class="radio-box__description">Unlimited everything</span>
-								</span>
-							</label>
-						</div>
-					</div>
-				</section>
-
-				<!-- Slider -->
-				<section id="slider" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Slider</span>
-						<span class="preview-section__type">Atom · React (Radix Slider)</span>
-					</div>
-					<div class="preview-canvas">
-						<p class="text-helper" style="font-size: var(--font-size-2)">
-							The Slider is a React component built on Radix Slider. The filled track requires JS to
-							stay in sync with the handle position. Preview renders in Storybook.
-						</p>
 					</div>
 				</section>
 
@@ -1010,28 +1196,15 @@
 						</div>
 					</div>
 				</section>
-
-				<!-- Toolbar -->
-				<section id="toolbar" class="preview-section">
-					<div class="preview-section__header">
-						<span class="preview-section__name">Toolbar</span>
-						<span class="preview-section__type">Organism · React</span>
-					</div>
-					<div class="preview-canvas">
-						<p class="text-helper" style="font-size: var(--font-size-2)">
-							The Toolbar is a React component containing the VIP logo, environment context, global
-							search, help menu, and user actions. It references component tokens from toolbar.css.
-							Preview renders in Storybook.
-						</p>
-					</div>
-				</section>
 			</main>
 		</div>
 
 		<script>
 			// Set indeterminate state on the demo checkbox — can only be done via JS
 			const el = document.getElementById('indeterminate-demo');
+			const el2 = document.getElementById('indeterminate-disabled-demo');
 			if (el) el.indeterminate = true;
+			if (el2) el2.indeterminate = true;
 		</script>
 	</body>
 </html>
