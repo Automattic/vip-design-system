@@ -52,6 +52,7 @@ import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { SimplePagination, Pagination } from './Pagination';
 import { Progress } from './Progress';
+import { ResultsSummary } from './ResultsSummary';
 import { ScreenReaderText } from './ScreenReaderText';
 import { ServiceHeader } from './ServiceHeader';
 import { Skeleton } from './Skeleton';
@@ -119,6 +120,7 @@ export {
 	RadioGroupChip,
 	Textarea,
 	Progress,
+	ResultsSummary,
 	Text,
 	Tabs,
 	Nav,
@@ -137,3 +139,5 @@ export {
 	WizardStep,
 	theme,
 };
+
+export type { ResultsSummaryProps } from './ResultsSummary';
