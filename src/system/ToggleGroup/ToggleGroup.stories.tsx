@@ -4,7 +4,7 @@
  * External dependencies
  */
 import { useState } from 'react';
-import { MdBlock, MdCheckCircle, MdPauseCircle } from 'react-icons/md';
+import { MdBlock, MdCancel, MdCheckCircle } from 'react-icons/md';
 
 /**
  * Internal dependencies
@@ -29,7 +29,7 @@ const sentenceCaseOptions: ToggleGroupOption[] = [
 
 const icons = {
 	enabled: <MdCheckCircle />,
-	disabled: <MdPauseCircle />,
+	disabled: <MdCancel />,
 	blocked: <MdBlock />,
 };
 
