@@ -22,7 +22,6 @@ type ControlledResultsSummaryProps =
 	| 'aria-live'
 	| 'as'
 	| 'children'
-	| 'ref'
 	| 'role';
 
 export type ResultsSummaryProps< E extends ResultsSummaryElement = 'p' > = Omit<
