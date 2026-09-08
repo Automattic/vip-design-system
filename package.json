@@ -45,6 +45,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toggle-group": "^1.1.19",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@theme-ui/match-media": "^0.17.0",
     "accessible-autocomplete": "^2.0.4",

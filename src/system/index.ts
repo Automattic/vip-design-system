@@ -61,6 +61,7 @@ import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 import { Text } from './Text';
+import { ToggleGroup } from './ToggleGroup';
 import { Toolbar } from './Toolbar';
 import { Tooltip } from './Tooltip';
 import { Wizard, WizardStep } from './Wizard';
@@ -130,6 +131,7 @@ export {
 	TabsContent,
 	TabsList,
 	Toggle,
+	ToggleGroup,
 	ToggleRow,
 	Toolbar,
 	Snackbar,
@@ -141,3 +143,4 @@ export {
 };
 
 export type { ResultsSummaryProps } from './ResultsSummary';
+export type { ToggleGroupProps, ToggleGroupOption, ToggleGroupVariant } from './ToggleGroup';
