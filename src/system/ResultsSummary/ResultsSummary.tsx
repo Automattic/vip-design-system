@@ -17,12 +17,7 @@ import type { TextProps } from '../Text/Text';
 
 type ResultsSummaryElement = 'div' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 
-type ControlledResultsSummaryProps =
-	| 'aria-atomic'
-	| 'aria-live'
-	| 'as'
-	| 'children'
-	| 'role';
+type ControlledResultsSummaryProps = 'aria-atomic' | 'aria-live' | 'as' | 'children' | 'role';
 
 export type ResultsSummaryProps< E extends ResultsSummaryElement = 'p' > = Omit<
 	TextProps< E >,
