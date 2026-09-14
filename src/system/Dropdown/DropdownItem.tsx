@@ -42,7 +42,7 @@ export interface DropdownSubTriggerItemProps
 }
 
 export const styles: ThemeUIStyleObject = {
-	unset: 'all',
+	all: 'unset',
 	cursor: 'pointer',
 	display: 'flex',
 	alignItems: 'center',
