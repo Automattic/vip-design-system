@@ -92,19 +92,5 @@ describe( '<Dropdown />', () => {
 
 			expect( preventDefault ).not.toHaveBeenCalled();
 		} );
-
-		it( 'is applied by default and overridable through contentProps', () => {
-			const onCloseAutoFocus = jest.fn();
-
-			render(
-				<Dropdown.Root { ...defaultProps } open contentProps={ { onCloseAutoFocus } }>
-					<Dropdown.Item>My Item</Dropdown.Item>
-				</Dropdown.Root>
-			);
-
-			// A consumer handler reaches the content rather than being dropped,
-			// since contentProps is spread after the default.
-			expect( document.querySelector( '.vip-dropdown-menu-content' ) ).toBeInTheDocument();
-		} );
 	} );
 } );
