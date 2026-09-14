@@ -62,7 +62,11 @@ export const styles: ThemeUIStyleObject = {
 	paddingLeft: 3,
 	py: 1,
 	'&:hover, &:focus': {
-		backgroundColor: 'hover',
+		// Matches the environment switcher's row hover. Too subtle to carry a
+		// focus indicator on its own, which is why the keyboard ring above is
+		// restored separately; here it only has to reinforce the accent colour
+		// the label already takes.
+		backgroundColor: 'input.radio-box.background.hover',
 		textDecoration: 'none',
 	},
 	'&[data-disabled]': {
@@ -71,7 +75,7 @@ export const styles: ThemeUIStyleObject = {
 		cursor: 'not-allowed',
 	},
 	'&[data-highlighted]': {
-		backgroundColor: 'hover',
+		backgroundColor: 'input.radio-box.background.hover',
 		color: 'link',
 	},
 };
