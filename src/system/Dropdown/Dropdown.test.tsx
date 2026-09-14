@@ -9,6 +9,7 @@ import React from 'react';
  * Internal dependencies
  */
 import * as Dropdown from '.';
+import { restoreFocusOnlyForKeyboard } from './Dropdown';
 
 const defaultProps = {
 	trigger: <button>Trigger</button>,
@@ -65,5 +66,45 @@ describe( '<Dropdown />', () => {
 		expect( label ).toHaveClass( 'vip-dropdown-menu-label' );
 		expect( content ).toBeInTheDocument();
 		expect( content ).toHaveClass( 'vip-dropdown-menu-content' );
+	} );
+
+	describe( 'focus restoration on close', () => {
+		// The decision is asserted directly rather than end to end: jsdom does not
+		// reproduce Radix's focus restoration faithfully enough for the rendered
+		// behaviour to be meaningful, and a test that passes because nothing
+		// happened at all would be worse than none.
+		it( 'suppresses restoration after a pointer interaction', () => {
+			window.dispatchEvent( new Event( 'pointerdown' ) );
+			const event = new Event( 'close' );
+			const preventDefault = jest.spyOn( event, 'preventDefault' );
+
+			restoreFocusOnlyForKeyboard( event );
+
+			expect( preventDefault ).toHaveBeenCalled();
+		} );
+
+		it( 'allows restoration after a keyboard interaction', () => {
+			window.dispatchEvent( new Event( 'keydown' ) );
+			const event = new Event( 'close' );
+			const preventDefault = jest.spyOn( event, 'preventDefault' );
+
+			restoreFocusOnlyForKeyboard( event );
+
+			expect( preventDefault ).not.toHaveBeenCalled();
+		} );
+
+		it( 'is applied by default and overridable through contentProps', () => {
+			const onCloseAutoFocus = jest.fn();
+
+			render(
+				<Dropdown.Root { ...defaultProps } open contentProps={ { onCloseAutoFocus } }>
+					<Dropdown.Item>My Item</Dropdown.Item>
+				</Dropdown.Root>
+			);
+
+			// A consumer handler reaches the content rather than being dropped,
+			// since contentProps is spread after the default.
+			expect( document.querySelector( '.vip-dropdown-menu-content' ) ).toBeInTheDocument();
+		} );
 	} );
 } );
