@@ -43,6 +43,11 @@ export interface DropdownSubTriggerItemProps
 
 export const styles: ThemeUIStyleObject = {
 	all: 'unset',
+	// The reset clears the browser's focus ring along with everything else, so
+	// it is put back deliberately for keyboard navigation only. Radix moves DOM
+	// focus onto whichever item is highlighted, including on pointer move, which
+	// is what made the ring follow the mouse; :not(:hover) covers that case.
+	'&:focus-visible:not(:hover)': { outline: 'revert' },
 	cursor: 'pointer',
 	display: 'flex',
 	alignItems: 'center',
