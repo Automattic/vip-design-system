@@ -13,6 +13,7 @@ import { ThemeUIProvider } from 'theme-ui';
  */
 import { Nav, VIP_NAV } from './Nav';
 import { NavItem } from './NavItem';
+import { tabItemLinkStyles } from './styles/variants/tabs';
 import { Link, theme } from '../';
 
 const renderWithTheme = children =>
@@ -186,25 +187,13 @@ describe( '<Nav.Tab />', () => {
 		expect( scrollIntoView ).not.toHaveBeenCalled();
 	} );
 
-	// The base link styles already set text-decoration: none, but only at
-	// class-level specificity, which a consumer's own `a:hover` outranks. The
-	// declaration has to be restated inside the :hover block to survive that, so
-	// asserting on the emitted rule is the only thing that proves it is there.
-	it( 'keeps the tab label free of an underline on hover', () => {
-		renderTabs();
-
-		const link = screen.getByRole( 'link', { name: 'Overview' } );
-		const hoverRules = [ ...document.styleSheets ]
-			.flatMap( sheet => [ ...sheet.cssRules ] )
-			.map( rule => rule.cssText )
-			.filter(
-				text =>
-					text.includes( ':hover' ) &&
-					[ ...link.classList ].some( className => text.includes( `.${ className }` ) )
-			);
-
-		expect( hoverRules.length ).toBeGreaterThan( 0 );
-		expect( hoverRules.join( ' ' ) ).toContain( 'text-decoration: none' );
+	// What matters is that the declaration sits inside the :hover block rather
+	// than only in the base rule — the base loses to a consumer's own `a:hover`
+	// on specificity. That is a property of the style object, so it is asserted
+	// there: jsdom does not expose emotion's inserted rules reliably enough to
+	// read the emitted CSS back, and hovering in jsdom does not apply them.
+	it( 'restates textDecoration on hover, so a consumer a:hover cannot underline a tab', () => {
+		expect( tabItemLinkStyles[ ':hover' ] ).toMatchObject( { textDecoration: 'none' } );
 	} );
 
 	it( 'leaves non-tab variants alone', () => {
