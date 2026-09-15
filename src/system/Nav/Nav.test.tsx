@@ -186,6 +186,27 @@ describe( '<Nav.Tab />', () => {
 		expect( scrollIntoView ).not.toHaveBeenCalled();
 	} );
 
+	// The base link styles already set text-decoration: none, but only at
+	// class-level specificity, which a consumer's own `a:hover` outranks. The
+	// declaration has to be restated inside the :hover block to survive that, so
+	// asserting on the emitted rule is the only thing that proves it is there.
+	it( 'keeps the tab label free of an underline on hover', () => {
+		renderTabs();
+
+		const link = screen.getByRole( 'link', { name: 'Overview' } );
+		const hoverRules = [ ...document.styleSheets ]
+			.flatMap( sheet => [ ...sheet.cssRules ] )
+			.map( rule => rule.cssText )
+			.filter(
+				text =>
+					text.includes( ':hover' ) &&
+					[ ...link.classList ].some( className => text.includes( `.${ className }` ) )
+			);
+
+		expect( hoverRules.length ).toBeGreaterThan( 0 );
+		expect( hoverRules.join( ' ' ) ).toContain( 'text-decoration: none' );
+	} );
+
 	it( 'leaves non-tab variants alone', () => {
 		const { container } = renderComponent();
 
