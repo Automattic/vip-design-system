@@ -299,8 +299,12 @@ export default {
 				minHeight: 46,
 			},
 			children: {
+				// No gap here: the body is block flow, and gap only applies in a
+				// flex or grid container. Spacing comes from the children's own
+				// margins. Adding display: flex would make a gap real, but it
+				// would also introduce spacing into every card that has none
+				// today, so it needs a consumer sweep rather than a line here.
 				padding: 4,
-				gap: 3,
 			},
 		},
 		secondary: {
