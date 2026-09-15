@@ -13,6 +13,7 @@ import { ThemeUIProvider } from 'theme-ui';
  */
 import { Nav, VIP_NAV } from './Nav';
 import { NavItem } from './NavItem';
+import { tabItemLinkStyles } from './styles/variants/tabs';
 import { Link, theme } from '../';
 
 const renderWithTheme = children =>
@@ -184,6 +185,15 @@ describe( '<Nav.Tab />', () => {
 		setScrollMetrics( scroller, { scrollLeft: 400, clientWidth: 200, scrollWidth: 600 } );
 
 		expect( scrollIntoView ).not.toHaveBeenCalled();
+	} );
+
+	// What matters is that the declaration sits inside the :hover block rather
+	// than only in the base rule — the base loses to a consumer's own `a:hover`
+	// on specificity. That is a property of the style object, so it is asserted
+	// there: jsdom does not expose emotion's inserted rules reliably enough to
+	// read the emitted CSS back, and hovering in jsdom does not apply them.
+	it( 'restates textDecoration on hover, so a consumer a:hover cannot underline a tab', () => {
+		expect( tabItemLinkStyles[ ':hover' ] ).toMatchObject( { textDecoration: 'none' } );
 	} );
 
 	it( 'leaves non-tab variants alone', () => {
