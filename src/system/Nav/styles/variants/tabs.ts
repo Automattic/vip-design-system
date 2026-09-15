@@ -80,7 +80,7 @@ export const tabItemLinkStyles: ThemeUIStyleObject = {
 	'&[aria-disabled="true"]': {
 		color: 'muted',
 	},
-	// Restated on hover, as primary and menu do. The base rule sets it at
+	// Restated on hover, as primary does. The base rule sets it at
 	// class-level specificity, which a consumer's own `a:hover` outranks — so
 	// without this a tab label can underline on hover and read as a text link
 	// rather than a control.
