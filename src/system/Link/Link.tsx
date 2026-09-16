@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { forwardRef, Ref } from 'react';
+import { Ref } from 'react';
 import {
 	Link as ThemeLink,
 	LinkProps as ThemeLinkProps,
@@ -30,6 +30,8 @@ export interface LinkProps extends ThemeLinkProps {
 	 * @default 'primary'
 	 */
 	variant?: keyof typeof LinkVariant;
+	/** Forwarded ref to the underlying anchor element. */
+	ref?: Ref< HTMLAnchorElement >;
 }
 
 export const linkUnderlineProperties: ThemeUIStyleObject = {
@@ -45,18 +47,16 @@ export const defaultLinkComponentStyle: ThemeUIStyleObject = {
 /**
  * A themed anchor element that supports text and button-style variants with focus-visible styling.
  */
-export const Link = forwardRef< HTMLAnchorElement, LinkProps >(
-	( { variant = 'primary', sx, ...props }: LinkProps, ref: Ref< HTMLAnchorElement > ) => (
-		<ThemeLink
-			variant={ variant }
-			sx={ {
-				...defaultLinkComponentStyle,
-				...sx,
-			} }
-			ref={ ref }
-			{ ...props }
-		/>
-	)
+export const Link = ( { variant = 'primary', sx, ref, ...props }: LinkProps ) => (
+	<ThemeLink
+		variant={ variant }
+		sx={ {
+			...defaultLinkComponentStyle,
+			...sx,
+		} }
+		ref={ ref }
+		{ ...props }
+	/>
 );
 
 Link.displayName = 'Link';

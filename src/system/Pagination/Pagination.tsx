@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import { forwardRef } from 'react';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { Flex } from 'theme-ui';
@@ -44,6 +43,8 @@ export interface PaginationProps extends PaginationLayoutProps {
 	 * @deprecated Use the `compact` prop instead, or `SimplePagination` for cursor-based navigation.
 	 */
 	variant?: 'full' | 'compact';
+	/** Ref forwarded to the underlying pagination `<nav>` element. */
+	ref?: React.Ref< HTMLElement >;
 }
 
 export type PageNumberItem = number | 'ellipsis';
@@ -203,93 +204,88 @@ const CompactPageSelector = ( {
  * A pagination control for navigating through paged content.
  * Shows page-number buttons by default, or a compact dropdown when `compact` is true.
  */
-export const Pagination = forwardRef< HTMLElement, PaginationProps >(
-	(
-		{
-			currentPage,
-			totalItems,
-			totalPages,
-			itemsPerPage,
-			onPageChange,
-			onItemsPerPageChange,
-			hasNextPage,
-			maxReachablePage,
-			compact = false,
-			variant,
-			displayItemsPerPageSelector,
-			pageSizeOptions,
-			className,
-			sx,
-			children,
-			...rest
-		},
-		ref
-	) => {
-		const isCompact = compact || variant === 'compact';
+export const Pagination = ( {
+	currentPage,
+	totalItems,
+	totalPages,
+	itemsPerPage,
+	onPageChange,
+	onItemsPerPageChange,
+	hasNextPage,
+	maxReachablePage,
+	compact = false,
+	variant,
+	displayItemsPerPageSelector,
+	pageSizeOptions,
+	className,
+	sx,
+	children,
+	ref,
+	...rest
+}: PaginationProps ) => {
+	const isCompact = compact || variant === 'compact';
 
-		const resolvedTotalPages =
-			totalPages ??
-			( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
+	const resolvedTotalPages =
+		totalPages ?? ( totalItems !== undefined ? Math.ceil( totalItems / itemsPerPage ) : undefined );
 
-		const isFirstPage = currentPage <= 1;
-		let isLastPage: boolean;
-		if ( resolvedTotalPages !== undefined ) {
-			isLastPage = currentPage >= resolvedTotalPages;
-		} else {
-			isLastPage = hasNextPage === false;
-		}
-
-		return (
-			<PaginationLayout
-				ref={ ref }
-				displayItemsPerPageSelector={ displayItemsPerPageSelector }
-				itemsPerPage={ itemsPerPage }
-				pageSizeOptions={ pageSizeOptions }
-				onItemsPerPageChange={ onItemsPerPageChange }
-				className={ className }
-				sx={ sx }
-				{ ...rest }
-			>
-				<Box sx={ { flex: 1 } }>{ children }</Box>
-				<Flex sx={ navigationStyles }>
-					{ isCompact ? (
-						<CompactPageSelector
-							currentPage={ currentPage }
-							totalPages={ resolvedTotalPages }
-							maxReachablePage={ maxReachablePage }
-							onPageChange={ onPageChange }
-						/>
-					) : (
-						<PageNumbers
-							currentPage={ currentPage }
-							totalPages={ resolvedTotalPages }
-							hasNextPage={ hasNextPage }
-							maxReachablePage={ maxReachablePage }
-							onPageChange={ onPageChange }
-						/>
-					) }
-
-					<Button
-						aria-label="Previous page"
-						disabled={ isFirstPage }
-						onClick={ () => onPageChange( currentPage - 1 ) }
-						sx={ { ...arrowButtonStyles, ml: 4 } }
-					>
-						<MdChevronLeft size={ 20 } />
-					</Button>
-
-					<Button
-						aria-label="Next page"
-						disabled={ isLastPage }
-						onClick={ () => onPageChange( currentPage + 1 ) }
-						sx={ arrowButtonStyles }
-					>
-						<MdChevronRight size={ 20 } />
-					</Button>
-				</Flex>
-			</PaginationLayout>
-		);
+	const isFirstPage = currentPage <= 1;
+	let isLastPage: boolean;
+	if ( resolvedTotalPages !== undefined ) {
+		isLastPage = currentPage >= resolvedTotalPages;
+	} else {
+		isLastPage = hasNextPage === false;
 	}
-);
+
+	return (
+		<PaginationLayout
+			ref={ ref }
+			displayItemsPerPageSelector={ displayItemsPerPageSelector }
+			itemsPerPage={ itemsPerPage }
+			pageSizeOptions={ pageSizeOptions }
+			onItemsPerPageChange={ onItemsPerPageChange }
+			className={ className }
+			sx={ sx }
+			{ ...rest }
+		>
+			<Box sx={ { flex: 1 } }>{ children }</Box>
+			<Flex sx={ navigationStyles }>
+				{ isCompact ? (
+					<CompactPageSelector
+						currentPage={ currentPage }
+						totalPages={ resolvedTotalPages }
+						maxReachablePage={ maxReachablePage }
+						onPageChange={ onPageChange }
+					/>
+				) : (
+					<PageNumbers
+						currentPage={ currentPage }
+						totalPages={ resolvedTotalPages }
+						hasNextPage={ hasNextPage }
+						maxReachablePage={ maxReachablePage }
+						onPageChange={ onPageChange }
+					/>
+				) }
+
+				<Button
+					aria-label="Previous page"
+					disabled={ isFirstPage }
+					onClick={ () => onPageChange( currentPage - 1 ) }
+					sx={ { ...arrowButtonStyles, ml: 4 } }
+				>
+					<MdChevronLeft size={ 20 } />
+				</Button>
+
+				<Button
+					aria-label="Next page"
+					disabled={ isLastPage }
+					onClick={ () => onPageChange( currentPage + 1 ) }
+					sx={ arrowButtonStyles }
+				>
+					<MdChevronRight size={ 20 } />
+				</Button>
+			</Flex>
+		</PaginationLayout>
+	);
+};
 
 Pagination.displayName = 'Pagination';

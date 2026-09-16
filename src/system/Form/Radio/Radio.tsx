@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import classNames from 'classnames';
-import React, { Ref, forwardRef } from 'react';
+import React, { Ref } from 'react';
 
 import { RadioOption, RadioOptionOptionProps } from './RadioOption';
 
@@ -28,62 +28,60 @@ export type RadioProps = {
 	options?: RadioOptionOptionProps[];
 	/** Additional CSS class name. */
 	className?: string;
+	/** Ref forwarded to the radio group container element. */
+	ref?: Ref< HTMLDivElement >;
 };
 
-const Radio = forwardRef< HTMLDivElement, RadioProps >(
-	(
-		{
-			variant = 'primary',
-			disabled = false,
-			defaultValue,
-			onChange,
-			name = '',
-			options = [],
-			className,
-			...props
-		}: RadioProps,
-		ref: Ref< HTMLDivElement >
-	) => {
-		// If disabled is pass globally, it will overwrite the variant
-		if ( disabled === true || disabled === undefined ) {
-			variant = 'disabled';
-		}
-
-		const onChangeHandler = ( e: React.ChangeEvent< HTMLInputElement > ) => {
-			const optionTriggered = options.find( option => {
-				const optionValue = `${ option.value }`;
-				const selectedOptionValue = `${ e.target.value }`;
-
-				return optionValue === selectedOptionValue;
-			} );
-
-			if ( onChange ) {
-				onChange( e, optionTriggered );
-			}
-		};
-
-		const renderedOptions = options.map( option => (
-			<RadioOption
-				variant={ option?.disabled ? 'disabled' : variant }
-				key={ option?.id }
-				name={ name }
-				option={ option }
-				disabled={ disabled || option?.disabled }
-				onChangeHandler={ onChangeHandler }
-				checked={ `${ defaultValue }` === `${ option?.value }` }
-			/>
-		) );
-
-		return (
-			<div
-				ref={ ref }
-				className={ classNames( VIP_RADIO, `${ VIP_RADIO }-${ name }`, className ) }
-				{ ...props }
-			>
-				{ renderedOptions }
-			</div>
-		);
+const Radio = ( {
+	variant = 'primary',
+	disabled = false,
+	defaultValue,
+	onChange,
+	name = '',
+	options = [],
+	className,
+	ref,
+	...props
+}: RadioProps ) => {
+	// If disabled is pass globally, it will overwrite the variant
+	if ( disabled === true || disabled === undefined ) {
+		variant = 'disabled';
 	}
-);
+
+	const onChangeHandler = ( e: React.ChangeEvent< HTMLInputElement > ) => {
+		const optionTriggered = options.find( option => {
+			const optionValue = `${ option.value }`;
+			const selectedOptionValue = `${ e.target.value }`;
+
+			return optionValue === selectedOptionValue;
+		} );
+
+		if ( onChange ) {
+			onChange( e, optionTriggered );
+		}
+	};
+
+	const renderedOptions = options.map( option => (
+		<RadioOption
+			variant={ option?.disabled ? 'disabled' : variant }
+			key={ option?.id }
+			name={ name }
+			option={ option }
+			disabled={ disabled || option?.disabled }
+			onChangeHandler={ onChangeHandler }
+			checked={ `${ defaultValue }` === `${ option?.value }` }
+		/>
+	) );
+
+	return (
+		<div
+			ref={ ref }
+			className={ classNames( VIP_RADIO, `${ VIP_RADIO }-${ name }`, className ) }
+			{ ...props }
+		>
+			{ renderedOptions }
+		</div>
+	);
+};
 
 export { Radio };

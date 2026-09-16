@@ -7,6 +7,8 @@ import React from 'react';
 export interface DropdownSeparatorProps {
 	/** Additional CSS class name applied to the separator. */
 	className?: string;
+	/** Forwarded ref to the underlying separator element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export const styles = {
@@ -18,15 +20,13 @@ export const styles = {
 /**
  * A visual divider between groups of items in a Dropdown menu.
  */
-export const DropdownSeparator = React.forwardRef< HTMLDivElement, DropdownSeparatorProps >(
-	( { className, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.DropdownMenuSeparator
-			className={ classNames( 'vip-dropdown-menu-separator', className ) }
-			ref={ forwardRef }
-			sx={ styles }
-			{ ...props }
-		/>
-	)
+export const DropdownSeparator = ( { className, ref, ...props }: DropdownSeparatorProps ) => (
+	<DropdownMenuPrimitive.DropdownMenuSeparator
+		className={ classNames( 'vip-dropdown-menu-separator', className ) }
+		ref={ ref }
+		sx={ styles }
+		{ ...props }
+	/>
 );
 
 DropdownSeparator.displayName = 'DropdownSeparator';

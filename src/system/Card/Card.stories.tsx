@@ -73,3 +73,15 @@ export const StyledBody: Story = {
 		children: 'Hello styled body.',
 	},
 };
+
+/**
+ * `sx` is merged over the variant rather than replacing it, so the card keeps its
+ * background, radius and shadow while the custom styles are applied on top.
+ */
+export const WithCustomStyles: Story = {
+	args: {
+		title: 'Header',
+		sx: { maxWidth: 400, mb: 4 },
+		children: 'This card sets maxWidth and margin, and keeps the primary variant surface.',
+	},
+};

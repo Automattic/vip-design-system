@@ -26,33 +26,41 @@ export interface LabelProps extends BoxProps {
 	required?: boolean;
 	/** The ID of the form element this label is associated with. */
 	htmlFor?: string;
+	/** Ref forwarded to the underlying label element. */
+	ref?: React.Ref< HTMLLabelElement >;
 }
 
 /**
  * A form label component with support for required field indicators and clickable styling.
  */
-export const Label = React.forwardRef< HTMLLabelElement, LabelProps >(
-	( { sx, children, required, clickable, as = 'label', ...rest }, forwardRef ) => (
-		<Box
-			as={ as }
-			sx={ {
-				margin: 0,
-				padding: 0,
-				border: 0,
-				outline: 0,
-				...baseLabelStyle,
-				display: 'block',
-				mb: 2,
-				cursor: clickable ? 'pointer' : 'default',
-				...sx,
-			} }
-			ref={ forwardRef }
-			{ ...rest }
-		>
-			{ children }
-			{ required && <RequiredLabel /> }
-		</Box>
-	)
+export const Label = ( {
+	sx,
+	children,
+	required,
+	clickable,
+	as = 'label',
+	ref,
+	...rest
+}: LabelProps ) => (
+	<Box
+		as={ as }
+		sx={ {
+			margin: 0,
+			padding: 0,
+			border: 0,
+			outline: 0,
+			...baseLabelStyle,
+			display: 'block',
+			mb: 2,
+			cursor: clickable ? 'pointer' : 'default',
+			...sx,
+		} }
+		ref={ ref }
+		{ ...rest }
+	>
+		{ children }
+		{ required && <RequiredLabel /> }
+	</Box>
 );
 
 Label.displayName = 'Label';

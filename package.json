@@ -1,6 +1,6 @@
 {
   "name": "@automattic/vip-design-system",
-  "version": "2.20.6-dev.0",
+  "version": "2.23.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/Automattic/vip-design-system"
@@ -45,6 +45,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toggle-group": "^1.1.19",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@theme-ui/match-media": "^0.17.0",
     "accessible-autocomplete": "^2.0.4",
@@ -119,8 +120,8 @@
     "jest-axe": "8.0.0",
     "jest-environment-jsdom": "29.7.0",
     "prettier": "npm:wp-prettier@2.8.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "storybook": "10.5.2",
     "theme-ui": "0.17.4",
     "token-transformer": "0.0.33",
@@ -128,6 +129,7 @@
     "vite": "^8.0.3"
   },
   "overrides": {
+    "eslint-plugin-react-hooks": "^5.0.0",
     "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0",
     "i18n-calypso": {
       "react": "$react",

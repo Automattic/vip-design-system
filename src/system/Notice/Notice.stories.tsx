@@ -126,3 +126,22 @@ export const Default: Story = {
 		</React.Fragment>
 	),
 };
+
+/**
+ * A notice either closes or collapses, never both: one icon in the header keeps it
+ * obvious what that icon does. Passing `dismissible` with `collapsible` is a type error.
+ */
+export const Dismissible: Story = {
+	render: () => (
+		<React.Fragment>
+			<Notice variant="info" sx={ { mb: 4 } } title="You can close this one" dismissible>
+				Dismissing removes the notice and calls <code>onDismiss</code>, so the page can remember the
+				choice.
+			</Notice>
+
+			<Notice variant="success" sx={ { mb: 4 } } title="This one collapses instead" collapsible>
+				Bucket names in Amazon S3 are globally unique.
+			</Notice>
+		</React.Fragment>
+	),
+};

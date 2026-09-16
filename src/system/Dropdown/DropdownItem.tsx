@@ -10,6 +10,8 @@ export interface DropdownItemProps extends DropdownMenuPrimitive.DropdownMenuIte
 	className?: string;
 	/** The content rendered inside the menu item. */
 	children?: React.ReactNode;
+	/** Forwarded ref to the underlying menu item element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export interface DropdownRadioItemProps extends DropdownMenuPrimitive.DropdownMenuRadioItemProps {
@@ -17,6 +19,8 @@ export interface DropdownRadioItemProps extends DropdownMenuPrimitive.DropdownMe
 	className?: string;
 	/** The content rendered inside the radio item. */
 	children?: React.ReactNode;
+	/** Forwarded ref to the underlying radio item element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export interface DropdownCheckboxItemProps
@@ -25,16 +29,25 @@ export interface DropdownCheckboxItemProps
 	className?: string;
 	/** The content rendered inside the checkbox item. */
 	children?: React.ReactNode;
+	/** Forwarded ref to the underlying checkbox item element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export interface DropdownSubTriggerItemProps
 	extends DropdownMenuPrimitive.DropdownMenuSubTriggerProps {
 	/** Additional CSS class name applied to the sub-menu trigger. */
 	className?: string;
+	/** Forwarded ref to the underlying sub-menu trigger element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 export const styles: ThemeUIStyleObject = {
-	unset: 'all',
+	all: 'unset',
+	// The reset clears the browser's focus ring along with everything else, so
+	// it is put back deliberately for keyboard navigation only. Radix moves DOM
+	// focus onto whichever item is highlighted, including on pointer move, which
+	// is what made the ring follow the mouse; :not(:hover) covers that case.
+	'&:focus-visible:not(:hover)': { outline: 'revert' },
 	cursor: 'pointer',
 	display: 'flex',
 	alignItems: 'center',
@@ -49,7 +62,11 @@ export const styles: ThemeUIStyleObject = {
 	paddingLeft: 3,
 	py: 1,
 	'&:hover, &:focus': {
-		backgroundColor: 'hover',
+		// Matches the environment switcher's row hover. Too subtle to carry a
+		// focus indicator on its own, which is why the keyboard ring above is
+		// restored separately; here it only has to reinforce the accent colour
+		// the label already takes.
+		backgroundColor: 'input.radio-box.background.hover',
 		textDecoration: 'none',
 	},
 	'&[data-disabled]': {
@@ -58,7 +75,7 @@ export const styles: ThemeUIStyleObject = {
 		cursor: 'not-allowed',
 	},
 	'&[data-highlighted]': {
-		backgroundColor: 'hover',
+		backgroundColor: 'input.radio-box.background.hover',
 		color: 'link',
 	},
 };
@@ -66,15 +83,13 @@ export const styles: ThemeUIStyleObject = {
 /**
  * A single selectable item within a Dropdown menu.
  */
-export const DropdownItem = React.forwardRef< HTMLDivElement, DropdownItemProps >(
-	( { className, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.DropdownMenuItem
-			className={ classNames( 'vip-dropdown-menu-item', className ) }
-			ref={ forwardRef }
-			sx={ styles }
-			{ ...props }
-		/>
-	)
+export const DropdownItem = ( { className, ref, ...props }: DropdownItemProps ) => (
+	<DropdownMenuPrimitive.DropdownMenuItem
+		className={ classNames( 'vip-dropdown-menu-item', className ) }
+		ref={ ref }
+		sx={ styles }
+		{ ...props }
+	/>
 );
 
 DropdownItem.displayName = 'DropdownItem';
@@ -82,15 +97,13 @@ DropdownItem.displayName = 'DropdownItem';
 /**
  * A toggleable checkbox item within a Dropdown menu.
  */
-export const DropdownCheckboxItem = React.forwardRef< HTMLDivElement, DropdownCheckboxItemProps >(
-	( { className, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.CheckboxItem
-			className={ classNames( 'vip-dropdown-checkbox-item', className ) }
-			ref={ forwardRef }
-			sx={ styles }
-			{ ...props }
-		/>
-	)
+export const DropdownCheckboxItem = ( { className, ref, ...props }: DropdownCheckboxItemProps ) => (
+	<DropdownMenuPrimitive.CheckboxItem
+		className={ classNames( 'vip-dropdown-checkbox-item', className ) }
+		ref={ ref }
+		sx={ styles }
+		{ ...props }
+	/>
 );
 
 DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';
@@ -98,16 +111,19 @@ DropdownCheckboxItem.displayName = 'DropdownCheckboxItem';
 /**
  * A radio-selectable item within a Dropdown menu radio group.
  */
-export const DropdownRadioItem = React.forwardRef< HTMLDivElement, DropdownRadioItemProps >(
-	( { className, value, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.RadioItem
-			className={ classNames( 'vip-dropdown-radio-item', className ) }
-			ref={ forwardRef }
-			sx={ styles }
-			value={ value }
-			{ ...props }
-		/>
-	)
+export const DropdownRadioItem = ( {
+	className,
+	value,
+	ref,
+	...props
+}: DropdownRadioItemProps ) => (
+	<DropdownMenuPrimitive.RadioItem
+		className={ classNames( 'vip-dropdown-radio-item', className ) }
+		ref={ ref }
+		sx={ styles }
+		value={ value }
+		{ ...props }
+	/>
 );
 
 DropdownRadioItem.displayName = 'DropdownRadioItem';
@@ -115,28 +131,31 @@ DropdownRadioItem.displayName = 'DropdownRadioItem';
 /**
  * A menu item that opens a nested sub-menu when hovered or clicked.
  */
-export const DropdownSubTrigger = React.forwardRef< HTMLDivElement, DropdownSubTriggerItemProps >(
-	( { className, disabled, ...props }, forwardRef ) => (
-		<DropdownMenuPrimitive.SubTrigger
-			className={ classNames( 'vip-dropdown-sub-trigger', className ) }
-			disabled={ disabled }
-			ref={ forwardRef }
-			sx={ {
-				...styles,
-				...{
-					'&[data-state="open"]': {
-						background: 'highlight',
-						color: 'primary',
-					},
+export const DropdownSubTrigger = ( {
+	className,
+	disabled,
+	ref,
+	...props
+}: DropdownSubTriggerItemProps ) => (
+	<DropdownMenuPrimitive.SubTrigger
+		className={ classNames( 'vip-dropdown-sub-trigger', className ) }
+		disabled={ disabled }
+		ref={ ref }
+		sx={ {
+			...styles,
+			...{
+				'&[data-state="open"]': {
+					background: 'highlight',
+					color: 'primary',
 				},
-				...( disabled && {
-					cursor: 'not-allowed',
-					color: 'muted',
-				} ),
-			} }
-			{ ...props }
-		/>
-	)
+			},
+			...( disabled && {
+				cursor: 'not-allowed',
+				color: 'muted',
+			} ),
+		} }
+		{ ...props }
+	/>
 );
 
 DropdownSubTrigger.displayName = 'DropdownSubTrigger';

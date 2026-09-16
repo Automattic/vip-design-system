@@ -52,13 +52,16 @@ import { Notice } from './Notice';
 import { OptionRow } from './OptionRow';
 import { SimplePagination, Pagination } from './Pagination';
 import { Progress } from './Progress';
+import { ResultsSummary } from './ResultsSummary';
 import { ScreenReaderText } from './ScreenReaderText';
+import { ServiceHeader } from './ServiceHeader';
 import { Skeleton } from './Skeleton';
 import { Snackbar } from './Snackbar';
 import { Spinner } from './Spinner';
 import { Table, TableRow, TableCell } from './Table';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from './Tabs';
 import { Text } from './Text';
+import { ToggleGroup } from './ToggleGroup';
 import { Toolbar } from './Toolbar';
 import { Tooltip } from './Tooltip';
 import { Wizard, WizardStep } from './Wizard';
@@ -118,6 +121,7 @@ export {
 	RadioGroupChip,
 	Textarea,
 	Progress,
+	ResultsSummary,
 	Text,
 	Tabs,
 	Nav,
@@ -127,11 +131,16 @@ export {
 	TabsContent,
 	TabsList,
 	Toggle,
+	ToggleGroup,
 	ToggleRow,
 	Toolbar,
 	Snackbar,
+	ServiceHeader,
 	Validation,
 	Wizard,
 	WizardStep,
 	theme,
 };
+
+export type { ResultsSummaryProps } from './ResultsSummary';
+export type { ToggleGroupProps, ToggleGroupOption, ToggleGroupVariant } from './ToggleGroup';

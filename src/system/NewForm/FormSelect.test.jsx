@@ -91,6 +91,12 @@ describe( '<FormSelect />', () => {
 		await expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
+	it( 'forwards select attributes', () => {
+		render( <FormSelect id="dessert" name="dessert" { ...defaultProps } /> );
+
+		expect( screen.getByRole( 'combobox' ) ).toHaveAttribute( 'name', 'dessert' );
+	} );
+
 	it( 'renders the FormSelect with nullish options', async () => {
 		const nullishOptions = [ ...options, { value: null, label: 'Empty' } ];
 

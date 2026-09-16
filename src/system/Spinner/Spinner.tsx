@@ -2,7 +2,7 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import { forwardRef, Ref } from 'react';
+import { Ref } from 'react';
 import { Spinner as ThemeSpinner, SpinnerProps, ThemeUIStyleObject } from 'theme-ui';
 
 export interface ThemeSpinnerProps extends SpinnerProps {
@@ -20,28 +20,32 @@ export interface ThemeSpinnerProps extends SpinnerProps {
 	 * @default 2
 	 */
 	strokeWidth?: number;
+	/** Forwarded ref to the underlying SVG element. */
+	ref?: Ref< SVGSVGElement >;
 }
 
 /**
  * An animated SVG spinner used to indicate a loading state.
  */
-export const Spinner = forwardRef< SVGSVGElement, ThemeSpinnerProps >(
-	(
-		{ sx, color = 'icon.helper', strokeWidth = 2, className, ...props }: ThemeSpinnerProps,
-		ref: Ref< SVGSVGElement >
-	) => (
-		<ThemeSpinner
-			as="svg"
-			sx={ {
-				...sx,
-				color,
-			} }
-			strokeWidth={ strokeWidth }
-			className={ classNames( 'vip-spinner-component', className ) }
-			ref={ ref }
-			{ ...props }
-		/>
-	)
+export const Spinner = ( {
+	sx,
+	color = 'icon.helper',
+	strokeWidth = 2,
+	className,
+	ref,
+	...props
+}: ThemeSpinnerProps ) => (
+	<ThemeSpinner
+		as="svg"
+		sx={ {
+			...sx,
+			color,
+		} }
+		strokeWidth={ strokeWidth }
+		className={ classNames( 'vip-spinner-component', className ) }
+		ref={ ref }
+		{ ...props }
+	/>
 );
 
 Spinner.displayName = 'Spinner';

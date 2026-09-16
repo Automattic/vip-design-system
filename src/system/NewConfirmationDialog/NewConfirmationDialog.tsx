@@ -88,8 +88,10 @@ export interface NewConfirmationDialogProps
 	buttonVariant?: React.ComponentProps< typeof Button >[ 'variant' ];
 	/** The dialog title. */
 	title?: ReactNode;
-	/** The dialog body, rendered as the dialog description. */
-	body?: string;
+	/** @deprecated Use `description` instead. The body is rendered as the dialog description. */
+	body?: ReactNode;
+	/** The dialog description. Takes precedence over the deprecated `body` prop when provided. */
+	description?: ReactNode;
 	/** Whether the confirm button is disabled. */
 	buttonDisabled?: boolean;
 }
@@ -101,11 +103,13 @@ const NewConfirmationDialog = ( {
 	label,
 	buttonVariant,
 	title,
-	body = '',
+	body,
+	description,
 	buttonDisabled = false,
 	...props
 }: NewConfirmationDialogProps ) => {
 	const directTrigger = React.cloneElement( trigger, { onClick: onConfirm } );
+	const dialogDescription = description ?? body ?? '';
 
 	if ( ! needsConfirm ) {
 		return directTrigger;
@@ -115,7 +119,7 @@ const NewConfirmationDialog = ( {
 		<NewDialog.Root
 			sx={ { maxWidth: 680 } }
 			title={ title }
-			description={ body }
+			description={ dialogDescription }
 			content={ ( { onClose } ) => (
 				<NewConfirmationDialogContent
 					onClose={ onClose }

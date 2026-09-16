@@ -24,6 +24,12 @@ export default {
 		danger: {
 			control: { type: 'boolean' },
 		},
+		loading: {
+			control: { type: 'boolean' },
+		},
+		loadingIconSize: {
+			control: { type: 'number' },
+		},
 		variant: {
 			type: 'select',
 			options: Object.values( ButtonVariant ),
@@ -78,6 +84,8 @@ export const Primary: Story = {
 		disabled: false,
 		full: false,
 		danger: false,
+		loading: false,
+		loadingIconSize: 20,
 	},
 };
 
@@ -230,5 +238,93 @@ const PreferAriaDisabledTemplate = args => (
 	</div>
 );
 
+const LoadingTemplate = args => (
+	<div>
+		<h3>Loading</h3>
+		<Table>
+			<TableRow>
+				<TableCell head>Variant</TableCell>
+				<TableCell head>Primary</TableCell>
+				<TableCell head>Secondary</TableCell>
+				<TableCell head>Tertiary</TableCell>
+				<TableCell head>Ghost</TableCell>
+				<TableCell head>Display</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Default</TableCell>
+				<TableCell>
+					<Button { ...args } variant="primary" loading>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="secondary" loading>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="tertiary" loading>
+						Tertiary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="ghost" loading>
+						Ghost
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="display" loading>
+						Display
+					</Button>
+				</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>Aria disabled</TableCell>
+				<TableCell>
+					<Button { ...args } variant="primary" loading preferAriaDisabled>
+						Primary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="secondary" loading preferAriaDisabled>
+						Secondary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="tertiary" loading preferAriaDisabled>
+						Tertiary
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="ghost" loading preferAriaDisabled>
+						Ghost
+					</Button>
+				</TableCell>
+				<TableCell>
+					<Button { ...args } variant="display" loading preferAriaDisabled>
+						Display
+					</Button>
+				</TableCell>
+			</TableRow>
+		</Table>
+	</div>
+);
+
 export const Default = Template.bind( {} );
 export const PreferAriaDisabled = PreferAriaDisabledTemplate.bind( {} );
+
+export const Loading: Story = {
+	args: {
+		children: 'Loading',
+		loading: true,
+		loadingIconSize: 20,
+		variant: 'primary',
+	},
+};
+
+export const LoadingVariants: Story = {
+	render: LoadingTemplate,
+	args: {
+		loadingIconSize: 20,
+	},
+};

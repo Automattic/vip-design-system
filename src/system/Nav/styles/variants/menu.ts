@@ -21,6 +21,7 @@ export const menuItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeU
 export const tabItemStyles = ( orientation: NavProps[ 'orientation' ] ): ThemeUIStyleObject => ( {
 	...defaultNavItemStyles( orientation ),
 	mr: 0,
+	flexShrink: 0,
 } );
 
 // Menu Inverse Item Style <li>

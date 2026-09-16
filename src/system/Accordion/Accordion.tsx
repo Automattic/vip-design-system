@@ -29,34 +29,47 @@ const slideUp = keyframes( {
 interface AccordionTheme extends Theme {
 	outline?: Record< string, string >;
 }
-export interface AccordionItemProps {
+export interface AccordionItemProps
+	extends Omit< AccordionPrimitive.AccordionItemProps, 'children' | 'className' > {
 	/** Content to render inside the accordion item. */
 	children: ReactNode;
-	/** Unique value that identifies this item within the accordion. */
-	value: string;
+	/** Additional CSS class names. */
+	className?: Argument;
+	/** Theme UI style overrides for the accordion item. */
+	sx?: ThemeUIStyleObject;
+	/** Ref forwarded to the item element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
-export interface TriggerProps {
+export interface TriggerProps extends Omit< AccordionPrimitive.AccordionTriggerProps, 'children' > {
 	/** Label content for the trigger button. */
 	children: ReactNode;
 	/** Heading level used to wrap the trigger. @default 'h3' */
 	headingVariant?: HeadingProps[ 'variant' ];
 	/** Theme UI style overrides for the trigger button. */
 	sx?: ThemeUIStyleObject;
+	/** Ref forwarded to the trigger button. */
+	ref?: React.Ref< HTMLButtonElement >;
 }
-export interface TriggerWithIconProps {
+export interface TriggerWithIconProps extends Omit< TriggerProps, 'children' > {
 	/** Label content displayed next to the icon. */
 	children: ReactNode;
 	/** Icon element rendered before the label. */
 	icon: ReactNode;
 }
 
-export interface ContentProps {
+export interface ContentProps extends Omit< AccordionPrimitive.AccordionContentProps, 'children' > {
 	/** Content revealed when the accordion item is expanded. */
 	children: ReactNode;
 	/** Theme UI style overrides for the content area. */
 	sx?: ThemeUIStyleObject;
+	/** Ref forwarded to the content element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
-export interface RootProps {
+export interface RootProps
+	extends Omit<
+		AccordionPrimitive.AccordionSingleProps,
+		'type' | 'collapsible' | 'children' | 'className'
+	> {
 	/** Optional caption for the accordion. */
 	caption?: string;
 	/** Accordion items to render. */
@@ -65,18 +78,18 @@ export interface RootProps {
 	className?: Argument;
 	/** Theme UI style overrides for the root container. */
 	sx?: ThemeUIStyleObject;
-	/** Value of the item expanded by default. */
-	defaultValue?: string;
-	/** Controlled value of the currently expanded item. */
-	value?: string;
-	/** Callback fired when the expanded item changes. */
-	onValueChange?: ( value: string ) => void;
+	/** Ref forwarded to the root element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 /** A single collapsible section within the Accordion. */
-export const Item = ( { children, ...props }: AccordionItemProps ) => (
+export const Item = ( { children, className, sx = {}, ref, ...props }: AccordionItemProps ) => (
 	<AccordionPrimitive.Item
-		{ ...props }
+		className={ classNames( className ) }
+		ref={ ref }
 		sx={ {
+			// The item owns the surface so a closed accordion is self-contained
+			// rather than showing whatever the page sits on.
+			backgroundColor: 'accordion.item.background',
 			overflow: 'hidden',
 			borderWidth: '0 1px 1px 1px',
 			borderStyle: 'solid',
@@ -91,7 +104,9 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 				borderBottomLeftRadius: 1,
 				borderBottomRightRadius: 1,
 			},
+			...sx,
 		} }
+		{ ...props }
 	>
 		{ children }
 	</AccordionPrimitive.Item>
@@ -100,143 +115,141 @@ export const Item = ( { children, ...props }: AccordionItemProps ) => (
 Item.displayName = 'Accordion.Item';
 
 /** Button that toggles the visibility of the associated Accordion.Content. */
-export const Trigger = React.forwardRef< HTMLButtonElement, TriggerProps >(
-	( { children, headingVariant = 'h3', sx = {}, ...props }, forwardedRef ) => (
-		<Heading
+export const Trigger = ( {
+	children,
+	headingVariant = 'h3',
+	sx = {},
+	ref,
+	...props
+}: TriggerProps ) => (
+	<Heading
+		sx={ {
+			all: 'unset',
+			display: 'flex',
+		} }
+		variant={ headingVariant }
+	>
+		<AccordionPrimitive.Trigger
 			sx={ {
+				color: 'heading',
+				cursor: 'pointer',
 				all: 'unset',
+				fontFamily: 'inherit',
+				px: 3,
+				minHeight: 45,
+				flex: 1,
 				display: 'flex',
-			} }
-			variant={ headingVariant }
-		>
-			<AccordionPrimitive.Trigger
-				sx={ {
-					color: 'heading',
-					cursor: 'pointer',
-					all: 'unset',
-					fontFamily: 'inherit',
-					px: 3,
-					minHeight: 45,
-					flex: 1,
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between',
-					fontSize: 1,
-					fontWeight: 'bold',
+				alignItems: 'center',
+				justifyContent: 'space-between',
+				fontSize: 1,
+				fontWeight: 'bold',
 
-					'&[data-state="closed"]': {
-						backgroundColor: 'accordion.background.closed',
-					},
-					'&[data-state="open"]': {
-						backgroundColor: 'accordion.background.open',
-						borderBottom: '1px solid',
-						borderBottomColor: 'borders.2',
-						'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
-					},
-					'&:hover': { backgroundColor: 'accordion.background.hover' },
-					// Keyboard-only focus ring on the header (the trigger button
-					// fills the header). Rendered inset, reusing the shared
-					// focus-ring colors, because the parent Item has overflow:hidden
-					// for its rounded corners which would clip an outset ring.
-					'&:focus-visible': ( theme: AccordionTheme ) => {
-						const ring = theme.outline?.boxShadow;
-						return ring
-							? {
-									boxShadow: ring
-										.split( /,(?![^(]*\))/ )
-										.map( layer => `inset ${ layer.trim() }` )
-										.join( ', ' ),
-							  }
-							: {};
-					},
-					...sx,
+				'&[data-state="closed"]': {
+					backgroundColor: 'accordion.background.closed',
+				},
+				'&[data-state="open"]': {
+					backgroundColor: 'accordion.background.open',
+					borderBottom: '1px solid',
+					borderBottomColor: 'borders.2',
+					'.vip-accordion-trigger-indicator': { transform: 'rotate(270deg)' },
+				},
+				'&:hover': { backgroundColor: 'accordion.background.hover' },
+				// Keyboard-only focus ring on the header (the trigger button
+				// fills the header). Rendered inset, reusing the shared
+				// focus-ring colors, because the parent Item has overflow:hidden
+				// for its rounded corners which would clip an outset ring.
+				'&:focus-visible': ( theme: AccordionTheme ) => {
+					const ring = theme.outline?.boxShadow;
+					return ring
+						? {
+								boxShadow: ring
+									.split( /,(?![^(]*\))/ )
+									.map( layer => `inset ${ layer.trim() }` )
+									.join( ', ' ),
+						  }
+						: {};
+				},
+				...sx,
+			} }
+			{ ...props }
+			ref={ ref }
+		>
+			{ children }
+			<MdChevronRight
+				className="vip-accordion-trigger-indicator"
+				sx={ {
+					fontSize: 3,
+					color: 'icon.primary',
+					transform: 'rotate(90deg)',
+					transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+					minHeight: '20px',
+					minWidth: '20px',
 				} }
-				{ ...props }
-				ref={ forwardedRef }
-			>
-				{ children }
-				<MdChevronRight
-					className="vip-accordion-trigger-indicator"
-					sx={ {
-						fontSize: 3,
-						color: 'icon.primary',
-						transform: 'rotate(90deg)',
-						transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-						minHeight: '20px',
-						minWidth: '20px',
-					} }
-					aria-hidden
-				/>
-			</AccordionPrimitive.Trigger>
-		</Heading>
-	)
+				aria-hidden
+			/>
+		</AccordionPrimitive.Trigger>
+	</Heading>
 );
 
 Trigger.displayName = 'Accordion.Trigger';
 
 /** Trigger variant that renders an icon alongside the label. */
-export const TriggerWithIcon = React.forwardRef< HTMLButtonElement, TriggerWithIconProps >(
-	( { children, icon, ...props }, forwardedRef ) => (
-		<Trigger { ...props } ref={ forwardedRef }>
-			<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
-			<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 3 } }>
-				{ children }
-			</div>
-		</Trigger>
-	)
+export const TriggerWithIcon = ( { children, icon, ref, ...props }: TriggerWithIconProps ) => (
+	<Trigger { ...props } ref={ ref }>
+		<span sx={ { color: 'icon.primary', fontSize: 3 } }>{ icon }</span>
+		<div sx={ { color: 'accordion.trigger.text', flexGrow: 1, textAlign: 'left', ml: 3 } }>
+			{ children }
+		</div>
+	</Trigger>
 );
 
 TriggerWithIcon.displayName = 'Accordion.TriggerWithIcon';
 
 /** Collapsible content area revealed when its parent Accordion.Item is expanded. */
-export const Content = React.forwardRef< HTMLDivElement, ContentProps >(
-	( { children, sx = {}, ...props }, forwardedRef ) => {
-		return (
-			<AccordionPrimitive.Content
-				sx={ {
-					backgroundColor: 'accordion.content.background',
-					color: 'accordion.content.text',
-					fontSize: 2,
-					overflow: 'hidden',
-					px: 3,
-					py: 2,
+export const Content = ( { children, sx = {}, ref, ...props }: ContentProps ) => {
+	return (
+		<AccordionPrimitive.Content
+			sx={ {
+				backgroundColor: 'accordion.content.background',
+				color: 'accordion.content.text',
+				fontSize: 2,
+				overflow: 'hidden',
+				px: 3,
+				py: 2,
 
-					'&[data-state="open"]': {
-						animation: `${ slideDown } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
-					},
-					'&[data-state="closed"]': {
-						animation: `${ slideUp } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
-					},
-					...sx,
-				} }
-				{ ...props }
-				ref={ forwardedRef }
-			>
-				{ children }
-			</AccordionPrimitive.Content>
-		);
-	}
-);
+				'&[data-state="open"]': {
+					animation: `${ slideDown } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
+				},
+				'&[data-state="closed"]': {
+					animation: `${ slideUp } 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
+				},
+				...sx,
+			} }
+			{ ...props }
+			ref={ ref }
+		>
+			{ children }
+		</AccordionPrimitive.Content>
+	);
+};
 
 Content.displayName = 'Accordion.Content';
 
 /** Root container for the Accordion. Wraps one or more Accordion.Item elements. */
-export const Root = React.forwardRef< HTMLDivElement, RootProps >(
-	( { sx = {}, children, className, ...props }, forwardRef ) => (
-		<AccordionPrimitive.Root
-			className={ classNames( 'vip-accordion-component', className ) }
-			collapsible
-			type="single"
-			ref={ forwardRef }
-			sx={ {
-				borderRadius: 2,
-				...sx,
-			} }
-			{ ...props }
-		>
-			{ children }
-		</AccordionPrimitive.Root>
-	)
+export const Root = ( { sx = {}, children, className, ref, ...props }: RootProps ) => (
+	<AccordionPrimitive.Root
+		className={ classNames( 'vip-accordion-component', className ) }
+		collapsible
+		type="single"
+		ref={ ref }
+		sx={ {
+			borderRadius: 2,
+			...sx,
+		} }
+		{ ...props }
+	>
+		{ children }
+	</AccordionPrimitive.Root>
 );
 
 Root.displayName = 'Accordion';

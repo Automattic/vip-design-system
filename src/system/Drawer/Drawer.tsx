@@ -46,44 +46,52 @@ export interface DrawerProps extends DialogPrimitive.DialogProps {
 	dimensions?: responsiveDimensionsProp;
 	/** Custom render function for the close button. Returns null to hide it. */
 	renderClose?: () => React.JSX.Element | null;
+	/** Ref forwarded to the underlying drawer content element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 /** The panel content area of the Drawer, rendered inside a portal with an overlay. */
-export const Content = React.forwardRef< HTMLDivElement, DrawerContentProps >(
-	( { children, variant = 'left', label, dimensions, renderClose, ...rest }, forwardedRef ) => (
-		<DialogPrimitive.Portal>
-			<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
-			<DialogPrimitive.Content
-				{ ...rest }
-				sx={ drawerContentStyles( variant, dimensions ) }
-				ref={ forwardedRef }
-			>
-				<DialogTitle title={ label } hidden />
-				{ renderClose ? renderClose() : <DialogClose /> }
-				{ children }
-			</DialogPrimitive.Content>
-		</DialogPrimitive.Portal>
-	)
+export const Content = ( {
+	children,
+	variant = 'left',
+	label,
+	dimensions,
+	renderClose,
+	ref,
+	...rest
+}: DrawerContentProps ) => (
+	<DialogPrimitive.Portal>
+		<DialogPrimitive.Overlay sx={ drawerOverlayStyles( variant ) } />
+		<DialogPrimitive.Content
+			{ ...rest }
+			sx={ drawerContentStyles( variant, dimensions ) }
+			ref={ ref }
+		>
+			<DialogTitle title={ label } hidden />
+			{ renderClose ? renderClose() : <DialogClose /> }
+			{ children }
+		</DialogPrimitive.Content>
+	</DialogPrimitive.Portal>
 );
 
 /**
  * A slide-out panel component built on Radix Dialog.
  * Supports multiple positions and responsive dimensions.
  */
-export const Drawer = React.forwardRef< HTMLDivElement, DrawerProps >(
-	( { children, dimensions, variant = 'left', trigger, label, ...rest }, forwardedRef ) => (
-		<Root trigger={ trigger }>
-			<Content
-				dimensions={ dimensions }
-				variant={ variant }
-				label={ label }
-				ref={ forwardedRef }
-				{ ...rest }
-			>
-				{ children }
-			</Content>
-		</Root>
-	)
+export const Drawer = ( {
+	children,
+	dimensions,
+	variant = 'left',
+	trigger,
+	label,
+	ref,
+	...rest
+}: DrawerProps ) => (
+	<Root trigger={ trigger }>
+		<Content dimensions={ dimensions } variant={ variant } label={ label } ref={ ref } { ...rest }>
+			{ children }
+		</Content>
+	</Root>
 );
 
 /** Props for the Drawer.Root sub-component. */

@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import { forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
@@ -36,6 +35,8 @@ export interface DescriptionListProps {
 	 * @default 'dl'
 	 */
 	as?: 'table' | 'dl';
+	/** Forwarded ref to the underlying container element. */
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 const TableComponent = ( { list, className, sx, title }: DescriptionListProps ) => (
@@ -102,26 +103,29 @@ const DescriptionListComponent = ( {
 /**
  * A component that renders a list of label-value pairs as either a description list or a table.
  */
-const DescriptionList = forwardRef< HTMLDivElement, DescriptionListProps >(
-	(
-		{ sx, className, list, labelWidth = '100px', as = 'dl', title }: DescriptionListProps,
-		ref
-	) => {
-		const Component = as === 'table' ? TableComponent : DescriptionListComponent;
+const DescriptionList = ( {
+	sx,
+	className,
+	list,
+	labelWidth = '100px',
+	as = 'dl',
+	title,
+	ref,
+}: DescriptionListProps ) => {
+	const Component = as === 'table' ? TableComponent : DescriptionListComponent;
 
-		return (
-			<Box ref={ ref }>
-				<Component
-					list={ list }
-					className={ className }
-					sx={ sx }
-					labelWidth={ labelWidth }
-					title={ title }
-				/>
-			</Box>
-		);
-	}
-);
+	return (
+		<Box ref={ ref }>
+			<Component
+				list={ list }
+				className={ className }
+				sx={ sx }
+				labelWidth={ labelWidth }
+				title={ title }
+			/>
+		</Box>
+	);
+};
 
 DescriptionList.displayName = 'DescriptionList';
 

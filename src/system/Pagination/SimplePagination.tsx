@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import { forwardRef } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { Flex } from 'theme-ui';
 
@@ -28,70 +27,66 @@ export interface SimplePaginationProps extends PaginationLayoutProps {
 	previousParam?: SimpleNavigationParam;
 	/** Callback fired when the user navigates. Receives the param name and value. */
 	onNavigate: ( param: string, value: string ) => void;
+	/** Ref forwarded to the underlying pagination `<nav>` element. */
+	ref?: React.Ref< HTMLElement >;
 }
 
 /**
  * A pagination control with only previous/next arrow buttons.
  * Designed for cursor-based pagination APIs with custom param names (e.g., `after`/`before`).
  */
-export const SimplePagination = forwardRef< HTMLElement, SimplePaginationProps >(
-	(
-		{
-			hasNextPage,
-			hasPreviousPage,
-			nextParam,
-			previousParam,
-			onNavigate,
-			displayItemsPerPageSelector,
-			itemsPerPage,
-			pageSizeOptions,
-			onItemsPerPageChange,
-			className,
-			sx,
-			children,
-			...rest
-		},
-		ref
-	) => {
-		const isPrevDisabled = ! hasPreviousPage || ! previousParam?.value;
-		const isNextDisabled = ! hasNextPage || ! nextParam?.value;
+export const SimplePagination = ( {
+	hasNextPage,
+	hasPreviousPage,
+	nextParam,
+	previousParam,
+	onNavigate,
+	displayItemsPerPageSelector,
+	itemsPerPage,
+	pageSizeOptions,
+	onItemsPerPageChange,
+	className,
+	sx,
+	children,
+	ref,
+	...rest
+}: SimplePaginationProps ) => {
+	const isPrevDisabled = ! hasPreviousPage || ! previousParam?.value;
+	const isNextDisabled = ! hasNextPage || ! nextParam?.value;
 
-		return (
-			<PaginationLayout
-				ref={ ref }
-				displayItemsPerPageSelector={ displayItemsPerPageSelector }
-				itemsPerPage={ itemsPerPage }
-				pageSizeOptions={ pageSizeOptions }
-				onItemsPerPageChange={ onItemsPerPageChange }
-				className={ className }
-				sx={ sx }
-				{ ...rest }
-			>
-				<Box sx={ { flex: 1 } }>{ children }</Box>
-				<Flex sx={ navigationStyles }>
-					<Button
-						aria-label="Previous page"
-						disabled={ isPrevDisabled }
-						onClick={ () =>
-							previousParam && onNavigate( previousParam.param, previousParam.value )
-						}
-						sx={ arrowButtonStyles }
-					>
-						<MdChevronLeft size={ 20 } />
-					</Button>
+	return (
+		<PaginationLayout
+			ref={ ref }
+			displayItemsPerPageSelector={ displayItemsPerPageSelector }
+			itemsPerPage={ itemsPerPage }
+			pageSizeOptions={ pageSizeOptions }
+			onItemsPerPageChange={ onItemsPerPageChange }
+			className={ className }
+			sx={ sx }
+			{ ...rest }
+		>
+			<Box sx={ { flex: 1 } }>{ children }</Box>
+			<Flex sx={ navigationStyles }>
+				<Button
+					aria-label="Previous page"
+					disabled={ isPrevDisabled }
+					onClick={ () => previousParam && onNavigate( previousParam.param, previousParam.value ) }
+					sx={ arrowButtonStyles }
+				>
+					<MdChevronLeft size={ 20 } />
+				</Button>
 
-					<Button
-						aria-label="Next page"
-						disabled={ isNextDisabled }
-						onClick={ () => nextParam && onNavigate( nextParam.param, nextParam.value ) }
-						sx={ arrowButtonStyles }
-					>
-						<MdChevronRight size={ 20 } />
-					</Button>
-				</Flex>
-			</PaginationLayout>
-		);
-	}
-);
+				<Button
+					aria-label="Next page"
+					disabled={ isNextDisabled }
+					onClick={ () => nextParam && onNavigate( nextParam.param, nextParam.value ) }
+					sx={ arrowButtonStyles }
+				>
+					<MdChevronRight size={ 20 } />
+				</Button>
+			</Flex>
+		</PaginationLayout>
+	);
+};
 
 SimplePagination.displayName = 'SimplePagination';

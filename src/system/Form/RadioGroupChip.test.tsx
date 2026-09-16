@@ -3,6 +3,7 @@
  */
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import { createRef } from 'react';
 
 /**
  * Internal dependencies
@@ -40,5 +41,44 @@ describe( '<RadioGroupChip />', () => {
 
 		// Check for accessibility issues
 		expect( await axe( container ) ).toHaveNoViolations();
+	} );
+
+	it( 'forwards fieldset attributes and accepts custom sx', () => {
+		const ref = createRef< HTMLFieldSetElement >();
+
+		render(
+			<RadioGroupChip
+				{ ...defaultProps }
+				ref={ ref }
+				id="health-display-toggle"
+				aria-label="Health display"
+				optionWidth={ 120 }
+				sx={ { mt: 2 } }
+			/>
+		);
+
+		const fieldset = screen.getByRole( 'radiogroup', { name: 'Health display' } );
+
+		expect( fieldset ).toHaveAttribute( 'id', 'health-display-toggle' );
+		expect( ref.current ).toBe( fieldset );
+	} );
+
+	it( 'links the validation message even when no fieldset id is provided', () => {
+		render(
+			<RadioGroupChip
+				{ ...defaultProps }
+				aria-label="Plan size"
+				hasError
+				errorMessage="Choose a plan"
+			/>
+		);
+
+		const fieldset = screen.getByRole( 'radiogroup', { name: 'Plan size' } );
+
+		expect( fieldset ).toHaveAttribute( 'aria-describedby' );
+		expect( screen.getByText( 'Choose a plan' ) ).toHaveAttribute(
+			'id',
+			fieldset.getAttribute( 'aria-describedby' )
+		);
 	} );
 } );

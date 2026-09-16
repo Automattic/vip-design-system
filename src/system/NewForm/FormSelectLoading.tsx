@@ -20,6 +20,7 @@ const kf = keyframes( {
 
 interface FormSelectLoadingProps {
 	sx?: ThemeUIStyleObject;
+	ref?: React.Ref< HTMLDivElement >;
 }
 
 const loadingStyles: ThemeUIStyleObject = {
@@ -34,20 +35,18 @@ const loadingStyles: ThemeUIStyleObject = {
 	},
 };
 
-export const FormSelectLoading = React.forwardRef< HTMLDivElement, FormSelectLoadingProps >(
-	( { sx = {}, ...rest }, forwardRef ) => (
-		<div ref={ forwardRef }>
-			<AiOutlineLoading3Quarters
-				aria-hidden="true"
-				size={ 18 }
-				sx={ {
-					...loadingStyles,
-					...sx,
-				} }
-				{ ...rest }
-			/>
-		</div>
-	)
+export const FormSelectLoading = ( { sx = {}, ref, ...rest }: FormSelectLoadingProps ) => (
+	<div ref={ ref }>
+		<AiOutlineLoading3Quarters
+			aria-hidden="true"
+			size={ 18 }
+			sx={ {
+				...loadingStyles,
+				...sx,
+			} }
+			{ ...rest }
+		/>
+	</div>
 );
 
 FormSelectLoading.displayName = 'FormSelectLoading';

@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 
 import classNames from 'classnames';
-import { forwardRef } from 'react';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 import { containerStyles } from './styles';
@@ -27,6 +26,8 @@ export interface PaginationLayoutProps {
 	sx?: ThemeUIStyleObject;
 	/** Slot for variant-specific content (page numbers, arrows, etc.). */
 	children?: React.ReactNode;
+	/** Ref forwarded to the underlying `<nav>` element. */
+	ref?: React.Ref< HTMLElement >;
 }
 
 const ItemsPerPageSelect = ( {
@@ -55,39 +56,35 @@ const ItemsPerPageSelect = ( {
  * Shared layout wrapper for pagination components.
  * Renders the nav landmark, optional items-per-page selector, and variant content.
  */
-export const PaginationLayout = forwardRef< HTMLElement, PaginationLayoutProps >(
-	(
-		{
-			displayItemsPerPageSelector = false,
-			itemsPerPage,
-			pageSizeOptions = [ 20, 50, 100 ],
-			onItemsPerPageChange,
-			className,
-			sx,
-			children,
-			...rest
-		},
-		ref
-	) => (
-		<nav
-			ref={ ref }
-			aria-label="Pagination"
-			className={ classNames( 'vip-pagination-component', className ) }
-			sx={ { ...containerStyles, ...sx } }
-			{ ...rest }
-		>
-			<Box>
-				{ displayItemsPerPageSelector && itemsPerPage && onItemsPerPageChange && (
-					<ItemsPerPageSelect
-						itemsPerPage={ itemsPerPage }
-						pageSizeOptions={ pageSizeOptions }
-						onItemsPerPageChange={ onItemsPerPageChange }
-					/>
-				) }
-			</Box>
-			{ children }
-		</nav>
-	)
+export const PaginationLayout = ( {
+	displayItemsPerPageSelector = false,
+	itemsPerPage,
+	pageSizeOptions = [ 20, 50, 100 ],
+	onItemsPerPageChange,
+	className,
+	sx,
+	children,
+	ref,
+	...rest
+}: PaginationLayoutProps ) => (
+	<nav
+		ref={ ref }
+		aria-label="Pagination"
+		className={ classNames( 'vip-pagination-component', className ) }
+		sx={ { ...containerStyles, ...sx } }
+		{ ...rest }
+	>
+		<Box>
+			{ displayItemsPerPageSelector && itemsPerPage && onItemsPerPageChange && (
+				<ItemsPerPageSelect
+					itemsPerPage={ itemsPerPage }
+					pageSizeOptions={ pageSizeOptions }
+					onItemsPerPageChange={ onItemsPerPageChange }
+				/>
+			) }
+		</Box>
+		{ children }
+	</nav>
 );
 
 PaginationLayout.displayName = 'PaginationLayout';

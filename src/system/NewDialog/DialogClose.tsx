@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { IoClose } from 'react-icons/io5';
 import { ThemeUIStyleObject } from 'theme-ui';
 
@@ -10,17 +10,17 @@ import { Button } from '../Button/Button';
 export interface DialogCloseProps {
 	/** The custom close trigger element to render inside the dialog. */
 	children?: React.ReactNode;
+	/** Ref forwarded to the close trigger. */
+	ref?: React.Ref< HTMLButtonElement >;
 }
 
 /**
  * A wrapper around Radix Dialog.Close that renders a custom close trigger element.
  */
-export const DialogClose = forwardRef< HTMLButtonElement, DialogCloseProps >(
-	( props, forwardedRef ) => (
-		<DialogPrimitive.Close asChild { ...props } ref={ forwardedRef }>
-			{ props.children }
-		</DialogPrimitive.Close>
-	)
+export const DialogClose = ( { ref, ...props }: DialogCloseProps ) => (
+	<DialogPrimitive.Close asChild { ...props } ref={ ref }>
+		{ props.children }
+	</DialogPrimitive.Close>
 );
 
 DialogClose.displayName = 'DialogClose';
@@ -31,6 +31,8 @@ export interface DialogCloseDefaultProps {
 	 * @default 'primary'
 	 */
 	variant?: 'primary' | 'inverse';
+	/** Ref forwarded to the close button. */
+	ref?: React.Ref< HTMLButtonElement >;
 }
 
 export const defaultCloseStyles = ( variant = 'primary' ): ThemeUIStyleObject => ( {
@@ -51,21 +53,14 @@ export const defaultCloseStyles = ( variant = 'primary' ): ThemeUIStyleObject =>
 /**
  * A pre-styled close button for the dialog with an X icon.
  */
-export const DialogCloseDefault = forwardRef< HTMLButtonElement, DialogCloseDefaultProps >(
-	( { variant = 'primary' }, forwardedRef ) => {
-		return (
-			<DialogClose>
-				<Button
-					ref={ forwardedRef }
-					aria-label="Close"
-					variant="ghost"
-					sx={ defaultCloseStyles( variant ) }
-				>
-					<IoClose aria-hidden="true" width={ 20 } height={ 20 } />
-				</Button>
-			</DialogClose>
-		);
-	}
-);
+export const DialogCloseDefault = ( { variant = 'primary', ref }: DialogCloseDefaultProps ) => {
+	return (
+		<DialogClose>
+			<Button ref={ ref } aria-label="Close" variant="ghost" sx={ defaultCloseStyles( variant ) }>
+				<IoClose aria-hidden="true" width={ 20 } height={ 20 } />
+			</Button>
+		</DialogClose>
+	);
+};
 
 DialogCloseDefault.displayName = 'DialogCloseDefault';

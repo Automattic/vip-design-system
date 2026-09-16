@@ -97,174 +97,172 @@ export interface WizardStepProps {
 	 * @default true
 	 */
 	showStepText?: boolean;
+	/** Ref forwarded to the step container element. */
+	ref?: React.Ref< HTMLElement >;
 }
 
 /**
  * An individual step within a Wizard component.
  * Displays a title, status indicator, optional summary, and content area.
  */
-export const WizardStep = React.forwardRef< HTMLDivElement, WizardStepProps >(
-	(
-		{
-			title,
-			subTitle,
-			skipped = false,
-			complete = false,
-			error = false,
-			children,
-			active,
-			order,
-			totalSteps,
-			shouldFocusTitle,
-			titleVariant = 'h3',
-			titleAs,
-			summary,
-			summaryTitle,
-			summaryAs = 'table',
-			onChange,
-			actionLabel = 'Change',
-			actionIcon,
-			actionDisabled = false,
-			showStepText = true,
-		},
-		forwardRef
-	) => {
-		const titleRef = React.useRef< HTMLHeadingElement >( null );
-		let status = 'inactive';
-		let statusText = 'Step not completed';
-		if ( error ) {
-			// Error takes visual precedence over every other status.
-			status = 'error';
-			statusText = 'Step has an error';
-		} else if ( active && ! ( complete && totalSteps === 1 ) ) {
-			// if the step is active but is an unique step, we don't want to show as active status
-			status = 'active';
-			statusText = ''; // not adding the status text for active step since it's announced by aria-current
-		} else if ( complete ) {
-			status = 'complete';
-			statusText = 'Step completed';
-		} else if ( skipped ) {
-			status = 'skipped';
-			statusText = 'Step skipped';
-		}
-		if ( statusText !== '' ) {
-			statusText = `Status: ${ statusText }`;
-		}
-		const stepText = `STEP ${ order } OF ${ totalSteps }`;
-
-		let StatusIcon = BsCircleFill;
-		if ( error ) {
-			StatusIcon = BsXCircleFill;
-		} else if ( complete ) {
-			StatusIcon = BsFillCheckCircleFill;
-		}
-
-		const borderLeftColor = `wizard.step.border.${ status }`;
-		const statusIconColor = `wizard.step.icon.${ status }`;
-		const statusIconStyles = {
-			mr: 3,
-			mt: 0,
-			color: statusIconColor,
-		};
-		const headingColor = `wizard.step.heading.${ status }`;
-
-		useLayoutEffect( () => {
-			if ( active && titleRef?.current && shouldFocusTitle ) {
-				titleRef.current.focus();
-			}
-		}, [ active, shouldFocusTitle ] );
-		return (
-			<Card
-				as="section"
-				sx={ {
-					boxShadow: active ? 'low' : 'none',
-					borderLeft: '2px solid',
-					backgroundColor: active ? 'background' : 'transparent',
-					borderRadius: 0,
-					borderBottom: active ? 'none' : '1px solid',
-					borderRight: '1px solid',
-					'&:first-of-type': {
-						borderTopWidth: '1px',
-						borderTopStyle: 'solid',
-					},
-					borderColor: 'wizard.step.border.default',
-					borderLeftColor,
-					overflow: 'inherit',
-					py: 1,
-				} }
-				data-step={ order }
-				data-active={ active || undefined }
-				className={ `wizard-step-${ status }` }
-				ref={ forwardRef }
-			>
-				<Flex sx={ { alignItems: 'center' } }>
-					<Heading
-						variant={ titleVariant }
-						as={ titleAs ?? titleVariant }
-						sx={ {
-							mb: 0,
-							color: headingColor,
-							flexGrow: 1,
-						} }
-						ref={ titleRef }
-						tabIndex={ shouldFocusTitle ? -1 : undefined }
-						aria-current={ active ? 'step' : undefined }
-					>
-						{ showStepText && (
-							<Text
-								sx={ { fontSize: 1, color: 'wizard.step.number.color', pb: 1 } }
-								aria-hidden="true"
-							>
-								{ stepText }
-							</Text>
-						) }
-
-						<Flex as="span" sx={ { alignItems: 'center' } } aria-hidden="true">
-							<StatusIcon sx={ statusIconStyles } />
-							{ title }
-						</Flex>
-
-						<ScreenReaderText>{
-							/**
-							 * we are adding the composed title here so that it's announced correctly by the voiceover
-							 * Using tags inside the heading would make the voiceover read the heading in multiple parts
-							 **/
-							`${ stepText }: ${ title?.toString() }. ${ statusText }`
-						}</ScreenReaderText>
-					</Heading>
-
-					{ ! active && ( complete || skipped ) && onChange && (
-						<Button
-							variant="text"
-							disabled={ actionDisabled }
-							onClick={ onChange }
-							sx={ { height: 'auto', alignSelf: 'flex-end' } }
-						>
-							{ actionLabel }{ ' ' }
-							<ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
-							{ Boolean( actionIcon ) && <Box sx={ { ml: 2 } }>{ actionIcon }</Box> }
-						</Button>
-					) }
-				</Flex>
-				{ ! active && ( complete || skipped ) && ( summary || summaryTitle ) && (
-					<DescriptionList
-						as={ summaryAs }
-						list={ summary || [] }
-						title={ summaryTitle }
-						sx={ { mt: 2 } }
-					/>
-				) }
-
-				{ subTitle && active && ! error && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
-
-				{ active && Boolean( children ) && (
-					// In the error state there's no subtitle, so the content sits directly
-					// under the heading and needs a bit more breathing room (12px vs 8px).
-					<Box sx={ { pt: error ? 3 : 2 } }>{ children }</Box>
-				) }
-			</Card>
-		);
+export const WizardStep = ( {
+	title,
+	subTitle,
+	skipped = false,
+	complete = false,
+	error = false,
+	children,
+	active,
+	order,
+	totalSteps,
+	shouldFocusTitle,
+	titleVariant = 'h3',
+	titleAs,
+	summary,
+	summaryTitle,
+	summaryAs = 'table',
+	onChange,
+	actionLabel = 'Change',
+	actionIcon,
+	actionDisabled = false,
+	showStepText = true,
+	ref,
+}: WizardStepProps ) => {
+	const titleRef = React.useRef< HTMLHeadingElement >( null );
+	let status = 'inactive';
+	let statusText = 'Step not completed';
+	if ( error ) {
+		// Error takes visual precedence over every other status.
+		status = 'error';
+		statusText = 'Step has an error';
+	} else if ( active && ! ( complete && totalSteps === 1 ) ) {
+		// if the step is active but is an unique step, we don't want to show as active status
+		status = 'active';
+		statusText = ''; // not adding the status text for active step since it's announced by aria-current
+	} else if ( complete ) {
+		status = 'complete';
+		statusText = 'Step completed';
+	} else if ( skipped ) {
+		status = 'skipped';
+		statusText = 'Step skipped';
 	}
-);
+	if ( statusText !== '' ) {
+		statusText = `Status: ${ statusText }`;
+	}
+	const stepText = `STEP ${ order } OF ${ totalSteps }`;
+
+	let StatusIcon = BsCircleFill;
+	if ( error ) {
+		StatusIcon = BsXCircleFill;
+	} else if ( complete ) {
+		StatusIcon = BsFillCheckCircleFill;
+	}
+
+	const borderLeftColor = `wizard.step.border.${ status }`;
+	const statusIconColor = `wizard.step.icon.${ status }`;
+	const statusIconStyles = {
+		mr: 3,
+		mt: 0,
+		color: statusIconColor,
+	};
+	const headingColor = `wizard.step.heading.${ status }`;
+
+	useLayoutEffect( () => {
+		if ( active && titleRef?.current && shouldFocusTitle ) {
+			titleRef.current.focus();
+		}
+	}, [ active, shouldFocusTitle ] );
+	return (
+		<Card
+			as="section"
+			sx={ {
+				boxShadow: active ? 'low' : 'none',
+				borderLeft: '2px solid',
+				backgroundColor: active ? 'background' : 'transparent',
+				borderRadius: 0,
+				borderBottom: active ? 'none' : '1px solid',
+				borderRight: '1px solid',
+				'&:first-of-type': {
+					borderTopWidth: '1px',
+					borderTopStyle: 'solid',
+				},
+				borderColor: 'wizard.step.border.default',
+				borderLeftColor,
+				overflow: 'inherit',
+				py: 1,
+			} }
+			data-step={ order }
+			data-active={ active || undefined }
+			className={ `wizard-step-${ status }` }
+			ref={ ref }
+		>
+			<Flex sx={ { alignItems: 'center' } }>
+				<Heading
+					variant={ titleVariant }
+					as={ titleAs ?? titleVariant }
+					sx={ {
+						mb: 0,
+						color: headingColor,
+						flexGrow: 1,
+					} }
+					ref={ titleRef }
+					tabIndex={ shouldFocusTitle ? -1 : undefined }
+					aria-current={ active ? 'step' : undefined }
+				>
+					{ showStepText && (
+						<Text
+							sx={ { fontSize: 1, color: 'wizard.step.number.color', pb: 1 } }
+							aria-hidden="true"
+						>
+							{ stepText }
+						</Text>
+					) }
+
+					<Flex as="span" sx={ { alignItems: 'center' } } aria-hidden="true">
+						<StatusIcon sx={ statusIconStyles } />
+						{ title }
+					</Flex>
+
+					<ScreenReaderText>{
+						/**
+						 * we are adding the composed title here so that it's announced correctly by the voiceover
+						 * Using tags inside the heading would make the voiceover read the heading in multiple parts
+						 **/
+						`${ stepText }: ${ title?.toString() }. ${ statusText }`
+					}</ScreenReaderText>
+				</Heading>
+
+				{ ! active && ( complete || skipped ) && onChange && (
+					<Button
+						variant="text"
+						disabled={ actionDisabled }
+						onClick={ onChange }
+						sx={ { height: 'auto', alignSelf: 'flex-end' } }
+					>
+						{ actionLabel }{ ' ' }
+						<ScreenReaderText>{ `the ${ title?.toString() } step` }</ScreenReaderText>
+						{ Boolean( actionIcon ) && <Box sx={ { ml: 2 } }>{ actionIcon }</Box> }
+					</Button>
+				) }
+			</Flex>
+			{ ! active && ( complete || skipped ) && ( summary || summaryTitle ) && (
+				<DescriptionList
+					as={ summaryAs }
+					list={ summary || [] }
+					title={ summaryTitle }
+					sx={ { mt: 2 } }
+				/>
+			) }
+
+			{ subTitle && active && ! error && <Text sx={ { my: 3 } }>{ subTitle }</Text> }
+
+			{ active && Boolean( children ) && (
+				// In the error state there's no subtitle, so the content sits directly
+				// under the heading and needs a bit more breathing room (12px vs 8px).
+				<Box sx={ { pt: error ? 3 : 2 } }>{ children }</Box>
+			) }
+		</Card>
+	);
+};
 
 WizardStep.displayName = 'WizardStep';
