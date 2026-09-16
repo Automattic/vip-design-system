@@ -37,9 +37,6 @@ export const WithName: Story = {
 	args: {
 		name: 'Kitty',
 		size: 30,
-		sx: {
-			backgroundColor: '#D8A45F',
-		},
 	},
 };
 export const WithAbbreviation: Story = {
@@ -47,9 +44,6 @@ export const WithAbbreviation: Story = {
 		name: 'Taylor Swift',
 		abbr: 'TS',
 		size: 64,
-		sx: {
-			backgroundColor: '#D8A45F',
-		},
 	},
 };
 
@@ -61,9 +55,6 @@ export const BrokenImage: Story = {
 	args: {
 		name: 'Taylor Swift',
 		src: BROKEN_SRC,
-		sx: {
-			backgroundColor: '#D8A45F',
-		},
 	},
 	render: args => (
 		<>
@@ -81,9 +72,6 @@ export const BrokenImage: Story = {
 export const IconFallback: Story = {
 	args: {
 		src: BROKEN_SRC,
-		sx: {
-			backgroundColor: '#D8A45F',
-		},
 	},
 	render: args => (
 		<>
@@ -103,9 +91,6 @@ export const ForcedIconFallback: Story = {
 	args: {
 		name: 'Platform Bot',
 		fallback: 'icon',
-		sx: {
-			backgroundColor: '#D8A45F',
-		},
 	},
 	render: args => (
 		<>
@@ -120,11 +105,7 @@ export const ForcedIconFallback: Story = {
  * The same icon fallback is used when no `src` is provided at all.
  */
 export const NoImageOrName: Story = {
-	args: {
-		sx: {
-			backgroundColor: '#D8A45F',
-		},
-	},
+	args: {},
 	render: args => (
 		<>
 			{ COMMON_SIZES.map( size => (

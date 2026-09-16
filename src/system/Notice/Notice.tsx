@@ -5,9 +5,10 @@
  */
 import * as Collapsible from '@radix-ui/react-collapsible';
 import classNames from 'classnames';
+import { useTranslate } from 'i18n-calypso';
 import React, { useState, useId } from 'react';
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
-import { MdError, MdWarning, MdCheckCircle, MdInfo } from 'react-icons/md';
+import { MdError, MdWarning, MdCheckCircle, MdInfo, MdClose } from 'react-icons/md';
 import { ThemeUIStyleObject } from 'theme-ui';
 
 /**
@@ -45,6 +46,14 @@ export type NoticeProps = Omit< React.HTMLAttributes< HTMLDivElement >, 'title' 
 	headingVariant?: React.ElementType;
 	/** Additional CSS class name(s) appended to the root element. */
 	className?: string;
+	/**
+	 * When true, renders a close button that hides the notice. Ignored on a
+	 * collapsible notice, which shows only its toggle: two icons in one header
+	 * leave the chevron ambiguous. @default false
+	 */
+	dismissible?: boolean;
+	/** Called when the notice is dismissed through the close button. */
+	onDismiss?: () => void;
 	/** Ref forwarded to the root element. */
 	ref?: React.Ref< HTMLDivElement >;
 } & CollapsibleProps;
@@ -77,10 +86,14 @@ export const Notice = ( {
 	variant = 'warning',
 	collapsible = false,
 	defaultOpen = false,
+	dismissible = false,
+	onDismiss,
 	ref,
 	...props
 }: NoticeProps ) => {
+	const translate = useTranslate();
 	const [ isExpanded, setIsExpanded ] = useState( defaultOpen );
+	const [ isDismissed, setIsDismissed ] = useState( false );
 	const handleExpand = ( openValue: boolean ) => setIsExpanded( openValue );
 	const ChevronIcon = isExpanded ? BiChevronUp : BiChevronDown;
 	const contentId = useId();
@@ -88,12 +101,35 @@ export const Notice = ( {
 	const iconColor = `notice.icon.${ variant }`;
 	const textColor = `notice.text.${ variant }`;
 
+	if ( isDismissed ) {
+		return null;
+	}
+
+	const dismissButton = dismissible && (
+		<Button
+			variant="icon"
+			type="button"
+			aria-label={ translate( 'Close notice' ) }
+			onClick={ () => {
+				setIsDismissed( true );
+				onDismiss?.();
+			} }
+			sx={ {
+				// The body can run several lines tall, so the button sits beside the first.
+				alignSelf: 'flex-start',
+				color: textColor,
+				flex: '0 0 auto',
+				ml: 'auto',
+			} }
+		>
+			<MdClose size={ 20 } aria-hidden="true" />
+		</Button>
+	);
+
+	// `boxShadow`, `borderRadius` and `fontSize` come from the `cards.notice` variant.
 	const baseCardSx: ThemeUIStyleObject = {
-		boxShadow: 'none',
-		borderRadius: 2,
 		bg: inline || collapsible ? 'transparent' : `notice.background.${ variant }`,
 		color: textColor,
-		fontSize: 2,
 		p: {
 			color: textColor,
 			fontSize: 2,
@@ -253,6 +289,7 @@ export const Notice = ( {
 				) }
 				{ children }
 			</Box>
+			{ dismissButton }
 		</Card>
 	);
 };
