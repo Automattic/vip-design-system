@@ -13,6 +13,8 @@ import { MdOutlinePhotoLibrary } from 'react-icons/md';
 
 import { Nav } from './Nav';
 import { NavItem } from './NavItem';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
 import { CustomLink } from '../utils/stories/CustomLink';
 
 import type { StoryObj } from '@storybook/react-vite';
@@ -154,6 +156,50 @@ export const Tab: Story = {
 				</NavItem.Tab>
 			</Nav.Tab>
 		</>
+	),
+};
+
+/**
+ * When the items no longer fit, the strip scrolls sideways and fades whichever edge
+ * still has items beyond it. The active item is revealed on mount, which is why this
+ * story opens on one near the end.
+ *
+ * The outer `Flex` reproduces the shape a consumer page uses. Note the `minWidth: 0`
+ * on the wrapper: without it the wrapper is floored at the tab strip's max-content
+ * width, and the page scrolls horizontally instead of the strip.
+ */
+export const ScrollableTab: Story = {
+	render: () => (
+		<Flex sx={ { maxWidth: 380, gap: 3 } }>
+			<Box sx={ { minWidth: 0 } }>
+				<Nav.Tab label="Insights">
+					<NavItem.Tab as={ CustomLink } href="#1!">
+						Overview
+					</NavItem.Tab>
+					<NavItem.Tab as={ CustomLink } href="#2!">
+						Requests (1.2M)
+					</NavItem.Tab>
+					<NavItem.Tab as={ CustomLink } href="#3!">
+						Bandwidth
+					</NavItem.Tab>
+					<NavItem.Tab active as={ CustomLink } href="#4!">
+						Cache Hit Ratio
+					</NavItem.Tab>
+					<NavItem.Tab as={ CustomLink } href="#5!">
+						Errors (12)
+					</NavItem.Tab>
+					<NavItem.Tab as={ CustomLink } href="#6!">
+						Edge Locations
+					</NavItem.Tab>
+					<NavItem.Tab as={ CustomLink } href="#7!">
+						Firewall
+					</NavItem.Tab>
+					<NavItem.Tab disabled as={ CustomLink } href="#8!">
+						Uptime
+					</NavItem.Tab>
+				</Nav.Tab>
+			</Box>
+		</Flex>
 	),
 };
 

@@ -4,6 +4,7 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import React, { ReactNode } from 'react';
 
 import { DropdownContent, DropdownContentProps } from './DropdownContent';
+import { wasKeyboardInput } from '../hooks/inputModality';
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 const DropdownTrigger = DropdownMenuPrimitive.Trigger;
@@ -48,6 +49,25 @@ export interface DropdownProps {
 }
 
 /**
+ * On close, Radix returns focus to the trigger with a call that matches
+ * `:focus-visible` whatever the user was actually doing, so dismissing a menu
+ * with the mouse leaves a focus ring behind on the trigger. CSS cannot
+ * distinguish the two cases; the modality has to be read in JavaScript.
+ *
+ * Suppressing the restoration for pointer interactions keeps the ring for
+ * keyboard users, where it is the only indication of where focus has gone.
+ *
+ * Consumers who need different behaviour can pass their own `onCloseAutoFocus`
+ * in `contentProps`, which replaces this entirely — including passing a no-op
+ * to get Radix's unconditional restoration back.
+ */
+export const restoreFocusOnlyForKeyboard = ( event: Event ) => {
+	if ( ! wasKeyboardInput() ) {
+		event.preventDefault();
+	}
+};
+
+/**
  * A dropdown menu component built on Radix UI.
  * Renders a trigger button that opens a positioned menu with items.
  */
@@ -74,7 +94,7 @@ export const Dropdown: React.FC< DropdownProps > = ( {
 		</DropdownTrigger>
 
 		<DropdownMenuPrimitive.Portal { ...portalProps }>
-			<DropdownContent { ...contentProps }>
+			<DropdownContent onCloseAutoFocus={ restoreFocusOnlyForKeyboard } { ...contentProps }>
 				{ children }
 				<DropdownMenuPrimitive.Arrow sx={ { fill: 'background', boxShadow: 'high' } } />
 			</DropdownContent>

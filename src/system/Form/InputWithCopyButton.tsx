@@ -64,9 +64,7 @@ const InputWithCopyButton = ( {
 	...props
 }: InputWithCopyButtonProps ) => {
 	const fallbackRef = useRef< HTMLInputElement >( null );
-	const inputRef = (
-		ref && typeof ref !== 'function' ? ref : fallbackRef
-	) as React.RefObject< HTMLInputElement >;
+	const inputRef = ref && typeof ref !== 'function' ? ref : fallbackRef;
 
 	const handleCopy = ( e: React.MouseEvent< HTMLButtonElement > ) => {
 		e.preventDefault();
