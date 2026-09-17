@@ -55,20 +55,7 @@ describe( '<Nav />', () => {
 	} );
 } );
 
-const scrollIntoView = jest.fn();
-
-beforeAll( () => {
-	if ( ! global.ResizeObserver ) {
-		global.ResizeObserver = class ResizeObserver {
-			observe() {}
-			unobserve() {}
-			disconnect() {}
-		};
-	}
-
-	// jsdom does not implement scrollIntoView.
-	Element.prototype.scrollIntoView = scrollIntoView;
-} );
+const scrollIntoView = jest.spyOn( Element.prototype, 'scrollIntoView' );
 
 beforeEach( () => {
 	jest.clearAllMocks();

@@ -28,20 +28,7 @@ const renderWithTheme = ( children: React.ReactNode ) =>
 
 const space = theme.space as unknown as Record< string, number >;
 
-const scrollIntoView = jest.fn();
-
-beforeAll( () => {
-	if ( ! global.ResizeObserver ) {
-		global.ResizeObserver = class ResizeObserver {
-			observe() {}
-			unobserve() {}
-			disconnect() {}
-		} as typeof ResizeObserver;
-	}
-
-	// jsdom does not implement scrollIntoView.
-	Element.prototype.scrollIntoView = scrollIntoView;
-} );
+const scrollIntoView = jest.spyOn( Element.prototype, 'scrollIntoView' );
 
 beforeEach( () => {
 	jest.clearAllMocks();
