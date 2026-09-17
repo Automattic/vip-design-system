@@ -140,6 +140,7 @@
     "@theme-ui/color-modes": "0.17.4",
     "@theme-ui/components": "0.17.4",
     "@theme-ui/global": "0.17.4",
-    "@theme-ui/theme-provider": "0.17.4"
+    "@theme-ui/theme-provider": "0.17.4",
+    "nwsapi": "2.2.25"
   }
 }
