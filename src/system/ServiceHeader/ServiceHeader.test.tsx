@@ -12,16 +12,6 @@ import { ServiceHeader } from './ServiceHeader';
 import { Button } from '../Button/Button';
 import * as Dropdown from '../Dropdown';
 
-beforeAll( () => {
-	if ( ! global.ResizeObserver ) {
-		global.ResizeObserver = class ResizeObserver {
-			observe() {}
-			unobserve() {}
-			disconnect() {}
-		} as typeof ResizeObserver;
-	}
-} );
-
 describe( '<ServiceHeader />', () => {
 	it( 'renders the service, its status badge, and the actions', async () => {
 		const { container } = render(

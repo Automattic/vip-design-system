@@ -33,18 +33,6 @@ const renderComponent = () =>
 	);
 
 describe( '<Breadcrumbs />', () => {
-	beforeAll( () => {
-		Object.defineProperty( window, 'matchMedia', {
-			value: jest.fn( () => {
-				return {
-					matches: true,
-					addListener: jest.fn(),
-					removeListener: jest.fn(),
-				};
-			} ),
-		} );
-	} );
-
 	it( 'renders the Breadcrumbs component', async () => {
 		const { container } = renderComponent();
 
