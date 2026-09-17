@@ -12,7 +12,7 @@ This is `@automattic/vip-design-system`, a React component library and design to
 - **Node.js >= 22**
 - **Theme UI 0.17** for styling (CSS-in-JS via Emotion)
 - **Radix UI** for accessible primitive components (accordion, checkbox, dialog, dropdown, switch, tabs, tooltip)
-- **Babel 7** for compilation (output to `build/`)
+- **Babel 7** for compilation (output to `build/`, targeting `.browserslistrc` `defaults`)
 - **Jest 30** + **@testing-library/react** + **jest-axe** for testing
 - **Storybook 10** with **Vite 8** (`@storybook/react-vite`) for component documentation
 - **ESLint 8** with `@automattic/eslint-plugin-wpvip` + **Prettier** (`wp-prettier`)
