@@ -4,7 +4,7 @@
 
 - Implemented in JavaScript and TypeScript.
 - Requirements are:
-  - Node, see version in [package.json](https://github.com/Automattic/vip-design-system/blob/trunk/package.json)
+  - Node >= 22 to consume the package (see `engines` in [package.json](https://github.com/Automattic/vip-design-system/blob/trunk/package.json)). To work on it, use the version in [.nvmrc](https://github.com/Automattic/vip-design-system/blob/trunk/.nvmrc).
   - A few NPM packages are needed, those are listed in the same file.
   - The software is fairly lightweight, no special hardware requirements.
   - Network access.

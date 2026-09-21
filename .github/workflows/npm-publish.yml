@@ -17,8 +17,18 @@ jobs:
     if: contains( github.event.pull_request.labels.*.name, '[ Type ] NPM version update' ) && startsWith( github.head_ref, 'release/') && github.event.pull_request.merged == true
 
     steps:
+      - name: Check out the source code
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+
+      - name: Read Node version
+        id: node
+        run: echo "version=$(cat .nvmrc)" >> "$GITHUB_OUTPUT"
+
       - uses: Automattic/vip-actions/npm-publish@v0.7.3
         with:
           USE_TRUSTED_PUBLISHING: 'true'
           PROVENANCE: 'false'
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          node-version: ${{ steps.node.outputs.version }}

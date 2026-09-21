@@ -17,16 +17,6 @@ const defaultProps = {
 
 const getButton = () => screen.getByRole( 'button', { name: 'Trigger' } );
 
-beforeAll( () => {
-	if ( ! global.ResizeObserver ) {
-		global.ResizeObserver = class ResizeObserver {
-			observe() {}
-			unobserve() {}
-			disconnect() {}
-		} as typeof ResizeObserver;
-	}
-} );
-
 describe( '<Dropdown />', () => {
 	it( 'renders the Dropdown component', async () => {
 		const { container } = render(

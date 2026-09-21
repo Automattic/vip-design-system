@@ -15,15 +15,6 @@ import { ThemeUIProvider } from 'theme-ui';
 import { NewTooltip } from './NewTooltip';
 import { theme } from '../';
 
-// Mock ResizeObserver which is not available in jsdom
-beforeAll( () => {
-	global.ResizeObserver = class {
-		observe() {}
-		unobserve() {}
-		disconnect() {}
-	};
-} );
-
 const renderWithTheme = children =>
 	render( <ThemeUIProvider theme={ theme }>{ children }</ThemeUIProvider> );
 

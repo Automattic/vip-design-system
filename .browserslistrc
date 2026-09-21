@@ -1,0 +1,6 @@
+# Resolved against the installed caniuse-lite, so the exact list moves with
+# dependency updates. What the emitted code needs today is ES2020: arrow
+# functions, const, optional chaining, nullish coalescing and native
+# async/await. Babel drops the entries it has no compat data for, such as
+# op_mini and kaios, which is why the output stays modern.
+defaults
