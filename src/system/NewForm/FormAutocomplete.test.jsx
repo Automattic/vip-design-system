@@ -112,6 +112,33 @@ describe( '<FormAutocomplete />', () => {
 			expect( onInputChange.mock.calls ).toEqual( [ [ 'C' ], [ 'Ch' ], [ 'Cho' ] ] );
 		} );
 
+		// Two instances rendered without an explicit id share the `forLabel` default, so a
+		// document-wide lookup would bind both listeners to whichever input comes first.
+		it( 'reports edits to the instance that owns the input', async () => {
+			const user = userEvent.setup();
+			const first = jest.fn();
+			const second = jest.fn();
+
+			const { container } = render(
+				<>
+					<FormAutocomplete { ...defaultProps } label="First" onInputChange={ first } />
+					<FormAutocomplete { ...defaultProps } label="Second" onInputChange={ second } />
+				</>
+			);
+
+			const [ firstInput, secondInput ] = container.querySelectorAll( 'input.autocomplete__input' );
+
+			await user.type( firstInput, 'C' );
+
+			expect( first ).toHaveBeenCalledWith( 'C' );
+			expect( second ).not.toHaveBeenCalled();
+
+			await user.type( secondInput, 'V' );
+
+			expect( second ).toHaveBeenCalledWith( 'V' );
+			expect( first ).toHaveBeenCalledTimes( 1 );
+		} );
+
 		it( 'reports the empty query after the debounce elapses', async () => {
 			jest.useFakeTimers();
 

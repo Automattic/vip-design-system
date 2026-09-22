@@ -247,6 +247,7 @@ const FormAutocomplete = ( {
 	const [ selectedValue, setSelectedValue ] = useState( value || '' );
 	const [ inputQuery, setInputQuery ] = useState( value );
 	const debounceTimeout = React.useRef< ReturnType< typeof setTimeout > | null >( null );
+	const wrapperRef = React.useRef< HTMLDivElement >( null );
 	const fallbackRef = React.useRef< AutocompleteInstance >( null );
 	const acRef = (
 		ref && typeof ref !== 'function' ? ref : fallbackRef
@@ -410,8 +411,12 @@ const FormAutocomplete = ( {
 	// accessible-autocomplete only calls `source` for a non-empty query (unless `showAllValues`
 	// is set), so deleting the last character never reaches the consumer and leaves it holding a
 	// stale value. Reading the input directly reports every edit, empty ones included.
+	//
+	// The lookup goes through the wrapper rather than `getElementById` because `forLabel` has a
+	// default: two instances without an explicit id share it, and a document-wide lookup would
+	// bind every instance to the first matching input.
 	useEffect( () => {
-		const input = global.document.getElementById( inputId ) as HTMLInputElement | null;
+		const input = wrapperRef.current?.querySelector< HTMLInputElement >( 'input' );
 
 		if ( ! input ) {
 			return;
@@ -422,7 +427,7 @@ const FormAutocomplete = ( {
 		input.addEventListener( 'input', onInput );
 
 		return () => input.removeEventListener( 'input', onInput );
-	}, [ inputId, handleInputChange ] );
+	}, [ handleInputChange ] );
 
 	useEffect( () => {
 		const input = global.document.getElementById( inputId );
@@ -482,7 +487,10 @@ const FormAutocomplete = ( {
 		return () => input.removeEventListener( 'blur', onBlur );
 	}, [ inputId, resetInputState ] );
 	return (
-		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+		<div
+			ref={ wrapperRef }
+			className={ classNames( 'vip-form-autocomplete-component', className ) }
+		>
 			{ label && ! isInline && <SelectLabel /> }
 
 			<div
