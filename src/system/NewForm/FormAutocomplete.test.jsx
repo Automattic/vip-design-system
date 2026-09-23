@@ -62,6 +62,108 @@ describe( '<FormAutocomplete />', () => {
 		);
 	} );
 
+	describe( 'onInputChange', () => {
+		const setup = async ( props = {}, userOptions ) => {
+			const onInputChange = jest.fn();
+			const user = userEvent.setup( userOptions );
+
+			render(
+				<FormAutocomplete
+					{ ...defaultProps }
+					forLabel="dessert"
+					onInputChange={ onInputChange }
+					{ ...props }
+				/>
+			);
+
+			const input = screen.getByLabelText( defaultProps.label );
+			await user.click( input );
+
+			return { input, onInputChange, user };
+		};
+
+		it.each( [
+			[
+				'backspacing the last character',
+				async ( user, input ) => user.type( input, '{Backspace}' ),
+			],
+			[ 'selecting all and deleting', async ( user, input ) => user.clear( input ) ],
+		] )( 'reports an empty query when the input is cleared by %s', async ( _case, clear ) => {
+			const { input, onInputChange, user } = await setup();
+
+			await user.type( input, 'C' );
+			expect( onInputChange ).toHaveBeenLastCalledWith( 'C' );
+
+			await clear( user, input );
+
+			expect( onInputChange ).toHaveBeenLastCalledWith( '' );
+		} );
+
+		// `showAllValues` makes the vendor call `source` for every query, so it is the config
+		// where a second `onInputChange` call could sneak back in.
+		it.each( [
+			[ 'an overlay menu', {} ],
+			[ 'showAllValues', { showAllValues: true } ],
+		] )( 'reports each typed character exactly once with %s', async ( _case, props ) => {
+			const { input, onInputChange, user } = await setup( props );
+
+			await user.type( input, 'Cho' );
+
+			expect( onInputChange.mock.calls ).toEqual( [ [ 'C' ], [ 'Ch' ], [ 'Cho' ] ] );
+		} );
+
+		// Two instances rendered without an explicit id share the `forLabel` default, so a
+		// document-wide lookup would bind both listeners to whichever input comes first.
+		it( 'reports edits to the instance that owns the input', async () => {
+			const user = userEvent.setup();
+			const first = jest.fn();
+			const second = jest.fn();
+
+			const { container } = render(
+				<>
+					<FormAutocomplete { ...defaultProps } label="First" onInputChange={ first } />
+					<FormAutocomplete { ...defaultProps } label="Second" onInputChange={ second } />
+				</>
+			);
+
+			const [ firstInput, secondInput ] = container.querySelectorAll( 'input.autocomplete__input' );
+
+			await user.type( firstInput, 'C' );
+
+			expect( first ).toHaveBeenCalledWith( 'C' );
+			expect( second ).not.toHaveBeenCalled();
+
+			await user.type( secondInput, 'V' );
+
+			expect( second ).toHaveBeenCalledWith( 'V' );
+			expect( first ).toHaveBeenCalledTimes( 1 );
+		} );
+
+		it( 'reports the empty query after the debounce elapses', async () => {
+			jest.useFakeTimers();
+
+			try {
+				const { input, onInputChange, user } = await setup(
+					{ debounce: 300, minLength: 2 },
+					{ advanceTimers: jest.advanceTimersByTime }
+				);
+
+				await user.type( input, 'Cho' );
+				act( () => jest.advanceTimersByTime( 300 ) );
+				expect( onInputChange ).toHaveBeenLastCalledWith( 'Cho' );
+
+				await user.clear( input );
+				expect( onInputChange ).toHaveBeenCalledTimes( 1 );
+
+				act( () => jest.advanceTimersByTime( 300 ) );
+
+				expect( onInputChange ).toHaveBeenLastCalledWith( '' );
+			} finally {
+				jest.useRealTimers();
+			}
+		} );
+	} );
+
 	describe( 'resetOnBlur', () => {
 		// The blur event is dispatched on its own so the assertions cover this component's
 		// own blur listener rather than the vendor autocomplete's focusout handling.

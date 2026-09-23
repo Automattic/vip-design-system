@@ -246,7 +246,8 @@ const FormAutocomplete = ( {
 	> | null >( null );
 	const [ selectedValue, setSelectedValue ] = useState( value || '' );
 	const [ inputQuery, setInputQuery ] = useState( value );
-	let debounceTimeout: ReturnType< typeof setTimeout >;
+	const debounceTimeout = React.useRef< ReturnType< typeof setTimeout > | null >( null );
+	const wrapperRef = React.useRef< HTMLDivElement >( null );
 	const fallbackRef = React.useRef< AutocompleteInstance >( null );
 	const acRef = (
 		ref && typeof ref !== 'function' ? ref : fallbackRef
@@ -333,10 +334,15 @@ const FormAutocomplete = ( {
 			if ( ! debounce ) {
 				return onInputChange?.( query );
 			}
-			clearTimeout( debounceTimeout );
+			// The pending timer lives in a ref because consumers commonly pass an inline
+			// `onInputChange`, which rebuilds this callback on every render. A render-scoped
+			// timer id would be lost on that rebuild and the debounce would stop coalescing.
+			if ( debounceTimeout.current ) {
+				clearTimeout( debounceTimeout.current );
+			}
 
 			if ( ! query.length || query.length >= minLength ) {
-				debounceTimeout = setTimeout( () => {
+				debounceTimeout.current = setTimeout( () => {
 					onInputChange?.( query );
 				}, debounce );
 			}
@@ -347,15 +353,12 @@ const FormAutocomplete = ( {
 	const suggest = useCallback(
 		( query: string, populateResults: ( results: unknown[] ) => void ) => {
 			let data = options;
-			if ( isDirty && onInputChange ) {
-				handleInputChange( query );
-			}
 			if ( isDirty && autoFilter ) {
 				data = handleTypeChange( query );
 			}
 			populateResults( data?.map( option => optionLabel( option ) ) );
 		},
-		[ autoFilter, isDirty, onInputChange, options ]
+		[ autoFilter, isDirty, options ]
 	);
 	// internal function to save the inputQuery
 	const handleSource = ( query: string, populateResults: ( results: unknown[] ) => void ) => {
@@ -404,6 +407,27 @@ const FormAutocomplete = ( {
 
 		input.setAttribute( 'aria-required', String( required ) );
 	}, [ inputId, required ] );
+
+	// accessible-autocomplete only calls `source` for a non-empty query (unless `showAllValues`
+	// is set), so deleting the last character never reaches the consumer and leaves it holding a
+	// stale value. Reading the input directly reports every edit, empty ones included.
+	//
+	// The lookup goes through the wrapper rather than `getElementById` because `forLabel` has a
+	// default: two instances without an explicit id share it, and a document-wide lookup would
+	// bind every instance to the first matching input.
+	useEffect( () => {
+		const input = wrapperRef.current?.querySelector< HTMLInputElement >( 'input' );
+
+		if ( ! input ) {
+			return;
+		}
+
+		const onInput = () => handleInputChange( input.value );
+
+		input.addEventListener( 'input', onInput );
+
+		return () => input.removeEventListener( 'input', onInput );
+	}, [ handleInputChange ] );
 
 	useEffect( () => {
 		const input = global.document.getElementById( inputId );
@@ -463,7 +487,10 @@ const FormAutocomplete = ( {
 		return () => input.removeEventListener( 'blur', onBlur );
 	}, [ inputId, resetInputState ] );
 	return (
-		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+		<div
+			ref={ wrapperRef }
+			className={ classNames( 'vip-form-autocomplete-component', className ) }
+		>
 			{ label && ! isInline && <SelectLabel /> }
 
 			<div
