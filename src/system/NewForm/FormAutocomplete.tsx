@@ -331,23 +331,40 @@ const FormAutocomplete = ( {
 
 	const handleInputChange = useCallback(
 		( query: string ) => {
-			if ( ! debounce ) {
-				return onInputChange?.( query );
-			}
 			// The pending timer lives in a ref because consumers commonly pass an inline
 			// `onInputChange`, which rebuilds this callback on every render. A render-scoped
 			// timer id would be lost on that rebuild and the debounce would stop coalescing.
 			if ( debounceTimeout.current ) {
 				clearTimeout( debounceTimeout.current );
+				debounceTimeout.current = null;
 			}
 
-			if ( ! query.length || query.length >= minLength ) {
-				debounceTimeout.current = setTimeout( () => {
-					onInputChange?.( query );
-				}, debounce );
+			// `minLength` has only ever gated the debounced path; the undebounced default
+			// reports every edit.
+			if ( debounce && query.length && query.length < minLength ) {
+				return;
 			}
+
+			// Deferred even when `debounce` is 0. This runs from a native `input` listener, and
+			// for user-initiated events browsers drain microtasks between listeners: a consumer
+			// that sets state here re-renders before the vendor autocomplete's own handler runs,
+			// which writes its stale `state.query` back into the controlled input and makes the
+			// field uneditable. Script-dispatched events (jsdom) never hit this.
+			debounceTimeout.current = setTimeout( () => {
+				debounceTimeout.current = null;
+				onInputChange?.( query );
+			}, debounce );
 		},
 		[ onInputChange, debounce, minLength ]
+	);
+
+	useEffect(
+		() => () => {
+			if ( debounceTimeout.current ) {
+				clearTimeout( debounceTimeout.current );
+			}
+		},
+		[]
 	);
 
 	const suggest = useCallback(

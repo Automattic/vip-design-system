@@ -139,6 +139,86 @@ describe( '<FormAutocomplete />', () => {
 			expect( first ).toHaveBeenCalledTimes( 1 );
 		} );
 
+		// A synchronous call here re-enters React from inside the native `input` listener. In a
+		// real browser the consumer's setState then flushes in a microtask before the vendor
+		// autocomplete's own handler runs, which writes its stale query back into the controlled
+		// input
+		it.each( [
+			[ 'a typed character', 'C' ],
+			[ 'an empty query', '' ],
+		] )( 'defers %s out of the native input listener', async ( _case, query ) => {
+			jest.useFakeTimers();
+
+			try {
+				const { input, onInputChange } = await setup(
+					{},
+					{
+						advanceTimers: jest.advanceTimersByTime,
+					}
+				);
+
+				fireEvent.input( input, { target: { value: query } } );
+
+				expect( onInputChange ).not.toHaveBeenCalled();
+
+				act( () => jest.advanceTimersByTime( 0 ) );
+
+				expect( onInputChange.mock.calls ).toEqual( [ [ query ] ] );
+			} finally {
+				jest.useRealTimers();
+			}
+		} );
+
+		it( 'coalesces rapid undebounced edits into the latest value', async () => {
+			jest.useFakeTimers();
+
+			try {
+				const { input, onInputChange } = await setup(
+					{},
+					{
+						advanceTimers: jest.advanceTimersByTime,
+					}
+				);
+
+				fireEvent.input( input, { target: { value: 'C' } } );
+				fireEvent.input( input, { target: { value: 'Ch' } } );
+				fireEvent.input( input, { target: { value: 'Cho' } } );
+
+				act( () => jest.advanceTimersByTime( 0 ) );
+
+				expect( onInputChange.mock.calls ).toEqual( [ [ 'Cho' ] ] );
+			} finally {
+				jest.useRealTimers();
+			}
+		} );
+
+		it( 'drops a pending call when the component unmounts', async () => {
+			jest.useFakeTimers();
+
+			try {
+				const onInputChange = jest.fn();
+
+				const { unmount } = render(
+					<FormAutocomplete
+						{ ...defaultProps }
+						forLabel="dessert"
+						onInputChange={ onInputChange }
+					/>
+				);
+
+				fireEvent.input( screen.getByLabelText( defaultProps.label ), {
+					target: { value: 'Cho' },
+				} );
+				unmount();
+
+				act( () => jest.advanceTimersByTime( 0 ) );
+
+				expect( onInputChange ).not.toHaveBeenCalled();
+			} finally {
+				jest.useRealTimers();
+			}
+		} );
+
 		it( 'reports the empty query after the debounce elapses', async () => {
 			jest.useFakeTimers();
 

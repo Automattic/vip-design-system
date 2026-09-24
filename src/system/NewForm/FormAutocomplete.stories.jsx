@@ -191,3 +191,34 @@ export const WithCustomArrow = {
 		),
 	},
 };
+
+// A consumer that sets state from `onInputChange` used to make the input uneditable, because
+// the resulting re-render wrote the vendor autocomplete's stale query back into the controlled
+// input. jsdom cannot reproduce it (it never drains microtasks between listeners), so this story
+// is the browser repro: clear the field, then type. The text must stick and options must appear.
+const ControlledByInputChange = () => {
+	const [ query, setQuery ] = useState( 'Chocolate' );
+
+	return (
+		<Form.Root>
+			<div sx={ { width: 250 } }>
+				<Form.Autocomplete
+					forLabel="form-autocomplete-controlled"
+					label="Flavour"
+					options={ options }
+					value={ query }
+					onInputChange={ setQuery }
+					onChange={ ( option, val ) => setQuery( val ?? '' ) }
+				/>
+			</div>
+
+			<p>
+				Parent state: <code>{ JSON.stringify( query ) }</code>
+			</p>
+		</Form.Root>
+	);
+};
+
+export const WithStatefulInputChange = {
+	render: () => <ControlledByInputChange />,
+};
