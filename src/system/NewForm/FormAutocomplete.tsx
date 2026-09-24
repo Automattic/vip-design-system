@@ -89,7 +89,8 @@ export interface FormAutocompleteProps {
 	noOptionsMessage?: () => string;
 	/** Called when a value is confirmed; receives the matched option and the input value. */
 	onChange?: ( option: AutocompleteOption | undefined, inputValue: string | null ) => void;
-	/** Called when the input value changes. */
+	/** Called on input edits, including empty and same-length edits. With debounce=0,
+	 * short queries are reported too; source is not a notification of every edit. */
 	onInputChange?: ( query: string ) => void;
 	/** The list of options. */
 	options?: AutocompleteOption[];
@@ -247,7 +248,6 @@ const FormAutocomplete = ( {
 	const [ selectedValue, setSelectedValue ] = useState( value || '' );
 	const [ inputQuery, setInputQuery ] = useState( value );
 	const debounceTimeout = React.useRef< ReturnType< typeof setTimeout > | null >( null );
-	const wrapperRef = React.useRef< HTMLDivElement >( null );
 	const fallbackRef = React.useRef< AutocompleteInstance >( null );
 	const acRef = (
 		ref && typeof ref !== 'function' ? ref : fallbackRef
@@ -408,26 +408,16 @@ const FormAutocomplete = ( {
 		input.setAttribute( 'aria-required', String( required ) );
 	}, [ inputId, required ] );
 
-	// accessible-autocomplete only calls `source` for a non-empty query (unless `showAllValues`
-	// is set), so deleting the last character never reaches the consumer and leaves it holding a
-	// stale value. Reading the input directly reports every edit, empty ones included.
-	//
-	// The lookup goes through the wrapper rather than `getElementById` because `forLabel` has a
-	// default: two instances without an explicit id share it, and a document-wide lookup would
-	// bind every instance to the first matching input.
-	useEffect( () => {
-		const input = wrapperRef.current?.querySelector< HTMLInputElement >( 'input' );
-
-		if ( ! input ) {
-			return;
+	// Use React's bubbling input event so consumer updates are batched with the
+	// autocomplete's own query update. A native listener runs before that update
+	// and can restore the old controlled value when the consumer rerenders.
+	// Unlike `source`, this also observes empty and same-length edits.
+	const handleInput = ( event: React.FormEvent< HTMLDivElement > ) => {
+		const input = event.target;
+		if ( input instanceof HTMLInputElement && input.classList.contains( 'autocomplete__input' ) ) {
+			handleInputChange( input.value );
 		}
-
-		const onInput = () => handleInputChange( input.value );
-
-		input.addEventListener( 'input', onInput );
-
-		return () => input.removeEventListener( 'input', onInput );
-	}, [ handleInputChange ] );
+	};
 
 	useEffect( () => {
 		const input = global.document.getElementById( inputId );
@@ -488,7 +478,7 @@ const FormAutocomplete = ( {
 	}, [ inputId, resetInputState ] );
 	return (
 		<div
-			ref={ wrapperRef }
+			onInput={ handleInput }
 			className={ classNames( 'vip-form-autocomplete-component', className ) }
 		>
 			{ label && ! isInline && <SelectLabel /> }
