@@ -1,0 +1,126 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.cover {
+		--cover-padding: var(--space-5);
+		--cover-min-height: 100vh;
+	}
+
+	.cover[data-cover-padding='0'] {
+		--cover-padding: var(--space-0);
+	}
+
+	.cover[data-cover-padding='1'] {
+		--cover-padding: var(--space-1);
+	}
+
+	.cover[data-cover-padding='2'] {
+		--cover-padding: var(--space-2);
+	}
+
+	.cover[data-cover-padding='3'] {
+		--cover-padding: var(--space-3);
+	}
+
+	.cover[data-cover-padding='4'] {
+		--cover-padding: var(--space-4);
+	}
+
+	.cover[data-cover-padding='5'] {
+		--cover-padding: var(--space-5);
+	}
+
+	.cover[data-cover-padding='6'] {
+		--cover-padding: var(--space-6);
+	}
+
+	.cover[data-cover-padding='7'] {
+		--cover-padding: var(--space-7);
+	}
+
+	.cover[data-cover-padding='8'] {
+		--cover-padding: var(--space-8);
+	}
+
+	.cover[data-cover-padding='9'] {
+		--cover-padding: var(--space-9);
+	}
+
+	.cover[data-cover-padding='10'] {
+		--cover-padding: var(--space-10);
+	}
+
+	.cover[data-cover-padding='11'] {
+		--cover-padding: var(--space-11);
+	}
+
+	.cover[data-cover-padding='12'] {
+		--cover-padding: var(--space-12);
+	}
+
+	.cover[data-cover-padding='none'] {
+		--cover-padding: 0px;
+	}
+
+	.cover[data-cover-min-height='8rem'] {
+		--cover-min-height: var(--layout-size-8);
+	}
+
+	.cover[data-cover-min-height='9rem'] {
+		--cover-min-height: var(--layout-size-9);
+	}
+
+	.cover[data-cover-min-height='10rem'] {
+		--cover-min-height: var(--layout-size-10);
+	}
+
+	.cover[data-cover-min-height='12rem'] {
+		--cover-min-height: var(--layout-size-12);
+	}
+
+	.cover[data-cover-min-height='16rem'] {
+		--cover-min-height: var(--layout-size-16);
+	}
+
+	.cover[data-cover-min-height='20rem'] {
+		--cover-min-height: var(--layout-size-20);
+	}
+
+	.cover[data-cover-min-height='24rem'] {
+		--cover-min-height: var(--layout-size-24);
+	}
+
+	.cover[data-cover-min-height='30rem'] {
+		--cover-min-height: var(--layout-size-30);
+	}
+
+	.cover[data-cover-min-height='40rem'] {
+		--cover-min-height: var(--layout-size-40);
+	}
+
+	.cover[data-cover-min-height='50rem'] {
+		--cover-min-height: var(--layout-size-50);
+	}
+
+	.cover[data-cover-min-height='60rem'] {
+		--cover-min-height: var(--layout-size-60);
+	}
+
+	.cover[data-cover-min-height='70rem'] {
+		--cover-min-height: var(--layout-size-70);
+	}
+
+	.cover[data-cover-min-height='80rem'] {
+		--cover-min-height: var(--layout-size-80);
+	}
+
+	.cover[data-cover-min-height='none'] {
+		--cover-min-height: 0px;
+	}
+
+	.cover[data-cover-min-height='viewport'] {
+		--cover-min-height: 100vh;
+	}
+}

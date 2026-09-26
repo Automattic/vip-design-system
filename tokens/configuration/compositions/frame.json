@@ -1,0 +1,11 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"ratio": {
+			"default": "16/9",
+			"options": "ratio",
+			"target": "self",
+			"type": "ratio"
+		}
+	}
+}

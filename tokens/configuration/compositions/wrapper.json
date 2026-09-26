@@ -1,0 +1,17 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"max-inline-size": {
+			"default": "70rem",
+			"options": "length",
+			"target": "self",
+			"type": "dimension"
+		},
+		"padding-inline": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		}
+	}
+}

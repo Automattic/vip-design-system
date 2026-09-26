@@ -1,9 +1,11 @@
+@import './cover.config.generated.css';
+
 @layer compositions {
 	.cover {
 		display: flex;
 		flex-direction: column;
-		min-block-size: var(--cover-min-height, 100vh);
-		padding: var(--cover-padding, var(--space-5));
+		min-block-size: var(--cover-min-height);
+		padding: var(--cover-padding);
 	}
 
 	/* The centered element — receives equal space above and below */

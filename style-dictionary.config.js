@@ -1,4 +1,10 @@
 import StyleDictionary from 'style-dictionary';
+import { buildConfiguration } from './scripts/style-dictionary/configuration.mjs';
+
+// Validate configuration before writing token outputs. Metadata is never a token source.
+const checkConfiguration = process.argv.includes('--check-configuration');
+await buildConfiguration({ check: checkConfiguration });
+if (checkConfiguration) process.exit(0);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -215,6 +221,7 @@ await new StyleDictionary(
 		source: [
 			'tokens/primitives/color.json',
 			'tokens/primitives/space.json',
+			'tokens/primitives/size.json',
 			'tokens/primitives/font-size.json',
 			'tokens/primitives/font-weight.json',
 			'tokens/primitives/line-height.json',

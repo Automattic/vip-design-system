@@ -1,0 +1,11 @@
+{
+	"layer": "utilities",
+	"settings": {
+		"space": {
+			"default": "10",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		}
+	}
+}

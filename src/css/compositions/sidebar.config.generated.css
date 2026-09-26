@@ -1,0 +1,258 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.sidebar {
+		--sidebar-gap: var(--space-5);
+		--sidebar-inline-alignment: flex-start;
+		--sidebar-block-alignment: stretch;
+	}
+
+	.sidebar > * {
+		--sidebar-width: var(--layout-size-20);
+		--sidebar-content-min: 50%;
+		--sidebar-sticky-offset: 0px;
+		--sidebar-sticky-block-size: calc(100vh - var(--sidebar-sticky-offset));
+	}
+
+	.sidebar[data-sidebar-gap='0'] {
+		--sidebar-gap: var(--space-0);
+	}
+
+	.sidebar[data-sidebar-gap='1'] {
+		--sidebar-gap: var(--space-1);
+	}
+
+	.sidebar[data-sidebar-gap='2'] {
+		--sidebar-gap: var(--space-2);
+	}
+
+	.sidebar[data-sidebar-gap='3'] {
+		--sidebar-gap: var(--space-3);
+	}
+
+	.sidebar[data-sidebar-gap='4'] {
+		--sidebar-gap: var(--space-4);
+	}
+
+	.sidebar[data-sidebar-gap='5'] {
+		--sidebar-gap: var(--space-5);
+	}
+
+	.sidebar[data-sidebar-gap='6'] {
+		--sidebar-gap: var(--space-6);
+	}
+
+	.sidebar[data-sidebar-gap='7'] {
+		--sidebar-gap: var(--space-7);
+	}
+
+	.sidebar[data-sidebar-gap='8'] {
+		--sidebar-gap: var(--space-8);
+	}
+
+	.sidebar[data-sidebar-gap='9'] {
+		--sidebar-gap: var(--space-9);
+	}
+
+	.sidebar[data-sidebar-gap='10'] {
+		--sidebar-gap: var(--space-10);
+	}
+
+	.sidebar[data-sidebar-gap='11'] {
+		--sidebar-gap: var(--space-11);
+	}
+
+	.sidebar[data-sidebar-gap='12'] {
+		--sidebar-gap: var(--space-12);
+	}
+
+	.sidebar[data-sidebar-gap='none'] {
+		--sidebar-gap: 0px;
+	}
+
+	.sidebar[data-sidebar-inline-alignment='start'] {
+		--sidebar-inline-alignment: flex-start;
+	}
+
+	.sidebar[data-sidebar-inline-alignment='center'] {
+		--sidebar-inline-alignment: center;
+	}
+
+	.sidebar[data-sidebar-inline-alignment='end'] {
+		--sidebar-inline-alignment: flex-end;
+	}
+
+	.sidebar[data-sidebar-inline-alignment='space-between'] {
+		--sidebar-inline-alignment: space-between;
+	}
+
+	.sidebar[data-sidebar-inline-alignment='space-around'] {
+		--sidebar-inline-alignment: space-around;
+	}
+
+	.sidebar[data-sidebar-inline-alignment='space-evenly'] {
+		--sidebar-inline-alignment: space-evenly;
+	}
+
+	.sidebar[data-sidebar-block-alignment='start'] {
+		--sidebar-block-alignment: flex-start;
+	}
+
+	.sidebar[data-sidebar-block-alignment='center'] {
+		--sidebar-block-alignment: center;
+	}
+
+	.sidebar[data-sidebar-block-alignment='end'] {
+		--sidebar-block-alignment: flex-end;
+	}
+
+	.sidebar[data-sidebar-block-alignment='stretch'] {
+		--sidebar-block-alignment: stretch;
+	}
+
+	.sidebar[data-sidebar-block-alignment='baseline'] {
+		--sidebar-block-alignment: baseline;
+	}
+
+	.sidebar[data-sidebar-width='8rem'] > * {
+		--sidebar-width: var(--layout-size-8);
+	}
+
+	.sidebar[data-sidebar-width='9rem'] > * {
+		--sidebar-width: var(--layout-size-9);
+	}
+
+	.sidebar[data-sidebar-width='10rem'] > * {
+		--sidebar-width: var(--layout-size-10);
+	}
+
+	.sidebar[data-sidebar-width='12rem'] > * {
+		--sidebar-width: var(--layout-size-12);
+	}
+
+	.sidebar[data-sidebar-width='16rem'] > * {
+		--sidebar-width: var(--layout-size-16);
+	}
+
+	.sidebar[data-sidebar-width='20rem'] > * {
+		--sidebar-width: var(--layout-size-20);
+	}
+
+	.sidebar[data-sidebar-width='24rem'] > * {
+		--sidebar-width: var(--layout-size-24);
+	}
+
+	.sidebar[data-sidebar-width='30rem'] > * {
+		--sidebar-width: var(--layout-size-30);
+	}
+
+	.sidebar[data-sidebar-width='40rem'] > * {
+		--sidebar-width: var(--layout-size-40);
+	}
+
+	.sidebar[data-sidebar-width='50rem'] > * {
+		--sidebar-width: var(--layout-size-50);
+	}
+
+	.sidebar[data-sidebar-width='60rem'] > * {
+		--sidebar-width: var(--layout-size-60);
+	}
+
+	.sidebar[data-sidebar-width='70rem'] > * {
+		--sidebar-width: var(--layout-size-70);
+	}
+
+	.sidebar[data-sidebar-width='80rem'] > * {
+		--sidebar-width: var(--layout-size-80);
+	}
+
+	.sidebar[data-sidebar-content-min='25%'] > * {
+		--sidebar-content-min: 25%;
+	}
+
+	.sidebar[data-sidebar-content-min='33.333%'] > * {
+		--sidebar-content-min: 33.333%;
+	}
+
+	.sidebar[data-sidebar-content-min='50%'] > * {
+		--sidebar-content-min: 50%;
+	}
+
+	.sidebar[data-sidebar-content-min='66.667%'] > * {
+		--sidebar-content-min: 66.667%;
+	}
+
+	.sidebar[data-sidebar-content-min='75%'] > * {
+		--sidebar-content-min: 75%;
+	}
+
+	.sidebar[data-sidebar-content-min='100%'] > * {
+		--sidebar-content-min: 100%;
+	}
+
+	.sidebar[data-sidebar-sticky-offset='0'] > * {
+		--sidebar-sticky-offset: var(--space-0);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='1'] > * {
+		--sidebar-sticky-offset: var(--space-1);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='2'] > * {
+		--sidebar-sticky-offset: var(--space-2);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='3'] > * {
+		--sidebar-sticky-offset: var(--space-3);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='4'] > * {
+		--sidebar-sticky-offset: var(--space-4);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='5'] > * {
+		--sidebar-sticky-offset: var(--space-5);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='6'] > * {
+		--sidebar-sticky-offset: var(--space-6);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='7'] > * {
+		--sidebar-sticky-offset: var(--space-7);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='8'] > * {
+		--sidebar-sticky-offset: var(--space-8);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='9'] > * {
+		--sidebar-sticky-offset: var(--space-9);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='10'] > * {
+		--sidebar-sticky-offset: var(--space-10);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='11'] > * {
+		--sidebar-sticky-offset: var(--space-11);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='12'] > * {
+		--sidebar-sticky-offset: var(--space-12);
+	}
+
+	.sidebar[data-sidebar-sticky-offset='none'] > * {
+		--sidebar-sticky-offset: 0px;
+	}
+
+	.sidebar[data-sidebar-sticky-block-size='viewport'] > * {
+		--sidebar-sticky-block-size: calc(100vh - var(--sidebar-sticky-offset));
+	}
+
+	.sidebar[data-sidebar-sticky-block-size='auto'] > * {
+		--sidebar-sticky-block-size: auto;
+	}
+}

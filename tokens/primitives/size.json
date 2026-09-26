@@ -1,0 +1,56 @@
+{
+	"size": {
+		"8": {
+			"$value": "8rem",
+			"$type": "dimension"
+		},
+		"9": {
+			"$value": "9rem",
+			"$type": "dimension"
+		},
+		"10": {
+			"$value": "10rem",
+			"$type": "dimension"
+		},
+		"12": {
+			"$value": "12rem",
+			"$type": "dimension"
+		},
+		"16": {
+			"$value": "16rem",
+			"$type": "dimension"
+		},
+		"20": {
+			"$value": "20rem",
+			"$type": "dimension"
+		},
+		"24": {
+			"$value": "24rem",
+			"$type": "dimension"
+		},
+		"30": {
+			"$value": "30rem",
+			"$type": "dimension"
+		},
+		"40": {
+			"$value": "40rem",
+			"$type": "dimension"
+		},
+		"50": {
+			"$value": "50rem",
+			"$type": "dimension"
+		},
+		"60": {
+			"$value": "60rem",
+			"$type": "dimension"
+		},
+		"70": {
+			"$value": "70rem",
+			"$type": "dimension"
+		},
+		"80": {
+			"$value": "80rem",
+			"$type": "dimension"
+		}
+	}
+}

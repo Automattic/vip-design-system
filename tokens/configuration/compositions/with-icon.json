@@ -1,0 +1,11 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "0.5em",
+			"options": "icon-gap",
+			"target": "self",
+			"type": "dimension"
+		}
+	}
+}

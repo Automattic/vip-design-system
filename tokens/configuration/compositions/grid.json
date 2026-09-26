@@ -1,0 +1,23 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"columns": {
+			"default": "auto-fill",
+			"options": "columns",
+			"target": "self",
+			"type": "keyword"
+		},
+		"min-item-size": {
+			"default": "16rem",
+			"options": "length",
+			"target": "self",
+			"type": "dimension"
+		}
+	}
+}

@@ -1,0 +1,41 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.frame {
+		--frame-ratio: 16/9;
+	}
+
+	.frame[data-frame-ratio='1/1'] {
+		--frame-ratio: 1/1;
+	}
+
+	.frame[data-frame-ratio='4/3'] {
+		--frame-ratio: 4/3;
+	}
+
+	.frame[data-frame-ratio='3/4'] {
+		--frame-ratio: 3/4;
+	}
+
+	.frame[data-frame-ratio='3/2'] {
+		--frame-ratio: 3/2;
+	}
+
+	.frame[data-frame-ratio='2/3'] {
+		--frame-ratio: 2/3;
+	}
+
+	.frame[data-frame-ratio='16/9'] {
+		--frame-ratio: 16/9;
+	}
+
+	.frame[data-frame-ratio='9/16'] {
+		--frame-ratio: 9/16;
+	}
+
+	.frame[data-frame-ratio='21/9'] {
+		--frame-ratio: 21/9;
+	}
+}

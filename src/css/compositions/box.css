@@ -1,3 +1,5 @@
+@import './box.config.generated.css';
+
 @layer compositions {
 	/*
 	 * Box — a padded surface with a boundary.
@@ -7,10 +9,10 @@
 	 * nothing — it has no children to lay out — so pair it with .stack or
 	 * .cluster for the contents.
 	 *
-	 * Colour and background are set TOGETHER and always as a pair. That is the
-	 * point of the primitive: override one without the other and you get text
-	 * on a surface it was never checked against. Both are exposed as custom
-	 * properties so a variant swaps them in one place, as data-variant does.
+	 * Prefer data-box-surface presets: they set foreground, background, and
+	 * border together. Individual data-box-color / data-box-background /
+	 * data-box-border-color attributes override a preset when needed; consumers
+	 * must check contrast for those combinations. See docs/CSS-CONFIGURATION.md.
 	 *
 	 * Every Layout's Box leaves the border colour unset so it falls back to
 	 * currentColor, which keeps the boundary visible in forced-colours mode
@@ -19,17 +21,11 @@
 	 * forced-colours case is handled explicitly at the bottom.
 	 */
 	.box {
-		padding: var(--box-padding, var(--space-5));
-		border: var(--box-border-width, 1px) solid var(--box-border-color, var(--color-border-default));
-		border-radius: var(--box-radius, var(--radius-container));
-		color: var(--box-color, var(--color-text-primary));
-		background-color: var(--box-background, var(--color-layer-2));
-	}
-
-	.box[data-variant='inverse'] {
-		--box-color: var(--box-color-inverse, var(--color-layer-2));
-		--box-background: var(--box-background-inverse, var(--color-text-primary));
-		--box-border-color: var(--box-border-color-inverse, var(--color-text-primary));
+		padding: var(--box-padding);
+		border: var(--box-border-width) solid var(--box-border-color);
+		border-radius: var(--box-radius);
+		color: var(--box-color);
+		background-color: var(--box-background);
 	}
 
 	/*

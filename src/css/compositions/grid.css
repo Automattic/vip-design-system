@@ -1,10 +1,9 @@
+@import './grid.config.generated.css';
+
 @layer compositions {
 	.grid {
 		display: grid;
-		grid-template-columns: repeat(
-			var(--grid-columns, auto-fill),
-			minmax(var(--grid-min-item-size, 16rem), 1fr)
-		);
-		gap: var(--grid-gap, var(--space-5));
+		grid-template-columns: repeat(var(--grid-columns), minmax(var(--grid-min-item-size), 1fr));
+		gap: var(--grid-gap);
 	}
 }

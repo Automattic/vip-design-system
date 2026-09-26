@@ -1,6 +1,8 @@
+@import './frame.config.generated.css';
+
 @layer compositions {
 	.frame {
-		aspect-ratio: var(--frame-ratio, 16 / 9);
+		aspect-ratio: var(--frame-ratio);
 		overflow: hidden;
 		display: flex;
 		justify-content: center;

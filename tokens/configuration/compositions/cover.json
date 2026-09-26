@@ -1,0 +1,17 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"padding": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"min-height": {
+			"default": "viewport",
+			"options": "min-height",
+			"target": "self",
+			"type": "dimension"
+		}
+	}
+}

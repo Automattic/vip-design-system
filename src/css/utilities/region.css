@@ -1,3 +1,5 @@
+@import './region.config.generated.css';
+
 @layer utilities {
 	/*
 	 * Region — consistent vertical rhythm for a chunk of a page.
@@ -45,46 +47,6 @@
 	 * data-nowrap, data-sticky).
 	 */
 	.region {
-		padding-block: var(--region-space, var(--space-10));
-	}
-
-	.region[data-region-space='0'] {
-		--region-space: var(--space-0);
-	}
-	.region[data-region-space='1'] {
-		--region-space: var(--space-1);
-	}
-	.region[data-region-space='2'] {
-		--region-space: var(--space-2);
-	}
-	.region[data-region-space='3'] {
-		--region-space: var(--space-3);
-	}
-	.region[data-region-space='4'] {
-		--region-space: var(--space-4);
-	}
-	.region[data-region-space='5'] {
-		--region-space: var(--space-5);
-	}
-	.region[data-region-space='6'] {
-		--region-space: var(--space-6);
-	}
-	.region[data-region-space='7'] {
-		--region-space: var(--space-7);
-	}
-	.region[data-region-space='8'] {
-		--region-space: var(--space-8);
-	}
-	.region[data-region-space='9'] {
-		--region-space: var(--space-9);
-	}
-	.region[data-region-space='10'] {
-		--region-space: var(--space-10);
-	}
-	.region[data-region-space='11'] {
-		--region-space: var(--space-11);
-	}
-	.region[data-region-space='12'] {
-		--region-space: var(--space-12);
+		padding-block: var(--region-space);
 	}
 }

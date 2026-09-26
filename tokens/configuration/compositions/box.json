@@ -1,0 +1,138 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"padding": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"border-width": {
+			"default": "1",
+			"options": "border-width",
+			"target": "self",
+			"type": "dimension"
+		},
+		"radius": {
+			"default": "container",
+			"options": "radius",
+			"target": "self",
+			"type": "dimension"
+		},
+		"color": {
+			"default": "text-primary",
+			"options": "color",
+			"target": "self",
+			"type": "color"
+		},
+		"background": {
+			"default": "layer-2",
+			"options": "color",
+			"target": "self",
+			"type": "color"
+		},
+		"border-color": {
+			"default": "border-default",
+			"options": "color",
+			"target": "self",
+			"type": "color"
+		},
+		"color-inverse": {
+			"default": "layer-2",
+			"options": "color",
+			"target": "self",
+			"type": "color"
+		},
+		"background-inverse": {
+			"default": "text-primary",
+			"options": "color",
+			"target": "self",
+			"type": "color"
+		},
+		"border-color-inverse": {
+			"default": "text-primary",
+			"options": "color",
+			"target": "self",
+			"type": "color"
+		}
+	},
+	"presets": {
+		"surface": {
+			"options": {
+				"layer-1": {
+					"color": {
+						"option": "text-primary"
+					},
+					"background": {
+						"option": "layer-1"
+					},
+					"border-color": {
+						"option": "border-default"
+					}
+				},
+				"layer-2": {
+					"color": {
+						"option": "text-primary"
+					},
+					"background": {
+						"option": "layer-2"
+					},
+					"border-color": {
+						"option": "border-default"
+					}
+				},
+				"layer-3": {
+					"color": {
+						"option": "text-primary"
+					},
+					"background": {
+						"option": "layer-3"
+					},
+					"border-color": {
+						"option": "border-default"
+					}
+				},
+				"layer-4": {
+					"color": {
+						"option": "text-primary"
+					},
+					"background": {
+						"option": "layer-4"
+					},
+					"border-color": {
+						"option": "border-default"
+					}
+				},
+				"default": {
+					"color": {
+						"option": "text-primary"
+					},
+					"background": {
+						"option": "layer-2"
+					},
+					"border-color": {
+						"option": "border-default"
+					}
+				},
+				"inverse": {
+					"color": {
+						"setting": "color-inverse"
+					},
+					"background": {
+						"setting": "background-inverse"
+					},
+					"border-color": {
+						"setting": "border-color-inverse"
+					}
+				}
+			},
+			"aliases": [
+				{
+					"attribute": "data-variant",
+					"value": "inverse",
+					"option": "inverse"
+				}
+			]
+		}
+	}
+}

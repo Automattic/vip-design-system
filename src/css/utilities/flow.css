@@ -1,3 +1,5 @@
+@import './flow.config.generated.css';
+
 @layer utilities {
 	/*
 	 * Flow — spaces children in normal document flow.
@@ -20,50 +22,11 @@
 	 * The attribute is prefixed because .region carries a parallel scale and
 	 * both can land on one element; see region.css for the naming rule.
 	 *
-	 * Setting --flow-space directly on a .flow is safe only at the top level:
-	 * on a nested one it shadows the value its parent set on it.
+	 * Each .flow declares a local default on its direct children, including
+	 * when it has no attribute. For custom CSS values, set --flow-space on
+	 * those children too: .article.flow > * { --flow-space: 1.25rem; }.
 	 */
 	.flow > * + * {
-		margin-block-start: var(--flow-space, var(--space-5));
-	}
-
-	.flow[data-flow-space='0'] > * {
-		--flow-space: var(--space-0);
-	}
-	.flow[data-flow-space='1'] > * {
-		--flow-space: var(--space-1);
-	}
-	.flow[data-flow-space='2'] > * {
-		--flow-space: var(--space-2);
-	}
-	.flow[data-flow-space='3'] > * {
-		--flow-space: var(--space-3);
-	}
-	.flow[data-flow-space='4'] > * {
-		--flow-space: var(--space-4);
-	}
-	.flow[data-flow-space='5'] > * {
-		--flow-space: var(--space-5);
-	}
-	.flow[data-flow-space='6'] > * {
-		--flow-space: var(--space-6);
-	}
-	.flow[data-flow-space='7'] > * {
-		--flow-space: var(--space-7);
-	}
-	.flow[data-flow-space='8'] > * {
-		--flow-space: var(--space-8);
-	}
-	.flow[data-flow-space='9'] > * {
-		--flow-space: var(--space-9);
-	}
-	.flow[data-flow-space='10'] > * {
-		--flow-space: var(--space-10);
-	}
-	.flow[data-flow-space='11'] > * {
-		--flow-space: var(--space-11);
-	}
-	.flow[data-flow-space='12'] > * {
-		--flow-space: var(--space-12);
+		margin-block-start: var(--flow-space);
 	}
 }

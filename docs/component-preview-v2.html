@@ -90,10 +90,7 @@
 			/* .sidebar composition handles display, sizing and wrapping */
 			.chrome-layout {
 				/* .sidebar configuration */
-				--sidebar-width: var(--chrome-sidebar-width);
 				--sidebar-gap: 0;
-				/* data-sticky pins the nav below the fixed topbar and fills from there */
-				--sidebar-sticky-offset: var(--chrome-topbar-height);
 				/* Inert while .chrome-sidebar sets an explicit height — align-items
 				   doesn't apply to an item with a definite cross-size — but keeps the
 				   intent on record if that height is ever removed. */
@@ -106,8 +103,13 @@
 			/*
 			 * position: sticky, the viewport-fill height and overflow all come from
 			 * .sidebar's data-sticky variant, driven by --sidebar-sticky-offset on
-			 * .chrome-layout. Only appearance is left here.
+			 * .chrome-layout > *. Only appearance is left here.
 			 */
+			.chrome-layout > * {
+				--sidebar-width: var(--chrome-sidebar-width);
+				--sidebar-sticky-offset: var(--chrome-topbar-height);
+			}
+
 			.chrome-sidebar {
 				/* .stack: spacing between nav groups */
 				--stack-gap: 1.5rem;
@@ -305,7 +307,6 @@
 			 * Alignment comes from --sidebar-block-alignment on the element itself.
 			 */
 			.color-row {
-				--sidebar-width: 1.5rem;
 				--sidebar-gap: 0.75rem;
 				--sidebar-block-alignment: center;
 
@@ -314,6 +315,10 @@
 
 			/* aspect-ratio (not height) keeps the dot circular, since flex-basis
 			   drives the used width rather than the `width` declaration */
+			.color-row > * {
+				--sidebar-width: 1.5rem;
+			}
+
 			.color-row__dot {
 				width: 1.5rem;
 				aspect-ratio: 1;
@@ -406,19 +411,13 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Padded surface with a boundary — set <code>--box-padding</code>,
-							<code>--box-radius</code>, <code>--box-border-color</code>, or the
-							<code>--box-color</code> / <code>--box-background</code> pair
+							Padded surface with a boundary — set <code>data-box-padding</code> and
+							<code>data-box-radius</code>; prefer <code>data-box-surface</code> for paired colors,
+							with individual color controls when needed
 						</p>
 						<div class="preview-canvas">
-							<div
-								class="cluster"
-								style="--cluster-gap: var(--space-4); --cluster-block-alignment: stretch"
-							>
-								<div
-									class="box stack"
-									style="--stack-gap: var(--space-2); flex: 1; min-width: 12rem"
-								>
+							<div class="cluster" data-cluster-gap="4" data-cluster-block-alignment="stretch">
+								<div class="box stack" data-stack-gap="2" style="flex: 1; min-width: 12rem">
 									<strong style="font-size: 0.85rem">Default box</strong>
 									<span style="font-size: 0.8rem"
 										>Pairs with .stack for its contents — Box arranges nothing itself.</span
@@ -426,12 +425,14 @@
 								</div>
 								<div
 									class="box stack"
-									data-variant="inverse"
-									style="--stack-gap: var(--space-2); flex: 1; min-width: 12rem"
+									data-box-surface="inverse"
+									data-stack-gap="2"
+									style="flex: 1; min-width: 12rem"
 								>
 									<strong style="font-size: 0.85rem">Inverse</strong>
 									<span style="font-size: 0.8rem"
-										>Foreground and background swap together, never one alone.</span
+										>Preset pairs foreground, background, and border; individual controls can
+										override it.</span
 									>
 								</div>
 							</div>
@@ -442,17 +443,9 @@
 							Nested — a box inside a box, with its own padding and surface
 						</p>
 						<div class="preview-canvas">
-							<div
-								class="box stack"
-								style="--stack-gap: var(--space-3); --box-padding: var(--space-6)"
-							>
-								<span style="font-size: 0.8rem"
-									>Outer box, <code>--box-padding: var(--space-6)</code></span
-								>
-								<div
-									class="box"
-									style="--box-padding: var(--space-3); --box-background: var(--color-layer-3)"
-								>
+							<div class="box stack" data-stack-gap="3" data-box-padding="6">
+								<span style="font-size: 0.8rem">Outer box, <code>data-box-padding="6"</code></span>
+								<div class="box" data-box-padding="3" data-box-surface="layer-3">
 									<span style="font-size: 0.8rem"
 										>Inner box, tighter padding and a different surface</span
 									>
@@ -469,10 +462,10 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Vertical stack with gap between children — set <code>--stack-gap</code> to override
+							Vertical stack with gap between children — set <code>data-stack-gap</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="stack" style="--stack-gap: var(--space-3)">
+							<div class="stack" data-stack-gap="3">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -522,12 +515,12 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Horizontal flex wrap with gap — set <code>--cluster-gap</code>,
-							<code>--cluster-inline-alignment</code>, <code>--cluster-block-alignment</code> to
-							override
+							Horizontal flex wrap with gap — set <code>data-cluster-gap</code>,
+							<code>data-cluster-inline-alignment</code>,
+							<code>data-cluster-block-alignment</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="cluster" style="--cluster-gap: var(--space-3)">
+							<div class="cluster" data-cluster-gap="3">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -601,11 +594,11 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Auto-filling grid — set <code>--grid-min-item-size</code> and
-							<code>--grid-gap</code> to override
+							Auto-filling grid — set <code>data-grid-min-item-size</code> and
+							<code>data-grid-gap</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="grid" style="--grid-min-item-size: 8rem; --grid-gap: var(--space-3)">
+							<div class="grid" data-grid-min-item-size="8rem" data-grid-gap="3">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -679,11 +672,11 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Fixed-width sidebar + fluid content — set <code>--sidebar-width</code> and
-							<code>--sidebar-content-min</code> to override
+							Fixed-width sidebar + fluid content — set <code>data-sidebar-width</code> and
+							<code>data-sidebar-content-min</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="sidebar" style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)">
+							<div class="sidebar" data-sidebar-width="10rem" data-sidebar-gap="4">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -720,7 +713,8 @@
 							<div
 								class="sidebar"
 								data-position="end"
-								style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)"
+								data-sidebar-width="10rem"
+								data-sidebar-gap="4"
 							>
 								<div
 									style="
@@ -758,7 +752,8 @@
 							<div
 								class="sidebar"
 								data-order="reverse"
-								style="--sidebar-width: 10rem; --sidebar-gap: var(--space-4)"
+								data-sidebar-width="10rem"
+								data-sidebar-gap="4"
 							>
 								<div
 									style="
@@ -798,13 +793,10 @@
 					<div class="preview-subsection stack">
 						<p class="preview-label">
 							Row that collapses to column when combined width exceeds
-							<code>--switcher-threshold</code>
+							<code>data-switcher-threshold</code>
 						</p>
 						<div class="preview-canvas">
-							<div
-								class="switcher"
-								style="--switcher-threshold: 30rem; --switcher-gap: var(--space-3)"
-							>
+							<div class="switcher" data-switcher-threshold="30rem" data-switcher-gap="3">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -854,11 +846,11 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Pushes children to opposite ends — set <code>--repel-gap</code>,
-							<code>--repel-block-alignment</code>; <code>data-nowrap</code> keeps one line
+							Pushes children to opposite ends — set <code>data-repel-gap</code>,
+							<code>data-repel-block-alignment</code>; <code>data-nowrap</code> keeps one line
 						</p>
 						<div class="preview-canvas">
-							<div class="repel" style="--repel-gap: var(--space-3)">
+							<div class="repel" data-repel-gap="3">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -896,11 +888,11 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Horizontally scrolling row — set <code>--reel-gap</code>,
-							<code>--reel-item-inline-size</code>, <code>--reel-block-size</code>
+							Horizontally scrolling row — set <code>data-reel-gap</code>,
+							<code>data-reel-item-inline-size</code>, <code>data-reel-block-size</code>
 						</p>
 						<div class="preview-canvas">
-							<div class="reel" style="--reel-gap: var(--space-3); --reel-item-inline-size: 9rem">
+							<div class="reel" data-reel-gap="3" data-reel-item-inline-size="9rem">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -1009,7 +1001,8 @@
 							<div
 								class="reel"
 								data-scrollbar="hidden"
-								style="--reel-gap: var(--space-3); --reel-item-inline-size: 9rem"
+								data-reel-gap="3"
+								data-reel-item-inline-size="9rem"
 							>
 								<div
 									style="
@@ -1121,10 +1114,10 @@
 					<div class="preview-subsection stack">
 						<p class="preview-label">
 							Vertically centers content with a minimum height — set
-							<code>--cover-min-height</code> to override
+							<code>data-cover-min-height</code> to override
 						</p>
 						<div class="preview-canvas" style="padding: 0">
-							<div class="cover" style="--cover-min-height: 12rem; --cover-padding: var(--space-4)">
+							<div class="cover" data-cover-min-height="12rem" data-cover-padding="4">
 								<div
 									style="
 										background: var(--color-layer-3);
@@ -1177,14 +1170,14 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Aspect-ratio container for media — set <code>--frame-ratio</code> to override (default
-							16/9)
+							Aspect-ratio container for media — set <code>data-frame-ratio</code> to override
+							(default 16/9)
 						</p>
 						<div class="preview-canvas">
 							<div
 								class="frame"
+								data-frame-ratio="16/9"
 								style="
-									--frame-ratio: 16/9;
 									max-width: 24rem;
 									background: var(--color-layer-3);
 									border: 1px solid var(--color-border-default);
@@ -1205,13 +1198,14 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Centred column with a max measure — set <code>--wrapper-max-inline-size</code>,
-							<code>--wrapper-padding-inline</code>
+							Centred column with a max measure — set <code>data-wrapper-max-inline-size</code>,
+							<code>data-wrapper-padding-inline</code>
 						</p>
 						<div class="preview-canvas">
 							<div
 								class="wrapper"
-								style="--wrapper-max-inline-size: 24rem; --wrapper-padding-inline: var(--space-4)"
+								data-wrapper-max-inline-size="24rem"
+								data-wrapper-padding-inline="4"
 							>
 								<div
 									style="
@@ -1223,7 +1217,7 @@
 										color: var(--color-text-secondary);
 									"
 								>
-									Centred, capped at --wrapper-max-inline-size
+									Centred, capped by data-wrapper-max-inline-size
 								</div>
 							</div>
 						</div>
@@ -1238,17 +1232,17 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Icon and text share a baseline — set <code>--with-icon-gap</code> to override the
+							Icon and text share a baseline — set <code>data-with-icon-gap</code> to override the
 							<code>0.5em</code> default
 						</p>
-						<div class="preview-canvas stack" style="--stack-gap: var(--space-4)">
+						<div class="preview-canvas stack" data-stack-gap="4">
 							<span class="with-icon" style="font-size: 0.9rem"
 								><svg class="icon" aria-hidden="true">
 									<use href="../dist/sprite.svg#bx-check"></use>
 								</svg>
 								Baseline aligned</span
 							>
-							<span class="with-icon" style="font-size: 0.9rem; --with-icon-gap: 1em"
+							<span class="with-icon" data-with-icon-gap="1em" style="font-size: 0.9rem"
 								><svg class="icon" aria-hidden="true">
 									<use href="../dist/sprite.svg#bx-chevron-right"></use>
 								</svg>
@@ -1404,7 +1398,7 @@
 						<span class="preview-section__type">Utility</span>
 					</div>
 					<div class="preview-canvas">
-						<div class="stack" style="--stack-gap: var(--space-3)">
+						<div class="stack" data-stack-gap="3">
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-0)"></div>
 								<span>space-0 / 2px — .gap-0 .p-0 .m-0</span>
@@ -1460,8 +1454,8 @@
 							Sized in <code>1cap</code> — matches the height of a capital letter. Compare against
 							<code>1em</code>, which is the font size and stands 42% taller
 						</p>
-						<div class="preview-canvas stack" style="--stack-gap: var(--space-4)">
-							<p class="cluster" style="--cluster-gap: var(--space-5); font-size: 1rem; margin: 0">
+						<div class="preview-canvas stack" data-stack-gap="4">
+							<p class="cluster" data-cluster-gap="5" style="font-size: 1rem; margin: 0">
 								<span class="with-icon"
 									><svg class="icon" aria-hidden="true">
 										<use href="../dist/sprite.svg#bx-check"></use>
@@ -1613,7 +1607,8 @@
 					<div class="preview-subsection stack">
 						<p class="preview-label">
 							Block padding for a page section — set with
-							<code>data-region-space="0"</code>–<code>"12"</code>, <code>--region-space</code>, or
+							<code>data-region-space="0"</code>–<code>"12"</code> (or <code>"none"</code>),
+							<code>--region-space</code>, or
 							<code>.p-b-*</code>
 						</p>
 						<div class="preview-canvas" style="padding: 0">
@@ -1643,6 +1638,7 @@
 						<div class="preview-canvas" style="padding: 0">
 							<div
 								class="region"
+								data-region-space="7"
 								style="
 									background: var(--color-layer-3);
 									border: 1px solid var(--color-border-default);
@@ -1650,10 +1646,9 @@
 									font-size: 0.8rem;
 									color: var(--color-text-secondary);
 									text-align: center;
-									--region-space: var(--space-7);
 								"
 							>
-								<div class="wrapper" style="--wrapper-max-inline-size: 20rem">
+								<div class="wrapper" data-wrapper-max-inline-size="20rem">
 									<div
 										style="
 											color: var(--color-text-secondary);
@@ -1877,7 +1872,7 @@
 						<span class="preview-section__type">Atom · CSS-only</span>
 					</div>
 					<div class="preview-canvas">
-						<div class="stack" style="--stack-gap: var(--space-5); max-width: 360px">
+						<div class="stack" data-stack-gap="5" style="max-width: 360px">
 							<div class="input">
 								<label class="input__label">Default</label>
 								<input class="input__field" type="text" placeholder="Placeholder text" />

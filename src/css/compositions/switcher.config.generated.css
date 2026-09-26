@@ -1,0 +1,121 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.switcher {
+		--switcher-gap: var(--space-5);
+	}
+
+	.switcher > * {
+		--switcher-threshold: var(--layout-size-40);
+	}
+
+	.switcher[data-switcher-gap='0'] {
+		--switcher-gap: var(--space-0);
+	}
+
+	.switcher[data-switcher-gap='1'] {
+		--switcher-gap: var(--space-1);
+	}
+
+	.switcher[data-switcher-gap='2'] {
+		--switcher-gap: var(--space-2);
+	}
+
+	.switcher[data-switcher-gap='3'] {
+		--switcher-gap: var(--space-3);
+	}
+
+	.switcher[data-switcher-gap='4'] {
+		--switcher-gap: var(--space-4);
+	}
+
+	.switcher[data-switcher-gap='5'] {
+		--switcher-gap: var(--space-5);
+	}
+
+	.switcher[data-switcher-gap='6'] {
+		--switcher-gap: var(--space-6);
+	}
+
+	.switcher[data-switcher-gap='7'] {
+		--switcher-gap: var(--space-7);
+	}
+
+	.switcher[data-switcher-gap='8'] {
+		--switcher-gap: var(--space-8);
+	}
+
+	.switcher[data-switcher-gap='9'] {
+		--switcher-gap: var(--space-9);
+	}
+
+	.switcher[data-switcher-gap='10'] {
+		--switcher-gap: var(--space-10);
+	}
+
+	.switcher[data-switcher-gap='11'] {
+		--switcher-gap: var(--space-11);
+	}
+
+	.switcher[data-switcher-gap='12'] {
+		--switcher-gap: var(--space-12);
+	}
+
+	.switcher[data-switcher-gap='none'] {
+		--switcher-gap: 0px;
+	}
+
+	.switcher[data-switcher-threshold='8rem'] > * {
+		--switcher-threshold: var(--layout-size-8);
+	}
+
+	.switcher[data-switcher-threshold='9rem'] > * {
+		--switcher-threshold: var(--layout-size-9);
+	}
+
+	.switcher[data-switcher-threshold='10rem'] > * {
+		--switcher-threshold: var(--layout-size-10);
+	}
+
+	.switcher[data-switcher-threshold='12rem'] > * {
+		--switcher-threshold: var(--layout-size-12);
+	}
+
+	.switcher[data-switcher-threshold='16rem'] > * {
+		--switcher-threshold: var(--layout-size-16);
+	}
+
+	.switcher[data-switcher-threshold='20rem'] > * {
+		--switcher-threshold: var(--layout-size-20);
+	}
+
+	.switcher[data-switcher-threshold='24rem'] > * {
+		--switcher-threshold: var(--layout-size-24);
+	}
+
+	.switcher[data-switcher-threshold='30rem'] > * {
+		--switcher-threshold: var(--layout-size-30);
+	}
+
+	.switcher[data-switcher-threshold='40rem'] > * {
+		--switcher-threshold: var(--layout-size-40);
+	}
+
+	.switcher[data-switcher-threshold='50rem'] > * {
+		--switcher-threshold: var(--layout-size-50);
+	}
+
+	.switcher[data-switcher-threshold='60rem'] > * {
+		--switcher-threshold: var(--layout-size-60);
+	}
+
+	.switcher[data-switcher-threshold='70rem'] > * {
+		--switcher-threshold: var(--layout-size-70);
+	}
+
+	.switcher[data-switcher-threshold='80rem'] > * {
+		--switcher-threshold: var(--layout-size-80);
+	}
+}

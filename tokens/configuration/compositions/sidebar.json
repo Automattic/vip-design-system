@@ -1,0 +1,47 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"inline-alignment": {
+			"default": "start",
+			"options": "distribute",
+			"target": "self",
+			"type": "keyword"
+		},
+		"block-alignment": {
+			"default": "stretch",
+			"options": "align",
+			"target": "self",
+			"type": "keyword"
+		},
+		"width": {
+			"default": "20rem",
+			"options": "length",
+			"target": "children",
+			"type": "dimension"
+		},
+		"content-min": {
+			"default": "50%",
+			"options": "content-min",
+			"target": "children",
+			"type": "dimension"
+		},
+		"sticky-offset": {
+			"default": "none",
+			"options": "space",
+			"target": "children",
+			"type": "dimension"
+		},
+		"sticky-block-size": {
+			"default": "viewport",
+			"options": "sticky-size",
+			"target": "children",
+			"type": "dimension"
+		}
+	}
+}

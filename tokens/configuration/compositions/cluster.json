@@ -1,0 +1,23 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "4",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"inline-alignment": {
+			"default": "start",
+			"options": "distribute",
+			"target": "self",
+			"type": "keyword"
+		},
+		"block-alignment": {
+			"default": "center",
+			"options": "align",
+			"target": "self",
+			"type": "keyword"
+		}
+	}
+}

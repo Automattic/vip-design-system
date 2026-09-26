@@ -1,0 +1,111 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.stack {
+		--stack-gap: var(--space-5);
+		--stack-block-alignment: flex-start;
+		--stack-inline-alignment: stretch;
+	}
+
+	.stack[data-stack-gap='0'] {
+		--stack-gap: var(--space-0);
+	}
+
+	.stack[data-stack-gap='1'] {
+		--stack-gap: var(--space-1);
+	}
+
+	.stack[data-stack-gap='2'] {
+		--stack-gap: var(--space-2);
+	}
+
+	.stack[data-stack-gap='3'] {
+		--stack-gap: var(--space-3);
+	}
+
+	.stack[data-stack-gap='4'] {
+		--stack-gap: var(--space-4);
+	}
+
+	.stack[data-stack-gap='5'] {
+		--stack-gap: var(--space-5);
+	}
+
+	.stack[data-stack-gap='6'] {
+		--stack-gap: var(--space-6);
+	}
+
+	.stack[data-stack-gap='7'] {
+		--stack-gap: var(--space-7);
+	}
+
+	.stack[data-stack-gap='8'] {
+		--stack-gap: var(--space-8);
+	}
+
+	.stack[data-stack-gap='9'] {
+		--stack-gap: var(--space-9);
+	}
+
+	.stack[data-stack-gap='10'] {
+		--stack-gap: var(--space-10);
+	}
+
+	.stack[data-stack-gap='11'] {
+		--stack-gap: var(--space-11);
+	}
+
+	.stack[data-stack-gap='12'] {
+		--stack-gap: var(--space-12);
+	}
+
+	.stack[data-stack-gap='none'] {
+		--stack-gap: 0px;
+	}
+
+	.stack[data-stack-block-alignment='start'] {
+		--stack-block-alignment: flex-start;
+	}
+
+	.stack[data-stack-block-alignment='center'] {
+		--stack-block-alignment: center;
+	}
+
+	.stack[data-stack-block-alignment='end'] {
+		--stack-block-alignment: flex-end;
+	}
+
+	.stack[data-stack-block-alignment='space-between'] {
+		--stack-block-alignment: space-between;
+	}
+
+	.stack[data-stack-block-alignment='space-around'] {
+		--stack-block-alignment: space-around;
+	}
+
+	.stack[data-stack-block-alignment='space-evenly'] {
+		--stack-block-alignment: space-evenly;
+	}
+
+	.stack[data-stack-inline-alignment='start'] {
+		--stack-inline-alignment: flex-start;
+	}
+
+	.stack[data-stack-inline-alignment='center'] {
+		--stack-inline-alignment: center;
+	}
+
+	.stack[data-stack-inline-alignment='end'] {
+		--stack-inline-alignment: flex-end;
+	}
+
+	.stack[data-stack-inline-alignment='stretch'] {
+		--stack-inline-alignment: stretch;
+	}
+
+	.stack[data-stack-inline-alignment='baseline'] {
+		--stack-inline-alignment: baseline;
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"layout": {
+		"size": {
+			"8": {
+				"$value": "{size.8}",
+				"$type": "dimension"
+			},
+			"9": {
+				"$value": "{size.9}",
+				"$type": "dimension"
+			},
+			"10": {
+				"$value": "{size.10}",
+				"$type": "dimension"
+			},
+			"12": {
+				"$value": "{size.12}",
+				"$type": "dimension"
+			},
+			"16": {
+				"$value": "{size.16}",
+				"$type": "dimension"
+			},
+			"20": {
+				"$value": "{size.20}",
+				"$type": "dimension"
+			},
+			"24": {
+				"$value": "{size.24}",
+				"$type": "dimension"
+			},
+			"30": {
+				"$value": "{size.30}",
+				"$type": "dimension"
+			},
+			"40": {
+				"$value": "{size.40}",
+				"$type": "dimension"
+			},
+			"50": {
+				"$value": "{size.50}",
+				"$type": "dimension"
+			},
+			"60": {
+				"$value": "{size.60}",
+				"$type": "dimension"
+			},
+			"70": {
+				"$value": "{size.70}",
+				"$type": "dimension"
+			},
+			"80": {
+				"$value": "{size.80}",
+				"$type": "dimension"
+			}
+		}
+	}
+}

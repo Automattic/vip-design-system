@@ -36,7 +36,8 @@
 		"lint:fix": "eslint src --ext .ts,.tsx --fix",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"check-types": "tsc --noEmit"
+		"check-types": "tsc --noEmit",
+		"check:configuration": "node style-dictionary.config.js --check-configuration"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0",

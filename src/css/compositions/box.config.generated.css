@@ -1,0 +1,679 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.box {
+		--box-padding: var(--space-5);
+		--box-border-width: 1px;
+		--box-radius: var(--radius-container);
+		--box-color: var(--color-text-primary);
+		--box-background: var(--color-layer-2);
+		--box-border-color: var(--color-border-default);
+		--box-color-inverse: var(--color-layer-2);
+		--box-background-inverse: var(--color-text-primary);
+		--box-border-color-inverse: var(--color-text-primary);
+	}
+
+	.box[data-variant='inverse'] {
+		--box-color: var(--box-color-inverse);
+		--box-background: var(--box-background-inverse);
+		--box-border-color: var(--box-border-color-inverse);
+	}
+
+	.box[data-box-surface='layer-1'] {
+		--box-color: var(--color-text-primary);
+		--box-background: var(--color-layer-1);
+		--box-border-color: var(--color-border-default);
+	}
+
+	.box[data-box-surface='layer-2'] {
+		--box-color: var(--color-text-primary);
+		--box-background: var(--color-layer-2);
+		--box-border-color: var(--color-border-default);
+	}
+
+	.box[data-box-surface='layer-3'] {
+		--box-color: var(--color-text-primary);
+		--box-background: var(--color-layer-3);
+		--box-border-color: var(--color-border-default);
+	}
+
+	.box[data-box-surface='layer-4'] {
+		--box-color: var(--color-text-primary);
+		--box-background: var(--color-layer-4);
+		--box-border-color: var(--color-border-default);
+	}
+
+	.box[data-box-surface='default'] {
+		--box-color: var(--color-text-primary);
+		--box-background: var(--color-layer-2);
+		--box-border-color: var(--color-border-default);
+	}
+
+	.box[data-box-surface='inverse'] {
+		--box-color: var(--box-color-inverse);
+		--box-background: var(--box-background-inverse);
+		--box-border-color: var(--box-border-color-inverse);
+	}
+
+	.box[data-box-padding='0'] {
+		--box-padding: var(--space-0);
+	}
+
+	.box[data-box-padding='1'] {
+		--box-padding: var(--space-1);
+	}
+
+	.box[data-box-padding='2'] {
+		--box-padding: var(--space-2);
+	}
+
+	.box[data-box-padding='3'] {
+		--box-padding: var(--space-3);
+	}
+
+	.box[data-box-padding='4'] {
+		--box-padding: var(--space-4);
+	}
+
+	.box[data-box-padding='5'] {
+		--box-padding: var(--space-5);
+	}
+
+	.box[data-box-padding='6'] {
+		--box-padding: var(--space-6);
+	}
+
+	.box[data-box-padding='7'] {
+		--box-padding: var(--space-7);
+	}
+
+	.box[data-box-padding='8'] {
+		--box-padding: var(--space-8);
+	}
+
+	.box[data-box-padding='9'] {
+		--box-padding: var(--space-9);
+	}
+
+	.box[data-box-padding='10'] {
+		--box-padding: var(--space-10);
+	}
+
+	.box[data-box-padding='11'] {
+		--box-padding: var(--space-11);
+	}
+
+	.box[data-box-padding='12'] {
+		--box-padding: var(--space-12);
+	}
+
+	.box[data-box-padding='none'] {
+		--box-padding: 0px;
+	}
+
+	.box[data-box-border-width='0'] {
+		--box-border-width: 0px;
+	}
+
+	.box[data-box-border-width='1'] {
+		--box-border-width: 1px;
+	}
+
+	.box[data-box-border-width='2'] {
+		--box-border-width: 2px;
+	}
+
+	.box[data-box-border-width='4'] {
+		--box-border-width: 4px;
+	}
+
+	.box[data-box-radius='none'] {
+		--box-radius: 0px;
+	}
+
+	.box[data-box-radius='subtle'] {
+		--box-radius: var(--radius-subtle);
+	}
+
+	.box[data-box-radius='control'] {
+		--box-radius: var(--radius-control);
+	}
+
+	.box[data-box-radius='container'] {
+		--box-radius: var(--radius-container);
+	}
+
+	.box[data-box-radius='expressive'] {
+		--box-radius: var(--radius-expressive);
+	}
+
+	.box[data-box-color='background-primary'] {
+		--box-color: var(--color-background-primary);
+	}
+
+	.box[data-box-color='background-overlay'] {
+		--box-color: var(--color-background-overlay);
+	}
+
+	.box[data-box-color='border-default'] {
+		--box-color: var(--color-border-default);
+	}
+
+	.box[data-box-color='border-disabled'] {
+		--box-color: var(--color-border-disabled);
+	}
+
+	.box[data-box-color='border-control'] {
+		--box-color: var(--color-border-control);
+	}
+
+	.box[data-box-color='border-control-hover'] {
+		--box-color: var(--color-border-control-hover);
+	}
+
+	.box[data-box-color='border-inverse'] {
+		--box-color: var(--color-border-inverse);
+	}
+
+	.box[data-box-color='border-transparent'] {
+		--box-color: var(--color-border-transparent);
+	}
+
+	.box[data-box-color='layer-1'] {
+		--box-color: var(--color-layer-1);
+	}
+
+	.box[data-box-color='layer-2'] {
+		--box-color: var(--color-layer-2);
+	}
+
+	.box[data-box-color='layer-3'] {
+		--box-color: var(--color-layer-3);
+	}
+
+	.box[data-box-color='layer-4'] {
+		--box-color: var(--color-layer-4);
+	}
+
+	.box[data-box-color='layer-inverse'] {
+		--box-color: var(--color-layer-inverse);
+	}
+
+	.box[data-box-color='layer-accent'] {
+		--box-color: var(--color-layer-accent);
+	}
+
+	.box[data-box-color='text-primary'] {
+		--box-color: var(--color-text-primary);
+	}
+
+	.box[data-box-color='text-secondary'] {
+		--box-color: var(--color-text-secondary);
+	}
+
+	.box[data-box-color='text-helper'] {
+		--box-color: var(--color-text-helper);
+	}
+
+	.box[data-box-color='text-placeholder'] {
+		--box-color: var(--color-text-placeholder);
+	}
+
+	.box[data-box-color='text-disabled'] {
+		--box-color: var(--color-text-disabled);
+	}
+
+	.box[data-box-color='text-inverse-primary'] {
+		--box-color: var(--color-text-inverse-primary);
+	}
+
+	.box[data-box-color='text-inverse-secondary'] {
+		--box-color: var(--color-text-inverse-secondary);
+	}
+
+	.box[data-box-color='current'] {
+		--box-color: currentColor;
+	}
+
+	.box[data-box-background='background-primary'] {
+		--box-background: var(--color-background-primary);
+	}
+
+	.box[data-box-background='background-overlay'] {
+		--box-background: var(--color-background-overlay);
+	}
+
+	.box[data-box-background='border-default'] {
+		--box-background: var(--color-border-default);
+	}
+
+	.box[data-box-background='border-disabled'] {
+		--box-background: var(--color-border-disabled);
+	}
+
+	.box[data-box-background='border-control'] {
+		--box-background: var(--color-border-control);
+	}
+
+	.box[data-box-background='border-control-hover'] {
+		--box-background: var(--color-border-control-hover);
+	}
+
+	.box[data-box-background='border-inverse'] {
+		--box-background: var(--color-border-inverse);
+	}
+
+	.box[data-box-background='border-transparent'] {
+		--box-background: var(--color-border-transparent);
+	}
+
+	.box[data-box-background='layer-1'] {
+		--box-background: var(--color-layer-1);
+	}
+
+	.box[data-box-background='layer-2'] {
+		--box-background: var(--color-layer-2);
+	}
+
+	.box[data-box-background='layer-3'] {
+		--box-background: var(--color-layer-3);
+	}
+
+	.box[data-box-background='layer-4'] {
+		--box-background: var(--color-layer-4);
+	}
+
+	.box[data-box-background='layer-inverse'] {
+		--box-background: var(--color-layer-inverse);
+	}
+
+	.box[data-box-background='layer-accent'] {
+		--box-background: var(--color-layer-accent);
+	}
+
+	.box[data-box-background='text-primary'] {
+		--box-background: var(--color-text-primary);
+	}
+
+	.box[data-box-background='text-secondary'] {
+		--box-background: var(--color-text-secondary);
+	}
+
+	.box[data-box-background='text-helper'] {
+		--box-background: var(--color-text-helper);
+	}
+
+	.box[data-box-background='text-placeholder'] {
+		--box-background: var(--color-text-placeholder);
+	}
+
+	.box[data-box-background='text-disabled'] {
+		--box-background: var(--color-text-disabled);
+	}
+
+	.box[data-box-background='text-inverse-primary'] {
+		--box-background: var(--color-text-inverse-primary);
+	}
+
+	.box[data-box-background='text-inverse-secondary'] {
+		--box-background: var(--color-text-inverse-secondary);
+	}
+
+	.box[data-box-background='current'] {
+		--box-background: currentColor;
+	}
+
+	.box[data-box-border-color='background-primary'] {
+		--box-border-color: var(--color-background-primary);
+	}
+
+	.box[data-box-border-color='background-overlay'] {
+		--box-border-color: var(--color-background-overlay);
+	}
+
+	.box[data-box-border-color='border-default'] {
+		--box-border-color: var(--color-border-default);
+	}
+
+	.box[data-box-border-color='border-disabled'] {
+		--box-border-color: var(--color-border-disabled);
+	}
+
+	.box[data-box-border-color='border-control'] {
+		--box-border-color: var(--color-border-control);
+	}
+
+	.box[data-box-border-color='border-control-hover'] {
+		--box-border-color: var(--color-border-control-hover);
+	}
+
+	.box[data-box-border-color='border-inverse'] {
+		--box-border-color: var(--color-border-inverse);
+	}
+
+	.box[data-box-border-color='border-transparent'] {
+		--box-border-color: var(--color-border-transparent);
+	}
+
+	.box[data-box-border-color='layer-1'] {
+		--box-border-color: var(--color-layer-1);
+	}
+
+	.box[data-box-border-color='layer-2'] {
+		--box-border-color: var(--color-layer-2);
+	}
+
+	.box[data-box-border-color='layer-3'] {
+		--box-border-color: var(--color-layer-3);
+	}
+
+	.box[data-box-border-color='layer-4'] {
+		--box-border-color: var(--color-layer-4);
+	}
+
+	.box[data-box-border-color='layer-inverse'] {
+		--box-border-color: var(--color-layer-inverse);
+	}
+
+	.box[data-box-border-color='layer-accent'] {
+		--box-border-color: var(--color-layer-accent);
+	}
+
+	.box[data-box-border-color='text-primary'] {
+		--box-border-color: var(--color-text-primary);
+	}
+
+	.box[data-box-border-color='text-secondary'] {
+		--box-border-color: var(--color-text-secondary);
+	}
+
+	.box[data-box-border-color='text-helper'] {
+		--box-border-color: var(--color-text-helper);
+	}
+
+	.box[data-box-border-color='text-placeholder'] {
+		--box-border-color: var(--color-text-placeholder);
+	}
+
+	.box[data-box-border-color='text-disabled'] {
+		--box-border-color: var(--color-text-disabled);
+	}
+
+	.box[data-box-border-color='text-inverse-primary'] {
+		--box-border-color: var(--color-text-inverse-primary);
+	}
+
+	.box[data-box-border-color='text-inverse-secondary'] {
+		--box-border-color: var(--color-text-inverse-secondary);
+	}
+
+	.box[data-box-border-color='current'] {
+		--box-border-color: currentColor;
+	}
+
+	.box[data-box-color-inverse='background-primary'] {
+		--box-color-inverse: var(--color-background-primary);
+	}
+
+	.box[data-box-color-inverse='background-overlay'] {
+		--box-color-inverse: var(--color-background-overlay);
+	}
+
+	.box[data-box-color-inverse='border-default'] {
+		--box-color-inverse: var(--color-border-default);
+	}
+
+	.box[data-box-color-inverse='border-disabled'] {
+		--box-color-inverse: var(--color-border-disabled);
+	}
+
+	.box[data-box-color-inverse='border-control'] {
+		--box-color-inverse: var(--color-border-control);
+	}
+
+	.box[data-box-color-inverse='border-control-hover'] {
+		--box-color-inverse: var(--color-border-control-hover);
+	}
+
+	.box[data-box-color-inverse='border-inverse'] {
+		--box-color-inverse: var(--color-border-inverse);
+	}
+
+	.box[data-box-color-inverse='border-transparent'] {
+		--box-color-inverse: var(--color-border-transparent);
+	}
+
+	.box[data-box-color-inverse='layer-1'] {
+		--box-color-inverse: var(--color-layer-1);
+	}
+
+	.box[data-box-color-inverse='layer-2'] {
+		--box-color-inverse: var(--color-layer-2);
+	}
+
+	.box[data-box-color-inverse='layer-3'] {
+		--box-color-inverse: var(--color-layer-3);
+	}
+
+	.box[data-box-color-inverse='layer-4'] {
+		--box-color-inverse: var(--color-layer-4);
+	}
+
+	.box[data-box-color-inverse='layer-inverse'] {
+		--box-color-inverse: var(--color-layer-inverse);
+	}
+
+	.box[data-box-color-inverse='layer-accent'] {
+		--box-color-inverse: var(--color-layer-accent);
+	}
+
+	.box[data-box-color-inverse='text-primary'] {
+		--box-color-inverse: var(--color-text-primary);
+	}
+
+	.box[data-box-color-inverse='text-secondary'] {
+		--box-color-inverse: var(--color-text-secondary);
+	}
+
+	.box[data-box-color-inverse='text-helper'] {
+		--box-color-inverse: var(--color-text-helper);
+	}
+
+	.box[data-box-color-inverse='text-placeholder'] {
+		--box-color-inverse: var(--color-text-placeholder);
+	}
+
+	.box[data-box-color-inverse='text-disabled'] {
+		--box-color-inverse: var(--color-text-disabled);
+	}
+
+	.box[data-box-color-inverse='text-inverse-primary'] {
+		--box-color-inverse: var(--color-text-inverse-primary);
+	}
+
+	.box[data-box-color-inverse='text-inverse-secondary'] {
+		--box-color-inverse: var(--color-text-inverse-secondary);
+	}
+
+	.box[data-box-color-inverse='current'] {
+		--box-color-inverse: currentColor;
+	}
+
+	.box[data-box-background-inverse='background-primary'] {
+		--box-background-inverse: var(--color-background-primary);
+	}
+
+	.box[data-box-background-inverse='background-overlay'] {
+		--box-background-inverse: var(--color-background-overlay);
+	}
+
+	.box[data-box-background-inverse='border-default'] {
+		--box-background-inverse: var(--color-border-default);
+	}
+
+	.box[data-box-background-inverse='border-disabled'] {
+		--box-background-inverse: var(--color-border-disabled);
+	}
+
+	.box[data-box-background-inverse='border-control'] {
+		--box-background-inverse: var(--color-border-control);
+	}
+
+	.box[data-box-background-inverse='border-control-hover'] {
+		--box-background-inverse: var(--color-border-control-hover);
+	}
+
+	.box[data-box-background-inverse='border-inverse'] {
+		--box-background-inverse: var(--color-border-inverse);
+	}
+
+	.box[data-box-background-inverse='border-transparent'] {
+		--box-background-inverse: var(--color-border-transparent);
+	}
+
+	.box[data-box-background-inverse='layer-1'] {
+		--box-background-inverse: var(--color-layer-1);
+	}
+
+	.box[data-box-background-inverse='layer-2'] {
+		--box-background-inverse: var(--color-layer-2);
+	}
+
+	.box[data-box-background-inverse='layer-3'] {
+		--box-background-inverse: var(--color-layer-3);
+	}
+
+	.box[data-box-background-inverse='layer-4'] {
+		--box-background-inverse: var(--color-layer-4);
+	}
+
+	.box[data-box-background-inverse='layer-inverse'] {
+		--box-background-inverse: var(--color-layer-inverse);
+	}
+
+	.box[data-box-background-inverse='layer-accent'] {
+		--box-background-inverse: var(--color-layer-accent);
+	}
+
+	.box[data-box-background-inverse='text-primary'] {
+		--box-background-inverse: var(--color-text-primary);
+	}
+
+	.box[data-box-background-inverse='text-secondary'] {
+		--box-background-inverse: var(--color-text-secondary);
+	}
+
+	.box[data-box-background-inverse='text-helper'] {
+		--box-background-inverse: var(--color-text-helper);
+	}
+
+	.box[data-box-background-inverse='text-placeholder'] {
+		--box-background-inverse: var(--color-text-placeholder);
+	}
+
+	.box[data-box-background-inverse='text-disabled'] {
+		--box-background-inverse: var(--color-text-disabled);
+	}
+
+	.box[data-box-background-inverse='text-inverse-primary'] {
+		--box-background-inverse: var(--color-text-inverse-primary);
+	}
+
+	.box[data-box-background-inverse='text-inverse-secondary'] {
+		--box-background-inverse: var(--color-text-inverse-secondary);
+	}
+
+	.box[data-box-background-inverse='current'] {
+		--box-background-inverse: currentColor;
+	}
+
+	.box[data-box-border-color-inverse='background-primary'] {
+		--box-border-color-inverse: var(--color-background-primary);
+	}
+
+	.box[data-box-border-color-inverse='background-overlay'] {
+		--box-border-color-inverse: var(--color-background-overlay);
+	}
+
+	.box[data-box-border-color-inverse='border-default'] {
+		--box-border-color-inverse: var(--color-border-default);
+	}
+
+	.box[data-box-border-color-inverse='border-disabled'] {
+		--box-border-color-inverse: var(--color-border-disabled);
+	}
+
+	.box[data-box-border-color-inverse='border-control'] {
+		--box-border-color-inverse: var(--color-border-control);
+	}
+
+	.box[data-box-border-color-inverse='border-control-hover'] {
+		--box-border-color-inverse: var(--color-border-control-hover);
+	}
+
+	.box[data-box-border-color-inverse='border-inverse'] {
+		--box-border-color-inverse: var(--color-border-inverse);
+	}
+
+	.box[data-box-border-color-inverse='border-transparent'] {
+		--box-border-color-inverse: var(--color-border-transparent);
+	}
+
+	.box[data-box-border-color-inverse='layer-1'] {
+		--box-border-color-inverse: var(--color-layer-1);
+	}
+
+	.box[data-box-border-color-inverse='layer-2'] {
+		--box-border-color-inverse: var(--color-layer-2);
+	}
+
+	.box[data-box-border-color-inverse='layer-3'] {
+		--box-border-color-inverse: var(--color-layer-3);
+	}
+
+	.box[data-box-border-color-inverse='layer-4'] {
+		--box-border-color-inverse: var(--color-layer-4);
+	}
+
+	.box[data-box-border-color-inverse='layer-inverse'] {
+		--box-border-color-inverse: var(--color-layer-inverse);
+	}
+
+	.box[data-box-border-color-inverse='layer-accent'] {
+		--box-border-color-inverse: var(--color-layer-accent);
+	}
+
+	.box[data-box-border-color-inverse='text-primary'] {
+		--box-border-color-inverse: var(--color-text-primary);
+	}
+
+	.box[data-box-border-color-inverse='text-secondary'] {
+		--box-border-color-inverse: var(--color-text-secondary);
+	}
+
+	.box[data-box-border-color-inverse='text-helper'] {
+		--box-border-color-inverse: var(--color-text-helper);
+	}
+
+	.box[data-box-border-color-inverse='text-placeholder'] {
+		--box-border-color-inverse: var(--color-text-placeholder);
+	}
+
+	.box[data-box-border-color-inverse='text-disabled'] {
+		--box-border-color-inverse: var(--color-text-disabled);
+	}
+
+	.box[data-box-border-color-inverse='text-inverse-primary'] {
+		--box-border-color-inverse: var(--color-text-inverse-primary);
+	}
+
+	.box[data-box-border-color-inverse='text-inverse-secondary'] {
+		--box-border-color-inverse: var(--color-text-inverse-secondary);
+	}
+
+	.box[data-box-border-color-inverse='current'] {
+		--box-border-color-inverse: currentColor;
+	}
+}

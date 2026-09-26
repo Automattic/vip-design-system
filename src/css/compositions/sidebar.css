@@ -1,20 +1,23 @@
+@import './sidebar.config.generated.css';
+
 @layer compositions {
 	.sidebar {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--sidebar-gap, var(--space-5));
+		gap: var(--sidebar-gap);
 
 		/* Row direction, so justify-content runs the INLINE axis and
 		   align-items the BLOCK axis. */
-		justify-content: var(--sidebar-inline-alignment, flex-start);
-		align-items: var(--sidebar-block-alignment, stretch);
+		justify-content: var(--sidebar-inline-alignment);
+		align-items: var(--sidebar-block-alignment);
 	}
 
-	/* The sidebar child — set --sidebar-width on the parent to control it.
+	/* The sidebar child — data-sidebar-width on the parent controls it.
+	   Custom CSS assigns --sidebar-width on direct children.
 	   flex-grow:1 here against flex-grow:999 on the content child means this
 	   child takes 1/1000th of any free space, so it holds its flex-basis. */
 	.sidebar > :first-child {
-		flex-basis: var(--sidebar-width, 20rem);
+		flex-basis: var(--sidebar-width);
 		flex-grow: 1;
 	}
 
@@ -22,7 +25,7 @@
 	.sidebar > :last-child {
 		flex-basis: 0;
 		flex-grow: 999;
-		min-inline-size: var(--sidebar-content-min, 50%);
+		min-inline-size: var(--sidebar-content-min);
 	}
 
 	/*
@@ -37,11 +40,11 @@
 	.sidebar[data-position='end'] > :first-child {
 		flex-basis: 0;
 		flex-grow: 999;
-		min-inline-size: var(--sidebar-content-min, 50%);
+		min-inline-size: var(--sidebar-content-min);
 	}
 
 	.sidebar[data-position='end'] > :last-child {
-		flex-basis: var(--sidebar-width, 20rem);
+		flex-basis: var(--sidebar-width);
 		flex-grow: 1;
 		min-inline-size: auto;
 	}
@@ -89,8 +92,8 @@
 	.sidebar[data-sticky]:not([data-position='end']) > :first-child,
 	.sidebar[data-sticky][data-position='end'] > :last-child {
 		position: sticky;
-		inset-block-start: var(--sidebar-sticky-offset, 0px);
-		block-size: var(--sidebar-sticky-block-size, calc(100vh - var(--sidebar-sticky-offset, 0px)));
+		inset-block-start: var(--sidebar-sticky-offset);
+		block-size: var(--sidebar-sticky-block-size);
 		overflow-y: auto;
 	}
 }

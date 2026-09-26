@@ -1,0 +1,86 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.repel {
+		--repel-gap: var(--space-5);
+		--repel-block-alignment: center;
+	}
+
+	.repel[data-repel-gap='0'] {
+		--repel-gap: var(--space-0);
+	}
+
+	.repel[data-repel-gap='1'] {
+		--repel-gap: var(--space-1);
+	}
+
+	.repel[data-repel-gap='2'] {
+		--repel-gap: var(--space-2);
+	}
+
+	.repel[data-repel-gap='3'] {
+		--repel-gap: var(--space-3);
+	}
+
+	.repel[data-repel-gap='4'] {
+		--repel-gap: var(--space-4);
+	}
+
+	.repel[data-repel-gap='5'] {
+		--repel-gap: var(--space-5);
+	}
+
+	.repel[data-repel-gap='6'] {
+		--repel-gap: var(--space-6);
+	}
+
+	.repel[data-repel-gap='7'] {
+		--repel-gap: var(--space-7);
+	}
+
+	.repel[data-repel-gap='8'] {
+		--repel-gap: var(--space-8);
+	}
+
+	.repel[data-repel-gap='9'] {
+		--repel-gap: var(--space-9);
+	}
+
+	.repel[data-repel-gap='10'] {
+		--repel-gap: var(--space-10);
+	}
+
+	.repel[data-repel-gap='11'] {
+		--repel-gap: var(--space-11);
+	}
+
+	.repel[data-repel-gap='12'] {
+		--repel-gap: var(--space-12);
+	}
+
+	.repel[data-repel-gap='none'] {
+		--repel-gap: 0px;
+	}
+
+	.repel[data-repel-block-alignment='start'] {
+		--repel-block-alignment: flex-start;
+	}
+
+	.repel[data-repel-block-alignment='center'] {
+		--repel-block-alignment: center;
+	}
+
+	.repel[data-repel-block-alignment='end'] {
+		--repel-block-alignment: flex-end;
+	}
+
+	.repel[data-repel-block-alignment='stretch'] {
+		--repel-block-alignment: stretch;
+	}
+
+	.repel[data-repel-block-alignment='baseline'] {
+		--repel-block-alignment: baseline;
+	}
+}

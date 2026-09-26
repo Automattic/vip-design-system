@@ -1,0 +1,65 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer utilities {
+	.region {
+		--region-space: var(--space-10);
+	}
+
+	.region[data-region-space='0'] {
+		--region-space: var(--space-0);
+	}
+
+	.region[data-region-space='1'] {
+		--region-space: var(--space-1);
+	}
+
+	.region[data-region-space='2'] {
+		--region-space: var(--space-2);
+	}
+
+	.region[data-region-space='3'] {
+		--region-space: var(--space-3);
+	}
+
+	.region[data-region-space='4'] {
+		--region-space: var(--space-4);
+	}
+
+	.region[data-region-space='5'] {
+		--region-space: var(--space-5);
+	}
+
+	.region[data-region-space='6'] {
+		--region-space: var(--space-6);
+	}
+
+	.region[data-region-space='7'] {
+		--region-space: var(--space-7);
+	}
+
+	.region[data-region-space='8'] {
+		--region-space: var(--space-8);
+	}
+
+	.region[data-region-space='9'] {
+		--region-space: var(--space-9);
+	}
+
+	.region[data-region-space='10'] {
+		--region-space: var(--space-10);
+	}
+
+	.region[data-region-space='11'] {
+		--region-space: var(--space-11);
+	}
+
+	.region[data-region-space='12'] {
+		--region-space: var(--space-12);
+	}
+
+	.region[data-region-space='none'] {
+		--region-space: 0px;
+	}
+}

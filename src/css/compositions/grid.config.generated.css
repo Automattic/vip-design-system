@@ -1,0 +1,175 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.grid {
+		--grid-gap: var(--space-5);
+		--grid-columns: auto-fill;
+		--grid-min-item-size: var(--layout-size-16);
+	}
+
+	.grid[data-grid-gap='0'] {
+		--grid-gap: var(--space-0);
+	}
+
+	.grid[data-grid-gap='1'] {
+		--grid-gap: var(--space-1);
+	}
+
+	.grid[data-grid-gap='2'] {
+		--grid-gap: var(--space-2);
+	}
+
+	.grid[data-grid-gap='3'] {
+		--grid-gap: var(--space-3);
+	}
+
+	.grid[data-grid-gap='4'] {
+		--grid-gap: var(--space-4);
+	}
+
+	.grid[data-grid-gap='5'] {
+		--grid-gap: var(--space-5);
+	}
+
+	.grid[data-grid-gap='6'] {
+		--grid-gap: var(--space-6);
+	}
+
+	.grid[data-grid-gap='7'] {
+		--grid-gap: var(--space-7);
+	}
+
+	.grid[data-grid-gap='8'] {
+		--grid-gap: var(--space-8);
+	}
+
+	.grid[data-grid-gap='9'] {
+		--grid-gap: var(--space-9);
+	}
+
+	.grid[data-grid-gap='10'] {
+		--grid-gap: var(--space-10);
+	}
+
+	.grid[data-grid-gap='11'] {
+		--grid-gap: var(--space-11);
+	}
+
+	.grid[data-grid-gap='12'] {
+		--grid-gap: var(--space-12);
+	}
+
+	.grid[data-grid-gap='none'] {
+		--grid-gap: 0px;
+	}
+
+	.grid[data-grid-columns='1'] {
+		--grid-columns: 1;
+	}
+
+	.grid[data-grid-columns='2'] {
+		--grid-columns: 2;
+	}
+
+	.grid[data-grid-columns='3'] {
+		--grid-columns: 3;
+	}
+
+	.grid[data-grid-columns='4'] {
+		--grid-columns: 4;
+	}
+
+	.grid[data-grid-columns='5'] {
+		--grid-columns: 5;
+	}
+
+	.grid[data-grid-columns='6'] {
+		--grid-columns: 6;
+	}
+
+	.grid[data-grid-columns='7'] {
+		--grid-columns: 7;
+	}
+
+	.grid[data-grid-columns='8'] {
+		--grid-columns: 8;
+	}
+
+	.grid[data-grid-columns='9'] {
+		--grid-columns: 9;
+	}
+
+	.grid[data-grid-columns='10'] {
+		--grid-columns: 10;
+	}
+
+	.grid[data-grid-columns='11'] {
+		--grid-columns: 11;
+	}
+
+	.grid[data-grid-columns='12'] {
+		--grid-columns: 12;
+	}
+
+	.grid[data-grid-columns='auto-fill'] {
+		--grid-columns: auto-fill;
+	}
+
+	.grid[data-grid-columns='auto-fit'] {
+		--grid-columns: auto-fit;
+	}
+
+	.grid[data-grid-min-item-size='8rem'] {
+		--grid-min-item-size: var(--layout-size-8);
+	}
+
+	.grid[data-grid-min-item-size='9rem'] {
+		--grid-min-item-size: var(--layout-size-9);
+	}
+
+	.grid[data-grid-min-item-size='10rem'] {
+		--grid-min-item-size: var(--layout-size-10);
+	}
+
+	.grid[data-grid-min-item-size='12rem'] {
+		--grid-min-item-size: var(--layout-size-12);
+	}
+
+	.grid[data-grid-min-item-size='16rem'] {
+		--grid-min-item-size: var(--layout-size-16);
+	}
+
+	.grid[data-grid-min-item-size='20rem'] {
+		--grid-min-item-size: var(--layout-size-20);
+	}
+
+	.grid[data-grid-min-item-size='24rem'] {
+		--grid-min-item-size: var(--layout-size-24);
+	}
+
+	.grid[data-grid-min-item-size='30rem'] {
+		--grid-min-item-size: var(--layout-size-30);
+	}
+
+	.grid[data-grid-min-item-size='40rem'] {
+		--grid-min-item-size: var(--layout-size-40);
+	}
+
+	.grid[data-grid-min-item-size='50rem'] {
+		--grid-min-item-size: var(--layout-size-50);
+	}
+
+	.grid[data-grid-min-item-size='60rem'] {
+		--grid-min-item-size: var(--layout-size-60);
+	}
+
+	.grid[data-grid-min-item-size='70rem'] {
+		--grid-min-item-size: var(--layout-size-70);
+	}
+
+	.grid[data-grid-min-item-size='80rem'] {
+		--grid-min-item-size: var(--layout-size-80);
+	}
+}

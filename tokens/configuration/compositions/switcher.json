@@ -1,0 +1,17 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"threshold": {
+			"default": "40rem",
+			"options": "length",
+			"target": "children",
+			"type": "dimension"
+		}
+	}
+}

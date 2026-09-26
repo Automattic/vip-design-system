@@ -1,3 +1,5 @@
+@import './with-icon.config.generated.css';
+
 @layer compositions {
 	/*
 	 * With icon — places an icon alongside text on a shared baseline.
@@ -19,6 +21,6 @@
 	.with-icon {
 		display: inline-flex;
 		align-items: baseline;
-		gap: var(--with-icon-gap, 0.5em);
+		gap: var(--with-icon-gap);
 	}
 }

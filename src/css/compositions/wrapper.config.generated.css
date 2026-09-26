@@ -1,0 +1,118 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.wrapper {
+		--wrapper-max-inline-size: var(--layout-size-70);
+		--wrapper-padding-inline: var(--space-5);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='8rem'] {
+		--wrapper-max-inline-size: var(--layout-size-8);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='9rem'] {
+		--wrapper-max-inline-size: var(--layout-size-9);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='10rem'] {
+		--wrapper-max-inline-size: var(--layout-size-10);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='12rem'] {
+		--wrapper-max-inline-size: var(--layout-size-12);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='16rem'] {
+		--wrapper-max-inline-size: var(--layout-size-16);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='20rem'] {
+		--wrapper-max-inline-size: var(--layout-size-20);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='24rem'] {
+		--wrapper-max-inline-size: var(--layout-size-24);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='30rem'] {
+		--wrapper-max-inline-size: var(--layout-size-30);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='40rem'] {
+		--wrapper-max-inline-size: var(--layout-size-40);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='50rem'] {
+		--wrapper-max-inline-size: var(--layout-size-50);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='60rem'] {
+		--wrapper-max-inline-size: var(--layout-size-60);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='70rem'] {
+		--wrapper-max-inline-size: var(--layout-size-70);
+	}
+
+	.wrapper[data-wrapper-max-inline-size='80rem'] {
+		--wrapper-max-inline-size: var(--layout-size-80);
+	}
+
+	.wrapper[data-wrapper-padding-inline='0'] {
+		--wrapper-padding-inline: var(--space-0);
+	}
+
+	.wrapper[data-wrapper-padding-inline='1'] {
+		--wrapper-padding-inline: var(--space-1);
+	}
+
+	.wrapper[data-wrapper-padding-inline='2'] {
+		--wrapper-padding-inline: var(--space-2);
+	}
+
+	.wrapper[data-wrapper-padding-inline='3'] {
+		--wrapper-padding-inline: var(--space-3);
+	}
+
+	.wrapper[data-wrapper-padding-inline='4'] {
+		--wrapper-padding-inline: var(--space-4);
+	}
+
+	.wrapper[data-wrapper-padding-inline='5'] {
+		--wrapper-padding-inline: var(--space-5);
+	}
+
+	.wrapper[data-wrapper-padding-inline='6'] {
+		--wrapper-padding-inline: var(--space-6);
+	}
+
+	.wrapper[data-wrapper-padding-inline='7'] {
+		--wrapper-padding-inline: var(--space-7);
+	}
+
+	.wrapper[data-wrapper-padding-inline='8'] {
+		--wrapper-padding-inline: var(--space-8);
+	}
+
+	.wrapper[data-wrapper-padding-inline='9'] {
+		--wrapper-padding-inline: var(--space-9);
+	}
+
+	.wrapper[data-wrapper-padding-inline='10'] {
+		--wrapper-padding-inline: var(--space-10);
+	}
+
+	.wrapper[data-wrapper-padding-inline='11'] {
+		--wrapper-padding-inline: var(--space-11);
+	}
+
+	.wrapper[data-wrapper-padding-inline='12'] {
+		--wrapper-padding-inline: var(--space-12);
+	}
+
+	.wrapper[data-wrapper-padding-inline='none'] {
+		--wrapper-padding-inline: 0px;
+	}
+}

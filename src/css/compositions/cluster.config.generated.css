@@ -1,0 +1,111 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.cluster {
+		--cluster-gap: var(--space-4);
+		--cluster-inline-alignment: flex-start;
+		--cluster-block-alignment: center;
+	}
+
+	.cluster[data-cluster-gap='0'] {
+		--cluster-gap: var(--space-0);
+	}
+
+	.cluster[data-cluster-gap='1'] {
+		--cluster-gap: var(--space-1);
+	}
+
+	.cluster[data-cluster-gap='2'] {
+		--cluster-gap: var(--space-2);
+	}
+
+	.cluster[data-cluster-gap='3'] {
+		--cluster-gap: var(--space-3);
+	}
+
+	.cluster[data-cluster-gap='4'] {
+		--cluster-gap: var(--space-4);
+	}
+
+	.cluster[data-cluster-gap='5'] {
+		--cluster-gap: var(--space-5);
+	}
+
+	.cluster[data-cluster-gap='6'] {
+		--cluster-gap: var(--space-6);
+	}
+
+	.cluster[data-cluster-gap='7'] {
+		--cluster-gap: var(--space-7);
+	}
+
+	.cluster[data-cluster-gap='8'] {
+		--cluster-gap: var(--space-8);
+	}
+
+	.cluster[data-cluster-gap='9'] {
+		--cluster-gap: var(--space-9);
+	}
+
+	.cluster[data-cluster-gap='10'] {
+		--cluster-gap: var(--space-10);
+	}
+
+	.cluster[data-cluster-gap='11'] {
+		--cluster-gap: var(--space-11);
+	}
+
+	.cluster[data-cluster-gap='12'] {
+		--cluster-gap: var(--space-12);
+	}
+
+	.cluster[data-cluster-gap='none'] {
+		--cluster-gap: 0px;
+	}
+
+	.cluster[data-cluster-inline-alignment='start'] {
+		--cluster-inline-alignment: flex-start;
+	}
+
+	.cluster[data-cluster-inline-alignment='center'] {
+		--cluster-inline-alignment: center;
+	}
+
+	.cluster[data-cluster-inline-alignment='end'] {
+		--cluster-inline-alignment: flex-end;
+	}
+
+	.cluster[data-cluster-inline-alignment='space-between'] {
+		--cluster-inline-alignment: space-between;
+	}
+
+	.cluster[data-cluster-inline-alignment='space-around'] {
+		--cluster-inline-alignment: space-around;
+	}
+
+	.cluster[data-cluster-inline-alignment='space-evenly'] {
+		--cluster-inline-alignment: space-evenly;
+	}
+
+	.cluster[data-cluster-block-alignment='start'] {
+		--cluster-block-alignment: flex-start;
+	}
+
+	.cluster[data-cluster-block-alignment='center'] {
+		--cluster-block-alignment: center;
+	}
+
+	.cluster[data-cluster-block-alignment='end'] {
+		--cluster-block-alignment: flex-end;
+	}
+
+	.cluster[data-cluster-block-alignment='stretch'] {
+		--cluster-block-alignment: stretch;
+	}
+
+	.cluster[data-cluster-block-alignment='baseline'] {
+		--cluster-block-alignment: baseline;
+	}
+}

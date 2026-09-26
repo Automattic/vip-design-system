@@ -225,6 +225,19 @@
 	--radius-control: var(--border-radius-1);
 	--radius-container: var(--border-radius-2);
 	--radius-expressive: var(--border-radius-3);
+	--layout-size-8: var(--size-8);
+	--layout-size-9: var(--size-9);
+	--layout-size-10: var(--size-10);
+	--layout-size-12: var(--size-12);
+	--layout-size-16: var(--size-16);
+	--layout-size-20: var(--size-20);
+	--layout-size-24: var(--size-24);
+	--layout-size-30: var(--size-30);
+	--layout-size-40: var(--size-40);
+	--layout-size-50: var(--size-50);
+	--layout-size-60: var(--size-60);
+	--layout-size-70: var(--size-70);
+	--layout-size-80: var(--size-80);
 }
 
 @supports (color: light-dark(red, blue)) {
@@ -455,6 +468,19 @@
 		--radius-control: var(--border-radius-1);
 		--radius-container: var(--border-radius-2);
 		--radius-expressive: var(--border-radius-3);
+		--layout-size-8: var(--size-8);
+		--layout-size-9: var(--size-9);
+		--layout-size-10: var(--size-10);
+		--layout-size-12: var(--size-12);
+		--layout-size-16: var(--size-16);
+		--layout-size-20: var(--size-20);
+		--layout-size-24: var(--size-24);
+		--layout-size-30: var(--size-30);
+		--layout-size-40: var(--size-40);
+		--layout-size-50: var(--size-50);
+		--layout-size-60: var(--size-60);
+		--layout-size-70: var(--size-70);
+		--layout-size-80: var(--size-80);
 	}
 	:root.theme-dark {
 		color-scheme: dark;

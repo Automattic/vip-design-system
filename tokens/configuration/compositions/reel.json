@@ -1,0 +1,29 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"block-alignment": {
+			"default": "stretch",
+			"options": "align",
+			"target": "self",
+			"type": "keyword"
+		},
+		"block-size": {
+			"default": "auto",
+			"options": "block-size",
+			"target": "self",
+			"type": "dimension"
+		},
+		"item-inline-size": {
+			"default": "auto",
+			"options": "item-size",
+			"target": "children",
+			"type": "dimension"
+		}
+	}
+}

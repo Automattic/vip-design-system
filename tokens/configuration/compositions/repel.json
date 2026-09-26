@@ -1,0 +1,17 @@
+{
+	"layer": "compositions",
+	"settings": {
+		"gap": {
+			"default": "5",
+			"options": "space",
+			"target": "self",
+			"type": "dimension"
+		},
+		"block-alignment": {
+			"default": "center",
+			"options": "align",
+			"target": "self",
+			"type": "keyword"
+		}
+	}
+}

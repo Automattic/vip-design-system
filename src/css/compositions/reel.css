@@ -1,3 +1,5 @@
+@import './reel.config.generated.css';
+
 @layer compositions {
 	/*
 	 * Reel — a horizontally scrolling row.
@@ -13,9 +15,9 @@
 	 */
 	.reel {
 		display: flex;
-		gap: var(--reel-gap, var(--space-5));
-		align-items: var(--reel-block-alignment, stretch);
-		block-size: var(--reel-block-size, auto);
+		gap: var(--reel-gap);
+		align-items: var(--reel-block-alignment);
+		block-size: var(--reel-block-size);
 		overflow-x: auto;
 		overflow-y: hidden;
 		scrollbar-gutter: stable;
@@ -23,7 +25,7 @@
 
 	/* Items hold their width — no shrinking, no wrapping */
 	.reel > * {
-		flex: 0 0 var(--reel-item-inline-size, auto);
+		flex: 0 0 var(--reel-item-inline-size);
 	}
 
 	/* Images fill the reel's height and keep their aspect ratio */

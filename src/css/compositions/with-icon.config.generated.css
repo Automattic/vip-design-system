@@ -1,0 +1,29 @@
+/* Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens.
+ * Local defaults isolate nested instances. Attributes configure variables;
+ * property declarations remain in the handwritten companion.
+ */
+@layer compositions {
+	.with-icon {
+		--with-icon-gap: 0.5em;
+	}
+
+	.with-icon[data-with-icon-gap='0'] {
+		--with-icon-gap: 0;
+	}
+
+	.with-icon[data-with-icon-gap='0.25em'] {
+		--with-icon-gap: 0.25em;
+	}
+
+	.with-icon[data-with-icon-gap='0.5em'] {
+		--with-icon-gap: 0.5em;
+	}
+
+	.with-icon[data-with-icon-gap='0.75em'] {
+		--with-icon-gap: 0.75em;
+	}
+
+	.with-icon[data-with-icon-gap='1em'] {
+		--with-icon-gap: 1em;
+	}
+}
