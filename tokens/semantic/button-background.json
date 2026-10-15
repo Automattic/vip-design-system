@@ -30,7 +30,7 @@
 					"dark": "{gold.40}"
 				}
 			},
-			"hover-1": {
+			"hover-default": {
 				"$value": "{gold.30}",
 				"$type": "color",
 				"$description": "Hover state for primary & secondary buttons.",
@@ -38,7 +38,7 @@
 					"dark": "{gold.70}"
 				}
 			},
-			"hover-2": {
+			"hover-transparent": {
 				"$value": "{gray.10}",
 				"$type": "color",
 				"$description": "Hover state for tertiary & ghost buttons.",
@@ -46,7 +46,7 @@
 					"dark": "{gray.73}"
 				}
 			},
-			"hover-3": {
+			"hover-display": {
 				"$value": "{gold.45}",
 				"$type": "color",
 				"$description": "Hover state for display button.",
@@ -60,6 +60,22 @@
 				"$description": "Disabled button fill.",
 				"$extensions": {
 					"dark": "{gray.85}"
+				}
+			},
+			"danger": {
+				"$value": "{red.55}",
+				"$type": "color",
+				"$description": "Danger button fill — used for the destructive/danger variant.",
+				"$extensions": {
+					"dark": "{red.55}"
+				}
+			},
+			"hover-danger": {
+				"$value": "{red.75}",
+				"$type": "color",
+				"$description": "Hover state for danger buttons (background and border).",
+				"$extensions": {
+					"dark": "{red.70}"
 				}
 			}
 		}
