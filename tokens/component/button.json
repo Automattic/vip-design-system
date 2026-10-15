@@ -216,7 +216,7 @@
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.button-background.hover-danger}",
+						"$value": "{color.border.transparent}",
 						"$type": "color"
 					},
 					"disabled": {

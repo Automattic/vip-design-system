@@ -43,7 +43,7 @@
 	--button-danger-secondary-background-hover: var(--color-button-background-hover-danger);
 	--button-danger-secondary-background-disabled: var(--color-button-background-transparent);
 	--button-danger-secondary-border-default: var(--color-button-foreground-danger);
-	--button-danger-secondary-border-hover: var(--color-button-background-hover-danger);
+	--button-danger-secondary-border-hover: var(--color-border-transparent);
 	--button-danger-secondary-border-disabled: var(--color-border-disabled);
 	--button-danger-secondary-label-default: var(--color-button-foreground-danger);
 	--button-danger-secondary-label-hover: var(--color-text-inverse-primary);
