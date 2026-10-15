@@ -9,6 +9,14 @@
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
 		/>
+		<!--
+			Aktiv Grotesk (Adobe Fonts). Loaded here, in the preview, and NOT from
+			src/css — the package names aktiv-grotesk in --font-family-default but
+			must never fetch the licensed font itself. An @import in src/css would
+			compile into the published dist/css/index.css and impose Adobe's kit on
+			every consumer. Loading the font is the consuming app's job.
+		-->
+		<link rel="stylesheet" href="https://use.typekit.net/yym8qzc.css" />
 		<style>
 			/* ── Preview chrome — not part of the design system ──────────────────── */
 
