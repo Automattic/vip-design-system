@@ -46,9 +46,9 @@
 	--color-icon-secondary: var(--gray-70);
 	--color-icon-helper: var(--gray-55);
 	--color-icon-disabled: var(--gray-40);
-	--color-icon-inverse: var(--gray-0);
+	--color-icon-inverse: var(--gray-10);
 	--color-icon-inverse-primary: var(--pure-white);
-	--color-icon-inverse-disabled: var(--gray-10);
+	--color-icon-inverse-disabled: var(--gray-70);
 	--color-layer-1: var(--gray-3);
 	--color-layer-2: var(--pure-white);
 	--color-layer-3: var(--gray-7);
@@ -267,9 +267,9 @@
 		--color-icon-secondary: light-dark(var(--gray-70), var(--gray-35));
 		--color-icon-helper: light-dark(var(--gray-55), var(--gray-40));
 		--color-icon-disabled: light-dark(var(--gray-40), var(--gray-75));
-		--color-icon-inverse: var(--gray-0);
+		--color-icon-inverse: var(--gray-10);
 		--color-icon-inverse-primary: var(--pure-white);
-		--color-icon-inverse-disabled: light-dark(var(--gray-10), var(--gray-60));
+		--color-icon-inverse-disabled: light-dark(var(--gray-70), var(--gray-60));
 		--color-layer-1: light-dark(var(--gray-3), var(--gray-90));
 		--color-layer-2: light-dark(var(--pure-white), var(--gray-85));
 		--color-layer-3: light-dark(var(--gray-7), var(--gray-70));
