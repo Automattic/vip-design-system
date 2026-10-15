@@ -66,31 +66,4 @@
 	.badge[data-color='yellow'] .badge__icon {
 		color: var(--badge-yellow-icon);
 	}
-
-	.badge[data-color='orange'] {
-		background-color: var(--badge-orange-background);
-		color: var(--badge-orange-text);
-		border-color: transparent;
-	}
-	.badge[data-color='orange'] .badge__icon {
-		color: var(--badge-orange-icon);
-	}
-
-	.badge[data-color='salmon'] {
-		background-color: var(--badge-salmon-background);
-		color: var(--badge-salmon-text);
-		border-color: transparent;
-	}
-	.badge[data-color='salmon'] .badge__icon {
-		color: var(--badge-salmon-icon);
-	}
-
-	.badge[data-color='pink'] {
-		background-color: var(--badge-pink-background);
-		color: var(--badge-pink-text);
-		border-color: transparent;
-	}
-	.badge[data-color='pink'] .badge__icon {
-		color: var(--badge-pink-icon);
-	}
 }

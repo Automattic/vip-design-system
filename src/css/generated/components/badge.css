@@ -37,21 +37,6 @@
 	--badge-yellow-icon: var(--color-support-warning-accent);
 	--badge-yellow-hover: var(--yellow-15);
 	--badge-yellow-active: var(--yellow-20);
-	--badge-orange-background: var(--orange-7);
-	--badge-orange-text: var(--orange-85);
-	--badge-orange-icon: var(--orange-65);
-	--badge-orange-hover: var(--orange-15);
-	--badge-orange-active: var(--orange-20);
-	--badge-salmon-background: var(--salmon-7);
-	--badge-salmon-text: var(--salmon-85);
-	--badge-salmon-icon: var(--salmon-65);
-	--badge-salmon-hover: var(--salmon-15);
-	--badge-salmon-active: var(--salmon-20);
-	--badge-pink-background: var(--pink-7);
-	--badge-pink-text: var(--pink-85);
-	--badge-pink-icon: var(--pink-65);
-	--badge-pink-hover: var(--pink-15);
-	--badge-pink-active: var(--pink-20);
 }
 
 @supports (color: light-dark(red, blue)) {
@@ -129,20 +114,5 @@
 		--badge-yellow-icon: var(--color-support-warning-accent);
 		--badge-yellow-hover: var(--yellow-15);
 		--badge-yellow-active: var(--yellow-20);
-		--badge-orange-background: var(--orange-7);
-		--badge-orange-text: var(--orange-85);
-		--badge-orange-icon: var(--orange-65);
-		--badge-orange-hover: var(--orange-15);
-		--badge-orange-active: var(--orange-20);
-		--badge-salmon-background: var(--salmon-7);
-		--badge-salmon-text: var(--salmon-85);
-		--badge-salmon-icon: var(--salmon-65);
-		--badge-salmon-hover: var(--salmon-15);
-		--badge-salmon-active: var(--salmon-20);
-		--badge-pink-background: var(--pink-7);
-		--badge-pink-text: var(--pink-85);
-		--badge-pink-icon: var(--pink-65);
-		--badge-pink-hover: var(--pink-15);
-		--badge-pink-active: var(--pink-20);
 	}
 }
