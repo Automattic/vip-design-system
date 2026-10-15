@@ -28,7 +28,7 @@
 		width: 2.25rem;
 		height: 1.25rem;
 		flex-shrink: 0;
-		border-radius: var(--border-radius-5);
+		border-radius: var(--border-radius-6);
 		background-color: var(--toggle-background-inactive);
 		transition: background-color 120ms ease;
 	}

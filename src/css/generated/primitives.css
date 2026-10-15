@@ -374,15 +374,16 @@
 	--letter-spacing-loose-1: 0.005em;
 	--letter-spacing-loose-2: 0.01em;
 	--letter-spacing-loose-3: 0.02em;
-	--border-radius-0: 0.125rem;
-	--border-radius-1: 0.25rem;
-	--border-radius-2: 0.5rem;
-	--border-radius-3: 1rem;
-	--border-radius-4: 2rem;
-	--border-radius-5: 2.5rem;
-	--border-radius-6: 3.5rem;
-	--border-radius-responsive-3-5: clamp(1rem, calc(0.64rem + 1.81vw), 2.5rem);
-	--border-radius-responsive-4-6: clamp(2rem, calc(1.64rem + 1.81vw), 3.5rem);
+	--border-radius-0: 0;
+	--border-radius-1: 0.125rem;
+	--border-radius-2: 0.25rem;
+	--border-radius-3: 0.5rem;
+	--border-radius-4: 1rem;
+	--border-radius-5: 2rem;
+	--border-radius-6: 2.5rem;
+	--border-radius-7: 3.5rem;
+	--border-radius-responsive-4-6: clamp(1rem, calc(0.64rem + 1.81vw), 2.5rem);
+	--border-radius-responsive-5-7: clamp(2rem, calc(1.64rem + 1.81vw), 3.5rem);
 	--shadow-1: 0 1px 1px 0 #00000026, 0 1px 5px 0 #0000000d;
 	--shadow-2: 0 1px 2px 0 #00000008, 0 15px 30px 0 #00000012;
 	--shadow-3:

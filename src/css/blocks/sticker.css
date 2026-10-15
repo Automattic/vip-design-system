@@ -4,7 +4,7 @@
 		align-items: center;
 		gap: var(--space-close);
 		padding: var(--space-close) var(--space-modest);
-		border-radius: var(--border-radius-5);
+		border-radius: var(--border-radius-6);
 		/* Typography via .type-support-label-xs — add that class to .sticker */
 
 		/* Default color: gray */

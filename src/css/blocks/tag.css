@@ -4,7 +4,7 @@
 		align-items: center;
 		gap: var(--space-micro);
 		padding: var(--space-micro) var(--space-close);
-		border-radius: var(--border-radius-5);
+		border-radius: var(--border-radius-6);
 		/* Typography via .type-support-label-xs — add that class to .tag */
 		white-space: nowrap;
 

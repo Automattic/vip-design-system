@@ -211,10 +211,11 @@
 	--color-text-disabled: var(--gray-40);
 	--color-text-inverse-primary: var(--pure-white);
 	--color-text-inverse-secondary: var(--gray-30);
-	--radius-subtle: var(--border-radius-0);
-	--radius-control: var(--border-radius-1);
-	--radius-container: var(--border-radius-2);
-	--radius-expressive: var(--border-radius-3);
+	--radius-0: var(--border-radius-0);
+	--radius-subtle: var(--border-radius-1);
+	--radius-control: var(--border-radius-2);
+	--radius-container: var(--border-radius-3);
+	--radius-expressive: var(--border-radius-4);
 }
 
 @supports (color: light-dark(red, blue)) {
@@ -431,10 +432,11 @@
 		--color-text-disabled: light-dark(var(--gray-40), var(--gray-75));
 		--color-text-inverse-primary: var(--pure-white);
 		--color-text-inverse-secondary: light-dark(var(--gray-30), var(--gray-70));
-		--radius-subtle: var(--border-radius-0);
-		--radius-control: var(--border-radius-1);
-		--radius-container: var(--border-radius-2);
-		--radius-expressive: var(--border-radius-3);
+		--radius-0: var(--border-radius-0);
+		--radius-subtle: var(--border-radius-1);
+		--radius-control: var(--border-radius-2);
+		--radius-container: var(--border-radius-3);
+		--radius-expressive: var(--border-radius-4);
 	}
 	:root.theme-dark {
 		color-scheme: dark;
