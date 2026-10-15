@@ -3,7 +3,7 @@
 	--input-background: var(--color-control-background-transparent);
 	--input-background-read-only: var(--color-control-background-read-only);
 	--input-border: var(--color-border-control);
-	--input-border-error: var(--color-support-error-symbol);
+	--input-border-error: var(--color-support-error-text);
 	--input-border-read-only: var(--color-border-default);
 	--input-border-disabled: var(--color-border-disabled);
 	--input-label: var(--color-text-primary);

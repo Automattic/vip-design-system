@@ -13,7 +13,7 @@
 			"$type": "color"
 		},
 		"border-error": {
-			"$value": "{color.support.error.symbol}",
+			"$value": "{color.support.error.text}",
 			"$type": "color"
 		},
 		"border-read-only": {
