@@ -27,6 +27,7 @@
 		"build:icons": "node scripts/build-sprite.mjs",
 		"build:tokens": "node style-dictionary.config.js",
 		"dev": "storybook dev -p 6006",
+		"preview": "node scripts/preview-server.mjs",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"test": "vitest run",
