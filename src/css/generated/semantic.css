@@ -40,8 +40,6 @@
 	--color-control-background-inactive: var(--gray-50);
 	--color-control-foreground-primary: var(--pure-white);
 	--color-control-foreground-disabled: var(--gray-7);
-	--color-environment-production: var(--parsely-green-45);
-	--color-environment-non-prod: var(--blue-45);
 	--color-focus-outline: var(--focus);
 	--color-focus-inset: var(--pure-white);
 	--color-icon-primary: var(--black);
@@ -262,8 +260,6 @@
 		--color-control-background-inactive: light-dark(var(--gray-50), var(--gray-70));
 		--color-control-foreground-primary: light-dark(var(--pure-white), var(--gray-7));
 		--color-control-foreground-disabled: light-dark(var(--gray-7), var(--gray-50));
-		--color-environment-production: var(--parsely-green-45);
-		--color-environment-non-prod: var(--blue-45);
 		--color-focus-outline: var(--focus);
 		--color-focus-inset: var(--pure-white);
 		--color-icon-primary: light-dark(var(--black), var(--gray-10));

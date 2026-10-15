@@ -433,8 +433,6 @@ export const tokens = {
 	'color.control.background.inactive': 'var(--color-control-background-inactive)',
 	'color.control.foreground.primary': 'var(--color-control-foreground-primary)',
 	'color.control.foreground.disabled': 'var(--color-control-foreground-disabled)',
-	'color.environment.production': 'var(--color-environment-production)',
-	'color.environment.non-prod': 'var(--color-environment-non-prod)',
 	'color.focus.outline': 'var(--color-focus-outline)',
 	'color.focus.inset': 'var(--color-focus-inset)',
 	'color.icon.primary': 'var(--color-icon-primary)',
