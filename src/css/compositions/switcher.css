@@ -2,7 +2,7 @@
 	.switcher {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--switcher-gap, var(--space-5));
+		gap: var(--switcher-gap, var(--space-comfortable));
 	}
 
 	/* Children switch from row to column when combined width exceeds --switcher-threshold */

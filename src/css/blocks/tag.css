@@ -2,8 +2,8 @@
 	.tag {
 		display: inline-flex;
 		align-items: center;
-		gap: var(--space-1);
-		padding: var(--space-1) var(--space-3);
+		gap: var(--space-micro);
+		padding: var(--space-micro) var(--space-close);
 		border-radius: var(--border-radius-5);
 		/* Typography via .type-support-label-xs — add that class to .tag */
 		white-space: nowrap;

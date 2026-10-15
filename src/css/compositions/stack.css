@@ -12,7 +12,7 @@
 	.stack {
 		display: flex;
 		flex-direction: column;
-		gap: var(--stack-gap, var(--space-5));
+		gap: var(--stack-gap, var(--space-comfortable));
 
 		/* Column direction, so justify-content runs the BLOCK axis and
 		   align-items the INLINE axis — the inverse of the row-direction

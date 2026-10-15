@@ -18,6 +18,6 @@
 	.wrapper {
 		max-inline-size: var(--wrapper-max-inline-size, 70rem);
 		margin-inline: auto;
-		padding-inline: var(--wrapper-padding-inline, var(--space-5));
+		padding-inline: var(--wrapper-padding-inline, var(--space-comfortable));
 	}
 }

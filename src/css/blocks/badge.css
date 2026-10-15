@@ -2,8 +2,8 @@
 	.badge {
 		display: inline-flex;
 		align-items: center;
-		gap: var(--space-1);
-		padding: var(--space-1) var(--space-2);
+		gap: var(--space-micro);
+		padding: var(--space-micro) var(--space-tight);
 		border: 1px solid var(--badge-gray-border);
 		border-radius: var(--radius-control);
 		/* Typography via .type-support-label-xs — add that class to the element */

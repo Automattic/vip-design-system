@@ -2,8 +2,8 @@
 	.sticker {
 		display: inline-flex;
 		align-items: center;
-		gap: var(--space-3);
-		padding: var(--space-3) var(--space-4);
+		gap: var(--space-close);
+		padding: var(--space-close) var(--space-modest);
 		border-radius: var(--border-radius-5);
 		/* Typography via .type-support-label-xs — add that class to .sticker */
 

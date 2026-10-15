@@ -2,7 +2,7 @@
 	.console {
 		background-color: var(--console-background);
 		border-radius: var(--radius-container);
-		padding: var(--space-5);
+		padding: var(--space-comfortable);
 		overflow: auto;
 	}
 

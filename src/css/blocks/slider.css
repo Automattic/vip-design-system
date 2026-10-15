@@ -2,7 +2,7 @@
 	.slider {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-3);
+		gap: var(--space-close);
 	}
 
 	.slider__label {
@@ -14,7 +14,7 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		height: var(--space-4);
+		height: var(--space-modest);
 	}
 
 	.slider__rail {
@@ -26,8 +26,8 @@
 
 	.slider__handle {
 		position: absolute;
-		width: var(--space-5);
-		height: var(--space-5);
+		width: var(--space-comfortable);
+		height: var(--space-comfortable);
 		border-radius: var(--border-radius-6);
 		background-color: var(--slider-handle-default);
 		transform: translateX(-50%);

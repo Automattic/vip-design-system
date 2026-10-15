@@ -14,7 +14,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: var(--repel-block-alignment, center);
-		gap: var(--repel-gap, var(--space-5));
+		gap: var(--repel-gap, var(--space-comfortable));
 	}
 
 	.repel[data-nowrap] {

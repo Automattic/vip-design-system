@@ -13,7 +13,7 @@
 	 */
 	.reel {
 		display: flex;
-		gap: var(--reel-gap, var(--space-5));
+		gap: var(--reel-gap, var(--space-comfortable));
 		align-items: var(--reel-block-alignment, stretch);
 		block-size: var(--reel-block-size, auto);
 		overflow-x: auto;

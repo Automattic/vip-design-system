@@ -19,7 +19,7 @@
 	 * forced-colours case is handled explicitly at the bottom.
 	 */
 	.box {
-		padding: var(--box-padding, var(--space-5));
+		padding: var(--box-padding, var(--space-comfortable));
 		border: var(--box-border-width, 1px) solid var(--box-border-color, var(--color-border-default));
 		border-radius: var(--box-radius, var(--radius-container));
 		color: var(--box-color, var(--color-text-primary));

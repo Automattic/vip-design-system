@@ -141,7 +141,7 @@
 	/* ── Blockquote ───────────────────────────────────────────────────────────── */
 
 	blockquote {
-		padding-inline-start: var(--space-5);
+		padding-inline-start: var(--space-comfortable);
 		border-inline-start: 3px solid var(--color-border-accent);
 		color: var(--color-text-helper);
 		font-style: normal;
@@ -151,7 +151,7 @@
 
 	ul,
 	ol {
-		padding-inline-start: var(--space-6);
+		padding-inline-start: var(--space-relaxed);
 	}
 
 	li {
@@ -160,7 +160,7 @@
 	}
 
 	li + li {
-		margin-block-start: var(--space-1);
+		margin-block-start: var(--space-micro);
 	}
 
 	/* ── Horizontal rule ──────────────────────────────────────────────────────── */
@@ -182,13 +182,13 @@
 	th {
 		font-weight: var(--font-weight-semibold);
 		text-align: start;
-		padding: var(--space-3) var(--space-4);
+		padding: var(--space-close) var(--space-modest);
 		border-block-end: 1px solid var(--color-border-default);
 		color: var(--color-text-primary);
 	}
 
 	td {
-		padding: var(--space-3) var(--space-4);
+		padding: var(--space-close) var(--space-modest);
 		border-block-end: 1px solid var(--color-border-default);
 		color: var(--color-text-secondary);
 	}
@@ -203,7 +203,7 @@
 	figure {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-4);
+		gap: var(--space-modest);
 	}
 
 	figcaption {
@@ -257,7 +257,7 @@
 		background-color: var(--color-layer-accent);
 		color: var(--color-text-primary);
 		border-radius: var(--radius-subtle);
-		padding-inline: var(--space-0);
+		padding-inline: var(--space-hairline);
 	}
 
 	sub,
