@@ -3,40 +3,21 @@
 	--badge-gray-background: var(--color-support-system-background);
 	--badge-gray-border: var(--color-border-transparent);
 	--badge-gray-text: var(--color-text-primary);
-	--badge-gray-icon: var(--color-support-system-accent);
-	--badge-gray-dismiss-icon: var(--color-icon-helper);
-	--badge-gray-hover: var(--gray-15);
-	--badge-gray-active: var(--gray-20);
 	--badge-blue-background: var(--color-support-info-background);
 	--badge-blue-border: var(--color-border-transparent);
 	--badge-blue-text: var(--color-text-primary);
-	--badge-blue-icon: var(--color-support-info-accent);
-	--badge-blue-hover: var(--blue-15);
-	--badge-blue-active: var(--blue-20);
 	--badge-green-background: var(--color-support-success-background);
 	--badge-green-border: var(--color-border-transparent);
 	--badge-green-text: var(--color-text-primary);
-	--badge-green-icon: var(--color-support-success-accent);
-	--badge-green-hover: var(--green-15);
-	--badge-green-active: var(--green-20);
 	--badge-red-background: var(--color-support-error-background);
 	--badge-red-border: var(--color-border-transparent);
 	--badge-red-text: var(--color-text-primary);
-	--badge-red-icon: var(--color-support-error-accent);
-	--badge-red-hover: var(--red-15);
-	--badge-red-active: var(--red-20);
 	--badge-gold-background: var(--color-support-brand-background);
 	--badge-gold-border: var(--color-border-transparent);
 	--badge-gold-text: var(--color-text-primary);
-	--badge-gold-icon: var(--color-support-brand-accent);
-	--badge-gold-hover: var(--gold-15);
-	--badge-gold-active: var(--gold-20);
 	--badge-yellow-background: var(--color-support-warning-background);
 	--badge-yellow-border: var(--color-border-transparent);
 	--badge-yellow-text: var(--color-text-primary);
-	--badge-yellow-icon: var(--color-support-warning-accent);
-	--badge-yellow-hover: var(--yellow-15);
-	--badge-yellow-active: var(--yellow-20);
 }
 
 @supports (color: light-dark(red, blue)) {
@@ -50,10 +31,6 @@
 			var(--color-support-system-text)
 		);
 		--badge-gray-text: light-dark(var(--color-text-primary), var(--color-support-system-text));
-		--badge-gray-icon: var(--color-support-system-accent);
-		--badge-gray-dismiss-icon: var(--color-icon-helper);
-		--badge-gray-hover: light-dark(var(--gray-15), var(--gray-85));
-		--badge-gray-active: light-dark(var(--gray-20), var(--gray-83));
 		--badge-blue-background: light-dark(
 			var(--color-support-info-background),
 			var(--color-control-background-transparent)
@@ -63,9 +40,6 @@
 			var(--color-support-info-text)
 		);
 		--badge-blue-text: light-dark(var(--color-text-primary), var(--color-support-info-text));
-		--badge-blue-icon: var(--color-support-info-accent);
-		--badge-blue-hover: var(--blue-15);
-		--badge-blue-active: var(--blue-20);
 		--badge-green-background: light-dark(
 			var(--color-support-success-background),
 			var(--color-control-background-transparent)
@@ -75,9 +49,6 @@
 			var(--color-support-success-text)
 		);
 		--badge-green-text: light-dark(var(--color-text-primary), var(--color-support-success-text));
-		--badge-green-icon: var(--color-support-success-accent);
-		--badge-green-hover: var(--green-15);
-		--badge-green-active: var(--green-20);
 		--badge-red-background: light-dark(
 			var(--color-support-error-background),
 			var(--color-control-background-transparent)
@@ -87,9 +58,6 @@
 			var(--color-support-error-text)
 		);
 		--badge-red-text: light-dark(var(--color-text-primary), var(--color-support-error-text));
-		--badge-red-icon: var(--color-support-error-accent);
-		--badge-red-hover: var(--red-15);
-		--badge-red-active: var(--red-20);
 		--badge-gold-background: light-dark(
 			var(--color-support-brand-background),
 			var(--color-control-background-transparent)
@@ -99,9 +67,6 @@
 			var(--color-support-brand-text)
 		);
 		--badge-gold-text: light-dark(var(--color-text-primary), var(--color-support-brand-text));
-		--badge-gold-icon: var(--color-support-brand-accent);
-		--badge-gold-hover: var(--gold-15);
-		--badge-gold-active: var(--gold-20);
 		--badge-yellow-background: light-dark(
 			var(--color-support-warning-background),
 			var(--color-control-background-transparent)
@@ -111,8 +76,5 @@
 			var(--color-support-warning-text)
 		);
 		--badge-yellow-text: light-dark(var(--color-text-primary), var(--color-support-warning-text));
-		--badge-yellow-icon: var(--color-support-warning-accent);
-		--badge-yellow-hover: var(--yellow-15);
-		--badge-yellow-active: var(--yellow-20);
 	}
 }

@@ -21,28 +21,6 @@
 				"$extensions": {
 					"dark": "{color.support.system.text}"
 				}
-			},
-			"icon": {
-				"$value": "{color.support.system.accent}",
-				"$type": "color"
-			},
-			"dismiss-icon": {
-				"$value": "{color.icon.helper}",
-				"$type": "color"
-			},
-			"hover": {
-				"$value": "{gray.15}",
-				"$type": "color",
-				"$extensions": {
-					"dark": "{gray.85}"
-				}
-			},
-			"active": {
-				"$value": "{gray.20}",
-				"$type": "color",
-				"$extensions": {
-					"dark": "{gray.83}"
-				}
 			}
 		},
 		"blue": {
@@ -66,18 +44,6 @@
 				"$extensions": {
 					"dark": "{color.support.info.text}"
 				}
-			},
-			"icon": {
-				"$value": "{color.support.info.accent}",
-				"$type": "color"
-			},
-			"hover": {
-				"$value": "{blue.15}",
-				"$type": "color"
-			},
-			"active": {
-				"$value": "{blue.20}",
-				"$type": "color"
 			}
 		},
 		"green": {
@@ -101,18 +67,6 @@
 				"$extensions": {
 					"dark": "{color.support.success.text}"
 				}
-			},
-			"icon": {
-				"$value": "{color.support.success.accent}",
-				"$type": "color"
-			},
-			"hover": {
-				"$value": "{green.15}",
-				"$type": "color"
-			},
-			"active": {
-				"$value": "{green.20}",
-				"$type": "color"
 			}
 		},
 		"red": {
@@ -136,18 +90,6 @@
 				"$extensions": {
 					"dark": "{color.support.error.text}"
 				}
-			},
-			"icon": {
-				"$value": "{color.support.error.accent}",
-				"$type": "color"
-			},
-			"hover": {
-				"$value": "{red.15}",
-				"$type": "color"
-			},
-			"active": {
-				"$value": "{red.20}",
-				"$type": "color"
 			}
 		},
 		"gold": {
@@ -171,18 +113,6 @@
 				"$extensions": {
 					"dark": "{color.support.brand.text}"
 				}
-			},
-			"icon": {
-				"$value": "{color.support.brand.accent}",
-				"$type": "color"
-			},
-			"hover": {
-				"$value": "{gold.15}",
-				"$type": "color"
-			},
-			"active": {
-				"$value": "{gold.20}",
-				"$type": "color"
 			}
 		},
 		"yellow": {
@@ -206,18 +136,6 @@
 				"$extensions": {
 					"dark": "{color.support.warning.text}"
 				}
-			},
-			"icon": {
-				"$value": "{color.support.warning.accent}",
-				"$type": "color"
-			},
-			"hover": {
-				"$value": "{yellow.15}",
-				"$type": "color"
-			},
-			"active": {
-				"$value": "{yellow.20}",
-				"$type": "color"
 			}
 		}
 	}
