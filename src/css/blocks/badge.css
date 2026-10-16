@@ -2,6 +2,15 @@
 	.badge {
 		display: inline-flex;
 		align-items: center;
+		/*
+		 * Fixed height, matching the design. The label's line box is 11px
+		 * (--line-height-0 is 1 at --font-size-0), which with 4px of block
+		 * padding and the 1px border would leave the chip at 21px. Figma sets
+		 * the chip to a fixed 22px instead of deriving it from the text, so
+		 * the height is stated here rather than falling out of the type scale.
+		 * align-items centres the label within it.
+		 */
+		block-size: 1.375rem;
 		padding: var(--space-micro) var(--space-tight);
 		border: 1px solid var(--badge-gray-border);
 		border-radius: var(--radius-control);
