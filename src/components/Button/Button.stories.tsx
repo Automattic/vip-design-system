@@ -52,7 +52,7 @@ function Icon({ name }: { name: string }) {
  *
  * ### Sizes
  *
- * Default is 38px tall. `data-size="medium"` gives 32px.
+ * Default is 38px tall. `data-size="compact"` gives 32px.
  *
  * ### States
  *
@@ -65,7 +65,7 @@ const meta: Meta<ButtonArgs> = {
 	tags: ['autodocs'],
 	argTypes: {
 		variant: { control: 'select', options: [...CORE, ...DANGER] },
-		size: { control: 'inline-radio', options: ['default', 'medium'] },
+		size: { control: 'inline-radio', options: ['default', 'compact'] },
 		icon: { control: 'inline-radio', options: ['none', 'leading', 'trailing', 'only'] },
 		label: { control: 'text' },
 		disabled: { control: 'boolean' },
@@ -82,7 +82,7 @@ const meta: Meta<ButtonArgs> = {
 
 type ButtonArgs = {
 	variant: Variant;
-	size: 'default' | 'medium';
+	size: 'default' | 'compact';
 	icon: 'none' | 'leading' | 'trailing' | 'only';
 	label: string;
 	disabled: boolean;
@@ -167,7 +167,7 @@ export const Icons: Story = {
 	),
 };
 
-/** Default is 38px; `data-size="medium"` is 32px. */
+/** Default is 38px; `data-size="compact"` is 32px. */
 export const Sizes: Story = {
 	render: () => (
 		<div
@@ -178,7 +178,7 @@ export const Sizes: Story = {
 			}}
 		>
 			<Button variant="primary" size="default" icon="none" disabled={false} label="Default 38px" />
-			<Button variant="primary" size="medium" icon="none" disabled={false} label="Medium 32px" />
+			<Button variant="primary" size="compact" icon="none" disabled={false} label="Compact 32px" />
 		</div>
 	),
 };

@@ -44,14 +44,40 @@
 		outline-offset: var(--button-focus-outline-offset, 2px);
 	}
 
+	/* ── Size variants ────────────────────────────────────────────────────────── */
+	/*
+	 * Both sizes are pinned rather than derived. Figma fixes them, and content
+	 * height varies: the label's line box is 14px but an icon is 16px, so a
+	 * derived height makes an icon button 2px taller than a text one.
+	 */
+
+	.button {
+		block-size: 2.375rem;
+	}
+
+	.button[data-size='compact'] {
+		/* Compact — 32px = border(1) + padding(8) + text(14) + padding(8) + border(1).
+		   Confirmed against Figma: all 60 Button-Compact variants are 32px tall,
+		   and icon-only compact is 32x32. */
+		block-size: 2rem;
+		--button-padding: var(--space-close) var(--space-comfortable);
+	}
+
 	/* ── Icon slots ───────────────────────────────────────────────────────────── */
 	/*
-	 * Figma pads the icon side tighter than the text side: 12px against the
-	 * icon, 16px against the label. Logical properties so it follows the
-	 * writing mode — in RTL, "leading" is still the start edge.
+	 * Declared after the size variants on purpose: both set --button-padding at
+	 * the same specificity, so whichever comes last wins. The icon slots need to
+	 * win, otherwise a compact icon-only button keeps the 16px inline padding
+	 * meant for a label.
 	 *
-	 * Icon-only is a 38px square with the icon centred, matching the design's
-	 * fixed height. Give it an aria-label; there is no visible text.
+	 * Figma pads the icon side tighter than the text side: 12px against the
+	 * icon, 16px against the label. Logical properties so it follows the writing
+	 * mode — in RTL, "leading" is still the start edge.
+	 *
+	 * Icon-only is a fixed square, sized explicitly in both axes. The icon is
+	 * 16px where the label's line box is 14px, so a height derived from content
+	 * would come out 2px taller than the design. Give it an aria-label; there is
+	 * no visible text.
 	 */
 
 	.button[data-icon='leading'] {
@@ -69,22 +95,8 @@
 		inline-size: 2.375rem;
 	}
 
-	.button[data-icon='only'][data-size='medium'] {
+	.button[data-icon='only'][data-size='compact'] {
 		inline-size: 2rem;
-	}
-
-	/* ── Size variants ────────────────────────────────────────────────────────── */
-	/* Default (no data-size): L — 38px. Space tokens don't have a clean match
-	   for 11px vertical, so we pin height with min-height and let flexbox center. */
-
-	.button {
-		min-height: 2.375rem;
-	}
-
-	.button[data-size='medium'] {
-		/* M — 32px = border(1) + padding(8) + text(14) + padding(8) + border(1) */
-		min-height: unset;
-		--button-padding: var(--space-close) var(--space-comfortable);
 	}
 
 	/* ── Secondary ────────────────────────────────────────────────────────────── */
