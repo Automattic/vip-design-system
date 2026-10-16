@@ -100,7 +100,7 @@ function Button({ variant, size, icon, label, disabled }: ButtonArgs) {
 		>
 			{icon === 'leading' && <Icon name="bx-plus" />}
 			{icon !== 'only' && label}
-			{icon === 'trailing' && <Icon name="bx-arrow-right" />}
+			{icon === 'trailing' && <Icon name="bx-right-arrow-alt" />}
 			{icon === 'only' && <Icon name="bx-trash" />}
 		</button>
 	);

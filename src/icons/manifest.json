@@ -1,0 +1,33 @@
+{
+	"$comment": [
+		"The icons this design system sanctions. Adding one means adding its name here,",
+		"running `npm run icons:sync`, and committing the resulting .svg.",
+		"",
+		"Names are the Figma library's, which is Boxicons v2. The @boxicons/core npm",
+		"package is a later generation with different names for some icons — v2's",
+		"bx-right-arrow-alt is v3's bx-arrow-right, and v2's bx-error is v3's",
+		"bx-alert-triangle. Always use the name as it appears in the Figma library.",
+		"",
+		"Node ids are resolved from the library file and cached here so the sync does",
+		"not have to re-read the whole 1,601-icon index on every run. If an icon is",
+		"moved or redrawn in Figma its id can change; the sync fails loudly in that",
+		"case rather than skipping it."
+	],
+	"library": {
+		"name": "Icons",
+		"fileKey": "b1kmSDzlAniC2N5YmpAqJt",
+		"source": "Boxicons v2"
+	},
+	"icons": {
+		"bx-check": "2201:22834",
+		"bx-chevron-right": "2201:22860",
+		"bx-cog": "2201:22577",
+		"bx-error": "2201:22822",
+		"bx-info-circle": "2201:22405",
+		"bx-plus": "2201:22241",
+		"bx-right-arrow-alt": "2201:22375",
+		"bx-search": "2201:22805",
+		"bx-trash": "2201:22178",
+		"bx-x": "2201:22141"
+	}
+}
