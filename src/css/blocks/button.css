@@ -3,8 +3,10 @@
 		display: var(--button-display, inline-flex);
 		align-items: var(--button-align-items, center);
 		justify-content: var(--button-justify-content, center);
-		gap: var(--button-gap, var(--space-close));
+		gap: var(--button-gap, var(--space-micro));
 		padding: var(--button-padding, var(--space-close) var(--space-comfortable));
+		/* Buttons take a fixed 16px icon, not the 1cap used in running text. */
+		--icon-size: 1rem;
 		border: var(--button-border, 1px solid transparent);
 		border-radius: var(--button-border-radius, var(--radius-control));
 		/* Typography via .type-support-label-default — add that class to the element */
@@ -40,6 +42,35 @@
 	.button:focus-visible {
 		outline: var(--button-focus-outline, 2px solid var(--color-focus-outline));
 		outline-offset: var(--button-focus-outline-offset, 2px);
+	}
+
+	/* ── Icon slots ───────────────────────────────────────────────────────────── */
+	/*
+	 * Figma pads the icon side tighter than the text side: 12px against the
+	 * icon, 16px against the label. Logical properties so it follows the
+	 * writing mode — in RTL, "leading" is still the start edge.
+	 *
+	 * Icon-only is a 38px square with the icon centred, matching the design's
+	 * fixed height. Give it an aria-label; there is no visible text.
+	 */
+
+	.button[data-icon='leading'] {
+		--button-padding: var(--space-close) var(--space-comfortable) var(--space-close)
+			var(--space-modest);
+	}
+
+	.button[data-icon='trailing'] {
+		--button-padding: var(--space-close) var(--space-modest) var(--space-close)
+			var(--space-comfortable);
+	}
+
+	.button[data-icon='only'] {
+		--button-padding: var(--space-close);
+		inline-size: 2.375rem;
+	}
+
+	.button[data-icon='only'][data-size='medium'] {
+		inline-size: 2rem;
 	}
 
 	/* ── Size variants ────────────────────────────────────────────────────────── */
