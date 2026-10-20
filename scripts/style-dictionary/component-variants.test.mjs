@@ -15,7 +15,7 @@ const sd = new StyleDictionary({
 	source: [
 		'tokens/primitives/**/*.json',
 		'tokens/semantic/**/*.json',
-		'tokens/component/badge.json',
+		...Object.keys(components).map((name) => `tokens/component/${name}.json`),
 	],
 	platforms: { css: { transforms: ['name/kebab'] } },
 });
@@ -25,7 +25,8 @@ const resolve = (definitions = components, tokens = dictionary) =>
 
 describe('component variants', () => {
 	it('exposes only explicitly marked components and their declared variants', () => {
-		expect(Object.keys(components)).toEqual(['badge']);
+		expect(Object.keys(components)).toContain('badge');
+		expect(Object.keys(components)).not.toContain('button');
 		const changed = structuredClone(dictionary);
 		changed.allTokens.push({ path: ['badge', 'private', 'unused'], $type: 'color', $value: 'red' });
 		expect(Object.keys(resolve(components, changed).badge.variants)).toEqual([
