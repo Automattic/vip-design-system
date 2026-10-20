@@ -1906,14 +1906,22 @@
 							<div class="input">
 								<label class="input__label">Default</label>
 								<input class="input__field" type="text" placeholder="Placeholder text" />
-								<span class="input__helper type-support-helper-text"
-									>Helper text for this field</span
-								>
+								<span class="input__helper type-support-helper-text">
+									<svg class="icon" aria-hidden="true">
+										<use href="../dist/sprite.svg#bx-info-circle"></use>
+									</svg>
+									Helper text for this field
+								</span>
 							</div>
 							<div class="input" data-state="error">
 								<label class="input__label">Error state</label>
 								<input class="input__field" type="text" value="Invalid value" />
-								<span class="input__helper type-support-helper-text">This field has an error</span>
+								<span class="input__helper type-support-helper-text">
+									<svg class="icon" aria-hidden="true">
+										<use href="../dist/sprite.svg#bx-error-circle"></use>
+									</svg>
+									This field has an error
+								</span>
 							</div>
 							<div class="input" data-state="disabled">
 								<label class="input__label">Disabled</label>
