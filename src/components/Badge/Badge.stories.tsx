@@ -96,27 +96,10 @@ export const SemanticAliases: Story = {
  * Badges invert in dark mode: the tinted fill is replaced by a transparent
  * background with the set's `text` colour on both border and label.
  *
- * The theme classes are scoped to `:root` (`:root.theme-dark`), so they cannot
- * be used to preview a dark region inside a light page. This story instead
- * sets `color-scheme: dark` on the wrapper — that is what `light-dark()`
- * actually resolves against, and it inherits to the badges inside.
+ * This canvas starts in Dark mode independently of the OS. Use its Color mode
+ * selector to compare Light or System without changing the other examples.
  */
 export const DarkMode: Story = {
-	render: () => (
-		<div
-			style={{
-				colorScheme: 'dark',
-				background: 'var(--color-background-primary)',
-				padding: 'var(--space-comfortable)',
-			}}
-		>
-			<div className="cluster" style={{ ['--cluster-gap' as string]: 'var(--space-close)' }}>
-				{VARIANTS.map((variant) => (
-					<Badge key={variant} variant={variant}>
-						{variant.charAt(0).toUpperCase() + variant.slice(1)}
-					</Badge>
-				))}
-			</div>
-		</div>
-	),
+	parameters: { colorMode: 'dark' },
+	render: AllVariants.render,
 };

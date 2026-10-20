@@ -82,6 +82,18 @@ an outline. There is no additional label semantic group. Each badge establishes
 its three color defaults locally, so an outer badge cannot recolor a nested badge.
 Badges are text-only.
 
+## Storybook color modes
+
+Every story canvas has an independent System / Light / Dark selector. System
+follows the OS preference; explicit modes apply `color-scheme` and the semantic
+background and text colors to that canvas. The surrounding documentation keeps
+following the OS. Selections last while the canvas is mounted.
+
+Stories normally start in System mode. To start an example in a specific mode,
+set `parameters: { colorMode: 'dark' }` (or `'light'`) on the story. The selector
+can still change it. Use this parameter instead of a hardcoded theme wrapper,
+as in the badge's Dark Mode example.
+
 ## Nesting and custom CSS
 
 Every instance establishes its own defaults, even with no attributes. Setting a

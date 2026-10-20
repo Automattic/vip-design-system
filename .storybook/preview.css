@@ -1,0 +1,71 @@
+/* Storybook owns its documentation UI; story canvases use the product surface. */
+.sbdocs .sbdocs-preview,
+body.sb-show-main {
+	background-color: var(--color-background-primary);
+	color: var(--color-text-secondary);
+}
+
+@layer blocks {
+	/* Syntax highlighting also uses .tag. Remove only block-layer styling here,
+	   leaving Storybook's syntax colors and the real Tag block intact. */
+	.sbdocs pre .token.tag {
+		all: revert-layer;
+	}
+}
+
+/* Each rendered story owns its mode, including repeated stories on a Docs page. */
+.sb-theme-canvas {
+	inline-size: 100%;
+	background-color: var(--color-background-primary);
+	color: var(--color-text-secondary);
+}
+
+#storybook-root > .sb-theme-canvas {
+	min-block-size: 100vh;
+}
+
+.sb-theme-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: var(--space-close);
+	padding: var(--space-close) var(--space-comfortable);
+	border-block-end: 1px solid var(--color-border-default);
+	font-family: var(--font-family-default);
+	font-size: 0.75rem;
+	line-height: 1.5;
+}
+
+.sb-theme-select {
+	display: inline-flex;
+	align-items: center;
+	/* Space around the entire native control, including its browser-drawn arrow. */
+	padding: var(--space-hairline) var(--space-close);
+	border: 1px solid var(--color-border-default);
+	border-radius: var(--radius-control);
+	background-color: var(--color-layer-2);
+	color: var(--color-text-primary);
+}
+
+.sb-theme-select select {
+	appearance: auto;
+	min-inline-size: 6.5em;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	color: inherit;
+}
+
+.sb-theme-select:has(select:focus-visible) {
+	outline: 2px solid var(--color-focus-outline);
+	outline-offset: 2px;
+}
+
+.sb-theme-select:has(select:focus-visible) select {
+	outline: none;
+}
+
+.sb-theme-content {
+	padding: var(--space-comfortable);
+}
