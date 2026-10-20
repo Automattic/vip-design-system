@@ -1,0 +1,63 @@
+/* Generated from tokens/component/banner.json by Style Dictionary. Do not edit. */
+@layer blocks {
+	.banner {
+		--banner-accent: var(--color-support-info-accent);
+		--banner-background: var(--color-support-info-background);
+	}
+
+	.banner[data-banner-variant='error'] {
+		--banner-accent: var(--color-support-error-accent);
+		--banner-background: var(--color-support-error-background);
+	}
+
+	.banner[data-banner-variant='warning'] {
+		--banner-accent: var(--color-support-warning-accent);
+		--banner-background: var(--color-support-warning-background);
+	}
+
+	.banner[data-banner-variant='info'] {
+		--banner-accent: var(--color-support-info-accent);
+		--banner-background: var(--color-support-info-background);
+	}
+
+	.banner[data-banner-variant='system'] {
+		--banner-accent: var(--color-support-system-accent);
+		--banner-background: var(--color-support-system-background);
+	}
+
+	.banner[data-banner-variant='brand'] {
+		--banner-accent: var(--color-support-brand-accent);
+		--banner-background: var(--color-support-brand-background);
+	}
+	@supports (color: light-dark(red, blue)) {
+		.banner {
+			--banner-accent: var(--color-support-info-accent);
+			--banner-background: var(--color-support-info-background);
+		}
+
+		.banner[data-banner-variant='error'] {
+			--banner-accent: var(--color-support-error-accent);
+			--banner-background: var(--color-support-error-background);
+		}
+
+		.banner[data-banner-variant='warning'] {
+			--banner-accent: var(--color-support-warning-accent);
+			--banner-background: var(--color-support-warning-background);
+		}
+
+		.banner[data-banner-variant='info'] {
+			--banner-accent: var(--color-support-info-accent);
+			--banner-background: var(--color-support-info-background);
+		}
+
+		.banner[data-banner-variant='system'] {
+			--banner-accent: var(--color-support-system-accent);
+			--banner-background: var(--color-support-system-background);
+		}
+
+		.banner[data-banner-variant='brand'] {
+			--banner-accent: var(--color-support-brand-accent);
+			--banner-background: var(--color-support-brand-background);
+		}
+	}
+}

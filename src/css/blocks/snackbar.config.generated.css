@@ -1,0 +1,51 @@
+/* Generated from tokens/component/snackbar.json by Style Dictionary. Do not edit. */
+@layer blocks {
+	.snackbar {
+		--snackbar-accent: var(--color-support-info-inverse);
+	}
+
+	.snackbar[data-snackbar-variant='error'] {
+		--snackbar-accent: var(--color-support-error-inverse);
+	}
+
+	.snackbar[data-snackbar-variant='warning'] {
+		--snackbar-accent: var(--color-support-warning-inverse);
+	}
+
+	.snackbar[data-snackbar-variant='success'] {
+		--snackbar-accent: var(--color-support-success-inverse);
+	}
+
+	.snackbar[data-snackbar-variant='info'] {
+		--snackbar-accent: var(--color-support-info-inverse);
+	}
+
+	.snackbar[data-snackbar-variant='system'] {
+		--snackbar-accent: var(--color-support-system-inverse);
+	}
+	@supports (color: light-dark(red, blue)) {
+		.snackbar {
+			--snackbar-accent: var(--color-support-info-inverse);
+		}
+
+		.snackbar[data-snackbar-variant='error'] {
+			--snackbar-accent: var(--color-support-error-inverse);
+		}
+
+		.snackbar[data-snackbar-variant='warning'] {
+			--snackbar-accent: var(--color-support-warning-inverse);
+		}
+
+		.snackbar[data-snackbar-variant='success'] {
+			--snackbar-accent: var(--color-support-success-inverse);
+		}
+
+		.snackbar[data-snackbar-variant='info'] {
+			--snackbar-accent: var(--color-support-info-inverse);
+		}
+
+		.snackbar[data-snackbar-variant='system'] {
+			--snackbar-accent: var(--color-support-system-inverse);
+		}
+	}
+}

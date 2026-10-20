@@ -1,0 +1,101 @@
+{
+	"notice-inline": {
+		"variants": {
+			"$extensions": {
+				"com.automattic.vip.css": {
+					"default": "info"
+				}
+			},
+			"error": {
+				"background": {
+					"$value": "{color.support.error.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.error.accent}",
+					"$type": "color"
+				},
+				"link": {
+					"$value": "{color.support.error.link}",
+					"$type": "color"
+				},
+				"link-hover": {
+					"$value": "{color.support.error.hover}",
+					"$type": "color"
+				}
+			},
+			"warning": {
+				"background": {
+					"$value": "{color.support.warning.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.warning.accent}",
+					"$type": "color"
+				},
+				"link": {
+					"$value": "{color.support.warning.link}",
+					"$type": "color"
+				},
+				"link-hover": {
+					"$value": "{color.support.warning.hover}",
+					"$type": "color"
+				}
+			},
+			"success": {
+				"background": {
+					"$value": "{color.support.success.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.success.accent}",
+					"$type": "color"
+				},
+				"link": {
+					"$value": "{color.support.success.link}",
+					"$type": "color"
+				},
+				"link-hover": {
+					"$value": "{color.support.success.hover}",
+					"$type": "color"
+				}
+			},
+			"info": {
+				"background": {
+					"$value": "{color.support.info.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.info.accent}",
+					"$type": "color"
+				},
+				"link": {
+					"$value": "{color.support.info.link}",
+					"$type": "color"
+				},
+				"link-hover": {
+					"$value": "{color.support.info.hover}",
+					"$type": "color"
+				}
+			},
+			"system": {
+				"background": {
+					"$value": "{color.support.system.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.system.accent}",
+					"$type": "color"
+				},
+				"link": {
+					"$value": "{color.support.system.link}",
+					"$type": "color"
+				},
+				"link-hover": {
+					"$value": "{color.support.system.hover}",
+					"$type": "color"
+				}
+			}
+		}
+	}
+}

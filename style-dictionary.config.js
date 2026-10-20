@@ -307,7 +307,6 @@ const components = [
 	{ name: 'checkbox', selector: '.checkbox' },
 	{ name: 'toggle', selector: '.toggle' },
 	{ name: 'radio-box', selector: '.radio-box' },
-	{ name: 'notice', selector: '.notice' },
 	{ name: 'code', selector: '.code' },
 ];
 

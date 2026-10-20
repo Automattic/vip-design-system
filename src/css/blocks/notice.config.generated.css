@@ -1,0 +1,75 @@
+/* Generated from tokens/component/notice.json by Style Dictionary. Do not edit. */
+@layer blocks {
+	.notice {
+		--notice-accent: var(--color-support-info-accent);
+		--notice-link: var(--color-support-info-link);
+		--notice-link-hover: var(--color-support-info-hover);
+	}
+
+	.notice[data-notice-variant='error'] {
+		--notice-accent: var(--color-support-error-accent);
+		--notice-link: var(--color-support-error-link);
+		--notice-link-hover: var(--color-support-error-hover);
+	}
+
+	.notice[data-notice-variant='warning'] {
+		--notice-accent: var(--color-support-warning-accent);
+		--notice-link: var(--color-support-warning-link);
+		--notice-link-hover: var(--color-support-warning-hover);
+	}
+
+	.notice[data-notice-variant='success'] {
+		--notice-accent: var(--color-support-success-accent);
+		--notice-link: var(--color-support-success-link);
+		--notice-link-hover: var(--color-support-success-hover);
+	}
+
+	.notice[data-notice-variant='info'] {
+		--notice-accent: var(--color-support-info-accent);
+		--notice-link: var(--color-support-info-link);
+		--notice-link-hover: var(--color-support-info-hover);
+	}
+
+	.notice[data-notice-variant='system'] {
+		--notice-accent: var(--color-support-system-accent);
+		--notice-link: var(--color-support-system-link);
+		--notice-link-hover: var(--color-support-system-hover);
+	}
+	@supports (color: light-dark(red, blue)) {
+		.notice {
+			--notice-accent: var(--color-support-info-accent);
+			--notice-link: var(--color-support-info-link);
+			--notice-link-hover: var(--color-support-info-hover);
+		}
+
+		.notice[data-notice-variant='error'] {
+			--notice-accent: var(--color-support-error-accent);
+			--notice-link: var(--color-support-error-link);
+			--notice-link-hover: var(--color-support-error-hover);
+		}
+
+		.notice[data-notice-variant='warning'] {
+			--notice-accent: var(--color-support-warning-accent);
+			--notice-link: var(--color-support-warning-link);
+			--notice-link-hover: var(--color-support-warning-hover);
+		}
+
+		.notice[data-notice-variant='success'] {
+			--notice-accent: var(--color-support-success-accent);
+			--notice-link: var(--color-support-success-link);
+			--notice-link-hover: var(--color-support-success-hover);
+		}
+
+		.notice[data-notice-variant='info'] {
+			--notice-accent: var(--color-support-info-accent);
+			--notice-link: var(--color-support-info-link);
+			--notice-link-hover: var(--color-support-info-hover);
+		}
+
+		.notice[data-notice-variant='system'] {
+			--notice-accent: var(--color-support-system-accent);
+			--notice-link: var(--color-support-system-link);
+			--notice-link-hover: var(--color-support-system-hover);
+		}
+	}
+}

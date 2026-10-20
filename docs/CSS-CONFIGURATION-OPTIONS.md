@@ -89,6 +89,58 @@ Aliases select the same values in both themes:
 | `brand`   | `gold`   |
 | `warning` | `yellow` |
 
+## banner variants
+
+Use `data-banner-variant`. Default: `info`. Only these named combinations are configurable.
+Each cell lists its light / dark semantic references; the selected semantic tokens also respond to the theme.
+
+| Option    | accent                                                                        | background                                                                            |
+| --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `error`   | `var(--color-support-error-accent)` / `var(--color-support-error-accent)`     | `var(--color-support-error-background)` / `var(--color-support-error-background)`     |
+| `warning` | `var(--color-support-warning-accent)` / `var(--color-support-warning-accent)` | `var(--color-support-warning-background)` / `var(--color-support-warning-background)` |
+| `info`    | `var(--color-support-info-accent)` / `var(--color-support-info-accent)`       | `var(--color-support-info-background)` / `var(--color-support-info-background)`       |
+| `system`  | `var(--color-support-system-accent)` / `var(--color-support-system-accent)`   | `var(--color-support-system-background)` / `var(--color-support-system-background)`   |
+| `brand`   | `var(--color-support-brand-accent)` / `var(--color-support-brand-accent)`     | `var(--color-support-brand-background)` / `var(--color-support-brand-background)`     |
+
+## notice-inline variants
+
+Use `data-notice-inline-variant`. Default: `info`. Only these named combinations are configurable.
+Each cell lists its light / dark semantic references; the selected semantic tokens also respond to the theme.
+
+| Option    | accent                                                                        | background                                                                            | link                                                                      | link-hover                                                                  |
+| --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `error`   | `var(--color-support-error-accent)` / `var(--color-support-error-accent)`     | `var(--color-support-error-background)` / `var(--color-support-error-background)`     | `var(--color-support-error-link)` / `var(--color-support-error-link)`     | `var(--color-support-error-hover)` / `var(--color-support-error-hover)`     |
+| `warning` | `var(--color-support-warning-accent)` / `var(--color-support-warning-accent)` | `var(--color-support-warning-background)` / `var(--color-support-warning-background)` | `var(--color-support-warning-link)` / `var(--color-support-warning-link)` | `var(--color-support-warning-hover)` / `var(--color-support-warning-hover)` |
+| `success` | `var(--color-support-success-accent)` / `var(--color-support-success-accent)` | `var(--color-support-success-background)` / `var(--color-support-success-background)` | `var(--color-support-success-link)` / `var(--color-support-success-link)` | `var(--color-support-success-hover)` / `var(--color-support-success-hover)` |
+| `info`    | `var(--color-support-info-accent)` / `var(--color-support-info-accent)`       | `var(--color-support-info-background)` / `var(--color-support-info-background)`       | `var(--color-support-info-link)` / `var(--color-support-info-link)`       | `var(--color-support-info-hover)` / `var(--color-support-info-hover)`       |
+| `system`  | `var(--color-support-system-accent)` / `var(--color-support-system-accent)`   | `var(--color-support-system-background)` / `var(--color-support-system-background)`   | `var(--color-support-system-link)` / `var(--color-support-system-link)`   | `var(--color-support-system-hover)` / `var(--color-support-system-hover)`   |
+
+## notice variants
+
+Use `data-notice-variant`. Default: `info`. Only these named combinations are configurable.
+Each cell lists its light / dark semantic references; the selected semantic tokens also respond to the theme.
+
+| Option    | accent                                                                        | link                                                                      | link-hover                                                                  |
+| --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `error`   | `var(--color-support-error-accent)` / `var(--color-support-error-accent)`     | `var(--color-support-error-link)` / `var(--color-support-error-link)`     | `var(--color-support-error-hover)` / `var(--color-support-error-hover)`     |
+| `warning` | `var(--color-support-warning-accent)` / `var(--color-support-warning-accent)` | `var(--color-support-warning-link)` / `var(--color-support-warning-link)` | `var(--color-support-warning-hover)` / `var(--color-support-warning-hover)` |
+| `success` | `var(--color-support-success-accent)` / `var(--color-support-success-accent)` | `var(--color-support-success-link)` / `var(--color-support-success-link)` | `var(--color-support-success-hover)` / `var(--color-support-success-hover)` |
+| `info`    | `var(--color-support-info-accent)` / `var(--color-support-info-accent)`       | `var(--color-support-info-link)` / `var(--color-support-info-link)`       | `var(--color-support-info-hover)` / `var(--color-support-info-hover)`       |
+| `system`  | `var(--color-support-system-accent)` / `var(--color-support-system-accent)`   | `var(--color-support-system-link)` / `var(--color-support-system-link)`   | `var(--color-support-system-hover)` / `var(--color-support-system-hover)`   |
+
+## snackbar variants
+
+Use `data-snackbar-variant`. Default: `info`. Only these named combinations are configurable.
+Each cell lists its light / dark semantic references; the selected semantic tokens also respond to the theme.
+
+| Option    | accent                                                                          |
+| --------- | ------------------------------------------------------------------------------- |
+| `error`   | `var(--color-support-error-inverse)` / `var(--color-support-error-inverse)`     |
+| `warning` | `var(--color-support-warning-inverse)` / `var(--color-support-warning-inverse)` |
+| `success` | `var(--color-support-success-inverse)` / `var(--color-support-success-inverse)` |
+| `info`    | `var(--color-support-info-inverse)` / `var(--color-support-info-inverse)`       |
+| `system`  | `var(--color-support-system-inverse)` / `var(--color-support-system-inverse)`   |
+
 ## space
 
 | Option | CSS value                  |

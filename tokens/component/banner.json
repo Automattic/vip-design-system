@@ -1,0 +1,61 @@
+{
+	"banner": {
+		"variants": {
+			"$extensions": {
+				"com.automattic.vip.css": {
+					"default": "info"
+				}
+			},
+			"error": {
+				"background": {
+					"$value": "{color.support.error.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.error.accent}",
+					"$type": "color"
+				}
+			},
+			"warning": {
+				"background": {
+					"$value": "{color.support.warning.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.warning.accent}",
+					"$type": "color"
+				}
+			},
+			"info": {
+				"background": {
+					"$value": "{color.support.info.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.info.accent}",
+					"$type": "color"
+				}
+			},
+			"system": {
+				"background": {
+					"$value": "{color.support.system.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.system.accent}",
+					"$type": "color"
+				}
+			},
+			"brand": {
+				"background": {
+					"$value": "{color.support.brand.background}",
+					"$type": "color"
+				},
+				"accent": {
+					"$value": "{color.support.brand.accent}",
+					"$type": "color"
+				}
+			}
+		}
+	}
+}

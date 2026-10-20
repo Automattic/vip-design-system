@@ -1,0 +1,41 @@
+{
+	"snackbar": {
+		"variants": {
+			"$extensions": {
+				"com.automattic.vip.css": {
+					"default": "info"
+				}
+			},
+			"error": {
+				"accent": {
+					"$value": "{color.support.error.inverse}",
+					"$type": "color"
+				}
+			},
+			"warning": {
+				"accent": {
+					"$value": "{color.support.warning.inverse}",
+					"$type": "color"
+				}
+			},
+			"success": {
+				"accent": {
+					"$value": "{color.support.success.inverse}",
+					"$type": "color"
+				}
+			},
+			"info": {
+				"accent": {
+					"$value": "{color.support.info.inverse}",
+					"$type": "color"
+				}
+			},
+			"system": {
+				"accent": {
+					"$value": "{color.support.system.inverse}",
+					"$type": "color"
+				}
+			}
+		}
+	}
+}
