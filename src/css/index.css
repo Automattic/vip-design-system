@@ -19,7 +19,6 @@
 @import './generated/components/checkbox.css';
 @import './generated/components/toggle.css';
 @import './generated/components/radio-box.css';
-@import './generated/components/notice.css';
 @import './generated/components/code.css';
 
 /* Typography utility classes (.type-heading-1, .type-body-default, etc.) */
@@ -47,15 +46,18 @@
 
 /* Blocks */
 @import './blocks/badge.css';
+@import './blocks/banner.css';
 @import './blocks/button.css';
 @import './blocks/checkbox.css';
 @import './blocks/console.css';
 @import './blocks/input.css';
 @import './blocks/notice.css';
+@import './blocks/notice-inline.css';
 @import './blocks/option-row.css';
 @import './blocks/radio.css';
 @import './blocks/radio-box.css';
 @import './blocks/slider.css';
+@import './blocks/snackbar.css';
 @import './blocks/sticker.css';
 @import './blocks/tag.css';
 @import './blocks/toggle.css';

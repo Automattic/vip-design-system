@@ -1,0 +1,106 @@
+@import './snackbar.config.generated.css';
+
+@layer blocks {
+	/*
+	 * Snackbar — transient inverted toast, Figma 16014:8794.
+	 *
+	 *   <div class="snackbar" data-snackbar-variant="error" role="status">
+	 *     <svg class="snackbar__icon icon" aria-hidden="true">…</svg>
+	 *     <div class="snackbar__text">
+	 *       <p class="snackbar__heading type-heading-5">Header (optional)</p>
+	 *       <p class="type-body-small">Error message.</p>
+	 *     </div>
+	 *     <div class="snackbar__actions">…</div>
+	 *   </div>
+	 *
+	 * The surface is inverted in both themes, so it uses the `inverse` neutrals
+	 * throughout and the support sets' `inverse` accent ramp — the lighter step
+	 * that reads against a dark fill. That ramp exists for exactly this surface.
+	 *
+	 * Two differences from the notice family, both from Figma: the type is one
+	 * step smaller (12px heading and body against 14px), and the icon is centred
+	 * on the whole block rather than on the first line.
+	 *
+	 * KNOWN CONTRAST PROBLEM, not introduced here. `color.text.inverse-secondary`
+	 * carries a dark-mode override to gray.70, which assumes an inverse surface
+	 * flips to light in dark mode. `color.layer.inverse` does not flip — it goes
+	 * to gray.100 — so in dark mode the body text lands at 2.48:1 and fails AA.
+	 * Figma solves this by fixing the snackbar's text at gray.7 in both themes.
+	 * The fix belongs in the semantic token, so it is flagged rather than patched
+	 * around here. Until then dark mode is the failing case; light mode is 8.15:1.
+	 */
+
+	.snackbar {
+		display: flex;
+		align-items: center;
+		gap: var(--space-modest);
+		padding: var(--space-comfortable);
+		border-radius: var(--radius-control);
+		background-color: var(--color-layer-inverse);
+		color: var(--color-text-inverse-secondary);
+	}
+
+	/* ── Icon ─────────────────────────────────────────────────────────────────── */
+	/*
+	 * Centred on the block, not the first line — `align-items: center` on the
+	 * flex parent already does that, so no nudge is needed here.
+	 */
+	.snackbar__icon {
+		--icon-size: 18px;
+
+		flex-shrink: 0;
+		color: var(--snackbar-accent);
+	}
+
+	/* ── Text column ──────────────────────────────────────────────────────────── */
+
+	.snackbar__text {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-hairline);
+		min-inline-size: 0;
+	}
+
+	.snackbar__heading {
+		/* Typography via .type-heading-5 — add that class to the element. */
+		color: var(--color-text-inverse-primary);
+	}
+
+	/* ── Actions ──────────────────────────────────────────────────────────────── */
+
+	.snackbar__actions {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		gap: var(--space-micro);
+		margin-inline-end: -8px;
+	}
+
+	/*
+	 * An action on an inverted surface is a plain label, not a tinted button —
+	 * the fill would compete with the snackbar itself.
+	 */
+	.snackbar__action {
+		/* Typography via .type-support-label-small — add that class. */
+		color: var(--color-text-inverse-primary);
+		background: none;
+		border: 0;
+		cursor: pointer;
+	}
+
+	.snackbar__dismiss {
+		--icon-size: 18px;
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		inline-size: 38px;
+		block-size: 38px;
+		padding: 0;
+		color: var(--color-icon-inverse);
+		background: none;
+		border: 0;
+		cursor: pointer;
+	}
+}

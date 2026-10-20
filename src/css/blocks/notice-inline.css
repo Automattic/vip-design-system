@@ -1,0 +1,103 @@
+@import './notice-inline.config.generated.css';
+
+@layer blocks {
+	/*
+	 * Notice-inline — tinted block, Figma 16010:14240.
+	 *
+	 *   <div class="notice-inline" data-notice-inline-variant="error">
+	 *     <svg class="notice-inline__icon icon" aria-hidden="true">…</svg>
+	 *     <div class="notice-inline__text">
+	 *       <p class="notice-inline__heading type-heading-4">There are errors…</p>
+	 *       <div class="notice-inline__body">…</div>
+	 *     </div>
+	 *   </div>
+	 *
+	 * Structurally identical to `.notice` — same 16px padding, same 18px icon on
+	 * the first line, same heading/body/list column, same five purposes. The two
+	 * differ only in surface: this one tints per purpose and sits flat in the
+	 * page; the card is one white surface with a shadow and an accent flag.
+	 *
+	 * They are kept as separate blocks because Figma keeps them as separate
+	 * components with separate token sets (`-notice/*` and `-notice-inline/*`),
+	 * and because the generated configuration CSS binds one token set to one
+	 * class. If a third notice-like surface ever appears, lift the shared column
+	 * into a composition rather than copying it a third time.
+	 */
+
+	.notice-inline {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-tight);
+		padding: var(--space-comfortable);
+		border-radius: var(--radius-subtle);
+		background-color: var(--notice-inline-background);
+		color: var(--color-text-secondary);
+	}
+
+	/* ── Icon ─────────────────────────────────────────────────────────────────── */
+
+	.notice-inline__icon {
+		--icon-size: 18px;
+
+		flex-shrink: 0;
+		/* (heading line-box 22.4px − 18px icon) ÷ 2 */
+		margin-block-start: 2px;
+		color: var(--notice-inline-accent);
+	}
+
+	/* ── Text column ──────────────────────────────────────────────────────────── */
+
+	.notice-inline__text {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-micro);
+		min-inline-size: 0;
+	}
+
+	.notice-inline__heading {
+		/* Typography via .type-heading-4 — add that class to the element. */
+		color: var(--color-text-primary);
+	}
+
+	.notice-inline__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-tight);
+	}
+
+	.notice-inline__list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-micro);
+		padding-inline-start: var(--space-comfortable);
+		list-style: disc;
+	}
+
+	.notice-inline__list::marker,
+	.notice-inline__list > li::marker {
+		color: var(--notice-inline-accent);
+	}
+
+	/* ── Links ────────────────────────────────────────────────────────────────── */
+
+	.notice-inline__link {
+		color: var(--notice-inline-link);
+		text-decoration: underline;
+	}
+
+	.notice-inline__link:hover {
+		color: var(--notice-inline-link-hover);
+	}
+
+	/* ── Actions ──────────────────────────────────────────────────────────────── */
+
+	.notice-inline__actions {
+		display: flex;
+		align-items: flex-start;
+		flex-shrink: 0;
+		gap: var(--space-micro);
+		margin-block-start: -8px;
+		margin-inline-end: -8px;
+	}
+}

@@ -1,0 +1,82 @@
+@import './banner.config.generated.css';
+
+@layer blocks {
+	/*
+	 * Banner — full-bleed site-wide strip, Figma 16014:13850.
+	 *
+	 *   <div class="banner" data-banner-variant="brand">
+	 *     <svg class="banner__icon icon" aria-hidden="true">…</svg>
+	 *     <div class="banner__text">
+	 *       <p class="banner__heading type-heading-4">There is a site-wide…</p>
+	 *       <p class="type-body-default">This is a message.</p>
+	 *     </div>
+	 *     <div class="banner__actions">
+	 *       <button class="button" data-variant="ghost">Action</button>
+	 *       <button class="banner__dismiss" aria-label="Dismiss">…</button>
+	 *     </div>
+	 *   </div>
+	 *
+	 * A banner is for notices that are not tied to a page, so it spans the full
+	 * width and squares its corners.
+	 *
+	 * WHY THIS IS NOT A VARIANT OF notice-inline, despite sharing its colours in
+	 * Figma today: the two do not carry the same purposes. A banner has `brand`
+	 * and no `success`; an inline notice has `success` and no `brand`. In the
+	 * design file that shows up as `-notice-inline/*` covering four of the
+	 * banner's five purposes, with `brand` falling through to the raw semantic
+	 * `color/support/brand/background` — a token set with a hole in it. Giving
+	 * banner its own set closes the hole without forcing either component to
+	 * carry a purpose it never uses. Both sets alias the same `color.support.*`
+	 * semantics, so no value is duplicated; only the aliases are, which is what
+	 * the component tier is for.
+	 *
+	 * A banner's actions are buttons, not links, so there is no link pair here.
+	 */
+
+	.banner {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-tight);
+		/* Figma: 12px inline, 16px block to the first line. */
+		padding: var(--space-comfortable) var(--space-modest);
+		background-color: var(--banner-background);
+		color: var(--color-text-secondary);
+	}
+
+	/* ── Icon ─────────────────────────────────────────────────────────────────── */
+
+	.banner__icon {
+		--icon-size: 18px;
+
+		flex-shrink: 0;
+		/* (heading line-box 22.4px − 18px icon) ÷ 2 */
+		margin-block-start: 2px;
+		color: var(--banner-accent);
+	}
+
+	/* ── Text column ──────────────────────────────────────────────────────────── */
+
+	.banner__text {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-micro);
+		min-inline-size: 0;
+	}
+
+	.banner__heading {
+		/* Typography via .type-heading-4 — add that class to the element. */
+		color: var(--color-text-primary);
+	}
+
+	/* ── Actions ──────────────────────────────────────────────────────────────── */
+
+	.banner__actions {
+		display: flex;
+		align-items: flex-start;
+		flex-shrink: 0;
+		gap: var(--space-micro);
+		margin-block-start: -8px;
+		margin-inline-end: -8px;
+	}
+}

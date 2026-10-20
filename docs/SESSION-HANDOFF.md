@@ -53,7 +53,9 @@ This session connected the Figma MCP and ported six components from the design f
 
 ### Not built
 
-Select's **custom dropdown**, Notice, Notice-inline, Banner, Snackbar, Checkbox-list, Radio-list. Figma node links are in the conversation history and listed under Open items.
+Select's **custom dropdown**, Checkbox-list, Radio-list. Figma node links are in the conversation history and listed under Open items.
+
+The notice family — **Notice** (`16008:13986`), **Notice-inline** (`16010:14240`), **Banner** (`16014:13850`, usage example `16014:11724`) and **Snackbar** (`16014:8794`) — was built on 2026-10-20. Each is a block plus a variants token set plus a Storybook story. All four use `data-{name}-variant` over five purposes; banner's five are error, warning, info, system, **brand**, the other three are error, warning, **success**, info, system.
 
 ### Icons
 
@@ -168,9 +170,20 @@ Other parallels, all verified by value:
 
 **Select's custom dropdown.** The native `<select>`'s open panel is drawn by the OS and cannot be styled, so it will never match Figma. Matching it means a custom listbox — the **first component in this system needing JavaScript**, and the first real entry in `src/components/`. `REBUILD-PLAN` anticipates this ("Radix where they earn their keep"). What is given up: the OS picker on mobile, no-JS operation, and ARIA that every assistive technology already understands. Figma nodes: Select-dropdown `15794:4246`, `.dropdown` `15793:3306`, `.item-core` `15793:3293`, `.list-item` `15793:3300`, `.select-dropdown-item` `15794:3387`. Emily's screenshot shows a **separator between option groups** — confirm whether that is `<optgroup>`-shaped.
 
-**Notice needs a second text slot.** Figma splits `heading` (`text.primary`) from body (`text.secondary`); `notice.json` has one slot mapped to primary.
+**The snackbar's inverse neutrals disagree with Figma in two places, and one of them fails AA.** This is the live variables diff and needs Emily's call:
 
-**Banner shares inline-notice's tokens.** Recommendation given and not yet acted on: one shared set, Banner as its own block, both referencing `color.support.*` directly. The `-notice-inline/*` tokens are pure aliases of the support tokens.
+| slot      | Figma     | code today                                 |                 |
+| --------- | --------- | ------------------------------------------ | --------------- |
+| surface   | `gray.85` | `color.layer.inverse` = `black`            | one step darker |
+| body text | `gray.7`  | `color.text.inverse-secondary` = `gray.30` | see below       |
+
+`color.text.inverse-secondary` carries a dark-mode override to `gray.70` that assumes an inverse surface flips to light. `color.layer.inverse` does not flip — it goes to `gray.100` — so in dark mode the pair measures **2.48:1** in the live DOM against the 4.5:1 minimum. Light mode is fine at 8.15:1. Figma sidesteps it by fixing the snackbar's text at `gray.7` in both themes. The defect is in the semantic token and reaches every inverse surface, so it is flagged rather than patched inside `snackbar.css`. Proposed fix: drop or re-point the `dark` extension on `color.text.inverse-secondary`.
+
+Everything else in all four components matched exactly — every `-notice/*`, `-notice-inline/*` and `-snackbar/*` colour in Figma resolves onto an existing semantic token, including all five snackbar accents landing precisely on `color.support.*.inverse`.
+
+**The notice family needs five solid icons that the curated set does not have.** Figma uses the solid Boxicons variants: `bxs-error-circle` (error), `bxs-error` (warning), `bxs-check-circle` (success), `bxs-info-circle` (info), `bxs-cog` (system). All five exist in the Figma Icons library. The stories currently use the outline stand-ins — `bx-error-circle`, `bx-error`, `bx-check`, `bx-info-circle`, `bx-cog` — and `bx-check` is the weakest of them, a bare tick where Figma draws a filled circle. Adding them needs `FIGMA_TOKEN` set so `npm run icons:sync` can resolve their library node ids; the component keys are known but the manifest stores node ids.
+
+**Banner's action labels differ from ours.** Figma draws them as a ghost button with a `color/text/primary` label; our ghost button's foreground is gold. Visible in the Banner story.
 
 **`button-foreground.danger` light mode is below AA** — red.55 measures 4.35 on layer-1 and 3.99 on layer-3. red.60 clears every light surface. Left as specified.
 
@@ -182,7 +195,9 @@ Other parallels, all verified by value:
 
 ### Not yet diffed
 
-The two **shadows** — `Low` on Notice and `shadow/medium` on dropdown — against `tokens/semantic/shadow.json`. Toggle's thumb shadow (dy 1, blur 3, 8%) is none of the three and sits in the block.
+`shadow/medium` on the dropdown, against `tokens/semantic/shadow.json`. Toggle's thumb shadow (dy 1, blur 3, 8%) is none of the three and sits in the block.
+
+Notice's `Low` **is** diffed and matches: Figma's two drop shadows (`#00000026` 0/1/1 and `#0000000d` 0/1/5) are `shadow.1`, i.e. `--shadow-low`, exactly.
 
 ### Infrastructure
 
