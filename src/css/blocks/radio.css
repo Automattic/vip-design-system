@@ -1,10 +1,31 @@
 @layer blocks {
+	/*
+	 * Radio — 17x17, 1px border, matching Figma (15783:978).
+	 *
+	 * Yes, 17 where the checkbox is 16. That is what the design file specifies:
+	 * the checkbox frame is size-[16px] and the radio frame is size-[17px].
+	 * Worth a look if the two ever sit side by side in a form.
+	 *
+	 * The dot is drawn on a ::before and filled with the token, for the same
+	 * reason as the checkbox's mark: a background-image data URI carries its
+	 * own fill and cannot reference a custom property, which left
+	 * --radio-foreground and --radio-foreground-disabled unused.
+	 *
+	 * Figma specifies no hover state for radio, though it does for checkbox.
+	 * The hover below is carried over rather than dropped — removing the only
+	 * pointer affordance from a control would be a regression the design file
+	 * is not actually asking for — but it now uses the same semantic border as
+	 * the checkbox instead of reaching for a control background token.
+	 */
+
 	.radio {
 		appearance: none;
-		width: 1rem;
-		height: 1rem;
+		display: grid;
+		place-content: center;
+		inline-size: 1.0625rem;
+		block-size: 1.0625rem;
 		flex-shrink: 0;
-		border: 1.5px solid var(--radio-border);
+		border: 1px solid var(--radio-border);
 		border-radius: 50%;
 		background-color: var(--radio-background);
 		cursor: pointer;
@@ -14,7 +35,7 @@
 	}
 
 	.radio:hover {
-		border-color: var(--color-control-background-primary);
+		border-color: var(--color-border-control-hover);
 	}
 
 	.radio:focus-visible {
@@ -22,13 +43,23 @@
 		outline-offset: 2px;
 	}
 
+	/* ── Selected ─────────────────────────────────────────────────────────────── */
+
 	.radio:checked {
 		background-color: var(--radio-background-selected);
 		border-color: var(--radio-background-selected);
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6' cy='6' r='2.5' fill='%23fff'/%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: center;
 	}
+
+	.radio:checked::before {
+		content: '';
+		/* Figma: circle r=3 centred in a 17px box, so a 6px dot. */
+		inline-size: 0.375rem;
+		block-size: 0.375rem;
+		border-radius: 50%;
+		background-color: var(--radio-foreground);
+	}
+
+	/* ── Disabled ─────────────────────────────────────────────────────────────── */
 
 	.radio:disabled {
 		background-color: var(--radio-background-disabled);
@@ -39,5 +70,9 @@
 	.radio:checked:disabled {
 		background-color: var(--radio-background-disabled);
 		border-color: transparent;
+	}
+
+	.radio:checked:disabled::before {
+		background-color: var(--radio-foreground-disabled);
 	}
 }

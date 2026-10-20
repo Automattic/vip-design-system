@@ -1,10 +1,29 @@
 @layer blocks {
+	/*
+	 * Checkbox — 16x16, 1px border, 2px radius, matching Figma (15783:932).
+	 *
+	 * The check and the indeterminate dash are drawn on a ::before, masked to
+	 * the shape and filled with background-color. The obvious alternative — a
+	 * background-image data URI — has to carry its own fill, and a data URI
+	 * cannot reference a custom property. That is why --checkbox-foreground and
+	 * --checkbox-foreground-disabled existed but nothing used them, and why the
+	 * mark was a hardcoded #FBFBFB where the token says #ffffff. Masking the
+	 * shape and painting it with the token keeps the mark themeable.
+	 *
+	 * The mask cannot go on the input itself: it would clip the box and border
+	 * away along with everything outside the mark.
+	 *
+	 * Paths are Figma's own, not redrawn.
+	 */
+
 	.checkbox {
 		appearance: none;
-		width: 1rem;
-		height: 1rem;
+		display: grid;
+		place-content: center;
+		inline-size: 1rem;
+		block-size: 1rem;
 		flex-shrink: 0;
-		border: 1.5px solid var(--checkbox-border);
+		border: 1px solid var(--checkbox-border);
 		border-radius: var(--radius-subtle);
 		background-color: var(--checkbox-background);
 		cursor: pointer;
@@ -22,23 +41,35 @@
 		outline-offset: 2px;
 	}
 
-	.checkbox:checked {
-		background-color: var(--checkbox-background-selected);
-		border-color: var(--checkbox-background-selected);
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.4999 4.99953L5.7254 12.4008L2.5 9.33026L3.83307 7.92997L5.7254 9.73147L12.1668 3.59924L13.4999 4.99953Z' fill='%23FBFBFB'/%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: 100%;
-	}
+	/* ── Marks ────────────────────────────────────────────────────────────────── */
 
+	.checkbox:checked,
 	.checkbox:indeterminate {
 		background-color: var(--checkbox-background-selected);
 		border-color: var(--checkbox-background-selected);
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='4' y='7' width='8' height='2' fill='%23FBFBFB'/%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: 100%;
 	}
+
+	.checkbox:checked::before,
+	.checkbox:indeterminate::before {
+		content: '';
+		/* The mark is drawn at the full 16px box, so it must ignore the border. */
+		inline-size: 1rem;
+		block-size: 1rem;
+		background-color: var(--checkbox-foreground);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: 100%;
+	}
+
+	.checkbox:checked::before {
+		mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13 5.27276L5.93221 12L3 9.20907L4.2119 7.93631L5.93221 9.57374L11.7881 4L13 5.27276Z'/%3E%3C/svg%3E");
+	}
+
+	.checkbox:indeterminate::before {
+		mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='4' y='7' width='8' height='2'/%3E%3C/svg%3E");
+	}
+
+	/* ── Disabled ─────────────────────────────────────────────────────────────── */
 
 	.checkbox:disabled {
 		background-color: var(--checkbox-background-disabled);
@@ -50,5 +81,10 @@
 	.checkbox:indeterminate:disabled {
 		background-color: var(--checkbox-background-disabled);
 		border-color: transparent;
+	}
+
+	.checkbox:checked:disabled::before,
+	.checkbox:indeterminate:disabled::before {
+		background-color: var(--checkbox-foreground-disabled);
 	}
 }
