@@ -89,6 +89,31 @@ Raw value → Primitive token → Semantic token → Component token
 - Semantic tokens are what change between themes.
 - Component tokens are scoped to the component's root CSS class, not `:root`.
 
+**Which tier to reach for, by where you are:**
+
+| Writing                            | Use                           | Why                                                                                            |
+| ---------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| `global.css` — bare element styles | semantic                      | the element is not inside any block, so component tokens are out of scope and will not resolve |
+| a block (`blocks/*.css`)           | that block's component tokens | the tier exists so one component can diverge without affecting others                          |
+| a composition or utility           | semantic                      | they are content-agnostic and apply anywhere                                                   |
+
+This is a mechanical constraint, not a preference. `--input-border` is defined on
+`.input`, so on a bare `<input>` it is undefined — and an undefined custom
+property with no fallback makes the **whole declaration** invalid at
+computed-value time, not just the colour. `border: 1px solid var(--undefined)`
+resets `border-style` to `none` and the border disappears entirely. That is a
+silent failure: no error, no warning, just a missing border that reads as a
+design choice. It shipped twice in this repo before being caught.
+
+Nothing is lost by using the semantic token, because the component token is
+usually an alias of it — `--input-border` _is_ `--color-border-control`. Both
+resolve to the same value and theme identically.
+
+**After any token rename, re-check for dangling references.** Diff every
+`var(--…)` in the authored CSS against the properties the generated CSS
+actually defines; a rename that misses a consumer produces exactly the silent
+failure above.
+
 ### Theming
 
 - Light/dark themes are differentiated by color only.
