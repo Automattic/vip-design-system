@@ -158,18 +158,29 @@ export const Textarea: Story = {
 	),
 };
 
-/** A select uses the same classes too. */
+/**
+ * A select uses the same classes, wrapped in `.input__control` so the chevron
+ * has somewhere to live — a `<select>` is a replaced element and cannot carry
+ * a pseudo-element of its own.
+ *
+ * **This is the closed state only.** The open dropdown is drawn by the
+ * operating system and cannot be styled, so it will not match the design.
+ * Matching it needs a custom listbox, which is a separate component with real
+ * keyboard and ARIA surface.
+ */
 export const Select: Story = {
 	render: () => (
 		<div className="input" style={{ maxWidth: 360 }}>
 			<label className="input__label type-support-label-default" htmlFor="sel">
 				Environment
 			</label>
-			<select id="sel" className="input__field type-body-default">
-				<option>Production</option>
-				<option>Staging</option>
-				<option>Development</option>
-			</select>
+			<div className="input__control">
+				<select id="sel" className="input__field type-body-default">
+					<option>Production</option>
+					<option>Staging</option>
+					<option>Development</option>
+				</select>
+			</div>
 		</div>
 	),
 };

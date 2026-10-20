@@ -91,6 +91,52 @@
 		border-color: var(--input-border-read-only);
 	}
 
+	/* ── Select ───────────────────────────────────────────────────────────────── */
+	/*
+	 * A native <select> draws its own arrow, which is the browser's and not
+	 * ours. appearance: none removes it; the chevron is drawn on the wrapper's
+	 * ::after so it can be masked and take --input-icon-helper, rather than
+	 * baked into a background-image whose fill cannot reference a token.
+	 *
+	 * The wrapper is needed because a <select> is a replaced element — a
+	 * pseudo-element on it would not render.
+	 *
+	 *   <div class="input__control">
+	 *     <select class="input__field type-body-default">…</select>
+	 *   </div>
+	 *
+	 * This styles the CLOSED state only. The open dropdown is drawn by the
+	 * operating system and cannot be styled at all, so it will not match the
+	 * design. Matching it needs a custom listbox — see the Select component.
+	 */
+
+	.input__control {
+		position: relative;
+		display: grid;
+	}
+
+	.input__control::after {
+		content: '';
+		position: absolute;
+		inset-inline-end: var(--space-close);
+		inset-block-start: 50%;
+		translate: 0 -50%;
+		inline-size: 1rem;
+		block-size: 1rem;
+		pointer-events: none;
+		background-color: var(--input-icon-helper);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: contain;
+		mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.293 9.29303L12 13.586L7.70697 9.29303L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.29303Z'/%3E%3C/svg%3E");
+	}
+
+	select.input__field {
+		appearance: none;
+		/* Room for the chevron: 8px gutter + 16px glyph + 8px gap. */
+		padding-inline-end: 2rem;
+	}
+
 	/* ── Helper and error text ────────────────────────────────────────────────── */
 
 	.input__helper {
