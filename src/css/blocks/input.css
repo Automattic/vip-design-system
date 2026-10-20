@@ -1,8 +1,26 @@
 @layer blocks {
+	/*
+	 * Input — 40px field, matching Figma (15787:1203).
+	 *
+	 * One block serves input, textarea and select: all three use the same
+	 * -input/* token set in Figma, so they are variants of one thing rather
+	 * than three components.
+	 *
+	 *   <div class="input">
+	 *     <label class="input__label type-support-label-default" for="x">Label</label>
+	 *     <input id="x" class="input__field type-body-default">
+	 *     <p class="input__helper type-support-helper-text">Helper text</p>
+	 *   </div>
+	 *
+	 * The helper takes an icon in both its states — info when neutral, error
+	 * when the field is invalid. That icon is 12px, not 1cap: it pairs with
+	 * 12px helper text rather than running copy, and Figma sizes it explicitly.
+	 */
+
 	.input {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-micro);
+		gap: var(--space-tight);
 	}
 
 	.input__label {
@@ -10,17 +28,38 @@
 		color: var(--input-label);
 	}
 
+	/*
+	 * A secondary label sits inline after the main one — "(Optional)",
+	 * "(Required)". The small variant is 12px where the label is 14px.
+	 */
+	.input__label-secondary {
+		color: var(--color-text-secondary);
+	}
+
+	.input__label-note {
+		color: var(--color-text-helper);
+	}
+
+	/* ── Field ────────────────────────────────────────────────────────────────── */
+
 	.input__field {
 		/* Typography via .type-body-default — add that class to .input__field */
+		block-size: 2.5rem;
+		inline-size: 100%;
+		min-inline-size: 3.75rem;
 		color: var(--input-text);
 		background-color: var(--input-background);
 		border: 1px solid var(--input-border);
 		border-radius: var(--radius-control);
-		padding: var(--space-close) var(--space-modest);
-		width: 100%;
+		padding: var(--space-tight) var(--space-close);
 		transition:
 			border-color 120ms ease,
 			box-shadow 120ms ease;
+	}
+
+	/* A textarea has no fixed height — it grows with its rows. */
+	textarea.input__field {
+		block-size: auto;
 	}
 
 	.input__field::placeholder {
@@ -33,13 +72,11 @@
 		border-color: var(--color-control-background-primary);
 	}
 
-	/* ── Error state ──────────────────────────────────────────────────────────── */
+	/* ── States ───────────────────────────────────────────────────────────────── */
 
 	.input[data-state='error'] .input__field {
 		border-color: var(--input-border-error);
 	}
-
-	/* ── Disabled state ───────────────────────────────────────────────────────── */
 
 	.input[data-state='disabled'] .input__field,
 	.input__field:disabled {
@@ -48,22 +85,81 @@
 		cursor: not-allowed;
 	}
 
-	/* ── Read-only state ──────────────────────────────────────────────────────── */
-
 	.input[data-state='read-only'] .input__field,
 	.input__field[readonly] {
 		background-color: var(--input-background-read-only);
 		border-color: var(--input-border-read-only);
 	}
 
-	/* ── Helper / error text ──────────────────────────────────────────────────── */
+	/* ── Select ───────────────────────────────────────────────────────────────── */
+	/*
+	 * A native <select> draws its own arrow, which is the browser's and not
+	 * ours. appearance: none removes it; the chevron is drawn on the wrapper's
+	 * ::after so it can be masked and take --input-icon-helper, rather than
+	 * baked into a background-image whose fill cannot reference a token.
+	 *
+	 * The wrapper is needed because a <select> is a replaced element — a
+	 * pseudo-element on it would not render.
+	 *
+	 *   <div class="input__control">
+	 *     <select class="input__field type-body-default">…</select>
+	 *   </div>
+	 *
+	 * This styles the CLOSED state only. The open dropdown is drawn by the
+	 * operating system and cannot be styled at all, so it will not match the
+	 * design. Matching it needs a custom listbox — see the Select component.
+	 */
+
+	.input__control {
+		position: relative;
+		display: grid;
+	}
+
+	.input__control::after {
+		content: '';
+		position: absolute;
+		inset-inline-end: var(--space-close);
+		inset-block-start: 50%;
+		translate: 0 -50%;
+		inline-size: 1rem;
+		block-size: 1rem;
+		pointer-events: none;
+		background-color: var(--input-icon-helper);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: contain;
+		mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.293 9.29303L12 13.586L7.70697 9.29303L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.29303Z'/%3E%3C/svg%3E");
+	}
+
+	select.input__field {
+		appearance: none;
+		/* Room for the chevron: 8px gutter + 16px glyph + 8px gap. */
+		padding-inline-end: 2rem;
+	}
+
+	/* ── Helper and error text ────────────────────────────────────────────────── */
 
 	.input__helper {
 		/* Typography via .type-support-helper-text — add that class to .input__helper */
-		color: var(--color-text-helper);
+		display: flex;
+		align-items: center;
+		gap: var(--space-micro);
+		color: var(--input-text-helper);
 	}
 
-	.input[data-state='error'] .input__helper {
-		color: var(--color-support-error-symbol);
+	.input__helper .icon {
+		--icon-size: 0.75rem;
+		color: var(--input-icon-helper);
+	}
+
+	/*
+	 * In the error state both the text and its icon take the error colour.
+	 * This previously read --color-support-error-symbol, which stopped existing
+	 * when the support sets were restructured and `symbol` became `text` — so
+	 * the error helper had no colour at all.
+	 */
+	.input[data-state='error'] .input__helper,
+	.input[data-state='error'] .input__helper .icon {
+		color: var(--color-support-error-text);
 	}
 }

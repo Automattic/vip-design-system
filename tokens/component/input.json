@@ -35,6 +35,14 @@
 		"text-placeholder": {
 			"$value": "{color.text.placeholder}",
 			"$type": "color"
+		},
+		"text-helper": {
+			"$value": "{color.text.helper}",
+			"$type": "color"
+		},
+		"icon-helper": {
+			"$value": "{color.text.placeholder}",
+			"$type": "color"
 		}
 	}
 }

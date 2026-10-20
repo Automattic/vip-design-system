@@ -9,4 +9,6 @@
 	--input-label: var(--color-text-primary);
 	--input-text: var(--color-text-primary);
 	--input-text-placeholder: var(--color-text-placeholder);
+	--input-text-helper: var(--color-text-helper);
+	--input-icon-helper: var(--color-text-placeholder);
 }
