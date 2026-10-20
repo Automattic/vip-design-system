@@ -1,28 +1,36 @@
 # CSS configuration
 
-Compositions and configurable utilities accept a finite set of `data-*` options.
+Compositions, the badge block, and configurable utilities accept a finite set of `data-*` options.
 Keep the class to activate the pattern; use prefixed attributes to configure it.
 Attributes assign CSS custom properties, which remain the underlying API for
-custom values. Fixed utilities such as `.p-4`, `.gap-3`, and `.text-primary` keep
+custom values. Fixed utilities such as `.p-5`, `.gap-4`, and `.text-primary` keep
 their class APIs.
 
 ```html
-<div class="stack" data-stack-gap="7" data-stack-inline-alignment="center">…</div>
-<section class="region flow" data-region-space="10" data-flow-space="5">…</section>
-<div class="grid" data-grid-columns="3" data-grid-min-item-size="12rem" data-grid-gap="6">…</div>
+<div class="stack" data-stack-gap="8" data-stack-inline-alignment="center">…</div>
+<section class="region flow" data-region-space="11" data-flow-space="6">…</section>
+<div class="grid" data-grid-columns="3" data-grid-min-item-size="12rem" data-grid-gap="7">…</div>
 ```
 
 See the [complete option reference](./CSS-CONFIGURATION-OPTIONS.md). Attribute
 values are exact, case-sensitive strings. Unsupported or missing values leave the
 local default in place (or the selected box surface for individual box colors).
 A length such as `12rem` is an enumerated preset, not arbitrary CSS parsing.
-Spacing uses the existing `0`–`12` scale: **`0` is 2px**, not zero. Use `none` for
-no spacing. With-icon gaps retain their font-relative `em` scale.
+Spacing uses the `0`–`13` scale: **`0` is zero**, `1` is 2px, and `13` is 10rem.
+`none` remains an alias for zero spacing. With-icon gaps retain their font-relative `em` scale.
+
+The former spacing steps `0`–`12` have moved to `1`–`13`; numeric utility classes
+and spacing attributes follow the same numbering. Update an old `p-5` to `p-6`,
+for example, to preserve its 16px padding. Border-radius primitives likewise start
+at zero, with the former steps `0`–`6` now at `1`–`7`. Responsive token names shift
+both endpoints by one while retaining their values. Semantic spacing and radius
+names retain their existing values. Border-width options are `0`, `1`, and `1.5`
+(pixels), backed by the three stroke primitives.
 
 ## Prefer box surface presets
 
 ```html
-<div class="box stack" data-box-surface="inverse" data-box-padding="6" data-stack-gap="3">
+<div class="box stack" data-box-surface="inverse" data-box-padding="7" data-stack-gap="4">
 	<h2>Inverted surface</h2>
 	<p>The preset chooses foreground, background, and border together.</p>
 </div>
@@ -45,6 +53,35 @@ names. Check the contrast of custom combinations in both themes. The inverse
 preset also honors `data-box-color-inverse`, `data-box-background-inverse`, and
 `data-box-border-color-inverse`, matching the existing inverse custom properties.
 
+## Badge
+
+Badge exposes only `data-badge-variant`: `gray`, `blue`, `green`, `red`, `gold`,
+and `yellow`, with semantic aliases `system`, `info`, `success`, `error`, `brand`,
+and `warning`, respectively. Both names select identical styles in each theme.
+Missing or unsupported values use gray. The variant sets background,
+text, and border colors together through three local `--badge-*` variables.
+There are no individual color, spacing, border-width, radius, or typography knobs.
+`data-color` is no longer supported for badges; migrate it to `data-badge-variant`.
+The orange, salmon, and pink badge variants and their component tokens are removed.
+
+```html
+<span class="badge type-support-label-xs" data-badge-variant="success">Published</span>
+<span class="badge type-support-label-xs" data-badge-variant="info">In review</span>
+```
+
+Height (22px), padding, border width, radius, and layout are fixed in `badge.css`, using
+shared semantic tokens where appropriate. Apply `type-support-label-xs` to get
+the fixed typography from the existing `support.label-xs` composite token. The
+utility keeps that composite as the single source of truth without a separate
+block typography generator. It requires the second class in each badge's markup.
+
+Badge variants reference the existing `color.support.*`, text, border, and transparent
+semantic tokens directly. Semantic tokens own the theme-specific palette; the
+component selects semantic references by theme to switch from a filled badge to
+an outline. There is no additional label semantic group. Each badge establishes
+its three color defaults locally, so an outer badge cannot recolor a nested badge.
+Badges are text-only.
+
 ## Nesting and custom CSS
 
 Every instance establishes its own defaults, even with no attributes. Setting a
@@ -55,9 +92,9 @@ Container properties (gap, padding, alignment, etc.) are configured on the
 composition itself. Unconfigured nested containers use their own defaults:
 
 ```html
-<div class="stack" data-stack-gap="9">
-	<div class="stack">This stack uses the default gap of 5.</div>
-	<div class="stack" data-stack-gap="3">This stack uses gap 3.</div>
+<div class="stack" data-stack-gap="10">
+	<div class="stack">This stack uses the default gap of 6.</div>
+	<div class="stack" data-stack-gap="4">This stack uses gap 4.</div>
 </div>
 ```
 
@@ -96,7 +133,7 @@ Responsive overrides follow the same rule:
 ```css
 @media (min-width: 60rem) {
 	.custom-stack {
-		--stack-gap: var(--space-8);
+		--stack-gap: var(--space-9);
 	}
 	.custom-sidebar > * {
 		--sidebar-width: 24rem;
@@ -121,7 +158,7 @@ Forced-colors mode still substitutes `currentColor` for a box border.
 Configuration is part of the Style Dictionary token build:
 
 - `tokens/configuration/option-sets.json` defines curated option sets. Token-backed
-  values use `{ "token": "space.5" }`; CSS keywords use `{ "literal": "auto" }`.
+  values use `{ "token": "space.comfortable" }`; CSS keywords use `{ "literal": "auto" }`.
   Option sets can extend other sets, so layout lengths are defined once.
 - `tokens/configuration/compositions/*.json` and `utilities/*.json` define each
   class's settings, expected types, default **option keys**, targets, and presets.
@@ -136,11 +173,23 @@ Configuration is part of the Style Dictionary token build:
   Token references emit the dictionary's transformed CSS variable names rather
   than resolved raw values, preserving consumer overrides and theming.
 
+Badge uses a smaller component path: `tokens/component/badge.json` contains an
+explicit `variants` group with `$extensions["com.automattic.vip.css"].default` set
+to `gray`. Its optional `aliases` map gives additional names to declared variants
+(for example, `"info": "blue"`), without duplicating tokens. Alias targets must be
+declared variants, not other aliases. The component name determines `.badge` and `data-badge-variant`; field
+names (`background`, `color`, `border-color`) determine the local variables. Only
+this marked group is public. Unrelated component tokens do not become options.
+`scripts/style-dictionary/component-variants.mjs` validates the default, matching
+variant fields, and semantic color references in **both** themes, then supplies
+Style Dictionary's CSS and documentation formats. No separate badge settings,
+option sets, property mappings, or generated palette-variable file are needed.
+
 Run `npm run build:tokens` after editing either tokens or configuration. The build
 writes one generated companion beside each handwritten stylesheet, such as
 `box.config.generated.css` beside `box.css`. The handwritten file imports its
 companion and owns structural styles; the generated file owns local defaults and
-attribute selectors. Both remain in the composition or utility's existing layer.
+attribute selectors. Both remain in the pattern's existing layer.
 The build also generates the [option reference](./CSS-CONFIGURATION-OPTIONS.md).
 Generated files are committed so direct CSS consumers work without building.
 
@@ -166,3 +215,8 @@ pass/fail results for nesting, utility precedence, custom variable overrides,
 layout presets, sticky sidebars, and box colors in both themes. The tests use
 computed browser styles because jsdom does not implement the required cascade
 and layout behavior.
+
+Badge checks are available at `http://localhost:8088/test/badge.html`. They compare
+all six variants against the upstream badge colors in both themes, and cover
+nesting, local color schemes, fixed dimensions, composite typography, and ignored
+retired attributes. The baseline records upstream commit `09c404a0`.

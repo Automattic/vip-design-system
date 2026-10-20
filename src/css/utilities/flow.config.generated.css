@@ -4,7 +4,7 @@
  */
 @layer utilities {
 	.flow > * {
-		--flow-space: var(--space-5);
+		--flow-space: var(--space-comfortable);
 	}
 
 	.flow[data-flow-space='0'] > * {
@@ -12,43 +12,43 @@
 	}
 
 	.flow[data-flow-space='1'] > * {
-		--flow-space: var(--space-1);
+		--flow-space: var(--space-hairline);
 	}
 
 	.flow[data-flow-space='2'] > * {
-		--flow-space: var(--space-2);
+		--flow-space: var(--space-micro);
 	}
 
 	.flow[data-flow-space='3'] > * {
-		--flow-space: var(--space-3);
+		--flow-space: var(--space-tight);
 	}
 
 	.flow[data-flow-space='4'] > * {
-		--flow-space: var(--space-4);
+		--flow-space: var(--space-close);
 	}
 
 	.flow[data-flow-space='5'] > * {
-		--flow-space: var(--space-5);
+		--flow-space: var(--space-modest);
 	}
 
 	.flow[data-flow-space='6'] > * {
-		--flow-space: var(--space-6);
+		--flow-space: var(--space-comfortable);
 	}
 
 	.flow[data-flow-space='7'] > * {
-		--flow-space: var(--space-7);
+		--flow-space: var(--space-relaxed);
 	}
 
 	.flow[data-flow-space='8'] > * {
-		--flow-space: var(--space-8);
+		--flow-space: var(--space-loose);
 	}
 
 	.flow[data-flow-space='9'] > * {
-		--flow-space: var(--space-9);
+		--flow-space: var(--space-open);
 	}
 
 	.flow[data-flow-space='10'] > * {
-		--flow-space: var(--space-10);
+		--flow-space: var(--space-spacious);
 	}
 
 	.flow[data-flow-space='11'] > * {
@@ -59,7 +59,11 @@
 		--flow-space: var(--space-12);
 	}
 
+	.flow[data-flow-space='13'] > * {
+		--flow-space: var(--space-13);
+	}
+
 	.flow[data-flow-space='none'] > * {
-		--flow-space: 0px;
+		--flow-space: var(--space-0);
 	}
 }

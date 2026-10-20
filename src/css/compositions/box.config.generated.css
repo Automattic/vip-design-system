@@ -4,8 +4,8 @@
  */
 @layer compositions {
 	.box {
-		--box-padding: var(--space-5);
-		--box-border-width: 1px;
+		--box-padding: var(--space-comfortable);
+		--box-border-width: var(--border-width-thin);
 		--box-radius: var(--radius-container);
 		--box-color: var(--color-text-primary);
 		--box-background: var(--color-layer-2);
@@ -62,43 +62,43 @@
 	}
 
 	.box[data-box-padding='1'] {
-		--box-padding: var(--space-1);
+		--box-padding: var(--space-hairline);
 	}
 
 	.box[data-box-padding='2'] {
-		--box-padding: var(--space-2);
+		--box-padding: var(--space-micro);
 	}
 
 	.box[data-box-padding='3'] {
-		--box-padding: var(--space-3);
+		--box-padding: var(--space-tight);
 	}
 
 	.box[data-box-padding='4'] {
-		--box-padding: var(--space-4);
+		--box-padding: var(--space-close);
 	}
 
 	.box[data-box-padding='5'] {
-		--box-padding: var(--space-5);
+		--box-padding: var(--space-modest);
 	}
 
 	.box[data-box-padding='6'] {
-		--box-padding: var(--space-6);
+		--box-padding: var(--space-comfortable);
 	}
 
 	.box[data-box-padding='7'] {
-		--box-padding: var(--space-7);
+		--box-padding: var(--space-relaxed);
 	}
 
 	.box[data-box-padding='8'] {
-		--box-padding: var(--space-8);
+		--box-padding: var(--space-loose);
 	}
 
 	.box[data-box-padding='9'] {
-		--box-padding: var(--space-9);
+		--box-padding: var(--space-open);
 	}
 
 	.box[data-box-padding='10'] {
-		--box-padding: var(--space-10);
+		--box-padding: var(--space-spacious);
 	}
 
 	.box[data-box-padding='11'] {
@@ -109,28 +109,28 @@
 		--box-padding: var(--space-12);
 	}
 
+	.box[data-box-padding='13'] {
+		--box-padding: var(--space-13);
+	}
+
 	.box[data-box-padding='none'] {
-		--box-padding: 0px;
+		--box-padding: var(--space-0);
 	}
 
 	.box[data-box-border-width='0'] {
-		--box-border-width: 0px;
+		--box-border-width: var(--border-width-none);
 	}
 
 	.box[data-box-border-width='1'] {
-		--box-border-width: 1px;
+		--box-border-width: var(--border-width-thin);
 	}
 
-	.box[data-box-border-width='2'] {
-		--box-border-width: 2px;
-	}
-
-	.box[data-box-border-width='4'] {
-		--box-border-width: 4px;
+	.box[data-box-border-width='1.5'] {
+		--box-border-width: var(--border-width-medium);
 	}
 
 	.box[data-box-radius='none'] {
-		--box-radius: 0px;
+		--box-radius: var(--radius-0);
 	}
 
 	.box[data-box-radius='subtle'] {

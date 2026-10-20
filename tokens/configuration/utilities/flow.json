@@ -2,7 +2,7 @@
 	"layer": "utilities",
 	"settings": {
 		"space": {
-			"default": "5",
+			"default": "6",
 			"options": "space",
 			"target": "children",
 			"type": "dimension"

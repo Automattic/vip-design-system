@@ -2,8 +2,8 @@
 	.radio-box {
 		display: flex;
 		align-items: flex-start;
-		gap: var(--space-3);
-		padding: var(--space-4);
+		gap: var(--space-close);
+		padding: var(--space-modest);
 		border: 1px solid var(--radio-box-border);
 		border-radius: var(--radius-control);
 		background-color: var(--radio-box-background);
@@ -33,7 +33,7 @@
 	.radio-box__content {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-0);
+		gap: var(--space-hairline);
 	}
 
 	.radio-box__label {

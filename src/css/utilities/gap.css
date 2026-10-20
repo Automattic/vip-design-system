@@ -2,9 +2,9 @@
 	/*
 	 * Gap utilities, named for the axis they space, matching the spacing scale:
 	 *
-	 *   .gap-5     gap          both axes
-	 *   .gap-i-5   column-gap   inline axis
-	 *   .gap-b-5   row-gap      block axis
+	 *   .gap-6     gap          both axes
+	 *   .gap-i-6   column-gap   inline axis
+	 *   .gap-b-6   row-gap      block axis
 	 *
 	 * The mapping is exact: column-gap always spaces along the inline axis and
 	 * row-gap along the block axis, regardless of flex-direction. (In a flex
@@ -19,6 +19,7 @@
 	.gap-0 {
 		gap: var(--space-0);
 	}
+
 	.gap-1 {
 		gap: var(--space-1);
 	}
@@ -55,12 +56,16 @@
 	.gap-12 {
 		gap: var(--space-12);
 	}
+	.gap-13 {
+		gap: var(--space-13);
+	}
 
 	/* ── Gap inline (column-gap) ───────────────────────────────────────────────── */
 
 	.gap-i-0 {
 		column-gap: var(--space-0);
 	}
+
 	.gap-i-1 {
 		column-gap: var(--space-1);
 	}
@@ -97,12 +102,16 @@
 	.gap-i-12 {
 		column-gap: var(--space-12);
 	}
+	.gap-i-13 {
+		column-gap: var(--space-13);
+	}
 
 	/* ── Gap block (row-gap) ───────────────────────────────────────────────────── */
 
 	.gap-b-0 {
 		row-gap: var(--space-0);
 	}
+
 	.gap-b-1 {
 		row-gap: var(--space-1);
 	}
@@ -138,5 +147,8 @@
 	}
 	.gap-b-12 {
 		row-gap: var(--space-12);
+	}
+	.gap-b-13 {
+		row-gap: var(--space-13);
 	}
 }

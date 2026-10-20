@@ -2,7 +2,7 @@
 	"layer": "compositions",
 	"settings": {
 		"gap": {
-			"default": "5",
+			"default": "6",
 			"options": "space",
 			"target": "self",
 			"type": "dimension"

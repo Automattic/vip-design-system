@@ -34,7 +34,7 @@
 				}
 			},
 			"inverse": {
-				"$value": "{gray.0}",
+				"$value": "{gray.10}",
 				"$type": "color",
 				"$description": "Icon on inverse (dark) surfaces."
 			},
@@ -44,7 +44,7 @@
 				"$description": "Primary icon color on inverse (dark) surfaces."
 			},
 			"inverse-disabled": {
-				"$value": "{gray.10}",
+				"$value": "{gray.70}",
 				"$type": "color",
 				"$description": "Disabled icon on inverse surfaces.",
 				"$extensions": {

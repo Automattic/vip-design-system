@@ -1,16 +1,19 @@
 {
 	"color": {
 		"support": {
-			"accent": {
+			"brand": {
 				"accent": {
 					"$value": "{gold.50}",
 					"$type": "color",
-					"$description": "Button background, key color."
+					"$description": "Decorative, non-text elements — icons and flags.",
+					"$extensions": {
+						"dark": "{gold.50}"
+					}
 				},
-				"symbol": {
+				"text": {
 					"$value": "{gold.60}",
 					"$type": "color",
-					"$description": "Text, icon, or borders on default background (including input & dark badge).",
+					"$description": "Brand support text.",
 					"$extensions": {
 						"dark": "{gold.35}"
 					}
@@ -18,15 +21,15 @@
 				"hover": {
 					"$value": "{gold.70}",
 					"$type": "color",
-					"$description": "Button or link hover color.",
+					"$description": "Hover color for brand links.",
 					"$extensions": {
 						"dark": "{gold.50}"
 					}
 				},
-				"container-background": {
-					"$value": "{gold.7}",
+				"background": {
+					"$value": "{gold.10}",
 					"$type": "color",
-					"$description": "Notice background; light badge background.",
+					"$description": "Background fill for brand badges and inline notices.",
 					"$extensions": {
 						"dark": "{gold.90}"
 					}
@@ -34,7 +37,7 @@
 				"container-text": {
 					"$value": "{gold.85}",
 					"$type": "color",
-					"$description": "Notice text; light badge text.",
+					"$description": "Text inside a brand-tinted container.",
 					"$extensions": {
 						"dark": "{gold.7}"
 					}
@@ -42,7 +45,7 @@
 				"container-accent": {
 					"$value": "{gold.60}",
 					"$type": "color",
-					"$description": "Notice link & icon.",
+					"$description": "Link and icon inside a brand-tinted container.",
 					"$extensions": {
 						"dark": "{gold.35}"
 					}

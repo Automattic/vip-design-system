@@ -228,7 +228,7 @@ console.log(greet('World')); // Hello, World!</pre
 					style="
 						background: var(--color-layer-3);
 						height: 200px;
-						border-radius: var(--border-radius-2);
+						border-radius: var(--border-radius-3);
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -246,32 +246,32 @@ console.log(greet('World')); // Hello, World!</pre
 		<!-- ── Form elements ──────────────────────────────────────────────────── -->
 		<section class="preview-section">
 			<span class="preview-label">Form elements (global baseline — no block CSS)</span>
-			<div class="stack" style="--stack-gap: var(--space-5); max-width: 480px">
+			<div class="stack" style="--stack-gap: var(--space-6); max-width: 480px">
 				<div>
-					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+					<label style="display: block; margin-bottom: var(--space-2); font-weight: 600"
 						>Text input</label
 					>
 					<input
 						type="text"
 						placeholder="Placeholder text"
-						style="width: 100%; padding: var(--space-3) var(--space-4)"
+						style="width: 100%; padding: var(--space-4) var(--space-5)"
 					/>
 				</div>
 				<div>
-					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+					<label style="display: block; margin-bottom: var(--space-2); font-weight: 600"
 						>Textarea</label
 					>
 					<textarea
 						rows="3"
 						placeholder="Enter text…"
-						style="width: 100%; padding: var(--space-3) var(--space-4)"
+						style="width: 100%; padding: var(--space-4) var(--space-5)"
 					></textarea>
 				</div>
 				<div>
-					<label style="display: block; margin-bottom: var(--space-1); font-weight: 600"
+					<label style="display: block; margin-bottom: var(--space-2); font-weight: 600"
 						>Select</label
 					>
-					<select style="width: 100%; padding: var(--space-3) var(--space-4)">
+					<select style="width: 100%; padding: var(--space-4) var(--space-5)">
 						<option>Option one</option>
 						<option>Option two</option>
 						<option>Option three</option>
@@ -315,7 +315,7 @@ console.log(greet('World')); // Hello, World!</pre
 			<span class="preview-label">Details &amp; summary</span>
 			<details>
 				<summary>Click to expand</summary>
-				<p style="margin-top: var(--space-4)">
+				<p style="margin-top: var(--space-5)">
 					This content is revealed when the disclosure widget is opened. The summary element
 					receives cursor: pointer and the default marker is hidden via global styles.
 				</p>
@@ -325,12 +325,12 @@ console.log(greet('World')); // Hello, World!</pre
 		<!-- ── Compositions ───────────────────────────────────────────────────── -->
 		<section class="preview-section">
 			<span class="preview-label">Stack composition</span>
-			<div class="stack" style="border: 1px dashed var(--color-border-1); padding: var(--space-5)">
+			<div class="stack" style="border: 1px dashed var(--color-border-1); padding: var(--space-6)">
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Stack item 1
@@ -338,8 +338,8 @@ console.log(greet('World')); // Hello, World!</pre
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Stack item 2
@@ -347,8 +347,8 @@ console.log(greet('World')); // Hello, World!</pre
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Stack item 3
@@ -360,13 +360,13 @@ console.log(greet('World')); // Hello, World!</pre
 			<span class="preview-label">Cluster composition</span>
 			<div
 				class="cluster"
-				style="border: 1px dashed var(--color-border-1); padding: var(--space-5)"
+				style="border: 1px dashed var(--color-border-1); padding: var(--space-6)"
 			>
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-3) var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-4) var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Cluster item
@@ -374,8 +374,8 @@ console.log(greet('World')); // Hello, World!</pre
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-3) var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-4) var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Cluster item
@@ -383,8 +383,8 @@ console.log(greet('World')); // Hello, World!</pre
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-3) var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-4) var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Cluster item
@@ -392,8 +392,8 @@ console.log(greet('World')); // Hello, World!</pre
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-3) var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-4) var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Cluster item
@@ -401,8 +401,8 @@ console.log(greet('World')); // Hello, World!</pre
 				<div
 					style="
 						background: var(--color-layer-3);
-						padding: var(--space-3) var(--space-4);
-						border-radius: var(--border-radius-1);
+						padding: var(--space-4) var(--space-5);
+						border-radius: var(--border-radius-2);
 					"
 				>
 					Cluster item

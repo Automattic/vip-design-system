@@ -1,7 +1,7 @@
 import StyleDictionary from 'style-dictionary';
 import { buildConfiguration } from './scripts/style-dictionary/configuration.mjs';
 
-// Validate configuration before writing token outputs. Metadata is never a token source.
+// Validate configuration before writing token outputs. Component variant metadata lives in DTCG $extensions.
 const checkConfiguration = process.argv.includes('--check-configuration');
 await buildConfiguration({ check: checkConfiguration });
 if (checkConfiguration) process.exit(0);
@@ -222,6 +222,7 @@ await new StyleDictionary(
 			'tokens/primitives/color.json',
 			'tokens/primitives/space.json',
 			'tokens/primitives/size.json',
+			'tokens/primitives/stroke.json',
 			'tokens/primitives/font-size.json',
 			'tokens/primitives/font-weight.json',
 			'tokens/primitives/line-height.json',
@@ -273,7 +274,7 @@ await new StyleDictionary(
 
 await new StyleDictionary(
 	{
-		source: ['tokens/primitives/**/*.json', 'tokens/semantic/typography.json'],
+		source: ['tokens/primitives/**/*.json', 'tokens/semantic/**/*.json'],
 		platforms: {
 			css: {
 				transforms: nameTransform,
@@ -298,7 +299,6 @@ const components = [
 	{ name: 'input', selector: '.input' },
 	{ name: 'tag', selector: '.tag' },
 	{ name: 'sticker', selector: '.sticker' },
-	{ name: 'support', selector: '.support' },
 	{ name: 'toolbar', selector: '.toolbar' },
 	{ name: 'console', selector: '.console' },
 	{ name: 'option-row', selector: '.option-row' },
@@ -307,10 +307,8 @@ const components = [
 	{ name: 'checkbox', selector: '.checkbox' },
 	{ name: 'toggle', selector: '.toggle' },
 	{ name: 'radio-box', selector: '.radio-box' },
-	{ name: 'badge', selector: '.badge' },
 	{ name: 'notice', selector: '.notice' },
 	{ name: 'code', selector: '.code' },
-	{ name: 'environment-switcher', selector: '.environment-switcher' },
 ];
 
 for (const { name, selector } of components) {

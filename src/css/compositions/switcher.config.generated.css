@@ -4,7 +4,7 @@
  */
 @layer compositions {
 	.switcher {
-		--switcher-gap: var(--space-5);
+		--switcher-gap: var(--space-comfortable);
 	}
 
 	.switcher > * {
@@ -16,43 +16,43 @@
 	}
 
 	.switcher[data-switcher-gap='1'] {
-		--switcher-gap: var(--space-1);
+		--switcher-gap: var(--space-hairline);
 	}
 
 	.switcher[data-switcher-gap='2'] {
-		--switcher-gap: var(--space-2);
+		--switcher-gap: var(--space-micro);
 	}
 
 	.switcher[data-switcher-gap='3'] {
-		--switcher-gap: var(--space-3);
+		--switcher-gap: var(--space-tight);
 	}
 
 	.switcher[data-switcher-gap='4'] {
-		--switcher-gap: var(--space-4);
+		--switcher-gap: var(--space-close);
 	}
 
 	.switcher[data-switcher-gap='5'] {
-		--switcher-gap: var(--space-5);
+		--switcher-gap: var(--space-modest);
 	}
 
 	.switcher[data-switcher-gap='6'] {
-		--switcher-gap: var(--space-6);
+		--switcher-gap: var(--space-comfortable);
 	}
 
 	.switcher[data-switcher-gap='7'] {
-		--switcher-gap: var(--space-7);
+		--switcher-gap: var(--space-relaxed);
 	}
 
 	.switcher[data-switcher-gap='8'] {
-		--switcher-gap: var(--space-8);
+		--switcher-gap: var(--space-loose);
 	}
 
 	.switcher[data-switcher-gap='9'] {
-		--switcher-gap: var(--space-9);
+		--switcher-gap: var(--space-open);
 	}
 
 	.switcher[data-switcher-gap='10'] {
-		--switcher-gap: var(--space-10);
+		--switcher-gap: var(--space-spacious);
 	}
 
 	.switcher[data-switcher-gap='11'] {
@@ -63,8 +63,12 @@
 		--switcher-gap: var(--space-12);
 	}
 
+	.switcher[data-switcher-gap='13'] {
+		--switcher-gap: var(--space-13);
+	}
+
 	.switcher[data-switcher-gap='none'] {
-		--switcher-gap: 0px;
+		--switcher-gap: var(--space-0);
 	}
 
 	.switcher[data-switcher-threshold='8rem'] > * {

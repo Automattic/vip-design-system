@@ -5,7 +5,7 @@
 @layer compositions {
 	.wrapper {
 		--wrapper-max-inline-size: var(--layout-size-70);
-		--wrapper-padding-inline: var(--space-5);
+		--wrapper-padding-inline: var(--space-comfortable);
 	}
 
 	.wrapper[data-wrapper-max-inline-size='8rem'] {
@@ -65,43 +65,43 @@
 	}
 
 	.wrapper[data-wrapper-padding-inline='1'] {
-		--wrapper-padding-inline: var(--space-1);
+		--wrapper-padding-inline: var(--space-hairline);
 	}
 
 	.wrapper[data-wrapper-padding-inline='2'] {
-		--wrapper-padding-inline: var(--space-2);
+		--wrapper-padding-inline: var(--space-micro);
 	}
 
 	.wrapper[data-wrapper-padding-inline='3'] {
-		--wrapper-padding-inline: var(--space-3);
+		--wrapper-padding-inline: var(--space-tight);
 	}
 
 	.wrapper[data-wrapper-padding-inline='4'] {
-		--wrapper-padding-inline: var(--space-4);
+		--wrapper-padding-inline: var(--space-close);
 	}
 
 	.wrapper[data-wrapper-padding-inline='5'] {
-		--wrapper-padding-inline: var(--space-5);
+		--wrapper-padding-inline: var(--space-modest);
 	}
 
 	.wrapper[data-wrapper-padding-inline='6'] {
-		--wrapper-padding-inline: var(--space-6);
+		--wrapper-padding-inline: var(--space-comfortable);
 	}
 
 	.wrapper[data-wrapper-padding-inline='7'] {
-		--wrapper-padding-inline: var(--space-7);
+		--wrapper-padding-inline: var(--space-relaxed);
 	}
 
 	.wrapper[data-wrapper-padding-inline='8'] {
-		--wrapper-padding-inline: var(--space-8);
+		--wrapper-padding-inline: var(--space-loose);
 	}
 
 	.wrapper[data-wrapper-padding-inline='9'] {
-		--wrapper-padding-inline: var(--space-9);
+		--wrapper-padding-inline: var(--space-open);
 	}
 
 	.wrapper[data-wrapper-padding-inline='10'] {
-		--wrapper-padding-inline: var(--space-10);
+		--wrapper-padding-inline: var(--space-spacious);
 	}
 
 	.wrapper[data-wrapper-padding-inline='11'] {
@@ -112,7 +112,11 @@
 		--wrapper-padding-inline: var(--space-12);
 	}
 
+	.wrapper[data-wrapper-padding-inline='13'] {
+		--wrapper-padding-inline: var(--space-13);
+	}
+
 	.wrapper[data-wrapper-padding-inline='none'] {
-		--wrapper-padding-inline: 0px;
+		--wrapper-padding-inline: var(--space-0);
 	}
 }

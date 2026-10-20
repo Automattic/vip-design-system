@@ -2,8 +2,8 @@
 	.toolbar {
 		display: flex;
 		align-items: center;
-		gap: var(--space-5);
-		padding: var(--space-4) var(--space-6);
+		gap: var(--space-comfortable);
+		padding: var(--space-modest) var(--space-relaxed);
 		background-color: var(--toolbar-background);
 		color: var(--toolbar-text-default);
 	}
@@ -17,7 +17,7 @@
 	.toolbar__nav {
 		display: flex;
 		align-items: center;
-		gap: var(--space-3);
+		gap: var(--space-close);
 		flex: 1;
 	}
 
@@ -28,7 +28,7 @@
 		text-decoration: none;
 		background: none;
 		border: none;
-		padding: var(--space-1) var(--space-3);
+		padding: var(--space-micro) var(--space-close);
 		border-radius: var(--radius-control);
 		transition: color 120ms ease;
 	}
@@ -41,7 +41,7 @@
 	.toolbar__actions {
 		display: flex;
 		align-items: center;
-		gap: var(--space-3);
+		gap: var(--space-close);
 		margin-inline-start: auto;
 	}
 }

@@ -7,7 +7,11 @@ import { configurationCSS } from './configuration.mjs';
 const catalog = await loadCatalog();
 const sd = new StyleDictionary({
 	usesDtcg: true,
-	source: ['tokens/primitives/**/*.json', 'tokens/semantic/**/*.json'],
+	source: [
+		'tokens/primitives/**/*.json',
+		'tokens/semantic/**/*.json',
+		'tokens/component/badge.json',
+	],
 	platforms: { css: { transforms: ['name/kebab'] } },
 });
 const dictionary = await sd.getPlatformTokens('css');
@@ -22,14 +26,14 @@ describe('configuration catalog validation', () => {
 				0
 			)
 		).toBe(41);
-		expect(resolved.classes.stack.settings.gap.default).toBe('5');
-		expect(resolved.classes.stack.settings.gap.defaultValue).toBe('var(--space-5)');
+		expect(resolved.classes.stack.settings.gap.default).toBe('6');
+		expect(resolved.classes.stack.settings.gap.defaultValue).toBe('var(--space-comfortable)');
 		expect(resolved.classes.sidebar.settings.width.defaultValue).toBe('var(--layout-size-20)');
 	});
 
 	it('uses transformed names and preserves variables instead of baking in token values', () => {
 		const changed = structuredClone(dictionary);
-		const token = changed.allTokens.find((token) => token.path.join('.') === 'space.5');
+		const token = changed.allTokens.find((token) => token.path.join('.') === 'space.modest');
 		token.name = 'consumer-space-comfortable';
 		token.$value = '999px';
 		const resolved = resolveCatalog(catalog, changed);
@@ -42,13 +46,13 @@ describe('configuration catalog validation', () => {
 	it('does not expose new tokens as new public options automatically', () => {
 		const changed = structuredClone(dictionary);
 		changed.allTokens.push({
-			path: ['space', '13'],
-			name: 'space-13',
+			path: ['space', '14'],
+			name: 'space-14',
 			$type: 'dimension',
 			$value: '20rem',
 		});
 		expect(resolveCatalog(catalog, changed).classes.stack.settings.gap.values).not.toHaveProperty(
-			'13'
+			'14'
 		);
 	});
 

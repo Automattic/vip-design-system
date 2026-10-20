@@ -1,0 +1,22 @@
+{
+	"color": {
+		"button-foreground": {
+			"ghost": {
+				"$value": "{gold.60}",
+				"$type": "color",
+				"$description": "Ghost button label — the brand accent on a transparent fill.",
+				"$extensions": {
+					"dark": "{gold.35}"
+				}
+			},
+			"danger": {
+				"$value": "{red.55}",
+				"$type": "color",
+				"$description": "Danger secondary & ghost button label and border. Dark is red.40 rather than the red.45 in Figma, to clear AA on background-primary, layer-1 and layer-2.",
+				"$extensions": {
+					"dark": "{red.40}"
+				}
+			}
+		}
+	}
+}

@@ -18,9 +18,9 @@ const test = (name, run) => {
 };
 
 test('Container attributes isolate configured, default, and invalid nested stacks', () => {
-	mount(`<div id="outer" class="stack" data-stack-gap="9">
+	mount(`<div id="outer" class="stack" data-stack-gap="10">
 		<div id="default" class="stack"><span>A</span><span>B</span></div>
-		<div id="inner" class="stack" data-stack-gap="3"><span>A</span><span>B</span></div>
+		<div id="inner" class="stack" data-stack-gap="4"><span>A</span><span>B</span></div>
 		<div id="invalid" class="stack" data-stack-gap="123rem"></div></div>`);
 	expect(style('outer').gap, '56px');
 	expect(style('default').gap, '16px');
@@ -30,7 +30,7 @@ test('Container attributes isolate configured, default, and invalid nested stack
 
 test('Shared elements configure compositions and utilities independently', () => {
 	mount(
-		'<div id="combined" class="box stack region" data-box-padding="3" data-stack-gap="6" data-region-space="7"></div>'
+		'<div id="combined" class="box stack region" data-box-padding="4" data-stack-gap="7" data-region-space="8"></div>'
 	);
 	expect(style('combined').gap, '24px');
 	expect(style('combined').paddingInlineStart, '8px');
@@ -39,19 +39,19 @@ test('Shared elements configure compositions and utilities independently', () =>
 
 test('Gap and padding utilities still override attribute configuration', () => {
 	mount(
-		'<div id="utilities" class="box stack region gap-3 p-4" data-box-padding="8" data-stack-gap="9" data-region-space="10"></div>'
+		'<div id="utilities" class="box stack region gap-4 p-5" data-box-padding="9" data-stack-gap="10" data-region-space="11"></div>'
 	);
 	expect(style('utilities').gap, '8px');
 	expect(style('utilities').padding, '12px');
 	mount(
-		'<div class="flow" data-flow-space="10"><div>A</div><div id="margin" class="m-bs-3">B</div></div>'
+		'<div class="flow" data-flow-space="11"><div>A</div><div id="margin" class="m-bs-4">B</div></div>'
 	);
 	expect(style('margin').marginBlockStart, '8px');
 });
 
 test('Inline and unlayered CSS variables remain overrides', () => {
 	mount(
-		'<div id="inline" class="stack" data-stack-gap="9" style="--stack-gap: 21px"></div><div id="custom" class="stack custom-stack" data-stack-gap="9"></div>'
+		'<div id="inline" class="stack" data-stack-gap="10" style="--stack-gap: 21px"></div><div id="custom" class="stack custom-stack" data-stack-gap="10"></div>'
 	);
 	expect(style('inline').gap, '21px');
 	expect(style('custom').gap, '19px');
@@ -69,8 +69,8 @@ test('Layout presets retain semantic token overrides', () => {
 });
 
 test('Nested flows separate incoming margins from their children, including defaults', () => {
-	mount(`<div class="flow" data-flow-space="9"><div>A</div>
-		<div id="inner" class="flow" data-flow-space="3"><div>B</div><div id="leaf">C</div></div>
+	mount(`<div class="flow" data-flow-space="10"><div>A</div>
+		<div id="inner" class="flow" data-flow-space="4"><div>B</div><div id="leaf">C</div></div>
 		<div id="default" class="flow"><div>D</div><div id="default-leaf">E</div></div></div>`);
 	expect(style('inner').marginBlockStart, '56px');
 	expect(style('leaf').marginBlockStart, '8px');
@@ -95,7 +95,7 @@ test('Nested sidebars keep outer width, inner width and content minima independe
 
 test('End-position sticky sidebar uses configured width, offset and automatic height', () => {
 	mount(
-		'<div class="sidebar" data-position="end" data-sticky data-sidebar-width="12rem" data-sidebar-sticky-offset="6" data-sidebar-sticky-block-size="auto"><main id="content">A</main><aside id="rail">B</aside></div>'
+		'<div class="sidebar" data-position="end" data-sticky data-sidebar-width="12rem" data-sidebar-sticky-offset="7" data-sidebar-sticky-block-size="auto"><main id="content">A</main><aside id="rail">B</aside></div>'
 	);
 	expect(style('rail').flexBasis, '192px');
 	expect(style('rail').position, 'sticky');
@@ -127,7 +127,7 @@ test('Length, ratio, alignment and font-relative presets reach layout properties
 	mount(`<div id="grid" class="grid" data-grid-columns="3" data-grid-min-item-size="12rem" data-grid-gap="none"></div>
 		<div id="frame" class="frame" data-frame-ratio="4/3"></div>
 		<div id="cover" class="cover" data-cover-min-height="12rem" data-cover-padding="none"></div>
-		<div id="wrapper" class="wrapper" data-wrapper-max-inline-size="30rem" data-wrapper-padding-inline="3"></div>
+		<div id="wrapper" class="wrapper" data-wrapper-max-inline-size="30rem" data-wrapper-padding-inline="4"></div>
 		<div id="cluster" class="cluster" data-cluster-inline-alignment="end" data-cluster-block-alignment="baseline"></div>
 		<div id="icon" class="with-icon" data-with-icon-gap="1em"></div>`);
 	expect(style('grid').gridTemplateColumns.split(' ').length, 3);
@@ -149,7 +149,7 @@ for (const theme of ['theme-light', 'theme-dark']) {
 			<div id="inverse" class="box" data-box-surface="inverse"><div id="nested" class="box"></div></div>
 			<div id="legacy" class="box" data-variant="inverse"></div>
 			<div id="explicit" class="box" data-variant="inverse" data-box-surface="default"></div>
-			<div id="override" class="box" data-box-color="text-primary" data-box-surface="inverse" data-box-radius="expressive" data-box-border-width="2"></div>
+			<div id="override" class="box" data-box-color="text-primary" data-box-surface="inverse" data-box-radius="expressive" data-box-border-width="1.5"></div>
 			<div id="inverse-options" class="box" data-box-surface="inverse" data-box-color-inverse="text-primary" data-box-background-inverse="layer-3" data-box-border-color-inverse="border-control"></div>
 			<div id="reference" class="box" data-box-color="text-primary" data-box-background="layer-3" data-box-border-color="border-control"></div>`);
 		expect(style('inverse').color, style('default').backgroundColor);
@@ -162,9 +162,25 @@ for (const theme of ['theme-light', 'theme-dark']) {
 		}
 		expect(style('override').color, style('default').color);
 		expect(style('override').borderRadius, '16px');
-		expect(style('override').borderTopWidth, '2px');
+		expect(style('override').getPropertyValue('--box-border-width').trim(), '1.5px');
 	});
 }
+
+test('Zero-based spacing and radius scales support zero without changing semantic defaults', () => {
+	mount(`<div id="zero" class="box stack p-0 gap-0" data-box-radius="none"></div>
+ <div id="first" class="stack p-1 gap-1"></div>
+ <div id="last" class="stack p-13 gap-13"></div>
+ <div id="attributes" class="box stack" data-stack-gap="0" data-box-padding="0"></div>`);
+	expect(style('zero').padding, '0px');
+	expect(style('zero').gap, '0px');
+	expect(style('zero').borderRadius, '0px');
+	expect(style('first').padding, '2px');
+	expect(style('first').gap, '2px');
+	expect(style('last').padding, '160px');
+	expect(style('last').gap, '160px');
+	expect(style('attributes').padding, '0px');
+	expect(style('attributes').gap, '0px');
+});
 
 fixture.replaceChildren();
 document.documentElement.className = '';

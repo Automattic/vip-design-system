@@ -1,4 +1,4 @@
-<!-- Generated from tokens/configuration by Style Dictionary. Do not edit. Run npm run build:tokens. -->
+<!-- Generated from tokens/configuration and tokens/component by Style Dictionary. Do not edit. Run npm run build:tokens. -->
 
 # Configuration options
 
@@ -7,8 +7,8 @@ Attribute values are exact strings; unlisted values apply no override.
 
 | Attribute                        | Allowed options               | Default option   | Default CSS value                            | Variable location |
 | -------------------------------- | ----------------------------- | ---------------- | -------------------------------------------- | ----------------- |
-| `data-box-padding`               | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
-| `data-box-border-width`          | [border-width](#border-width) | `1`              | `1px`                                        | Container         |
+| `data-box-padding`               | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
+| `data-box-border-width`          | [border-width](#border-width) | `1`              | `var(--border-width-thin)`                   | Container         |
 | `data-box-radius`                | [radius](#radius)             | `container`      | `var(--radius-container)`                    | Container         |
 | `data-box-color`                 | [color](#color)               | `text-primary`   | `var(--color-text-primary)`                  | Container         |
 | `data-box-background`            | [color](#color)               | `layer-2`        | `var(--color-layer-2)`                       | Container         |
@@ -16,42 +16,42 @@ Attribute values are exact strings; unlisted values apply no override.
 | `data-box-color-inverse`         | [color](#color)               | `layer-2`        | `var(--color-layer-2)`                       | Container         |
 | `data-box-background-inverse`    | [color](#color)               | `text-primary`   | `var(--color-text-primary)`                  | Container         |
 | `data-box-border-color-inverse`  | [color](#color)               | `text-primary`   | `var(--color-text-primary)`                  | Container         |
-| `data-cluster-gap`               | [space](#space)               | `4`              | `var(--space-4)`                             | Container         |
+| `data-cluster-gap`               | [space](#space)               | `5`              | `var(--space-modest)`                        | Container         |
 | `data-cluster-inline-alignment`  | [distribute](#distribute)     | `start`          | `flex-start`                                 | Container         |
 | `data-cluster-block-alignment`   | [align](#align)               | `center`         | `center`                                     | Container         |
-| `data-cover-padding`             | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-cover-padding`             | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-cover-min-height`          | [min-height](#min-height)     | `viewport`       | `100vh`                                      | Container         |
 | `data-frame-ratio`               | [ratio](#ratio)               | `16/9`           | `16/9`                                       | Container         |
-| `data-grid-gap`                  | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-grid-gap`                  | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-grid-columns`              | [columns](#columns)           | `auto-fill`      | `auto-fill`                                  | Container         |
 | `data-grid-min-item-size`        | [length](#length)             | `16rem`          | `var(--layout-size-16)`                      | Container         |
-| `data-reel-gap`                  | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-reel-gap`                  | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-reel-block-alignment`      | [align](#align)               | `stretch`        | `stretch`                                    | Container         |
 | `data-reel-block-size`           | [block-size](#block-size)     | `auto`           | `auto`                                       | Container         |
 | `data-reel-item-inline-size`     | [item-size](#item-size)       | `auto`           | `auto`                                       | Direct children   |
-| `data-repel-gap`                 | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-repel-gap`                 | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-repel-block-alignment`     | [align](#align)               | `center`         | `center`                                     | Container         |
-| `data-sidebar-gap`               | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-sidebar-gap`               | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-sidebar-inline-alignment`  | [distribute](#distribute)     | `start`          | `flex-start`                                 | Container         |
 | `data-sidebar-block-alignment`   | [align](#align)               | `stretch`        | `stretch`                                    | Container         |
 | `data-sidebar-width`             | [length](#length)             | `20rem`          | `var(--layout-size-20)`                      | Direct children   |
 | `data-sidebar-content-min`       | [content-min](#content-min)   | `50%`            | `50%`                                        | Direct children   |
-| `data-sidebar-sticky-offset`     | [space](#space)               | `none`           | `0px`                                        | Direct children   |
+| `data-sidebar-sticky-offset`     | [space](#space)               | `none`           | `var(--space-0)`                             | Direct children   |
 | `data-sidebar-sticky-block-size` | [sticky-size](#sticky-size)   | `viewport`       | `calc(100vh - var(--sidebar-sticky-offset))` | Direct children   |
-| `data-stack-gap`                 | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-stack-gap`                 | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-stack-block-alignment`     | [distribute](#distribute)     | `start`          | `flex-start`                                 | Container         |
 | `data-stack-inline-alignment`    | [align](#align)               | `stretch`        | `stretch`                                    | Container         |
-| `data-switcher-gap`              | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
+| `data-switcher-gap`              | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
 | `data-switcher-threshold`        | [length](#length)             | `40rem`          | `var(--layout-size-40)`                      | Direct children   |
 | `data-with-icon-gap`             | [icon-gap](#icon-gap)         | `0.5em`          | `0.5em`                                      | Container         |
 | `data-wrapper-max-inline-size`   | [length](#length)             | `70rem`          | `var(--layout-size-70)`                      | Container         |
-| `data-wrapper-padding-inline`    | [space](#space)               | `5`              | `var(--space-5)`                             | Container         |
-| `data-flow-space`                | [space](#space)               | `5`              | `var(--space-5)`                             | Direct children   |
-| `data-region-space`              | [space](#space)               | `10`             | `var(--space-10)`                            | Container         |
+| `data-wrapper-padding-inline`    | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Container         |
+| `data-flow-space`                | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Direct children   |
+| `data-region-space`              | [space](#space)               | `11`             | `var(--space-11)`                            | Container         |
 
 ## box surface
 
-Prefer `data-box-surface` to select these values together. Individual attributes override the preset.
+Use `data-box-surface` to select these values together. Individual attributes override the preset.
 
 | Option    | color                       | background                      | border-color                      |
 | --------- | --------------------------- | ------------------------------- | --------------------------------- |
@@ -64,24 +64,50 @@ Prefer `data-box-surface` to select these values together. Individual attributes
 
 `data-variant="inverse"` remains an alias for `data-box-surface="inverse"`. An explicit preset takes precedence.
 
+## badge variants
+
+Use `data-badge-variant`. Default: `gray`. Only these named combinations are configurable.
+Each cell lists its light / dark semantic references; the selected semantic tokens also respond to the theme.
+
+| Option   | background                                                                                | border-color                                                            | color                                                             |
+| -------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `gray`   | `var(--color-support-system-background)` / `var(--color-control-background-transparent)`  | `var(--color-border-transparent)` / `var(--color-support-system-text)`  | `var(--color-text-primary)` / `var(--color-support-system-text)`  |
+| `blue`   | `var(--color-support-info-background)` / `var(--color-control-background-transparent)`    | `var(--color-border-transparent)` / `var(--color-support-info-text)`    | `var(--color-text-primary)` / `var(--color-support-info-text)`    |
+| `green`  | `var(--color-support-success-background)` / `var(--color-control-background-transparent)` | `var(--color-border-transparent)` / `var(--color-support-success-text)` | `var(--color-text-primary)` / `var(--color-support-success-text)` |
+| `red`    | `var(--color-support-error-background)` / `var(--color-control-background-transparent)`   | `var(--color-border-transparent)` / `var(--color-support-error-text)`   | `var(--color-text-primary)` / `var(--color-support-error-text)`   |
+| `gold`   | `var(--color-support-brand-background)` / `var(--color-control-background-transparent)`   | `var(--color-border-transparent)` / `var(--color-support-brand-text)`   | `var(--color-text-primary)` / `var(--color-support-brand-text)`   |
+| `yellow` | `var(--color-support-warning-background)` / `var(--color-control-background-transparent)` | `var(--color-border-transparent)` / `var(--color-support-warning-text)` | `var(--color-text-primary)` / `var(--color-support-warning-text)` |
+
+Aliases select the same values in both themes:
+
+| Alias     | Variant  |
+| --------- | -------- |
+| `system`  | `gray`   |
+| `info`    | `blue`   |
+| `success` | `green`  |
+| `error`   | `red`    |
+| `brand`   | `gold`   |
+| `warning` | `yellow` |
+
 ## space
 
-| Option | CSS value         |
-| ------ | ----------------- |
-| `0`    | `var(--space-0)`  |
-| `1`    | `var(--space-1)`  |
-| `2`    | `var(--space-2)`  |
-| `3`    | `var(--space-3)`  |
-| `4`    | `var(--space-4)`  |
-| `5`    | `var(--space-5)`  |
-| `6`    | `var(--space-6)`  |
-| `7`    | `var(--space-7)`  |
-| `8`    | `var(--space-8)`  |
-| `9`    | `var(--space-9)`  |
-| `10`   | `var(--space-10)` |
-| `11`   | `var(--space-11)` |
-| `12`   | `var(--space-12)` |
-| `none` | `0px`             |
+| Option | CSS value                  |
+| ------ | -------------------------- |
+| `0`    | `var(--space-0)`           |
+| `1`    | `var(--space-hairline)`    |
+| `2`    | `var(--space-micro)`       |
+| `3`    | `var(--space-tight)`       |
+| `4`    | `var(--space-close)`       |
+| `5`    | `var(--space-modest)`      |
+| `6`    | `var(--space-comfortable)` |
+| `7`    | `var(--space-relaxed)`     |
+| `8`    | `var(--space-loose)`       |
+| `9`    | `var(--space-open)`        |
+| `10`   | `var(--space-spacious)`    |
+| `11`   | `var(--space-11)`          |
+| `12`   | `var(--space-12)`          |
+| `13`   | `var(--space-13)`          |
+| `none` | `var(--space-0)`           |
 
 ## align
 
@@ -226,7 +252,7 @@ Prefer `data-box-surface` to select these values together. Individual attributes
 
 | Option       | CSS value                  |
 | ------------ | -------------------------- |
-| `none`       | `0px`                      |
+| `none`       | `var(--radius-0)`          |
 | `subtle`     | `var(--radius-subtle)`     |
 | `control`    | `var(--radius-control)`    |
 | `container`  | `var(--radius-container)`  |
@@ -234,12 +260,11 @@ Prefer `data-box-surface` to select these values together. Individual attributes
 
 ## border-width
 
-| Option | CSS value |
-| ------ | --------- |
-| `0`    | `0px`     |
-| `1`    | `1px`     |
-| `2`    | `2px`     |
-| `4`    | `4px`     |
+| Option | CSS value                    |
+| ------ | ---------------------------- |
+| `0`    | `var(--border-width-none)`   |
+| `1`    | `var(--border-width-thin)`   |
+| `1.5`  | `var(--border-width-medium)` |
 
 ## color
 

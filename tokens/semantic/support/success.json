@@ -2,55 +2,50 @@
 	"color": {
 		"support": {
 			"success": {
-				"inverse": {
-					"$value": "{green.45}",
+				"background": {
+					"$value": "{green.7}",
 					"$type": "color",
-					"$description": "Snackbar icon, text or icon over dark background."
-				},
-				"accent": {
-					"$value": "{green.60}",
-					"$type": "color",
-					"$description": "Button background, key color.",
+					"$description": "Background fill for badges and inline notices.",
 					"$extensions": {
-						"dark": "{green.50}"
+						"dark": "{green.95}"
 					}
 				},
-				"symbol": {
+				"inverse": {
+					"$value": "{green.40}",
+					"$type": "color",
+					"$description": "Icon accent on an inverted surface (snackbar).",
+					"$extensions": {
+						"dark": "{green.30}"
+					}
+				},
+				"accent": {
+					"$value": "{green.45}",
+					"$type": "color",
+					"$description": "Decorative, non-text elements — icons and flags.",
+					"$extensions": {
+						"dark": "{green.40}"
+					}
+				},
+				"text": {
 					"$value": "{green.60}",
 					"$type": "color",
-					"$description": "Text, icon, or borders on default background (including input & dark badge).",
+					"$description": "Support text; badge text and border in dark mode.",
 					"$extensions": {
-						"dark": "{green.50}"
+						"dark": "{green.30}"
+					}
+				},
+				"link": {
+					"$value": "{green.75}",
+					"$type": "color",
+					"$description": "Link color on notices.",
+					"$extensions": {
+						"dark": "{green.30}"
 					}
 				},
 				"hover": {
-					"$value": "{green.70}",
-					"$type": "color",
-					"$description": "Button or link hover color.",
-					"$extensions": {
-						"dark": "{green.65}"
-					}
-				},
-				"container-background": {
-					"$value": "{green.7}",
-					"$type": "color",
-					"$description": "Notice background; light badge background.",
-					"$extensions": {
-						"dark": "{green.90}"
-					}
-				},
-				"container-text": {
 					"$value": "{green.85}",
 					"$type": "color",
-					"$description": "Notice text; light badge text.",
-					"$extensions": {
-						"dark": "{green.3}"
-					}
-				},
-				"container-accent": {
-					"$value": "{green.65}",
-					"$type": "color",
-					"$description": "Notice link & icon.",
+					"$description": "Hover color for links on notices.",
 					"$extensions": {
 						"dark": "{green.45}"
 					}

@@ -4,7 +4,7 @@
  */
 @layer compositions {
 	.cluster {
-		--cluster-gap: var(--space-4);
+		--cluster-gap: var(--space-modest);
 		--cluster-inline-alignment: flex-start;
 		--cluster-block-alignment: center;
 	}
@@ -14,43 +14,43 @@
 	}
 
 	.cluster[data-cluster-gap='1'] {
-		--cluster-gap: var(--space-1);
+		--cluster-gap: var(--space-hairline);
 	}
 
 	.cluster[data-cluster-gap='2'] {
-		--cluster-gap: var(--space-2);
+		--cluster-gap: var(--space-micro);
 	}
 
 	.cluster[data-cluster-gap='3'] {
-		--cluster-gap: var(--space-3);
+		--cluster-gap: var(--space-tight);
 	}
 
 	.cluster[data-cluster-gap='4'] {
-		--cluster-gap: var(--space-4);
+		--cluster-gap: var(--space-close);
 	}
 
 	.cluster[data-cluster-gap='5'] {
-		--cluster-gap: var(--space-5);
+		--cluster-gap: var(--space-modest);
 	}
 
 	.cluster[data-cluster-gap='6'] {
-		--cluster-gap: var(--space-6);
+		--cluster-gap: var(--space-comfortable);
 	}
 
 	.cluster[data-cluster-gap='7'] {
-		--cluster-gap: var(--space-7);
+		--cluster-gap: var(--space-relaxed);
 	}
 
 	.cluster[data-cluster-gap='8'] {
-		--cluster-gap: var(--space-8);
+		--cluster-gap: var(--space-loose);
 	}
 
 	.cluster[data-cluster-gap='9'] {
-		--cluster-gap: var(--space-9);
+		--cluster-gap: var(--space-open);
 	}
 
 	.cluster[data-cluster-gap='10'] {
-		--cluster-gap: var(--space-10);
+		--cluster-gap: var(--space-spacious);
 	}
 
 	.cluster[data-cluster-gap='11'] {
@@ -61,8 +61,12 @@
 		--cluster-gap: var(--space-12);
 	}
 
+	.cluster[data-cluster-gap='13'] {
+		--cluster-gap: var(--space-13);
+	}
+
 	.cluster[data-cluster-gap='none'] {
-		--cluster-gap: 0px;
+		--cluster-gap: var(--space-0);
 	}
 
 	.cluster[data-cluster-inline-alignment='start'] {

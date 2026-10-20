@@ -86,13 +86,13 @@ Raw value → Primitive token → Semantic token → Component token
 ```
 
 - Component tokens reference semantic tokens only — never primitives or raw values.
-- Semantic tokens are what change between themes.
+- Semantic tokens own theme-specific palette values. Component tokens may select different semantic references by theme, but must never introduce primitive references or raw color values.
 - Component tokens are scoped to the component's root CSS class, not `:root`.
 
 ### Theming
 
 - Light/dark themes are differentiated by color only.
-- Semantic color tokens use `light-dark()` with an `@supports` fallback.
+- Semantic color tokens and component theme selections use `light-dark()` with an `@supports` fallback to the light theme.
 - OS-level dark mode (`prefers-color-scheme`) is the primary interface.
 - `.theme-dark` / `.theme-light` on `<html>` override the OS setting.
 

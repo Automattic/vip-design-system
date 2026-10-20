@@ -9,6 +9,14 @@
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
 		/>
+		<!--
+			Aktiv Grotesk (Adobe Fonts). Loaded here, in the preview, and NOT from
+			src/css — the package names aktiv-grotesk in --font-family-default but
+			must never fetch the licensed font itself. An @import in src/css would
+			compile into the published dist/css/index.css and impose Adobe's kit on
+			every consumer. Loading the font is the consuming app's job.
+		-->
+		<link rel="stylesheet" href="https://use.typekit.net/yym8qzc.css" />
 		<style>
 			/* ── Preview chrome — not part of the design system ──────────────────── */
 
@@ -416,8 +424,8 @@
 							with individual color controls when needed
 						</p>
 						<div class="preview-canvas">
-							<div class="cluster" data-cluster-gap="4" data-cluster-block-alignment="stretch">
-								<div class="box stack" data-stack-gap="2" style="flex: 1; min-width: 12rem">
+							<div class="cluster" data-cluster-gap="5" data-cluster-block-alignment="stretch">
+								<div class="box stack" data-stack-gap="3" style="flex: 1; min-width: 12rem">
 									<strong style="font-size: 0.85rem">Default box</strong>
 									<span style="font-size: 0.8rem"
 										>Pairs with .stack for its contents — Box arranges nothing itself.</span
@@ -426,7 +434,7 @@
 								<div
 									class="box stack"
 									data-box-surface="inverse"
-									data-stack-gap="2"
+									data-stack-gap="3"
 									style="flex: 1; min-width: 12rem"
 								>
 									<strong style="font-size: 0.85rem">Inverse</strong>
@@ -443,9 +451,9 @@
 							Nested — a box inside a box, with its own padding and surface
 						</p>
 						<div class="preview-canvas">
-							<div class="box stack" data-stack-gap="3" data-box-padding="6">
-								<span style="font-size: 0.8rem">Outer box, <code>data-box-padding="6"</code></span>
-								<div class="box" data-box-padding="3" data-box-surface="layer-3">
+							<div class="box stack" data-stack-gap="4" data-box-padding="7">
+								<span style="font-size: 0.8rem">Outer box, <code>data-box-padding="7"</code></span>
+								<div class="box" data-box-padding="4" data-box-surface="layer-3">
 									<span style="font-size: 0.8rem"
 										>Inner box, tighter padding and a different surface</span
 									>
@@ -465,13 +473,13 @@
 							Vertical stack with gap between children — set <code>data-stack-gap</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="stack" data-stack-gap="3">
+							<div class="stack" data-stack-gap="4">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -483,7 +491,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -495,7 +503,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -520,13 +528,13 @@
 							<code>data-cluster-block-alignment</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="cluster" data-cluster-gap="3">
+							<div class="cluster" data-cluster-gap="4">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-2) var(--space-4);
+										padding: var(--space-3) var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -538,7 +546,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-2) var(--space-4);
+										padding: var(--space-3) var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -550,7 +558,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-2) var(--space-4);
+										padding: var(--space-3) var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -562,7 +570,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-2) var(--space-4);
+										padding: var(--space-3) var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -574,7 +582,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-2) var(--space-4);
+										padding: var(--space-3) var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -598,13 +606,13 @@
 							<code>data-grid-gap</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="grid" data-grid-min-item-size="8rem" data-grid-gap="3">
+							<div class="grid" data-grid-min-item-size="8rem" data-grid-gap="4">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -616,7 +624,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -628,7 +636,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -640,7 +648,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -652,7 +660,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -676,13 +684,13 @@
 							<code>data-sidebar-content-min</code> to override
 						</p>
 						<div class="preview-canvas">
-							<div class="sidebar" data-sidebar-width="10rem" data-sidebar-gap="4">
+							<div class="sidebar" data-sidebar-width="10rem" data-sidebar-gap="5">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -694,7 +702,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -714,14 +722,14 @@
 								class="sidebar"
 								data-position="end"
 								data-sidebar-width="10rem"
-								data-sidebar-gap="4"
+								data-sidebar-gap="5"
 							>
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -733,7 +741,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -753,14 +761,14 @@
 								class="sidebar"
 								data-order="reverse"
 								data-sidebar-width="10rem"
-								data-sidebar-gap="4"
+								data-sidebar-gap="5"
 							>
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -772,7 +780,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -796,13 +804,13 @@
 							<code>data-switcher-threshold</code>
 						</p>
 						<div class="preview-canvas">
-							<div class="switcher" data-switcher-threshold="30rem" data-switcher-gap="3">
+							<div class="switcher" data-switcher-threshold="30rem" data-switcher-gap="4">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -814,7 +822,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -826,7 +834,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-4);
+										padding: var(--space-5);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -850,13 +858,13 @@
 							<code>data-repel-block-alignment</code>; <code>data-nowrap</code> keeps one line
 						</p>
 						<div class="preview-canvas">
-							<div class="repel" data-repel-gap="3">
+							<div class="repel" data-repel-gap="4">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -868,7 +876,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -892,13 +900,13 @@
 							<code>data-reel-item-inline-size</code>, <code>data-reel-block-size</code>
 						</p>
 						<div class="preview-canvas">
-							<div class="reel" data-reel-gap="3" data-reel-item-inline-size="9rem">
+							<div class="reel" data-reel-gap="4" data-reel-item-inline-size="9rem">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -910,7 +918,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -922,7 +930,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -934,7 +942,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -946,7 +954,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -958,7 +966,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -970,7 +978,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -982,7 +990,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1001,7 +1009,7 @@
 							<div
 								class="reel"
 								data-scrollbar="hidden"
-								data-reel-gap="3"
+								data-reel-gap="4"
 								data-reel-item-inline-size="9rem"
 							>
 								<div
@@ -1009,7 +1017,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1021,7 +1029,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1033,7 +1041,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1045,7 +1053,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1057,7 +1065,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1069,7 +1077,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1081,7 +1089,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1093,7 +1101,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1117,13 +1125,13 @@
 							<code>data-cover-min-height</code> to override
 						</p>
 						<div class="preview-canvas" style="padding: 0">
-							<div class="cover" data-cover-min-height="12rem" data-cover-padding="4">
+							<div class="cover" data-cover-min-height="12rem" data-cover-padding="5">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 										text-align: center;
@@ -1136,7 +1144,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 										text-align: center;
@@ -1149,7 +1157,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 										text-align: center;
@@ -1205,14 +1213,14 @@
 							<div
 								class="wrapper"
 								data-wrapper-max-inline-size="24rem"
-								data-wrapper-padding-inline="4"
+								data-wrapper-padding-inline="5"
 							>
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1235,7 +1243,7 @@
 							Icon and text share a baseline — set <code>data-with-icon-gap</code> to override the
 							<code>0.5em</code> default
 						</p>
-						<div class="preview-canvas stack" data-stack-gap="4">
+						<div class="preview-canvas stack" data-stack-gap="5">
 							<span class="with-icon" style="font-size: 0.9rem"
 								><svg class="icon" aria-hidden="true">
 									<use href="../dist/sprite.svg#bx-check"></use>
@@ -1263,13 +1271,17 @@
 						</p>
 						<div class="preview-canvas">
 							<div class="preview-row cluster">
-								<button class="button type-support-label-default">
+								<button class="button type-support-label-default" data-icon="leading">
 									<svg class="icon" aria-hidden="true">
 										<use href="../dist/sprite.svg#bx-check"></use>
 									</svg>
 									Leading icon
 								</button>
-								<button class="button type-support-label-default" data-variant="secondary">
+								<button
+									class="button type-support-label-default"
+									data-variant="secondary"
+									data-icon="trailing"
+								>
 									Trailing icon
 									<svg class="icon" aria-hidden="true">
 										<use href="../dist/sprite.svg#bx-chevron-right"></use>
@@ -1278,6 +1290,7 @@
 								<button
 									class="button type-support-label-default"
 									data-variant="ghost"
+									data-icon="only"
 									aria-label="Confirm"
 								>
 									<svg class="icon" aria-hidden="true">
@@ -1398,46 +1411,50 @@
 						<span class="preview-section__type">Utility</span>
 					</div>
 					<div class="preview-canvas">
-						<div class="stack" data-stack-gap="3">
+						<div class="stack" data-stack-gap="4">
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-0)"></div>
-								<span>space-0 / 2px — .gap-0 .p-0 .m-0</span>
+								<span>space-0 / 0px — .gap-0 .p-0 .m-0</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-1)"></div>
-								<span>space-1 / 4px — .gap-1 .p-1 .m-1</span>
+								<span>space-1 / 2px — .gap-1 .p-1 .m-1</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-2)"></div>
-								<span>space-2 / 6px</span>
+								<span>space-2 / 4px — .gap-2 .p-2 .m-2</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-3)"></div>
-								<span>space-3 / 8px</span>
+								<span>space-3 / 6px</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-4)"></div>
-								<span>space-4 / 12px</span>
+								<span>space-4 / 8px</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-5)"></div>
-								<span>space-5 / 16px</span>
+								<span>space-5 / 12px</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-6)"></div>
-								<span>space-6 / 24px</span>
+								<span>space-6 / 16px</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-7)"></div>
-								<span>space-7 / 32px</span>
+								<span>space-7 / 24px</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-8)"></div>
-								<span>space-8 / 40px</span>
+								<span>space-8 / 32px</span>
 							</div>
 							<div class="spacing-demo cluster">
 								<div class="spacing-demo__box" style="width: var(--space-9)"></div>
-								<span>space-9 / 56px</span>
+								<span>space-9 / 40px</span>
+							</div>
+							<div class="spacing-demo cluster">
+								<div class="spacing-demo__box" style="width: var(--space-10)"></div>
+								<span>space-10 / 56px</span>
 							</div>
 						</div>
 					</div>
@@ -1454,8 +1471,8 @@
 							Sized in <code>1cap</code> — matches the height of a capital letter. Compare against
 							<code>1em</code>, which is the font size and stands 42% taller
 						</p>
-						<div class="preview-canvas stack" data-stack-gap="4">
-							<p class="cluster" data-cluster-gap="5" style="font-size: 1rem; margin: 0">
+						<div class="preview-canvas stack" data-stack-gap="5">
+							<p class="cluster" data-cluster-gap="6" style="font-size: 1rem; margin: 0">
 								<span class="with-icon"
 									><svg class="icon" aria-hidden="true">
 										<use href="../dist/sprite.svg#bx-check"></use>
@@ -1476,7 +1493,7 @@
 								>
 								<span class="with-icon"
 									><svg class="icon" aria-hidden="true">
-										<use href="../dist/sprite.svg#bx-alert-triangle"></use>
+										<use href="../dist/sprite.svg#bx-error"></use>
 									</svg>
 									Warning</span
 								>
@@ -1517,10 +1534,10 @@
 					<div class="preview-subsection stack">
 						<p class="preview-label">
 							Spaces children in normal document flow — no flex context. Set the space with
-							<code>data-flow-space="0"</code>–<code>"12"</code>
+							<code>data-flow-space="1"</code>–<code>"12"</code>
 						</p>
 						<div class="preview-canvas">
-							<div class="flow" data-flow-space="5">
+							<div class="flow" data-flow-space="6">
 								<h3 style="color: var(--color-text-primary); font-size: 0.95rem; font-weight: 600">
 									Flow spaces siblings
 								</h3>
@@ -1537,31 +1554,31 @@
 					</div>
 					<div class="preview-subsection stack">
 						<p class="preview-label">
-							Nesting — outer <code>data-flow-space="8"</code>, inner
-							<code>data-flow-space="2"</code>. The inner flow takes its own spacing from the outer
+							Nesting — outer <code>data-flow-space="9"</code>, inner
+							<code>data-flow-space="3"</code>. The inner flow takes its own spacing from the outer
 							while setting a tighter one for its children
 						</p>
 						<div class="preview-canvas">
-							<div class="flow" data-flow-space="8">
+							<div class="flow" data-flow-space="9">
 								<div
 									style="
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
 								>
 									Outer child
 								</div>
-								<div class="flow" data-flow-space="2">
+								<div class="flow" data-flow-space="3">
 									<div
 										style="
 											background: var(--color-layer-3);
 											border: 1px solid var(--color-border-default);
 											border-radius: 4px;
-											padding: var(--space-3);
+											padding: var(--space-4);
 											font-size: 0.8rem;
 											color: var(--color-text-secondary);
 										"
@@ -1573,7 +1590,7 @@
 											background: var(--color-layer-3);
 											border: 1px solid var(--color-border-default);
 											border-radius: 4px;
-											padding: var(--space-3);
+											padding: var(--space-4);
 											font-size: 0.8rem;
 											color: var(--color-text-secondary);
 										"
@@ -1586,7 +1603,7 @@
 										background: var(--color-layer-3);
 										border: 1px solid var(--color-border-default);
 										border-radius: 4px;
-										padding: var(--space-3);
+										padding: var(--space-4);
 										font-size: 0.8rem;
 										color: var(--color-text-secondary);
 									"
@@ -1607,7 +1624,7 @@
 					<div class="preview-subsection stack">
 						<p class="preview-label">
 							Block padding for a page section — set with
-							<code>data-region-space="0"</code>–<code>"12"</code> (or <code>"none"</code>),
+							<code>data-region-space="1"</code>–<code>"12"</code> (or <code>"none"</code>),
 							<code>--region-space</code>, or
 							<code>.p-b-*</code>
 						</p>
@@ -1626,7 +1643,7 @@
 								<div
 									style="color: var(--color-text-secondary); font-size: 0.8rem; text-align: center"
 								>
-									Default region — <code>--space-10</code> above and below
+									Default region — <code>--space-11</code> above and below
 								</div>
 							</div>
 						</div>
@@ -1638,7 +1655,7 @@
 						<div class="preview-canvas" style="padding: 0">
 							<div
 								class="region"
-								data-region-space="7"
+								data-region-space="8"
 								style="
 									background: var(--color-layer-3);
 									border: 1px solid var(--color-border-default);
@@ -1665,14 +1682,14 @@
 					<div class="preview-subsection stack">
 						<p class="preview-label">
 							Both scales on one element — the prefixes keep them independent:
-							<code>data-region-space="8"</code> pads the section,
-							<code>data-flow-space="2"</code> spaces its children
+							<code>data-region-space="9"</code> pads the section,
+							<code>data-flow-space="3"</code> spaces its children
 						</p>
 						<div class="preview-canvas" style="padding: 0">
 							<section
 								class="region flow"
-								data-region-space="8"
-								data-flow-space="2"
+								data-region-space="9"
+								data-flow-space="3"
 								style="
 									background: var(--color-layer-3);
 									border: 1px solid var(--color-border-default);
@@ -1741,17 +1758,18 @@
 					</div>
 					<div class="preview-subsection stack">
 						<span class="preview-label">Color variants</span>
+						<p class="preview-label">
+							Choose a color combination with <code>data-badge-variant</code>. Height, padding, and
+							typography are fixed.
+						</p>
 						<div class="preview-canvas">
 							<div class="preview-row cluster">
 								<span class="badge type-support-label-xs">Gray</span>
-								<span class="badge type-support-label-xs" data-color="blue">Blue</span>
-								<span class="badge type-support-label-xs" data-color="green">Green</span>
-								<span class="badge type-support-label-xs" data-color="red">Red</span>
-								<span class="badge type-support-label-xs" data-color="gold">Gold</span>
-								<span class="badge type-support-label-xs" data-color="yellow">Yellow</span>
-								<span class="badge type-support-label-xs" data-color="orange">Orange</span>
-								<span class="badge type-support-label-xs" data-color="salmon">Salmon</span>
-								<span class="badge type-support-label-xs" data-color="pink">Pink</span>
+								<span class="badge type-support-label-xs" data-badge-variant="blue">Blue</span>
+								<span class="badge type-support-label-xs" data-badge-variant="green">Green</span>
+								<span class="badge type-support-label-xs" data-badge-variant="red">Red</span>
+								<span class="badge type-support-label-xs" data-badge-variant="gold">Gold</span>
+								<span class="badge type-support-label-xs" data-badge-variant="yellow">Yellow</span>
 							</div>
 						</div>
 					</div>
@@ -1804,8 +1822,8 @@
 						<div class="preview-canvas">
 							<div class="preview-row cluster">
 								<button class="button type-support-label-default">Large Button (default)</button>
-								<button class="button type-support-label-default" data-size="medium">
-									Medium Button
+								<button class="button type-support-label-default" data-size="compact">
+									Compact Button
 								</button>
 							</div>
 						</div>
@@ -1837,27 +1855,27 @@
 					</div>
 					<div class="preview-canvas">
 						<div class="preview-row cluster">
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="checkbox" type="checkbox" />
 								<span>Unchecked</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="checkbox" type="checkbox" checked />
 								<span>Checked</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="checkbox" type="checkbox" id="indeterminate-demo" />
 								<span>Indeterminate</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="checkbox" type="checkbox" disabled />
 								<span class="text-disabled">Disabled</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="checkbox" type="checkbox" checked disabled />
 								<span class="text-disabled">Checked + disabled</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="checkbox" type="checkbox" disabled id="indeterminate-disabled-demo" />
 								<span class="text-disabled">Indeterminate + disabled</span>
 							</label>
@@ -1872,7 +1890,7 @@
 						<span class="preview-section__type">Atom · CSS-only</span>
 					</div>
 					<div class="preview-canvas">
-						<div class="stack" data-stack-gap="5" style="max-width: 360px">
+						<div class="stack" data-stack-gap="6" style="max-width: 360px">
 							<div class="input">
 								<label class="input__label">Default</label>
 								<input class="input__field" type="text" placeholder="Placeholder text" />
@@ -1905,15 +1923,15 @@
 					</div>
 					<div class="preview-canvas">
 						<div class="preview-row cluster">
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="radio" type="radio" name="radio-demo" />
 								<span>Option A</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="radio" type="radio" name="radio-demo" checked />
 								<span>Option B (selected)</span>
 							</label>
-							<label style="display: flex; align-items: center; gap: var(--space-3)">
+							<label style="display: flex; align-items: center; gap: var(--space-4)">
 								<input class="radio" type="radio" name="radio-demo" disabled />
 								<span class="text-disabled">Disabled</span>
 							</label>

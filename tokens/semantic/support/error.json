@@ -2,54 +2,52 @@
 	"color": {
 		"support": {
 			"error": {
+				"background": {
+					"$value": "{red.7}",
+					"$type": "color",
+					"$description": "Background fill for badges and inline notices.",
+					"$extensions": {
+						"dark": "{red.95}"
+					}
+				},
 				"inverse": {
 					"$value": "{red.45}",
 					"$type": "color",
-					"$description": "Snackbar icon, text or icon over dark background."
+					"$description": "Icon accent on an inverted surface (snackbar).",
+					"$extensions": {
+						"dark": "{red.40}"
+					}
 				},
 				"accent": {
 					"$value": "{red.55}",
 					"$type": "color",
-					"$description": "Button background, key color."
-				},
-				"symbol": {
-					"$value": "{red.55}",
-					"$type": "color",
-					"$description": "Text, icon, or borders on default background (including input & dark badge).",
+					"$description": "Decorative, non-text elements — icons and flags.",
 					"$extensions": {
 						"dark": "{red.45}"
 					}
 				},
-				"hover": {
-					"$value": "{red.70}",
+				"text": {
+					"$value": "{red.55}",
 					"$type": "color",
-					"$description": "Button or link hover color.",
-					"$extensions": {
-						"dark": "{red.65}"
-					}
-				},
-				"container-background": {
-					"$value": "{red.7}",
-					"$type": "color",
-					"$description": "Notice background; light badge background.",
-					"$extensions": {
-						"dark": "{red.90}"
-					}
-				},
-				"container-text": {
-					"$value": "{red.85}",
-					"$type": "color",
-					"$description": "Notice text; light badge text.",
-					"$extensions": {
-						"dark": "{red.3}"
-					}
-				},
-				"container-accent": {
-					"$value": "{red.60}",
-					"$type": "color",
-					"$description": "Notice link & icon.",
+					"$description": "Support text; badge text and border in dark mode.",
 					"$extensions": {
 						"dark": "{red.40}"
+					}
+				},
+				"link": {
+					"$value": "{red.70}",
+					"$type": "color",
+					"$description": "Link color on notices.",
+					"$extensions": {
+						"dark": "{red.40}"
+					}
+				},
+				"hover": {
+					"$value": "{red.80}",
+					"$type": "color",
+					"$description": "Hover color for links on notices.",
+					"$extensions": {
+						"dark": "{red.50}"
 					}
 				}
 			}

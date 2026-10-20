@@ -1,0 +1,61 @@
+{
+	"color": {
+		"support": {
+			"system": {
+				"recede": {
+					"$value": "{gray.25}",
+					"$type": "color",
+					"$description": "Receding surface — subtle dividers and inactive marks.",
+					"$extensions": {
+						"dark": "{gray.70}"
+					}
+				},
+				"background": {
+					"$value": "{gray.7}",
+					"$type": "color",
+					"$description": "Background fill for badges and inline notices.",
+					"$extensions": {
+						"dark": "{gray.85}"
+					}
+				},
+				"inverse": {
+					"$value": "{gray.30}",
+					"$type": "color",
+					"$description": "Icon accent on an inverted surface (snackbar).",
+					"$extensions": {
+						"dark": "{gray.40}"
+					}
+				},
+				"accent": {
+					"$value": "{gray.45}",
+					"$type": "color",
+					"$description": "Decorative, non-text elements — icons and flags.",
+					"$extensions": {
+						"dark": "{gray.40}"
+					}
+				},
+				"text": {
+					"$value": "{color.text.helper}",
+					"$type": "color",
+					"$description": "Support text; badge text and border in dark mode. Already theme-aware via color.text.helper."
+				},
+				"link": {
+					"$value": "{gray.70}",
+					"$type": "color",
+					"$description": "Link color on notices.",
+					"$extensions": {
+						"dark": "{gray.25}"
+					}
+				},
+				"hover": {
+					"$value": "{gray.80}",
+					"$type": "color",
+					"$description": "Hover color for links on notices.",
+					"$extensions": {
+						"dark": "{gray.40}"
+					}
+				}
+			}
+		}
+	}
+}

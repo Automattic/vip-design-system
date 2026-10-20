@@ -6,6 +6,12 @@
 			"runtimeExecutable": "npm",
 			"runtimeArgs": ["run", "dev"],
 			"port": 6006
+		},
+		{
+			"name": "preview",
+			"runtimeExecutable": "node",
+			"runtimeArgs": ["scripts/preview-server.mjs"],
+			"port": 8420
 		}
 	]
 }

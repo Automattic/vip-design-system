@@ -2,15 +2,15 @@
 	"notice": {
 		"error": {
 			"background": {
-				"$value": "{color.support.error.container-background}",
+				"$value": "{color.support.error.background}",
 				"$type": "color"
 			},
 			"text": {
-				"$value": "{color.support.error.container-text}",
+				"$value": "{color.text.primary}",
 				"$type": "color"
 			},
 			"link": {
-				"$value": "{color.support.error.container-accent}",
+				"$value": "{color.support.error.link}",
 				"$type": "color"
 			},
 			"link-hover": {
@@ -18,21 +18,21 @@
 				"$type": "color"
 			},
 			"icon": {
-				"$value": "{color.support.error.container-accent}",
+				"$value": "{color.support.error.accent}",
 				"$type": "color"
 			}
 		},
 		"warning": {
 			"background": {
-				"$value": "{color.support.warning.container-background}",
+				"$value": "{color.support.warning.background}",
 				"$type": "color"
 			},
 			"text": {
-				"$value": "{color.support.warning.container-text}",
+				"$value": "{color.text.primary}",
 				"$type": "color"
 			},
 			"link": {
-				"$value": "{color.support.warning.container-accent}",
+				"$value": "{color.support.warning.link}",
 				"$type": "color"
 			},
 			"link-hover": {
@@ -40,21 +40,21 @@
 				"$type": "color"
 			},
 			"icon": {
-				"$value": "{color.support.warning.container-accent}",
+				"$value": "{color.support.warning.accent}",
 				"$type": "color"
 			}
 		},
 		"success": {
 			"background": {
-				"$value": "{color.support.success.container-background}",
+				"$value": "{color.support.success.background}",
 				"$type": "color"
 			},
 			"text": {
-				"$value": "{color.support.success.container-text}",
+				"$value": "{color.text.primary}",
 				"$type": "color"
 			},
 			"link": {
-				"$value": "{color.support.success.container-accent}",
+				"$value": "{color.support.success.link}",
 				"$type": "color"
 			},
 			"link-hover": {
@@ -62,21 +62,21 @@
 				"$type": "color"
 			},
 			"icon": {
-				"$value": "{color.support.success.container-accent}",
+				"$value": "{color.support.success.accent}",
 				"$type": "color"
 			}
 		},
 		"info": {
 			"background": {
-				"$value": "{color.support.info.container-background}",
+				"$value": "{color.support.info.background}",
 				"$type": "color"
 			},
 			"text": {
-				"$value": "{color.support.info.container-text}",
+				"$value": "{color.text.primary}",
 				"$type": "color"
 			},
 			"link": {
-				"$value": "{color.support.info.container-accent}",
+				"$value": "{color.support.info.link}",
 				"$type": "color"
 			},
 			"link-hover": {
@@ -84,7 +84,7 @@
 				"$type": "color"
 			},
 			"icon": {
-				"$value": "{color.support.info.container-accent}",
+				"$value": "{color.support.info.accent}",
 				"$type": "color"
 			}
 		}

@@ -12,8 +12,8 @@
 	 * inline measure, flow owns the space between children. The canonical page
 	 * composition looks like this:
 	 *
-	 *   <section class="region" data-region-space="10">
-	 *     <div class="wrapper flow" data-flow-space="5">
+	 *   <section class="region" data-region-space="11">
+	 *     <div class="wrapper flow" data-flow-space="6">
 	 *       …
 	 *     </div>
 	 *   </section>
@@ -39,7 +39,7 @@
 	 * spacing from a single value, with no way to set them apart. Prefixing
 	 * keeps them independent:
 	 *
-	 *   <section class="region flow" data-region-space="10" data-flow-space="5">
+	 *   <section class="region flow" data-region-space="11" data-flow-space="6">
 	 *
 	 * That is the rule for this system: prefix a data-* scale when its name
 	 * would otherwise be shared across classes, leave it unprefixed when it

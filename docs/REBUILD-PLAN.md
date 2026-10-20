@@ -82,7 +82,7 @@ Raw value → Primitive token → Semantic token → Component token
 - **Semantics** name _what it means_: `color-interactive: {color-blue-500}`
 - **Component tokens** name _where it's used_: `button-bg: {color-interactive}`
 
-**Rule:** Component tokens may only reference semantic tokens, never primitives or raw values. If a component token has no appropriate semantic token to reference, a new semantic token must be created first. This is the constraint that keeps theming maintainable as the system grows.
+**Rule:** Component tokens may only reference semantic tokens, never primitives or raw values. If a component token has no appropriate semantic token to reference, a new semantic token must be created first. Semantic tokens own theme-specific palette values. Component tokens may select different semantic references by theme, but must not introduce primitive references or raw color values. For example, a badge can select a support background in light mode and the semantic transparent background in dark mode; it does not need an extra semantic group just to repeat those choices.
 
 ### Token scoping
 
@@ -326,7 +326,7 @@ Themes are differentiated by color only. No other token values differ between th
 
 ### Implementation — `light-dark()`
 
-Semantic color tokens are defined once using the CSS `light-dark()` function, which eliminates the need to duplicate token definitions across a media query block and theme override classes.
+Semantic color tokens are defined once using the CSS `light-dark()` function. Component tokens can also use `light-dark()` to select semantic references when their treatment changes by theme (for example, a filled badge becoming an outline). The semantic layer continues to own the palette values. Both use the same light-theme fallback, without duplicating theme selection in handwritten block styles.
 
 ```css
 :root {

@@ -7,7 +7,7 @@
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button-background.hover-1}",
+					"$value": "{color.button-background.hover-default}",
 					"$type": "color"
 				},
 				"disabled": {
@@ -37,7 +37,7 @@
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button-background.hover-1}",
+					"$value": "{color.button-background.hover-default}",
 					"$type": "color"
 				},
 				"disabled": {
@@ -67,7 +67,7 @@
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button-background.hover-2}",
+					"$value": "{color.button-background.hover-transparent}",
 					"$type": "color"
 				},
 				"disabled": {
@@ -111,7 +111,7 @@
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button-background.hover-2}",
+					"$value": "{color.button-background.hover-transparent}",
 					"$type": "color"
 				},
 				"disabled": {
@@ -121,7 +121,7 @@
 			},
 			"label": {
 				"default": {
-					"$value": "{color.support.accent.symbol}",
+					"$value": "{color.button-foreground.ghost}",
 					"$type": "color"
 				},
 				"hover": {
@@ -141,7 +141,7 @@
 					"$type": "color"
 				},
 				"hover": {
-					"$value": "{color.button-background.hover-3}",
+					"$value": "{color.button-background.hover-display}",
 					"$type": "color"
 				},
 				"disabled": {
@@ -168,11 +168,11 @@
 			"primary": {
 				"background": {
 					"default": {
-						"$value": "{color.support.error.accent}",
+						"$value": "{color.button-background.danger}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.support.error.hover}",
+						"$value": "{color.button-background.hover-danger}",
 						"$type": "color"
 					},
 					"disabled": {
@@ -202,7 +202,7 @@
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.support.error.hover}",
+						"$value": "{color.button-background.hover-danger}",
 						"$type": "color"
 					},
 					"disabled": {
@@ -212,11 +212,11 @@
 				},
 				"border": {
 					"default": {
-						"$value": "{color.support.error.symbol}",
+						"$value": "{color.button-foreground.danger}",
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.support.error.hover}",
+						"$value": "{color.border.transparent}",
 						"$type": "color"
 					},
 					"disabled": {
@@ -226,7 +226,7 @@
 				},
 				"label": {
 					"default": {
-						"$value": "{color.support.error.symbol}",
+						"$value": "{color.button-foreground.danger}",
 						"$type": "color"
 					},
 					"hover": {
@@ -246,7 +246,7 @@
 						"$type": "color"
 					},
 					"hover": {
-						"$value": "{color.support.error.hover}",
+						"$value": "{color.button-background.hover-danger}",
 						"$type": "color"
 					},
 					"disabled": {
@@ -256,7 +256,7 @@
 				},
 				"label": {
 					"default": {
-						"$value": "{color.support.error.symbol}",
+						"$value": "{color.button-foreground.danger}",
 						"$type": "color"
 					},
 					"hover": {

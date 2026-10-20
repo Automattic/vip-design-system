@@ -60,6 +60,8 @@ export function resolveCatalog(catalog, dictionary) {
 			if (!token) fail(context, `unknown token: ${value.token}`);
 			if (token.$type !== type)
 				fail(context, `expected ${type} token; ${value.token} is ${token.$type}`);
+			if (local && token.filePath?.includes('tokens/component/') && token.path[0] !== local.name)
+				fail(context, `component token ${value.token} is scoped to .${token.path[0]}`);
 			return `var(--${token.name})`;
 		}
 		if (kind === 'literal') {

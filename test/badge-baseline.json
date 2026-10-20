@@ -1,0 +1,79 @@
+{
+	"source": "Upstream 09c404a0; measured in Chromium from its generated and authored CSS.",
+	"light": {
+		"gray": {
+			"background": "rgb(235, 233, 232)",
+			"color": "rgb(19, 25, 30)",
+			"border": "rgba(0, 0, 0, 0)"
+		},
+		"blue": {
+			"background": "rgb(221, 235, 243)",
+			"color": "rgb(19, 25, 30)",
+			"border": "rgba(0, 0, 0, 0)"
+		},
+		"green": {
+			"background": "rgb(215, 239, 223)",
+			"color": "rgb(19, 25, 30)",
+			"border": "rgba(0, 0, 0, 0)"
+		},
+		"red": {
+			"background": "rgb(255, 222, 219)",
+			"color": "rgb(19, 25, 30)",
+			"border": "rgba(0, 0, 0, 0)"
+		},
+		"gold": {
+			"background": "rgb(234, 227, 218)",
+			"color": "rgb(19, 25, 30)",
+			"border": "rgba(0, 0, 0, 0)"
+		},
+		"yellow": {
+			"background": "rgb(255, 226, 194)",
+			"color": "rgb(19, 25, 30)",
+			"border": "rgba(0, 0, 0, 0)"
+		}
+	},
+	"dark": {
+		"gray": {
+			"background": "rgba(0, 0, 0, 0)",
+			"color": "rgb(155, 151, 150)",
+			"border": "rgb(155, 151, 150)"
+		},
+		"blue": {
+			"background": "rgba(0, 0, 0, 0)",
+			"color": "rgb(84, 192, 205)",
+			"border": "rgb(84, 192, 205)"
+		},
+		"green": {
+			"background": "rgba(0, 0, 0, 0)",
+			"color": "rgb(77, 198, 121)",
+			"border": "rgb(77, 198, 121)"
+		},
+		"red": {
+			"background": "rgba(0, 0, 0, 0)",
+			"color": "rgb(255, 95, 77)",
+			"border": "rgb(255, 95, 77)"
+		},
+		"gold": {
+			"background": "rgba(0, 0, 0, 0)",
+			"color": "rgb(218, 154, 69)",
+			"border": "rgb(218, 154, 69)"
+		},
+		"yellow": {
+			"background": "rgba(0, 0, 0, 0)",
+			"color": "rgb(255, 184, 74)",
+			"border": "rgb(255, 184, 74)"
+		}
+	},
+	"defaults": {
+		"height": "22px",
+		"gap": "normal",
+		"paddingBlock": "4px",
+		"paddingInline": "6px",
+		"borderWidth": "1px",
+		"radius": "4px",
+		"fontWeight": "400",
+		"fontSize": "11px",
+		"lineHeight": "11px",
+		"letterSpacing": "0.22px"
+	}
+}

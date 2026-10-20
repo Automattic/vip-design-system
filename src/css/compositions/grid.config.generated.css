@@ -4,7 +4,7 @@
  */
 @layer compositions {
 	.grid {
-		--grid-gap: var(--space-5);
+		--grid-gap: var(--space-comfortable);
 		--grid-columns: auto-fill;
 		--grid-min-item-size: var(--layout-size-16);
 	}
@@ -14,43 +14,43 @@
 	}
 
 	.grid[data-grid-gap='1'] {
-		--grid-gap: var(--space-1);
+		--grid-gap: var(--space-hairline);
 	}
 
 	.grid[data-grid-gap='2'] {
-		--grid-gap: var(--space-2);
+		--grid-gap: var(--space-micro);
 	}
 
 	.grid[data-grid-gap='3'] {
-		--grid-gap: var(--space-3);
+		--grid-gap: var(--space-tight);
 	}
 
 	.grid[data-grid-gap='4'] {
-		--grid-gap: var(--space-4);
+		--grid-gap: var(--space-close);
 	}
 
 	.grid[data-grid-gap='5'] {
-		--grid-gap: var(--space-5);
+		--grid-gap: var(--space-modest);
 	}
 
 	.grid[data-grid-gap='6'] {
-		--grid-gap: var(--space-6);
+		--grid-gap: var(--space-comfortable);
 	}
 
 	.grid[data-grid-gap='7'] {
-		--grid-gap: var(--space-7);
+		--grid-gap: var(--space-relaxed);
 	}
 
 	.grid[data-grid-gap='8'] {
-		--grid-gap: var(--space-8);
+		--grid-gap: var(--space-loose);
 	}
 
 	.grid[data-grid-gap='9'] {
-		--grid-gap: var(--space-9);
+		--grid-gap: var(--space-open);
 	}
 
 	.grid[data-grid-gap='10'] {
-		--grid-gap: var(--space-10);
+		--grid-gap: var(--space-spacious);
 	}
 
 	.grid[data-grid-gap='11'] {
@@ -61,8 +61,12 @@
 		--grid-gap: var(--space-12);
 	}
 
+	.grid[data-grid-gap='13'] {
+		--grid-gap: var(--space-13);
+	}
+
 	.grid[data-grid-gap='none'] {
-		--grid-gap: 0px;
+		--grid-gap: var(--space-0);
 	}
 
 	.grid[data-grid-columns='1'] {

@@ -2,57 +2,52 @@
 	"color": {
 		"support": {
 			"warning": {
-				"inverse": {
-					"$value": "{yellow.25}",
-					"$type": "color",
-					"$description": "Snackbar icon, text or icon over dark background."
-				},
-				"accent": {
-					"$value": "{yellow.35}",
-					"$type": "color",
-					"$description": "Button background, key color.",
-					"$extensions": {
-						"dark": "{yellow.25}"
-					}
-				},
-				"symbol": {
-					"$value": "{yellow.55}",
-					"$type": "color",
-					"$description": "Text, icon, or borders on default background (including input & dark badge).",
-					"$extensions": {
-						"dark": "{yellow.25}"
-					}
-				},
-				"hover": {
-					"$value": "{yellow.65}",
-					"$type": "color",
-					"$description": "Button or link hover color.",
-					"$extensions": {
-						"dark": "{yellow.35}"
-					}
-				},
-				"container-background": {
+				"background": {
 					"$value": "{yellow.7}",
 					"$type": "color",
-					"$description": "Notice background; light badge background.",
+					"$description": "Background fill for badges and inline notices.",
 					"$extensions": {
 						"dark": "{yellow.90}"
 					}
 				},
-				"container-text": {
-					"$value": "{yellow.85}",
+				"inverse": {
+					"$value": "{yellow.25}",
 					"$type": "color",
-					"$description": "Notice text; light badge text.",
+					"$description": "Icon accent on an inverted surface (snackbar).",
 					"$extensions": {
-						"dark": "{yellow.3}"
+						"dark": "{yellow.20}"
 					}
 				},
-				"container-accent": {
-					"$value": "{yellow.55}",
+				"accent": {
+					"$value": "{yellow.35}",
 					"$type": "color",
-					"$description": "Notice link & icon.",
+					"$description": "Decorative, non-text elements — icons and flags.",
 					"$extensions": {
 						"dark": "{yellow.25}"
+					}
+				},
+				"text": {
+					"$value": "{yellow.55}",
+					"$type": "color",
+					"$description": "Support text; badge text and border in dark mode.",
+					"$extensions": {
+						"dark": "{yellow.20}"
+					}
+				},
+				"link": {
+					"$value": "{yellow.65}",
+					"$type": "color",
+					"$description": "Link color on notices.",
+					"$extensions": {
+						"dark": "{yellow.20}"
+					}
+				},
+				"hover": {
+					"$value": "{yellow.75}",
+					"$type": "color",
+					"$description": "Hover color for links on notices.",
+					"$extensions": {
+						"dark": "{yellow.35}"
 					}
 				}
 			}

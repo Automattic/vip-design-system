@@ -2,55 +2,50 @@
 	"color": {
 		"support": {
 			"info": {
-				"inverse": {
-					"$value": "{blue.45}",
+				"background": {
+					"$value": "{blue.7}",
 					"$type": "color",
-					"$description": "Snackbar icon, text or icon over dark background."
+					"$description": "Background fill for badges and inline notices.",
+					"$extensions": {
+						"dark": "{blue.95}"
+					}
+				},
+				"inverse": {
+					"$value": "{blue.35}",
+					"$type": "color",
+					"$description": "Icon accent on an inverted surface (snackbar).",
+					"$extensions": {
+						"dark": "{blue.30}"
+					}
 				},
 				"accent": {
-					"$value": "{blue.55}",
+					"$value": "{blue.45}",
 					"$type": "color",
-					"$description": "Button background, key color.",
+					"$description": "Decorative, non-text elements — icons and flags.",
 					"$extensions": {
 						"dark": "{blue.40}"
 					}
 				},
-				"symbol": {
+				"text": {
 					"$value": "{blue.60}",
 					"$type": "color",
-					"$description": "Text, icon, or borders on default background (including input & dark badge).",
+					"$description": "Support text; badge text and border in dark mode.",
 					"$extensions": {
-						"dark": "{blue.50}"
+						"dark": "{blue.30}"
+					}
+				},
+				"link": {
+					"$value": "{blue.75}",
+					"$type": "color",
+					"$description": "Link color on notices.",
+					"$extensions": {
+						"dark": "{blue.30}"
 					}
 				},
 				"hover": {
-					"$value": "{blue.70}",
-					"$type": "color",
-					"$description": "Button or link hover color.",
-					"$extensions": {
-						"dark": "{blue.65}"
-					}
-				},
-				"container-background": {
-					"$value": "{blue.7}",
-					"$type": "color",
-					"$description": "Notice background; light badge background.",
-					"$extensions": {
-						"dark": "{blue.90}"
-					}
-				},
-				"container-text": {
 					"$value": "{blue.85}",
 					"$type": "color",
-					"$description": "Notice text; light badge text.",
-					"$extensions": {
-						"dark": "{blue.3}"
-					}
-				},
-				"container-accent": {
-					"$value": "{blue.60}",
-					"$type": "color",
-					"$description": "Notice link & icon.",
+					"$description": "Hover color for links on notices.",
 					"$extensions": {
 						"dark": "{blue.45}"
 					}

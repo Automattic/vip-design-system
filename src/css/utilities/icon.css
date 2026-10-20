@@ -27,10 +27,10 @@
 	 */
 	.icon {
 		display: inline-block;
-		block-size: 0.75em;
-		block-size: 1cap;
-		inline-size: 0.75em;
-		inline-size: 1cap;
+		block-size: var(--icon-size, 0.75em);
+		block-size: var(--icon-size, 1cap);
+		inline-size: var(--icon-size, 0.75em);
+		inline-size: var(--icon-size, 1cap);
 		fill: currentColor;
 		flex-shrink: 0;
 	}

@@ -2,47 +2,50 @@
 	"space": {
 		"type": "dimension",
 		"values": {
-			"none": {
-				"literal": "0px"
-			},
 			"0": {
 				"token": "space.0"
 			},
 			"1": {
-				"token": "space.1"
+				"token": "space.hairline"
 			},
 			"2": {
-				"token": "space.2"
+				"token": "space.micro"
 			},
 			"3": {
-				"token": "space.3"
+				"token": "space.tight"
 			},
 			"4": {
-				"token": "space.4"
+				"token": "space.close"
 			},
 			"5": {
-				"token": "space.5"
+				"token": "space.modest"
 			},
 			"6": {
-				"token": "space.6"
+				"token": "space.comfortable"
 			},
 			"7": {
-				"token": "space.7"
+				"token": "space.relaxed"
 			},
 			"8": {
-				"token": "space.8"
+				"token": "space.loose"
 			},
 			"9": {
-				"token": "space.9"
+				"token": "space.open"
 			},
 			"10": {
-				"token": "space.10"
+				"token": "space.spacious"
 			},
 			"11": {
 				"token": "space.11"
 			},
 			"12": {
 				"token": "space.12"
+			},
+			"13": {
+				"token": "space.13"
+			},
+			"none": {
+				"token": "space.0"
 			}
 		}
 	},
@@ -291,7 +294,7 @@
 		"type": "dimension",
 		"values": {
 			"none": {
-				"literal": "0px"
+				"token": "radius.0"
 			},
 			"subtle": {
 				"token": "radius.subtle"
@@ -311,16 +314,13 @@
 		"type": "dimension",
 		"values": {
 			"0": {
-				"literal": "0px"
+				"token": "border-width.none"
 			},
 			"1": {
-				"literal": "1px"
+				"token": "border-width.thin"
 			},
-			"2": {
-				"literal": "2px"
-			},
-			"4": {
-				"literal": "4px"
+			"1.5": {
+				"token": "border-width.medium"
 			}
 		}
 	},

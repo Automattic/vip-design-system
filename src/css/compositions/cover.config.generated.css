@@ -4,7 +4,7 @@
  */
 @layer compositions {
 	.cover {
-		--cover-padding: var(--space-5);
+		--cover-padding: var(--space-comfortable);
 		--cover-min-height: 100vh;
 	}
 
@@ -13,43 +13,43 @@
 	}
 
 	.cover[data-cover-padding='1'] {
-		--cover-padding: var(--space-1);
+		--cover-padding: var(--space-hairline);
 	}
 
 	.cover[data-cover-padding='2'] {
-		--cover-padding: var(--space-2);
+		--cover-padding: var(--space-micro);
 	}
 
 	.cover[data-cover-padding='3'] {
-		--cover-padding: var(--space-3);
+		--cover-padding: var(--space-tight);
 	}
 
 	.cover[data-cover-padding='4'] {
-		--cover-padding: var(--space-4);
+		--cover-padding: var(--space-close);
 	}
 
 	.cover[data-cover-padding='5'] {
-		--cover-padding: var(--space-5);
+		--cover-padding: var(--space-modest);
 	}
 
 	.cover[data-cover-padding='6'] {
-		--cover-padding: var(--space-6);
+		--cover-padding: var(--space-comfortable);
 	}
 
 	.cover[data-cover-padding='7'] {
-		--cover-padding: var(--space-7);
+		--cover-padding: var(--space-relaxed);
 	}
 
 	.cover[data-cover-padding='8'] {
-		--cover-padding: var(--space-8);
+		--cover-padding: var(--space-loose);
 	}
 
 	.cover[data-cover-padding='9'] {
-		--cover-padding: var(--space-9);
+		--cover-padding: var(--space-open);
 	}
 
 	.cover[data-cover-padding='10'] {
-		--cover-padding: var(--space-10);
+		--cover-padding: var(--space-spacious);
 	}
 
 	.cover[data-cover-padding='11'] {
@@ -60,8 +60,12 @@
 		--cover-padding: var(--space-12);
 	}
 
+	.cover[data-cover-padding='13'] {
+		--cover-padding: var(--space-13);
+	}
+
 	.cover[data-cover-padding='none'] {
-		--cover-padding: 0px;
+		--cover-padding: var(--space-0);
 	}
 
 	.cover[data-cover-min-height='8rem'] {

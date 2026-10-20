@@ -4,7 +4,7 @@
  */
 @layer utilities {
 	.region {
-		--region-space: var(--space-10);
+		--region-space: var(--space-11);
 	}
 
 	.region[data-region-space='0'] {
@@ -12,43 +12,43 @@
 	}
 
 	.region[data-region-space='1'] {
-		--region-space: var(--space-1);
+		--region-space: var(--space-hairline);
 	}
 
 	.region[data-region-space='2'] {
-		--region-space: var(--space-2);
+		--region-space: var(--space-micro);
 	}
 
 	.region[data-region-space='3'] {
-		--region-space: var(--space-3);
+		--region-space: var(--space-tight);
 	}
 
 	.region[data-region-space='4'] {
-		--region-space: var(--space-4);
+		--region-space: var(--space-close);
 	}
 
 	.region[data-region-space='5'] {
-		--region-space: var(--space-5);
+		--region-space: var(--space-modest);
 	}
 
 	.region[data-region-space='6'] {
-		--region-space: var(--space-6);
+		--region-space: var(--space-comfortable);
 	}
 
 	.region[data-region-space='7'] {
-		--region-space: var(--space-7);
+		--region-space: var(--space-relaxed);
 	}
 
 	.region[data-region-space='8'] {
-		--region-space: var(--space-8);
+		--region-space: var(--space-loose);
 	}
 
 	.region[data-region-space='9'] {
-		--region-space: var(--space-9);
+		--region-space: var(--space-open);
 	}
 
 	.region[data-region-space='10'] {
-		--region-space: var(--space-10);
+		--region-space: var(--space-spacious);
 	}
 
 	.region[data-region-space='11'] {
@@ -59,7 +59,11 @@
 		--region-space: var(--space-12);
 	}
 
+	.region[data-region-space='13'] {
+		--region-space: var(--space-13);
+	}
+
 	.region[data-region-space='none'] {
-		--region-space: 0px;
+		--region-space: var(--space-0);
 	}
 }
