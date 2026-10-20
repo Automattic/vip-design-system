@@ -142,7 +142,7 @@
 
 	blockquote {
 		padding-inline-start: var(--space-comfortable);
-		border-inline-start: 3px solid var(--color-border-accent);
+		border-inline-start: 3px solid var(--color-support-brand-accent);
 		color: var(--color-text-helper);
 		font-style: normal;
 	}
@@ -224,7 +224,7 @@
 	select {
 		color: var(--color-text-primary);
 		background-color: var(--color-control-background-transparent);
-		border: 1px solid var(--color-border-strong);
+		border: 1px solid var(--color-border-control);
 		border-radius: var(--radius-control);
 	}
 
