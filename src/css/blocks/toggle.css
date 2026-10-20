@@ -1,5 +1,29 @@
 @layer blocks {
-	/* Wrapper: <label class="toggle"> */
+	/*
+	 * Toggle — 40x20 track, 16px thumb, matching Figma (15784:1097).
+	 *
+	 * Markup is a native checkbox with a visual track beside it:
+	 *
+	 *   <label class="toggle">
+	 *     <input type="checkbox" class="toggle__input">
+	 *     <span class="toggle__track"></span>
+	 *     <span class="type-support-label-default">Label</span>
+	 *   </label>
+	 *
+	 * The input is visually hidden rather than removed, so the control keeps
+	 * native keyboard operation, the checked state, and its announcement.
+	 *
+	 * ONE DELIBERATE DEPARTURE FROM THE DESIGN FILE. Figma draws the thumb at
+	 * cx=10 in all four variants — it never moves — and puts the indicator on
+	 * the right in all four, including "on". Built literally, that is a switch
+	 * whose position says nothing about its state, which reads as an authoring
+	 * slip rather than intent: if the thumb had been moved for "on", the
+	 * indicator would have had to move too or they would overlap. The thumb
+	 * therefore slides and the indicator takes the opposite side. Everything
+	 * else — size, colours, thumb geometry, shadow, the X/check glyphs — is
+	 * Figma's.
+	 */
+
 	.toggle {
 		display: inline-flex;
 		align-items: center;
@@ -7,60 +31,97 @@
 		cursor: pointer;
 	}
 
-	/* Hidden native checkbox */
+	/*
+	 * Hidden, not removed. display:none or visibility:hidden would take the
+	 * input out of the accessibility tree and make it unfocusable.
+	 */
 	.toggle__input {
 		position: absolute;
-		width: 1px;
-		height: 1px;
+		inline-size: 1px;
+		block-size: 1px;
 		padding: 0;
 		margin: -1px;
 		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
+		clip-path: inset(50%);
 		white-space: nowrap;
 		border: 0;
 	}
 
-	/* Visual track — the sliding switch */
 	.toggle__track {
 		position: relative;
 		display: inline-flex;
 		align-items: center;
-		width: 2.25rem;
-		height: 1.25rem;
+		inline-size: 2.5rem;
+		block-size: 1.25rem;
 		flex-shrink: 0;
-		border-radius: var(--border-radius-6);
+		border-radius: 50vh;
 		background-color: var(--toggle-background-inactive);
 		transition: background-color 120ms ease;
 	}
 
-	/* Thumb / knob */
+	/* ── Indicator ────────────────────────────────────────────────────────────── */
+	/*
+	 * Masked so the glyph takes --toggle-icon, which a background-image data URI
+	 * could not do — its fill cannot reference a custom property. Same reason as
+	 * the checkbox mark. Figma centres it 6px from the track's end.
+	 */
+
+	.toggle__track::before {
+		content: '';
+		position: absolute;
+		inset-inline-end: 6px;
+		inline-size: 10px;
+		block-size: 10px;
+		background-color: var(--toggle-icon);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: contain;
+		mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 1.54L6.54 5L10 8.46L8.46 10L5 6.54L1.54 10L0 8.46L3.46 5L0 1.54L1.54 0L5 3.46L8.46 0L10 1.54Z'/%3E%3C/svg%3E");
+		transition: none;
+	}
+
+	/* ── Thumb ────────────────────────────────────────────────────────────────── */
+
 	.toggle__track::after {
 		content: '';
 		position: absolute;
-		left: 2px;
-		width: calc(1.25rem - 4px);
-		height: calc(1.25rem - 4px);
+		inset-inline-start: 2px;
+		inline-size: 1rem;
+		block-size: 1rem;
 		border-radius: 50%;
 		background-color: var(--toggle-switch);
-		transition: transform 120ms ease;
+		/* Figma: dy 1, blur 3, black at 8% — not one of the semantic shadows. */
+		box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+		transition: translate 120ms ease;
 	}
 
-	/* Checked state */
+	/* ── Checked ──────────────────────────────────────────────────────────────── */
+
 	.toggle__input:checked + .toggle__track {
 		background-color: var(--toggle-background-primary);
 	}
 
+	/* 40 track − 16 thumb − 2 inset each side = 20px of travel. */
 	.toggle__input:checked + .toggle__track::after {
-		transform: translateX(1rem);
+		translate: 1.25rem 0;
 	}
 
-	/* Focus state */
+	.toggle__input:checked + .toggle__track::before {
+		inset-inline-end: auto;
+		inset-inline-start: 6px;
+		mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 1.27276L2.93221 8L0 5.20907L1.2119 3.93631L2.93221 5.57374L8.78809 0L10 1.27276Z'/%3E%3C/svg%3E");
+	}
+
+	/* ── Focus ────────────────────────────────────────────────────────────────── */
+
 	.toggle__input:focus-visible + .toggle__track {
 		outline: 2px solid var(--color-focus-outline);
 		outline-offset: 2px;
 	}
 
-	/* Disabled state */
+	/* ── Disabled ─────────────────────────────────────────────────────────────── */
+
+	.toggle:has(.toggle__input:disabled),
 	.toggle[data-state='disabled'] {
 		cursor: not-allowed;
 	}
@@ -72,5 +133,16 @@
 
 	.toggle__input:disabled + .toggle__track::after {
 		background-color: var(--toggle-switch-disabled);
+	}
+
+	.toggle__input:disabled + .toggle__track::before {
+		background-color: var(--toggle-icon-disabled);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.toggle__track,
+		.toggle__track::after {
+			transition: none;
+		}
 	}
 }
