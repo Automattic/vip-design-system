@@ -19,6 +19,7 @@ export async function loadComponentVariants() {
 			components[name] = {
 				default: metadata.default,
 				aliases: metadata.aliases ?? {},
+				react: group.$extensions['com.automattic.vip.react'],
 				variants: Object.fromEntries(Object.entries(group).filter(([key]) => !key.startsWith('$'))),
 			};
 		}
@@ -73,7 +74,7 @@ export function resolveComponentVariants(components, dictionary) {
 			if (typeof target !== 'string' || !Object.hasOwn(variants, target))
 				fail(`${alias} must alias a declared variant`);
 		}
-		resolved[name] = { default: component.default, variants, aliases };
+		resolved[name] = { default: component.default, variants, aliases, react: component.react };
 	}
 	return resolved;
 }

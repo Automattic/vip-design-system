@@ -16,6 +16,7 @@ export default defineConfig({
 			entry: resolve(__dirname, 'src/index.ts'),
 			formats: ['es', 'cjs'],
 			fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
+			cssFileName: 'css/index',
 		},
 		rollupOptions: {
 			external: ['react', 'react-dom', 'react/jsx-runtime'],

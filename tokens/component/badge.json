@@ -12,6 +12,10 @@
 						"brand": "gold",
 						"warning": "yellow"
 					}
+				},
+				"com.automattic.vip.react": {
+					"element": "span",
+					"className": "type-support-label-xs"
 				}
 			},
 			"gray": {

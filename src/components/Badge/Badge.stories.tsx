@@ -13,7 +13,8 @@ const ALIASES = Object.keys(aliases) as BadgeAlias[];
 /**
  * A badge labels an item with a short, semantic status.
  *
- * Badge is **CSS-only** — there is no React component to import. Apply the
+ * Badge works with CSS alone. An optional typed `Badge` React wrapper is also
+ * available. For HTML usage, apply the
  * `.badge` class together with a typography utility, and set the colour with
  * the `data-badge-variant` attribute:
  *

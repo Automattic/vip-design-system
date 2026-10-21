@@ -18,14 +18,14 @@ See `docs/REBUILD-PLAN.md` for full architectural decisions and rationale.
 - **Storybook 10** with **@storybook/react-vite** for documentation
 - **Lefthook** for pre-commit hooks (check-types, lint, format:check)
 - **ESLint 8** + **Prettier 3**
-- **Radix UI** for accessible component primitives (where appropriate)
+- **Base UI** for accessible component primitives (where appropriate)
 - **React 18** (peer dependency)
 
 ## Code Structure
 
 ```
 src/
-  components/          # React components (complex interactive only)
+  components/          # Interactive components and optional generated CSS wrappers
     ComponentName/
       ComponentName.tsx
       ComponentName.test.tsx
@@ -130,9 +130,11 @@ failure above.
 
 ### React components
 
-- React is used only for complex interactive components (dialogs, dropdowns, etc.).
+- React provides complex interactive components and optional generated wrappers for typed CSS configuration. CSS remains independently usable.
+- Generate CSS wrappers from `tokens/configuration` and opted-in component token metadata; never maintain separate handwritten option unions. Run `npm run build:tokens` to regenerate and `npm run check:configuration` to check freshness.
+- Wrappers use numeric literals for numeric presets, forward native props and refs, and support Base UI’s `render` API through `useRender`. Keep CSS defaults and styling out of their runtime.
 - Components apply CSS classes — no styling logic in JS.
-- Use Radix UI primitives where they earn their keep; roll your own when simpler.
+- Use Base UI primitives where they earn their keep; roll your own when simpler.
 - Native HTML elements first (e.g. `<details>/<summary>` over a custom accordion).
 - Components accept a `labels` prop for translatable strings (no i18n library in the system).
 - Components accept `className` for consumer overrides — no `sx` prop.

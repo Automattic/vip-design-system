@@ -166,7 +166,7 @@ Other parallels, all verified by value:
 
 ### Needs a decision
 
-**Select's custom dropdown.** The native `<select>`'s open panel is drawn by the OS and cannot be styled, so it will never match Figma. Matching it means a custom listbox — the **first component in this system needing JavaScript**, and the first real entry in `src/components/`. `REBUILD-PLAN` anticipates this ("Radix where they earn their keep"). What is given up: the OS picker on mobile, no-JS operation, and ARIA that every assistive technology already understands. Figma nodes: Select-dropdown `15794:4246`, `.dropdown` `15793:3306`, `.item-core` `15793:3293`, `.list-item` `15793:3300`, `.select-dropdown-item` `15794:3387`. Emily's screenshot shows a **separator between option groups** — confirm whether that is `<optgroup>`-shaped.
+**Select's custom dropdown.** The native `<select>`'s open panel is drawn by the OS and cannot be styled, so it will never match Figma. Matching it means a custom listbox — the **first component in this system needing JavaScript**, alongside the generated CSS wrappers in `src/components/`. `REBUILD-PLAN` anticipates this ("Base UI where they earn their keep"). What is given up: the OS picker on mobile, no-JS operation, and ARIA that every assistive technology already understands. Figma nodes: Select-dropdown `15794:4246`, `.dropdown` `15793:3306`, `.item-core` `15793:3293`, `.list-item` `15793:3300`, `.select-dropdown-item` `15794:3387`. Emily's screenshot shows a **separator between option groups** — confirm whether that is `<optgroup>`-shaped.
 
 **Notice needs a second text slot.** Figma splits `heading` (`text.primary`) from body (`text.secondary`); `notice.json` has one slot mapped to primary.
 

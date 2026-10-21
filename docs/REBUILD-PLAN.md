@@ -38,7 +38,7 @@ Decisions made during planning that shape the approach.
 
 ### CSS/token-first
 
-The new system is CSS and token-first. CSS variables, utility classes, and layout compositions are the core deliverable. React components are an additive layer on top — used only where interactive behavior genuinely requires them.
+The new system is CSS and token-first. CSS variables, utility classes, and layout compositions are the core deliverable. React is an additive layer for interactive behavior and optional generated wrappers that provide typed access to CSS configuration.
 
 ### Rebuild, not refactor
 
@@ -48,17 +48,17 @@ The existing system is tightly coupled to Theme UI and Emotion (CSS-in-JS), whic
 
 Theme UI and its Emotion dependency are removed completely. Styling uses PostCSS and CSS custom properties. This eliminates a large transitive dependency and makes styles inspectable in DevTools without hashed class names.
 
-### React for complex interactive components only
+### React for interaction and optional typed CSS configuration
 
-React components are included for complex interactive patterns where JS is genuinely needed — focus trapping, keyboard navigation, ARIA state management. Simple layout and typographic patterns become CSS-only.
+Handwritten React components provide complex interactive patterns — focus trapping, keyboard navigation, ARIA state management. Simple patterns remain independently usable as CSS. Optional wrappers for compositions, Flow, Region and Badge are generated from the existing configuration catalogs and component metadata. They map typed props to classes and data attributes; they do not implement styling in JavaScript.
 
-### Radix is a tool, not a requirement
+### Base UI is a tool, not a requirement
 
-Radix UI primitives are used where they earn their keep (dialogs, dropdowns, tooltips, etc.). Simpler components can be rolled with plain React or native HTML. There is no requirement to use Radix for every interactive component.
+Base UI primitives are used where they earn their keep (dialogs, dropdowns, tooltips, etc.). Simpler components can be rolled with plain React or native HTML. There is no requirement to use Base UI for every interactive component.
 
 ### Native HTML first
 
-The accessibility hierarchy is: **native HTML element first**, then ARIA enhancement, then custom implementation. Use `<details>/<summary>` for disclosure, `<dialog>` for modals where it fits, `<button>` over `<div onClick>`. Reach for Radix or custom ARIA patterns only when the native element genuinely cannot do the job.
+The accessibility hierarchy is: **native HTML element first**, then ARIA enhancement, then custom implementation. Use `<details>/<summary>` for disclosure, `<dialog>` for modals where it fits, `<button>` over `<div onClick>`. Reach for Base UI or custom ARIA patterns only when the native element genuinely cannot do the job.
 
 ### TypeScript throughout
 
@@ -115,7 +115,7 @@ Component tokens belong on the component's own root element, not on `:root`. Thi
 | Block       | Class          | `.button`, `.dialog`                                |
 | Exception   | Data attribute | `[data-variant="danger"]`, `[data-state="loading"]` |
 
-Class names are reserved for compositions, utilities, and blocks. Exceptions and states always use `data-*` attributes — never class names. This aligns with Radix UI, which already exposes `data-state` attributes for component state (`data-state="open"`, `data-state="checked"`).
+Class names are reserved for compositions, utilities, and blocks. Exceptions and states always use `data-*` attributes — never class names. This aligns with Base UI, which exposes component state through data attributes such as `data-open` and `data-checked`.
 
 Composition names do not carry a `composition-` prefix — `.stack`, `.cluster` etc. are self-descriptive.
 
@@ -297,11 +297,11 @@ State and variant modifiers using `data-*` attributes:
 
 ## React Components
 
-React components are included only for patterns where interactive behavior requires JS. The full component list — including build method, atomic level, and status — is tracked in [`docs/component-inventory.csv`](component-inventory.csv).
+Handwritten React components cover patterns where interactive behavior requires JS. The full component list — including build method, atomic level, and status — is tracked in [`docs/component-inventory.csv`](component-inventory.csv). Optional generated CSS wrappers are described in [Typed React wrappers](./CSS-CONFIGURATION.md#typed-react-wrappers).
 
-Each React component:
+Each handwritten interactive React component:
 
-- Wraps a Radix primitive **or** is hand-rolled, depending on which approach is simpler and more appropriate
+- Wraps a Base UI primitive **or** is hand-rolled, depending on which approach is simpler and more appropriate
 - Applies CSS block/exception classes — no styling logic in JS
 - Accepts `className` for consumer overrides (no `sx` prop)
 - Accepts a `labels` prop for internationalization (see [Internationalization](#internationalization))
@@ -310,7 +310,7 @@ Each React component:
 - Has Storybook stories in CSF3 format
 - Is exported from `src/index.ts`
 
-Simple components (badges, notices, spinners, etc.) become CSS-only and are documented in Storybook as HTML + class name examples with no React wrapper.
+Simple components retain their CSS and HTML examples. Badge also has an optional generated wrapper; other blocks gain wrappers only when explicitly opted in through component token metadata. The generated wrappers share one tested runtime, support numeric option props and Base UI’s `render` API through `useRender`, and export their prop types from `src/index.ts`.
 
 ---
 
@@ -407,7 +407,7 @@ The accessibility hierarchy, in order of preference:
 
 1. **Native HTML element** — use `<details>/<summary>`, `<dialog>`, `<button>`, `<select>` etc. where they fit. Native elements carry built-in accessibility at no JS cost.
 2. **ARIA enhancement** — augment native elements with ARIA attributes when the native semantics are insufficient.
-3. **Custom implementation** — Radix primitives or hand-rolled components when native elements genuinely cannot do the job.
+3. **Custom implementation** — Base UI primitives or hand-rolled components when native elements genuinely cannot do the job.
 
 All interactive components must have:
 
@@ -571,7 +571,7 @@ The new system ships as v3.0.0 (major version bump signals breaking changes). Wi
 ### Phase 5 — React components
 
 23. Implement all React components listed in `docs/component-inventory.csv` with status "Not started" and build method "React"
-24. Each component: Radix primitive or hand-rolled as appropriate, CSS classes only, `labels` prop, Vitest tests, jest-axe test, Storybook stories
+24. Each component: Base UI primitive or hand-rolled as appropriate, CSS classes only, `labels` prop, Vitest tests, jest-axe test, Storybook stories
 25. Export all components from `src/index.ts`
 
 ### Phase 6 — Documentation

@@ -83,6 +83,120 @@ Each badge establishes its three color defaults locally, so an outer badge canno
 recolor a nested badge.
 Badges are text-only.
 
+## Typed React wrappers
+
+The optional React exports are `Box`, `Cluster`, `Cover`, `Frame`, `Grid`, `Reel`,
+`Repel`, `Sidebar`, `Stack`, `Switcher`, `WithIcon`, `Wrapper`, `Flow`, `Region`,
+and `Badge`. The CSS classes and attributes remain independently usable.
+
+```tsx
+import { Badge, Box, Stack } from '@automattic/vip-design-system';
+import '@automattic/vip-design-system/css';
+
+<Box surface="layer-2" padding={6} render={<Stack gap={4} render={<section />} />}>
+	<Badge variant="success">Published</Badge>
+</Box>;
+```
+
+This renders one `section` with both `box` and `stack` classes. Badge renders a
+`span` with `badge type-support-label-xs`; its typography is fixed automatically.
+WithIcon also defaults to `span`; the other wrappers default to `div`.
+
+Props use camelCase versions of catalog settings (`minItemSize`, `inlineAlignment`,
+`borderWidth`). Numeric options are numeric literal unions: `gap={6}`,
+`columns={3}`, `padding={0}`, `borderWidth={1.5}`. Strings such as `gap="6"` and
+arbitrary numbers are rejected. Named options remain strings: `columns="auto-fit"`,
+`space="none"`, `ratio="16/9"`, `width="20rem"`. Omitting a prop emits no setting,
+so CSS owns the default and nested instances retain their own defaults.
+
+Box supports its combined `surface` presets and individual settings. Badge
+supports only `variant`, including both color names and semantic aliases.
+Existing handwritten behavior attributes are described in the catalog too:
+
+| Wrapper | Props                                                    | Existing CSS attributes                      |
+| ------- | -------------------------------------------------------- | -------------------------------------------- |
+| Sidebar | `position="start" \| "end"`, `order="reverse"`, `sticky` | `data-position`, `data-order`, `data-sticky` |
+| Reel    | `scrollbar="hidden"`                                     | `data-scrollbar`                             |
+| Repel   | `nowrap`                                                 | `data-nowrap`                                |
+
+Omit `order` or `scrollbar` for normal behavior. Boolean `false` removes the
+presence attribute; it never renders `data-sticky="false"` or `data-nowrap="false"`.
+
+### Elements, composition and refs
+
+`render` replaces the default element or composes wrappers on one element, using
+Base UI's `useRender`. It accepts a React element or a render callback. The former
+`as` and `asChild` APIs are no longer supported.
+
+```tsx
+<Box padding={4} render={<a href="/docs" />}>Documentation</Box>
+<Region space={6} render={<Flow space={4} render={<article />} />}>
+	<h2>Release notes</h2>
+	<p>Region padding and Flow spacing on one article.</p>
+</Region>
+```
+
+Native element-specific props and refs belong on the replacement: for example,
+`render={<a href="/docs" ref={anchorRef} />}` checks both the link props and its
+ref. Custom components must forward incoming props and refs to their DOM element.
+Without `render`, native props and refs are typed for the wrapper's default tag.
+With `render`, the wrapper ref accepts `HTMLElement`; JSX cannot reliably tell the
+wrapper the concrete replacement type. Configuration props remain strict and take
+precedence over same-named native props, such as Box's bounded `color` options.
+
+Classes combine. Replacement styles and ordinary props win on overlapping keys.
+Replacement event handlers run before wrapper handlers; `preventDefault()` alone
+does not stop this chain. In Base UI handlers or handlers typed by `mergeProps`,
+`event.preventBaseUIHandler()` can stop the earlier handlers in a merged chain. Both replacement and wrapper refs receive the
+resulting element and are cleared on unmount.
+
+Explicit typed configuration overrides conflicting raw data attributes on the
+wrapper and on an element supplied to `render`, including zero values and boolean
+`false`. If two wrappers configure the same pattern, the innermost wrapper's
+explicit prop wins. This precedence is the one intentional addition to Base UI's
+normal prop-merging rules.
+
+Keep content in the wrapper's `children`. If a render element also supplies
+children, Base UI gives those replacement children precedence. Fragments are not
+valid element replacements because they cannot receive DOM attributes or refs.
+
+The callback form receives prepared props, including children, attributes and the
+merged ref. Spread them onto the destination element. When adding styles or
+handlers in the callback, use Base UI's `mergeProps` instead of overwriting them:
+
+```tsx
+<Region space={6} render={(props) => <article {...props} />}>
+	Content
+</Region>
+```
+
+Callbacks control the returned markup; they can override or drop supplied props.
+They must return a suitable element and forward the ref. These CSS wrappers expose
+no interactive state to the callback.
+
+Types cover the named configuration props. `className`, `style`, arbitrary
+`data-*` attributes, and JavaScript callers remain escape hatches; this is not a
+runtime validator for arbitrary CSS. Other native HTML and ARIA props are forwarded.
+
+### Generation and type exports
+
+`npm run build:tokens` generates `src/components/primitives.generated.ts` in the
+same Style Dictionary pipeline as the CSS and option documentation.
+`npm run check:configuration` also checks wrapper freshness. No separate prop
+option catalog is maintained.
+
+Each wrapper exports its configuration-only `*Options` and full `*Props` types,
+for example `StackOptions` and `StackProps`. Use the exported props types when
+building another component around a wrapper. Replacement elements carry their
+own native or custom prop types; `StackProps` has no element-type parameter.
+`npm run check-types` includes positive and negative JSX usage fixtures.
+
+Composition/utility catalogs can specify `react.element` for a different default
+tag. Component variants opt into React generation using
+`$extensions["com.automattic.vip.react"]` on the variants group; Badge uses this
+metadata for its default tag and typography class. The shared runtime only maps
+props to attributes and delegates element composition to Base UI’s `useRender`.
+
 ## Storybook color modes
 
 Every story canvas has an independent System / Light / Dark selector. System
@@ -216,9 +330,8 @@ another setting on the same class and target. Presets assign a setting's allowed
 `option`, or reference another compatible `setting` (as inverse box colors do).
 This keeps token references, local settings, and literal CSS distinct.
 
-The resolved catalog preserves the public option keys and defaults for future
-TypeScript option lists and React prop types. Those outputs and wrappers are a
-separate slice; there is no React-specific generation here.
+The resolved catalog also supplies the public option keys and defaults for the
+generated React prop types and wrappers described above.
 
 ## Browser regression checks
 

@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import StyleDictionary from 'style-dictionary';
 import { format, resolveConfig } from 'prettier';
 import { loadCatalog, resolveCatalog } from './catalog.mjs';
+import { reactWrappers } from './react-wrappers.mjs';
 import {
 	loadComponentVariants,
 	resolveComponentVariants,
@@ -59,6 +60,12 @@ export function configurationCSS(name, entry) {
 }
 
 export function configurationReference(catalog, components = {}) {
+	const behaviors = Object.entries(catalog.classes).flatMap(([name, entry]) =>
+		Object.entries(entry.behaviors).map(
+			([key, behavior]) =>
+				`| \`${name}\` | \`${key}\` | \`${behavior.attribute}\` | ${behavior.boolean ? 'Boolean presence (false omits the attribute)' : behavior.options.map((value) => `\`${value}\``).join(', ')} |`
+		)
+	);
 	const rows = Object.entries(catalog.classes).flatMap(([name, entry]) =>
 		Object.entries(entry.settings).map(
 			([key, setting]) =>
@@ -91,6 +98,14 @@ Attribute values are exact strings; unlisted values apply no override.
 | --- | --- | --- | --- | --- |
 ${rows.join('\n')}
 
+## Behavior attributes
+
+These attributes retain their handwritten CSS behavior. React wrappers expose the listed props.
+
+| Pattern | Prop | Attribute | Options |
+| --- | --- | --- | --- |
+${behaviors.join('\n')}
+
 ${presets.join('\n\n')}
 
 ${componentVariantsReference(components)}
@@ -111,6 +126,19 @@ Values containing \`{setting-name}\` are templates expanded to the composition's
 async function formatted(content, destination, parser) {
 	return format(content, { ...(await resolveConfig(destination)), parser });
 }
+
+StyleDictionary.registerFormat({
+	name: 'typescript/react-wrappers',
+	format: ({ dictionary, options, file }) =>
+		formatted(
+			reactWrappers(
+				resolveCatalog(options.catalog, dictionary),
+				resolveComponentVariants(options.components, dictionary)
+			),
+			file.destination,
+			'typescript'
+		),
+});
 
 StyleDictionary.registerFormat({
 	name: 'css/configuration',
@@ -176,6 +204,10 @@ export async function buildConfiguration({ check = false } = {}) {
 						options: { name },
 					})),
 					{ destination: 'docs/CSS-CONFIGURATION-OPTIONS.md', format: 'markdown/configuration' },
+					{
+						destination: 'src/components/primitives.generated.ts',
+						format: 'typescript/react-wrappers',
+					},
 				],
 			},
 		},

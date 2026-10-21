@@ -49,6 +49,18 @@ Attribute values are exact strings; unlisted values apply no override.
 | `data-flow-space`                | [space](#space)               | `6`              | `var(--space-comfortable)`                   | Direct children   |
 | `data-region-space`              | [space](#space)               | `11`             | `var(--space-11)`                            | Container         |
 
+## Behavior attributes
+
+These attributes retain their handwritten CSS behavior. React wrappers expose the listed props.
+
+| Pattern   | Prop        | Attribute        | Options                                      |
+| --------- | ----------- | ---------------- | -------------------------------------------- |
+| `reel`    | `scrollbar` | `data-scrollbar` | `hidden`                                     |
+| `repel`   | `nowrap`    | `data-nowrap`    | Boolean presence (false omits the attribute) |
+| `sidebar` | `position`  | `data-position`  | `start`, `end`                               |
+| `sidebar` | `order`     | `data-order`     | `reverse`                                    |
+| `sidebar` | `sticky`    | `data-sticky`    | Boolean presence (false omits the attribute) |
+
 ## box surface
 
 Use `data-box-surface` to select these values together. Individual attributes override the preset.
