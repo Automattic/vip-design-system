@@ -28,8 +28,8 @@ const ALIASES = Object.keys(aliases) as BadgeAlias[];
  * example, select the same variant. Omit `data-badge-variant` for `gray`.
  *
  * In light mode a badge is a tinted chip with a transparent border. In dark
- * mode it inverts to an outline — the fill drops away and the border and label
- * both take the set's `text` colour.
+ * mode the border and label use the set’s text color, while the fill continues
+ * to use its theme-aware support background token.
  */
 const meta: Meta<BadgeArgs> = {
 	title: 'Blocks/Badge',
@@ -93,8 +93,8 @@ export const SemanticAliases: Story = {
 };
 
 /**
- * Badges invert in dark mode: the tinted fill is replaced by a transparent
- * background with the set's `text` colour on both border and label.
+ * In dark mode, badges use the support set’s text color on both border and
+ * label, with the theme-aware support background token for the fill.
  *
  * This canvas starts in Dark mode independently of the OS. Use its Color mode
  * selector to compare Light or System without changing the other examples.

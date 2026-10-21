@@ -75,11 +75,12 @@ the fixed typography from the existing `support.label-xs` composite token. The
 utility keeps that composite as the single source of truth without a separate
 block typography generator. It requires the second class in each badge's markup.
 
-Badge variants reference the existing `color.support.*`, text, border, and transparent
-semantic tokens directly. Semantic tokens own the theme-specific palette; the
-component selects semantic references by theme to switch from a filled badge to
-an outline. There is no additional label semantic group. Each badge establishes
-its three color defaults locally, so an outer badge cannot recolor a nested badge.
+Badge variants reference the existing `color.support.*`, text, and border semantic
+tokens directly. Semantic tokens own the theme-specific palette. The background
+uses its support background token in both color modes; in dark mode, the border
+and label use the support text token. There is no additional label semantic group.
+Each badge establishes its three color defaults locally, so an outer badge cannot
+recolor a nested badge.
 Badges are text-only.
 
 ## Storybook color modes

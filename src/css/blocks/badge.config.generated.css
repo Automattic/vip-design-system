@@ -49,10 +49,7 @@
 	}
 	@supports (color: light-dark(red, blue)) {
 		.badge {
-			--badge-background: light-dark(
-				var(--color-support-system-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-system-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-system-text)
@@ -62,10 +59,7 @@
 
 		.badge[data-badge-variant='gray'],
 		.badge[data-badge-variant='system'] {
-			--badge-background: light-dark(
-				var(--color-support-system-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-system-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-system-text)
@@ -75,10 +69,7 @@
 
 		.badge[data-badge-variant='blue'],
 		.badge[data-badge-variant='info'] {
-			--badge-background: light-dark(
-				var(--color-support-info-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-info-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-info-text)
@@ -88,10 +79,7 @@
 
 		.badge[data-badge-variant='green'],
 		.badge[data-badge-variant='success'] {
-			--badge-background: light-dark(
-				var(--color-support-success-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-success-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-success-text)
@@ -101,10 +89,7 @@
 
 		.badge[data-badge-variant='red'],
 		.badge[data-badge-variant='error'] {
-			--badge-background: light-dark(
-				var(--color-support-error-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-error-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-error-text)
@@ -114,10 +99,7 @@
 
 		.badge[data-badge-variant='gold'],
 		.badge[data-badge-variant='brand'] {
-			--badge-background: light-dark(
-				var(--color-support-brand-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-brand-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-brand-text)
@@ -127,10 +109,7 @@
 
 		.badge[data-badge-variant='yellow'],
 		.badge[data-badge-variant='warning'] {
-			--badge-background: light-dark(
-				var(--color-support-warning-background),
-				var(--color-control-background-transparent)
-			);
+			--badge-background: var(--color-support-warning-background);
 			--badge-border-color: light-dark(
 				var(--color-border-transparent),
 				var(--color-support-warning-text)

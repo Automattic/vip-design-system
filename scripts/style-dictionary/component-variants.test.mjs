@@ -115,8 +115,10 @@ describe('component variants', () => {
 				const token = changed.allTokens.find(
 					(token) => token.path.join('.') === 'badge.variants.blue.background'
 				);
-				if (field === 'dark') token.original.$extensions.dark = value;
-				else token.original.$value = value;
+				if (field === 'dark') {
+					token.original.$extensions ??= {};
+					token.original.$extensions.dark = value;
+				} else token.original.$value = value;
 				expect(() => resolve(components, changed)).toThrow('must reference a semantic color token');
 			}
 		}

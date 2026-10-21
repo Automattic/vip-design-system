@@ -69,14 +69,14 @@ Use `data-box-surface` to select these values together. Individual attributes ov
 Use `data-badge-variant`. Default: `gray`. Only these named combinations are configurable.
 Each cell lists its light / dark semantic references; the selected semantic tokens also respond to the theme.
 
-| Option   | background                                                                                | border-color                                                            | color                                                             |
-| -------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `gray`   | `var(--color-support-system-background)` / `var(--color-control-background-transparent)`  | `var(--color-border-transparent)` / `var(--color-support-system-text)`  | `var(--color-text-primary)` / `var(--color-support-system-text)`  |
-| `blue`   | `var(--color-support-info-background)` / `var(--color-control-background-transparent)`    | `var(--color-border-transparent)` / `var(--color-support-info-text)`    | `var(--color-text-primary)` / `var(--color-support-info-text)`    |
-| `green`  | `var(--color-support-success-background)` / `var(--color-control-background-transparent)` | `var(--color-border-transparent)` / `var(--color-support-success-text)` | `var(--color-text-primary)` / `var(--color-support-success-text)` |
-| `red`    | `var(--color-support-error-background)` / `var(--color-control-background-transparent)`   | `var(--color-border-transparent)` / `var(--color-support-error-text)`   | `var(--color-text-primary)` / `var(--color-support-error-text)`   |
-| `gold`   | `var(--color-support-brand-background)` / `var(--color-control-background-transparent)`   | `var(--color-border-transparent)` / `var(--color-support-brand-text)`   | `var(--color-text-primary)` / `var(--color-support-brand-text)`   |
-| `yellow` | `var(--color-support-warning-background)` / `var(--color-control-background-transparent)` | `var(--color-border-transparent)` / `var(--color-support-warning-text)` | `var(--color-text-primary)` / `var(--color-support-warning-text)` |
+| Option   | background                                                                            | border-color                                                            | color                                                             |
+| -------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `gray`   | `var(--color-support-system-background)` / `var(--color-support-system-background)`   | `var(--color-border-transparent)` / `var(--color-support-system-text)`  | `var(--color-text-primary)` / `var(--color-support-system-text)`  |
+| `blue`   | `var(--color-support-info-background)` / `var(--color-support-info-background)`       | `var(--color-border-transparent)` / `var(--color-support-info-text)`    | `var(--color-text-primary)` / `var(--color-support-info-text)`    |
+| `green`  | `var(--color-support-success-background)` / `var(--color-support-success-background)` | `var(--color-border-transparent)` / `var(--color-support-success-text)` | `var(--color-text-primary)` / `var(--color-support-success-text)` |
+| `red`    | `var(--color-support-error-background)` / `var(--color-support-error-background)`     | `var(--color-border-transparent)` / `var(--color-support-error-text)`   | `var(--color-text-primary)` / `var(--color-support-error-text)`   |
+| `gold`   | `var(--color-support-brand-background)` / `var(--color-support-brand-background)`     | `var(--color-border-transparent)` / `var(--color-support-brand-text)`   | `var(--color-text-primary)` / `var(--color-support-brand-text)`   |
+| `yellow` | `var(--color-support-warning-background)` / `var(--color-support-warning-background)` | `var(--color-border-transparent)` / `var(--color-support-warning-text)` | `var(--color-text-primary)` / `var(--color-support-warning-text)` |
 
 Aliases select the same values in both themes:
 
