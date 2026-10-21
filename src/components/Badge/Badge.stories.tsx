@@ -1,20 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import badgeTokens from '../../../tokens/component/badge.json';
+import type { BadgeOptions } from '../../index';
+import { badgeAliases, badgeVariants } from '../../../.storybook/helpers/catalog';
 
 import '../../css/index.css';
 
-const aliases = badgeTokens.badge.variants.$extensions['com.automattic.vip.css'].aliases;
-type BadgeAlias = keyof typeof aliases;
-type BadgeVariant = 'gray' | 'blue' | 'green' | 'red' | 'gold' | 'yellow' | BadgeAlias;
-
-const VARIANTS: BadgeVariant[] = ['gray', 'blue', 'green', 'red', 'gold', 'yellow'];
-const ALIASES = Object.keys(aliases) as BadgeAlias[];
+type BadgeVariant = NonNullable<BadgeOptions['variant']>;
+const VARIANTS = badgeVariants as BadgeVariant[];
+const ALIASES = badgeAliases as BadgeVariant[];
 
 /**
  * A badge labels an item with a short, semantic status.
  *
  * Badge works with CSS alone. An optional typed `Badge` React wrapper is also
- * available. For HTML usage, apply the
+ * available; see [React Components / Badge](?path=/docs/react-components-badge--docs). For HTML usage, apply the
  * `.badge` class together with a typography utility, and set the colour with
  * the `data-badge-variant` attribute:
  *
@@ -33,8 +31,9 @@ const ALIASES = Object.keys(aliases) as BadgeAlias[];
  * to use its theme-aware support background token.
  */
 const meta: Meta<BadgeArgs> = {
-	title: 'Blocks/Badge',
+	title: 'Block Styles/Badge',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		variant: {
 			control: 'select',
@@ -70,7 +69,7 @@ export const Default: Story = {};
 /** All six colours, each mapping to one of the support token sets. */
 export const AllVariants: Story = {
 	render: () => (
-		<div className="cluster" style={{ ['--cluster-gap' as string]: 'var(--space-close)' }}>
+		<div className="cluster" data-cluster-gap="4">
 			{VARIANTS.map((variant) => (
 				<Badge key={variant} variant={variant}>
 					{variant.charAt(0).toUpperCase() + variant.slice(1)}
@@ -83,7 +82,7 @@ export const AllVariants: Story = {
 /** Semantic names are aliases of the same six color variants. */
 export const SemanticAliases: Story = {
 	render: () => (
-		<div className="cluster" style={{ ['--cluster-gap' as string]: 'var(--space-close)' }}>
+		<div className="cluster" data-cluster-gap="4">
 			{ALIASES.map((variant) => (
 				<Badge key={variant} variant={variant}>
 					{variant.charAt(0).toUpperCase() + variant.slice(1)}

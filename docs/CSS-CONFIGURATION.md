@@ -333,6 +333,23 @@ This keeps token references, local settings, and literal CSS distinct.
 The resolved catalog also supplies the public option keys and defaults for the
 generated React prop types and wrappers described above.
 
+## Storybook documentation
+
+Storybook separates the CSS API into **Block Styles**, **Composition Styles**, and
+**Utility Styles**. **React Components** has an individual page for each generated
+component. Matching pages link to one another. CSS examples show rendered HTML;
+React examples show JSX, numeric props, and composition through `render`.
+
+Storybook controls read the configuration catalogs and Badge variant tokens through
+`.storybook/helpers/catalog.ts`. Keep allowed values there in the source catalogs,
+not in separate story option lists. Examples live in `src/stories/`; the existing
+block stories remain beside their blocks in `src/components/`. Every canvas keeps
+its own System / Light / Dark selector, including the Badge Dark Mode examples.
+
+Run `npm run build:icons` before starting or building Storybook on a fresh checkout.
+The story assets are bundled by Vite so images and sprites also work when the
+static Storybook is hosted under a subdirectory.
+
 ## Browser regression checks
 
 Serve the repository root (for example, `python3 -m http.server 8088`) and open

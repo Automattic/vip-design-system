@@ -27,8 +27,9 @@ import '../../css/index.css';
  * the mark themeable.
  */
 const meta: Meta<CheckboxArgs> = {
-	title: 'Blocks/Checkbox',
+	title: 'Block Styles/Checkbox',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		checked: { control: 'boolean' },
 		indeterminate: { control: 'boolean', description: 'Set via JS; HTML has no attribute.' },

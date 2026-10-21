@@ -1,3 +1,4 @@
+import { sprite } from '../../../.storybook/helpers/assets';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useId } from 'react';
 
@@ -6,7 +7,7 @@ import '../../css/index.css';
 function Icon({ name }: { name: string }) {
 	return (
 		<svg className="icon" aria-hidden="true">
-			<use href={`/dist/sprite.svg#${name}`} />
+			<use href={`${sprite}#${name}`} />
 		</svg>
 	);
 }
@@ -47,8 +48,9 @@ function Icon({ name }: { name: string }) {
  * visible but not announced.
  */
 const meta: Meta<InputArgs> = {
-	title: 'Blocks/Input',
+	title: 'Block Styles/Input',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		state: { control: 'inline-radio', options: ['default', 'error', 'disabled', 'read-only'] },
 		label: { control: 'text' },

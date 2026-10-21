@@ -30,8 +30,9 @@ import '../../css/index.css';
  * `--color-border-control-hover` the checkbox does.
  */
 const meta: Meta<RadioArgs> = {
-	title: 'Blocks/Radio',
+	title: 'Block Styles/Radio',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		checked: { control: 'boolean' },
 		disabled: { control: 'boolean' },

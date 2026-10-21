@@ -1,3 +1,4 @@
+import { sprite } from '../../../.storybook/helpers/assets';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import '../../css/index.css';
@@ -19,7 +20,7 @@ const DANGER: Variant[] = ['danger', 'danger-secondary', 'danger-ghost'];
 function Icon({ name }: { name: string }) {
 	return (
 		<svg className="icon" aria-hidden="true">
-			<use href={`/dist/sprite.svg#${name}`} />
+			<use href={`${sprite}#${name}`} />
 		</svg>
 	);
 }
@@ -61,8 +62,9 @@ function Icon({ name }: { name: string }) {
  * `:focus-visible`, not Figma — the design file has no opinion on it.
  */
 const meta: Meta<ButtonArgs> = {
-	title: 'Blocks/Button',
+	title: 'Block Styles/Button',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		variant: { control: 'select', options: [...CORE, ...DANGER] },
 		size: { control: 'inline-radio', options: ['default', 'compact'] },

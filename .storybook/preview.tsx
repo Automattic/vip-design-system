@@ -4,6 +4,7 @@ import { useId, useState, useSyncExternalStore, type PropsWithChildren } from 'r
 import { themes } from 'storybook/theming';
 import '../src/css/index.css';
 import './preview.css';
+import { htmlSource } from './helpers/html-source';
 
 const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
 const subscribe = (onChange: () => void) => {
@@ -67,10 +68,17 @@ const preview: Preview = {
 		),
 	],
 	parameters: {
+		options: {
+			storySort: {
+				method: 'alphabetical',
+				order: ['Block Styles', 'Composition Styles', 'Utility Styles', 'React Components'],
+			},
+		},
 		// The shared canvas supplies its own padding around the controls and story.
 		layout: 'fullscreen',
 		docs: {
 			container: SystemThemeDocsContainer,
+			source: { transform: htmlSource },
 		},
 		controls: {
 			expanded: true,

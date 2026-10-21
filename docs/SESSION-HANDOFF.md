@@ -19,6 +19,15 @@ the simplified Badge variant generator and semantic aliases, and Storybook's
 independent System / Light / Dark controls. These remain intact after the merge.
 See `docs/CSS-CONFIGURATION.md` for the current configuration contract.
 
+The Storybook reorganization adds six **Block Styles** pages, all twelve
+**Composition Styles** pages, four **Utility Styles**
+pages (Flow, Region, Icon, Visually Hidden), and fifteen individual **React
+Components** pages replace the combined CSS wrappers page. Controls reuse the
+configuration catalogs; CSS examples show HTML and React examples show JSX.
+Matching CSS/React pages link to one another. Per-canvas color controls and the
+Badge Dark Mode example remain. Story IDs now use these section names, so old
+`blocks-*` and `react-css-wrappers` bookmarks need updating.
+
 Badge exposes only `data-badge-variant`. Its component token JSON owns the six
 color variants and their semantic aliases; generated rules assign three local
 color variables. Fixed layout and the `type-support-label-xs` utility remain in
