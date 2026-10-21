@@ -8,11 +8,28 @@ const config: StorybookConfig = {
 		options: {},
 	},
 	docs: {
-		autodocs: 'tag',
 		defaultName: 'Docs',
 	},
 	typescript: {
 		reactDocgen: 'react-docgen-typescript',
+	},
+	viteFinal: async (config, { configType }) => {
+		if (configType !== 'PRODUCTION') return config;
+		const { mergeConfig } = await import('vite');
+		return mergeConfig(config, {
+			build: {
+				rolldownOptions: {
+					output: {
+						codeSplitting: {
+							// With Vite 8.0.13 / Rolldown 1.0.1, merging MDX into the preview
+							// entry loses MDXProvider's export for Storybook's dynamic import.
+							// Keep its namespace in a separate chunk so static docs can render.
+							groups: [{ name: 'mdx-react', test: /node_modules[/\\]@mdx-js[/\\]react[/\\]/ }],
+						},
+					},
+				},
+			},
+		});
 	},
 };
 
