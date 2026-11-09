@@ -15,7 +15,7 @@
     "cmd:lint": "eslint --ext 'js,jsx,ts,tsx' --max-warnings 0",
     "prepare": "npm run build",
     "build": "npm run theme-update && npm run build:app && npm run build:types && npm run theme-builder-copy",
-    "build:app": "cross-env NODE_ENV=production babel src --copy-files --delete-dir-on-start --extensions '.ts,.tsx' --out-dir build",
+    "build:app": "cross-env NODE_ENV=production babel src --copy-files --no-copy-ignored --delete-dir-on-start --extensions '.ts,.tsx,.jsx' --ignore 'src/**/*.stories.tsx,src/**/*.stories.jsx,src/**/*.test.ts,src/**/*.test.tsx,src/**/*.test.jsx,src/system/utils/stories/**' --out-dir build",
     "build:types": "tsc -p tsconfig.definition.json --emitDeclarationOnly --noEmit false",
     "check-types": "tsc",
     "format": "npm run cmd:format -- --write",
@@ -141,5 +141,8 @@
     "@theme-ui/global": "0.17.4",
     "@theme-ui/theme-provider": "0.17.4",
     "nwsapi": "2.2.25"
-  }
+  },
+  "files": [
+    "build"
+  ]
 }
