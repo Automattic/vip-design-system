@@ -16,6 +16,7 @@ import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
 import { Text } from '../Text/Text';
 
+/** @deprecated Use `NewConfirmationDialog` instead. */
 export interface ConfirmationDialogContentProps {
 	/** The dialog title. */
 	title?: ReactNode;
@@ -34,6 +35,7 @@ export interface ConfirmationDialogContentProps {
 	className?: Argument;
 }
 
+/** @deprecated Use `NewConfirmationDialog` instead. */
 const ConfirmationDialogContent = ( {
 	title,
 	body,
@@ -64,6 +66,7 @@ const ConfirmationDialogContent = ( {
 	</Box>
 );
 
+/** @deprecated Use `NewConfirmationDialog` instead. */
 export interface ConfirmationDialogProps extends Omit< ConfirmationDialogContentProps, 'onClose' > {
 	/** The element that triggers the dialog; cloned to attach the confirm handler. */
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- trigger accepts any element; cloneElement injects an onClick handler.
@@ -75,6 +78,7 @@ export interface ConfirmationDialogProps extends Omit< ConfirmationDialogContent
 	needsConfirm?: boolean;
 }
 
+/** @deprecated Use `NewConfirmationDialog` instead. */
 const ConfirmationDialog = ( {
 	trigger,
 	onConfirm,

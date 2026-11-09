@@ -12,6 +12,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { DialogContent, DialogContentProps } from './DialogContent';
 import { DialogTrigger } from './DialogTrigger';
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 export interface DialogProps extends Omit< DialogContentProps, 'onClose' | 'children' > {
 	/** The element that toggles the dialog when clicked. */
 	trigger?: React.ReactNode;
@@ -29,6 +30,7 @@ export interface DialogProps extends Omit< DialogContentProps, 'onClose' | 'chil
 	disabled?: boolean;
 }
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 const Dialog = ( {
 	trigger,
 	position = 'left',

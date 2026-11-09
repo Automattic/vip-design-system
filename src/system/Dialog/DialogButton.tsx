@@ -12,6 +12,7 @@ import { MdExpandMore } from 'react-icons/md';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 export interface DialogButtonProps extends React.ComponentProps< typeof Button > {
 	/** Label text rendered before the value. */
 	label?: string;
@@ -19,6 +20,7 @@ export interface DialogButtonProps extends React.ComponentProps< typeof Button >
 	value?: string;
 }
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 const DialogButton = ( {
 	label,
 	variant = 'secondary',
