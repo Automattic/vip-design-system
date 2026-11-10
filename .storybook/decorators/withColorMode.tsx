@@ -19,23 +19,23 @@ const { getPropValue: getPropValueDark } = ThemeBuilder( ValetDark );
 const lightBackground = getPropValue( 'background', 'primary' );
 const darkBackground = getPropValueDark( 'background', 'primary' );
 
+// Storybook 9+ reads an `options` map and stores the selected key, not the
+// colour, in the `backgrounds` global.
 export const backgrounds = {
-	default: 'Light',
-	values: [
-		{
-			name: 'Light',
-			value: lightBackground,
-		},
-		{
-			name: 'Dark',
-			value: darkBackground,
-		},
-	],
+	options: {
+		light: { name: 'Light', value: lightBackground },
+		dark: { name: 'Dark', value: darkBackground },
+	},
 };
 
-function ThemeChanger( { background } ) {
+type BackgroundsGlobal = string | { value?: string } | undefined;
+
+const getBackgroundKey = ( background: BackgroundsGlobal ) =>
+	typeof background === 'string' ? background : background?.value;
+
+function ThemeChanger( { background }: { background: BackgroundsGlobal } ) {
 	const [ _, setColorMode ] = useColorMode();
-	const newColorMode = darkBackground === background ? 'dark' : 'default';
+	const newColorMode = getBackgroundKey( background ) === 'dark' ? 'dark' : 'light';
 
 	useEffect( () => {
 		setColorMode( newColorMode );
@@ -47,7 +47,7 @@ function ThemeChanger( { background } ) {
 const withColorMode = ( Story, context ) => {
 	return (
 		<>
-			<ThemeChanger background={ context.globals?.backgrounds?.value } />
+			<ThemeChanger background={ context.globals?.backgrounds } />
 			<Story />
 		</>
 	);

@@ -4,6 +4,10 @@ import withThemeProvider from './decorators/withThemeProvider';
 
 export const decorators = [ withBoundingBox, withColorMode, withThemeProvider ];
 
+export const initialGlobals = {
+	backgrounds: { value: 'light' },
+};
+
 export const parameters = {
 	controls: { expanded: true },
 	backgrounds,
