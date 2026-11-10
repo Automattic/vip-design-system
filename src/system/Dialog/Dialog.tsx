@@ -82,7 +82,7 @@ const Dialog = ( {
 			className="vip-dialog-component"
 		>
 			<DialogTrigger
-				tabIndex="0"
+				tabIndex={ 0 }
 				sx={ { display: 'inline' } }
 				onKeyPress={ handleOpen }
 				onClick={ handleOpen }

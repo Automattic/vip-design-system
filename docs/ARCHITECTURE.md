@@ -6,7 +6,7 @@
 
 ## Languages & coding standard
 
-Both JavaScript and TypeScript are used to implement the software.
+The source is written in TypeScript. Tooling configuration files are JavaScript.
 
 We require that the WPVIP defined coding style to be used, defined in [.eslintrc.js](https://github.com/Automattic/vip-design-system/blob/trunk/.eslintrc.js).
 
