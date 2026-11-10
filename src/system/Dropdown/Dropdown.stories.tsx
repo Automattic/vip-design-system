@@ -6,10 +6,8 @@ import { DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icon
 import React from 'react';
 
 /**
-/**
-* Internal dependencies
-*/
-
+ * Internal dependencies
+ */
 import * as Dropdown from '.';
 import { Button } from '../Button';
 import { Link } from '../Link';
