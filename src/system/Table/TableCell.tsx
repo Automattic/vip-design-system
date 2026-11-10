@@ -12,20 +12,31 @@ import { ThemeUIStyleObject } from 'theme-ui';
  */
 import { Box } from '../Box/Box';
 
-export interface TableCellProps extends React.HTMLProps< HTMLTableCellElement > {
+export interface TableCellProps extends Omit< React.HTMLProps< HTMLTableCellElement >, 'as' > {
 	/** The content to display inside the cell. */
 	children: ReactNode;
 	/** Whether this cell is a header cell (renders as th with bold styling). */
 	head?: boolean;
 	/** Theme UI style overrides. */
 	sx?: ThemeUIStyleObject;
+	/**
+	 * The element to render. Defaults to `th` for head cells and `td` otherwise. Set it to `th`
+	 * for a row header that should keep the plain cell styling.
+	 */
+	as?: 'td' | 'th';
 }
 
 /**
  * A table cell that renders as either a th or td element based on the head prop.
  * Header cells display bold text with themed heading color.
  */
-export const TableCell = ( { children, head, sx, ...rest }: TableCellProps ) => {
+export const TableCell = ( {
+	children,
+	head,
+	sx,
+	as = head ? 'th' : 'td',
+	...rest
+}: TableCellProps ) => {
 	const style: ThemeUIStyleObject = {
 		borderBottom: '1px solid',
 		borderTop: head ? '1px solid' : 'none',
@@ -39,7 +50,7 @@ export const TableCell = ( { children, head, sx, ...rest }: TableCellProps ) => 
 	};
 
 	return (
-		<Box { ...rest } as={ head ? 'th' : 'td' } ref={ undefined } sx={ style }>
+		<Box { ...rest } as={ as } ref={ undefined } sx={ style }>
 			{ head ? (
 				<span sx={ { mb: 0, color: 'table.heading', fontSize: 2, fontWeight: 'bold' } }>
 					{ children }
