@@ -9,6 +9,8 @@ import { BiAddToQueue, BiCalendarHeart, BiBellMinus } from 'react-icons/bi';
  */
 import { Box, OptionRow } from '..';
 
+import type { OptionRowVariant } from './OptionRow';
+
 export default {
 	title: 'OptionRow',
 	component: OptionRow,
@@ -25,7 +27,7 @@ export const Primary = {
 };
 
 // eslint-disable-next-line react/prop-types
-const Base = ( { variant } ) => (
+const Base = ( { variant }: { variant?: OptionRowVariant } ) => (
 	<Box>
 		<OptionRow
 			image={ <BiAddToQueue size={ 24 } /> }

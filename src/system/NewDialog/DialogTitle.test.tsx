@@ -8,40 +8,40 @@ import { axe } from 'jest-axe';
 /**
  * Internal dependencies
  */
-import { DialogDescription } from './DialogDescription';
+import { DialogTitle } from './DialogTitle';
 
 // If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
 const Wrapper = props => <Dialog open={ true } { ...props } />;
 const defaultProps = {
-	description: 'My Custom Text',
+	title: 'This is a DialogTitle',
 };
 
-const getParagraph = () => screen.getByText( defaultProps.description );
+const getTitle = () => screen.getByRole( 'heading' );
 
-describe( '<DialogDescription />', () => {
-	it( 'renders the DialogDescription component', async () => {
+describe( '<DialogTitle />', () => {
+	it( 'renders the DialogTitle component', async () => {
 		const { container } = render(
 			<Wrapper>
-				<DialogDescription { ...defaultProps } />
+				<DialogTitle { ...defaultProps } />
 			</Wrapper>
 		);
 
-		expect( getParagraph() ).toHaveTextContent( defaultProps.description );
+		expect( getTitle() ).toHaveTextContent( defaultProps.title );
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
-	it( 'renders text visually hidden for a11y purposes', async () => {
+	it( 'renders text visually hidden for a11y purposes', () => {
 		const { container } = render(
 			<Wrapper>
-				<DialogDescription { ...defaultProps } hidden={ true } />
+				<DialogTitle { ...defaultProps } hidden={ true } />
 			</Wrapper>
 		);
 
 		// Small check to make sure we are hiding with the css class
 		expect( container.innerHTML ).toContain( 'screen-reader-text' );
 
-		expect( getParagraph() ).toHaveTextContent( defaultProps.description );
+		expect( getTitle() ).toHaveTextContent( defaultProps.title );
 	} );
 } );

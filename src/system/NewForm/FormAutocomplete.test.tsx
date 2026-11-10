@@ -2,13 +2,15 @@
  * External dependencies
  */
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 /**
  * Internal dependencies
  */
 import { FormAutocomplete } from './FormAutocomplete';
+
+type AutocompleteProps = Partial< React.ComponentProps< typeof FormAutocomplete > >;
 
 const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
@@ -28,7 +30,7 @@ describe( '<FormAutocomplete />', () => {
 		);
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the FormAutocomplete component with options', async () => {
@@ -39,7 +41,7 @@ describe( '<FormAutocomplete />', () => {
 		expect( screen.getByLabelText( defaultProps.label ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'forwards input attributes', () => {
@@ -63,7 +65,10 @@ describe( '<FormAutocomplete />', () => {
 	} );
 
 	describe( 'onInputChange', () => {
-		const setup = async ( props = {}, userOptions ) => {
+		const setup = async (
+			props: AutocompleteProps = {},
+			userOptions?: Parameters< typeof userEvent.setup >[ 0 ]
+		) => {
 			const onInputChange = jest.fn();
 			const user = userEvent.setup( userOptions );
 
@@ -82,7 +87,7 @@ describe( '<FormAutocomplete />', () => {
 			return { input, onInputChange, user };
 		};
 
-		it.each( [
+		it.each< [ string, ( user: UserEvent, input: HTMLElement ) => Promise< void > ] >( [
 			[
 				'backspacing the last character',
 				async ( user, input ) => user.type( input, '{Backspace}' ),
@@ -126,7 +131,9 @@ describe( '<FormAutocomplete />', () => {
 				</>
 			);
 
-			const [ firstInput, secondInput ] = container.querySelectorAll( 'input.autocomplete__input' );
+			const [ firstInput, secondInput ] = Array.from(
+				container.querySelectorAll( 'input.autocomplete__input' )
+			);
 
 			await user.type( firstInput, 'C' );
 
@@ -192,7 +199,7 @@ describe( '<FormAutocomplete />', () => {
 			}
 		} );
 
-		it( 'drops a pending call when the component unmounts', async () => {
+		it( 'drops a pending call when the component unmounts', () => {
 			jest.useFakeTimers();
 
 			try {
@@ -247,13 +254,13 @@ describe( '<FormAutocomplete />', () => {
 	describe( 'resetOnBlur', () => {
 		// The blur event is dispatched on its own so the assertions cover this component's
 		// own blur listener rather than the vendor autocomplete's focusout handling.
-		const blur = async input => {
-			await act( async () => {
+		const blur = ( input: HTMLElement ) => {
+			act( () => {
 				fireEvent.blur( input );
 			} );
 		};
 
-		const setup = async valueProps => {
+		const setup = async ( valueProps: AutocompleteProps ) => {
 			const onChange = jest.fn();
 			const user = userEvent.setup();
 
@@ -276,7 +283,7 @@ describe( '<FormAutocomplete />', () => {
 			return { input, onChange, user };
 		};
 
-		const valueVariants = [
+		const valueVariants: [ string, AutocompleteProps ][] = [
 			[ 'without a value prop', {} ],
 			[ 'with an undefined value', { value: undefined } ],
 			[ 'with an empty string value', { value: '' } ],
@@ -287,12 +294,12 @@ describe( '<FormAutocomplete />', () => {
 			async ( _case, valueProps ) => {
 				const { input, onChange, user } = await setup( valueProps );
 
-				await blur( input );
+				blur( input );
 
 				expect( input ).toHaveValue( 'Chocolate' );
 
 				await user.click( input );
-				await blur( input );
+				blur( input );
 
 				expect( input ).toHaveValue( 'Chocolate' );
 				expect( onChange ).toHaveBeenCalledTimes( 1 );
@@ -307,7 +314,7 @@ describe( '<FormAutocomplete />', () => {
 
 				await user.clear( input );
 				await user.keyboard( 'Vanil' );
-				await blur( input );
+				blur( input );
 
 				expect( input ).toHaveValue( 'Chocolate' );
 				expect( onChange ).toHaveBeenLastCalledWith( options[ 0 ], 'Chocolate' );

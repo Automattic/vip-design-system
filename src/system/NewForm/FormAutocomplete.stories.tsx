@@ -44,7 +44,7 @@ const args = {
 
 // eslint-disable-next-line react/prop-types
 const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
-	const [ selectedValue, setSelectedValue ] = useState( null );
+	const [ selectedValue, setSelectedValue ] = useState< string | null >( null );
 	return (
 		<>
 			<Form.Root>
@@ -112,12 +112,12 @@ export const WithLoading = {
 
 export const WithDebounce = {
 	render: () => {
-		const [ value, setValue ] = useState( null );
+		const [ value, setValue ] = useState< string | null >( null );
 		const customArgs = {
 			...args,
 			minLength: 3,
 			debounce: 300,
-			onInputChange: query => {
+			onInputChange: ( query: string ) => {
 				setValue( query );
 			},
 		};
@@ -140,7 +140,7 @@ export const WithSlowSearchAndDebounce = {
 		minLength: 3,
 		required: true,
 		debounce: 500,
-		source: async ( query, populateResults ) => {
+		source: ( query: string, populateResults: ( results: string[] ) => void ) => {
 			if ( ! query || query.length >= 3 ) {
 				setTimeout( () => {
 					const filteredResults = args.options

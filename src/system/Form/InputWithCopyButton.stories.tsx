@@ -37,14 +37,14 @@ export const Default = {
 					placeholder="Your input here..."
 					label="Always add a label to inputs"
 					forLabel="input-simple"
-					copyHandler={ value => setCopiedText( value ) }
+					copyHandler={ value => setCopiedText( value ?? '' ) }
 				/>
 				<Form.InputWithCopyButton
 					value="Copy me!"
 					label="This is a readonly input"
 					forLabel="input-simple"
 					readOnly
-					copyHandler={ value => setCopiedText( value ) }
+					copyHandler={ value => setCopiedText( value ?? '' ) }
 				/>
 			</Form.Root>
 		);

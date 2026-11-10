@@ -3,10 +3,12 @@
 /**
  * Internal dependencies
  */
-import { useCallback, useState } from 'react';
+import { type ChangeEvent, useCallback, useState } from 'react';
 
 import * as Form from '.';
 import { Link } from '../Link';
+
+import type { FormSelectProps, Option } from './FormSelect';
 
 export default {
 	title: 'Form/Select',
@@ -28,6 +30,8 @@ const options = [
 	{ value: 'vanilla', label: 'Vanilla' },
 ];
 
+// Group entries carry no value; the Option type does not describe groups yet, so the
+// data is cast (see the prop-type normalisation item in the roadmap).
 const groupedOptions = [
 	{
 		label: 'Group name',
@@ -37,10 +41,14 @@ const groupedOptions = [
 		label: 'Another Group name',
 		options,
 	},
-];
+] as unknown as Option[];
 
-// eslint-disable-next-line react/prop-types
-const DefaultComponent = ( { label = 'Label', width = 250, onChange, ...rest } ) => (
+const DefaultComponent = ( {
+	label = 'Label',
+	width = 250,
+	onChange,
+	...rest
+}: FormSelectProps & { width?: number | string } ) => (
 	<>
 		<p>
 			This is a simple wrapper at the top of a browser default select component. This component
@@ -126,17 +134,22 @@ export const WithOptionLabelAndValue = {
 			name: label,
 			id: value,
 		} ) ),
-		getOptionLabel: option => option.name,
-		getOptionValue: option => option.id,
+		getOptionLabel: ( option: { name: string } ) => option.name,
+		getOptionValue: ( option: { id: string } ) => option.id,
 	},
 };
 
 export const WithOnChange = {
 	render: () => {
-		const [ option, setOption ] = useState( null );
+		const [ option, setOption ] = useState< {
+			obj: Option | undefined;
+			eventValue: string;
+		} | null >( null );
 
-		const onChange = useCallback( ( val, event ) =>
-			setOption( { obj: val, eventValue: event.target.value } )
+		const onChange = useCallback(
+			( val: Option | undefined, event: ChangeEvent< HTMLSelectElement > ) =>
+				setOption( { obj: val, eventValue: event.target.value } ),
+			[]
 		);
 
 		const onChangeArgs = {
@@ -149,7 +162,7 @@ export const WithOnChange = {
 
 		return (
 			<>
-				<DefaultComponent onChange={ onChange } { ...onChangeArgs } />
+				<DefaultComponent { ...onChangeArgs } />
 				{ option && <p>Object to JSON: { JSON.stringify( option.obj ) }</p> }
 				{ option && <p>Original Event Value: { option.eventValue }</p> }
 			</>

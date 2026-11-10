@@ -7,7 +7,7 @@ import { axe } from 'jest-axe';
 /**
  * Internal dependencies
  */
-import { FormSelect } from './FormSelect';
+import { FormSelect, type FormSelectProps, type Option } from './FormSelect';
 
 const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
@@ -21,6 +21,8 @@ const defaultProps = {
 	options,
 };
 
+// The component accepts group entries without a value, null values and custom option
+// shapes at runtime; the Option type does not describe that yet, so the test data is cast.
 const groupedProps = {
 	...defaultProps,
 	options: [
@@ -32,7 +34,7 @@ const groupedProps = {
 			label: 'Another Group name',
 			options: [ options[ 1 ], options[ 2 ] ],
 		},
-	],
+	] as unknown as Option[],
 };
 
 describe( '<FormSelect />', () => {
@@ -45,7 +47,7 @@ describe( '<FormSelect />', () => {
 		expect( screen.queryByRole( 'group' ) ).not.toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the FormSelect component with an error if hasError=true', async () => {
@@ -66,7 +68,7 @@ describe( '<FormSelect />', () => {
 		expect( screen.getByText( errorMessage ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the FormSelect component with optgroup when options are grouped', async () => {
@@ -78,7 +80,7 @@ describe( '<FormSelect />', () => {
 		expect( screen.getAllByRole( 'group' ) ).toHaveLength( 2 );
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the FormSelect component when isInline is true', async () => {
@@ -88,7 +90,7 @@ describe( '<FormSelect />', () => {
 		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'forwards select attributes', () => {
@@ -98,7 +100,7 @@ describe( '<FormSelect />', () => {
 	} );
 
 	it( 'renders the FormSelect with nullish options', async () => {
-		const nullishOptions = [ ...options, { value: null, label: 'Empty' } ];
+		const nullishOptions = [ ...options, { value: null, label: 'Empty' } ] as unknown as Option[];
 
 		const { container } = render(
 			<FormSelect id="my_desert_list" { ...defaultProps } options={ nullishOptions } />
@@ -108,7 +110,7 @@ describe( '<FormSelect />', () => {
 		expect( screen.getByRole( 'combobox' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders the FormSelect component when getOptionLabel and getOptionValue', async () => {
@@ -118,9 +120,9 @@ describe( '<FormSelect />', () => {
 				name: label,
 				id: value,
 			} ) ),
-			getOptionLabel: option => option.name,
-			getOptionValue: option => option.id,
-		};
+			getOptionLabel: ( option: { name: string } ) => option.name,
+			getOptionValue: ( option: { id: string } ) => option.id,
+		} as unknown as FormSelectProps;
 
 		const { container } = render( <FormSelect id="my_desert_list" { ...props } /> );
 
@@ -133,6 +135,6 @@ describe( '<FormSelect />', () => {
 		expect( screen.queryByRole( 'group' ) ).not.toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

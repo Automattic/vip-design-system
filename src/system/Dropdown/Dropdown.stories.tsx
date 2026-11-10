@@ -16,6 +16,8 @@ import { Link } from '../Link';
 import * as NewDialog from '../NewDialog';
 import { Text } from '../Text';
 
+import type { NewDialogProps } from '../NewDialog/NewDialog';
+
 export default {
 	title: 'Dropdown',
 	component: Dropdown.Root,
@@ -148,8 +150,10 @@ export const WithDialog = {
 		const [ alertOpen, setAlertOpen ] = React.useState( false );
 		const [ menuOpen, setMenuOpen ] = React.useState( false );
 
-		// eslint-disable-next-line react/prop-types
-		const AreYouSureDialog = ( { onConfirm, ...props } ) => (
+		const AreYouSureDialog = ( {
+			onConfirm,
+			...props
+		}: NewDialogProps & { onConfirm: () => void } ) => (
 			<NewDialog.Root
 				{ ...props }
 				content={

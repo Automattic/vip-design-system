@@ -26,7 +26,7 @@ describe( '<FormAutocompleteMultiselect />', () => {
 			<FormAutocompleteMultiselect forLabel="my_desert_list" label="This is a label" />
 		);
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 	it( 'renders the FormAutocompleteMultiselect component with options', async () => {
 		const { container } = render(
@@ -34,7 +34,7 @@ describe( '<FormAutocompleteMultiselect />', () => {
 		);
 		expect( screen.getByLabelText( defaultProps.label ) ).toBeInTheDocument();
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'forwards input attributes', () => {
@@ -70,7 +70,7 @@ describe( '<FormAutocompleteMultiselect variant="inline-chips" />', () => {
 			/>
 		);
 		expect( screen.getByLabelText( 'Categories' ) ).toBeInTheDocument();
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders initial values as inline chips', () => {

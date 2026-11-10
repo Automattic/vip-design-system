@@ -22,6 +22,6 @@ describe( '<DialogOverlay />', () => {
 		);
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );
