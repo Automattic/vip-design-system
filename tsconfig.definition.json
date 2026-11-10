@@ -8,5 +8,7 @@
     // Output directory for declaration files.
     "outDir": "build/system"
   },
-  "include": [ "src" ]
+  "include": [ "src" ],
+  // Stories and tests are not published, so emit no declarations for them.
+  "exclude": [ "src/**/*.stories.*", "src/**/*.test.*", "src/system/utils/stories" ]
 }
