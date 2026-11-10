@@ -8,7 +8,7 @@ import { MdErrorOutline, MdCheckCircle } from 'react-icons/md';
 const errorColor = 'texts.error';
 const helperColor = 'texts.helper';
 
-interface ValidationProps {
+export interface ValidationProps {
 	children?: React.ReactNode;
 	isValid?: boolean;
 	describedId?: string;

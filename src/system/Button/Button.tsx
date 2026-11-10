@@ -26,7 +26,8 @@ interface ButtonTheme extends Theme {
 }
 
 export enum ButtonVariant {
-	'danger', // will be deprecated in the future
+	/** @deprecated Use the `danger` prop with another variant instead. */
+	'danger',
 	'display',
 	'ghost',
 	'icon',
