@@ -8,6 +8,10 @@ If you have a small bugfix and already have the code available, feel free to [cr
 
 Before writing a patch or a larger chunk of code, please ensure to study the [ARCHITECTURE.md](ARCHITECTURE.md) and [TESTING.md](TESTING.md) files. Ensure that all tests pass before asking for a review of your pull request.
 
+## Pull request titles and labels are the release notes
+
+GitHub builds each release's notes from the titles of the merged pull requests, grouped by their type label (see `.github/release.yml`). Write the title for someone upgrading the package, name the component and the user-visible effect, and give the pull request one of the type labels below. Breaking changes and deprecations get their own labels so they stand out in the notes; record the migration path in [MIGRATION.md](MIGRATION.md) as well.
+
 ## Watching for changes
 
 You can build it continuously so that every time you make a change, build files are automatically updated:
@@ -45,6 +49,8 @@ Each GitHub issue and pull-request should have a type of change label associated
 - [Needs Review](https://github.com/Automattic/vip-design-system/labels/%5BStatus%5D%20Needs%20Review): Marked as needs review from others.
 - [Has Feedback](https://github.com/Automattic/vip-design-system/labels/%5BStatus%5D%20Has%20Feedback): If you left feedback to the Pull request, mark with this label.
 - [Ready to Merge](https://github.com/Automattic/vip-design-system/labels/%5BStatus%5D%20Ready%20to%20Merge): Approved and ready to be merged.
+- [Breaking change](https://github.com/Automattic/vip-design-system/labels/%5BType%5D%20Breaking%20change): Consumers must change their code when upgrading. Only on a major release.
+- [Deprecation](https://github.com/Automattic/vip-design-system/labels/%5BType%5D%20Deprecation): Marks an API as deprecated; the replacement is documented in MIGRATION.md.
 - [Bug](https://github.com/Automattic/vip-design-system/labels/%5BType%5D%20Bug): Code change to fix a bug, or a bug report.
 - [Stale](https://github.com/Automattic/vip-design-system/labels/%5BStatus%5D%20Stale): Marked as stale because it has been inactive for some period.
 - [Documentation](https://github.com/Automattic/vip-design-system/labels/%5BType%5D%20Documentation): Pull request to update documentation.

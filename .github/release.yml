@@ -1,0 +1,31 @@
+# Shapes the release notes GitHub generates for each release (gh release create --generate-notes).
+# Pull requests are grouped by label; the bot's version-bump pull requests are left out.
+changelog:
+  exclude:
+    labels:
+      - '[ Type ] NPM version update'
+    authors:
+      - github-actions
+      - github-actions[bot]
+  categories:
+    - title: Breaking changes
+      labels:
+        - '[Type] Breaking change'
+    - title: Deprecations
+      labels:
+        - '[Type] Deprecation'
+    - title: New features and enhancements
+      labels:
+        - '[Type] enhancement'
+    - title: Bug fixes
+      labels:
+        - '[Type] Bug'
+    - title: Documentation
+      labels:
+        - '[Type] Documentation'
+    - title: Dependencies
+      labels:
+        - dependencies
+    - title: Other changes
+      labels:
+        - '*'
