@@ -4,7 +4,7 @@ What is deprecated in the current major, what replaces it, and what the next maj
 
 ## Deprecated in 2.x
 
-Everything below still works in 2.x and carries an `@deprecated` tag, so editors and type checkers point at the replacement. All of it is removed in 3.0.
+Everything below still works in 2.x. Typed APIs carry an `@deprecated` tag where possible; for string literals such as `variant="danger"`, this guide is the migration signal. All of it is removed in 3.0.
 
 | Deprecated                                                                                                                                                       | Use instead                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
