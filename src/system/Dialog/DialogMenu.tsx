@@ -3,13 +3,14 @@
 /**
  * External dependencies
  */
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, Ref } from 'react';
 import type { ThemeUIStyleObject } from 'theme-ui';
 
 /** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 export type DialogMenuProps = ComponentPropsWithoutRef< 'ul' > & {
 	/** Theme UI style overrides merged over the menu's own styles. */
 	sx?: ThemeUIStyleObject;
+	ref?: Ref< HTMLUListElement >;
 };
 
 /** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
