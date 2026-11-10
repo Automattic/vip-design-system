@@ -21,6 +21,7 @@ interface DialogMotionForwardedProps {
 	sx?: ThemeUIStyleObject;
 }
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 export interface DialogContentProps extends DialogMotionForwardedProps {
 	/**
 	 * The horizontal alignment of the dialog relative to its trigger.
@@ -36,6 +37,7 @@ export interface DialogContentProps extends DialogMotionForwardedProps {
 	onClose?: () => void;
 }
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 const DialogContent = ( {
 	position = 'left',
 	variant = 'dropdown',

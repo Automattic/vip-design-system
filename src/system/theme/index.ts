@@ -34,7 +34,14 @@ const outline = {
 	) }`,
 };
 
-const getComponentColors = ( theme, gColor, gVariants ) => ( {
+// The token set has no translucent tints, so the hover and pressed overlays are
+// the one place the theme hardcodes a value per mode.
+const overlays = {
+	light: { hover: 'rgba(0,0,0,.02)', darken: 'rgba(0,0,0,.05)' },
+	dark: { hover: 'rgba(255,255,255,.04)', darken: 'rgba(255,255,255,.08)' },
+};
+
+const getComponentColors = ( theme, gColor, gVariants, overlay ) => ( {
 	// Valet Theme Colors
 
 	// This has to be in the plural because we already have a flag: text
@@ -181,7 +188,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 
 	optionRow: {
 		...theme[ 'option-row' ],
-		hover: 'rgba(0,0,0,.02)',
+		hover: overlay.hover,
 		border: gColor( 'border', '2' ),
 		text: gColor( 'text', 'secondary' ),
 		textAccent: gColor( 'link', 'default' ),
@@ -200,15 +207,15 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	heading: gColor( 'text', 'primary' ),
 	background: gColor( 'layer', '2' ),
 	backgroundSecondary: gColor( 'layer', '1' ),
-	secondary: light.gray[ '70' ],
+	secondary: gColor( 'text', 'secondary' ),
 	muted: gColor( 'text', 'helper' ),
 	border: gColor( 'border', '1' ),
 	borders: gVariants( 'border' ),
-	hover: 'rgba(0,0,0,.02)',
-	darken: 'rgba(0,0,0,.05)',
+	hover: overlay.hover,
+	darken: overlay.darken,
 	placeholder: gVariants( 'input.text' ).placeholder,
 	midnight: gVariants( 'input.background' ).primary,
-	dialog: light.gray[ '0' ],
+	dialog: gColor( 'background', 'primary' ),
 	backgroundMuted: gColor( 'layer', '1' ),
 
 	// Variant colors
@@ -221,7 +228,7 @@ const getComponentColors = ( theme, gColor, gVariants ) => ( {
 	disabled: theme.input.background.disabled,
 
 	// Card
-	card: '#fff',
+	card: gColor( 'layer', '2' ),
 
 	// Link
 	link: gColor( 'link', 'default' ),
@@ -254,11 +261,11 @@ export default {
 	},
 	initialColorModeName: 'light',
 	colors: {
-		...getComponentColors( ValetTheme, getPropValue, getVariants ),
+		...getComponentColors( ValetTheme, getPropValue, getVariants, overlays.light ),
 		...light,
 		modes: {
 			dark: {
-				...getComponentColors( ValetThemeDark, getPropValueDark, getVariantsDark ),
+				...getComponentColors( ValetThemeDark, getPropValueDark, getVariantsDark, overlays.dark ),
 				...dark,
 			},
 		},

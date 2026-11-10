@@ -11,6 +11,7 @@ import React, { useEffect, useRef } from 'react';
 import { Box } from '../Box/Box';
 import { Spinner } from '../Spinner/Spinner';
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 export interface DialogMenuItemProps extends React.ComponentProps< typeof Box > {
 	/**
 	 * Whether to show a loading spinner at the end of the item.
@@ -21,6 +22,7 @@ export interface DialogMenuItemProps extends React.ComponentProps< typeof Box > 
 	children?: React.ReactNode;
 }
 
+/** @deprecated Use `NewDialog` for modal and sidebar dialogs, or `Dropdown` for menus. */
 const DialogMenuItem = ( { loading = false, children, ...props }: DialogMenuItemProps ) => {
 	const itemRef = useRef< HTMLDivElement >( null );
 

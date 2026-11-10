@@ -144,5 +144,9 @@
   },
   "files": [
     "build"
+  ],
+  "types": "build/system/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
   ]
 }
