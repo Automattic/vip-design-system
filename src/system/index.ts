@@ -144,3 +144,10 @@ export {
 
 export type { ResultsSummaryProps } from './ResultsSummary';
 export type { ToggleGroupProps, ToggleGroupOption, ToggleGroupVariant } from './ToggleGroup';
+export type { HeadingProps } from './Heading/Heading';
+export type { ServiceStatus } from './ServiceHeader/ServiceHeader';
+export {
+	baseControlBorderStyle,
+	baseControlFocusStyle,
+	baseControlStyle,
+} from './Form/Input.styles';
