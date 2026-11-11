@@ -41,7 +41,7 @@ describe( '<NewConfirmationDialog />', () => {
 		expect( getConfirmButton() ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders rich body content as the dialog description', () => {

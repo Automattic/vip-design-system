@@ -89,7 +89,7 @@ export const Default = {
 
 export const Errors = {
 	render: () => {
-		const [ value, setValue ] = useState( null );
+		const [ value, setValue ] = useState< string | undefined >();
 
 		return (
 			<RadioBoxGroup

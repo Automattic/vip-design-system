@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 import * as Form from '.';
 
+import type { MultiselectValue } from './FormAutocompleteMultiselect';
+
 export default {
 	title: 'Form/AutocompleteMulti',
 	argTypes: {
@@ -58,7 +60,7 @@ const args = {
 
 // eslint-disable-next-line react/prop-types
 const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
-	const [ selectedValues, setSelectedValues ] = useState( [] );
+	const [ selectedValues, setSelectedValues ] = useState< MultiselectValue[] >( [] );
 	return (
 		<>
 			<Form.Root>
@@ -157,18 +159,18 @@ export const InlineChips = {
 
 export const WithDynamicData = {
 	render: () => {
-		const [ selectedValues, setSelectedValues ] = useState( [] );
+		const [ selectedValues, setSelectedValues ] = useState< MultiselectValue[] >( [] );
 		const customArgs = {
 			label: 'Select domains',
 			searchIcon: true,
 			required: true,
 			placeholder: 'Start typing...',
-			source: ( q, populateResults ) => {
+			source: ( q: string, populateResults: ( results: string[] ) => void ) => {
 				const filtered = longOptions.filter( option => option.label.toLowerCase().includes( q ) );
 				const optionForDisplay = filtered?.map( option => option.label );
 				populateResults( optionForDisplay.filter( option => ! selectedValues.includes( option ) ) );
 			},
-			onChange: obj => {
+			onChange: ( obj: MultiselectValue[] ) => {
 				setSelectedValues( obj );
 			},
 		};
@@ -178,10 +180,6 @@ export const WithDynamicData = {
 					<div sx={ { width: '100%' } }>
 						<Form.AutocompleteMulti
 							forLabel="form-autocompletemultiselect"
-							label={ customArgs.label }
-							onChange={ obj => {
-								setSelectedValues( obj );
-							} }
 							hasError={ true }
 							errorMessage="Please select a value."
 							{ ...customArgs }

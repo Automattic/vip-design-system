@@ -25,7 +25,7 @@ export const Default = {
 	render: () => (
 		<Flex>
 			<Box>
-				<ConfirmationDialog trigger={ ConfirmationTrigger } content={ ConfirmationContent } />
+				<ConfirmationDialog trigger={ ConfirmationTrigger } body={ ConfirmationContent } />
 			</Box>
 		</Flex>
 	),

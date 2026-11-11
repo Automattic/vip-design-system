@@ -18,7 +18,7 @@ describe( '<OptionRow />', () => {
 		expect( screen.getByText( 'Mostly used to link off to other pages.' ) ).toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 
 	it( 'renders a disabled OptionRow', async () => {
@@ -36,6 +36,6 @@ describe( '<OptionRow />', () => {
 		expect( screen.queryByTestId( 'meta' ) ).not.toBeInTheDocument();
 
 		// Check for accessibility issues
-		await expect( await axe( container ) ).toHaveNoViolations();
+		expect( await axe( container ) ).toHaveNoViolations();
 	} );
 } );

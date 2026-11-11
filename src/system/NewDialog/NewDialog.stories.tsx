@@ -6,7 +6,6 @@
 import { useState } from 'react';
 
 /**
-/**
  * Internal dependencies
  */
 import * as NewDialog from '.';

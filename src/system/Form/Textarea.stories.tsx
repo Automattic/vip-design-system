@@ -23,7 +23,7 @@ export const Primary = {
 	args: {
 		label: 'Textarea label',
 		forLabel: 'textarea-primary',
-		rows: '5',
+		rows: 5,
 		hasError: false,
 		required: false,
 	},
@@ -36,13 +36,13 @@ export const Primary = {
 
 const DefaultComponent = () => (
 	<Form.Root>
-		<Form.Textarea forLabel="my-text-area" rows="5" label="Regular textarea" />
+		<Form.Textarea forLabel="my-text-area" rows={ 5 } label="Regular textarea" />
 
 		<hr sx={ { my: 4 } } />
 
 		<Form.Textarea
 			forLabel="my-text-area-error"
-			rows="5"
+			rows={ 5 }
 			label="Error textarea"
 			errorMessage="Please type numeric characters only"
 			required
@@ -51,5 +51,6 @@ const DefaultComponent = () => (
 	</Form.Root>
 );
 
-export const Default = DefaultComponent.bind( {} );
-Default.args = {};
+export const Default = {
+	render: () => <DefaultComponent />,
+};
