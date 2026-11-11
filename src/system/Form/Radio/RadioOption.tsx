@@ -21,7 +21,7 @@ export type RadioOptionOptionProps = {
 	label?: string;
 	/** A custom render function for the label, receiving label props and styles. */
 	renderLabel?: (
-		props: { className: string; htmlFor: string },
+		props: React.HTMLAttributes< HTMLElement > & { className: string; htmlFor: string },
 		labelStyles: ThemeUIStyleObject
 	) => React.JSX.Element;
 	/** Additional props forwarded to the label element. */
