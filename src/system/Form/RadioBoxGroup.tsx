@@ -172,7 +172,7 @@ const RadioBoxGroup = ( {
 			const optionTriggered = options.find( option => String( option.value ) === e.target.value );
 			onChange?.( e, optionTriggered );
 		},
-		[ onChange ]
+		[ onChange, options ]
 	);
 
 	const renderedOptions = options.map( option => (

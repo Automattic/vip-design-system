@@ -24,7 +24,7 @@ module.exports = {
 		'no-prototype-builtins': 'off',
 		'prettier/prettier': 'error',
 		'react/no-unknown-property': 'off',
-		'react-hooks/exhaustive-deps': 'off',
+		'react-hooks/exhaustive-deps': 'error',
 		'security/detect-object-injection': 'off',
 	},
 };

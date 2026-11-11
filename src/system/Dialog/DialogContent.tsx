@@ -44,19 +44,19 @@ const DialogContent = ( {
 	onClose,
 	...props
 }: DialogContentProps ) => {
-	const closeDialog = ( e: KeyboardEvent ) => {
-		if ( e.key === 'Escape' ) {
-			onClose?.();
-		}
-	};
-
 	useEffect( () => {
+		const closeDialog = ( e: KeyboardEvent ) => {
+			if ( e.key === 'Escape' ) {
+				onClose?.();
+			}
+		};
+
 		window.document.addEventListener( 'keydown', closeDialog, true );
 
 		return () => {
 			window.document.removeEventListener( 'keydown', closeDialog, true );
 		};
-	}, [] );
+	}, [ onClose ] );
 
 	return (
 		<React.Fragment>

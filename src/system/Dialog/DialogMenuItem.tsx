@@ -26,21 +26,25 @@ export interface DialogMenuItemProps extends React.ComponentProps< typeof Box > 
 const DialogMenuItem = ( { loading = false, children, ...props }: DialogMenuItemProps ) => {
 	const itemRef = useRef< HTMLDivElement >( null );
 
-	const triggerClick = ( e: KeyboardEvent ) => {
-		if ( itemRef.current === window.document.activeElement && e.key === 'Enter' ) {
-			props.onClick?.( e as unknown as React.MouseEvent< HTMLDivElement > );
-		}
-	};
+	const { onClick } = props;
 
 	useEffect( () => {
-		if ( props.onClick ) {
-			window.document.addEventListener( 'keydown', triggerClick, true );
+		if ( ! onClick ) {
+			return undefined;
 		}
+
+		const triggerClick = ( e: KeyboardEvent ) => {
+			if ( itemRef.current === window.document.activeElement && e.key === 'Enter' ) {
+				onClick( e as unknown as React.MouseEvent< HTMLDivElement > );
+			}
+		};
+
+		window.document.addEventListener( 'keydown', triggerClick, true );
 
 		return () => {
 			window.document.removeEventListener( 'keydown', triggerClick, true );
 		};
-	}, [] );
+	}, [ onClick ] );
 
 	return (
 		<li role="none">

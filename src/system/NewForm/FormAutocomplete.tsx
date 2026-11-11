@@ -326,7 +326,7 @@ const FormAutocomplete = ( {
 			}
 			return filteredOptions;
 		},
-		[ options ]
+		[ allowCustom, optionLabel, options ]
 	);
 
 	const handleInputChange = useCallback(
@@ -375,7 +375,7 @@ const FormAutocomplete = ( {
 			}
 			populateResults( data?.map( option => optionLabel( option ) ) );
 		},
-		[ autoFilter, isDirty, options ]
+		[ autoFilter, handleTypeChange, isDirty, optionLabel, options ]
 	);
 	// internal function to save the inputQuery
 	const handleSource = ( query: string, populateResults: ( results: unknown[] ) => void ) => {
