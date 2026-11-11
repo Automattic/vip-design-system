@@ -24,18 +24,6 @@ import * as Drawer from './Drawer/Drawer';
 import * as Dropdown from './Dropdown';
 import { FilterDropdown } from './FilterDropdown/FilterDropdown';
 import { Flex } from './Flex';
-import {
-	Input,
-	Label,
-	Toggle,
-	ToggleRow,
-	Validation,
-	Radio,
-	RadioBoxGroup,
-	RadioGroupChip,
-	Textarea,
-	Checkbox,
-} from './Form';
 import { Grid } from './Grid';
 import { Heading } from './Heading';
 import { Hr } from './Hr/Hr';
@@ -77,7 +65,6 @@ export {
 	ButtonSubmit,
 	ButtonVariant,
 	Card,
-	Checkbox,
 	Code,
 	Dialog,
 	NewDialog,
@@ -106,8 +93,6 @@ export {
 	Pagination,
 	Heading,
 	Hr,
-	Input,
-	Label,
 	ScreenReaderText,
 	Spinner,
 	Table,
@@ -116,10 +101,6 @@ export {
 	Tooltip,
 	Link,
 	LinkExternal,
-	Radio,
-	RadioBoxGroup,
-	RadioGroupChip,
-	Textarea,
 	Progress,
 	ResultsSummary,
 	Text,
@@ -130,13 +111,10 @@ export {
 	TabsTrigger,
 	TabsContent,
 	TabsList,
-	Toggle,
 	ToggleGroup,
-	ToggleRow,
 	Toolbar,
 	Snackbar,
 	ServiceHeader,
-	Validation,
 	Wizard,
 	WizardStep,
 	theme,
@@ -151,3 +129,25 @@ export {
 	baseControlFocusStyle,
 	baseControlStyle,
 } from './Form/Input.styles';
+
+// Flat form exports kept for 2.x; they go away in v3 in favour of the `Form` namespace.
+/** @deprecated Import `Form.Checkbox` from the `Form` namespace instead. */
+export const Checkbox = Form.Checkbox;
+/** @deprecated Import `Form.Input` from the `Form` namespace instead. */
+export const Input = Form.Input;
+/** @deprecated Import `Form.Label` from the `Form` namespace instead. */
+export const Label = Form.Label;
+/** @deprecated Import `Form.Radio` from the `Form` namespace instead. */
+export const Radio = Form.Radio;
+/** @deprecated Import `Form.RadioBoxGroup` from the `Form` namespace instead. */
+export const RadioBoxGroup = Form.RadioBoxGroup;
+/** @deprecated Import `Form.RadioGroupChip` from the `Form` namespace instead. */
+export const RadioGroupChip = Form.RadioGroupChip;
+/** @deprecated Import `Form.Textarea` from the `Form` namespace instead. */
+export const Textarea = Form.Textarea;
+/** @deprecated Import `Form.Toggle` from the `Form` namespace instead. */
+export const Toggle = Form.Toggle;
+/** @deprecated Import `Form.ToggleRow` from the `Form` namespace instead. */
+export const ToggleRow = Form.ToggleRow;
+/** @deprecated Import `Form.Validation` from the `Form` namespace instead. */
+export const Validation = Form.Validation;

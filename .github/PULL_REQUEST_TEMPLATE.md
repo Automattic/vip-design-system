@@ -8,6 +8,7 @@ Also include any references to relevant discussions and documentation.
 
 - [ ] This PR has good automated test coverage
 - [ ] The storybook for the component has been updated
+- [ ] The title reads as a release note and the PR has a type label
 
 ## Steps to Test
 

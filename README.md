@@ -11,6 +11,7 @@ This is the main repository to store Design system tokens and components used th
 - [CONTRIBUTING.md](https://github.com/Automattic/vip-design-system/blob/trunk/docs/CONTRIBUTING.md) for information on how to contribute patches and features, also issue and pull request labels.
 - [TESTING.md](https://github.com/Automattic/vip-design-system/blob/trunk/docs/TESTING.md) for details on testing the software and individual tasks.
 - [RELEASING.md](https://github.com/Automattic/vip-design-system/blob/trunk/docs/RELEASING.md) for details on deploying a new release.
+- [MIGRATION.md](https://github.com/Automattic/vip-design-system/blob/trunk/docs/MIGRATION.md) for what is deprecated, what replaces it, and what the next major changes.
 
 ## Health, logs and monitoring
 
