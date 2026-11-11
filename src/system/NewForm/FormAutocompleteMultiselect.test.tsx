@@ -1,7 +1,8 @@
 /**
  * External dependencies
  */
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 /**
@@ -121,5 +122,63 @@ describe( '<FormAutocompleteMultiselect variant="inline-chips" />', () => {
 		fireEvent.click( screen.getByRole( 'button', { name: 'Remove Chocolate' } ) );
 		const statusEl = container.querySelector( '#vip-autocompletemultiselect-status' );
 		expect( statusEl ).toHaveTextContent( 'Chocolate removed from the list.' );
+	} );
+} );
+
+describe( '<FormAutocompleteMultiselect debounce />', () => {
+	beforeEach( () => {
+		jest.useFakeTimers();
+	} );
+
+	afterEach( () => {
+		jest.useRealTimers();
+	} );
+
+	// The inline callback matters: each parent render hands down a new function, which is
+	// how consumers usually write it and what dropped the pending timer before the ref.
+	const renderDebounced = ( onInputChange: jest.Mock ) => {
+		const tree = () => (
+			<FormAutocompleteMultiselect
+				forLabel="debounced"
+				label="Debounced"
+				options={ options }
+				debounce={ 300 }
+				onInputChange={ query => {
+					onInputChange( query );
+				} }
+			/>
+		);
+		const user = userEvent.setup( { advanceTimers: jest.advanceTimersByTime } );
+		return { user, ...render( tree() ), tree };
+	};
+
+	it( 'reports only the latest query when keystrokes arrive across re-renders', async () => {
+		const onInputChange = jest.fn();
+		const { user, rerender, tree } = renderDebounced( onInputChange );
+
+		await user.type( screen.getByLabelText( 'Debounced' ), 'c' );
+		rerender( tree() );
+		await user.type( screen.getByLabelText( 'Debounced' ), 'h' );
+		expect( onInputChange ).not.toHaveBeenCalled();
+
+		act( () => {
+			jest.advanceTimersByTime( 300 );
+		} );
+
+		expect( onInputChange ).toHaveBeenCalledTimes( 1 );
+		expect( onInputChange ).toHaveBeenCalledWith( 'ch' );
+	} );
+
+	it( 'drops a pending query when unmounted before the delay elapses', async () => {
+		const onInputChange = jest.fn();
+		const { user, unmount } = renderDebounced( onInputChange );
+
+		await user.type( screen.getByLabelText( 'Debounced' ), 'c' );
+		unmount();
+		act( () => {
+			jest.advanceTimersByTime( 300 );
+		} );
+
+		expect( onInputChange ).not.toHaveBeenCalled();
 	} );
 } );
