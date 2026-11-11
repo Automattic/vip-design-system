@@ -453,9 +453,9 @@ const FormAutocomplete = ( {
 			return;
 		}
 
-		const onKeyDown = e => {
+		const onKeyDown = ( e: KeyboardEvent ) => {
 			// pressed escape, we want to reset the status
-			if ( ( e as KeyboardEvent ).keyCode === 27 && resetOnBlur ) {
+			if ( e.keyCode === 27 && resetOnBlur ) {
 				resetInputState();
 			} else {
 				setIsDirty( true );

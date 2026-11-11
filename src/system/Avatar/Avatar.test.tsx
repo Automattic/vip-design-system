@@ -12,7 +12,7 @@ import { Avatar } from './Avatar';
 import { theme } from '../';
 
 const renderWithTheme = ( children: React.ReactNode ) =>
-	render( <ThemeUIProvider theme={ theme as Theme }>{ children }</ThemeUIProvider> );
+	render( <ThemeUIProvider theme={ theme as unknown as Theme }>{ children }</ThemeUIProvider> );
 
 // jsdom here does not resolve class-based rules through getComputedStyle, so
 // read the CSS that Emotion emitted for the element's own class instead.

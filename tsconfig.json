@@ -14,7 +14,7 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "jsxImportSource": "theme-ui",
-    "noImplicitAny": false
+    "noImplicitAny": true
   },
   "include": [ ".storybook", "src", "test" ],
   "exclude": [ "node_modules" ]

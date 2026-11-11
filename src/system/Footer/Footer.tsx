@@ -8,6 +8,8 @@ import { LinkExternal, LinkExternalProps } from '../LinkExternal/LinkExternal';
 import { navItemStyles } from '../Nav/styles';
 import { a8cLogo } from '../assets/a8cLogo';
 
+import type { ComponentPropsWithoutRef } from 'react';
+
 type FooterProps = {
 	/**
 	 * Add an additional separator after the last element.
@@ -37,7 +39,7 @@ type FooterProps = {
 	maxWidth?: string | number;
 };
 
-const FooterLinks = ( { children, ...props } ) => {
+const FooterLinks = ( { children, ...props }: ComponentPropsWithoutRef< 'li' > ) => {
 	return <li { ...props }>{ children }</li>;
 };
 

@@ -1,3 +1,5 @@
 import { Box } from '../Box/Box';
 
-export const Page = props => <Box { ...props } />;
+import type { ComponentProps } from 'react';
+
+export const Page = ( props: ComponentProps< typeof Box > ) => <Box { ...props } />;

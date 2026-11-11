@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access -- the token export is untyped JSON; typed tokens are part of the token-pipeline work */
 /**
  * Internal dependencies
  */
@@ -6,8 +6,14 @@
 // Valet Theme Productive Theme
 // https://www.figma.com/file/sILtW5Cs2tAnPWrSOEVyER/Productive-Color?node-id=1%3A17&t=4kHdpoprxntk5Ilw-0
 
-export default theme => {
-	const getPropValue = ( prop, variant = 'default' ) => {
+/** The parsed token export: nested groups ending in `{ value, type }` leaves. */
+export type TokenTree = Record< string, any >;
+
+/** A token tree with every leaf replaced by its value. */
+export type ValetTheme = Record< string, any >;
+
+export default ( theme: TokenTree ) => {
+	const getPropValue = ( prop: string, variant = 'default' ): any => {
 		if ( ! theme[ prop ] ) {
 			return '#000000';
 		}
@@ -15,28 +21,31 @@ export default theme => {
 		return theme[ prop ][ variant ].value;
 	};
 
-	const resolvePath = ( object, path, defaultValue ) => {
-		return path.split( '.' ).reduce( ( acc, property ) => {
+	const resolvePath = ( object: any, path: string, defaultValue: unknown ): any => {
+		return path.split( '.' ).reduce( ( acc: any, property ) => {
 			return acc ? acc[ property ] : defaultValue;
 		}, object );
 	};
 
-	const getVariants = color => {
+	const getVariants = ( color: string ): Record< string, any > => {
 		const property = resolvePath( theme, color, {} );
 
 		return Object.keys( property ).reduce(
-			( variants, variant ) => ( { ...variants, [ variant ]: property[ variant ].value } ),
+			( variants: Record< string, any >, variant ) => ( {
+				...variants,
+				[ variant ]: property[ variant ].value,
+			} ),
 			{}
 		);
 	};
 
-	const traverse = root => {
+	const traverse = ( root: any ): any => {
 		if ( root.hasOwnProperty( 'value' ) && root.hasOwnProperty( 'type' ) ) {
 			return root.value;
 		}
 
 		return Object.entries( root ).reduce(
-			( acc, [ key, value ] ) => ( {
+			( acc: Record< string, any >, [ key, value ] ) => ( {
 				...acc,
 				[ key ]: traverse( value ),
 			} ),
@@ -48,7 +57,7 @@ export default theme => {
 	// We need to build h1: {}, h2: {}, h3: {}, caps: {}.
 	const getHeadingStyles = () => {
 		const variantValues = getVariants( 'heading' );
-		const headingStyles: Record< string, unknown > = {};
+		const headingStyles: Record< string, any > = {};
 
 		Object.keys( variantValues ).forEach( variant => {
 			if ( variant === 'caps' ) {
@@ -69,7 +78,7 @@ export default theme => {
 	};
 
 	return {
-		ValetTheme: traverse( theme ),
+		ValetTheme: traverse( theme ) as ValetTheme,
 		getPropValue,
 		getVariants,
 		traverse,

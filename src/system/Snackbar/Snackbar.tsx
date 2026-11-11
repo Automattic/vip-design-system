@@ -66,7 +66,7 @@ const SnackbarIcon = ( { color, variant, loading }: SnackbarIconProps ) => {
 		warning: MdWarning,
 	};
 
-	const Element = elements[ variant ] || elements.default;
+	const Element = elements[ variant as keyof typeof elements ] ?? elements.default;
 
 	return <Element sx={ sx } size={ size } aria-hidden="true" />;
 };
