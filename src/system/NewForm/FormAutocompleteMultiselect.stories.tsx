@@ -3,7 +3,7 @@
 /**
  * Internal dependencies
  */
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 
 import * as Form from '.';
 
@@ -81,7 +81,7 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 };
 
 export const Default = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		required: true,
@@ -90,7 +90,7 @@ export const Default = {
 };
 
 export const WithAllowCustom = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		allowCustom: true,
@@ -98,7 +98,7 @@ export const WithAllowCustom = {
 };
 
 export const WithBadges = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		listType: 'badge',
@@ -106,7 +106,7 @@ export const WithBadges = {
 };
 
 export const WithInitialValueBadges = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		initialValue: shortOptions.slice( 0, 2 ).map( option => option.label ),
@@ -114,7 +114,7 @@ export const WithInitialValueBadges = {
 };
 
 export const Inline = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		isInline: true,
 		...args,
@@ -123,7 +123,7 @@ export const Inline = {
 };
 
 export const WithStaticData = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		label: 'Select domains',
 		searchIcon: true,
@@ -137,7 +137,9 @@ export const WithStaticData = {
 };
 
 export const InlineChips = {
-	render: props => <DefaultComponent { ...props } width={ 500 } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => (
+		<DefaultComponent { ...props } width={ 500 } />
+	),
 	args: {
 		label: 'Post Categories',
 		options: [

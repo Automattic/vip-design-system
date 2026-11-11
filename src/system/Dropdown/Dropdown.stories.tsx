@@ -37,7 +37,7 @@ export const Default = {
 	args: {
 		trigger: <Button>Open</Button>,
 	},
-	render: args => (
+	render: ( args: React.ComponentProps< typeof Dropdown.Root > ) => (
 		<>
 			<Dropdown.Root { ...args }>
 				<Dropdown.Item>All</Dropdown.Item>
@@ -67,7 +67,7 @@ export const ComplexOptions = {
 	args: {
 		trigger: <Button>See options</Button>,
 	},
-	render: args => {
+	render: ( args: React.ComponentProps< typeof Dropdown.Root > ) => {
 		const [ bookmarksChecked, setBookmarksChecked ] = React.useState( true );
 		const [ urlsChecked, setUrlsChecked ] = React.useState( false );
 		const [ person, setPerson ] = React.useState( 'pedro' );

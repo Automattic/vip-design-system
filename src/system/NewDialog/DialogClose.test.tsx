@@ -5,7 +5,9 @@ import React from 'react';
 
 import { DialogCloseDefault as DialogClose } from './DialogClose';
 
-const Wrapper = props => <Dialog open={ true } { ...props } />;
+const Wrapper = ( props: Partial< React.ComponentProps< typeof Dialog > > ) => (
+	<Dialog open={ true } { ...props } />
+);
 
 describe( '<DialogClose />', () => {
 	it( 'renders the DialogClose component', async () => {

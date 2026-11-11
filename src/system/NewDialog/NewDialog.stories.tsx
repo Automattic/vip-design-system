@@ -3,13 +3,15 @@
 /**
  * External dependencies
  */
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 
 /**
  * Internal dependencies
  */
 import * as NewDialog from '.';
 import { Button, Text, Input, Label } from '../../system';
+
+import type { Theme } from 'theme-ui';
 
 export default {
 	title: 'Dialog/NewDialog',
@@ -34,7 +36,7 @@ export const Default = {
 		...defaultProps,
 		trigger: <Button>Trigger Dialog</Button>,
 	},
-	render: args => (
+	render: ( args: ComponentProps< typeof NewDialog.Root > ) => (
 		<>
 			<Text sx={ { fontSize: 3, mb: 3 } }>
 				Regular Dialog where the title and description are built-in and the content is provided by
@@ -67,7 +69,7 @@ export const HiddenHeadings = {
 			</div>
 		),
 	},
-	render: args => (
+	render: ( args: ComponentProps< typeof NewDialog.Root > ) => (
 		<>
 			<Text sx={ { fontSize: 3, mb: 3 } }>
 				Title and description are hidden, but still announced using a screen reader. Activate
@@ -86,11 +88,11 @@ export const CustomStyling = {
 		trigger: <Button>Trigger Dialog</Button>,
 		title: 'Custom dialog title',
 		style: {
-			background: theme => `${ theme.colors.primary }`,
+			background: ( theme: Theme ) => String( theme.colors?.primary ),
 			padding: 5,
 			borderRadius: 20,
-			h2: { fontSize: 4, color: theme => `${ theme.colors.text }` },
-			h3: { fontSize: 3, color: theme => `${ theme.colors.heading }` },
+			h2: { fontSize: 4, color: ( theme: Theme ) => String( theme.colors?.text ) },
+			h3: { fontSize: 3, color: ( theme: Theme ) => String( theme.colors?.heading ) },
 			p: { color: 'white' },
 			'button[type="button"]:focus-visible': { outlineColor: 'white', color: 'white' },
 		},
@@ -102,7 +104,7 @@ export const CustomStyling = {
 			</div>
 		),
 	},
-	render: args => (
+	render: ( args: ComponentProps< typeof NewDialog.Root > ) => (
 		<>
 			<Text sx={ { fontSize: 3, mb: 3 } }>Custom Styling on Dialog Content</Text>
 
@@ -123,7 +125,7 @@ export const CustomClose = {
 			</div>
 		),
 	},
-	render: args => (
+	render: ( args: ComponentProps< typeof NewDialog.Root > ) => (
 		<>
 			<Text sx={ { fontSize: 3, mb: 3 } }>
 				This example shows how you can create a custom Close trigger to your dialog
@@ -172,7 +174,7 @@ export const CustomOnClose = {
 		...defaultProps,
 		trigger: <Button>Trigger Dialog</Button>,
 	},
-	render: args => (
+	render: ( args: ComponentProps< typeof NewDialog.Root > ) => (
 		<>
 			<Text sx={ { fontSize: 3, mb: 3 } }>
 				This example shows how you can use the content as a function to use the onClose method (same

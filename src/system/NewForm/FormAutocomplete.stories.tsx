@@ -3,7 +3,7 @@
 /**
  * Internal dependencies
  */
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 
 import * as Form from '.';
 
@@ -65,12 +65,12 @@ const DefaultComponent = ( { label = 'Label', width = 250, ...rest } ) => {
 };
 
 export const Default = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args,
 };
 
 export const WithAllowCustom = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		allowCustom: true,
@@ -78,7 +78,7 @@ export const WithAllowCustom = {
 };
 
 export const Inline = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		isInline: true,
@@ -86,7 +86,7 @@ export const Inline = {
 };
 
 export const WithDefaultValue = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		value: 'Chocolate',
@@ -94,7 +94,7 @@ export const WithDefaultValue = {
 };
 
 export const WithSearchIcon = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		searchIcon: true,
@@ -103,7 +103,7 @@ export const WithSearchIcon = {
 };
 
 export const WithLoading = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		loading: true,
@@ -132,7 +132,7 @@ export const WithDebounce = {
 };
 
 export const WithSlowSearchAndDebounce = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		label: 'Label',
@@ -154,7 +154,7 @@ export const WithSlowSearchAndDebounce = {
 };
 
 export const WithCustomMessages = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		noOptionsMessage: () => 'No data',
@@ -163,7 +163,7 @@ export const WithCustomMessages = {
 };
 
 export const WithErrors = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		hasError: true,
@@ -173,7 +173,7 @@ export const WithErrors = {
 };
 
 export const WithArrow = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		showAllValues: true,
@@ -181,7 +181,7 @@ export const WithArrow = {
 };
 
 export const WithCustomArrow = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		...args,
 		showAllValues: true,

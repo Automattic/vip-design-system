@@ -3,7 +3,7 @@
 /**
  * Internal dependencies
  */
-import { type ChangeEvent, useCallback, useState } from 'react';
+import { type ChangeEvent, useCallback, useState, type ComponentProps } from 'react';
 
 import * as Form from '.';
 import { Link } from '../Link';
@@ -78,7 +78,7 @@ const DefaultComponent = ( {
 );
 
 export const Default = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		placeholder: '- Select -',
 		required: true,
@@ -87,7 +87,7 @@ export const Default = {
 };
 
 export const Disabled = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		placeholder: '- Select -',
 		required: true,
@@ -97,7 +97,7 @@ export const Disabled = {
 };
 
 export const WithErrors = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		placeholder: '- Select -',
 		required: true,
@@ -108,7 +108,7 @@ export const WithErrors = {
 };
 
 export const WithGroup = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		label: 'Group Label',
 		options: [ ...options, ...groupedOptions ],
@@ -116,7 +116,7 @@ export const WithGroup = {
 };
 
 export const IsInline = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		label: 'Inline Select',
 		isInline: true,
@@ -126,7 +126,7 @@ export const IsInline = {
 };
 
 export const WithOptionLabelAndValue = {
-	render: props => <DefaultComponent { ...props } />,
+	render: ( props: ComponentProps< typeof DefaultComponent > ) => <DefaultComponent { ...props } />,
 	args: {
 		label: 'Select with getOptionLabel / getOptionValue',
 		width: '100%',
