@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- the token export is untyped JSON, see getPropValue */
 /**
  * Internal dependencies
  */
@@ -5,7 +6,7 @@ import { generateBreakpoints } from './breakpoints';
 import ColorBuilder from './colors';
 import ValetDark from './generated/valet-theme-dark.json';
 import Valet from './generated/valet-theme-light.json';
-import ThemeBuilder from './getPropValue';
+import ThemeBuilder, { type ValetTheme } from './getPropValue';
 import { linkUnderlineProperties } from '../Link/Link';
 
 // Light
@@ -41,7 +42,12 @@ const overlays = {
 	dark: { hover: 'rgba(255,255,255,.04)', darken: 'rgba(255,255,255,.08)' },
 };
 
-const getComponentColors = ( theme, gColor, gVariants, overlay ) => ( {
+const getComponentColors = (
+	theme: ValetTheme,
+	gColor: ( prop: string, variant?: string ) => any,
+	gVariants: ( color: string ) => Record< string, any >,
+	overlay: { hover: string; darken: string }
+) => ( {
 	// Valet Theme Colors
 
 	// This has to be in the plural because we already have a flag: text

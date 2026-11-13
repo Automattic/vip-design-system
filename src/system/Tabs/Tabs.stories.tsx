@@ -20,7 +20,7 @@ export const Default = {
 	args: {
 		defaultValue: 'all',
 	},
-	render: args => (
+	render: ( args: React.ComponentProps< typeof Tabs > ) => (
 		<Tabs { ...args }>
 			<TabsList title="See all the content">
 				<TabsTrigger value="all">All (5)</TabsTrigger>

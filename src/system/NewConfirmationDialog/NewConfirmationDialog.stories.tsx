@@ -22,7 +22,7 @@ export const Default = {
 		body: "A modal is used to perform more detailed actions that don't necessarily need the context behind.",
 		needsConfirm: true,
 	},
-	render: args => {
+	render: ( args: React.ComponentProps< typeof NewConfirmationDialog > ) => {
 		const [ answer, setAnswer ] = React.useState( '🤔' );
 		return (
 			<Box>

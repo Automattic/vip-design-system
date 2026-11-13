@@ -49,8 +49,8 @@ describe( '<Radio />', () => {
 						id: `disabled-option-a`,
 						value: `disabled-option-a`,
 						label: 'I am ignored',
-						renderLabel: ( props, labelStyles ) => (
-							<label htmlFor="disabled-option-a" { ...props } sx={ labelStyles }>
+						renderLabel: ( { htmlFor, ...props }, labelStyles ) => (
+							<label htmlFor={ htmlFor } { ...props } sx={ labelStyles }>
 								<span>I am the custom option A</span>
 							</label>
 						),

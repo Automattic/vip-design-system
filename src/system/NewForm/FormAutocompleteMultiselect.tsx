@@ -272,6 +272,12 @@ const AddSelectionStatus = ( { status }: { status?: ReactNode } ) => {
 	);
 };
 
+const OPTION_ACTION = {
+	ADD: 'add',
+	REMOVE: 'remove',
+	NONE: 'none',
+} as const;
+
 const FormAutocompleteMultiselect = ( {
 	autoFilter = true,
 	className,
@@ -308,11 +314,6 @@ const FormAutocompleteMultiselect = ( {
 }: FormAutocompleteMultiselectProps ) => {
 	const inputId = id ?? forLabel;
 	const isInlineChips = variant === 'inline-chips';
-	const OPTION_ACTION = {
-		ADD: 'add',
-		REMOVE: 'remove',
-		NONE: 'none',
-	};
 	const ListComponent =
 		listType === 'button' ? FormAutocompleteMultiselectButton : FormAutocompleteMultiselectBadge;
 	const [ isDirty, setIsDirty ] = useState( false );
@@ -328,7 +329,9 @@ const FormAutocompleteMultiselect = ( {
 		index: -1,
 	} );
 	const justSelectedRef = React.useRef( false );
-	let debounceTimeout: ReturnType< typeof setTimeout >;
+	// A ref, not a render-scoped variable: consumers commonly pass an inline `onInputChange`,
+	// which rebuilds the handler every render and would otherwise lose the pending timer.
+	const debounceTimeout = React.useRef< ReturnType< typeof setTimeout > | null >( null );
 	const fallbackRef = React.useRef< AutocompleteInstance >( null );
 	const acRef = (
 		ref && typeof ref !== 'function' ? ref : fallbackRef
@@ -360,17 +363,6 @@ const FormAutocompleteMultiselect = ( {
 		[ getOptionLabel ]
 	);
 
-	const getAllOptions = useMemo< AutocompleteOption[] >(
-		() => options.flatMap( option => option.options ?? [ option ] ),
-		[ options ]
-	);
-
-	const getOptionByLabel = useCallback(
-		( inputValue: string ) =>
-			getAllOptions.find( option => String( optionLabel( option ) ) === String( inputValue ) ),
-		[ getAllOptions, optionLabel ]
-	);
-
 	const onValueChange = useCallback(
 		( inputValue: MultiselectValue ) => {
 			if ( inputValue && ! selectedOptions.includes( inputValue ) ) {
@@ -378,7 +370,7 @@ const FormAutocompleteMultiselect = ( {
 				setSelectedOptions( [ ...selectedOptions, inputValue ] );
 			}
 		},
-		[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
+		[ setSelectedOptions, selectedOptions, setCurrentOption ]
 	);
 
 	const unselectValue = useCallback(
@@ -396,7 +388,7 @@ const FormAutocompleteMultiselect = ( {
 				} );
 			}
 		},
-		[ getOptionByLabel, setSelectedOptions, selectedOptions, setCurrentOption ]
+		[ setSelectedOptions, selectedOptions, setCurrentOption ]
 	);
 
 	const handleTypeChange = useCallback(
@@ -409,7 +401,7 @@ const FormAutocompleteMultiselect = ( {
 			}
 			return filteredOptions;
 		},
-		[ options, allowCustom ]
+		[ allowCustom, optionLabel, options ]
 	);
 
 	const handleInputChange = useCallback(
@@ -417,14 +409,27 @@ const FormAutocompleteMultiselect = ( {
 			if ( ! debounce ) {
 				return onInputChange?.( query );
 			}
-			clearTimeout( debounceTimeout );
+			if ( debounceTimeout.current ) {
+				clearTimeout( debounceTimeout.current );
+				debounceTimeout.current = null;
+			}
 			if ( ! query.length || query.length >= minLength ) {
-				debounceTimeout = setTimeout( () => {
+				debounceTimeout.current = setTimeout( () => {
+					debounceTimeout.current = null;
 					onInputChange?.( query );
 				}, debounce );
 			}
 		},
 		[ onInputChange, debounce, minLength ]
+	);
+
+	useEffect(
+		() => () => {
+			if ( debounceTimeout.current ) {
+				clearTimeout( debounceTimeout.current );
+			}
+		},
+		[]
 	);
 
 	const suggest = useCallback(
@@ -447,7 +452,17 @@ const FormAutocompleteMultiselect = ( {
 				);
 			}
 		},
-		[ autoFilter, isDirty, isInlineChips, onInputChange, options, selectedOptions ]
+		[
+			autoFilter,
+			handleInputChange,
+			handleTypeChange,
+			isDirty,
+			isInlineChips,
+			onInputChange,
+			optionLabel,
+			options,
+			selectedOptions,
+		]
 	);
 
 	const onValueChangeInlineChips = useCallback(
@@ -551,6 +566,9 @@ const FormAutocompleteMultiselect = ( {
 		} else {
 			resetInputState();
 		}
+		// Keyed to the selection on purpose: this reports a change and resets the input once per
+		// selection change, not every time a consumer re-creates an inline `onChange`.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ selectedOptions ] );
 
 	// Update the select status for screen readers
@@ -569,7 +587,7 @@ const FormAutocompleteMultiselect = ( {
 			}
 			setCurrentOption( { action: OPTION_ACTION.NONE, option: null } );
 		}
-	}, [ currentOption ] );
+	}, [ currentOption, inputId, isInlineChips, selectedOptions.length ] );
 
 	if ( isInlineChips ) {
 		return (

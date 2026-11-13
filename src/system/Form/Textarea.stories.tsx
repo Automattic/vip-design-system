@@ -5,6 +5,8 @@
  */
 import * as Form from '../NewForm';
 
+import type { ComponentProps } from 'react';
+
 export default {
 	title: 'Form/Textarea',
 	argTypes: {
@@ -27,7 +29,7 @@ export const Primary = {
 		hasError: false,
 		required: false,
 	},
-	render: args => (
+	render: ( args: ComponentProps< typeof Form.Textarea > ) => (
 		<Form.Root>
 			<Form.Textarea { ...args } />
 		</Form.Root>

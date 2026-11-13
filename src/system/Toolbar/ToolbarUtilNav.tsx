@@ -32,7 +32,7 @@ export const ToolbarUtilNav = ( { label = 'Utility', children, ref }: ToolbarUti
 	</nav>
 );
 
-export const ToolbarIconHolder = ( { children } ) => (
+export const ToolbarIconHolder = ( { children }: { children?: React.ReactNode } ) => (
 	<Flex
 		sx={ {
 			width: 38,

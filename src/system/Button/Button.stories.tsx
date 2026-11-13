@@ -12,6 +12,7 @@ import { Button, ButtonVariant, Table, TableCell, TableRow } from '..';
 import ScreenReaderText from '../ScreenReaderText';
 
 import type { StoryObj } from '@storybook/react-vite';
+import type { ComponentProps } from 'react';
 
 export default {
 	title: 'Button',
@@ -89,7 +90,7 @@ export const Primary: Story = {
 	},
 };
 
-const Template = args => (
+const Template = ( args: ComponentProps< typeof Button > ) => (
 	<div>
 		<h3>Default</h3>
 		<Table>
@@ -230,7 +231,7 @@ const Template = args => (
 	</div>
 );
 
-const PreferAriaDisabledTemplate = args => (
+const PreferAriaDisabledTemplate = ( args: ComponentProps< typeof Button > ) => (
 	<div>
 		<Button { ...args } disabled preferAriaDisabled>
 			Primary
@@ -238,7 +239,7 @@ const PreferAriaDisabledTemplate = args => (
 	</div>
 );
 
-const LoadingTemplate = args => (
+const LoadingTemplate = ( args: ComponentProps< typeof Button > ) => (
 	<div>
 		<h3>Loading</h3>
 		<Table>

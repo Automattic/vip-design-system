@@ -10,8 +10,12 @@ import { axe } from 'jest-axe';
  */
 import { DialogTitle } from './DialogTitle';
 
+import type { ComponentProps } from 'react';
+
 // If you render any Dialog child without the `<Dialog />` parent, it will throw an error.
-const Wrapper = props => <Dialog open={ true } { ...props } />;
+const Wrapper = ( props: Partial< ComponentProps< typeof Dialog > > ) => (
+	<Dialog open={ true } { ...props } />
+);
 const defaultProps = {
 	title: 'This is a DialogTitle',
 };

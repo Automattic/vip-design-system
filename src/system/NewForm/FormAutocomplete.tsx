@@ -326,7 +326,7 @@ const FormAutocomplete = ( {
 			}
 			return filteredOptions;
 		},
-		[ options ]
+		[ allowCustom, optionLabel, options ]
 	);
 
 	const handleInputChange = useCallback(
@@ -375,7 +375,7 @@ const FormAutocomplete = ( {
 			}
 			populateResults( data?.map( option => optionLabel( option ) ) );
 		},
-		[ autoFilter, isDirty, options ]
+		[ autoFilter, handleTypeChange, isDirty, optionLabel, options ]
 	);
 	// internal function to save the inputQuery
 	const handleSource = ( query: string, populateResults: ( results: unknown[] ) => void ) => {
@@ -453,9 +453,9 @@ const FormAutocomplete = ( {
 			return;
 		}
 
-		const onKeyDown = e => {
+		const onKeyDown = ( e: KeyboardEvent ) => {
 			// pressed escape, we want to reset the status
-			if ( ( e as KeyboardEvent ).keyCode === 27 && resetOnBlur ) {
+			if ( e.keyCode === 27 && resetOnBlur ) {
 				resetInputState();
 			} else {
 				setIsDirty( true );

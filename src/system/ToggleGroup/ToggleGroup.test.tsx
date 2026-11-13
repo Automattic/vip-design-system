@@ -131,7 +131,7 @@ describe( '<ToggleGroup />', () => {
 
 	it( 'resolves every style value through the theme', () => {
 		render(
-			<ThemeUIProvider theme={ theme as Theme }>
+			<ThemeUIProvider theme={ theme as unknown as Theme }>
 				<ToggleGroup aria-label="Site status" options={ statusOptions } defaultValue="enabled" />
 			</ThemeUIProvider>
 		);

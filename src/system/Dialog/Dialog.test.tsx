@@ -9,6 +9,7 @@ import { axe } from 'jest-axe';
  * Internal dependencies
  */
 import { Dialog } from './Dialog';
+import { DialogContent } from './DialogContent';
 
 import type { ReactNode } from 'react';
 
@@ -123,5 +124,27 @@ describe( '<Dialog />', () => {
 		await user.click( backdrop as Element );
 
 		expect( screen.queryByText( 'Body' ) ).not.toBeInTheDocument();
+	} );
+
+	it( 'Escape calls the onClose passed most recently, not the one from mount', async () => {
+		const user = userEvent.setup();
+		const first = jest.fn();
+		const second = jest.fn();
+		const { rerender } = render(
+			<DialogContent variant="modal" onClose={ first }>
+				Body
+			</DialogContent>
+		);
+
+		await user.keyboard( '{Escape}' );
+		rerender(
+			<DialogContent variant="modal" onClose={ second }>
+				Body
+			</DialogContent>
+		);
+		await user.keyboard( '{Escape}' );
+
+		expect( first ).toHaveBeenCalledTimes( 1 );
+		expect( second ).toHaveBeenCalledTimes( 1 );
 	} );
 } );

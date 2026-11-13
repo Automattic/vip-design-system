@@ -25,12 +25,14 @@ export const Default: Story = {
 		const steps = args.steps;
 
 		useEffect( () => {
-			setTimeout( () => {
+			const timer = setTimeout( () => {
 				if ( counter < steps.length - 1 ) {
 					setCounter( counter + 1 );
 				}
 			}, 2000 );
-		}, [ counter, setCounter ] );
+
+			return () => clearTimeout( timer );
+		}, [ counter, steps.length ] );
 
 		return <Progress { ...args } activeStep={ counter } />;
 	},
