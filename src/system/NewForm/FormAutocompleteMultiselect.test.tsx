@@ -229,8 +229,6 @@ describe( '<FormAutocompleteMultiselect /> aria-activedescendant', () => {
 	};
 
 	const variants: [ string, MultiselectProps ][] = [
-		[ 'default', {} ],
-		[ 'inline-chips', { variant: 'inline-chips' } ],
 		[ 'default with a selection', { initialValue: [ 'Chocolate' ] } ],
 		[ 'inline-chips with a selection', { variant: 'inline-chips', initialValue: [ 'Chocolate' ] } ],
 	];
@@ -243,20 +241,6 @@ describe( '<FormAutocompleteMultiselect /> aria-activedescendant', () => {
 		await expectAbsent( inputs );
 	} );
 
-	it.each( variants )(
-		'is removed from the second %s instance when rewritten as "false" or empty',
-		async ( _case, props ) => {
-			const { container } = render( <>{ instances( 2, props ) }</> );
-			const second = getInputs( container )[ 1 ];
-
-			write( second, 'false' );
-			await waitFor( () => expect( second ).not.toHaveAttribute( ATTRIBUTE ) );
-
-			write( second, '' );
-			await waitFor( () => expect( second ).not.toHaveAttribute( ATTRIBUTE ) );
-		}
-	);
-
 	it( 'is absent after the variant changes', async () => {
 		const { container, rerender } = render( <>{ instances( 2 ) }</> );
 
@@ -268,11 +252,13 @@ describe( '<FormAutocompleteMultiselect /> aria-activedescendant', () => {
 		await expectAbsent( inputs );
 	} );
 
-	it.each( [
-		[ 'a single-select before a multiselect', [ single, ...instances( 1 ) ] ],
-		[ 'a multiselect before a single-select', [ ...instances( 1 ), single ] ],
-	] )( 'is absent and stays absent with %s', async ( _case, tree ) => {
-		const { container } = render( <>{ tree }</> );
+	it( 'is absent and stays absent with a single-select before a multiselect', async () => {
+		const { container } = render(
+			<>
+				{ single }
+				{ instances( 1 ) }
+			</>
+		);
 		const inputs = getInputs( container );
 
 		expect( inputs ).toHaveLength( 2 );

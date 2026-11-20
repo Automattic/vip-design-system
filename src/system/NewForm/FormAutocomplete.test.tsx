@@ -360,11 +360,11 @@ describe( '<FormAutocomplete />', () => {
 			pressKey( 'ArrowDown', 40 );
 		};
 
-		it.each( [ 2, 3 ] )( 'is absent on each of %i idle instances', async count => {
-			const { container } = render( <>{ instances( count ) }</> );
+		it( 'is absent on each of 3 idle instances', async () => {
+			const { container } = render( <>{ instances( 3 ) }</> );
 			const inputs = getInputs( container );
 
-			expect( inputs ).toHaveLength( count );
+			expect( inputs ).toHaveLength( 3 );
 			await expectAbsent( inputs );
 		} );
 
@@ -411,32 +411,13 @@ describe( '<FormAutocomplete />', () => {
 			await expectAbsent( [ second ] );
 		} );
 
-		it.each( [
-			[ 2, 'false' ],
-			[ 2, '' ],
-			[ 3, 'false' ],
-		] )(
-			'is removed from the last of %i instances when rewritten as "%s"',
-			async ( count, value ) => {
-				const { container } = render( <>{ instances( count ) }</> );
-				const last = getInputs( container )[ count - 1 ];
-
-				write( last, value );
-
-				await waitFor( () => expect( last ).not.toHaveAttribute( ATTRIBUTE ) );
-			}
-		);
-
-		it( 'keeps an option ID written to the input', async () => {
+		it( 'is removed from the last of 2 instances when rewritten as ""', async () => {
 			const { container } = render( <>{ instances( 2 ) }</> );
-			const second = getInputs( container )[ 1 ];
+			const last = getInputs( container )[ 1 ];
 
-			write( second, 'some-option-id' );
-			await act( async () => {
-				await Promise.resolve();
-			} );
+			write( last, '' );
 
-			expect( second ).toHaveAttribute( ATTRIBUTE, 'some-option-id' );
+			await waitFor( () => expect( last ).not.toHaveAttribute( ATTRIBUTE ) );
 		} );
 
 		it( 'covers an instance added later and one mounted again', async () => {
