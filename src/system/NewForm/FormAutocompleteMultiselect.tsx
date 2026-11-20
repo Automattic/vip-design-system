@@ -18,6 +18,7 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
 import { FormSelectSearch } from './FormSelectSearch';
+import { useAutocompleteActiveDescendant } from './useAutocompleteActiveDescendant';
 import { Flex } from '../Flex/Flex';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
@@ -332,6 +333,7 @@ const FormAutocompleteMultiselect = ( {
 	// A ref, not a render-scoped variable: consumers commonly pass an inline `onInputChange`,
 	// which rebuilds the handler every render and would otherwise lose the pending timer.
 	const debounceTimeout = React.useRef< ReturnType< typeof setTimeout > | null >( null );
+	const wrapperRef = React.useRef< HTMLDivElement >( null );
 	const fallbackRef = React.useRef< AutocompleteInstance >( null );
 	const acRef = (
 		ref && typeof ref !== 'function' ? ref : fallbackRef
@@ -494,11 +496,7 @@ const FormAutocompleteMultiselect = ( {
 		[ selectedOptions ]
 	);
 
-	useEffect( () => {
-		global.document
-			.querySelector( '.autocomplete__input' )
-			?.removeAttribute( 'aria-activedescendant' );
-	}, [] );
+	useAutocompleteActiveDescendant( wrapperRef, isInlineChips );
 
 	useEffect( () => {
 		global.document
@@ -591,7 +589,10 @@ const FormAutocompleteMultiselect = ( {
 
 	if ( isInlineChips ) {
 		return (
-			<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+			<div
+				ref={ wrapperRef }
+				className={ classNames( 'vip-form-autocomplete-component', className ) }
+			>
 				{ label && <SelectLabel /> }
 				<div sx={ inlineChipsContainerStyles }>
 					{ selectedOptions.map( ( option, idx ) => (
@@ -640,7 +641,10 @@ const FormAutocompleteMultiselect = ( {
 	}
 
 	return (
-		<div className={ classNames( 'vip-form-autocomplete-component', className ) }>
+		<div
+			ref={ wrapperRef }
+			className={ classNames( 'vip-form-autocomplete-component', className ) }
+		>
 			{ label && ! isInline && <SelectLabel /> }
 			<div
 				sx={ {

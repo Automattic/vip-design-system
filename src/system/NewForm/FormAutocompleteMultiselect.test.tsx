@@ -1,14 +1,17 @@
 /**
  * External dependencies
  */
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 /**
  * Internal dependencies
  */
+import { FormAutocomplete } from './FormAutocomplete';
 import { FormAutocompleteMultiselect } from './FormAutocompleteMultiselect';
+
+type MultiselectProps = Partial< React.ComponentProps< typeof FormAutocompleteMultiselect > >;
 
 const options = [
 	{ value: 'chocolate', label: 'Chocolate' },
@@ -180,5 +183,132 @@ describe( '<FormAutocompleteMultiselect debounce />', () => {
 		} );
 
 		expect( onInputChange ).not.toHaveBeenCalled();
+	} );
+} );
+
+describe( '<FormAutocompleteMultiselect /> aria-activedescendant', () => {
+	const ATTRIBUTE = 'aria-activedescendant';
+
+	const instances = ( count: number, props: MultiselectProps = {} ) =>
+		Array.from( { length: count }, ( _, index ) => (
+			<FormAutocompleteMultiselect
+				key={ index }
+				{ ...defaultProps }
+				forLabel={ `dessert-${ index }` }
+				label={ `Dessert ${ index }` }
+				{ ...props }
+			/>
+		) );
+
+	const single = (
+		<FormAutocomplete key="single" { ...defaultProps } forLabel="single" label="Single" />
+	);
+
+	const getInputs = ( container: HTMLElement ) =>
+		Array.from( container.querySelectorAll( 'input.autocomplete__input' ) );
+
+	const expectAbsent = ( inputs: Element[] ) =>
+		waitFor( () => {
+			inputs.forEach( input => expect( input ).not.toHaveAttribute( ATTRIBUTE ) );
+		} );
+
+	// Stands in for the vendor autocomplete re-rendering its input.
+	const write = ( input: Element, value: string ) => {
+		act( () => input.setAttribute( ATTRIBUTE, value ) );
+	};
+
+	// The vendor autocomplete reads the legacy `keyCode`, which user-event leaves at 0.
+	const pressKey = ( key: string, keyCode: number ) => {
+		fireEvent.keyDown( document.activeElement as Element, { key, keyCode } );
+	};
+
+	const highlightFirstOption = async ( user: UserEvent, input: Element ) => {
+		await user.click( input );
+		await screen.findByRole( 'option', { name: 'Chocolate' } );
+		pressKey( 'ArrowDown', 40 );
+	};
+
+	const variants: [ string, MultiselectProps ][] = [
+		[ 'default with a selection', { initialValue: [ 'Chocolate' ] } ],
+		[ 'inline-chips with a selection', { variant: 'inline-chips', initialValue: [ 'Chocolate' ] } ],
+	];
+
+	it.each( variants )( 'is absent on two idle %s instances', async ( _case, props ) => {
+		const { container } = render( <>{ instances( 2, props ) }</> );
+		const inputs = getInputs( container );
+
+		expect( inputs ).toHaveLength( 2 );
+		await expectAbsent( inputs );
+	} );
+
+	it( 'is absent after the variant changes', async () => {
+		const { container, rerender } = render( <>{ instances( 2 ) }</> );
+
+		rerender( <>{ instances( 2, { variant: 'inline-chips' } ) }</> );
+
+		const inputs = getInputs( container );
+
+		expect( inputs ).toHaveLength( 2 );
+		await expectAbsent( inputs );
+	} );
+
+	it( 'is absent and stays absent with a single-select before a multiselect', async () => {
+		const { container } = render(
+			<>
+				{ single }
+				{ instances( 1 ) }
+			</>
+		);
+		const inputs = getInputs( container );
+
+		expect( inputs ).toHaveLength( 2 );
+		await expectAbsent( inputs );
+
+		write( inputs[ 1 ], 'false' );
+
+		await expectAbsent( [ inputs[ 1 ] ] );
+	} );
+
+	it( 'passes the axe ARIA value check with two idle instances', async () => {
+		const { container } = render( <>{ instances( 2 ) }</> );
+
+		expect(
+			await axe( container, {
+				runOnly: { type: 'rule', values: [ 'aria-valid-attr-value' ] },
+			} )
+		).toHaveNoViolations();
+	} );
+
+	it( 'points at the highlighted option of its own instance only', async () => {
+		const user = userEvent.setup();
+		const { container } = render( <>{ instances( 2, { showAllValues: true } ) }</> );
+		const [ first, second ] = getInputs( container );
+
+		await highlightFirstOption( user, second );
+
+		const highlighted = container.querySelector( '.autocomplete__option--focused' );
+		const activeId = second.getAttribute( ATTRIBUTE );
+
+		expect( activeId ).toBeTruthy();
+		expect( activeId ).not.toBe( 'false' );
+		expect( activeId ).toBe( highlighted?.id );
+		expect( document.getElementById( activeId as string ) ).toBe( highlighted );
+		expect( first ).not.toHaveAttribute( ATTRIBUTE );
+	} );
+
+	it.each< [ string, ( user: UserEvent ) => void | Promise< void > ] >( [
+		[ 'the menu is closed with Escape', () => pressKey( 'Escape', 27 ) ],
+		[ 'focus moves away', async user => user.tab() ],
+	] )( 'is removed once %s after a highlight', async ( _case, leave ) => {
+		const user = userEvent.setup();
+		const { container } = render( <>{ instances( 2, { showAllValues: true } ) }</> );
+		const second = getInputs( container )[ 1 ];
+
+		await highlightFirstOption( user, second );
+		expect( second ).toHaveAttribute( ATTRIBUTE, expect.stringContaining( '__option--' ) );
+
+		await leave( user );
+
+		await expectAbsent( [ second ] );
 	} );
 } );

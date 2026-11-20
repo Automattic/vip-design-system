@@ -16,6 +16,7 @@ import { FormSelectArrow } from './FormSelectArrow';
 import { FormSelectContent } from './FormSelectContent';
 import { FormSelectLoading } from './FormSelectLoading';
 import { FormSelectSearch } from './FormSelectSearch';
+import { useAutocompleteActiveDescendant } from './useAutocompleteActiveDescendant';
 import { baseControlBorderStyle, inputBaseText } from '../Form/Input.styles';
 import { Label } from '../Form/Label';
 import { Validation } from '../Form/Validation';
@@ -403,11 +404,8 @@ const FormAutocomplete = ( {
 			suggest( query, populateResults );
 		}
 	};
-	useEffect( () => {
-		global.document
-			.querySelector( '.autocomplete__input' )
-			?.setAttribute( 'aria-activedescendant', '' );
-	}, [] );
+
+	useAutocompleteActiveDescendant( wrapperRef );
 
 	useEffect( () => {
 		global.document
