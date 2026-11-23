@@ -43,5 +43,19 @@
 			"target": "children",
 			"type": "dimension"
 		}
+	},
+	"behaviors": {
+		"position": {
+			"attribute": "data-position",
+			"options": ["start", "end"]
+		},
+		"order": {
+			"attribute": "data-order",
+			"options": ["reverse"]
+		},
+		"sticky": {
+			"attribute": "data-sticky",
+			"boolean": true
+		}
 	}
 }

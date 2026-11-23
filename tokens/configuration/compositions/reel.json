@@ -25,5 +25,11 @@
 			"target": "children",
 			"type": "dimension"
 		}
+	},
+	"behaviors": {
+		"scrollbar": {
+			"attribute": "data-scrollbar",
+			"options": ["hidden"]
+		}
 	}
 }

@@ -73,7 +73,7 @@ function Icon({ name, className }: { name: string; className: string }) {
  * or a screen reader will never announce it.
  */
 const meta: Meta<NoticeArgs> = {
-	title: 'Blocks/Notice',
+	title: 'Block Styles/Notice',
 	tags: ['autodocs'],
 	argTypes: {
 		purpose: {

@@ -162,7 +162,30 @@ export function resolveCatalog(catalog, dictionary) {
 			}
 			presets[key] = { ...preset, options };
 		}
-		classes[name] = { ...entry, settings, presets };
+		const behaviors = entry.behaviors ?? {};
+		const attributes = new Set();
+		for (const [key, behavior] of Object.entries(behaviors)) {
+			const context = `${name}.${key}`;
+			if (!/^[a-z][a-z-]*$/.test(key) || key in settings || key in presets)
+				fail(context, 'invalid or conflicting behavior');
+			if (!/^data-[a-z-]+$/.test(behavior.attribute) || attributes.has(behavior.attribute))
+				fail(context, 'invalid or duplicate behavior attribute');
+			attributes.add(behavior.attribute);
+			if (behavior.boolean === true) {
+				if (behavior.options !== undefined) fail(context, 'boolean behavior cannot have options');
+			} else if (
+				behavior.boolean !== undefined ||
+				!Array.isArray(behavior.options) ||
+				!behavior.options.length ||
+				behavior.options.some(
+					(option) => typeof option !== 'string' || !/^[a-z][a-z-]*$/.test(option)
+				) ||
+				new Set(behavior.options).size !== behavior.options.length
+			) {
+				fail(context, 'behavior must have unique named options or boolean: true');
+			}
+		}
+		classes[name] = { ...entry, settings, presets, behaviors };
 	}
 	return { optionSets, classes };
 }

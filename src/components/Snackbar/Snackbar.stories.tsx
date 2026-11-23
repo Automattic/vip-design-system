@@ -66,7 +66,7 @@ function Icon({ name, className }: { name: string; className: string }) {
  * than patched around in the block — see the note in `snackbar.css`.
  */
 const meta: Meta<Args> = {
-	title: 'Blocks/Snackbar',
+	title: 'Block Styles/Snackbar',
 	tags: ['autodocs'],
 	argTypes: {
 		purpose: {

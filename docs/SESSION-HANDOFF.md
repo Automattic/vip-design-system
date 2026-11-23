@@ -19,6 +19,15 @@ the simplified Badge variant generator and semantic aliases, and Storybook's
 independent System / Light / Dark controls. These remain intact after the merge.
 See `docs/CSS-CONFIGURATION.md` for the current configuration contract.
 
+The Storybook reorganization adds six **Block Styles** pages, all twelve
+**Composition Styles** pages, four **Utility Styles**
+pages (Flow, Region, Icon, Visually Hidden), and fifteen individual **React
+Components** pages replace the combined CSS wrappers page. Controls reuse the
+configuration catalogs; CSS examples show HTML and React examples show JSX.
+Matching CSS/React pages link to one another. Per-canvas color controls and the
+Badge Dark Mode example remain. Story IDs now use these section names, so old
+`blocks-*` and `react-css-wrappers` bookmarks need updating.
+
 Badge exposes only `data-badge-variant`. Its component token JSON owns the six
 color variants and their semantic aliases; generated rules assign three local
 color variables. Fixed layout and the `type-support-label-xs` utility remain in
@@ -168,7 +177,7 @@ Other parallels, all verified by value:
 
 ### Needs a decision
 
-**Select's custom dropdown.** The native `<select>`'s open panel is drawn by the OS and cannot be styled, so it will never match Figma. Matching it means a custom listbox — the **first component in this system needing JavaScript**, and the first real entry in `src/components/`. `REBUILD-PLAN` anticipates this ("Radix where they earn their keep"). What is given up: the OS picker on mobile, no-JS operation, and ARIA that every assistive technology already understands. Figma nodes: Select-dropdown `15794:4246`, `.dropdown` `15793:3306`, `.item-core` `15793:3293`, `.list-item` `15793:3300`, `.select-dropdown-item` `15794:3387`. Emily's screenshot shows a **separator between option groups** — confirm whether that is `<optgroup>`-shaped.
+**Select's custom dropdown.** The native `<select>`'s open panel is drawn by the OS and cannot be styled, so it will never match Figma. Matching it means a custom listbox — the **first component in this system needing JavaScript**, alongside the generated CSS wrappers in `src/components/`. `REBUILD-PLAN` anticipates this ("Base UI where they earn their keep"). What is given up: the OS picker on mobile, no-JS operation, and ARIA that every assistive technology already understands. Figma nodes: Select-dropdown `15794:4246`, `.dropdown` `15793:3306`, `.item-core` `15793:3293`, `.list-item` `15793:3300`, `.select-dropdown-item` `15794:3387`. Emily's screenshot shows a **separator between option groups** — confirm whether that is `<optgroup>`-shaped.
 
 **The snackbar's inverse neutrals disagree with Figma in two places, and one of them fails AA.** This is the live variables diff and needs Emily's call:
 

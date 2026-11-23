@@ -12,15 +12,16 @@
 						"brand": "gold",
 						"warning": "yellow"
 					}
+				},
+				"com.automattic.vip.react": {
+					"element": "span",
+					"className": "type-support-label-xs"
 				}
 			},
 			"gray": {
 				"background": {
 					"$value": "{color.support.system.background}",
-					"$type": "color",
-					"$extensions": {
-						"dark": "{color.control.background.transparent}"
-					}
+					"$type": "color"
 				},
 				"color": {
 					"$value": "{color.text.primary}",
@@ -40,10 +41,7 @@
 			"blue": {
 				"background": {
 					"$value": "{color.support.info.background}",
-					"$type": "color",
-					"$extensions": {
-						"dark": "{color.control.background.transparent}"
-					}
+					"$type": "color"
 				},
 				"color": {
 					"$value": "{color.text.primary}",
@@ -63,10 +61,7 @@
 			"green": {
 				"background": {
 					"$value": "{color.support.success.background}",
-					"$type": "color",
-					"$extensions": {
-						"dark": "{color.control.background.transparent}"
-					}
+					"$type": "color"
 				},
 				"color": {
 					"$value": "{color.text.primary}",
@@ -86,10 +81,7 @@
 			"red": {
 				"background": {
 					"$value": "{color.support.error.background}",
-					"$type": "color",
-					"$extensions": {
-						"dark": "{color.control.background.transparent}"
-					}
+					"$type": "color"
 				},
 				"color": {
 					"$value": "{color.text.primary}",
@@ -109,10 +101,7 @@
 			"gold": {
 				"background": {
 					"$value": "{color.support.brand.background}",
-					"$type": "color",
-					"$extensions": {
-						"dark": "{color.control.background.transparent}"
-					}
+					"$type": "color"
 				},
 				"color": {
 					"$value": "{color.text.primary}",
@@ -132,10 +121,7 @@
 			"yellow": {
 				"background": {
 					"$value": "{color.support.warning.background}",
-					"$type": "color",
-					"$extensions": {
-						"dark": "{color.control.background.transparent}"
-					}
+					"$type": "color"
 				},
 				"color": {
 					"$value": "{color.text.primary}",

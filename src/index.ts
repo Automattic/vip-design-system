@@ -1,1 +1,3 @@
-// React component exports will be added here as components are built.
+import './css/index.css';
+
+export * from './components/primitives.generated';

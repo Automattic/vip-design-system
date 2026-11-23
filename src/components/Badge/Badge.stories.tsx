@@ -1,19 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import badgeTokens from '../../../tokens/component/badge.json';
+import type { BadgeOptions } from '../../index';
+import { badgeAliases, badgeVariants } from '../../../.storybook/helpers/catalog';
 
 import '../../css/index.css';
 
-const aliases = badgeTokens.badge.variants.$extensions['com.automattic.vip.css'].aliases;
-type BadgeAlias = keyof typeof aliases;
-type BadgeVariant = 'gray' | 'blue' | 'green' | 'red' | 'gold' | 'yellow' | BadgeAlias;
-
-const VARIANTS: BadgeVariant[] = ['gray', 'blue', 'green', 'red', 'gold', 'yellow'];
-const ALIASES = Object.keys(aliases) as BadgeAlias[];
+type BadgeVariant = NonNullable<BadgeOptions['variant']>;
+const VARIANTS = badgeVariants as BadgeVariant[];
+const ALIASES = badgeAliases as BadgeVariant[];
 
 /**
  * A badge labels an item with a short, semantic status.
  *
- * Badge is **CSS-only** — there is no React component to import. Apply the
+ * Badge works with CSS alone. An optional typed `Badge` React wrapper is also
+ * available; see [React Components / Badge](?path=/docs/react-components-badge--docs). For HTML usage, apply the
  * `.badge` class together with a typography utility, and set the colour with
  * the `data-badge-variant` attribute:
  *
@@ -28,12 +27,13 @@ const ALIASES = Object.keys(aliases) as BadgeAlias[];
  * example, select the same variant. Omit `data-badge-variant` for `gray`.
  *
  * In light mode a badge is a tinted chip with a transparent border. In dark
- * mode it inverts to an outline — the fill drops away and the border and label
- * both take the set's `text` colour.
+ * mode the border and label use the set’s text color, while the fill continues
+ * to use its theme-aware support background token.
  */
 const meta: Meta<BadgeArgs> = {
-	title: 'Blocks/Badge',
+	title: 'Block Styles/Badge',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		variant: {
 			control: 'select',
@@ -69,7 +69,7 @@ export const Default: Story = {};
 /** All six colours, each mapping to one of the support token sets. */
 export const AllVariants: Story = {
 	render: () => (
-		<div className="cluster" style={{ ['--cluster-gap' as string]: 'var(--space-close)' }}>
+		<div className="cluster" data-cluster-gap="4">
 			{VARIANTS.map((variant) => (
 				<Badge key={variant} variant={variant}>
 					{variant.charAt(0).toUpperCase() + variant.slice(1)}
@@ -82,7 +82,7 @@ export const AllVariants: Story = {
 /** Semantic names are aliases of the same six color variants. */
 export const SemanticAliases: Story = {
 	render: () => (
-		<div className="cluster" style={{ ['--cluster-gap' as string]: 'var(--space-close)' }}>
+		<div className="cluster" data-cluster-gap="4">
 			{ALIASES.map((variant) => (
 				<Badge key={variant} variant={variant}>
 					{variant.charAt(0).toUpperCase() + variant.slice(1)}
@@ -93,8 +93,8 @@ export const SemanticAliases: Story = {
 };
 
 /**
- * Badges invert in dark mode: the tinted fill is replaced by a transparent
- * background with the set's `text` colour on both border and label.
+ * In dark mode, badges use the support set’s text color on both border and
+ * label, with the theme-aware support background token for the fill.
  *
  * This canvas starts in Dark mode independently of the OS. Use its Color mode
  * selector to compare Light or System without changing the other examples.

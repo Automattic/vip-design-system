@@ -56,7 +56,7 @@ function Icon({ name }: { name: string }) {
  * CSS binds one token set to one class.
  */
 const meta: Meta<Args> = {
-	title: 'Blocks/Notice Inline',
+	title: 'Block Styles/Notice Inline',
 	tags: ['autodocs'],
 	argTypes: {
 		purpose: {

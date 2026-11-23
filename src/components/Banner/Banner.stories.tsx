@@ -65,7 +65,7 @@ function Icon({ name }: { name: string }) {
  * family there is no link colour pair in its tokens.
  */
 const meta: Meta<Args> = {
-	title: 'Blocks/Banner',
+	title: 'Block Styles/Banner',
 	tags: ['autodocs'],
 	parameters: { layout: 'fullscreen' },
 	argTypes: {

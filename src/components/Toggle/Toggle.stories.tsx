@@ -36,8 +36,9 @@ import '../../css/index.css';
  * colours, thumb geometry, shadow, the glyphs — is Figma's.
  */
 const meta: Meta<ToggleArgs> = {
-	title: 'Blocks/Toggle',
+	title: 'Block Styles/Toggle',
 	tags: ['autodocs'],
+	parameters: { docs: { source: { language: 'html', type: 'dynamic' } } },
 	argTypes: {
 		checked: { control: 'boolean' },
 		disabled: { control: 'boolean' },
