@@ -64,6 +64,29 @@ dist/                  # Compiled output (generated — do not edit)
 | `npm run format:check` | Check Prettier formatting                        |
 | `npm run check-types`  | TypeScript type checking                         |
 
+## Working from Figma
+
+The design work happens in Figma; the code follows it. For how to read the
+Figma file with the connector, see `docs/FIGMA-WORKFLOW.md`.
+
+- **Components: Figma wins. Do not ask.** If a component exists in both Figma
+  and code, the code is out of date. Rebuild it to match Figma. Do not treat
+  existing CSS blocks or component tokens as authoritative.
+- **Tokens: show a full diff first, and change nothing until Emily approves it.**
+  This covers every value in `tokens/` and every Figma variable, in either
+  direction. One semantic token reaches many components, so token changes get a
+  review that component markup does not.
+- **Never settle a Figma-versus-code value difference inside a component file.**
+  Wire the component to semantic tokens by name, and report the difference as
+  part of the token diff.
+- **Measure contrast and report failures, even when Figma specifies the
+  colour.** A spec is not proof that it passes.
+- **Read the token tier from the Figma variable name.** Figma cannot hold a
+  separate component collection, so a leading hyphen on the group marks a
+  component token living among the semantic ones:
+  `color/-badge/red/background` → `tokens/component/badge.json`.
+  Everything else under `color/` is semantic.
+
 ## Key Conventions
 
 ### CUBE CSS methodology
@@ -120,6 +143,26 @@ use the existing composite-token utility classes.
 `var(--…)` in the authored CSS against the properties the generated CSS
 actually defines; a rename that misses a consumer produces exactly the silent
 failure above.
+
+**Name button colour tokens for the variant they serve.** In
+`tokens/semantic/button-background.json` and `button-foreground.json`, a fill is
+the variant name alone (`danger`, never `danger-background`) and a hover state is
+`hover-<variant>` (`hover-danger`, never `danger-hover`). Figma's names do not
+always follow this; translate them rather than copying them.
+
+### CSS traps
+
+Both of these fail silently and have shipped before.
+
+- **Never colour a themed mark with an SVG data URI.** A `background-image` data
+  URI cannot read a custom property, so its fill is baked in and cannot follow
+  the theme. Mask a `::before` to the shape and fill it with `background-color`
+  from the token. Put the mask on the pseudo-element, never on the input itself:
+  that clips the box and border away along with everything outside the mark.
+- **Override a utility through a custom-property hook, not a selector.**
+  Utilities sit in a later `@layer` than blocks, so a block selector never beats
+  a utility, whatever its specificity. Expose a hook instead, the way `.icon`
+  reads `--icon-size`.
 
 ### Theming
 

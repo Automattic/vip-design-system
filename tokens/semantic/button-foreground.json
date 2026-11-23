@@ -12,7 +12,7 @@
 			"danger": {
 				"$value": "{red.55}",
 				"$type": "color",
-				"$description": "Danger secondary & ghost button label and border. Dark is red.40 rather than the red.45 in Figma, to clear AA on background-primary, layer-1 and layer-2.",
+				"$description": "Danger secondary & ghost button label and border. DO NOT change dark back to Figma's red.45: it is red.40 on purpose. Measured on dark background-primary / layer-1 / layer-2, red.40 gives 5.84 / 5.53 / 4.76:1; red.45 gives 5.10 / 4.84 / 4.16:1 and fails AA on layer-2. Open issue: light red.55 fails AA on layer-1 (4.35:1) and layer-3 (3.99:1); red.60 would clear every light surface. Not changed without Emily's decision.",
 				"$extensions": {
 					"dark": "{red.40}"
 				}
