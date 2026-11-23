@@ -8,11 +8,71 @@ Supersedes the 2026-10-15 handoff. Decisions from earlier sessions are repeated 
 
 ---
 
+## Current status — 2026-11-23 (read this first)
+
+**Start with `docs/PROJECT-DIRECTION.md`.** It records the plan agreed on 2026-11-23: how progress is shared, where rules live and how they are enforced, the procedure for adding a component, the move to the company Claude Code account, and the order of work. This handoff holds the technical detail behind it.
+
+State at the end of 2026-11-23:
+
+- The branch is in sync with GitHub. The collaborator's Base UI work is merged (`9d611198`), and the Loupe setup is committed (`6a42d9b3`).
+- The notice family (Notice, Notice-inline, Banner, Snackbar) is built but **not done**. It is to be rebuilt under the new rules: see the list below.
+- Rules that lived only in one agent's personal memory are now in the repo: `AGENTS.md` ("Working from Figma", "CSS traps", button token naming), `docs/FIGMA-WORKFLOW.md`, the `button-foreground.danger` token description, and the decision log.
+- Collaboration is human plus agent: Emily and one collaborator, both working through Claude Code. Anything that must bind every contributor goes in `AGENTS.md`.
+
+### Component and technical to-do (from the notice-family review)
+
+The order of work is in `docs/PROJECT-DIRECTION.md`. This list is the detail it draws on.
+
+**A. Architecture — raised in review, highest priority**
+
+1. **The package ships nothing.** `"./css"` points at `dist/css/index.css`, which has never been built. `"./tokens"` points at `dist/tokens/vars.css`, which is absent. `dist/index.js` is 0 bytes. `vite build` has one entry, `src/index.ts`, and it exports nothing. Nothing in v3 can be used by an app. Fix the CSS build, then prove it by installing the packed tarball in a throwaway app and rendering components from the published CSS.
+2. **Blocks must use the compositions.** The notice family hand-rolls 8 flex columns plus its action rows; the older blocks (`input`, `option-row`, `radio-box`, `slider`) hand-roll 4 more. How they map:
+   - text, body and list → `.stack`
+   - actions → `.cluster`
+   - container surface → `.box`. Its default padding (`--space-comfortable`) and background (`--color-layer-2`) are exactly the notice's values. Banner fits `.box` worst: full-bleed, no radius, asymmetric padding.
+   - icon + text → `.sidebar` is **an open question**. It needs `--sidebar-width`, `--sidebar-content-min: 0` and `flex-grow: 0` to behave like a fixed-size icon. Compare that with plain `flex-shrink: 0` on the icon plus `flex: 1` on the text.
+   - Under `.box`, the flag clearance should read `calc(var(--box-padding) + 4px)`.
+3. **Decide the markup weight.** A fully composed notice is `class="notice box sidebar"`: a block plus three compositions, written by hand by consumers.
+4. **Forced-colours mode.** The notice is drawn only by a fill, a shadow and a pseudo-element flag, and forced-colours mode removes all three. `.box`'s border, with its `currentColor` fallback, would fix this, but Figma specifies no border. This is a design decision.
+5. **Process guardrail.** Add an `AGENTS.md` rule: before writing a block, list the compositions and utilities it should use, and only declare layout in the block when no composition provides it. Run `/simplify` or `/code-review` on component diffs before committing.
+6. **Stories are showcases, not usage tests.** Notice's `withList` toggles two hardcoded items (Figma has three). Make list content an editable arg.
+
+**B. Emily's call**
+
+7. **Snackbar inverse neutrals.** Surface: Figma `gray.85` vs `color.layer.inverse` = `black`. Body text: Figma `gray.7` vs `color.text.inverse-secondary` = `gray.30`. That token's dark override to `gray.70` measures **2.48:1** in the live DOM and fails AA. The fix is a semantic token change and affects every inverse surface.
+8. **Banner action labels.** Figma uses `text.primary`; our ghost button label is gold.
+9. **Default variant.** `info` is the default for all four components. `system` may be a more neutral default.
+10. **Add a `-banner/*` variable set in Figma.** It would close the hole where Banner's `brand` purpose falls through to the raw semantic token.
+
+**C. Known gaps**
+
+11. **Dismiss control.** Figma has a 38×38 dismiss in all four components. Only `.snackbar__dismiss` exists. `banner.css` documents a `banner__dismiss` class but never defines it. This probably wants to be one shared control.
+12. **Five solid icons**: `bxs-error-circle`, `bxs-error`, `bxs-check-circle`, `bxs-info-circle`, `bxs-cog`. Adding them needs `FIGMA_TOKEN` and `npm run icons:sync`. The stories use outline stand-ins until then.
+13. **Banner `brand` icon** has not been checked against Figma; it was guessed as `bx-info-circle`.
+
+**D. Not yet verified against Figma**
+
+14. **Dark mode for all four components.** Figma's dark variants have never been opened. This is the largest unknown, and it may change other items on this list.
+15. **Banner end inset.** Figma is asymmetric (12px start, about 4px end).
+16. **Action button size and variant.** Figma uses 76×38 Button instances; the stories use compact ghost buttons.
+
+**E. Conventions**
+
+17. **`role="status"` vs `role="alert"`.** The stories hardcode `status`. Errors that interrupt the user probably want `alert`. Document a convention.
+
+**F. Infrastructure**
+
+18. `npm run build` deletes `dist/sprite.svg`, and Storybook icons 404 until `npm run build:icons` runs again.
+19. `npm run build:tokens` writes generated files unformatted, which dirties the tree and blocks the pre-commit hook.
+
+**Still deferred from earlier:** Select's custom dropdown, Checkbox-list, Radio-list.
+
+---
+
 ## Where things stand
 
-Branch `em/system-rebuild-v3`. Upstream through `0eb4d476` has been fetched and
-merged locally for review; the merge is not yet committed. Check `git status`
-and the branch log for the current state before continuing.
+Branch `em/system-rebuild-v3`. Check `git status` and the branch log for the
+current state before continuing; the section above is the latest summary.
 
 The local commits also include token-driven composition/utility configuration,
 the simplified Badge variant generator and semantic aliases, and Storybook's
