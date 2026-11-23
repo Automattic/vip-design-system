@@ -1,0 +1,6 @@
+{
+	"id": "vip-v3",
+	"name": "VIP Design System v3",
+	"preset": "vip-v3",
+	"packages": ["@automattic/vip-design-system"]
+}

@@ -1,0 +1,23 @@
+{
+	"extends": "./loupe/presets/vip-v3.json",
+	"designSystem": {
+		"packages": [],
+		"tokenSources": ["src/css/generated"],
+		"styleSources": []
+	},
+	"sources": {
+		"styles": ["src/css/**/*.css"],
+		"markup": ["src/**/*.ts", "src/**/*.tsx", ".storybook/**/*.tsx"],
+		"references": ["docs/**/*.html", "test/**/*.html"],
+		"ignore": [
+			"**/node_modules/**",
+			"**/dist/**",
+			"**/build/**",
+			"**/coverage/**",
+			"**/storybook-static/**",
+			"**/.git/**",
+			"**/.claude/worktrees/**",
+			"src/css/utilities/spacing.css"
+		]
+	}
+}

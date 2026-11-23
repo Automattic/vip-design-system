@@ -26,6 +26,7 @@
 	 * when it has no attribute. For custom CSS values, set --flow-space on
 	 * those children too: .article.flow > * { --flow-space: 1.25rem; }.
 	 */
+	/* vip-allow layout/margin-on-child -- .flow is the system's sanctioned margin rhythm for document flow, where no flex container exists to carry a gap */
 	.flow > * + * {
 		margin-block-start: var(--flow-space);
 	}
