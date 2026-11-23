@@ -64,6 +64,14 @@ dist/                  # Compiled output (generated — do not edit)
 | `npm run format:check` | Check Prettier formatting                        |
 | `npm run check-types`  | TypeScript type checking                         |
 
+## Before starting any work
+
+**Sync with GitHub first.** Fetch, then bring your branch up to date with what
+others have pushed. More than one person, and their agents, push to this
+project. Building on a stale copy causes conflicts and duplicated work, and it
+has happened here: a set of components was built on a copy of the branch three
+weeks out of date.
+
 ## Working from Figma
 
 The design work happens in Figma; the code follows it. For how to read the
