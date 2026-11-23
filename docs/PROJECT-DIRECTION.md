@@ -116,7 +116,7 @@ Today the project relies almost entirely on the bottom two rows. The top row onl
   4. A written contribution path and a PR template exist.
   5. A versioned pre-release is used by one real app.
 - **Order of work.** Revised draft:
-  - [ ] Pack up in this account.
+  - [x] Pack up in this account.
   - [ ] Move to the company account and reconnect the tools.
   - [ ] **Update the development dependencies (added 2026-11-23).** Storybook to 10.6.2 or later first, then Vitest, Vite, ESLint, PostCSS and Style Dictionary, re-running every check after each. Remove `@boxicons/core` if nothing uses it. This comes before the guardrails, so the new checks and tests are built on current tools rather than re-verified after an upgrade.
   - [ ] Guardrails: the rules in `AGENTS.md`, then the checks and tests, starting with making the package build its CSS.
