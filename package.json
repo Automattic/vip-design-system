@@ -50,10 +50,10 @@
 		"@boxicons/core": "^1.0.6"
 	},
 	"devDependencies": {
-		"@storybook/addon-a11y": "^10.3.3",
-		"@storybook/addon-docs": "^10.3.3",
-		"@storybook/addon-links": "^10.3.3",
-		"@storybook/react-vite": "^10.3.3",
+		"@storybook/addon-a11y": "^10.6.7",
+		"@storybook/addon-docs": "^10.6.7",
+		"@storybook/addon-links": "^10.6.7",
+		"@storybook/react-vite": "^10.6.7",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/react": "^16.3.0",
 		"@testing-library/user-event": "^14.5.2",
@@ -73,7 +73,7 @@
 		"postcss": "^8.5.3",
 		"postcss-import": "^16.1.0",
 		"prettier": "^3.5.3",
-		"storybook": "^10.3.3",
+		"storybook": "^10.6.7",
 		"style-dictionary": "^4.3.3",
 		"typescript": "^5.8.3",
 		"vite": "^8.0.3",
