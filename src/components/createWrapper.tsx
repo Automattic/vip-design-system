@@ -56,6 +56,7 @@ export function createWrapper<Options, Default extends DefaultElement>(
 					throw new Error(`${name}: render requires an element that can receive props and a ref.`);
 				// Preserve configuration precedence on the replacement too. Base UI handles
 				// class/style/event/ref merging; a nested wrapper still owns its typed props.
+				// eslint-disable-next-line @eslint-react/no-clone-element -- copying the typed configuration onto the consumer's render element is this factory's job; covered by createWrapper.test.tsx
 				render = cloneElement(render, configured);
 			}
 			return useRender({

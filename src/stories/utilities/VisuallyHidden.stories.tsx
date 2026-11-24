@@ -27,14 +27,14 @@ export const AccessibleLabel: Story = {
 	),
 };
 function SkipLinkExample() {
-	const target = useId();
+	const targetId = useId();
 	return (
 		<div className="flow" data-flow-space="4">
-			<a className="visually-hidden" href={`#${target}`}>
+			<a className="visually-hidden" href={`#${targetId}`}>
 				Skip to example content
 			</a>
 			<p>Tab into this canvas to reveal the skip link.</p>
-			<div id={target} tabIndex={-1}>
+			<div id={targetId} tabIndex={-1}>
 				Example content
 			</div>
 		</div>
